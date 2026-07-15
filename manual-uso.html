@@ -89,10 +89,11 @@
       </figure>
       <p><b>PitWall</b> es el sistema de cronometraje y gestión de carreras de slot. Detecta el paso de cada coche por la línea de meta a través del hardware de cronometraje, con dos opciones compatibles:</p>
       <ul>
-        <li><b>DS-300</b> — por <b>puerto serie</b>. Puedes unir <b>hasta 6 circuitos</b> DS-300 en una sola carrera: cada caja cronometra sus carriles y PitWall los combina.</li>
+        <li><b>DS-300</b> — por <b>puerto serie</b>. Puedes unir <b>hasta 6 circuitos</b> DS-300 en una sola carrera: cada caja cronometra sus carriles y PitWall los combina. Cada caja va por <b>su propio puerto</b> (una caja = un puerto).</li>
+        <li><b>DS-300 agrupador</b> — cuando un <b>aparato agrupador</b> junta <b>varias cajas DS-300 (de 2 a 4) en un solo puerto COM</b>. PitWall separa las cajas por su identificador de trama y numera los carriles de corrido (caja 1 → 1–8, caja 2 → 9–16, y así hasta <b>32 carriles</b> con 4 cajas). Una <b>única señal de salida</b> arranca todas las cajas a la vez.</li>
         <li><b>BART (Policar)</b> — por <b>Bluetooth</b>. Admite <b>hasta el máximo de carriles que permita BART</b> (actualmente <b>32</b>).</li>
       </ul>
-      <p>Puedes usar una u otra fuente; para PitWall el flujo de cruces es equivalente.</p>
+      <p>Puedes usar cualquiera de estas fuentes; para PitWall el flujo de cruces es equivalente.</p>
       <ul>
         <li>Desde la <b>pantalla de inicio</b> accedes a <b>Carreras</b>, <b>Ajustes</b> y el resto de módulos.</li>
         <li>Abajo a la derecha siempre ves el <b>estado del enlace</b> (verde = conectado; "Sin señal" = revisa el cable/puerto o el Bluetooth).</li>
@@ -455,7 +456,7 @@
         <figcaption>Ajustes: hardware y puertos, circuitos guardados, seguimiento público, licencia e idioma.</figcaption>
       </figure>
       <ul>
-        <li><b>Hardware / puertos</b>: configura los circuitos serie (DS-300) y su nº de carriles.</li>
+        <li><b>Fuente de datos</b>: elige de dónde llegan los cruces — <b>Simulación</b>, <b>DS-300</b> (una caja por puerto, con su nº de carriles), <b>DS-300 agrupador</b> (varias cajas por un solo puerto COM: indica <b>puerto</b>, <b>baud</b> —57600, 8N1— y <b>nº de cajas</b> 2/3/4 → 16/24/32 carriles) o <b>BART</b> por Bluetooth. Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.</li>
         <li><b>Circuitos</b>: define pistas guardadas (secuencia de carriles, tiempo mínimo).</li>
         <li><b>Seguimiento público por internet</b>: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la <a class="inl" href="#publico">sección siguiente</a>).</li>
         <li><b>Licencia</b> e idioma (ES/EN).</li>

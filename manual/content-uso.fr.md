@@ -9,10 +9,11 @@ Guide destiné à celui qui **opère** PitWall : monter la course, la diriger en
 
 **PitWall** est le système de chronométrage et de gestion de courses de slot. Il détecte le passage de chaque voiture sur la ligne d'arrivée grâce au matériel de chronométrage, avec deux options compatibles :
 
-- **DS-300** — par **port série**. Tu peux relier **jusqu'à 6 circuits** DS-300 dans une seule course : chaque boîtier chronomètre ses voies et PitWall les combine.
+- **DS-300** — par **port série**. Tu peux relier **jusqu'à 6 circuits** DS-300 dans une seule course : chaque boîtier chronomètre ses voies et PitWall les combine. Chaque boîtier utilise **son propre port** (un boîtier = un port).
+- **DS-300 agrégateur** — lorsqu'un **appareil agrégateur** regroupe **plusieurs boîtiers DS-300 (de 2 à 4) sur un seul port COM**. PitWall sépare les boîtiers par leur identifiant de trame et numérote les voies à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16, et ainsi de suite jusqu'à **32 voies** avec 4 boîtiers). Un **seul signal de départ** lance tous les boîtiers en même temps.
 - **BART (Policar)** — par **Bluetooth**. Il admet **jusqu'au nombre maximal de voies que permet BART** (actuellement **32**).
 
-Tu peux utiliser l'une ou l'autre source ; pour PitWall le flux de passages est équivalent.
+Tu peux utiliser n'importe laquelle de ces sources ; pour PitWall le flux de passages est équivalent.
 
 - Depuis l'**écran d'accueil**, tu accèdes aux **Courses**, aux **Réglages** et au reste des modules.
 - En bas à droite, tu vois toujours l'**état de la liaison** (vert = connecté ; « Sans signal » = vérifie le câble/port ou le Bluetooth).
@@ -224,7 +225,7 @@ Choisis la modalité, attribue les voies et appuie sur *Commencer (« Empezar »
 ## 14. Réglages
 ![img: 04-settings.png]
 
-- **Matériel / ports** : configure les circuits série (DS-300) et leur nombre de voies.
+- **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth. Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers.
 - **Circuits** : définis des pistes enregistrées (séquence de voies, temps minimum).
 - **Suivi public par internet** : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la section suivante).
 - **Licence** et langue (ES/EN).

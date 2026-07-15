@@ -89,10 +89,11 @@
       </figure>
       <p><b>PitWall</b> est le système de chronométrage et de gestion de courses de slot. Il détecte le passage de chaque voiture sur la ligne d'arrivée grâce au matériel de chronométrage, avec deux options compatibles :</p>
       <ul>
-        <li><b>DS-300</b> — par <b>port série</b>. Tu peux relier <b>jusqu'à 6 circuits</b> DS-300 dans une seule course : chaque boîtier chronomètre ses voies et PitWall les combine.</li>
+        <li><b>DS-300</b> — par <b>port série</b>. Tu peux relier <b>jusqu'à 6 circuits</b> DS-300 dans une seule course : chaque boîtier chronomètre ses voies et PitWall les combine. Chaque boîtier utilise <b>son propre port</b> (un boîtier = un port).</li>
+        <li><b>DS-300 agrégateur</b> — lorsqu'un <b>appareil agrégateur</b> regroupe <b>plusieurs boîtiers DS-300 (de 2 à 4) sur un seul port COM</b>. PitWall sépare les boîtiers par leur identifiant de trame et numérote les voies à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16, et ainsi de suite jusqu'à <b>32 voies</b> avec 4 boîtiers). Un <b>seul signal de départ</b> lance tous les boîtiers en même temps.</li>
         <li><b>BART (Policar)</b> — par <b>Bluetooth</b>. Il admet <b>jusqu'au nombre maximal de voies que permet BART</b> (actuellement <b>32</b>).</li>
       </ul>
-      <p>Tu peux utiliser l'une ou l'autre source ; pour PitWall le flux de passages est équivalent.</p>
+      <p>Tu peux utiliser n'importe laquelle de ces sources ; pour PitWall le flux de passages est équivalent.</p>
       <ul>
         <li>Depuis l'<b>écran d'accueil</b>, tu accèdes aux <b>Courses</b>, aux <b>Réglages</b> et au reste des modules.</li>
         <li>En bas à droite, tu vois toujours l'<b>état de la liaison</b> (vert = connecté ; « Sans signal » = vérifie le câble/port ou le Bluetooth).</li>
@@ -455,7 +456,7 @@
         <figcaption>Réglages : matériel et ports, circuits enregistrés, suivi public, licence et langue.</figcaption>
       </figure>
       <ul>
-        <li><b>Matériel / ports</b> : configure les circuits série (DS-300) et leur nombre de voies.</li>
+        <li><b>Source de données</b> : choisis d'où arrivent les passages — <b>Simulation</b>, <b>DS-300</b> (un boîtier par port, avec son nombre de voies), <b>DS-300 agrégateur</b> (plusieurs boîtiers sur un seul port COM : indique le <b>port</b>, le <b>baud</b> —57600, 8N1— et le <b>nombre de boîtiers</b> 2/3/4 → 16/24/32 voies) ou <b>BART</b> par Bluetooth. Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers.</li>
         <li><b>Circuits</b> : définis des pistes enregistrées (séquence de voies, temps minimum).</li>
         <li><b>Suivi public par internet</b> : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la <a class="inl" href="#publico">section suivante</a>).</li>
         <li><b>Licence</b> et langue (ES/EN).</li>

@@ -9,10 +9,11 @@ Guía para quien **opera** PitWall: montar la carrera, dirigirla en vivo, correg
 
 **PitWall** es el sistema de cronometraje y gestión de carreras de slot. Detecta el paso de cada coche por la línea de meta a través del hardware de cronometraje, con dos opciones compatibles:
 
-- **DS-300** — por **puerto serie**. Puedes unir **hasta 6 circuitos** DS-300 en una sola carrera: cada caja cronometra sus carriles y PitWall los combina.
+- **DS-300** — por **puerto serie**. Puedes unir **hasta 6 circuitos** DS-300 en una sola carrera: cada caja cronometra sus carriles y PitWall los combina. Cada caja va por **su propio puerto** (una caja = un puerto).
+- **DS-300 agrupador** — cuando un **aparato agrupador** junta **varias cajas DS-300 (de 2 a 4) en un solo puerto COM**. PitWall separa las cajas por su identificador de trama y numera los carriles de corrido (caja 1 → 1–8, caja 2 → 9–16, y así hasta **32 carriles** con 4 cajas). Una **única señal de salida** arranca todas las cajas a la vez.
 - **BART (Policar)** — por **Bluetooth**. Admite **hasta el máximo de carriles que permita BART** (actualmente **32**).
 
-Puedes usar una u otra fuente; para PitWall el flujo de cruces es equivalente.
+Puedes usar cualquiera de estas fuentes; para PitWall el flujo de cruces es equivalente.
 
 - Desde la **pantalla de inicio** accedes a **Carreras**, **Ajustes** y el resto de módulos.
 - Abajo a la derecha siempre ves el **estado del enlace** (verde = conectado; "Sin señal" = revisa el cable/puerto o el Bluetooth).
@@ -224,7 +225,7 @@ Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en 
 ## 14. Ajustes
 ![img: 04-settings.png]
 
-- **Hardware / puertos**: configura los circuitos serie (DS-300) y su nº de carriles.
+- **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth. Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.
 - **Circuitos**: define pistas guardadas (secuencia de carriles, tiempo mínimo).
 - **Seguimiento público por internet**: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la sección siguiente).
 - **Licencia** e idioma (ES/EN).

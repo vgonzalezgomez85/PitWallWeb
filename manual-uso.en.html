@@ -89,10 +89,11 @@
       </figure>
       <p><b>PitWall</b> is the timing and management system for slot racing. It detects each car crossing the finish line through the timing hardware, with two compatible options:</p>
       <ul>
-        <li><b>DS-300</b> — via <b>serial port</b>. You can combine <b>up to 6 DS-300 tracks</b> in a single race: each box times its own lanes and PitWall combines them.</li>
+        <li><b>DS-300</b> — via <b>serial port</b>. You can combine <b>up to 6 DS-300 tracks</b> in a single race: each box times its own lanes and PitWall combines them. Each box uses <b>its own port</b> (one box = one port).</li>
+        <li><b>DS-300 aggregator</b> — when an <b>aggregator device</b> bundles <b>several DS-300 boxes (2 to 4) over a single COM port</b>. PitWall separates the boxes by their frame id and numbers lanes consecutively (box 1 → 1–8, box 2 → 9–16, and so on up to <b>32 lanes</b> with 4 boxes). A <b>single start signal</b> launches all boxes at once.</li>
         <li><b>BART (Policar)</b> — via <b>Bluetooth</b>. It supports <b>up to the maximum number of lanes that BART allows</b> (currently <b>32</b>).</li>
       </ul>
-      <p>You can use either source; for PitWall the flow of crossings is equivalent.</p>
+      <p>You can use any of these sources; for PitWall the flow of crossings is equivalent.</p>
       <ul>
         <li>From the <b>home screen</b> you reach <b>Races</b>, <b>Settings</b> and the rest of the modules.</li>
         <li>At the bottom right you always see the <b>link status</b> (green = connected; "No signal" = check the cable/port or the Bluetooth).</li>
@@ -455,7 +456,7 @@
         <figcaption>Settings: hardware and ports, saved tracks, public tracking, license and language.</figcaption>
       </figure>
       <ul>
-        <li><b>Hardware / ports</b>: configure the serial tracks (DS-300) and their number of lanes.</li>
+        <li><b>Data source</b>: choose where crossings come from — <b>Simulation</b>, <b>DS-300</b> (one box per port, with its lane count), <b>DS-300 aggregator</b> (several boxes over a single COM port: set the <b>port</b>, <b>baud</b> —57600, 8N1— and <b>number of boxes</b> 2/3/4 → 16/24/32 lanes) or <b>BART</b> over Bluetooth. With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.</li>
         <li><b>Tracks</b>: define saved tracks (lane sequence, minimum time).</li>
         <li><b>Public tracking over the internet</b>: publish the public views on the internet to follow the race from outside the venue (see the <a class="inl" href="#publico">next section</a>).</li>
         <li><b>License</b> and language (ES/EN).</li>

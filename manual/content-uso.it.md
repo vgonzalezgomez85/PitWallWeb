@@ -9,10 +9,11 @@ Guida per chi **utilizza** PitWall: allestire la gara, dirigerla in diretta, cor
 
 **PitWall** è il sistema di cronometraggio e gestione delle gare di slot. Rileva il passaggio di ciascuna auto sulla linea del traguardo tramite l'hardware di cronometraggio, con due opzioni compatibili:
 
-- **DS-300** — tramite **porta seriale**. Puoi collegare **fino a 6 circuiti** DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina.
+- **DS-300** — tramite **porta seriale**. Puoi collegare **fino a 6 circuiti** DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina. Ogni box usa **la propria porta** (un box = una porta).
+- **DS-300 aggregatore** — quando un **dispositivo aggregatore** riunisce **più box DS-300 (da 2 a 4) su un'unica porta COM**. PitWall separa i box in base al loro identificatore di trama e numera le corsie di seguito (box 1 → 1–8, box 2 → 9–16, e così via fino a **32 corsie** con 4 box). Un **unico segnale di partenza** avvia tutti i box insieme.
 - **BART (Policar)** — tramite **Bluetooth**. Supporta **fino al massimo di corsie consentito da BART** (attualmente **32**).
 
-Puoi usare l'una o l'altra fonte; per PitWall il flusso dei passaggi è equivalente.
+Puoi usare una qualsiasi di queste fonti; per PitWall il flusso dei passaggi è equivalente.
 
 - Dalla **schermata iniziale** accedi a **Gare (“Carreras”)**, **Impostazioni (“Ajustes”)** e al resto dei moduli.
 - In basso a destra vedi sempre lo **stato del collegamento** (verde = connesso; "Sin señal" = controlla il cavo/porta o il Bluetooth).
@@ -224,7 +225,7 @@ Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cr
 ## 14. Impostazioni
 ![img: 04-settings.png]
 
-- **Hardware / porte**: configura i circuiti seriali (DS-300) e il loro n° di corsie.
+- **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth. Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.
 - **Circuiti**: definisci le piste salvate (sequenza di corsie, tempo minimo).
 - **Seguito pubblico su internet**: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la sezione seguente).
 - **Licenza** e lingua (ES/EN).

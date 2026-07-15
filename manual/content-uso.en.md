@@ -9,10 +9,11 @@ A guide for whoever **operates** PitWall: setting up the race, running it live, 
 
 **PitWall** is the timing and management system for slot racing. It detects each car crossing the finish line through the timing hardware, with two compatible options:
 
-- **DS-300** — via **serial port**. You can combine **up to 6 DS-300 tracks** in a single race: each box times its own lanes and PitWall combines them.
+- **DS-300** — via **serial port**. You can combine **up to 6 DS-300 tracks** in a single race: each box times its own lanes and PitWall combines them. Each box uses **its own port** (one box = one port).
+- **DS-300 aggregator** — when an **aggregator device** bundles **several DS-300 boxes (2 to 4) over a single COM port**. PitWall separates the boxes by their frame id and numbers lanes consecutively (box 1 → 1–8, box 2 → 9–16, and so on up to **32 lanes** with 4 boxes). A **single start signal** launches all boxes at once.
 - **BART (Policar)** — via **Bluetooth**. It supports **up to the maximum number of lanes that BART allows** (currently **32**).
 
-You can use either source; for PitWall the flow of crossings is equivalent.
+You can use any of these sources; for PitWall the flow of crossings is equivalent.
 
 - From the **home screen** you reach **Races**, **Settings** and the rest of the modules.
 - At the bottom right you always see the **link status** (green = connected; "Sin señal" / no signal = check the cable/port or the Bluetooth).
@@ -224,7 +225,7 @@ Choose the mode, assign the lanes and press **Start**. Live timing works the sam
 ## 14. Settings
 ![img: 04-settings.png]
 
-- **Hardware / ports**: configure the serial tracks (DS-300) and their number of lanes.
+- **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth. With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.
 - **Tracks**: define saved tracks (lane sequence, minimum time).
 - **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).
 - **License** and language (ES/EN).

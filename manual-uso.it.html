@@ -89,10 +89,11 @@
       </figure>
       <p><b>PitWall</b> è il sistema di cronometraggio e gestione delle gare di slot. Rileva il passaggio di ciascuna auto sulla linea del traguardo tramite l'hardware di cronometraggio, con due opzioni compatibili:</p>
       <ul>
-        <li><b>DS-300</b> — tramite <b>porta seriale</b>. Puoi collegare <b>fino a 6 circuiti</b> DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina.</li>
+        <li><b>DS-300</b> — tramite <b>porta seriale</b>. Puoi collegare <b>fino a 6 circuiti</b> DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina. Ogni box usa <b>la propria porta</b> (un box = una porta).</li>
+        <li><b>DS-300 aggregatore</b> — quando un <b>dispositivo aggregatore</b> riunisce <b>più box DS-300 (da 2 a 4) su un'unica porta COM</b>. PitWall separa i box in base al loro identificatore di trama e numera le corsie di seguito (box 1 → 1–8, box 2 → 9–16, e così via fino a <b>32 corsie</b> con 4 box). Un <b>unico segnale di partenza</b> avvia tutti i box insieme.</li>
         <li><b>BART (Policar)</b> — tramite <b>Bluetooth</b>. Supporta <b>fino al massimo di corsie consentito da BART</b> (attualmente <b>32</b>).</li>
       </ul>
-      <p>Puoi usare l'una o l'altra fonte; per PitWall il flusso dei passaggi è equivalente.</p>
+      <p>Puoi usare una qualsiasi di queste fonti; per PitWall il flusso dei passaggi è equivalente.</p>
       <ul>
         <li>Dalla <b>schermata iniziale</b> accedi a <b>Gare ("Carreras")</b>, <b>Impostazioni ("Ajustes")</b> e al resto dei moduli.</li>
         <li>In basso a destra vedi sempre lo <b>stato del collegamento</b> (verde = connesso; "Sin señal" = controlla il cavo/porta o il Bluetooth).</li>
@@ -455,7 +456,7 @@
         <figcaption>Impostazioni: hardware e porte, circuiti salvati, seguito pubblico, licenza e lingua.</figcaption>
       </figure>
       <ul>
-        <li><b>Hardware / porte</b>: configura i circuiti seriali (DS-300) e il loro n° di corsie.</li>
+        <li><b>Sorgente dati</b>: scegli da dove arrivano i passaggi — <b>Simulazione</b>, <b>DS-300</b> (un box per porta, con il suo n° di corsie), <b>DS-300 aggregatore</b> (più box su un'unica porta COM: indica <b>porta</b>, <b>baud</b> —57600, 8N1— e <b>n° di box</b> 2/3/4 → 16/24/32 corsie) o <b>BART</b> via Bluetooth. Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.</li>
         <li><b>Circuiti</b>: definisci le piste salvate (sequenza di corsie, tempo minimo).</li>
         <li><b>Seguito pubblico su internet</b>: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la <a class="inl" href="#publico">sezione seguente</a>).</li>
         <li><b>Licenza</b> e lingua (ES/EN).</li>
