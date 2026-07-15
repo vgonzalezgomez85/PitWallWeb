@@ -199,6 +199,8 @@ From the race (the **lap correction** button in the live screen or in results) y
 
 > Use it with judgment: corrections change totals, averages and classification of that heat.
 
+> **Automatic ghost laps.** A lap below the **Pt** (minimum time) is marked as a **ghost** and the lane that produced it **never** counts it. PitWall no longer reassigns it by guessing: it **holds** it and only assigns it to the lane that **confirms** it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a **ghost** for you to review by hand.
+
 ## 12. Results and exports
 ![img: 10-results-comparativa.png]
 

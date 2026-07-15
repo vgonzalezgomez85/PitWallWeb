@@ -199,6 +199,8 @@ Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) e
 
 > Usalo con criterio: le correzioni cambiano totali, medie e classifica di quella manche.
 
+> **Giri fantasma automatici.** Un giro al di sotto del **Pt** (tempo minimo) viene segnato come **fantasma** e la corsia che lo ha generato non lo conta **mai**. PitWall non lo riassegna più a occhio: lo **trattiene** e lo assegna solo alla corsia che **conferma** di aver saltato un passaggio (quando quella corsia passa con un giro di ~il doppio della sua media). Se nessuno lo conferma, resta qui come **fantasma** perché tu lo riveda a mano.
+
 ## 12. Risultati ed esportazioni
 ![img: 10-results-comparativa.png]
 

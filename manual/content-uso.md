@@ -199,6 +199,8 @@ Desde la carrera (botón de **corrección de vueltas** en el directo o en result
 
 > Úsalo con criterio: las correcciones cambian totales, medias y clasificación de esa manga.
 
+> **Vueltas fantasma automáticas.** Una vuelta por debajo del **Pt** (tiempo mínimo) se marca como **fantasma** y el carril que la generó **nunca** la cuenta. PitWall ya no la reasigna a ojo: la **retiene** y solo se la asigna al carril que **confirma** haberse saltado un cruce (cuando ese carril pasa con una vuelta de ~el doble de su media). Si nadie lo confirma, se queda aquí como **fantasma** para que la revises a mano.
+
 ## 12. Resultados y exports
 ![img: 10-results-comparativa.png]
 

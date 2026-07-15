@@ -199,6 +199,8 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 > Utilise-le avec discernement : les corrections modifient les totaux, les moyennes et le classement de cette manche.
 
+> **Tours fantômes automatiques.** Un tour en dessous du **Pt** (temps minimum) est marqué comme **fantôme** et la voie qui l'a produit ne le compte **jamais**. PitWall ne le réattribue plus au jugé : il le **retient** et ne l'attribue qu'à la voie qui **confirme** avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en **fantôme** pour que tu le révises à la main.
+
 ## 12. Résultats et exports
 ![img: 10-results-comparativa.png]
 
