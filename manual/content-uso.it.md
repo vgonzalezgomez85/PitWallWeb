@@ -100,6 +100,10 @@ Una **tanda** raggruppa i partecipanti e la loro **rotazione di corsie** per man
 
 **Riposi.** Se ci sono **più partecipanti che corsie**, la sequenza include spazi vuoti (`0` / `DSC`) che sono **riposi**: in quella manche quel partecipante non corre. PitWall li distribuisce in modo equilibrato, ma **puoi anche collocarli dove vuoi** all'interno della rotazione (trascinali nella posizione che preferisci).
 
+**Corsie vuote (meno partecipanti che corsie).** Non serve riempire tutte le corsie: puoi creare una manche con **meno partecipanti che corsie** (ne basta **uno**). Le corsie in più restano libere, **senza auto fantasma** che compaia nei giri o nella classifica. Alla creazione della manche scegli cosa farne:
+- **Restano vuote le ultime** (predefinito): le corsie con il **numero più alto** restano vuote per tutta la gara; nessuno ci corre.
+- **Il vuoto ruota**: la corsia (o le corsie) libera **ruota di manche in manche**, così tutti i partecipanti finiscono per passare dalle stesse corsie e la pista resta equa come con la griglia completa.
+
 **Con passate / ripeti corsia:**
 - *2 passate* → l'intera sequenza si ripete: `1,3,5,6,4,2, 1,3,5,6,4,2`.
 - *Ripeti corsia 2* → ogni corsia, due manche di seguito: `1,1,3,3,5,5,6,6,4,4,2,2`.
@@ -112,6 +116,8 @@ Dopo aver creato una gara puoi ritoccarla:
 ![img: op-edit-carrera.png]
 
 > Caso tipico: **importi una tanda da PitWall Control** (che arriva in modalità manuale) e poi la **modifichi per assegnarle lo scenario** del tuo club, così eredita corsie, sequenza e tempo minimo della tua pista.
+
+- **Regole di endurance (turni e gomme) (“Reglas de resistencia”)** — in una gara di **endurance**, e **finché non è stata corsa nessuna manche**, Modifica gara ti lascia regolare anche le **regole dei turni per pilota** (minimo e massimo per pilota, numero massimo di turni e il blocco di fine manche) e le **gomme per squadra** (la dotazione con cui parte il controllo gomme) — gli stessi campi che hai fissato nella procedura guidata al momento di creare la gara. Così puoi correggere un numero senza rifare tutta la gara. Appena viene corsa la **prima manche**, quei campi si **bloccano** (attenuati, con un lucchetto 🔒) per non scompaginare ciò che è già stato corso; il **nome** e lo **scenario** mantengono le loro regole di sempre. Se imposti un **massimo per pilota inferiore al minimo**, PitWall ti avvisa.
 
 - **Modifica tanda (“Editar tanda”)** — cambiare i **nomi** dei partecipanti e, se la tanda non è ancora iniziata, la sua composizione. Se ha già manche avviate, entra in **modalità solo rinomina** (non si aggiungono né si tolgono partecipanti, per non scompaginare la rotazione).
 
@@ -166,7 +172,7 @@ Dalla pagina della gara:
 5. Al termine (bandiera o fine tempo), la manche si chiude e si prepara la **successiva**.
 6. Terminate tutte le manche di una tanda, parte la **tanda successiva**.
 
-**Scegliere la vista.** Con il pulsante **Vista** cambi il layout in base alle corsie: *Righe orizzontali* (poche corsie), *Griglia compatta* (molte) o *Schede con dettagli* (con giri/uscite/pit/Δ per scheda).
+**Scegliere la vista.** Con il pulsante **Vista** cambi il layout in base alle corsie: *Righe orizzontali* (poche corsie), *Griglia compatta* (molte) o *Schede con dettagli* (con giri/uscite/pit/gomme/Δ per scheda).
 
 **Distanza dal leader e stima provvisoria.** Nelle schermate di classifica (**Le Mans** e **statistiche in diretta**) la distanza dal leader viene data **con la virgola** e il suo equivalente **in secondi** —*"a 2,8 v (35,5\")"*, cioè a 2,8 giri, ovvero 35,5 secondi—, non arrotondata a giri interi. E se una stima porta un **asterisco arancione**, quella squadra è ancora nella sua **prima manche** senza aver superato il **60 %**: il suo riferimento non è fissato e la cifra può ancora muoversi. Tutto questo è spiegato in dettaglio nel *Manuale di statistiche*.
 
@@ -190,7 +196,28 @@ I **cambi di pilota** si registrano scansionando il **QR del pilota** (o inseren
 
 > **L'avviso di sicurezza e come eliminarlo.** La prima volta che un dispositivo apre il link `https://`, il browser avvisa una volta (**«connessione non privata → continua»**); dopo aver accettato, la fotocamera funziona. Se vuoi eliminare quell'avviso, **installa la CA di PitWall** sul dispositivo: nelle Impostazioni trovi **Scarica CA** e la pagina **`/cert`** con la guida passo passo per **iPhone/iPad, Android e Windows**. Installare la CA una sola volta basta anche se cambia l'IP della rete: PitWall riemette solo il certificato del server e il dispositivo continua a fidarsi.
 
-## 11. Giro per giro e correzioni (aggiungere / togliere giri)
+## 11. Controllo delle gomme di endurance
+
+In una gara di **endurance** puoi tenere il conto dei **treni di gomme** che ogni squadra consuma. La dotazione —i treni con cui **tutti** partono— si fissa quando crei la gara (assistente, passo 1, campo **«Gomme per squadra»**). Con **0** il controllo è spento e tutto funziona come prima.
+
+Si apre in **due modi**:
+- Dalla gara, con il pulsante **🛞 Gomme** (appare solo in endurance e con una dotazione maggiore di 0).
+- Come **chiosco** su `/control/tires` (con la sua scheda nella schermata iniziale), che **rileva da solo** la gara di endurance in corso —come il chiosco dei turni—. Ideale da lasciare aperto su un tablet accanto al box.
+
+La schermata è una **griglia con tutte le squadre**. Ogni riquadro mostra il nome della squadra e due numeri: **Disponibili** e **Usati**.
+
+- **Un clic sul riquadro = consegnare un treno**: i disponibili scendono di uno, gli usati salgono di uno, e resta **annotato in quale manche e a quale minuto:secondo di gara** è stato fatto il cambio (marcato con la manche in corso e il suo cronometro; se in quel momento non ce n'è nessuna in corso, si salva senza tempo).
+- La **matita** di ogni riquadro apre lo **storico** di quella squadra, dove puoi **eliminare** una voce (il treno torna ai Disponibili), **modificare** la sua manche e il suo tempo (mm:ss) o **aggiungerne una a mano** (manche, tempo e una nota).
+
+I contatori **non sono salvati grezzi**: sono **derivati** dalle voci (dotazione meno consegne), quindi annullare non lascia mai squilibri. Se una squadra supera la sua quota, i suoi **Disponibili** possono andare in **negativo e in rosso** —pensato per quando dai un treno extra fuori dotazione.
+
+Nell'intestazione, accanto alla dotazione, il pulsante **🗒️ Storico dei cambi** apre —in una **nuova scheda**— una **pagina** con il **registro globale di tutta la gara** (non quello di una sola squadra). È presentato come una **tabella a colonne** (fino a **tre colonne**) che sfrutta la larghezza dello schermo per vederlo quasi **senza scorrere**. I cambi sono **raggruppati per manche**: sono elencate **tutte le manche**, e quelle senza alcun cambio restano comunque marcate **«— nessun cambio di gomme —»**. In ogni manche, ogni consegna mostra la **squadra** (con il suo punto colorato e il nome), **quale numero di treno** era per quella squadra (**treno N della dotazione**, contato in ordine cronologico —1, 2, 3…—, in **rosso** se ha superato la quota) e il **minuto:secondo di gara**. I cambi senza manche assegnata vanno in un gruppo **«Senza manche»** alla fine. È in **sola lettura** —per eliminare, modificare o aggiungere a mano si usa sempre la matita di ogni squadra— e si **aggiorna in diretta** mentre si consegnano gomme.
+
+**Nella vista in diretta**, ogni scheda di squadra mostra un indicatore **🛞 con il numero di treni di gomme usati**, accanto agli avvisi di **uscite (⚠️)** e **pit-stop (🔧)**. Si **aggiorna all'istante** —senza ricaricare— non appena registri un cambio nel controllo gomme, e **lampeggia** quando il numero aumenta. Appare solo nelle gare di **endurance con controllo gomme**, e funziona sia con la manche **in corso** sia **in attesa**.
+
+> Tutto si sincronizza all'istante tra le schermate aperte, e l'indicatore **manche:tempo** batte al ritmo della gara.
+
+## 12. Giro per giro e correzioni (aggiungere / togliere giri)
 ![img: 30-correcciones.png]
 
 Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) entri nel **giro per giro** di ogni manche. Serve a sistemare le letture registrate male.
@@ -207,7 +234,7 @@ Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) e
 
 > **Giri fantasma automatici.** Un giro al di sotto del **Pt** (tempo minimo) viene segnato come **fantasma** e la corsia che lo ha generato non lo conta **mai**. PitWall non lo riassegna più a occhio: lo **trattiene** e lo assegna solo alla corsia che **conferma** di aver saltato un passaggio (quando quella corsia passa con un giro di ~il doppio della sua media). Se nessuno lo conferma, resta qui come **fantasma** perché tu lo riveda a mano.
 
-## 12. Risultati ed esportazioni
+## 13. Risultati ed esportazioni
 ![img: 10-results-comparativa.png]
 
 Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
@@ -220,7 +247,7 @@ Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
 
 ![img: op-resultados-publicos.png]
 
-## 13. Allenamento
+## 14. Allenamento
 ![img: 40-training.png]
 
 Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** (dalla schermata iniziale) per girare senza allestire una competizione completa. Ci sono due modalità:
@@ -241,7 +268,7 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 
 > L'**allenamento libero** non salva risultati: è una sessione aperta di tempi per corsia.
 
-## 14. Impostazioni
+## 15. Impostazioni
 ![img: 04-settings.png]
 
 - **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.
@@ -252,7 +279,7 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 
 **Cronologia delle versioni.** Nel **piè di pagina di tutte le pagine** vedi il numero di **versione** di PitWall. Premendolo si apre la **Cronologia delle versioni** (`/changelog`), con ciò che è stato **Aggiunto**, **Migliorato** e **Corretto** in ogni aggiornamento. La versione **sale a ogni aggiornamento**, così sai sempre quale PitWall hai e cosa è cambiato.
 
-## 15. Seguito pubblico su internet
+## 16. Seguito pubblico su internet
 ![img: op-seguimiento-publico.png]
 
 Per impostazione predefinita le viste di PitWall (la **diretta**, i **Risultati** e **PitWall Lap**) sono visibili solo sulla **rete locale**. Con il **Seguito pubblico su internet** ogni club può **pubblicarle su internet** affinché piloti e pubblico seguano la gara **da fuori della sede**, senza aprire porte né configurare una VPN: PitWall attiva un **tunnel Cloudflare proprio** del club.
@@ -268,7 +295,7 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 
 > **Sicurezza.** Da fuori **si vedono solo le viste pubbliche** (diretta, risultati e PitWall Lap). Il **controllo dell'app** (creare, dirigere o modificare gare) **resta bloccato**: nessuno da fuori può toccare la gara.
 
-## 16. Glossario (operazione)
+## 17. Glossario (operazione)
 - **Gara**: l'evento completo. Si compone di tande.
 - **Tanda**: gruppo di partecipanti con la sua rotazione; si compone di manche.
 - **Manche**: una tornata cronometrata (tutte le corsie insieme) di una certa durata.

@@ -67,6 +67,7 @@
       <li><a href="#lap">PitWall Lap — PIN for teams</a></li>
       <li><a href="#vivo">Running the race live</a></li>
       <li><a href="#turnos">Driver shift control</a></li>
+      <li><a href="#neumaticos">Endurance tyre control</a></li>
       <li><a href="#correcciones">Lap by lap and corrections</a></li>
       <li><a href="#resultados">Results and exports</a></li>
       <li><a href="#entrenamiento">Training</a></li>
@@ -237,6 +238,13 @@
       <h3>Rests</h3>
       <p>If there are <b>more participants than lanes</b>, the sequence includes gaps (<span class="mono">0</span> / <span class="mono">DSC</span>) that are <b>rests</b>: in that heat that participant does not run. PitWall spreads them out evenly, but <b>you can also place them wherever you want</b> within the rotation (drag them to the position you prefer).</p>
 
+      <h3>Empty lanes (fewer participants than lanes)</h3>
+      <p>You don't have to fill every lane: you can create a heat with <b>fewer participants than lanes</b> (<b>one</b> is enough). The spare lanes stay empty, with <b>no ghost car</b> showing up in laps or standings. When you create the heat you choose what happens to them:</p>
+      <ul>
+        <li><b>Leave the last ones empty</b> (default): the <b>highest-numbered</b> lanes stay empty for the whole race; nobody runs on them.</li>
+        <li><b>Rotate the gap</b>: the free lane (or lanes) <b>rotates heat by heat</b>, so every participant ends up passing through the same lanes and the track stays just as fair as with a full grid.</li>
+      </ul>
+
       <h3>With passes / repeat lane</h3>
       <ul>
         <li><i>2 passes</i> → the whole sequence repeats: <span class="mono">1,3,5,6,4,2, 1,3,5,6,4,2</span>.</li>
@@ -260,6 +268,9 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>Typical case: you <b>import a batch from PitWall Control</b> (which arrives in manual mode) and then <b>edit it to assign your club's scenario</b>, so it inherits your track's lanes, sequence and minimum time.</div>
       </div>
+      <ul>
+        <li><b>Endurance rules (driver shifts and tyres)</b> — in an <b>endurance</b> race, and <b>as long as no heat has been run yet</b>, Edit race also lets you adjust the <b>driver-shift rules</b> (minimum and maximum per driver, maximum number of stints and the end-of-heat lockout) and the <b>tyres per team</b> (the allowance the tyre control starts from) — the same fields you set in the wizard when creating the race. So you can fix a number without rebuilding the whole race. As soon as the <b>first heat</b> runs, those fields are <b>locked</b> (dimmed, with a padlock 🔒) so as not to unbalance what has already been run; the <b>name</b> and the <b>scenario</b> keep their usual rules. If you set a <b>maximum per driver lower than the minimum</b>, PitWall warns you.</li>
+      </ul>
       <ul>
         <li><b>Edit batch</b> — change the <b>names</b> of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters <b>rename-only mode</b> (no participants added or removed, so as not to unbalance the rotation).</li>
       </ul>
@@ -352,7 +363,7 @@
         <li>When it ends (flag or time out), the heat closes and the <b>next one</b> is prepared.</li>
         <li>When all the heats of a batch are done, the <b>next batch</b> starts.</li>
       </ol>
-      <p><b>Choosing the view.</b> With the <b>View</b> button you change the layout depending on the lanes: <i>Horizontal rows</i> (few lanes), <i>Compact grid</i> (many) or <i>Cards with details</i> (with laps/exits/pit/Δ per card).</p>
+      <p><b>Choosing the view.</b> With the <b>View</b> button you change the layout depending on the lanes: <i>Horizontal rows</i> (few lanes), <i>Compact grid</i> (many) or <i>Cards with details</i> (with laps/exits/pit/tyres/Δ per card).</p>
       <p><b>Distance to the leader and provisional estimate.</b> On the classification screens (<b>Le Mans</b> and <b>live stats</b>) the distance to the leader is given <b>with the fraction</b> and its equivalent <b>in seconds</b> —<i>"a 2,8 v (35,5")"</i>, i.e. 2.8 laps behind, worth 35.5 seconds—, not rounded to whole laps. And if an estimate carries an <b>orange asterisk</b>, that team is still in its <b>first heat</b> without having gone past <b>60 %</b> of it: its reference isn't locked in yet and the figure can still move. It's all explained in detail in the <i>Statistics manual</i>.</p>
 
       <h3>Switching batch, repeating a heat and finishing</h3>
@@ -389,8 +400,31 @@
       </div>
     </section>
 
-    <section id="correcciones">
+    <section id="neumaticos">
       <div class="num">// 11</div>
+      <h2>Endurance tyre control</h2>
+      <p>In an <b>endurance</b> race you can keep track of the <b>tyre sets</b> each team uses. The allotment —the sets <b>everyone</b> starts with— is set when you create the race (wizard, step 1, <b>"Tyres per team"</b> field). With <b>0</b>, control is off and everything works as before.</p>
+      <p>It opens <b>two ways</b>:</p>
+      <ul>
+        <li>From the race, with the <b>🛞 Tyres</b> button (only shows in endurance races and with an allotment greater than 0).</li>
+        <li>As a <b>kiosk</b> at <span class="mono">/control/tires</span> (with its card on the home screen), which <b>auto-detects</b> the endurance race currently running —just like the shifts kiosk—. Ideal to leave open on a tablet next to the pit.</li>
+      </ul>
+      <p>The screen is a <b>grid with every team</b>. Each box shows the team name and two numbers: <b>Available</b> and <b>Used</b>.</p>
+      <ul>
+        <li><b>One click on the box = hand out a set</b>: available goes down by one, used goes up by one, and it is <b>recorded in which heat and at which minute:second of the race</b> the change was made (stamped with the running heat and its clock; if none is running at that moment, it is saved without a time).</li>
+        <li>The <b>pencil</b> on each box opens that team's <b>history</b>, where you can <b>delete</b> an entry (the set returns to Available), <b>edit</b> its heat and time (mm:ss) or <b>add one by hand</b> (heat, time and a note).</li>
+      </ul>
+      <p>The counters are <b>not stored raw</b>: they are <b>derived</b> from the entries (allotment minus hand-outs), so undoing never leaves a mismatch. If a team goes over its quota, its <b>Available</b> can go <b>negative and red</b> —meant for when you give an extra set beyond the allotment.</p>
+      <p>In the header, next to the allotment, the <b>🗒️ Change history</b> button opens —in a <b>new tab</b>— a <b>page</b> with the <b>global log for the whole race</b> (not just one team's). It is laid out as a <b>table in columns</b> (up to <b>three columns</b>) that uses the screen width so you can see it almost <b>without scrolling</b>. Changes are <b>grouped by heat</b>: <b>every heat</b> is listed, and those with no changes are still marked <b>“— no tyre changes —”</b>. Within each heat, every hand-out shows the <b>team</b> (with its colour dot and name), <b>which set number</b> it was for that team (<b>set N of the allotment</b>, counted in chronological order —1, 2, 3…—, in <b>red</b> if it went over quota) and the <b>minute:second of the race</b>. Changes with no heat assigned go to a <b>“No heat”</b> group at the end. It is <b>read-only</b> —to delete, edit or add by hand you still use each team's pencil— and it <b>refreshes live</b> while tyres are being handed out.</p>
+      <p><b>In the live view</b>, each team card shows a <b>🛞 indicator with the number of tyre sets used</b>, alongside the existing <b>starts (⚠️)</b> and <b>pit-stops (🔧)</b> warnings. It <b>updates instantly</b> —no reload— the moment you record a change in the tyre control, and it <b>flashes</b> when the number goes up. It only appears in <b>endurance races with tyre control</b>, and it works whether the heat is <b>running or waiting</b>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Everything syncs instantly across open screens, and the <b>heat:time</b> indicator ticks along with the race.</div>
+      </div>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 12</div>
       <h2>Lap by lap and corrections (add / remove laps)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Lap by lap · Corrections</span></div>
@@ -421,7 +455,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Results and exports</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Results · Comparison</span></div>
@@ -445,7 +479,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Training</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Training</span></div>
@@ -472,7 +506,7 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Settings</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings</span></div>
@@ -492,7 +526,7 @@
     </section>
 
     <section id="publico">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Public tracking over the internet</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings · Public tracking over the internet</span></div>
@@ -514,7 +548,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Glossary (operation)</h2>
       <ul>
         <li><b>Race</b>: the complete event. Made up of batches.</li>

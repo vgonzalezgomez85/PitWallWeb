@@ -100,6 +100,10 @@ A **batch** groups the participants and their **lane rotation** per heat. When y
 
 **Rests.** If there are **more participants than lanes**, the sequence includes gaps (`0` / `DSC`) that are **rests**: in that heat that participant does not run. PitWall spreads them out evenly, but **you can also place them wherever you want** within the rotation (drag them to the position you prefer).
 
+**Empty lanes (fewer participants than lanes).** You don't have to fill every lane: you can create a heat with **fewer participants than lanes** (**one** is enough). The spare lanes stay empty, with **no ghost car** showing up in laps or standings. When you create the heat you choose what happens to them:
+- **Leave the last ones empty** (default): the **highest-numbered** lanes stay empty for the whole race; nobody runs on them.
+- **Rotate the gap**: the free lane (or lanes) **rotates heat by heat**, so every participant ends up passing through the same lanes and the track stays just as fair as with a full grid.
+
 **With passes / repeat lane:**
 - *2 passes* → the whole sequence repeats: `1,3,5,6,4,2, 1,3,5,6,4,2`.
 - *Repeat lane 2* → each lane, two consecutive heats: `1,1,3,3,5,5,6,6,4,4,2,2`.
@@ -112,6 +116,8 @@ After creating a race you can tweak it:
 ![img: op-edit-carrera.png]
 
 > Typical case: you **import a batch from PitWall Control** (which arrives in manual mode) and then **edit it to assign your club's scenario**, so it inherits your track's lanes, sequence and minimum time.
+
+- **Endurance rules (driver shifts and tyres)** — in an **endurance** race, and **as long as no heat has been run yet**, Edit race also lets you adjust the **driver-shift rules** (minimum and maximum per driver, maximum number of stints and the end-of-heat lockout) and the **tyres per team** (the allowance the tyre control starts from) — the same fields you set in the wizard when creating the race. So you can fix a number without rebuilding the whole race. As soon as the **first heat** runs, those fields are **locked** (dimmed, with a padlock 🔒) so as not to unbalance what has already been run; the **name** and the **scenario** keep their usual rules. If you set a **maximum per driver lower than the minimum**, PitWall warns you.
 
 - **Edit batch** — change the **names** of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters **rename-only mode** (no participants added or removed, so as not to unbalance the rotation).
 
@@ -166,7 +172,7 @@ From the race page:
 5. When it ends (flag or time out), the heat closes and the **next one** is prepared.
 6. When all the heats of a batch are done, the **next batch** starts.
 
-**Choosing the view.** With the View (“Vista”) button you change the layout depending on the lanes: *Horizontal rows* (few lanes), *Compact grid* (many) or *Cards with details* (with laps/exits/pit/Δ per card).
+**Choosing the view.** With the View (“Vista”) button you change the layout depending on the lanes: *Horizontal rows* (few lanes), *Compact grid* (many) or *Cards with details* (with laps/exits/pit/tyres/Δ per card).
 
 **Distance to the leader and provisional estimate.** On the classification screens (**Le Mans** and **live stats**) the distance to the leader is given **with the fraction** and its equivalent **in seconds** —*"a 2,8 v (35,5\")"*, i.e. 2.8 laps behind, worth 35.5 seconds—, not rounded to whole laps. And if an estimate carries an **orange asterisk**, that team is still in its **first heat** without having gone past **60 %** of it: its reference isn't locked in yet and the figure can still move. It's all explained in detail in the *Statistics manual*.
 
@@ -190,7 +196,28 @@ In **team championship** races you can enforce rules for sharing the wheel among
 
 > **The security warning and how to remove it.** The first time a device opens the `https://` link, the browser warns once (**"connection not private → continue"**); once you accept, the camera works. If you want that warning gone, **install the PitWall CA** on the device: Settings has **Download CA** and the **`/cert`** page with a step-by-step guide for **iPhone/iPad, Android and Windows**. Installing the CA once is enough even if the network IP changes: PitWall only re-issues the server certificate and the device keeps trusting it.
 
-## 11. Lap by lap and corrections (add / remove laps)
+## 11. Endurance tyre control
+
+In an **endurance** race you can keep track of the **tyre sets** each team uses. The allotment —the sets **everyone** starts with— is set when you create the race (wizard, step 1, **"Tyres per team"** field). With **0**, control is off and everything works as before.
+
+It opens **two ways**:
+- From the race, with the **🛞 Tyres** button (only shows in endurance races and with an allotment greater than 0).
+- As a **kiosk** at `/control/tires` (with its card on the home screen), which **auto-detects** the endurance race currently running —just like the shifts kiosk—. Ideal to leave open on a tablet next to the pit.
+
+The screen is a **grid with every team**. Each box shows the team name and two numbers: **Available** and **Used**.
+
+- **One click on the box = hand out a set**: available goes down by one, used goes up by one, and it is **recorded in which heat and at which minute:second of the race** the change was made (stamped with the running heat and its clock; if none is running at that moment, it is saved without a time).
+- The **pencil** on each box opens that team's **history**, where you can **delete** an entry (the set returns to Available), **edit** its heat and time (mm:ss) or **add one by hand** (heat, time and a note).
+
+The counters are **not stored raw**: they are **derived** from the entries (allotment minus hand-outs), so undoing never leaves a mismatch. If a team goes over its quota, its **Available** can go **negative and red** —meant for when you give an extra set beyond the allotment.
+
+In the header, next to the allotment, the **🗒️ Change history** button opens —in a **new tab**— a **page** with the **global log for the whole race** (not just one team's). It is laid out as a **table in columns** (up to **three columns**) that uses the screen width so you can see it almost **without scrolling**. Changes are **grouped by heat**: **every heat** is listed, and those with no changes are still marked **“— no tyre changes —”**. Within each heat, every hand-out shows the **team** (with its colour dot and name), **which set number** it was for that team (**set N of the allotment**, counted in chronological order —1, 2, 3…—, in **red** if it went over quota) and the **minute:second of the race**. Changes with no heat assigned go to a **“No heat”** group at the end. It is **read-only** —to delete, edit or add by hand you still use each team's pencil— and it **refreshes live** while tyres are being handed out.
+
+**In the live view**, each team card shows a **🛞 indicator with the number of tyre sets used**, alongside the existing **starts (⚠️)** and **pit-stops (🔧)** warnings. It **updates instantly** —no reload— the moment you record a change in the tyre control, and it **flashes** when the number goes up. It only appears in **endurance races with tyre control**, and it works whether the heat is **running or waiting**.
+
+> Everything syncs instantly across open screens, and the **heat:time** indicator ticks along with the race.
+
+## 12. Lap by lap and corrections (add / remove laps)
 ![img: 30-correcciones.png]
 
 From the race (the **lap correction** button in the live screen or in results) you enter the **lap by lap** of each heat. It serves to fix wrongly recorded readings.
@@ -207,7 +234,7 @@ From the race (the **lap correction** button in the live screen or in results) y
 
 > **Automatic ghost laps.** A lap below the **Pt** (minimum time) is marked as a **ghost** and the lane that produced it **never** counts it. PitWall no longer reassigns it by guessing: it **holds** it and only assigns it to the lane that **confirms** it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a **ghost** for you to review by hand.
 
-## 12. Results and exports
+## 13. Results and exports
 ![img: 10-results-comparativa.png]
 
 When it finishes (or at any time) go into **Results**:
@@ -220,7 +247,7 @@ When it finishes (or at any time) go into **Results**:
 
 ![img: op-resultados-publicos.png]
 
-## 13. Training
+## 14. Training
 ![img: 40-training.png]
 
 Besides races, PitWall has a **Training** mode (from the home screen) to run without setting up a full competition. There are two modes:
@@ -241,7 +268,7 @@ Each session can be **deleted** from its detail. If you stop the session with **
 
 > **Free training** does not save results: it's an open session of times per lane.
 
-## 14. Settings
+## 15. Settings
 ![img: 04-settings.png]
 
 - **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.
@@ -252,7 +279,7 @@ Each session can be **deleted** from its detail. If you stop the session with **
 
 **Version history.** In the **footer of every page** you see PitWall's **version** number. Pressing it opens the **Version history** (`/changelog`), with what was **Added**, **Improved** and **Fixed** in each update. The version **goes up with every update**, so you always know which PitWall you have and what has changed.
 
-## 15. Public tracking over the internet
+## 16. Public tracking over the internet
 ![img: op-seguimiento-publico.png]
 
 By default PitWall's views (the **live timing**, the **Results** and **PitWall Lap**) are only visible on the **local network**. With **Public tracking over the internet** each club can **publish them on the internet** so drivers and public can follow the race **from outside the venue**, without opening ports or setting up a VPN: PitWall brings up the club's **own Cloudflare tunnel**.
@@ -268,7 +295,7 @@ It's in **Settings → Public tracking over the internet**. There are **two mode
 
 > **Security.** From outside, **only the public views are visible** (live timing, results and PitWall Lap). The **app control** (creating, running or editing races) is **blocked**: no one from outside can touch the race.
 
-## 16. Glossary (operation)
+## 17. Glossary (operation)
 - **Race**: the complete event. Made up of batches.
 - **Batch**: group of participants with their rotation; made up of heats.
 - **Heat**: one timed run (all lanes at once) of a set duration.

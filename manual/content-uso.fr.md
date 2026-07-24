@@ -100,6 +100,10 @@ Une **série** regroupe les participants et leur **rotation de voies** par manch
 
 **Repos.** S'il y a **plus de participants que de voies**, la séquence inclut des trous (`0` / `DSC`) qui sont des **repos** : dans cette manche, ce participant ne court pas. PitWall les répartit de façon équilibrée, mais **tu peux aussi les placer où tu veux** dans la rotation (fais-les glisser à la position que tu préfères).
 
+**Voies vides (moins de participants que de voies).** Pas besoin de remplir toutes les voies : tu peux créer une manche avec **moins de participants que de voies** (**un** suffit). Les voies en trop restent libres, **sans voiture fantôme** qui apparaîtrait dans les tours ou le classement. À la création de la manche, tu choisis quoi en faire :
+- **Les dernières restent vides** (par défaut) : les voies au **numéro le plus élevé** restent vides toute la course ; personne n'y roule.
+- **Le trou tourne** : la voie (ou les voies) libre **tourne d'une manche à l'autre**, de sorte que tous les participants finissent par passer par les mêmes voies et la piste reste aussi équitable qu'avec une grille complète.
+
 **Avec passages / répétition de voie :**
 - *2 passages* → la séquence entière se répète : `1,3,5,6,4,2, 1,3,5,6,4,2`.
 - *Répéter la voie 2* → chaque voie, deux manches d'affilée : `1,1,3,3,5,5,6,6,4,4,2,2`.
@@ -112,6 +116,8 @@ Après avoir créé une course, tu peux la retoucher :
 ![img: op-edit-carrera.png]
 
 > Cas typique : tu **importes une série de PitWall Control** (qui arrive en mode manuel) puis tu l'**édites pour lui attribuer le scénario** de ton club, afin qu'elle hérite des voies, de la séquence et du temps minimum de ta piste.
+
+- **Règles d'endurance (relais et pneus)** — dans une course d'**endurance**, et **tant qu'aucune manche n'a été courue**, Éditer la course te permet aussi d'ajuster les **règles de relais par pilote** (minimum et maximum par pilote, nombre maximum de relais et le blocage de fin de manche) et les **pneus par équipe** (la dotation avec laquelle démarre le contrôle des pneus) — les mêmes champs que tu as fixés dans l'assistant à la création de la course. Tu peux ainsi corriger un chiffre sans refaire toute la course. Dès que la **première manche** est courue, ces champs se **verrouillent** (atténués, avec un cadenas 🔒) pour ne pas déséquilibrer ce qui a déjà été couru ; le **nom** et le **scénario** gardent leurs règles habituelles. Si tu mets un **maximum par pilote inférieur au minimum**, PitWall te prévient.
 
 - **Éditer la série** — changer les **noms** des participants et, si la série n'a pas encore commencé, sa composition. Si elle a déjà des manches lancées, elle passe en **mode renommer seulement** (on n'ajoute ni ne retire de participants, pour ne pas déséquilibrer la rotation).
 
@@ -166,7 +172,7 @@ Depuis la page de la course :
 5. À la fin (drapeau ou fin de temps), la manche se ferme et la **suivante** se prépare.
 6. Quand toutes les manches d'une série sont terminées, la **série suivante** démarre.
 
-**Choisir la vue.** Avec le bouton *Vue (« Vista »)*, tu changes la mise en page selon les voies : *Lignes horizontales* (peu de voies), *Grille compacte* (beaucoup) ou *Cartes détaillées* (avec tours/sorties/pit/Δ par carte).
+**Choisir la vue.** Avec le bouton *Vue (« Vista »)*, tu changes la mise en page selon les voies : *Lignes horizontales* (peu de voies), *Grille compacte* (beaucoup) ou *Cartes détaillées* (avec tours/sorties/pit/pneus/Δ par carte).
 
 **Distance au leader et estimation provisoire.** Sur les écrans de classement (**Le Mans** et **statistiques en direct**), la distance au leader est donnée **avec la virgule** et son équivalent **en secondes** —*« a 2,8 v (35,5\") »*, soit à 2,8 tours, c'est-à-dire 35,5 secondes—, et non arrondie à des tours entiers. Et si une estimation porte un **astérisque orange**, c'est que cette équipe en est encore à sa **première manche** sans avoir dépassé les **60 %** : sa référence n'est pas figée et le chiffre peut encore bouger. Tout cela est expliqué en détail dans le *Manuel de statistiques*.
 
@@ -190,7 +196,28 @@ Les **changements de pilote** s'enregistrent en scannant le **QR du pilote** (ou
 
 > **L'avertissement de sécurité et comment le faire disparaître.** La première fois qu'un appareil ouvre le lien `https://`, le navigateur avertit une fois (**« connexion non privée → continuer »**) ; une fois accepté, la caméra fonctionne. Si tu veux supprimer cet avertissement, **installe la CA de PitWall** sur l'appareil : les Réglages proposent **Télécharger la CA** et la page **`/cert`** avec un guide pas à pas pour **iPhone/iPad, Android et Windows**. Installer la CA une seule fois suffit même si l'IP du réseau change : PitWall ne réémet que le certificat du serveur et l'appareil continue de lui faire confiance.
 
-## 11. Tour par tour et corrections (ajouter / retirer des tours)
+## 11. Contrôle des pneus d'endurance
+
+Dans une course d'**endurance**, vous pouvez suivre les **trains de pneus** que chaque équipe utilise. La dotation —les trains avec lesquels **tout le monde** démarre— se fixe à la création de la course (assistant, étape 1, champ **« Pneus par équipe »**). Avec **0**, le contrôle est désactivé et tout fonctionne comme avant.
+
+Il s'ouvre de **deux façons** :
+- Depuis la course, avec le bouton **🛞 Pneus** (n'apparaît qu'en endurance et avec une dotation supérieure à 0).
+- En **kiosque** sur `/control/tires` (avec sa carte sur l'écran d'accueil), qui **détecte tout seul** la course d'endurance en cours —comme le kiosque des relais—. Idéal à laisser ouvert sur une tablette près du stand.
+
+L'écran est une **grille avec toutes les équipes**. Chaque case affiche le nom de l'équipe et deux nombres : **Disponibles** et **Utilisés**.
+
+- **Un clic sur la case = livrer un train** : les disponibles baissent d'un, les utilisés montent d'un, et cela est **enregistré dans quelle manche et à quelle minute:seconde de course** le changement a eu lieu (horodaté avec la manche en cours et son chrono ; s'il n'y en a aucune en cours à ce moment-là, c'est enregistré sans temps).
+- Le **crayon** de chaque case ouvre l'**historique** de cette équipe, où vous pouvez **supprimer** une entrée (le train revient aux Disponibles), **modifier** sa manche et son temps (mm:ss) ou **en ajouter un à la main** (manche, temps et une note).
+
+Les compteurs **ne sont pas stockés bruts** : ils sont **dérivés** des entrées (dotation moins livraisons), donc annuler ne laisse jamais de décalage. Si une équipe dépasse son quota, ses **Disponibles** peuvent passer en **négatif et en rouge** —prévu pour quand vous donnez un train supplémentaire hors dotation.
+
+Dans l'en-tête, à côté de la dotation, le bouton **🗒️ Historique des changements** ouvre —dans un **nouvel onglet**— une **page** avec le **journal global de toute la course** (et non celui d'une seule équipe). Il est présenté comme un **tableau en colonnes** (jusqu'à **trois colonnes**) qui exploite la largeur de l'écran pour tout voir presque **sans défilement**. Les changements sont **groupés par manche** : **toutes les manches** sont listées, et celles sans aucun changement sont tout de même marquées **« — aucun changement de pneus — »**. Dans chaque manche, chaque livraison indique l'**équipe** (avec son point de couleur et son nom), **quel numéro de train** c'était pour cette équipe (**train N de la dotation**, compté par ordre chronologique —1, 2, 3…—, en **rouge** s'il a dépassé le quota) et la **minute:seconde de course**. Les changements sans manche assignée vont dans un groupe **« Sans manche »** à la fin. C'est en **lecture seule** —pour supprimer, modifier ou ajouter à la main, on utilise toujours le crayon de chaque équipe— et il se **rafraîchit en direct** pendant qu'on livre des pneus.
+
+**Dans la vue en direct**, chaque carte d'équipe affiche un indicateur **🛞 avec le nombre de trains de pneus utilisés**, à côté des avertissements de **sorties (⚠️)** et de **pit-stops (🔧)**. Il se **met à jour instantanément** —sans recharger— dès que tu enregistres un changement dans le contrôle des pneus, et il **clignote** quand le nombre augmente. Il n'apparaît que dans les courses d'**endurance avec contrôle des pneus**, et il fonctionne que la manche soit **en cours ou en attente**.
+
+> Tout se synchronise à l'instant entre les écrans ouverts, et l'indicateur **manche:temps** bat au rythme de la course.
+
+## 12. Tour par tour et corrections (ajouter / retirer des tours)
 ![img: 30-correcciones.png]
 
 Depuis la course (bouton de **correction des tours** dans le direct ou dans les résultats), tu accèdes au **tour par tour** de chaque manche. Il sert à corriger les lectures mal enregistrées.
@@ -207,7 +234,7 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 > **Tours fantômes automatiques.** Un tour en dessous du **Pt** (temps minimum) est marqué comme **fantôme** et la voie qui l'a produit ne le compte **jamais**. PitWall ne le réattribue plus au jugé : il le **retient** et ne l'attribue qu'à la voie qui **confirme** avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en **fantôme** pour que tu le révises à la main.
 
-## 12. Résultats et exports
+## 13. Résultats et exports
 ![img: 10-results-comparativa.png]
 
 À la fin (ou à tout moment), entre dans **Résultats** :
@@ -220,7 +247,7 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 ![img: op-resultados-publicos.png]
 
-## 13. Entraînement
+## 14. Entraînement
 ![img: 40-training.png]
 
 En plus des courses, PitWall dispose d'un mode **Entraînement** (depuis l'écran d'accueil) pour rouler sans monter une compétition complète. Il y a deux modalités :
@@ -241,7 +268,7 @@ Chaque séance peut être **supprimée** depuis son détail. Si tu arrêtes la s
 
 > L'**entraînement libre** n'enregistre pas de résultats : c'est une séance ouverte de temps par voie.
 
-## 14. Réglages
+## 15. Réglages
 ![img: 04-settings.png]
 
 - **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth (il se connecte en **BLE direct** par défaut ; le **TCP** reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers.
@@ -252,7 +279,7 @@ Chaque séance peut être **supprimée** depuis son détail. Si tu arrêtes la s
 
 **Historique des versions.** Dans le **pied de toutes les pages**, tu vois le numéro de **version** de PitWall. En cliquant dessus, l'**Historique des versions** (`/changelog`) s'ouvre, avec ce qui a été **Ajouté**, **Amélioré** et **Corrigé** à chaque mise à jour. La version **augmente à chaque mise à jour**, ainsi tu sais toujours quel PitWall tu as et ce qui a changé.
 
-## 15. Suivi public par internet
+## 16. Suivi public par internet
 ![img: op-seguimiento-publico.png]
 
 Par défaut, les vues de PitWall (le **direct**, les **Résultats** et **PitWall Lap**) ne sont visibles que sur le **réseau local**. Avec le **Suivi public par internet**, chaque club peut les **publier sur internet** pour que pilotes et public suivent la course **depuis l'extérieur du local**, sans ouvrir de ports ni monter un VPN : PitWall crée un **tunnel Cloudflare propre** au club.
@@ -268,7 +295,7 @@ C'est dans **Réglages → Suivi public par internet**. Il y a **deux modes** :
 
 > **Sécurité.** Depuis l'extérieur, **seules les vues publiques sont visibles** (direct, résultats et PitWall Lap). Le **contrôle de l'app** (créer, diriger ou éditer des courses) **reste bloqué** : personne de l'extérieur ne peut toucher à la course.
 
-## 16. Glossaire (opération)
+## 17. Glossaire (opération)
 - **Course** : l'événement complet. Il se compose de séries.
 - **Série** : groupe de participants avec sa rotation ; elle se compose de manches.
 - **Manche** : une tirée chronométrée (toutes les voies en même temps) d'une durée donnée.

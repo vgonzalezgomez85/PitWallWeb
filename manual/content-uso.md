@@ -100,6 +100,10 @@ Una **tanda** agrupa a los participantes y su **rotación de carriles** por mang
 
 **Descansos.** Si hay **más participantes que carriles**, la secuencia incluye huecos (`0` / `DSC`) que son **descansos**: en esa manga ese participante no corre. PitWall los reparte de forma equilibrada, pero **también puedes colocarlos donde quieras** dentro de la rotación (arrástralos a la posición que prefieras).
 
+**Carriles vacíos (menos participantes que carriles).** No hace falta llenar todos los carriles: puedes crear una tanda con **menos participantes que carriles** (basta con **uno**). Los carriles que sobran quedan libres, **sin coche fantasma** que aparezca en vueltas ni clasificación. Al crear la tanda eliges qué hacer con ellos:
+- **Sobran los últimos** (por defecto): los carriles de **mayor número** quedan vacíos toda la carrera; nadie rueda por ellos.
+- **El hueco rota**: el carril (o carriles) libre va **rotando manga a manga**, de modo que todos los participantes acaban pasando por los mismos carriles y la pista queda igual de justa que con la rejilla completa.
+
 **Con pasadas / repetir carril:**
 - *2 pasadas* → la secuencia entera se repite: `1,3,5,6,4,2, 1,3,5,6,4,2`.
 - *Repetir carril 2* → cada carril, dos mangas seguidas: `1,1,3,3,5,5,6,6,4,4,2,2`.
@@ -112,6 +116,8 @@ Después de crear una carrera puedes retocarla:
 ![img: op-edit-carrera.png]
 
 > Caso típico: **importas una tanda de PitWall Control** (que llega en modo manual) y luego la **editas para asignarle el escenario** de tu club, de modo que herede carriles, secuencia y tiempo mínimo de tu pista.
+
+- **Reglas de resistencia (turnos y neumáticos)** — en una carrera de **resistencia**, y **mientras no se haya corrido ninguna manga**, Editar carrera te deja ajustar también las **reglas de turnos por piloto** (mínimo y máximo por piloto, máximo de turnos y bloqueo del final de manga) y los **neumáticos por equipo** (la dotación con la que arranca el control de neumáticos) — los mismos campos que fijaste en el asistente al crear la carrera. Así puedes corregir un número sin rehacer la carrera. En cuanto rueda la **primera manga**, esos campos se **bloquean** (atenuados y con un candado 🔒) para no descuadrar lo ya corrido; el **nombre** y el **escenario** siguen sus reglas de siempre. Si pones un **máximo por piloto menor que el mínimo**, PitWall te avisa.
 
 - **Editar tanda** — cambiar los **nombres** de los participantes y, si la tanda aún no ha empezado, su composición. Si ya tiene mangas iniciadas, entra en **modo solo renombrar** (no se añaden ni quitan participantes, para no descuadrar la rotación).
 
@@ -166,7 +172,7 @@ Desde la página de la carrera:
 5. Al terminar (bandera o fin de tiempo), la manga se cierra y se prepara la **siguiente**.
 6. Al acabar todas las mangas de una tanda, arranca la **siguiente tanda**.
 
-**Elegir la vista.** Con el botón **Vista** cambias el layout según los carriles: *Filas horizontales* (pocos carriles), *Cuadrícula compacta* (muchos) o *Tarjetas con detalles* (con vueltas/salidas/pit/Δ por tarjeta).
+**Elegir la vista.** Con el botón **Vista** cambias el layout según los carriles: *Filas horizontales* (pocos carriles), *Cuadrícula compacta* (muchos) o *Tarjetas con detalles* (con vueltas/salidas/pit/neumáticos/Δ por tarjeta).
 
 **Distancia al líder y estimada provisional.** En las pantallas de clasificación (**Le Mans** y **estadísticas en vivo**) la distancia al líder se da **con la coma** y su equivalente **en segundos** —*"a 2,8 v (35,5\")"*—, no redondeada a vueltas enteras. Y si una estimada lleva un **asterisco naranja**, es que ese equipo sigue en su **primera manga** sin haber pasado del **60 %**: su referencia aún no está fijada y la cifra puede moverse. Todo esto se explica en detalle en el *Manual de estadísticas*.
 
@@ -190,7 +196,28 @@ Los **cambios de piloto** se registran escaneando el **QR del piloto** (o metien
 
 > **El aviso de seguridad y cómo quitarlo.** La primera vez que un dispositivo abre el enlace `https://`, el navegador avisa una vez (**«conexión no privada → continuar»**); al aceptar, la cámara ya funciona. Si quieres que ese aviso no salga, **instala la CA de PitWall** en el dispositivo: en Ajustes tienes **Descargar CA** y la página **`/cert`** con la guía paso a paso para **iPhone/iPad, Android y Windows**. Instalar la CA una vez basta aunque cambie la IP de la red: PitWall reemite solo el certificado del servidor y el dispositivo sigue confiando.
 
-## 11. Vuelta a vuelta y correcciones (añadir / quitar vueltas)
+## 11. Control de neumáticos de resistencia
+
+En una carrera de **resistencia** puedes llevar la cuenta de los **juegos de neumáticos** que gasta cada equipo. La dotación —los juegos con los que **todos** parten— se fija al crear la carrera (asistente, paso 1, campo **«Neumáticos por equipo»**). Con **0** el control queda apagado y todo funciona como siempre.
+
+Se abre de **dos formas**:
+- Desde la carrera, con el botón **🛞 Neumáticos** (solo aparece en resistencia y con dotación mayor que 0).
+- Como **kiosco** en `/control/tires` (con su tarjeta en la pantalla de inicio), que **detecta solo** la carrera de resistencia que esté en marcha —igual que el kiosco de turnos—. Es lo ideal para dejar abierto en una tablet junto al box.
+
+La pantalla es una **rejilla con todos los equipos**. Cada casilla muestra el nombre del equipo y dos números: **Disponibles** y **Usados**.
+
+- **Un clic en la casilla = entregar un juego**: baja uno los disponibles, sube uno los usados y queda **anotado en qué manga y en qué minuto:segundo de carrera** se hizo el cambio (se sella con la manga en marcha y su reloj; si en ese momento no hay ninguna corriendo, se guarda sin tiempo).
+- El **lápiz** de cada casilla abre el **historial** de ese equipo, donde puedes **borrar** un registro (el juego vuelve a Disponibles), **editar** su manga y su tiempo (mm:ss) o **añadir uno a mano** (manga, tiempo y una nota).
+
+Los contadores **no se guardan a pelo**: se **calculan** a partir de los registros (dotación menos entregas), así que deshacer nunca deja descuadres. Si un equipo se pasa de su cupo, sus **Disponibles** pueden quedar en **negativo y en rojo** —pensado para cuando das un juego extra fuera de dotación.
+
+En la cabecera, junto a la dotación, el botón **🗒️ Historial de cambios** abre —en una **pestaña nueva**— una **página** con el **registro global de toda la carrera** (no el de un solo equipo). Se presenta como una **tabla en columnas** (hasta **tres columnas**) que aprovecha el ancho de la pantalla para verlo casi **sin scroll**. Los cambios salen **agrupados por manga**: se listan **todas las mangas**, y las que no tuvieron ningún cambio aparecen marcadas como **«— sin cambios de neumáticos —»**. Dentro de cada manga, cada entrega muestra el **equipo** (con su punto de color y su nombre), **qué número de juego** era para ese equipo (**juego N de la dotación**, contando por orden cronológico —1, 2, 3…—, en **rojo** si se pasó de su cupo) y el **minuto:segundo de carrera**. Los cambios sin manga asignada van a un grupo **«Sin manga»** al final. Es de **solo lectura** —para borrar, editar o añadir a mano se sigue usando el lápiz de cada equipo— y se **refresca en vivo** mientras se dan neumáticos.
+
+**En la vista en directo**, cada tarjeta de equipo muestra un indicador **🛞 con el número de juegos de neumáticos usados**, junto a los avisos de **salidas (⚠️)** y **pit-stops (🔧)**. Se **actualiza al instante** —sin recargar— en cuanto anotas un cambio en el control de neumáticos, y **destella** cuando el número sube. Solo aparece en carreras de **resistencia con control de neumáticos**, y funciona con la manga **en marcha o en espera**.
+
+> Todo se sincroniza al instante entre las pantallas abiertas, y el indicador de **manga:tiempo** late con la carrera.
+
+## 12. Vuelta a vuelta y correcciones (añadir / quitar vueltas)
 ![img: 30-correcciones.png]
 
 Desde la carrera (botón de **corrección de vueltas** en el directo o en resultados) entras al **vuelta a vuelta** de cada manga. Sirve para arreglar lecturas mal registradas.
@@ -207,7 +234,7 @@ Desde la carrera (botón de **corrección de vueltas** en el directo o en result
 
 > **Vueltas fantasma automáticas.** Una vuelta por debajo del **Pt** (tiempo mínimo) se marca como **fantasma** y el carril que la generó **nunca** la cuenta. PitWall ya no la reasigna a ojo: la **retiene** y solo se la asigna al carril que **confirma** haberse saltado un cruce (cuando ese carril pasa con una vuelta de ~el doble de su media). Si nadie lo confirma, se queda aquí como **fantasma** para que la revises a mano.
 
-## 12. Resultados y exports
+## 13. Resultados y exports
 ![img: 10-results-comparativa.png]
 
 Al terminar (o en cualquier momento) entra en **Resultados**:
@@ -220,7 +247,7 @@ Al terminar (o en cualquier momento) entra en **Resultados**:
 
 ![img: op-resultados-publicos.png]
 
-## 13. Entrenamiento
+## 14. Entrenamiento
 ![img: 40-training.png]
 
 Además de las carreras, PitWall tiene un modo **Entrenamiento** (desde la pantalla de inicio) para rodar sin montar una competición completa. Hay dos modalidades:
@@ -241,7 +268,7 @@ Cada sesión se puede **borrar** desde su detalle. Si paras la sesión con **STO
 
 > El **entrenamiento libre** no guarda resultados: es una sesión abierta de tiempos por carril.
 
-## 14. Ajustes
+## 15. Ajustes
 ![img: 04-settings.png]
 
 - **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth (se conecta por **BLE directo** por defecto; queda **TCP** en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.
@@ -252,7 +279,7 @@ Cada sesión se puede **borrar** desde su detalle. Si paras la sesión con **STO
 
 **Historial de versiones.** En el **pie de todas las páginas** ves el número de **versión** de PitWall. Al pulsarlo se abre el **Historial de versiones** (`/changelog`), con lo **Añadido**, **Mejorado** y **Corregido** en cada actualización. La versión **sube con cada actualización**, así siempre sabes qué PitWall tienes y qué ha cambiado.
 
-## 15. Seguimiento público por internet
+## 16. Seguimiento público por internet
 ![img: op-seguimiento-publico.png]
 
 Por defecto las vistas de PitWall (el **directo**, los **Resultados** y **PitWall Lap**) solo se ven en la **red local**. Con el **Seguimiento público por internet** cada club puede **publicarlas en internet** para que pilotos y público sigan la carrera **desde fuera del local**, sin abrir puertos ni montar una VPN: PitWall levanta un **túnel Cloudflare propio** del club.
@@ -268,7 +295,7 @@ Está en **Ajustes → Seguimiento público por internet**. Hay **dos modos**:
 
 > **Seguridad.** Desde fuera **solo se ven las vistas públicas** (directo, resultados y PitWall Lap). El **control de la app** (crear, dirigir o editar carreras) **queda bloqueado**: nadie de fuera puede tocar la carrera.
 
-## 16. Glosario (operación)
+## 17. Glosario (operación)
 - **Carrera**: el evento completo. Se compone de tandas.
 - **Tanda**: grupo de participantes con su rotación; se compone de mangas.
 - **Manga**: una tirada cronometrada (todos los carriles a la vez) de una duración.

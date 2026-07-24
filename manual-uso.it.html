@@ -67,6 +67,7 @@
       <li><a href="#lap">PitWall Lap — PIN per le squadre</a></li>
       <li><a href="#vivo">Dirigere la gara in diretta</a></li>
       <li><a href="#turnos">Controllo dei turni di pilota</a></li>
+      <li><a href="#neumaticos">Controllo delle gomme di endurance</a></li>
       <li><a href="#correcciones">Giro per giro e correzioni</a></li>
       <li><a href="#resultados">Risultati ed esportazioni</a></li>
       <li><a href="#entrenamiento">Allenamento</a></li>
@@ -237,6 +238,13 @@
       <h3>Riposi</h3>
       <p>Se ci sono <b>più partecipanti che corsie</b>, la sequenza include spazi vuoti (<span class="mono">0</span> / <span class="mono">DSC</span>) che sono <b>riposi</b>: in quella manche quel partecipante non corre. PitWall li distribuisce in modo equilibrato, ma <b>puoi anche collocarli dove vuoi</b> all'interno della rotazione (trascinali nella posizione che preferisci).</p>
 
+      <h3>Corsie vuote (meno partecipanti che corsie)</h3>
+      <p>Non serve riempire tutte le corsie: puoi creare una manche con <b>meno partecipanti che corsie</b> (ne basta <b>uno</b>). Le corsie in più restano libere, <b>senza auto fantasma</b> che compaia nei giri o nella classifica. Alla creazione della manche scegli cosa farne:</p>
+      <ul>
+        <li><b>Restano vuote le ultime</b> (predefinito): le corsie con il <b>numero più alto</b> restano vuote per tutta la gara; nessuno ci corre.</li>
+        <li><b>Il vuoto ruota</b>: la corsia (o le corsie) libera <b>ruota di manche in manche</b>, così tutti i partecipanti finiscono per passare dalle stesse corsie e la pista resta equa come con la griglia completa.</li>
+      </ul>
+
       <h3>Con passate / ripeti corsia</h3>
       <ul>
         <li><i>2 passate</i> → l'intera sequenza si ripete: <span class="mono">1,3,5,6,4,2, 1,3,5,6,4,2</span>.</li>
@@ -260,6 +268,9 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>Caso tipico: <b>importi una tanda da PitWall Control</b> (che arriva in modalità manuale) e poi la <b>modifichi per assegnarle lo scenario</b> del tuo club, così eredita corsie, sequenza e tempo minimo della tua pista.</div>
       </div>
+      <ul>
+        <li><b>Regole di endurance (turni e gomme) ("Reglas de resistencia")</b> — in una gara di <b>endurance</b>, e <b>finché non è stata corsa nessuna manche</b>, Modifica gara ti lascia regolare anche le <b>regole dei turni per pilota</b> (minimo e massimo per pilota, numero massimo di turni e il blocco di fine manche) e le <b>gomme per squadra</b> (la dotazione con cui parte il controllo gomme) — gli stessi campi che hai fissato nella procedura guidata al momento di creare la gara. Così puoi correggere un numero senza rifare tutta la gara. Appena viene corsa la <b>prima manche</b>, quei campi si <b>bloccano</b> (attenuati, con un lucchetto 🔒) per non scompaginare ciò che è già stato corso; il <b>nome</b> e lo <b>scenario</b> mantengono le loro regole di sempre. Se imposti un <b>massimo per pilota inferiore al minimo</b>, PitWall ti avvisa.</li>
+      </ul>
       <ul>
         <li><b>Modifica tanda ("Editar tanda")</b> — cambiare i <b>nomi</b> dei partecipanti e, se la tanda non è ancora iniziata, la sua composizione. Se ha già manche avviate, entra in <b>modalità solo rinomina</b> (non si aggiungono né si tolgono partecipanti, per non scompaginare la rotazione).</li>
       </ul>
@@ -352,7 +363,7 @@
         <li>Al termine (bandiera o fine tempo), la manche si chiude e si prepara la <b>successiva</b>.</li>
         <li>Terminate tutte le manche di una tanda, parte la <b>tanda successiva</b>.</li>
       </ol>
-      <p><b>Scegliere la vista.</b> Con il pulsante <b>Vista</b> cambi il layout in base alle corsie: <i>Righe orizzontali</i> (poche corsie), <i>Griglia compatta</i> (molte) o <i>Schede con dettagli</i> (con giri/uscite/pit/Δ per scheda).</p>
+      <p><b>Scegliere la vista.</b> Con il pulsante <b>Vista</b> cambi il layout in base alle corsie: <i>Righe orizzontali</i> (poche corsie), <i>Griglia compatta</i> (molte) o <i>Schede con dettagli</i> (con giri/uscite/pit/gomme/Δ per scheda).</p>
       <p><b>Distanza dal leader e stima provvisoria.</b> Nelle schermate di classifica (<b>Le Mans</b> e <b>statistiche in diretta</b>) la distanza dal leader viene data <b>con la virgola</b> e il suo equivalente <b>in secondi</b> —<i>"a 2,8 v (35,5")"</i>, cioè a 2,8 giri, ovvero 35,5 secondi—, non arrotondata a giri interi. E se una stima porta un <b>asterisco arancione</b>, quella squadra è ancora nella sua <b>prima manche</b> senza aver superato il <b>60 %</b>: il suo riferimento non è fissato e la cifra può ancora muoversi. Tutto questo è spiegato in dettaglio nel <i>Manuale di statistiche</i>.</p>
 
       <h3>Cambiare tanda, ripetere una manche e finalizzare</h3>
@@ -389,8 +400,31 @@
       </div>
     </section>
 
-    <section id="correcciones">
+    <section id="neumaticos">
       <div class="num">// 11</div>
+      <h2>Controllo delle gomme di endurance</h2>
+      <p>In una gara di <b>endurance</b> puoi tenere il conto dei <b>treni di gomme</b> che ogni squadra consuma. La dotazione —i treni con cui <b>tutti</b> partono— si fissa quando crei la gara (assistente, passo 1, campo <b>«Gomme per squadra»</b>). Con <b>0</b> il controllo è spento e tutto funziona come prima.</p>
+      <p>Si apre in <b>due modi</b>:</p>
+      <ul>
+        <li>Dalla gara, con il pulsante <b>🛞 Gomme</b> (appare solo in endurance e con una dotazione maggiore di 0).</li>
+        <li>Come <b>chiosco</b> su <span class="mono">/control/tires</span> (con la sua scheda nella schermata iniziale), che <b>rileva da solo</b> la gara di endurance in corso —come il chiosco dei turni—. Ideale da lasciare aperto su un tablet accanto al box.</li>
+      </ul>
+      <p>La schermata è una <b>griglia con tutte le squadre</b>. Ogni riquadro mostra il nome della squadra e due numeri: <b>Disponibili</b> e <b>Usati</b>.</p>
+      <ul>
+        <li><b>Un clic sul riquadro = consegnare un treno</b>: i disponibili scendono di uno, gli usati salgono di uno, e resta <b>annotato in quale manche e a quale minuto:secondo di gara</b> è stato fatto il cambio (marcato con la manche in corso e il suo cronometro; se in quel momento non ce n'è nessuna in corso, si salva senza tempo).</li>
+        <li>La <b>matita</b> di ogni riquadro apre lo <b>storico</b> di quella squadra, dove puoi <b>eliminare</b> una voce (il treno torna ai Disponibili), <b>modificare</b> la sua manche e il suo tempo (mm:ss) o <b>aggiungerne una a mano</b> (manche, tempo e una nota).</li>
+      </ul>
+      <p>I contatori <b>non sono salvati grezzi</b>: sono <b>derivati</b> dalle voci (dotazione meno consegne), quindi annullare non lascia mai squilibri. Se una squadra supera la sua quota, i suoi <b>Disponibili</b> possono andare in <b>negativo e in rosso</b> —pensato per quando dai un treno extra fuori dotazione.</p>
+      <p>Nell'intestazione, accanto alla dotazione, il pulsante <b>🗒️ Storico dei cambi</b> apre —in una <b>nuova scheda</b>— una <b>pagina</b> con il <b>registro globale di tutta la gara</b> (non quello di una sola squadra). È presentato come una <b>tabella a colonne</b> (fino a <b>tre colonne</b>) che sfrutta la larghezza dello schermo per vederlo quasi <b>senza scorrere</b>. I cambi sono <b>raggruppati per manche</b>: sono elencate <b>tutte le manche</b>, e quelle senza alcun cambio restano comunque marcate <b>«— nessun cambio di gomme —»</b>. In ogni manche, ogni consegna mostra la <b>squadra</b> (con il suo punto colorato e il nome), <b>quale numero di treno</b> era per quella squadra (<b>treno N della dotazione</b>, contato in ordine cronologico —1, 2, 3…—, in <b>rosso</b> se ha superato la quota) e il <b>minuto:secondo di gara</b>. I cambi senza manche assegnata vanno in un gruppo <b>«Senza manche»</b> alla fine. È in <b>sola lettura</b> —per eliminare, modificare o aggiungere a mano si usa sempre la matita di ogni squadra— e si <b>aggiorna in diretta</b> mentre si consegnano gomme.</p>
+      <p><b>Nella vista in diretta</b>, ogni scheda di squadra mostra un indicatore <b>🛞 con il numero di treni di gomme usati</b>, accanto agli avvisi di <b>uscite (⚠️)</b> e <b>pit-stop (🔧)</b>. Si <b>aggiorna all'istante</b> —senza ricaricare— non appena registri un cambio nel controllo gomme, e <b>lampeggia</b> quando il numero aumenta. Appare solo nelle gare di <b>endurance con controllo gomme</b>, e funziona sia con la manche <b>in corso</b> sia <b>in attesa</b>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Tutto si sincronizza all'istante tra le schermate aperte, e l'indicatore <b>manche:tempo</b> batte al ritmo della gara.</div>
+      </div>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 12</div>
       <h2>Giro per giro e correzioni (aggiungere / togliere giri)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Giro per giro · Correzioni</span></div>
@@ -421,7 +455,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Risultati ed esportazioni</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Risultati · Comparativa</span></div>
@@ -445,7 +479,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Allenamento</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Allenamento</span></div>
@@ -472,7 +506,7 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Impostazioni</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Impostazioni</span></div>
@@ -492,7 +526,7 @@
     </section>
 
     <section id="publico">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Seguito pubblico su internet</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Impostazioni · Seguito pubblico su internet</span></div>
@@ -514,7 +548,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Glossario (operazione)</h2>
       <ul>
         <li><b>Gara</b>: l'evento completo. Si compone di tande.</li>
