@@ -68,6 +68,7 @@
       <li><a href="#vivo">Diriger la course en direct</a></li>
       <li><a href="#turnos">Contrôle des relais de pilote</a></li>
       <li><a href="#neumaticos">Contrôle des pneus d'endurance</a></li>
+      <li><a href="#verificaciones">Vérifications techniques de PitWall Control</a></li>
       <li><a href="#correcciones">Tour par tour et corrections</a></li>
       <li><a href="#resultados">Résultats et exports</a></li>
       <li><a href="#entrenamiento">Entraînement</a></li>
@@ -213,6 +214,10 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div><b>Prérequis :</b> pour l'envoi par réseau, PitWall et PitWall Control doivent être sur le <b>même</b> réseau LAN/Wi-Fi. Le PIN d'appairage s'affiche dans <b>Importer une série</b> de PitWall. L'autre moitié du pont —<b>récupérer les résultats</b> vers Control— est expliquée dans le <a class="inl" href="manual-control.fr.html">manuel de PitWall Control</a>.</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Connexion écosystème.</b> Tout le pont réseau avec PitWall Control —envoi des séries et récupération des résultats— peut être <b>autorisé ou bloqué</b> d'un coup depuis <b>Système → Connexion écosystème</b>, sur l'écran d'accueil. Il est <b>activé</b> par défaut ; si tu le désactives, tout PitWall Control du réseau est rejeté (même avec le bon PIN) jusqu'à ce que tu le réactives. Le PIN d'appairage y est aussi consultable.</div>
       </div>
     </section>
 
@@ -423,8 +428,24 @@
       </div>
     </section>
 
-    <section id="correcciones">
+    <section id="verificaciones">
       <div class="num">// 12</div>
+      <h2>Vérifications techniques de PitWall Control</h2>
+      <p>Si le club fait passer la <b>vérification technique</b> des voitures avec <b>PitWall Control</b>, ce résultat peut aussi arriver jusqu'à PitWall —par le même pont réseau que les séries, avec le même PIN et le même interrupteur <b>Connexion écosystème</b> (voir <i>Importer une série de PitWall Control</i>).</p>
+      <p>Manche par manche, Control envoie l'<b>instantané</b> de ce qui a été vérifié par équipe : <b>poids</b> (initial, final et minimum de la voiture), <b>moteur</b> (type, tours/min, ums), <b>pignon/couronne</b> (marque, dents, diamètre, matériau), <b>jantes</b> avant et arrière, <b>tresse</b>, <b>suspension</b>, <b>châssis-base</b>, <b>châssis</b>, <b>pneu</b>, si c'est <b>validé</b> ou non, et <b>observations</b> —avec photos, s'il y en a.</p>
+      <p><b>Comment ça s'affiche dans PitWall.</b> Dès que le premier envoi arrive, la page de la course affiche le bouton <b>🔍 Vérifications</b>, qui ouvre un écran avec toutes les vérifications <b>regroupées par manche</b>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Consultation uniquement.</b> Dans PitWall on n'édite ni ne crée aucune vérification : tout se fait depuis PitWall Control. Chaque nouvel envoi <b>remplace entièrement</b> les vérifications de cette course (les envois ne s'additionnent pas).</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Vers quelle course elles vont.</b> Si Control indique explicitement la course, PitWall y associe les vérifications. Sinon, il cherche une course existante avec le <b>nom exact</b> de l'épreuve ; si aucune correspondance n'est trouvée non plus, il <b>crée automatiquement</b> une course minimale pour que les vérifications aient où vivre —le même comportement que pour l'import d'une série.</div>
+      </div>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 13</div>
       <h2>Tour par tour et corrections (ajouter / retirer des tours)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Tour par tour · Corrections</span></div>
@@ -455,7 +476,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Résultats et exports</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Résultats · Comparatif</span></div>
@@ -479,7 +500,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Entraînement</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entraînement</span></div>
@@ -506,7 +527,7 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Réglages</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Réglages</span></div>
@@ -526,7 +547,7 @@
     </section>
 
     <section id="publico">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Suivi public par internet</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Réglages · Suivi public par internet</span></div>
@@ -548,7 +569,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 17</div>
+      <div class="num">// 18</div>
       <h2>Glossaire (opération)</h2>
       <ul>
         <li><b>Course</b> : l'événement complet. Il se compose de séries.</li>

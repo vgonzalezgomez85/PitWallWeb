@@ -87,6 +87,8 @@ Entra en **Carreras → Importar tanda**. Hay **dos formas** de traer la prueba:
 
 > **Requisito:** para el envío por red, PitWall y PitWall Control deben estar en la **misma red** LAN/WiFi. El PIN de emparejamiento se ve en **Importar tanda** de PitWall. La otra mitad del puente —**traer los resultados** de vuelta a Control— se explica en el *Manual de PitWall Control*.
 
+> **Conexión ecosistema.** Todo el puente con PitWall Control por red —enviar tandas y traer resultados— se puede **permitir o bloquear** de golpe desde **Sistema → Conexión ecosistema**, en la pantalla de inicio. Viene **activado** de fábrica; si lo apagas, cualquier PitWall Control de la red queda rechazado (aunque el PIN sea correcto) hasta que lo vuelvas a activar. Ahí mismo puedes consultar también el PIN de emparejamiento.
+
 ## 5. Tandas, participantes y rotación
 ![img: 34-tanda.png]
 
@@ -217,7 +219,19 @@ En la cabecera, junto a la dotación, el botón **🗒️ Historial de cambios**
 
 > Todo se sincroniza al instante entre las pantallas abiertas, y el indicador de **manga:tiempo** late con la carrera.
 
-## 12. Vuelta a vuelta y correcciones (añadir / quitar vueltas)
+## 12. Verificaciones técnicas de PitWall Control
+
+Si el club pasa la **verificación técnica** de los coches con **PitWall Control**, ese resultado también puede llegar a PitWall — por el mismo puente de red que las tandas, con el mismo PIN y el mismo interruptor de **Conexión ecosistema** (ver *Importar una tanda de PitWall Control*).
+
+Manga a manga, Control envía el **snapshot** de lo que tiene verificado por equipo: **pesos** (inicial, final y mínimo del coche), **motor** (tipo, rpm, ums), **piñón/corona** (marca, dientes, diámetro, material), **llantas** delantera y trasera, **trencilla**, **suspensión**, **bancada**, **chasis**, **neumático**, si quedó **validado** o no, y **observaciones** —con sus fotos, si las hay.
+
+**Cómo se ve en PitWall.** En cuanto llega el primer envío, la página de la carrera muestra el botón **🔍 Verificaciones**, que lleva a una pantalla con todas las verificaciones **agrupadas por manga**.
+
+> **Solo consulta.** En PitWall no se edita ni se da de alta ninguna verificación: todo se hace desde PitWall Control. Cada envío nuevo **sustituye por completo** las verificaciones de esa carrera (no se van sumando entregas sueltas).
+
+> **A qué carrera van.** Si Control indica explícitamente la carrera, PitWall las asocia a esa. Si no, busca una carrera existente con el **nombre exacto** de la prueba; si tampoco encuentra coincidencia, **crea automáticamente** una carrera mínima para que las verificaciones tengan dónde vivir —el mismo comportamiento que al importar una tanda.
+
+## 13. Vuelta a vuelta y correcciones (añadir / quitar vueltas)
 ![img: 30-correcciones.png]
 
 Desde la carrera (botón de **corrección de vueltas** en el directo o en resultados) entras al **vuelta a vuelta** de cada manga. Sirve para arreglar lecturas mal registradas.
@@ -234,7 +248,7 @@ Desde la carrera (botón de **corrección de vueltas** en el directo o en result
 
 > **Vueltas fantasma automáticas.** Una vuelta por debajo del **Pt** (tiempo mínimo) se marca como **fantasma** y el carril que la generó **nunca** la cuenta. PitWall ya no la reasigna a ojo: la **retiene** y solo se la asigna al carril que **confirma** haberse saltado un cruce (cuando ese carril pasa con una vuelta de ~el doble de su media). Si nadie lo confirma, se queda aquí como **fantasma** para que la revises a mano.
 
-## 13. Resultados y exports
+## 14. Resultados y exports
 ![img: 10-results-comparativa.png]
 
 Al terminar (o en cualquier momento) entra en **Resultados**:
@@ -247,7 +261,7 @@ Al terminar (o en cualquier momento) entra en **Resultados**:
 
 ![img: op-resultados-publicos.png]
 
-## 14. Entrenamiento
+## 15. Entrenamiento
 ![img: 40-training.png]
 
 Además de las carreras, PitWall tiene un modo **Entrenamiento** (desde la pantalla de inicio) para rodar sin montar una competición completa. Hay dos modalidades:
@@ -268,7 +282,7 @@ Cada sesión se puede **borrar** desde su detalle. Si paras la sesión con **STO
 
 > El **entrenamiento libre** no guarda resultados: es una sesión abierta de tiempos por carril.
 
-## 15. Ajustes
+## 16. Ajustes
 ![img: 04-settings.png]
 
 - **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth (se conecta por **BLE directo** por defecto; queda **TCP** en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.
@@ -279,7 +293,7 @@ Cada sesión se puede **borrar** desde su detalle. Si paras la sesión con **STO
 
 **Historial de versiones.** En el **pie de todas las páginas** ves el número de **versión** de PitWall. Al pulsarlo se abre el **Historial de versiones** (`/changelog`), con lo **Añadido**, **Mejorado** y **Corregido** en cada actualización. La versión **sube con cada actualización**, así siempre sabes qué PitWall tienes y qué ha cambiado.
 
-## 16. Seguimiento público por internet
+## 17. Seguimiento público por internet
 ![img: op-seguimiento-publico.png]
 
 Por defecto las vistas de PitWall (el **directo**, los **Resultados** y **PitWall Lap**) solo se ven en la **red local**. Con el **Seguimiento público por internet** cada club puede **publicarlas en internet** para que pilotos y público sigan la carrera **desde fuera del local**, sin abrir puertos ni montar una VPN: PitWall levanta un **túnel Cloudflare propio** del club.
@@ -295,7 +309,7 @@ Está en **Ajustes → Seguimiento público por internet**. Hay **dos modos**:
 
 > **Seguridad.** Desde fuera **solo se ven las vistas públicas** (directo, resultados y PitWall Lap). El **control de la app** (crear, dirigir o editar carreras) **queda bloqueado**: nadie de fuera puede tocar la carrera.
 
-## 17. Glosario (operación)
+## 18. Glosario (operación)
 - **Carrera**: el evento completo. Se compone de tandas.
 - **Tanda**: grupo de participantes con su rotación; se compone de mangas.
 - **Manga**: una tirada cronometrada (todos los carriles a la vez) de una duración.

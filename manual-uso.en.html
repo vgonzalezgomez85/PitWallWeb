@@ -68,6 +68,7 @@
       <li><a href="#vivo">Running the race live</a></li>
       <li><a href="#turnos">Driver shift control</a></li>
       <li><a href="#neumaticos">Endurance tyre control</a></li>
+      <li><a href="#verificaciones">Technical inspection from PitWall Control</a></li>
       <li><a href="#correcciones">Lap by lap and corrections</a></li>
       <li><a href="#resultados">Results and exports</a></li>
       <li><a href="#entrenamiento">Training</a></li>
@@ -213,6 +214,10 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div><b>Requirement:</b> for the network send, PitWall and PitWall Control must be on the <b>same</b> LAN/WiFi network. The pairing PIN is shown in PitWall's <b>Import batch</b>. The other half of the bridge —<b>bringing the results</b> back to Control— is explained in the <a class="inl" href="manual-control.en.html">PitWall Control manual</a>.</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Ecosystem connection.</b> The whole network bridge with PitWall Control —sending batches and bringing back results— can be <b>allowed or blocked</b> all at once from <b>System → Ecosystem connection</b>, on the home screen. It's <b>enabled</b> by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.</div>
       </div>
     </section>
 
@@ -423,8 +428,24 @@
       </div>
     </section>
 
-    <section id="correcciones">
+    <section id="verificaciones">
       <div class="num">// 12</div>
+      <h2>Technical inspection from PitWall Control</h2>
+      <p>If your club runs <b>technical inspection</b> of the cars through <b>PitWall Control</b>, those results can also reach PitWall —over the same network bridge as batches, with the same PIN and the same <b>Ecosystem connection</b> switch (see <i>Importing a batch from PitWall Control</i>).</p>
+      <p>Heat by heat, Control sends the <b>snapshot</b> of what it has inspected per team: <b>weights</b> (starting, final and minimum car weight), <b>motor</b> (type, rpm, ums), <b>pinion/crown gear</b> (make, teeth, diameter, material), front and rear <b>wheels</b>, <b>braid</b>, <b>suspension</b>, <b>chassis bed</b>, <b>chassis</b>, <b>tyre</b>, whether it was <b>passed</b> or not, and <b>notes</b> —with photos, if any.</p>
+      <p><b>How it looks in PitWall.</b> As soon as the first submission arrives, the race page shows a <b>🔍 Inspections</b> button, which opens a screen with every inspection <b>grouped by heat</b>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Read-only.</b> PitWall never edits or creates an inspection: everything is done from PitWall Control. Every new submission <b>fully replaces</b> that race's inspections (there's no accumulating separate hand-outs).</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Which race it lands on.</b> If Control specifies the race explicitly, PitWall attaches the inspections to that one. Otherwise it looks for an existing race with the <b>exact same name</b>; if there's still no match, it <b>automatically creates</b> a minimal race for the inspections to live in —the same behaviour as importing a batch.</div>
+      </div>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 13</div>
       <h2>Lap by lap and corrections (add / remove laps)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Lap by lap · Corrections</span></div>
@@ -455,7 +476,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Results and exports</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Results · Comparison</span></div>
@@ -479,7 +500,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Training</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Training</span></div>
@@ -506,7 +527,7 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Settings</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings</span></div>
@@ -526,7 +547,7 @@
     </section>
 
     <section id="publico">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Public tracking over the internet</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings · Public tracking over the internet</span></div>
@@ -548,7 +569,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 17</div>
+      <div class="num">// 18</div>
       <h2>Glossary (operation)</h2>
       <ul>
         <li><b>Race</b>: the complete event. Made up of batches.</li>

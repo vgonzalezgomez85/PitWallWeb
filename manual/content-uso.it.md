@@ -87,6 +87,8 @@ Entra in **Gare → Importa tanda**. Ci sono **due modi** per portare la prova:
 
 > **Requisito:** per l'invio via rete, PitWall e PitWall Control devono trovarsi sulla **stessa rete** LAN/WiFi. Il PIN di abbinamento è mostrato in **Importa tanda** di PitWall. L'altra metà del ponte —**riportare i risultati** verso Control— è spiegata nel *Manuale di PitWall Control*.
 
+> **Connessione ecosistema.** L'intero ponte di rete con PitWall Control —invio delle tande e recupero dei risultati— si può **permettere o bloccare** in blocco da **Sistema → Connessione ecosistema**, nella schermata iniziale. È **attiva** di default; se la disattivi, qualsiasi PitWall Control della rete viene rifiutato (anche con il PIN corretto) finché non la riattivi. Da lì puoi anche consultare il PIN di abbinamento.
+
 ## 5. Tande, partecipanti e rotazione
 ![img: 34-tanda.png]
 
@@ -217,7 +219,19 @@ Nell'intestazione, accanto alla dotazione, il pulsante **🗒️ Storico dei cam
 
 > Tutto si sincronizza all'istante tra le schermate aperte, e l'indicatore **manche:tempo** batte al ritmo della gara.
 
-## 12. Giro per giro e correzioni (aggiungere / togliere giri)
+## 12. Verifiche tecniche di PitWall Control
+
+Se il club fa passare la **verifica tecnica** delle vetture con **PitWall Control**, quel risultato può arrivare anche a PitWall — attraverso lo stesso ponte di rete delle tande, con lo stesso PIN e lo stesso interruttore **Connessione ecosistema** (vedi *Importare una tanda da PitWall Control*).
+
+Manche dopo manche, Control invia lo **snapshot** di ciò che ha verificato per squadra: **pesi** (iniziale, finale e minimo della vettura), **motore** (tipo, rpm, ums), **pignone/corona** (marca, denti, diametro, materiale), **cerchi** anteriore e posteriore, **treccia**, **sospensione**, **basamento**, **telaio**, **gomma**, se è risultato **validato** o no, e **osservazioni** —con foto, se presenti.
+
+**Come si vede in PitWall.** Non appena arriva il primo invio, la pagina della gara mostra il pulsante **🔍 Verifiche**, che apre una schermata con tutte le verifiche **raggruppate per manche**.
+
+> **Sola consultazione.** In PitWall non si modifica né si crea alcuna verifica: tutto avviene da PitWall Control. Ogni nuovo invio **sostituisce completamente** le verifiche di quella gara (gli invii non si sommano tra loro).
+
+> **A quale gara vanno.** Se Control indica esplicitamente la gara, PitWall associa a quella le verifiche. In caso contrario cerca una gara esistente con il **nome esatto** della prova; se non trova corrispondenza nemmeno così, **crea automaticamente** una gara minima perché le verifiche abbiano dove stare — lo stesso comportamento dell'importazione di una tanda.
+
+## 13. Giro per giro e correzioni (aggiungere / togliere giri)
 ![img: 30-correcciones.png]
 
 Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) entri nel **giro per giro** di ogni manche. Serve a sistemare le letture registrate male.
@@ -234,7 +248,7 @@ Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) e
 
 > **Giri fantasma automatici.** Un giro al di sotto del **Pt** (tempo minimo) viene segnato come **fantasma** e la corsia che lo ha generato non lo conta **mai**. PitWall non lo riassegna più a occhio: lo **trattiene** e lo assegna solo alla corsia che **conferma** di aver saltato un passaggio (quando quella corsia passa con un giro di ~il doppio della sua media). Se nessuno lo conferma, resta qui come **fantasma** perché tu lo riveda a mano.
 
-## 13. Risultati ed esportazioni
+## 14. Risultati ed esportazioni
 ![img: 10-results-comparativa.png]
 
 Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
@@ -247,7 +261,7 @@ Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
 
 ![img: op-resultados-publicos.png]
 
-## 14. Allenamento
+## 15. Allenamento
 ![img: 40-training.png]
 
 Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** (dalla schermata iniziale) per girare senza allestire una competizione completa. Ci sono due modalità:
@@ -268,7 +282,7 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 
 > L'**allenamento libero** non salva risultati: è una sessione aperta di tempi per corsia.
 
-## 15. Impostazioni
+## 16. Impostazioni
 ![img: 04-settings.png]
 
 - **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.
@@ -279,7 +293,7 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 
 **Cronologia delle versioni.** Nel **piè di pagina di tutte le pagine** vedi il numero di **versione** di PitWall. Premendolo si apre la **Cronologia delle versioni** (`/changelog`), con ciò che è stato **Aggiunto**, **Migliorato** e **Corretto** in ogni aggiornamento. La versione **sale a ogni aggiornamento**, così sai sempre quale PitWall hai e cosa è cambiato.
 
-## 16. Seguito pubblico su internet
+## 17. Seguito pubblico su internet
 ![img: op-seguimiento-publico.png]
 
 Per impostazione predefinita le viste di PitWall (la **diretta**, i **Risultati** e **PitWall Lap**) sono visibili solo sulla **rete locale**. Con il **Seguito pubblico su internet** ogni club può **pubblicarle su internet** affinché piloti e pubblico seguano la gara **da fuori della sede**, senza aprire porte né configurare una VPN: PitWall attiva un **tunnel Cloudflare proprio** del club.
@@ -295,7 +309,7 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 
 > **Sicurezza.** Da fuori **si vedono solo le viste pubbliche** (diretta, risultati e PitWall Lap). Il **controllo dell'app** (creare, dirigere o modificare gare) **resta bloccato**: nessuno da fuori può toccare la gara.
 
-## 17. Glossario (operazione)
+## 18. Glossario (operazione)
 - **Gara**: l'evento completo. Si compone di tande.
 - **Tanda**: gruppo di partecipanti con la sua rotazione; si compone di manche.
 - **Manche**: una tornata cronometrata (tutte le corsie insieme) di una certa durata.

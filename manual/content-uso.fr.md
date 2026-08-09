@@ -87,6 +87,8 @@ Entre dans **Courses → Importer une série (« Importar tanda »)**. Il y a **
 
 > **Prérequis :** pour l'envoi par réseau, PitWall et PitWall Control doivent être sur le **même réseau** LAN/Wi-Fi. Le PIN d'appairage s'affiche dans **Importer une série** de PitWall. L'autre moitié du pont —**récupérer les résultats** vers Control— est expliquée dans le *Manuel de PitWall Control*.
 
+> **Connexion écosystème.** Tout le pont réseau avec PitWall Control —envoi des séries et récupération des résultats— peut être **autorisé ou bloqué** d'un coup depuis **Système → Connexion écosystème**, sur l'écran d'accueil. Il est **activé** par défaut ; si tu le désactives, tout PitWall Control du réseau est rejeté (même avec le bon PIN) jusqu'à ce que tu le réactives. Le PIN d'appairage y est aussi consultable.
+
 ## 5. Séries, participants et rotation
 ![img: 34-tanda.png]
 
@@ -217,7 +219,19 @@ Dans l'en-tête, à côté de la dotation, le bouton **🗒️ Historique des ch
 
 > Tout se synchronise à l'instant entre les écrans ouverts, et l'indicateur **manche:temps** bat au rythme de la course.
 
-## 12. Tour par tour et corrections (ajouter / retirer des tours)
+## 12. Vérifications techniques de PitWall Control
+
+Si le club fait passer la **vérification technique** des voitures avec **PitWall Control**, ce résultat peut aussi arriver jusqu'à PitWall — par le même pont réseau que les séries, avec le même PIN et le même interrupteur **Connexion écosystème** (voir *Importer une série de PitWall Control*).
+
+Manche par manche, Control envoie l'**instantané** de ce qui a été vérifié par équipe : **poids** (initial, final et minimum de la voiture), **moteur** (type, tours/min, ums), **pignon/couronne** (marque, dents, diamètre, matériau), **jantes** avant et arrière, **tresse**, **suspension**, **châssis-base**, **châssis**, **pneu**, si c'est **validé** ou non, et **observations** —avec photos, s'il y en a.
+
+**Comment ça s'affiche dans PitWall.** Dès que le premier envoi arrive, la page de la course affiche le bouton **🔍 Vérifications**, qui ouvre un écran avec toutes les vérifications **regroupées par manche**.
+
+> **Consultation uniquement.** Dans PitWall on n'édite ni ne crée aucune vérification : tout se fait depuis PitWall Control. Chaque nouvel envoi **remplace entièrement** les vérifications de cette course (les envois ne s'additionnent pas).
+
+> **Vers quelle course elles vont.** Si Control indique explicitement la course, PitWall y associe les vérifications. Sinon, il cherche une course existante avec le **nom exact** de l'épreuve ; si aucune correspondance n'est trouvée non plus, il **crée automatiquement** une course minimale pour que les vérifications aient où vivre — le même comportement que pour l'import d'une série.
+
+## 13. Tour par tour et corrections (ajouter / retirer des tours)
 ![img: 30-correcciones.png]
 
 Depuis la course (bouton de **correction des tours** dans le direct ou dans les résultats), tu accèdes au **tour par tour** de chaque manche. Il sert à corriger les lectures mal enregistrées.
@@ -234,7 +248,7 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 > **Tours fantômes automatiques.** Un tour en dessous du **Pt** (temps minimum) est marqué comme **fantôme** et la voie qui l'a produit ne le compte **jamais**. PitWall ne le réattribue plus au jugé : il le **retient** et ne l'attribue qu'à la voie qui **confirme** avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en **fantôme** pour que tu le révises à la main.
 
-## 13. Résultats et exports
+## 14. Résultats et exports
 ![img: 10-results-comparativa.png]
 
 À la fin (ou à tout moment), entre dans **Résultats** :
@@ -247,7 +261,7 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 ![img: op-resultados-publicos.png]
 
-## 14. Entraînement
+## 15. Entraînement
 ![img: 40-training.png]
 
 En plus des courses, PitWall dispose d'un mode **Entraînement** (depuis l'écran d'accueil) pour rouler sans monter une compétition complète. Il y a deux modalités :
@@ -268,7 +282,7 @@ Chaque séance peut être **supprimée** depuis son détail. Si tu arrêtes la s
 
 > L'**entraînement libre** n'enregistre pas de résultats : c'est une séance ouverte de temps par voie.
 
-## 15. Réglages
+## 16. Réglages
 ![img: 04-settings.png]
 
 - **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth (il se connecte en **BLE direct** par défaut ; le **TCP** reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers.
@@ -279,7 +293,7 @@ Chaque séance peut être **supprimée** depuis son détail. Si tu arrêtes la s
 
 **Historique des versions.** Dans le **pied de toutes les pages**, tu vois le numéro de **version** de PitWall. En cliquant dessus, l'**Historique des versions** (`/changelog`) s'ouvre, avec ce qui a été **Ajouté**, **Amélioré** et **Corrigé** à chaque mise à jour. La version **augmente à chaque mise à jour**, ainsi tu sais toujours quel PitWall tu as et ce qui a changé.
 
-## 16. Suivi public par internet
+## 17. Suivi public par internet
 ![img: op-seguimiento-publico.png]
 
 Par défaut, les vues de PitWall (le **direct**, les **Résultats** et **PitWall Lap**) ne sont visibles que sur le **réseau local**. Avec le **Suivi public par internet**, chaque club peut les **publier sur internet** pour que pilotes et public suivent la course **depuis l'extérieur du local**, sans ouvrir de ports ni monter un VPN : PitWall crée un **tunnel Cloudflare propre** au club.
@@ -295,7 +309,7 @@ C'est dans **Réglages → Suivi public par internet**. Il y a **deux modes** :
 
 > **Sécurité.** Depuis l'extérieur, **seules les vues publiques sont visibles** (direct, résultats et PitWall Lap). Le **contrôle de l'app** (créer, diriger ou éditer des courses) **reste bloqué** : personne de l'extérieur ne peut toucher à la course.
 
-## 17. Glossaire (opération)
+## 18. Glossaire (opération)
 - **Course** : l'événement complet. Il se compose de séries.
 - **Série** : groupe de participants avec sa rotation ; elle se compose de manches.
 - **Manche** : une tirée chronométrée (toutes les voies en même temps) d'une durée donnée.

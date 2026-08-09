@@ -68,6 +68,7 @@
       <li><a href="#vivo">Dirigir la carrera en vivo</a></li>
       <li><a href="#turnos">Control de turnos de piloto</a></li>
       <li><a href="#neumaticos">Control de neumáticos de resistencia</a></li>
+      <li><a href="#verificaciones">Verificaciones técnicas de PitWall Control</a></li>
       <li><a href="#correcciones">Vuelta a vuelta y correcciones</a></li>
       <li><a href="#resultados">Resultados y exports</a></li>
       <li><a href="#entrenamiento">Entrenamiento</a></li>
@@ -213,6 +214,10 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div><b>Requisito:</b> para el envío por red, PitWall y PitWall Control deben estar en la <b>misma red</b> LAN/WiFi. El PIN de emparejamiento se ve en <b>Importar tanda</b> de PitWall. La otra mitad del puente —<b>traer los resultados</b> de vuelta a Control— se explica en el <a class="inl" href="manual-control.html">Manual de PitWall Control</a>.</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Conexión ecosistema.</b> Todo el puente con PitWall Control por red —enviar tandas y traer resultados— se puede <b>permitir o bloquear</b> de golpe desde <b>Sistema → Conexión ecosistema</b>, en la pantalla de inicio. Viene <b>activado</b> de fábrica; si lo apagas, cualquier PitWall Control de la red queda rechazado (aunque el PIN sea correcto) hasta que lo vuelvas a activar. Ahí mismo puedes consultar también el PIN de emparejamiento.</div>
       </div>
     </section>
 
@@ -423,8 +428,24 @@
       </div>
     </section>
 
-    <section id="correcciones">
+    <section id="verificaciones">
       <div class="num">// 12</div>
+      <h2>Verificaciones técnicas de PitWall Control</h2>
+      <p>Si el club pasa la <b>verificación técnica</b> de los coches con <b>PitWall Control</b>, ese resultado también puede llegar a PitWall —por el mismo puente de red que las tandas, con el mismo PIN y el mismo interruptor de <b>Conexión ecosistema</b> (ver <i>Importar una tanda de PitWall Control</i>).</p>
+      <p>Manga a manga, Control envía el <b>snapshot</b> de lo que tiene verificado por equipo: <b>pesos</b> (inicial, final y mínimo del coche), <b>motor</b> (tipo, rpm, ums), <b>piñón/corona</b> (marca, dientes, diámetro, material), <b>llantas</b> delantera y trasera, <b>trencilla</b>, <b>suspensión</b>, <b>bancada</b>, <b>chasis</b>, <b>neumático</b>, si quedó <b>validado</b> o no, y <b>observaciones</b> —con sus fotos, si las hay.</p>
+      <p><b>Cómo se ve en PitWall.</b> En cuanto llega el primer envío, la página de la carrera muestra el botón <b>🔍 Verificaciones</b>, que lleva a una pantalla con todas las verificaciones <b>agrupadas por manga</b>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Solo consulta.</b> En PitWall no se edita ni se da de alta ninguna verificación: todo se hace desde PitWall Control. Cada envío nuevo <b>sustituye por completo</b> las verificaciones de esa carrera (no se van sumando entregas sueltas).</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>A qué carrera van.</b> Si Control indica explícitamente la carrera, PitWall las asocia a esa. Si no, busca una carrera existente con el <b>nombre exacto</b> de la prueba; si tampoco encuentra coincidencia, <b>crea automáticamente</b> una carrera mínima para que las verificaciones tengan dónde vivir —el mismo comportamiento que al importar una tanda.</div>
+      </div>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 13</div>
       <h2>Vuelta a vuelta y correcciones (añadir / quitar vueltas)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Vuelta a vuelta · Correcciones</span></div>
@@ -455,7 +476,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Resultados y exports</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Resultados · Comparativa</span></div>
@@ -479,7 +500,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Entrenamiento</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entrenamiento</span></div>
@@ -506,7 +527,7 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Ajustes</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Ajustes</span></div>
@@ -526,7 +547,7 @@
     </section>
 
     <section id="publico">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Seguimiento público por internet</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Ajustes · Seguimiento público por internet</span></div>
@@ -548,7 +569,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 17</div>
+      <div class="num">// 18</div>
       <h2>Glosario (operación)</h2>
       <ul>
         <li><b>Carrera</b>: el evento completo. Se compone de tandas.</li>

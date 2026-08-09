@@ -87,6 +87,8 @@ Go into **Races → Import batch**. There are **two ways** to bring the event ov
 
 > **Requirement:** for the network send, PitWall and PitWall Control must be on the **same** LAN/WiFi network. The pairing PIN is shown in PitWall's **Import batch**. The other half of the bridge —**bringing the results** back to Control— is explained in the *PitWall Control manual*.
 
+> **Ecosystem connection.** The whole network bridge with PitWall Control —sending batches and bringing back results— can be **allowed or blocked** all at once from **System → Ecosystem connection**, on the home screen. It's **enabled** by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.
+
 ## 5. Batches, participants and rotation
 ![img: 34-tanda.png]
 
@@ -217,7 +219,19 @@ In the header, next to the allotment, the **🗒️ Change history** button open
 
 > Everything syncs instantly across open screens, and the **heat:time** indicator ticks along with the race.
 
-## 12. Lap by lap and corrections (add / remove laps)
+## 12. Technical inspection from PitWall Control
+
+If your club runs **technical inspection** of the cars through **PitWall Control**, those results can also reach PitWall — over the same network bridge as batches, with the same PIN and the same **Ecosystem connection** switch (see *Importing a batch from PitWall Control*).
+
+Heat by heat, Control sends the **snapshot** of what it has inspected per team: **weights** (starting, final and minimum car weight), **motor** (type, rpm, ums), **pinion/crown gear** (make, teeth, diameter, material), front and rear **wheels**, **braid**, **suspension**, **chassis bed**, **chassis**, **tyre**, whether it was **passed** or not, and **notes** —with photos, if any.
+
+**How it looks in PitWall.** As soon as the first submission arrives, the race page shows a **🔍 Inspections** button, which opens a screen with every inspection **grouped by heat**.
+
+> **Read-only.** PitWall never edits or creates an inspection: everything is done from PitWall Control. Every new submission **fully replaces** that race's inspections (there's no accumulating separate hand-outs).
+
+> **Which race it lands on.** If Control specifies the race explicitly, PitWall attaches the inspections to that one. Otherwise it looks for an existing race with the **exact same name**; if there's still no match, it **automatically creates** a minimal race for the inspections to live in — the same behaviour as importing a batch.
+
+## 13. Lap by lap and corrections (add / remove laps)
 ![img: 30-correcciones.png]
 
 From the race (the **lap correction** button in the live screen or in results) you enter the **lap by lap** of each heat. It serves to fix wrongly recorded readings.
@@ -234,7 +248,7 @@ From the race (the **lap correction** button in the live screen or in results) y
 
 > **Automatic ghost laps.** A lap below the **Pt** (minimum time) is marked as a **ghost** and the lane that produced it **never** counts it. PitWall no longer reassigns it by guessing: it **holds** it and only assigns it to the lane that **confirms** it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a **ghost** for you to review by hand.
 
-## 13. Results and exports
+## 14. Results and exports
 ![img: 10-results-comparativa.png]
 
 When it finishes (or at any time) go into **Results**:
@@ -247,7 +261,7 @@ When it finishes (or at any time) go into **Results**:
 
 ![img: op-resultados-publicos.png]
 
-## 14. Training
+## 15. Training
 ![img: 40-training.png]
 
 Besides races, PitWall has a **Training** mode (from the home screen) to run without setting up a full competition. There are two modes:
@@ -268,7 +282,7 @@ Each session can be **deleted** from its detail. If you stop the session with **
 
 > **Free training** does not save results: it's an open session of times per lane.
 
-## 15. Settings
+## 16. Settings
 ![img: 04-settings.png]
 
 - **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.
@@ -279,7 +293,7 @@ Each session can be **deleted** from its detail. If you stop the session with **
 
 **Version history.** In the **footer of every page** you see PitWall's **version** number. Pressing it opens the **Version history** (`/changelog`), with what was **Added**, **Improved** and **Fixed** in each update. The version **goes up with every update**, so you always know which PitWall you have and what has changed.
 
-## 16. Public tracking over the internet
+## 17. Public tracking over the internet
 ![img: op-seguimiento-publico.png]
 
 By default PitWall's views (the **live timing**, the **Results** and **PitWall Lap**) are only visible on the **local network**. With **Public tracking over the internet** each club can **publish them on the internet** so drivers and public can follow the race **from outside the venue**, without opening ports or setting up a VPN: PitWall brings up the club's **own Cloudflare tunnel**.
@@ -295,7 +309,7 @@ It's in **Settings → Public tracking over the internet**. There are **two mode
 
 > **Security.** From outside, **only the public views are visible** (live timing, results and PitWall Lap). The **app control** (creating, running or editing races) is **blocked**: no one from outside can touch the race.
 
-## 17. Glossary (operation)
+## 18. Glossary (operation)
 - **Race**: the complete event. Made up of batches.
 - **Batch**: group of participants with their rotation; made up of heats.
 - **Heat**: one timed run (all lanes at once) of a set duration.
