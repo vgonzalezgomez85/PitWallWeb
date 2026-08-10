@@ -66,6 +66,7 @@
       <li><a href="#pole">Pole (clasificación previa)</a></li>
       <li><a href="#lap">PitWall Lap — PIN para equipos</a></li>
       <li><a href="#vivo">Dirigir la carrera en vivo</a></li>
+      <li><a href="#sucesos">Sucesos de carrera</a></li>
       <li><a href="#turnos">Control de turnos de piloto</a></li>
       <li><a href="#neumaticos">Control de neumáticos de resistencia</a></li>
       <li><a href="#verificaciones">Verificaciones técnicas de PitWall Control</a></li>
@@ -299,8 +300,9 @@
       </figure>
       <p>La <b>pole</b> es una vuelta clasificatoria <b>antes</b> de la carrera para decidir el orden de salida. Es opcional; se activa al crear la carrera (<b>Pole</b>) y se lanza desde la página de la carrera → <b>Configurar Pole Position</b>.</p>
       <ul>
-        <li><b>Participantes</b>: aparecen todos los inscritos. El <b>orden de la lista</b> es el orden en que saldrán a hacer su vuelta; púlsalo con <b>🎲 Aleatorio</b> para barajarlo.</li>
+        <li><b>Participantes</b>: aparecen todos los inscritos en una <b>cuadrícula numerada</b> (1, 2, 3…) que se ajusta sola al ancho de la pantalla y rellena por columnas —coincidiendo con los grupos de circuito C1/C2/C3—. Ese orden es el orden en que saldrán a hacer su vuelta; puedes <b>arrastrar</b> cualquier participante a mano para cambiarlo, o pulsar <b>🎲 Aleatorio</b> para barajarlo entero.</li>
         <li><b>Carril de pole</b>: <b>todos</b> hacen su vuelta clasificatoria por el <b>mismo carril</b> (para que sea comparable). Elígelo con <b>−/+</b> o con <b>🎲 Aleatorio</b>.</li>
+        <li><b>Cambio automático de piloto</b>: interruptor junto a <b>Omitir 1er cruce</b>. Con la casilla activa, al terminar el intento de un piloto el botón <b>Siguiente piloto</b> hace una cuenta atrás de 3 segundos y avanza solo, sin esperar el clic manual. Es una preferencia del puesto de control (se guarda en el propio navegador), no de la carrera.</li>
         <li>Pulsa <b>Empezar Pole</b>: cada participante entra por turnos, da su vuelta y PitWall registra su mejor tiempo. En el cronometraje puedes activar <b>Omitir 1er cruce (out-lap)</b> para no contar la vuelta de lanzamiento.</li>
       </ul>
 
@@ -329,6 +331,10 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>La pole no puntúa en la carrera: solo decide <b>quién elige carril primero</b> y, con ello, la parrilla de salida de la primera manga.</div>
       </div>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <div><b>Los invitados pueden seguir la pole en directo.</b> El tablero de cronometraje de la pole —antes solo visible para quien la operaba— es accesible sin restricción de IP desde <b>Estadísticas en vivo</b>, y aparece una tarjeta nueva en la home de invitado mientras hay una pole en marcha. Es de <b>solo lectura</b>: se ocultan los controles (iniciar/parar/siguiente piloto) y se ve en tiempo real quién está en pista, el orden de salida y la clasificación provisional.</div>
+      </div>
     </section>
 
     <section id="lap">
@@ -340,6 +346,10 @@
         <figcaption>PitWall Lap · PINs: la dirección para el móvil y el PIN de cada equipo.</figcaption>
       </figure>
       <p><b>PitWall Lap</b> es la vista móvil para que cada <b>equipo/piloto</b> siga su propio cronometraje desde el teléfono (sus vueltas, cantadas por voz, y su posición). Para que entren solo a <i>su</i> panel se reparte un <b>PIN</b> por equipo.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Ya funciona durante la propia pole, no solo tras terminarla.</b> Los equipos (con su PIN) se crean al confirmar el asistente de la carrera, en vez de esperar a asignar los carriles al final de la pole. Así, cada equipo ve en su panel si le toca ahora, un cronómetro en vivo de su intento, sus vueltas y su mejor tiempo, con la voz cantando cada vuelta igual que en carrera; al terminar la pole, el panel pasa solo a mostrar su resultado (posición y tiempo).</div>
+      </div>
       <ul>
         <li>Entra en <b>PitWall Lap · PINs</b> de la carrera. Verás la dirección que los equipos abren en el móvil (p.ej. <span class="mono">http://&lt;IP-del-servidor&gt;:3000/lap/&lt;id&gt;</span>) y la tabla <b>EQUIPO → PIN</b>.</li>
         <li>Da a cada equipo <b>su PIN</b>. Al abrir la dirección e introducirlo, entran directamente a su panel.</li>
@@ -385,8 +395,19 @@
       </div>
     </section>
 
-    <section id="turnos">
+    <section id="sucesos">
       <div class="num">// 10</div>
+      <h2>Sucesos de carrera</h2>
+      <p>La página <b>🗒️ Sucesos</b> —accesible desde la ficha de la carrera y con un botón en la cabecera del directo— muestra, manga a manga, todo lo que va pasando durante la sesión en un formato fácil de leer: <b>GO</b> (también cuando se da en varias cajas por separado, circuito a circuito), <b>pausa y reanudado</b> por circuito, <b>fin de manga</b>, <b>cancelación</b>, <b>recuperación tras un corte</b>, <b>vueltas fantasma/ignoradas</b> y su <b>reasignación</b> al carril correcto, <b>salidas retroactivas</b> y los <b>fichajes de piloto</b> (QR, cambio en caliente o corrección manual).</p>
+      <p>Las mangas se muestran <b>compactadas por defecto</b> —solo la que está en marcha aparece abierta— y se despliegan con un clic en su cabecera. Un checkbox permite <b>ocultar los fichajes de piloto rutinarios</b> previos al GO cuando solo interesa el resto de sucesos.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Con la manga en marcha, la página va <b>sumando los sucesos nuevos según ocurren</b>, sin recargar. Es la forma de reconstruir, después de una carrera, qué pasó y cuándo, sin tirar de memoria.</div>
+      </div>
+    </section>
+
+    <section id="turnos">
+      <div class="num">// 11</div>
       <h2>Control de turnos de piloto (campeonatos)</h2>
       <p>En carreras de <b>campeonato por equipos</b> puedes obligar reglas de reparto de volante entre los pilotos de un equipo. Se definen al crear la carrera:</p>
       <ul>
@@ -406,7 +427,7 @@
     </section>
 
     <section id="neumaticos">
-      <div class="num">// 11</div>
+      <div class="num">// 12</div>
       <h2>Control de neumáticos de resistencia</h2>
       <p>En una carrera de <b>resistencia</b> puedes llevar la cuenta de los <b>juegos de neumáticos</b> que gasta cada equipo. La dotación —los juegos con los que <b>todos</b> parten— se fija al crear la carrera (asistente, paso 1, campo <b>«Neumáticos por equipo»</b>). Con <b>0</b> el control queda apagado y todo funciona como siempre.</p>
       <p>Se abre de <b>dos formas</b>:</p>
@@ -429,7 +450,7 @@
     </section>
 
     <section id="verificaciones">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Verificaciones técnicas de PitWall Control</h2>
       <p>Si el club pasa la <b>verificación técnica</b> de los coches con <b>PitWall Control</b>, ese resultado también puede llegar a PitWall —por el mismo puente de red que las tandas, con el mismo PIN y el mismo interruptor de <b>Conexión ecosistema</b> (ver <i>Importar una tanda de PitWall Control</i>).</p>
       <p>Manga a manga, Control envía el <b>snapshot</b> de lo que tiene verificado por equipo: <b>pesos</b> (inicial, final y mínimo del coche), <b>motor</b> (tipo, rpm, ums), <b>piñón/corona</b> (marca, dientes, diámetro, material), <b>llantas</b> delantera y trasera, <b>trencilla</b>, <b>suspensión</b>, <b>bancada</b>, <b>chasis</b>, <b>neumático</b>, si quedó <b>validado</b> o no, y <b>observaciones</b> —con sus fotos, si las hay.</p>
@@ -445,7 +466,7 @@
     </section>
 
     <section id="correcciones">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Vuelta a vuelta y correcciones (añadir / quitar vueltas)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Vuelta a vuelta · Correcciones</span></div>
@@ -476,7 +497,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Resultados y exports</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Resultados · Comparativa</span></div>
@@ -500,7 +521,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Entrenamiento</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entrenamiento</span></div>
@@ -527,7 +548,7 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Ajustes</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Ajustes</span></div>
@@ -547,7 +568,7 @@
     </section>
 
     <section id="publico">
-      <div class="num">// 17</div>
+      <div class="num">// 18</div>
       <h2>Seguimiento público por internet</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Ajustes · Seguimiento público por internet</span></div>
@@ -569,7 +590,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 18</div>
+      <div class="num">// 19</div>
       <h2>Glosario (operación)</h2>
       <ul>
         <li><b>Carrera</b>: el evento completo. Se compone de tandas.</li>
@@ -582,6 +603,7 @@
         <li><b>GO</b>: la señal de salida (de la caja DS-300) que arranca la manga.</li>
         <li><b>Vuelta fantasma</b>: vuelta marcada como no válida (no cuenta), restaurable.</li>
         <li><b>Pole</b>: sesión de clasificación previa (opcional); todos ruedan por el mismo carril y su mejor vuelta fija la parrilla de salida.</li>
+        <li><b>Sucesos</b>: página (🗒️) con el registro manga a manga de todo lo que pasa en la carrera —GO, pausas, fin de manga, vueltas fantasma, fichajes de piloto…—, en vivo.</li>
         <li><b>Entrenamiento libre</b>: modo para registrar vueltas por carril sin equipos ni rotación (sesión abierta).</li>
         <li><b>PitWall Lap</b>: vista móvil por equipo/piloto (sus vueltas cantadas y su posición).</li>
         <li><b>PIN</b>: código por equipo para entrar a su panel en PitWall Lap.</li>

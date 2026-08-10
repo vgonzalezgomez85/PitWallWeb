@@ -256,7 +256,7 @@
       <ul>
         <li><b>Auto</b>: solo i modelli della sua coppa (o "per tutte"), con la <b>foto di riferimento</b> sotto per confrontarla con l'auto consegnata.</li>
         <li><b>Motore</b>: dell'organizzazione (con <b>sorteggio</b>) o proprio, con RPM/misure.</li>
-        <li><b>Pignone e corona</b>: marca (limitata a quelle omologate di quella coppa) e denti, validati rispetto all'<b>intervallo del campionato</b>.</li>
+        <li><b>Pignone e corona</b>: marca (limitata a quelle omologate di quella coppa) e denti, validati rispetto all'<b>intervallo del campionato</b>; inoltre <b>diametro</b> (testo libero, così come lo annota il verificatore) e <b>materiale</b> — pignone: PL / ERG / LAT / ACR / ALU; corona: PL / MET.</li>
         <li><b>Gomma, supporto motore, telaio</b>: filtrati per coppa.</li>
         <li><b>Cerchio anteriore</b> e <b>cerchio posteriore</b>: due menu a tendina, entrambi <b>ridotti alla coppa della squadra</b>.</li>
         <li><b>Peso</b>, sospensione, treccia, note e <b>foto</b>.</li>
@@ -394,6 +394,13 @@
         <li><b>Applicando</b>, vengono scritte le <b>posizioni per manche</b> nella prova. I <b>punti</b> li assegna Control con la sua <b>tabella dei punti</b> (non provengono da PitWall).</li>
       </ol>
       <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
+
+      <h3>Inviare le verifiche a PitWall</h3>
+      <p>Dal pannello della prova, <b>Invia verifiche a PitWall</b> manda lo snapshot di ciò che è stato verificato —pignone/corona, coppe, pesi, motore, cerchi, gomma, convalidato, note e gli altri campi della scheda— affinché resti visibile dentro la gara. Segue lo stesso percorso dell'invio della tanda: Control <b>rileva</b> il PitWall sulla rete locale (o gli indichi l'<b>IP</b> a mano), chiede il <b>PIN di abbinamento</b> e ti lascia scegliere, dall'elenco delle gare di quel PitWall, quella corrispondente a questa prova. Scelta una volta, Control la ricorda per la prossima: i reinvii di questa prova vanno sempre <b>alla stessa gara</b>, senza doverla ricercare di nuovo per nome.</p>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <div>In PitWall le verifiche sono di <b>sola consultazione</b>: non si modificano né si creano lì, e ogni nuovo invio da Control <b>sostituisce completamente</b> quelle di quella gara. Richiede di avere <b>Connessione ecosistema</b> consentita in PitWall (vedi il <i>Manuale d'uso</i>, sezione <i>Verifiche tecniche di PitWall Control</i>).</div>
+      </div>
     </section>
 
     <section id="glosario">
@@ -419,6 +426,7 @@
         <li><b>Tesoreria</b>: quote per prova e loro ripartizione (comitato organizzatore / club).</li>
         <li><b>Tanda</b>: pacchetto della prova (<span class="mono">pitwall.tanda/v1</span>) che si invia a PitWall.</li>
         <li><b>Importare i risultati</b>: importare da PitWall le posizioni per manche (abbinate per nome) per classifica e crediti; i punti li assegna Control.</li>
+        <li><b>Invia verifiche</b>: mandare a PitWall, via rete e con PIN, lo snapshot di ciò che è stato verificato di ogni squadra (pignone/corona, pesi, motore, cerchi…) affinché resti visibile —di sola consultazione— dentro la gara. Ogni invio sostituisce completamente il precedente.</li>
         <li><b>PIN di abbinamento</b>: codice che PitWall mostra in <i>Importa tanda</i> e che Control richiede per autorizzare l'invio via rete.</li>
         <li><b>Marchio</b>: titolo e slogan del campionato che vengono stampati sui PDF.</li>
       </ul>

@@ -121,6 +121,8 @@ Se c'è la proiezione attiva, compare **Stima alla fine** con la tua **posizione
 
 > Consiglio: entra col PIN, attiva la **Voce**, lascia il cellulare nel box e ascolta. È il modo per essere informato senza staccare lo sguardo dalla pista.
 
+**App nativa (alternativa).** Se la squadra preferisce installare un'app invece di usare la web, esiste anche l'**app nativa PitWall Lap** (iOS/Android): stesso cronometraggio e stessa voce, ma senza PIN — scopre il server da sola sulla rete locale — con extra come la **strategia gomme in diretta**, **Pole**, **Storico** e **Allenamento**. È spiegata in dettaglio nel *Manuale d'uso*, sezione *PitWall Lap*.
+
 ## 5. Consistenza
 
 ![img: 26-livestats-cons-con.png]

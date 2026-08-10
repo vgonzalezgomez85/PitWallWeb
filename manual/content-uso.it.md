@@ -151,16 +151,27 @@ La **pole** è un giro di qualifica **prima** della gara per decidere l'ordine d
 
 > La pole non attribuisce punti in gara: decide solo **chi sceglie la corsia per primo** e, con ciò, la griglia di partenza della prima manche.
 
-## 8. PitWall Lap — PIN per le squadre
+## 8. PitWall Lap — per le squadre
 ![img: 43-lap-pins.png]
 
-**PitWall Lap** è la vista mobile che permette a ciascuna **squadra/pilota** di seguire il proprio cronometraggio dal telefono (i propri giri, annunciati a voce, e la propria posizione). Perché entrino solo nel *loro* pannello si distribuisce un **PIN** per squadra.
+Le squadre possono seguire la loro gara dal cellulare in **due modi**, non esclusivi: la **vista web con PIN** (niente da installare, di sola lettura) o l'**app nativa PitWall Lap** (si installa sul cellulare, con voce e strategia gomme in diretta).
 
+**Vista web con PIN.**
 - Entra in **PitWall Lap · PIN** della gara. Vedrai l'indirizzo che le squadre aprono sul cellulare (p.es. `http://<IP-del-server>:3000/lap/<id>`) e la tabella **SQUADRA → PIN**.
-- Dai a ogni squadra **il suo PIN**. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello.
+- Dai a ogni squadra **il suo PIN**. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello: posizione proiettata, distacco dal leader, giri, media e pit-stop, con la voce inclusa — di sola lettura, e solo per gare di **endurance** (il dettaglio completo è nel *Manuale delle statistiche*, sezione *PitWall Lap: la tua gara sul cellulare*).
 - **Nuovo (“Nuevo”)** rigenera il PIN di una squadra (nel caso trapelasse o volessero cambiarlo).
 
 > I cellulari devono essere sulla **stessa rete** del computer che fa da server. Usa l'IP del computer, non `localhost`, quando lo aprono dal telefono. Se vuoi che le squadre seguano la gara **da fuori della sede** (via internet), vedi *Seguito pubblico su internet*.
+
+**App nativa PitWall Lap (iOS/Android).** È la via completa: il pilota installa l'app sul cellulare e, aprendola, sceglie la fonte (**PitWall** o il cronometro **TicTac Slot** da solo, senza server dietro) e l'app **scopre il server da sola** sulla rete locale in pochi secondi — senza URL né PIN da distribuire. Se la scoperta automatica fallisce, si inserisce l'IP a mano una volta e l'app la ricorda la volta successiva. Se il server ha più gare o tande attive, lascia scegliere; poi il pilota sceglie il suo **nome/squadra** dalla lista per entrare nel proprio pannello.
+
+Condivide con la vista web il cronometraggio in diretta e la voce (giri, cambi di posizione, metà manche, avvisi di tempo e, in modalità avanzata, medie/distacchi/"media per risalire" ogni N minuti), e in più offre:
+
+- **Strategia gomme in diretta** (gare di endurance, con un pilota selezionato): raccomanda quando cambiare — per degradazione reale del ritmo, oppure in modo **pianificato** in base ai giri/treni rimanenti quando la gomma non perde ritmo —, con consiglio in base alla posizione e modellazione dell'usura dei rivali davanti e dietro. Se la gara usa il **controllo gomme del server** (vedi *Controllo delle gomme di endurance*) e la squadra corrisponde per nome, la dotazione e i cambi li gestisce **PitWall Manager**: l'app li mostra in diretta (treni disponibili, ultimo cambio) senza pulsanti manuali. Senza controllo del server, il pilota tiene il conto a mano (treni, cambi obbligatori, costo del pit-stop) e conferma da sé con **Cambié gomas** ("ho cambiato le gomme").
+- **Pole**: schermata propria per seguire il tuo giro di qualifica, il distacco dalla pole e la classifica finale, se la gara ne ha una.
+- **Storico e Allenamento**: gare passate (anche quelle non seguite in diretta) e una modalità di allenamento libero che registra le tue sessioni di guida (giri, migliore, media) sul cellulare stesso, con grafico e confronto tra loro.
+
+> L'app non usa il PIN: chiunque sulla **stessa rete locale** scopra il server può scegliere qualsiasi squadra dalla lista. Per un accesso controllato o da fuori dalla pista, usa la vista web con PIN — l'app ha sempre bisogno della rete locale, che tu pubblichi o meno il tunnel di *Seguito pubblico su internet*.
 
 ## 9. Dirigere la gara in diretta
 ![img: 20-live-timing.png]
@@ -296,7 +307,9 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 ## 17. Seguito pubblico su internet
 ![img: op-seguimiento-publico.png]
 
-Per impostazione predefinita le viste di PitWall (la **diretta**, i **Risultati** e **PitWall Lap**) sono visibili solo sulla **rete locale**. Con il **Seguito pubblico su internet** ogni club può **pubblicarle su internet** affinché piloti e pubblico seguano la gara **da fuori della sede**, senza aprire porte né configurare una VPN: PitWall attiva un **tunnel Cloudflare proprio** del club.
+Per impostazione predefinita le viste di PitWall (la **diretta**, i **Risultati** e la **vista web di PitWall Lap**) sono visibili solo sulla **rete locale**. Con il **Seguito pubblico su internet** ogni club può **pubblicarle su internet** affinché piloti e pubblico seguano la gara **da fuori della sede**, senza aprire porte né configurare una VPN: PitWall attiva un **tunnel Cloudflare proprio** del club.
+
+> L'**app nativa** di PitWall Lap non passa da questo tunnel: ha sempre bisogno di essere sulla **stessa rete locale** del server, che tu la pubblichi su internet o no.
 
 Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due modalità**:
 
@@ -307,7 +320,7 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 
 **Installare cloudflared.** Il tunnel è attivato dallo strumento `cloudflared`. Se non è installato, compare il pulsante **Installa cloudflared**, che **scarica la versione ufficiale** nella cartella dati di PitWall — **senza chiedere permessi di amministratore**.
 
-> **Sicurezza.** Da fuori **si vedono solo le viste pubbliche** (diretta, risultati e PitWall Lap). Il **controllo dell'app** (creare, dirigere o modificare gare) **resta bloccato**: nessuno da fuori può toccare la gara.
+> **Sicurezza.** Da fuori **si vedono solo le viste pubbliche** (diretta, risultati e la vista web di PitWall Lap). Il **controllo dell'app** (creare, dirigere o modificare gare) **resta bloccato**: nessuno da fuori può toccare la gara.
 
 ## 18. Glossario (operazione)
 - **Gara**: l'evento completo. Si compone di tande.
@@ -321,8 +334,8 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 - **Giro fantasma**: giro segnato come non valido (non conta), ripristinabile.
 - **Pole**: sessione di qualifica preliminare (facoltativa); tutti girano sulla stessa corsia e il loro miglior giro fissa la griglia di partenza.
 - **Allenamento libero**: modalità per registrare giri per corsia senza squadre né rotazione (sessione aperta).
-- **PitWall Lap**: vista mobile per squadra/pilota (i suoi giri annunciati a voce e la sua posizione).
-- **PIN**: codice per squadra per entrare nel proprio pannello in PitWall Lap.
+- **PitWall Lap**: seguito per squadra/pilota dal cellulare (giri annunciati a voce, posizione e, nell'app, strategia gomme) — come vista web con PIN o come app nativa installata.
+- **PIN**: codice per squadra per entrare nel proprio pannello nella vista web di PitWall Lap (l'app nativa non lo usa: scopre il server da sola sulla rete locale).
 - **Pt (tempo minimo)**: soglia al di sotto della quale un giro è considerato passaggio fantasma e non conta.
 - **Scenario**: pista salvata (circuiti, corsie, sequenza e tempo minimo) riutilizzabile in più gare.
 - **Categoria**: classe di auto/pilota (GT, Turismo, Classiche…); permette un Pt diverso per categoria.

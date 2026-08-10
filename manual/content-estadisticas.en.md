@@ -121,6 +121,8 @@ If projection is active, Estimate at the finish appears with your **estimated po
 
 > Tip: log in with the PIN, enable the **Voice**, leave the phone in the box and listen. It's the way to stay informed without taking your eyes off the track.
 
+**Native app (alternative).** If the team would rather install an app than use the web, there's also the **native PitWall Lap app** (iOS/Android): the same timing and voice, but no PIN — it discovers the server on its own on the local network — plus extras like **live tyre strategy**, **Pole**, **History** and **Training**. It's covered in detail in the *Usage manual*, section *PitWall Lap*.
+
 ## 5. Consistency
 
 ![img: 26-livestats-cons-con.png]

@@ -132,8 +132,9 @@ After creating a race you can tweak it:
 
 The **pole** is a qualifying lap **before** the race to decide the starting order. It's optional; it's enabled when creating the race (**Pole**) and it's launched from the race page → Set up Pole Position (“Configurar Pole Position”).
 
-- **Participants**: everyone entered appears. The **order of the list** is the order in which they'll go out to do their lap; hit 🎲 Random (“🎲 Aleatorio”) to shuffle it.
+- **Participants**: everyone entered appears in a **numbered grid** (1, 2, 3…) that resizes itself to the screen width and fills by columns —matching the track groups C1/C2/C3—. That order is the order in which they'll go out to do their lap; you can **drag** any participant by hand to change it, or hit 🎲 Random (“🎲 Aleatorio”) to shuffle the whole thing.
 - **Pole lane**: **everyone** does their qualifying lap on the **same lane** (so it's comparable). Pick it with **−/+** or with 🎲 Random (“🎲 Aleatorio”).
+- **Automatic driver advance**: a toggle next to Skip 1st crossing (“Omitir 1er cruce”). With it on, when a driver's attempt ends the Next driver (“Siguiente piloto”) button counts down 3 seconds and advances on its own, without waiting for a manual click. It's a preference of the control desk (saved in the browser itself), not of the race.
 - Press Start Pole (“Empezar Pole”): each participant enters in turn, does their lap and PitWall records their best time. In timing you can enable Skip 1st crossing (“Omitir 1er cruce”) (out-lap) so the launch lap isn't counted.
 
 **Pole results.** When it finishes, Pole Results (“Resultados Pole”) appears with the **final classification** (from fastest to slowest, with the gap to the leader and the **fastest lap**). From here you can ✏️ Edit times (“✏️ Editar tiempos”) if there was an error, or continue with 🚦 Assign starting lanes (“🚦 Asignar carriles de salida”).
@@ -151,16 +152,31 @@ The **pole** is a qualifying lap **before** the race to decide the starting orde
 
 > The pole doesn't score in the race: it only decides **who picks lane first** and, with that, the starting grid of the first heat.
 
-## 8. PitWall Lap — PIN for the teams
+**Guests can now follow the pole live.** The pole's timing board —previously only visible to whoever was running it— is now reachable with no IP restriction from **Live stats**, and a new card appears on the guest home while a pole is under way. It's **read-only**: the controls (start/stop/next driver) are hidden, and you see in real time who's on track, the starting order and the provisional classification.
+
+## 8. PitWall Lap — for the teams
 ![img: 43-lap-pins.png]
 
-**PitWall Lap** is the mobile view for each **team/driver** to follow their own timing from the phone (their laps, called out by voice, and their position). So that they only enter *their* panel, a **PIN** is handed out per team.
+Teams can follow their race from the phone **two ways**, not mutually exclusive: the **web view with PIN** (nothing to install, read-only) or the **native PitWall Lap app** (installed on the phone, with voice and live tyre strategy).
 
-- Go into PitWall Lap · PINs (“PitWall Lap · PINs”) of the race. You'll see the address teams open on the mobile (e.g. `http://<server-IP>:3000/lap/<id>`) and the **TEAM → PIN** table.
-- Give each team **their PIN**. When they open the address and enter it, they go straight into their panel.
+**It already works during the pole itself, not just after it's over.** Teams (with their PIN) are created as soon as the race wizard is confirmed, instead of waiting for lanes to be assigned at the end of the pole. So each team's panel tells them if it's their turn now, with a live timer for their attempt, their laps and their best time, with the voice calling out every lap just like in the race; once the pole ends, the panel switches on its own to showing their result (position and time).
+
+**Web view with PIN.**
+- Go into **PitWall Lap · PINs** (“PitWall Lap · PINs”) of the race. You'll see the address teams open on the mobile (e.g. `http://<server-IP>:3000/lap/<id>`) and the **TEAM → PIN** table.
+- Give each team **their PIN**. When they open the address and enter it, they go straight into their panel: projected position, gap to the leader, laps, average and pit-stops, voice included — read-only, and only for **endurance** races (the full detail is in the *Statistics manual*, section *PitWall Lap: your race on the phone*).
 - New (“Nuevo”) regenerates a team's PIN (in case it was leaked or they want to change it).
 
 > The phones must be on the **same network** as the computer acting as server. Use the computer's IP, not `localhost`, when they open it from the phone. If you want teams to follow the race **from outside the venue** (over the internet), see *Public tracking over the internet*.
+
+**Native PitWall Lap app (iOS/Android).** This is the full route: the driver installs the app on their phone and, on opening it, picks the source (**PitWall** or the **TicTac Slot** timer standalone, with no server behind it) and the app **discovers the server on its own** on the local network within a few seconds — no URL or PIN to hand out. If auto-discovery fails, the IP is entered by hand once and the app remembers it for next time. If the server has several active races or batches, it lets you choose; then the driver picks their **name/team** from the list to enter their panel.
+
+It shares live timing and voice with the web view (laps, position changes, half-heat, time warnings and, in advanced mode, averages/gaps/"average to catch up" every N minutes), and on top of that offers:
+
+- **Live tyre strategy** (endurance races, with a driver selected): recommends when to change — by real pace degradation, or on a **scheduled** basis by remaining laps/sets when the tyre isn't losing pace — with position-based advice and modelling of the tyre wear of the rivals ahead and behind. If the race is running the **server tyre control** (see *Endurance tyre control*) and the team matches by name, the allotment and the changes are driven by **PitWall Manager**: the app shows them live (sets available, last change) with no manual buttons. Without server control, the driver keeps count by hand (sets, mandatory changes, pit-stop cost) and confirms it themselves with **Cambié gomas** ("I changed tyres").
+- **Pole**: its own screen to follow your qualifying lap, the gap to pole and the final classification, if the race has one.
+- **History and Training**: past races (even ones you didn't follow live) and a free-training mode that records your practice runs (laps, best, average) on the phone itself, with a chart and comparison between them.
+
+> The app doesn't use a PIN: anyone on the **same local network** who discovers the server can pick any team from the list. For controlled access or from outside the venue, use the web view with PIN — the app always needs the local network, whether or not you publish the *Public tracking over the internet* tunnel.
 
 ## 9. Running the race live
 ![img: 20-live-timing.png]
@@ -185,7 +201,15 @@ From the race page:
 
 > "Sin señal del DS-300" (no DS-300 signal) warning: while it's showing, laps are **not recorded**. Check the connection before giving the GO.
 
-## 10. Driver shift control (championships)
+## 10. Race events
+
+The **🗒️ Race events** (“🗒️ Sucesos”) page —reachable from the race page and with a button in the live screen's header— shows, heat by heat, everything that happens during the session in an easy-to-read format: **GO** (including when it's given on several boxes separately, track by track), **pause and resume** per track, **end of heat**, **cancellation**, **recovery after a cut**, **ghost/ignored laps** and their **reassignment** to the right lane, **retroactive exits** and **driver check-ins** (QR, on-the-fly change or manual correction).
+
+Heats are shown **collapsed by default** —only the one under way appears open— and expand with a click on their header. A checkbox lets you **hide routine driver check-ins** before the GO when only the rest of the events matter.
+
+> While the heat is running, the page keeps **adding new events as they happen**, without reloading. It's the way to reconstruct, after a race, what happened and when, without relying on memory.
+
+## 11. Driver shift control (championships)
 
 In **team championship** races you can enforce rules for sharing the wheel among a team's drivers. They are defined when creating the race:
 - **Minimum / maximum time per driver** — each driver must run at least X and at most Y.
@@ -198,7 +222,7 @@ In **team championship** races you can enforce rules for sharing the wheel among
 
 > **The security warning and how to remove it.** The first time a device opens the `https://` link, the browser warns once (**"connection not private → continue"**); once you accept, the camera works. If you want that warning gone, **install the PitWall CA** on the device: Settings has **Download CA** and the **`/cert`** page with a step-by-step guide for **iPhone/iPad, Android and Windows**. Installing the CA once is enough even if the network IP changes: PitWall only re-issues the server certificate and the device keeps trusting it.
 
-## 11. Endurance tyre control
+## 12. Endurance tyre control
 
 In an **endurance** race you can keep track of the **tyre sets** each team uses. The allotment —the sets **everyone** starts with— is set when you create the race (wizard, step 1, **"Tyres per team"** field). With **0**, control is off and everything works as before.
 
@@ -219,7 +243,7 @@ In the header, next to the allotment, the **🗒️ Change history** button open
 
 > Everything syncs instantly across open screens, and the **heat:time** indicator ticks along with the race.
 
-## 12. Technical inspection from PitWall Control
+## 13. Technical inspection from PitWall Control
 
 If your club runs **technical inspection** of the cars through **PitWall Control**, those results can also reach PitWall — over the same network bridge as batches, with the same PIN and the same **Ecosystem connection** switch (see *Importing a batch from PitWall Control*).
 
@@ -231,7 +255,7 @@ Heat by heat, Control sends the **snapshot** of what it has inspected per team: 
 
 > **Which race it lands on.** If Control specifies the race explicitly, PitWall attaches the inspections to that one. Otherwise it looks for an existing race with the **exact same name**; if there's still no match, it **automatically creates** a minimal race for the inspections to live in — the same behaviour as importing a batch.
 
-## 13. Lap by lap and corrections (add / remove laps)
+## 14. Lap by lap and corrections (add / remove laps)
 ![img: 30-correcciones.png]
 
 From the race (the **lap correction** button in the live screen or in results) you enter the **lap by lap** of each heat. It serves to fix wrongly recorded readings.
@@ -248,7 +272,7 @@ From the race (the **lap correction** button in the live screen or in results) y
 
 > **Automatic ghost laps.** A lap below the **Pt** (minimum time) is marked as a **ghost** and the lane that produced it **never** counts it. PitWall no longer reassigns it by guessing: it **holds** it and only assigns it to the lane that **confirms** it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a **ghost** for you to review by hand.
 
-## 14. Results and exports
+## 15. Results and exports
 ![img: 10-results-comparativa.png]
 
 When it finishes (or at any time) go into **Results**:
@@ -261,7 +285,7 @@ When it finishes (or at any time) go into **Results**:
 
 ![img: op-resultados-publicos.png]
 
-## 15. Training
+## 16. Training
 ![img: 40-training.png]
 
 Besides races, PitWall has a **Training** mode (from the home screen) to run without setting up a full competition. There are two modes:
@@ -282,7 +306,7 @@ Each session can be **deleted** from its detail. If you stop the session with **
 
 > **Free training** does not save results: it's an open session of times per lane.
 
-## 16. Settings
+## 17. Settings
 ![img: 04-settings.png]
 
 - **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.
@@ -293,10 +317,12 @@ Each session can be **deleted** from its detail. If you stop the session with **
 
 **Version history.** In the **footer of every page** you see PitWall's **version** number. Pressing it opens the **Version history** (`/changelog`), with what was **Added**, **Improved** and **Fixed** in each update. The version **goes up with every update**, so you always know which PitWall you have and what has changed.
 
-## 17. Public tracking over the internet
+## 18. Public tracking over the internet
 ![img: op-seguimiento-publico.png]
 
-By default PitWall's views (the **live timing**, the **Results** and **PitWall Lap**) are only visible on the **local network**. With **Public tracking over the internet** each club can **publish them on the internet** so drivers and public can follow the race **from outside the venue**, without opening ports or setting up a VPN: PitWall brings up the club's **own Cloudflare tunnel**.
+By default PitWall's views (the **live timing**, the **Results** and the **PitWall Lap web view**) are only visible on the **local network**. With **Public tracking over the internet** each club can **publish them on the internet** so drivers and public can follow the race **from outside the venue**, without opening ports or setting up a VPN: PitWall brings up the club's **own Cloudflare tunnel**.
+
+> The **native app** of PitWall Lap doesn't go through this tunnel: it always needs to be on the **same local network** as the server, whether you publish it on the internet or not.
 
 It's in **Settings → Public tracking over the internet**. There are **two modes**:
 
@@ -307,9 +333,9 @@ It's in **Settings → Public tracking over the internet**. There are **two mode
 
 **Install cloudflared.** The tunnel is brought up by the `cloudflared` tool. If it isn't installed, the **Install cloudflared** button appears, which **downloads the official version** to PitWall's data folder — **without asking for administrator permissions**.
 
-> **Security.** From outside, **only the public views are visible** (live timing, results and PitWall Lap). The **app control** (creating, running or editing races) is **blocked**: no one from outside can touch the race.
+> **Security.** From outside, **only the public views are visible** (live timing, results and the PitWall Lap web view). The **app control** (creating, running or editing races) is **blocked**: no one from outside can touch the race.
 
-## 18. Glossary (operation)
+## 19. Glossary (operation)
 - **Race**: the complete event. Made up of batches.
 - **Batch**: group of participants with their rotation; made up of heats.
 - **Heat**: one timed run (all lanes at once) of a set duration.
@@ -320,9 +346,10 @@ It's in **Settings → Public tracking over the internet**. There are **two mode
 - **GO**: the start signal (from the DS-300 box) that launches the heat.
 - **Ghost lap**: a lap marked as invalid (doesn't count), restorable.
 - **Pole**: a pre-race qualifying session (optional); everyone runs on the same lane and their best lap sets the starting grid.
+- **Race events**: the (🗒️) page with the heat-by-heat log of everything happening in the race —GO, pauses, end of heat, ghost laps, driver check-ins…—, live.
 - **Free training**: mode to record laps per lane without teams or rotation (open session).
-- **PitWall Lap**: per-team/driver mobile view (their called-out laps and their position).
-- **PIN**: per-team code to enter their panel in PitWall Lap.
+- **PitWall Lap**: per-team/driver tracking from the phone (called-out laps, position and, in the app, tyre strategy) — as a web view with PIN or as an installed native app.
+- **PIN**: per-team code to enter their panel in the PitWall Lap web view (the native app doesn't use one: it discovers the server on its own on the local network).
 - **Pt (minimum time)**: threshold below which a lap is considered a ghost crossing and doesn't count.
 - **Scenario**: a saved track (tracks, lanes, sequence and minimum time) reusable across several races.
 - **Category**: a car/driver class (GT, Touring, Classics…); allows a different Pt per category.

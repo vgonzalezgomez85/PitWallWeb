@@ -66,6 +66,7 @@
       <li><a href="#pole">Pole (qualifica preliminare)</a></li>
       <li><a href="#lap">PitWall Lap — PIN per le squadre</a></li>
       <li><a href="#vivo">Dirigere la gara in diretta</a></li>
+      <li><a href="#sucesos">Eventi di gara</a></li>
       <li><a href="#turnos">Controllo dei turni di pilota</a></li>
       <li><a href="#neumaticos">Controllo delle gomme di endurance</a></li>
       <li><a href="#verificaciones">Verifiche tecniche di PitWall Control</a></li>
@@ -299,8 +300,9 @@
       </figure>
       <p>La <b>pole</b> è un giro di qualifica <b>prima</b> della gara per decidere l'ordine di partenza. È facoltativa; si attiva al momento di creare la gara (<b>Pole</b>) e si lancia dalla pagina della gara → <b>Configura Pole Position ("Configurar Pole Position")</b>.</p>
       <ul>
-        <li><b>Partecipanti</b>: compaiono tutti gli iscritti. L'<b>ordine dell'elenco</b> è l'ordine in cui usciranno a fare il loro giro; premi <b>🎲 Casuale ("🎲 Aleatorio")</b> per mescolarlo.</li>
+        <li><b>Partecipanti</b>: compaiono tutti gli iscritti in una <b>griglia numerata</b> (1, 2, 3…) che si adatta da sola alla larghezza dello schermo e si riempie per colonne —corrispondenti ai gruppi di circuito C1/C2/C3—. Quest'ordine è l'ordine in cui usciranno a fare il loro giro; puoi <b>trascinare</b> qualsiasi partecipante a mano per cambiarlo, oppure premere <b>🎲 Casuale ("🎲 Aleatorio")</b> per mescolarlo tutto.</li>
         <li><b>Corsia di pole</b>: <b>tutti</b> fanno il loro giro di qualifica sulla <b>stessa corsia</b> (perché sia confrontabile). Scegliela con <b>−/+</b> o con <b>🎲 Casuale ("🎲 Aleatorio")</b>.</li>
+        <li><b>Cambio automatico di pilota</b>: interruttore accanto a <b>Salta 1° passaggio</b>. Con la casella attiva, al termine del tentativo di un pilota il pulsante <b>Pilota successivo</b> fa un conto alla rovescia di 3 secondi e avanza da solo, senza aspettare il clic manuale. È una preferenza della postazione di controllo (si salva nel browser stesso), non della gara.</li>
         <li>Premi <b>Inizia Pole ("Empezar Pole")</b>: ogni partecipante entra a turno, fa il suo giro e PitWall registra il suo miglior tempo. Nel cronometraggio puoi attivare <b>Salta 1° passaggio (out-lap) ("Omitir 1er cruce (out-lap)")</b> per non contare il giro di lancio.</li>
       </ul>
 
@@ -329,6 +331,10 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>La pole non attribuisce punti in gara: decide solo <b>chi sceglie la corsia per primo</b> e, con ciò, la griglia di partenza della prima manche.</div>
       </div>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <div><b>Gli ospiti possono seguire la pole in diretta.</b> Il tabellone di cronometraggio della pole —prima visibile solo a chi la gestiva— è accessibile senza restrizioni di IP da <b>Statistiche in diretta</b>, e compare una nuova scheda nella home ospiti mentre è in corso una pole. È in <b>sola lettura</b>: i controlli (avviare/fermare/pilota successivo) sono nascosti e si vede in tempo reale chi è in pista, l'ordine di partenza e la classifica provvisoria.</div>
+      </div>
     </section>
 
     <section id="lap">
@@ -340,6 +346,10 @@
         <figcaption>PitWall Lap · PIN: l'indirizzo per il cellulare e il PIN di ogni squadra.</figcaption>
       </figure>
       <p><b>PitWall Lap</b> è la vista mobile che permette a ciascuna <b>squadra/pilota</b> di seguire il proprio cronometraggio dal telefono (i propri giri, annunciati a voce, e la propria posizione). Perché entrino solo nel <i>loro</i> pannello si distribuisce un <b>PIN</b> per squadra.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Funziona già durante la pole stessa, non solo dopo la sua conclusione.</b> Le squadre (con il loro PIN) vengono create alla conferma della procedura guidata della gara, invece di aspettare l'assegnazione delle corsie alla fine della pole. Così, ogni squadra vede nel suo pannello se tocca a lei adesso, un cronometro in diretta del suo tentativo, i suoi giri e il suo miglior tempo, con la voce che annuncia ogni giro come in gara; al termine della pole, il pannello passa automaticamente a mostrare il suo risultato (posizione e tempo).</div>
+      </div>
       <ul>
         <li>Entra in <b>PitWall Lap · PIN</b> della gara. Vedrai l'indirizzo che le squadre aprono sul cellulare (p.es. <span class="mono">http://&lt;IP-del-server&gt;:3000/lap/&lt;id&gt;</span>) e la tabella <b>SQUADRA → PIN</b>.</li>
         <li>Dai a ogni squadra <b>il suo PIN</b>. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello.</li>
@@ -385,8 +395,19 @@
       </div>
     </section>
 
-    <section id="turnos">
+    <section id="sucesos">
       <div class="num">// 10</div>
+      <h2>Eventi di gara</h2>
+      <p>La pagina <b>🗒️ Eventi</b> —accessibile dalla scheda della gara e con un pulsante nell'intestazione della diretta— mostra, manche dopo manche, tutto quello che accade durante la sessione in un formato facile da leggere: <b>GO</b> (anche quando viene dato su più box separatamente, circuito per circuito), <b>pausa e ripresa</b> per circuito, <b>fine manche</b>, <b>cancellazione</b>, <b>ripristino dopo un'interruzione</b>, <b>giri fantasma/ignorati</b> e la loro <b>riassegnazione</b> alla corsia corretta, <b>partenze retroattive</b> e i <b>check-in di pilota</b> (QR, cambio a caldo o correzione manuale).</p>
+      <p>Le manche vengono mostrate <b>compattate per impostazione predefinita</b> —solo quella in corso appare aperta— e si espandono con un clic sulla loro intestazione. Una casella di controllo permette di <b>nascondere i check-in di pilota di routine</b> precedenti al GO quando interessa solo il resto degli eventi.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Con la manche in corso, la pagina aggiunge i <b>nuovi eventi man mano che accadono</b>, senza ricaricare. È il modo per ricostruire, dopo una gara, cosa è successo e quando, senza doverlo ricordare a memoria.</div>
+      </div>
+    </section>
+
+    <section id="turnos">
+      <div class="num">// 11</div>
       <h2>Controllo dei turni di pilota (campionati)</h2>
       <p>Nelle gare di <b>campionato a squadre</b> puoi imporre regole di ripartizione del volante tra i piloti di una squadra. Si definiscono al momento di creare la gara:</p>
       <ul>
@@ -406,7 +427,7 @@
     </section>
 
     <section id="neumaticos">
-      <div class="num">// 11</div>
+      <div class="num">// 12</div>
       <h2>Controllo delle gomme di endurance</h2>
       <p>In una gara di <b>endurance</b> puoi tenere il conto dei <b>treni di gomme</b> che ogni squadra consuma. La dotazione —i treni con cui <b>tutti</b> partono— si fissa quando crei la gara (assistente, passo 1, campo <b>«Gomme per squadra»</b>). Con <b>0</b> il controllo è spento e tutto funziona come prima.</p>
       <p>Si apre in <b>due modi</b>:</p>
@@ -429,7 +450,7 @@
     </section>
 
     <section id="verificaciones">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Verifiche tecniche di PitWall Control</h2>
       <p>Se il club fa passare la <b>verifica tecnica</b> delle vetture con <b>PitWall Control</b>, quel risultato può arrivare anche a PitWall —attraverso lo stesso ponte di rete delle tande, con lo stesso PIN e lo stesso interruttore <b>Connessione ecosistema</b> (vedi <i>Importare una tanda da PitWall Control</i>).</p>
       <p>Manche dopo manche, Control invia lo <b>snapshot</b> di ciò che ha verificato per squadra: <b>pesi</b> (iniziale, finale e minimo della vettura), <b>motore</b> (tipo, rpm, ums), <b>pignone/corona</b> (marca, denti, diametro, materiale), <b>cerchi</b> anteriore e posteriore, <b>treccia</b>, <b>sospensione</b>, <b>basamento</b>, <b>telaio</b>, <b>gomma</b>, se è risultato <b>validato</b> o no, e <b>osservazioni</b> —con foto, se presenti.</p>
@@ -445,7 +466,7 @@
     </section>
 
     <section id="correcciones">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Giro per giro e correzioni (aggiungere / togliere giri)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Giro per giro · Correzioni</span></div>
@@ -476,7 +497,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Risultati ed esportazioni</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Risultati · Comparativa</span></div>
@@ -500,7 +521,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Allenamento</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Allenamento</span></div>
@@ -527,7 +548,7 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Impostazioni</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Impostazioni</span></div>
@@ -547,7 +568,7 @@
     </section>
 
     <section id="publico">
-      <div class="num">// 17</div>
+      <div class="num">// 18</div>
       <h2>Seguito pubblico su internet</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Impostazioni · Seguito pubblico su internet</span></div>
@@ -569,7 +590,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 18</div>
+      <div class="num">// 19</div>
       <h2>Glossario (operazione)</h2>
       <ul>
         <li><b>Gara</b>: l'evento completo. Si compone di tande.</li>

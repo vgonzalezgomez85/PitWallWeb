@@ -121,6 +121,8 @@ S'il y a une projection active, apparaît **Estimation à la fin** avec ta **pos
 
 > Conseil : entre avec le PIN, active la **Voix**, laisse le mobile au stand et écoute. C'est la façon de rester informé sans quitter la piste des yeux.
 
+**Appli native (alternative).** Si l'équipe préfère installer une appli plutôt que d'utiliser la web, il existe aussi l'**appli native PitWall Lap** (iOS/Android) : même chronométrage et même voix, mais sans PIN — elle découvre le serveur toute seule sur le réseau local — avec en plus des extras comme la **stratégie pneus en direct**, **Pole**, **Historique** et **Entraînement**. C'est détaillé dans le *Manuel d'utilisation*, section *PitWall Lap*.
+
 ## 5. Consistance
 
 ![img: 26-livestats-cons-con.png]

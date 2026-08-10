@@ -121,7 +121,24 @@ Si hay proyección activa, aparece **Estimación al final** con tu **posición e
 
 > Consejo: entra con el PIN, activa la **Voz**, deja el móvil en el box y escucha. Es la forma de ir informado sin despegar la vista de la pista.
 
-## 5. Consistencia
+**App nativa (alternativa).** Si el equipo prefiere instalar una app en vez de usar la web, existe también la **app nativa PitWall Lap** (iOS/Android): mismo cronometraje y voz, pero sin PIN —descubre el servidor sola en la red local— y con extras como la **estrategia de neumáticos en vivo**, **Pole**, **Historial** y **Entrenamiento**. Se explica en detalle en el *Manual de uso*, apartado *PitWall Lap*.
+
+> **Ya puedes entrar desde la propia pole**, no hace falta esperar a que termine y se repartan los carriles: en cuanto se confirma la carrera, tu equipo ya existe (con su PIN) y tu panel te dice si te toca ahora, con un cronómetro en vivo de tu intento y la voz cantando cada vuelta. Al terminar la pole, el panel pasa solo a mostrar tu resultado (posición y tiempo) — ver *Pole en directo*.
+
+## 5. Pole en directo
+
+![img: 46-pole-results.png]
+
+Si la carrera tiene **pole** (la vuelta clasificatoria que decide el orden de salida), puedes seguirla en directo aunque no la organices tú.
+
+- Desde la **home de invitado**, mientras hay una pole en marcha aparece una **tarjeta** que lleva directamente a su tablero.
+- También se llega desde **Estadísticas en vivo**.
+
+Es una vista de **solo lectura**: no hay botones de iniciar, parar ni pasar al siguiente piloto, solo lo que está pasando: **quién está en pista ahora mismo**, el **orden de salida** que queda por rodar y la **clasificación provisional** (del más rápido al más lento) según se van registrando los tiempos. Se actualiza sola, sin recargar.
+
+> Si tu equipo compite en la carrera de resistencia que sigue a la pole, en cuanto se confirma la carrera ya tienes tu **panel de PitWall Lap** activo — puedes seguir tu propio intento de pole ahí mismo, con voz incluida (ver *PitWall Lap: tu carrera en el móvil*).
+
+## 6. Consistencia
 
 ![img: 26-livestats-cons-con.png]
 
@@ -147,7 +164,7 @@ La tarjeta más importante para mejorar. **La consistencia mide tu regularidad v
 
 ---
 
-## 6. Las gráficas
+## 7. Las gráficas
 
 Cada gráfica tiene tres modos. Cambian según lo que quieras ver.
 
@@ -167,7 +184,7 @@ Tu distancia al líder a lo largo del tiempo (eje X = minutos de la manga; eje Y
 
 ---
 
-## 7. Proyección y gaps
+## 8. Proyección y gaps
 
 ![img: 22-livestats-proyectada.png]
 
@@ -198,7 +215,7 @@ Cuando dos pilotos tienen las mismas vueltas, desempata la **coma**: la fracció
 
 ---
 
-## 8. La vista de Resultados (después de la carrera)
+## 9. La vista de Resultados (después de la carrera)
 
 Cuando la carrera termina, **Resultados** es donde se analiza todo con calma. Tiene varias **pestañas**; cada una responde a una pregunta distinta. Arriba siempre ves la **vuelta rápida de la carrera** (quién y en qué carril).
 
@@ -259,7 +276,7 @@ El **gap** de esta tabla se lee **"a 2,8 v (35,5\")"**: la distancia en vueltas 
 
 > **Iconos y colores que verás:** punto azul + **MEJOR** = vuelta rápida de ese carril · rectángulo azul = carril de salida · **borde dorado** = hubo pit-stop en esa manga · tendencia **▲/▼** = subiste/bajaste respecto a la manga anterior.
 
-## 9. Glosario
+## 10. Glosario
 
 - **Consistencia** — tu regularidad vuelta a vuelta. 100 menos tu variación relativa. Más alto = más constante.
 - **±DE (desviación típica) / CV** — el ±DE son los segundos que oscilas de vuelta a vuelta (mira este número). El CV es esa oscilación en porcentaje relativo a tu ritmo; el % de consistencia es 100 − CV.
@@ -274,6 +291,7 @@ El **gap** de esta tabla se lee **"a 2,8 v (35,5\")"**: la distancia en vueltas 
 - **Estimada provisional (\*)** — asterisco naranja junto a una estimada: el equipo está en su primera manga y aún no ha pasado del 60 %, así que su referencia no está fijada y el número puede moverse.
 - **Gap** — tu distancia a otro coche (o al líder), en vueltas **con coma**, en segundos (esas vueltas × tu media) o por minuto. Se lee *"a 2,8 v (35,5\")"*.
 - **PitWall Lap** — la web móvil de tu equipo (acceso por PIN): tu posición proyectada, tus tarjetas de ritmo y la voz que canta las vueltas. Solo en carreras por equipos.
+- **Pole en directo** — tablero de solo lectura para seguir la vuelta clasificatoria de la pole: quién está en pista, orden de salida y clasificación provisional. Accesible desde la home de invitado (con pole en marcha) o desde Estadísticas en vivo.
 - **Ocurrencia** — cada vez que corres el mismo carril en carreras de pasadas/repetir-carril (`1/2`, `2/2`…); permite comparar una pasada con otra.
 - **P/Subir** — en la clasificación Le Mans, el ritmo (media por vuelta) que necesitarías para alcanzar al equipo de delante.
 - **Carril de salida** — el carril desde el que arrancaste; en la parrilla de resultados se marca con un recuadro azul.

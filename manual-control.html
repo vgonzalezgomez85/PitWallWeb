@@ -256,7 +256,7 @@
       <ul>
         <li><b>Coche</b>: solo modelos de su copa (o "para todas"), con la <b>foto de referencia</b> debajo para comparar con el coche entregado.</li>
         <li><b>Motor</b>: de organización (con <b>sorteo</b>) o propio, con RPM/medidas.</li>
-        <li><b>Piñón y corona</b>: marca (restringida a las homologadas de esa copa) y dientes, validados contra el <b>rango del campeonato</b>.</li>
+        <li><b>Piñón y corona</b>: marca (restringida a las homologadas de esa copa) y dientes, validados contra el <b>rango del campeonato</b>; además <b>diámetro</b> (texto libre, tal cual lo anota el verificador) y <b>material</b> — piñón: PL / ERG / LAT / ACR / ALU; corona: PL / MET.</li>
         <li><b>Neumático, bancada, chasis</b>: filtrados por la copa.</li>
         <li><b>Llanta delantera</b> y <b>llanta trasera</b>: dos desplegables, ambos <b>recortados a la copa del equipo</b>.</li>
         <li><b>Peso</b>, suspensión, trencilla, observaciones y <b>fotos</b>.</li>
@@ -394,6 +394,13 @@
         <li>Al <b>aplicar</b>, se escriben las <b>posiciones por manga</b> en la prueba. Los <b>puntos</b> los pone Control con su <b>tabla de puntos</b> (no vienen de PitWall).</li>
       </ol>
       <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
+
+      <h3>Enviar las verificaciones a PitWall</h3>
+      <p>Desde el panel de la prueba, <b>Enviar verificaciones a PitWall</b> manda el snapshot de lo verificado —piñón/corona, copas, pesos, motor, llantas, neumático, validado, observaciones y demás campos de la ficha— para que quede visible dentro de la carrera. Sigue el mismo camino que enviar la tanda: Control <b>descubre</b> el PitWall en la red local (o le indicas la <b>IP</b> a mano), pide el <b>PIN de emparejamiento</b> y te deja elegir, de la lista de carreras de ese PitWall, la que corresponde a esta prueba. Elegida una vez, Control la recuerda para la próxima: los reenvíos de esta prueba van siempre a <b>la misma carrera</b>, sin tener que volver a buscarla por nombre.</p>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <div>En PitWall las verificaciones son de <b>solo consulta</b>: no se editan ni se dan de alta ahí, y cada envío nuevo desde Control <b>sustituye por completo</b> las de esa carrera. Requiere tener <b>Conexión ecosistema</b> permitida en PitWall (ver el <i>Manual de uso</i>, apartado <i>Verificaciones técnicas de PitWall Control</i>).</div>
+      </div>
     </section>
 
     <section id="glosario">
@@ -419,6 +426,7 @@
         <li><b>Tesorería</b>: cuotas por prueba y su reparto (coordinadora / club).</li>
         <li><b>Tanda</b>: paquete de la prueba (<span class="mono">pitwall.tanda/v1</span>) que se envía a PitWall.</li>
         <li><b>Traer resultados</b>: importar de PitWall las posiciones por manga (casadas por nombre) para clasificación y créditos; los puntos los pone Control.</li>
+        <li><b>Enviar verificaciones</b>: mandar a PitWall, por red y con PIN, el snapshot de lo verificado de cada equipo (piñón/corona, pesos, motor, llantas…) para que quede visible —de solo consulta— dentro de la carrera. Cada envío sustituye por completo al anterior.</li>
         <li><b>PIN de emparejamiento</b>: código que muestra PitWall en <i>Importar tanda</i> y que Control pide para autorizar el envío por red.</li>
         <li><b>Marca</b>: título y lema del campeonato que se estampan en los PDF.</li>
       </ul>
