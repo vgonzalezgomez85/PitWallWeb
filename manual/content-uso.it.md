@@ -132,8 +132,9 @@ Dopo aver creato una gara puoi ritoccarla:
 
 La **pole** è un giro di qualifica **prima** della gara per decidere l'ordine di partenza. È facoltativa; si attiva al momento di creare la gara (**Pole**) e si lancia dalla pagina della gara → **Configura Pole Position (“Configurar Pole Position”)**.
 
-- **Partecipanti**: compaiono tutti gli iscritti. L'**ordine dell'elenco** è l'ordine in cui usciranno a fare il loro giro; premi **🎲 Casuale (“🎲 Aleatorio”)** per mescolarlo.
+- **Partecipanti**: compaiono tutti gli iscritti in una **griglia numerata** (1, 2, 3…) che si adatta da sola alla larghezza dello schermo e si riempie per colonne —corrispondenti ai gruppi di circuito C1/C2/C3—. Quest'ordine è l'ordine in cui usciranno a fare il loro giro; puoi **trascinare** qualsiasi partecipante a mano per cambiarlo, oppure premere **🎲 Casuale (“🎲 Aleatorio”)** per mescolarlo tutto.
 - **Corsia di pole**: **tutti** fanno il loro giro di qualifica sulla **stessa corsia** (perché sia confrontabile). Scegliela con **−/+** o con **🎲 Casuale (“🎲 Aleatorio”)**.
+- **Cambio automatico di pilota**: interruttore accanto a **Salta 1° passaggio (“Omitir 1er cruce”)**. Con la casella attiva, al termine del tentativo di un pilota il pulsante **Pilota successivo (“Siguiente piloto”)** fa un conto alla rovescia di 3 secondi e avanza da solo, senza aspettare il clic manuale. È una preferenza della postazione di controllo (si salva nel browser stesso), non della gara.
 - Premi **Inizia Pole (“Empezar Pole”)**: ogni partecipante entra a turno, fa il suo giro e PitWall registra il suo miglior tempo. Nel cronometraggio puoi attivare **Salta 1° passaggio (out-lap) (“Omitir 1er cruce (out-lap)”)** per non contare il giro di lancio.
 
 **Risultati della pole.** Al termine compare **Risultati Pole (“Resultados Pole”)** con la **classifica finale** (dal più veloce al più lento, con il gap dal leader e il **giro veloce**). Da qui puoi **✏️ Modificare i tempi (“✏️ Editar tiempos”)** se c'è stato un errore, o proseguire con **🚦 Assegna corsie di partenza (“🚦 Asignar carriles de salida”)**.
@@ -151,10 +152,14 @@ La **pole** è un giro di qualifica **prima** della gara per decidere l'ordine d
 
 > La pole non attribuisce punti in gara: decide solo **chi sceglie la corsia per primo** e, con ciò, la griglia di partenza della prima manche.
 
+**Gli ospiti possono seguire la pole in diretta.** Il tabellone di cronometraggio della pole —prima visibile solo a chi la gestiva— è accessibile senza restrizioni di IP da **Statistiche in diretta**, e compare una nuova scheda nella home ospiti mentre è in corso una pole. È in **sola lettura**: i controlli (avviare/fermare/pilota successivo) sono nascosti e si vede in tempo reale chi è in pista, l'ordine di partenza e la classifica provvisoria.
+
 ## 8. PitWall Lap — per le squadre
 ![img: 43-lap-pins.png]
 
 Le squadre possono seguire la loro gara dal cellulare in **due modi**, non esclusivi: la **vista web con PIN** (niente da installare, di sola lettura) o l'**app nativa PitWall Lap** (si installa sul cellulare, con voce e strategia gomme in diretta).
+
+**Funziona già durante la pole stessa, non solo dopo la sua conclusione.** Le squadre (con il loro PIN) vengono create alla conferma della procedura guidata della gara, invece di aspettare l'assegnazione delle corsie alla fine della pole. Così, ogni squadra vede nel suo pannello se tocca a lei adesso, un cronometro in diretta del suo tentativo, i suoi giri e il suo miglior tempo, con la voce che annuncia ogni giro come in gara; al termine della pole, il pannello passa automaticamente a mostrare il suo risultato (posizione e tempo).
 
 **Vista web con PIN.**
 - Entra in **PitWall Lap · PIN** della gara. Vedrai l'indirizzo che le squadre aprono sul cellulare (p.es. `http://<IP-del-server>:3000/lap/<id>`) e la tabella **SQUADRA → PIN**.
@@ -196,7 +201,15 @@ Dalla pagina della gara:
 
 > Avviso **"Sin señal del DS-300"**: finché è presente, i giri **non vengono registrati**. Controlla la connessione prima di dare il GO.
 
-## 10. Controllo dei turni di pilota (campionati)
+## 10. Eventi di gara
+
+La pagina **🗒️ Eventi** —accessibile dalla scheda della gara e con un pulsante nell'intestazione della diretta— mostra, manche dopo manche, tutto quello che accade durante la sessione in un formato facile da leggere: **GO** (anche quando viene dato su più box separatamente, circuito per circuito), **pausa e ripresa** per circuito, **fine manche**, **cancellazione**, **ripristino dopo un'interruzione**, **giri fantasma/ignorati** e la loro **riassegnazione** alla corsia corretta, **partenze retroattive** e i **check-in di pilota** (QR, cambio a caldo o correzione manuale).
+
+Le manche vengono mostrate **compattate per impostazione predefinita** —solo quella in corso appare aperta— e si espandono con un clic sulla loro intestazione. Una casella di controllo permette di **nascondere i check-in di pilota di routine** precedenti al GO quando interessa solo il resto degli eventi.
+
+> Con la manche in corso, la pagina aggiunge i **nuovi eventi man mano che accadono**, senza ricaricare. È il modo per ricostruire, dopo una gara, cosa è successo e quando, senza doverlo ricordare a memoria.
+
+## 11. Controllo dei turni di pilota (campionati)
 
 Nelle gare di **campionato a squadre** puoi imporre regole di ripartizione del volante tra i piloti di una squadra. Si definiscono al momento di creare la gara:
 - **Tempo minimo / massimo per pilota** — ogni pilota deve girare almeno X e al massimo Y.
@@ -209,7 +222,7 @@ I **cambi di pilota** si registrano scansionando il **QR del pilota** (o inseren
 
 > **L'avviso di sicurezza e come eliminarlo.** La prima volta che un dispositivo apre il link `https://`, il browser avvisa una volta (**«connessione non privata → continua»**); dopo aver accettato, la fotocamera funziona. Se vuoi eliminare quell'avviso, **installa la CA di PitWall** sul dispositivo: nelle Impostazioni trovi **Scarica CA** e la pagina **`/cert`** con la guida passo passo per **iPhone/iPad, Android e Windows**. Installare la CA una sola volta basta anche se cambia l'IP della rete: PitWall riemette solo il certificato del server e il dispositivo continua a fidarsi.
 
-## 11. Controllo delle gomme di endurance
+## 12. Controllo delle gomme di endurance
 
 In una gara di **endurance** puoi tenere il conto dei **treni di gomme** che ogni squadra consuma. La dotazione —i treni con cui **tutti** partono— si fissa quando crei la gara (assistente, passo 1, campo **«Gomme per squadra»**). Con **0** il controllo è spento e tutto funziona come prima.
 
@@ -230,7 +243,7 @@ Nell'intestazione, accanto alla dotazione, il pulsante **🗒️ Storico dei cam
 
 > Tutto si sincronizza all'istante tra le schermate aperte, e l'indicatore **manche:tempo** batte al ritmo della gara.
 
-## 12. Verifiche tecniche di PitWall Control
+## 13. Verifiche tecniche di PitWall Control
 
 Se il club fa passare la **verifica tecnica** delle vetture con **PitWall Control**, quel risultato può arrivare anche a PitWall — attraverso lo stesso ponte di rete delle tande, con lo stesso PIN e lo stesso interruttore **Connessione ecosistema** (vedi *Importare una tanda da PitWall Control*).
 
@@ -242,7 +255,7 @@ Manche dopo manche, Control invia lo **snapshot** di ciò che ha verificato per 
 
 > **A quale gara vanno.** Se Control indica esplicitamente la gara, PitWall associa a quella le verifiche. In caso contrario cerca una gara esistente con il **nome esatto** della prova; se non trova corrispondenza nemmeno così, **crea automaticamente** una gara minima perché le verifiche abbiano dove stare — lo stesso comportamento dell'importazione di una tanda.
 
-## 13. Giro per giro e correzioni (aggiungere / togliere giri)
+## 14. Giro per giro e correzioni (aggiungere / togliere giri)
 ![img: 30-correcciones.png]
 
 Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) entri nel **giro per giro** di ogni manche. Serve a sistemare le letture registrate male.
@@ -259,7 +272,7 @@ Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) e
 
 > **Giri fantasma automatici.** Un giro al di sotto del **Pt** (tempo minimo) viene segnato come **fantasma** e la corsia che lo ha generato non lo conta **mai**. PitWall non lo riassegna più a occhio: lo **trattiene** e lo assegna solo alla corsia che **conferma** di aver saltato un passaggio (quando quella corsia passa con un giro di ~il doppio della sua media). Se nessuno lo conferma, resta qui come **fantasma** perché tu lo riveda a mano.
 
-## 14. Risultati ed esportazioni
+## 15. Risultati ed esportazioni
 ![img: 10-results-comparativa.png]
 
 Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
@@ -272,7 +285,7 @@ Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
 
 ![img: op-resultados-publicos.png]
 
-## 15. Allenamento
+## 16. Allenamento
 ![img: 40-training.png]
 
 Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** (dalla schermata iniziale) per girare senza allestire una competizione completa. Ci sono due modalità:
@@ -293,7 +306,7 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 
 > L'**allenamento libero** non salva risultati: è una sessione aperta di tempi per corsia.
 
-## 16. Impostazioni
+## 17. Impostazioni
 ![img: 04-settings.png]
 
 - **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.
@@ -304,7 +317,7 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 
 **Cronologia delle versioni.** Nel **piè di pagina di tutte le pagine** vedi il numero di **versione** di PitWall. Premendolo si apre la **Cronologia delle versioni** (`/changelog`), con ciò che è stato **Aggiunto**, **Migliorato** e **Corretto** in ogni aggiornamento. La versione **sale a ogni aggiornamento**, così sai sempre quale PitWall hai e cosa è cambiato.
 
-## 17. Seguito pubblico su internet
+## 18. Seguito pubblico su internet
 ![img: op-seguimiento-publico.png]
 
 Per impostazione predefinita le viste di PitWall (la **diretta**, i **Risultati** e la **vista web di PitWall Lap**) sono visibili solo sulla **rete locale**. Con il **Seguito pubblico su internet** ogni club può **pubblicarle su internet** affinché piloti e pubblico seguano la gara **da fuori della sede**, senza aprire porte né configurare una VPN: PitWall attiva un **tunnel Cloudflare proprio** del club.
@@ -322,7 +335,7 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 
 > **Sicurezza.** Da fuori **si vedono solo le viste pubbliche** (diretta, risultati e la vista web di PitWall Lap). Il **controllo dell'app** (creare, dirigere o modificare gare) **resta bloccato**: nessuno da fuori può toccare la gara.
 
-## 18. Glossario (operazione)
+## 19. Glossario (operazione)
 - **Gara**: l'evento completo. Si compone di tande.
 - **Tanda**: gruppo di partecipanti con la sua rotazione; si compone di manche.
 - **Manche**: una tornata cronometrata (tutte le corsie insieme) di una certa durata.
@@ -333,6 +346,7 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 - **GO**: il segnale di partenza (del box DS-300) che avvia la manche.
 - **Giro fantasma**: giro segnato come non valido (non conta), ripristinabile.
 - **Pole**: sessione di qualifica preliminare (facoltativa); tutti girano sulla stessa corsia e il loro miglior giro fissa la griglia di partenza.
+- **Eventi**: pagina (🗒️) con il registro manche per manche di tutto ciò che succede nella gara —GO, pause, fine manche, giri fantasma, check-in di pilota…—, in diretta.
 - **Allenamento libero**: modalità per registrare giri per corsia senza squadre né rotazione (sessione aperta).
 - **PitWall Lap**: seguito per squadra/pilota dal cellulare (giri annunciati a voce, posizione e, nell'app, strategia gomme) — come vista web con PIN o come app nativa installata.
 - **PIN**: codice per squadra per entrare nel proprio pannello nella vista web di PitWall Lap (l'app nativa non lo usa: scopre il server da sola sulla rete locale).

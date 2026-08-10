@@ -123,7 +123,22 @@ Se c'è la proiezione attiva, compare **Stima alla fine** con la tua **posizione
 
 **App nativa (alternativa).** Se la squadra preferisce installare un'app invece di usare la web, esiste anche l'**app nativa PitWall Lap** (iOS/Android): stesso cronometraggio e stessa voce, ma senza PIN — scopre il server da sola sulla rete locale — con extra come la **strategia gomme in diretta**, **Pole**, **Storico** e **Allenamento**. È spiegata in dettaglio nel *Manuale d'uso*, sezione *PitWall Lap*.
 
-## 5. Consistenza
+> **Puoi già entrare dalla pole stessa**, non serve aspettare che finisca e vengano assegnate le corsie: appena la gara viene confermata, la tua squadra esiste già (con il suo PIN) e il tuo pannello ti dice se tocca a te adesso, con un cronometro in diretta del tuo tentativo e la voce che annuncia ogni giro. Al termine della pole, il pannello passa automaticamente a mostrare il tuo risultato (posizione e tempo) — vedi *Pole in diretta*.
+
+## 5. Pole in diretta
+
+![img: 46-pole-results.png]
+
+Se la gara ha la **pole** (il giro di qualifica che decide l'ordine di partenza), puoi seguirla in diretta anche se non la organizzi tu.
+
+- Dalla **home ospiti**, mentre è in corso una pole compare una **scheda** che porta direttamente al suo tabellone.
+- Ci si arriva anche da **Statistiche in diretta**.
+
+È una vista in **sola lettura**: non ci sono pulsanti per avviare, fermare o passare al pilota successivo, solo ciò che sta succedendo: **chi è in pista in questo momento**, l'**ordine di partenza** che resta da percorrere e la **classifica provvisoria** (dal più veloce al più lento) man mano che si registrano i tempi. Si aggiorna da sola, senza ricaricare.
+
+> Se la tua squadra gareggia nella gara di resistenza che segue la pole, appena la gara viene confermata hai già il tuo **pannello di PitWall Lap** attivo — puoi seguire lì stesso il tuo tentativo di pole, voce inclusa (vedi *PitWall Lap: la tua gara sul cellulare*).
+
+## 6. Consistenza
 
 ![img: 26-livestats-cons-con.png]
 
@@ -149,7 +164,7 @@ La scheda più importante per migliorare. **La consistenza misura la tua regolar
 
 ---
 
-## 6. I grafici
+## 7. I grafici
 
 Ogni grafico ha tre modalità. Cambiano a seconda di ciò che vuoi vedere.
 
@@ -169,7 +184,7 @@ La tua distanza dal leader lungo il tempo (asse X = minuti della manche; asse Y 
 
 ---
 
-## 7. Proiezione e gap
+## 8. Proiezione e gap
 
 ![img: 22-livestats-proyectada.png]
 
@@ -198,7 +213,7 @@ Da dove esce la virgola: **con la manche in corso** è la virgola **viva** —qu
 
 Quando due piloti hanno gli stessi giri, il pareggio si decide con la **virgola**: la frazione di giro che avevi percorso proprio al calare della bandiera. Girare al limite fino alla fine può darti quella frazione in più che ti fa salire di una posizione. E se siete pari anche nella virgola, decide il **tempo totale** accumulato.
 
-## 8. La vista Risultati (dopo la gara)
+## 9. La vista Risultati (dopo la gara)
 
 Quando la gara termina, **Risultati (“Resultados”)** è dove si analizza tutto con calma. Ha varie **schede**; ognuna risponde a una domanda diversa. In alto vedi sempre il **giro veloce della gara** (chi e su quale corsia).
 
@@ -259,7 +274,7 @@ Il **gap** di questa tabella si legge **"a 2,8 v (35,5\")"**: la distanza in gir
 
 > **Icone e colori che vedrai:** punto blu + **MIGLIORE** = giro veloce di quella corsia · rettangolo blu = corsia di partenza · **bordo dorato** = c'è stato un pit-stop in quella manche · tendenza **▲/▼** = sei salito/sceso rispetto alla manche precedente.
 
-## 9. Glossario
+## 10. Glossario
 
 - **Consistenza** — la tua regolarità giro dopo giro. 100 meno la tua variazione relativa. Più alto = più costante.
 - **±DS (deviazione standard) / CV** — il ±DS sono i secondi che oscilli da giro a giro (guarda questo numero). Il CV è quell'oscillazione in percentuale relativa al tuo ritmo; la % di consistenza è 100 − CV.
@@ -274,6 +289,7 @@ Il **gap** di questa tabella si legge **"a 2,8 v (35,5\")"**: la distanza in gir
 - **Stima provvisoria (\*)** — l'asterisco arancione accanto a una stima: la squadra è nella sua prima manche e non ha superato il 60 % di essa, quindi il suo riferimento non è fissato e il numero può ancora muoversi.
 - **Gap** — la tua distanza da un'altra auto (o dal leader), in giri **con la virgola**, in secondi (quei giri × la tua media) o per minuto. Si legge *"a 2,8 v (35,5\")"*.
 - **PitWall Lap** — il sito web mobile della tua squadra (accesso tramite PIN): la tua posizione proiettata, le tue schede di ritmo e la voce che annuncia i giri. Solo nelle gare a squadre.
+- **Pole in diretta** — tabellone di sola lettura per seguire il giro di qualifica della pole: chi è in pista, ordine di partenza e classifica provvisoria. Accessibile dalla home ospiti (con pole in corso) o da Statistiche in diretta.
 - **Occorrenza** — ogni volta che corri la stessa corsia nelle gare di passate/ripeti-corsia (`1/2`, `2/2`…); permette di confrontare una passata con l'altra.
 - **P/Salire** — nella classifica Le Mans, il ritmo (media per giro) che ti servirebbe per raggiungere la squadra davanti.
 - **Corsia di partenza** — la corsia da cui sei partito; nella griglia dei risultati è segnata con un riquadro blu.

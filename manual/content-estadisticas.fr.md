@@ -123,7 +123,22 @@ S'il y a une projection active, apparaît **Estimation à la fin** avec ta **pos
 
 **Appli native (alternative).** Si l'équipe préfère installer une appli plutôt que d'utiliser la web, il existe aussi l'**appli native PitWall Lap** (iOS/Android) : même chronométrage et même voix, mais sans PIN — elle découvre le serveur toute seule sur le réseau local — avec en plus des extras comme la **stratégie pneus en direct**, **Pole**, **Historique** et **Entraînement**. C'est détaillé dans le *Manuel d'utilisation*, section *PitWall Lap*.
 
-## 5. Consistance
+> **Tu peux déjà entrer depuis la pole elle-même**, pas besoin d'attendre qu'elle se termine et que les voies soient réparties : dès que la course est confirmée, ton équipe existe déjà (avec son PIN) et ton panneau te dit si c'est ton tour maintenant, avec un chronomètre en direct de ta tentative et la voix qui annonce chaque tour. À la fin de la pole, le panneau passe automatiquement à l'affichage de ton résultat (position et temps) — voir *Pole en direct*.
+
+## 5. Pole en direct
+
+![img: 46-pole-results.png]
+
+Si la course a une **pole** (le tour qualificatif qui décide de l'ordre de départ), tu peux la suivre en direct même si tu ne l'organises pas.
+
+- Depuis la **page d'accueil invité**, tant qu'une pole est en cours apparaît une **carte** qui mène directement à son tableau.
+- On y accède aussi depuis **Live-stats**.
+
+C'est une vue en **lecture seule** : il n'y a pas de boutons pour démarrer, arrêter ou passer au pilote suivant, seulement ce qui est en train de se passer : **qui est en piste en ce moment**, l'**ordre de départ** qu'il reste à courir et le **classement provisoire** (du plus rapide au plus lent) au fur et à mesure que les temps sont enregistrés. Elle se met à jour toute seule, sans recharger.
+
+> Si ton équipe participe à la course d'endurance qui suit la pole, dès que la course est confirmée tu as déjà ton **panneau PitWall Lap** actif — tu peux y suivre ta propre tentative de pole, voix comprise (voir *PitWall Lap : ta course sur le mobile*).
+
+## 6. Consistance
 
 ![img: 26-livestats-cons-con.png]
 
@@ -149,7 +164,7 @@ La carte la plus importante pour progresser. **La consistance mesure ta régular
 
 ---
 
-## 6. Les graphiques
+## 7. Les graphiques
 
 Chaque graphique a trois modes. Ils changent selon ce que tu veux voir.
 
@@ -169,7 +184,7 @@ Ta distance au leader au fil du temps (axe X = minutes de la manche ; axe Y = é
 
 ---
 
-## 7. Projection et écarts
+## 8. Projection et écarts
 
 ![img: 22-livestats-proyectada.png]
 
@@ -198,7 +213,7 @@ D'où vient la virgule : **manche en cours**, c'est la virgule **vivante** —ce
 
 Quand deux pilotes ont le même nombre de tours, c'est la **virgule** qui départage : la fraction de tour que tu avais faite juste au moment où le drapeau est tombé. Rouler à fond jusqu'au bout peut te donner cette fraction en plus qui te fait gagner une position. Et si vous êtes aussi à égalité sur la virgule, c'est le **temps total** cumulé qui tranche.
 
-## 8. La vue Résultats (après la course)
+## 9. La vue Résultats (après la course)
 
 Quand la course se termine, **Résultats** est l'endroit où l'on analyse tout tranquillement. Elle a plusieurs **onglets** ; chacun répond à une question différente. En haut, tu vois toujours le **meilleur tour de la course** (qui et sur quelle voie).
 
@@ -259,7 +274,7 @@ L'**écart** de ce tableau se lit **« a 2,8 v (35,5\") »** : la distance en to
 
 > **Icônes et couleurs que tu verras :** point bleu + **MEILLEUR** = meilleur tour de cette voie · rectangle bleu = voie de départ · **bord doré** = il y a eu un pit-stop dans cette manche · tendance **▲/▼** = tu es monté/descendu par rapport à la manche précédente.
 
-## 9. Glossaire
+## 10. Glossaire
 
 - **Consistance** — ta régularité tour par tour. 100 moins ta variation relative. Plus c'est élevé = plus constant.
 - **±ÉT (écart-type) / CV** — le ±ÉT, ce sont les secondes que tu oscilles de tour en tour (regarde ce chiffre). Le CV est cette oscillation en pourcentage relatif à ton rythme ; le % de consistance est 100 − CV.
@@ -274,6 +289,7 @@ L'**écart** de ce tableau se lit **« a 2,8 v (35,5\") »** : la distance en to
 - **Estimation provisoire (\*)** — l'astérisque orange à côté d'une estimation : l'équipe en est à sa première manche et n'a pas dépassé les 60 % de celle-ci, sa référence n'est donc pas figée et le chiffre peut encore bouger.
 - **Écart** — ta distance à une autre voiture (ou au leader), en tours **avec la virgule**, en secondes (ces tours × ta moyenne) ou par minute. Il se lit *« a 2,8 v (35,5\") »*.
 - **PitWall Lap** — le site web mobile de ton équipe (accès par PIN) : ta position projetée, tes cartes de rythme et la voix qui annonce les tours. Seulement dans les courses par équipes.
+- **Pole en direct** — tableau en lecture seule pour suivre le tour qualificatif de la pole : qui est en piste, ordre de départ et classement provisoire. Accessible depuis la page d'accueil invité (pole en cours) ou depuis Live-stats.
 - **Occurrence** — chaque fois que tu cours la même voie dans les courses à passages/répétition de voie (`1/2`, `2/2`…) ; permet de comparer un passage avec un autre.
 - **P/Monter** — dans le classement Le Mans, le rythme (moyenne par tour) dont tu aurais besoin pour atteindre l'équipe de devant.
 - **Voie de départ** — la voie depuis laquelle tu as démarré ; dans la grille des résultats, elle est marquée par un cadre bleu.

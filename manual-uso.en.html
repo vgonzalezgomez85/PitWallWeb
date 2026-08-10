@@ -66,6 +66,7 @@
       <li><a href="#pole">Pole (pre-race qualifying)</a></li>
       <li><a href="#lap">PitWall Lap — PIN for teams</a></li>
       <li><a href="#vivo">Running the race live</a></li>
+      <li><a href="#sucesos">Race events</a></li>
       <li><a href="#turnos">Driver shift control</a></li>
       <li><a href="#neumaticos">Endurance tyre control</a></li>
       <li><a href="#verificaciones">Technical inspection from PitWall Control</a></li>
@@ -299,8 +300,9 @@
       </figure>
       <p>The <b>pole</b> is a qualifying lap <b>before</b> the race to decide the starting order. It's optional; it's enabled when creating the race (<b>Pole</b>) and it's launched from the race page → <b>Set up Pole Position</b>.</p>
       <ul>
-        <li><b>Participants</b>: everyone entered appears. The <b>order of the list</b> is the order in which they'll go out to do their lap; hit <b>🎲 Random</b> to shuffle it.</li>
+        <li><b>Participants</b>: everyone entered appears in a <b>numbered grid</b> (1, 2, 3…) that resizes itself to the screen width and fills by columns —matching the track groups C1/C2/C3—. That order is the order in which they'll go out to do their lap; you can <b>drag</b> any participant by hand to change it, or hit <b>🎲 Random</b> to shuffle the whole thing.</li>
         <li><b>Pole lane</b>: <b>everyone</b> does their qualifying lap on the <b>same lane</b> (so it's comparable). Pick it with <b>−/+</b> or with <b>🎲 Random</b>.</li>
+        <li><b>Automatic driver advance</b>: a toggle next to <b>Skip 1st crossing</b>. With it on, when a driver's attempt ends the <b>Next driver</b> button counts down 3 seconds and advances on its own, without waiting for a manual click. It's a preference of the control desk (saved in the browser itself), not of the race.</li>
         <li>Press <b>Start Pole</b>: each participant enters in turn, does their lap and PitWall records their best time. In timing you can enable <b>Skip 1st crossing (out-lap)</b> so the launch lap isn't counted.</li>
       </ul>
 
@@ -329,6 +331,10 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>The pole doesn't score in the race: it only decides <b>who picks lane first</b> and, with that, the starting grid of the first heat.</div>
       </div>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <div><b>Guests can now follow the pole live.</b> The pole's timing board —previously only visible to whoever was running it— is now reachable with no IP restriction from <b>Live stats</b>, and a new card appears on the guest home while a pole is under way. It's <b>read-only</b>: the controls (start/stop/next driver) are hidden, and you see in real time who's on track, the starting order and the provisional classification.</div>
+      </div>
     </section>
 
     <section id="lap">
@@ -340,6 +346,10 @@
         <figcaption>PitWall Lap · PINs: the mobile address and each team's PIN.</figcaption>
       </figure>
       <p><b>PitWall Lap</b> is the mobile view for each <b>team/driver</b> to follow their own timing from the phone (their laps, called out by voice, and their position). So that they only enter <i>their</i> panel, a <b>PIN</b> is handed out per team.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>It already works during the pole itself, not just after it's over.</b> Teams (with their PIN) are created as soon as the race wizard is confirmed, instead of waiting for lanes to be assigned at the end of the pole. So each team's panel tells them if it's their turn now, with a live timer for their attempt, their laps and their best time, with the voice calling out every lap just like in the race; once the pole ends, the panel switches on its own to showing their result (position and time).</div>
+      </div>
       <ul>
         <li>Go into <b>PitWall Lap · PINs</b> of the race. You'll see the address teams open on the mobile (e.g. <span class="mono">http://&lt;server-IP&gt;:3000/lap/&lt;id&gt;</span>) and the <b>TEAM → PIN</b> table.</li>
         <li>Give each team <b>their PIN</b>. When they open the address and enter it, they go straight into their panel.</li>
@@ -385,8 +395,19 @@
       </div>
     </section>
 
-    <section id="turnos">
+    <section id="sucesos">
       <div class="num">// 10</div>
+      <h2>Race events</h2>
+      <p>The <b>🗒️ Race events</b> page —reachable from the race page and with a button in the live screen's header— shows, heat by heat, everything that happens during the session in an easy-to-read format: <b>GO</b> (including when it's given on several boxes separately, track by track), <b>pause and resume</b> per track, <b>end of heat</b>, <b>cancellation</b>, <b>recovery after a cut</b>, <b>ghost/ignored laps</b> and their <b>reassignment</b> to the right lane, <b>retroactive exits</b> and <b>driver check-ins</b> (QR, on-the-fly change or manual correction).</p>
+      <p>Heats are shown <b>collapsed by default</b> —only the one under way appears open— and expand with a click on their header. A checkbox lets you <b>hide routine driver check-ins</b> before the GO when only the rest of the events matter.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>While the heat is running, the page keeps <b>adding new events as they happen</b>, without reloading. It's the way to reconstruct, after a race, what happened and when, without relying on memory.</div>
+      </div>
+    </section>
+
+    <section id="turnos">
+      <div class="num">// 11</div>
       <h2>Driver shift control (championships)</h2>
       <p>In <b>team championship</b> races you can enforce rules for sharing the wheel among a team's drivers. They are defined when creating the race:</p>
       <ul>
@@ -406,7 +427,7 @@
     </section>
 
     <section id="neumaticos">
-      <div class="num">// 11</div>
+      <div class="num">// 12</div>
       <h2>Endurance tyre control</h2>
       <p>In an <b>endurance</b> race you can keep track of the <b>tyre sets</b> each team uses. The allotment —the sets <b>everyone</b> starts with— is set when you create the race (wizard, step 1, <b>"Tyres per team"</b> field). With <b>0</b>, control is off and everything works as before.</p>
       <p>It opens <b>two ways</b>:</p>
@@ -429,7 +450,7 @@
     </section>
 
     <section id="verificaciones">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Technical inspection from PitWall Control</h2>
       <p>If your club runs <b>technical inspection</b> of the cars through <b>PitWall Control</b>, those results can also reach PitWall —over the same network bridge as batches, with the same PIN and the same <b>Ecosystem connection</b> switch (see <i>Importing a batch from PitWall Control</i>).</p>
       <p>Heat by heat, Control sends the <b>snapshot</b> of what it has inspected per team: <b>weights</b> (starting, final and minimum car weight), <b>motor</b> (type, rpm, ums), <b>pinion/crown gear</b> (make, teeth, diameter, material), front and rear <b>wheels</b>, <b>braid</b>, <b>suspension</b>, <b>chassis bed</b>, <b>chassis</b>, <b>tyre</b>, whether it was <b>passed</b> or not, and <b>notes</b> —with photos, if any.</p>
@@ -445,7 +466,7 @@
     </section>
 
     <section id="correcciones">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Lap by lap and corrections (add / remove laps)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Lap by lap · Corrections</span></div>
@@ -476,7 +497,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Results and exports</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Results · Comparison</span></div>
@@ -500,7 +521,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Training</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Training</span></div>
@@ -527,7 +548,7 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Settings</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings</span></div>
@@ -547,7 +568,7 @@
     </section>
 
     <section id="publico">
-      <div class="num">// 17</div>
+      <div class="num">// 18</div>
       <h2>Public tracking over the internet</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings · Public tracking over the internet</span></div>
@@ -569,7 +590,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 18</div>
+      <div class="num">// 19</div>
       <h2>Glossary (operation)</h2>
       <ul>
         <li><b>Race</b>: the complete event. Made up of batches.</li>
@@ -582,6 +603,7 @@
         <li><b>GO</b>: the start signal (from the DS-300 box) that launches the heat.</li>
         <li><b>Ghost lap</b>: a lap marked as invalid (doesn't count), restorable.</li>
         <li><b>Pole</b>: a pre-race qualifying session (optional); everyone runs on the same lane and their best lap sets the starting grid.</li>
+        <li><b>Race events</b>: page (🗒️) with the heat-by-heat log of everything happening in the race —GO, pauses, end of heat, ghost laps, driver check-ins…—, live.</li>
         <li><b>Free training</b>: mode to record laps per lane without teams or rotation (open session).</li>
         <li><b>PitWall Lap</b>: per-team/driver mobile view (their called-out laps and their position).</li>
         <li><b>PIN</b>: per-team code to enter their panel in PitWall Lap.</li>

@@ -256,7 +256,7 @@
       <ul>
         <li><b>Voiture</b> : seulement les modèles de sa coupe (ou « pour toutes »), avec la <b>photo de référence</b> en dessous pour comparer avec la voiture remise.</li>
         <li><b>Moteur</b> : d'organisation (avec <b>tirage</b>) ou personnel, avec RPM/dimensions.</li>
-        <li><b>Pignon et couronne</b> : marque (limitée aux homologuées de cette coupe) et dents, validés face à la <b>plage du championnat</b>.</li>
+        <li><b>Pignon et couronne</b> : marque (limitée aux homologuées de cette coupe) et dents, validés face à la <b>plage du championnat</b> ; plus <b>diamètre</b> (texte libre, tel que le note le vérificateur) et <b>matériau</b> — pignon : PL / ERG / LAT / ACR / ALU ; couronne : PL / MET.</li>
         <li><b>Pneu, support moteur, châssis</b> : filtrés par la coupe.</li>
         <li><b>Jante avant</b> et <b>jante arrière</b> : deux menus déroulants, tous deux <b>réduits à la coupe de l'équipe</b>.</li>
         <li><b>Poids</b>, suspension, tresse, observations et <b>photos</b>.</li>
@@ -394,6 +394,13 @@
         <li>À l'<b>application</b>, les <b>positions par manche</b> sont écrites dans l'épreuve. Les <b>points</b> sont fixés par Control avec sa propre <b>table de points</b> (ils ne viennent pas de PitWall).</li>
       </ol>
       <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
+
+      <h3>Envoyer les vérifications à PitWall</h3>
+      <p>Depuis le panneau de l'épreuve, <b>Envoyer les vérifications à PitWall</b> transmet l'instantané de ce qui est vérifié —pignon/couronne, coupes, poids, moteur, jantes, pneu, validé, observations et les autres champs de la fiche— pour qu'il soit visible dans la course. Il suit le même chemin que l'envoi de la série : Control <b>détecte</b> le PitWall sur le réseau local (ou tu saisis l'<b>IP</b> à la main), demande le <b>PIN d'appairage</b> et te laisse choisir, dans la liste des courses de ce PitWall, celle qui correspond à cette épreuve. Une fois choisie, Control s'en souvient pour la prochaine fois : les renvois de cette épreuve vont toujours vers <b>la même course</b>, sans avoir à la rechercher par nom.</p>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <div>Dans PitWall, les vérifications sont en <b>consultation uniquement</b> : elles ne s'y éditent ni ne s'y créent, et chaque nouvel envoi depuis Control <b>remplace entièrement</b> celles de cette course. Cela requiert d'avoir la <b>Connexion écosystème</b> autorisée dans PitWall (voir le <i>Manuel d'utilisation</i>, section <i>Vérifications techniques de PitWall Control</i>).</div>
+      </div>
     </section>
 
     <section id="glosario">
@@ -419,6 +426,7 @@
         <li><b>Trésorerie</b> : cotisations par épreuve et leur répartition (comité d'organisation / club).</li>
         <li><b>Série (tanda)</b> : paquet de l'épreuve (<span class="mono">pitwall.tanda/v1</span>) envoyé à PitWall.</li>
         <li><b>Récupérer les résultats</b> : importer depuis PitWall les positions par manche (appariées par nom) pour le classement et les crédits ; les points sont fixés par Control.</li>
+        <li><b>Envoyer les vérifications</b> : transmettre à PitWall, par réseau et avec PIN, l'instantané de ce qui est vérifié pour chaque équipe (pignon/couronne, poids, moteur, jantes…) pour qu'il soit visible —en consultation uniquement— dans la course. Chaque envoi remplace entièrement le précédent.</li>
         <li><b>PIN d'appairage</b> : le code que PitWall affiche dans <i>Importer une série</i>, que Control demande pour autoriser l'envoi par réseau.</li>
         <li><b>Marque</b> : titre et devise du championnat estampillés sur les PDF.</li>
       </ul>

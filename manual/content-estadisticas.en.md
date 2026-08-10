@@ -123,7 +123,22 @@ If projection is active, Estimate at the finish appears with your **estimated po
 
 **Native app (alternative).** If the team would rather install an app than use the web, there's also the **native PitWall Lap app** (iOS/Android): the same timing and voice, but no PIN — it discovers the server on its own on the local network — plus extras like **live tyre strategy**, **Pole**, **History** and **Training**. It's covered in detail in the *Usage manual*, section *PitWall Lap*.
 
-## 5. Consistency
+> **You can now log in from the pole itself**, no need to wait for it to finish and for lanes to be handed out: as soon as the race is confirmed, your team already exists (with its PIN) and your panel tells you if it's your turn now, with a live timer for your attempt and the voice calling out every lap. Once the pole ends, the panel switches on its own to showing your result (position and time) — see *Live pole*.
+
+## 5. Live pole
+
+![img: 46-pole-results.png]
+
+If the race has a **pole** (the qualifying lap that decides the starting order), you can follow it live even if you're not the one running it.
+
+- From the **guest home**, while a pole is under way a **card** appears that takes you straight to its board.
+- You can also get there from **Live stats**.
+
+It's a **read-only** view: there are no start, stop or next-driver buttons, just what's happening: **who's on track right now**, the **starting order** still to run and the **provisional classification** (fastest to slowest) as times are recorded. It updates on its own, without reloading.
+
+> If your team is competing in the endurance race that follows the pole, as soon as the race is confirmed you already have your **PitWall Lap panel** active — you can follow your own pole attempt right there, voice included (see *PitWall Lap: your race on the phone*).
+
+## 6. Consistency
 
 ![img: 26-livestats-cons-con.png]
 
@@ -149,7 +164,7 @@ The most important card for improving. **Consistency measures your lap-to-lap re
 
 ---
 
-## 6. The charts
+## 7. The charts
 
 Each chart has three modes. They change according to what you want to see.
 
@@ -169,7 +184,7 @@ Your distance to the leader over time (X axis = minutes of the heat; Y axis = th
 
 ---
 
-## 7. Projection and gaps
+## 8. Projection and gaps
 
 ![img: 22-livestats-proyectada.png]
 
@@ -198,7 +213,7 @@ Where the fraction comes from: **with the heat running** it's the **live** fract
 
 When two drivers have the same laps, the **fraction** breaks the tie: the fraction of a lap you'd completed just as the flag fell. Running right to the end can give you that extra fraction that moves you up a position. And if you're level on the fraction too, the accumulated **total time** decides.
 
-## 8. The Results view (after the race)
+## 9. The Results view (after the race)
 
 When the race ends, **Results** is where everything is analyzed calmly. It has several **tabs**; each one answers a different question. At the top you always see the **fastest lap of the race** (who and on which lane).
 
@@ -259,7 +274,7 @@ The **gap** in this table reads **"a 2,8 v (35,5\")"**: the distance in laps **w
 
 > **Icons and colors you'll see:** blue dot + **BEST** = fastest lap of that lane · blue rectangle = starting lane · **gold border** = there was a pit-stop in that heat · trend **▲/▼** = you went up/down compared to the previous heat.
 
-## 9. Glossary
+## 10. Glossary
 
 - **Consistency** — your lap-to-lap regularity. 100 minus your relative variation. Higher = more consistent.
 - **±SD (standard deviation) / CV** — the ±SD is the seconds you swing from lap to lap (look at this number). The CV is that swing as a percentage relative to your pace; the consistency % is 100 − CV.
@@ -274,6 +289,7 @@ The **gap** in this table reads **"a 2,8 v (35,5\")"**: the distance in laps **w
 - **Provisional estimate (\*)** — the orange asterisk next to an estimate: the team is in its first heat and hasn't gone past 60 % of it, so its reference isn't locked in and the number can still move.
 - **Gap** — your distance to another car (or to the leader), in laps **with the fraction**, in seconds (those laps × your average) or per minute. It reads *"a 2,8 v (35,5\")"*.
 - **PitWall Lap** — your team's mobile web page (PIN access): your projected position, your pace cards and the voice that calls out the laps. Only in team races.
+- **Live pole** — a read-only board for following the pole's qualifying lap: who's on track, the starting order and the provisional classification. Reachable from the guest home (while a pole is under way) or from Live stats.
 - **Occurrence** — each time you run the same lane in passes/repeat-lane races (`1/2`, `2/2`…); it lets you compare one pass with another.
 - **P/Climb** — in the Le Mans classification, the pace (average per lap) you'd need to catch the team ahead.
 - **Starting lane** — the lane you started from; in the results grid it's marked with a blue box.
