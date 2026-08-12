@@ -49,7 +49,11 @@ All of them can be **bulk-imported from CSV** (the CSV template (“Plantilla CS
 
 ![img: op-qr-pilotos.png]
 
+![img: op-catalogo-equipos.png]
+
 > With Export QR (“Exportar QR”) you print the QR cards for all drivers (for the scan-based driver change in endurance — see *Driver shift control*). The team catalog has its own Export QR, handing out those same cards **grouped by team** (with the team name and category as a header), marking empty teams "no drivers" and members with no linked club driver yet "⚠ no profile".
+
+![img: op-qr-equipos.png]
 
 ## 3. Creating a race
 ![img: 03-wizard-step1.png]

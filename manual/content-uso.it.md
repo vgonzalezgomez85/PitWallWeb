@@ -49,7 +49,11 @@ Tutti possono essere **importati in blocco da CSV** (pulsanti **Modello CSV (“
 
 ![img: op-qr-pilotos.png]
 
+![img: op-catalogo-equipos.png]
+
 > Con **Esporta QR (“Exportar QR”)** stampi le tessere QR di tutti i piloti (per il cambio di pilota tramite scansione nelle gare di resistenza — vedi *Controllo dei turni*). Il catalogo squadre ha un proprio **Esporta QR**, che distribuisce le stesse tessere **raggruppate per squadra** (nome e categoria come intestazione), segnando "senza piloti" le squadre vuote e "⚠ senza profilo" i componenti non ancora collegati a un pilota del club.
+
+![img: op-qr-equipos.png]
 
 ## 3. Creare una gara
 ![img: 03-wizard-step1.png]

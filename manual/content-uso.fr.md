@@ -49,7 +49,11 @@ Tous peuvent être **importés en bloc depuis un CSV** (boutons *Modèle CSV («
 
 ![img: op-qr-pilotos.png]
 
+![img: op-catalogo-equipos.png]
+
 > Avec *Exporter QR (« Exportar QR »)*, tu imprimes les cartes QR de tous les pilotes (pour le changement de pilote par scan en endurance — voir *Contrôle des relais*). Le catalogue d'équipes a son propre *Exporter QR*, qui distribue ces mêmes cartes **regroupées par équipe** (nom et catégorie en en-tête), en marquant « sans pilotes » les équipes vides et « ⚠ sans profil » les membres pas encore liés à un pilote du club.
+
+![img: op-qr-equipos.png]
 
 ## 3. Créer une course
 ![img: 03-wizard-step1.png]

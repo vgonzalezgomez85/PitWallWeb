@@ -49,7 +49,11 @@ Todos se pueden **importar en bloque desde CSV** (botones **Plantilla CSV** e **
 
 ![img: op-qr-pilotos.png]
 
+![img: op-catalogo-equipos.png]
+
 > Con **Exportar QR** imprimes las tarjetas QR de todos los pilotos (para el cambio de piloto por escaneo en resistencia — ver *Control de turnos*). El catálogo de equipos tiene su propio **Exportar QR**, que reparte esas mismas tarjetas **agrupadas por equipo** (nombre y categoría de cabecera), marcando "sin pilotos" los equipos vacíos y "⚠ sin perfil" a quien todavía no tiene piloto del club vinculado.
+
+![img: op-qr-equipos.png]
 
 ## 3. Crear una carrera
 ![img: 03-wizard-step1.png]
