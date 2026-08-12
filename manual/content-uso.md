@@ -40,7 +40,7 @@ Al editar un escenario defines su nombre, la configuración de carriles, arrastr
 
 **Catálogos reutilizables (pilotos, equipos, coches).** Mantén tu **base de datos** de participantes y material para reutilizarla entre carreras:
 - **Pilotos** — nombre y categoría; cada piloto puede tener su **QR** de identificación.
-- **Equipos** — nombre, color, país, coche y miembros.
+- **Equipos** — nombre, color, país (con su bandera; junto a las banderas de país estándar hay banderas propias dibujadas para Catalunya y Euskadi), categoría (coloreada igual que en el directo), coche y miembros.
 - **Coches** — marca, modelo y categoría.
 
 Todos se pueden **importar en bloque desde CSV** (botones **Plantilla CSV** e **Importar CSV**, con vista previa de novedades vs. duplicados) y exportar.
@@ -49,7 +49,7 @@ Todos se pueden **importar en bloque desde CSV** (botones **Plantilla CSV** e **
 
 ![img: op-qr-pilotos.png]
 
-> Con **Exportar QR** imprimes las tarjetas QR de todos los pilotos (para el cambio de piloto por escaneo en resistencia — ver *Control de turnos*).
+> Con **Exportar QR** imprimes las tarjetas QR de todos los pilotos (para el cambio de piloto por escaneo en resistencia — ver *Control de turnos*). El catálogo de equipos tiene su propio **Exportar QR**, que reparte esas mismas tarjetas **agrupadas por equipo** (nombre y categoría de cabecera), marcando "sin pilotos" los equipos vacíos y "⚠ sin perfil" a quien todavía no tiene piloto del club vinculado.
 
 ## 3. Crear una carrera
 ![img: 03-wizard-step1.png]

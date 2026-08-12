@@ -40,7 +40,7 @@ Modificando uno scenario ne definisci il nome, la configurazione delle corsie, t
 
 **Cataloghi riutilizzabili (piloti, squadre, auto).** Mantieni il tuo **database** di partecipanti e materiale per riutilizzarlo tra le gare:
 - **Piloti** — nome e categoria; ogni pilota può avere il proprio **QR** di identificazione.
-- **Squadre** — nome, colore, nazione, auto e componenti.
+- **Squadre** — nome, colore, nazione (con la sua bandiera; oltre alle bandiere di nazione standard ci sono bandiere disegnate a mano per Catalogna e Paesi Baschi), categoria (colorata come nel live), auto e componenti.
 - **Auto** — marca, modello e categoria.
 
 Tutti possono essere **importati in blocco da CSV** (pulsanti **Modello CSV (“Plantilla CSV”)** e **Importa CSV (“Importar CSV”)**, con anteprima delle novità vs. duplicati) ed esportati.
@@ -49,7 +49,7 @@ Tutti possono essere **importati in blocco da CSV** (pulsanti **Modello CSV (“
 
 ![img: op-qr-pilotos.png]
 
-> Con **Esporta QR (“Exportar QR”)** stampi le tessere QR di tutti i piloti (per il cambio di pilota tramite scansione nelle gare di resistenza — vedi *Controllo dei turni*).
+> Con **Esporta QR (“Exportar QR”)** stampi le tessere QR di tutti i piloti (per il cambio di pilota tramite scansione nelle gare di resistenza — vedi *Controllo dei turni*). Il catalogo squadre ha un proprio **Esporta QR**, che distribuisce le stesse tessere **raggruppate per squadra** (nome e categoria come intestazione), segnando "senza piloti" le squadre vuote e "⚠ senza profilo" i componenti non ancora collegati a un pilota del club.
 
 ## 3. Creare una gara
 ![img: 03-wizard-step1.png]

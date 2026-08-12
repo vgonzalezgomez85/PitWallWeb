@@ -40,7 +40,7 @@ When editing a scenario you define its name, the lane configuration, you drag th
 
 **Reusable catalogs (drivers, teams, cars).** Keep your **database** of participants and equipment to reuse it across races:
 - **Drivers** — name and category; each driver can have their identification **QR**.
-- **Teams** — name, color, country, car and members.
+- **Teams** — name, color, country (with its flag; besides standard country flags there are hand-drawn flags for Catalunya and Euskadi), category (colored the same way as in the live view), car and members.
 - **Cars** — make, model and category.
 
 All of them can be **bulk-imported from CSV** (the CSV template (“Plantilla CSV”) and Import CSV (“Importar CSV”) buttons, with a preview of new entries vs. duplicates) and exported.
@@ -49,7 +49,7 @@ All of them can be **bulk-imported from CSV** (the CSV template (“Plantilla CS
 
 ![img: op-qr-pilotos.png]
 
-> With Export QR (“Exportar QR”) you print the QR cards for all drivers (for the scan-based driver change in endurance — see *Driver shift control*).
+> With Export QR (“Exportar QR”) you print the QR cards for all drivers (for the scan-based driver change in endurance — see *Driver shift control*). The team catalog has its own Export QR, handing out those same cards **grouped by team** (with the team name and category as a header), marking empty teams "no drivers" and members with no linked club driver yet "⚠ no profile".
 
 ## 3. Creating a race
 ![img: 03-wizard-step1.png]

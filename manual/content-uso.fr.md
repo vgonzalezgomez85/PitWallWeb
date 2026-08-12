@@ -40,7 +40,7 @@ Lors de l'édition d'un scénario, tu définis son nom, la configuration des voi
 
 **Catalogues réutilisables (pilotes, équipes, voitures).** Tiens à jour ta **base de données** de participants et de matériel pour la réutiliser d'une course à l'autre :
 - **Pilotes** — nom et catégorie ; chaque pilote peut avoir son **QR** d'identification.
-- **Équipes** — nom, couleur, pays, voiture et membres.
+- **Équipes** — nom, couleur, pays (avec son drapeau ; en plus des drapeaux de pays standards, il y a des drapeaux dessinés à la main pour la Catalogne et le Pays basque), catégorie (colorée comme dans le direct), voiture et membres.
 - **Voitures** — marque, modèle et catégorie.
 
 Tous peuvent être **importés en bloc depuis un CSV** (boutons *Modèle CSV (« Plantilla CSV »)* et *Importer CSV (« Importar CSV »)*, avec un aperçu des nouveautés vs. doublons) et exportés.
@@ -49,7 +49,7 @@ Tous peuvent être **importés en bloc depuis un CSV** (boutons *Modèle CSV («
 
 ![img: op-qr-pilotos.png]
 
-> Avec *Exporter QR (« Exportar QR »)*, tu imprimes les cartes QR de tous les pilotes (pour le changement de pilote par scan en endurance — voir *Contrôle des relais*).
+> Avec *Exporter QR (« Exportar QR »)*, tu imprimes les cartes QR de tous les pilotes (pour le changement de pilote par scan en endurance — voir *Contrôle des relais*). Le catalogue d'équipes a son propre *Exporter QR*, qui distribue ces mêmes cartes **regroupées par équipe** (nom et catégorie en en-tête), en marquant « sans pilotes » les équipes vides et « ⚠ sans profil » les membres pas encore liés à un pilote du club.
 
 ## 3. Créer une course
 ![img: 03-wizard-step1.png]
