@@ -319,6 +319,8 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 - **Seguito pubblico su internet**: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la sezione seguente).
 - **Licenza** e lingua (ES/EN).
 
+**Backup del database.** Dalla home, la scheda **Database** (`/database`) permette di **scaricare** uno snapshot completo dei tuoi dati (`.db`) e, se un giorno serve recuperare un'installazione o spostare PitWall su un altro PC, di **caricare** una copia per ripristinarla: il caricamento viene validato (deve essere un vero database SQLite) e resta "in attesa" — non sostituisce nulla al momento, si applica solo **chiudendo PitWall del tutto e riaprendolo**, e prima di applicarlo viene salvata automaticamente una copia dei dati attuali. Puoi annullare un'importazione in attesa in qualsiasi momento prima di riavviare.
+
 **Cronologia delle versioni.** Nel **piè di pagina di tutte le pagine** vedi il numero di **versione** di PitWall. Premendolo si apre la **Cronologia delle versioni** (`/changelog`), con ciò che è stato **Aggiunto**, **Migliorato** e **Corretto** in ogni aggiornamento. La versione **sale a ogni aggiornamento**, così sai sempre quale PitWall hai e cosa è cambiato.
 
 ## 18. Seguito pubblico su internet

@@ -319,6 +319,8 @@ Chaque séance peut être **supprimée** depuis son détail. Si tu arrêtes la s
 - **Suivi public par internet** : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la section suivante).
 - **Licence** et langue (ES/EN).
 
+**Sauvegarde de la base de données.** Depuis l'accueil, la carte **Base de données** (`/database`) permet de **télécharger** un instantané complet de tes données (`.db`) et, s'il faut un jour récupérer une installation ou déplacer PitWall sur un autre PC, d'**importer** une copie pour la restaurer : l'import est validé (ce doit être une vraie base SQLite) et reste « en attente » — rien n'est remplacé sur le moment, ça ne s'applique qu'en **fermant PitWall complètement puis en le rouvrant**, et tes données actuelles sont sauvegardées automatiquement avant application. Tu peux annuler un import en attente à tout moment avant de redémarrer.
+
 **Historique des versions.** Dans le **pied de toutes les pages**, tu vois le numéro de **version** de PitWall. En cliquant dessus, l'**Historique des versions** (`/changelog`) s'ouvre, avec ce qui a été **Ajouté**, **Amélioré** et **Corrigé** à chaque mise à jour. La version **augmente à chaque mise à jour**, ainsi tu sais toujours quel PitWall tu as et ce qui a changé.
 
 ## 18. Suivi public par internet

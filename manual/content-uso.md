@@ -319,6 +319,8 @@ Cada sesión se puede **borrar** desde su detalle. Si paras la sesión con **STO
 - **Seguimiento público por internet**: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la sección siguiente).
 - **Licencia** e idioma (ES/EN).
 
+**Copia de seguridad de la base de datos.** Desde la home, la tarjeta **Base de datos** (`/database`) permite **descargar** un snapshot completo de tus datos (`.db`) y, si algún día hace falta recuperar una instalación o mover PitWall a otro PC, **subir** una copia para restaurarla: la subida se valida (tiene que ser una base de datos SQLite real) y queda "pendiente" — no sustituye nada al momento, se aplica solo al **cerrar PitWall del todo y volver a abrirlo**, y antes de aplicarla se guarda automáticamente una copia de los datos que tenías. Puedes cancelar una importación pendiente en cualquier momento antes de reiniciar.
+
 **Historial de versiones.** En el **pie de todas las páginas** ves el número de **versión** de PitWall. Al pulsarlo se abre el **Historial de versiones** (`/changelog`), con lo **Añadido**, **Mejorado** y **Corregido** en cada actualización. La versión **sube con cada actualización**, así siempre sabes qué PitWall tienes y qué ha cambiado.
 
 ## 18. Seguimiento público por internet

@@ -319,6 +319,8 @@ Each session can be **deleted** from its detail. If you stop the session with **
 - **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).
 - **License** and language (ES/EN).
 
+**Database backup.** From the home screen, the **Database** card (`/database`) lets you **download** a full snapshot of your data (`.db`) and, if you ever need to recover an install or move PitWall to another PC, **upload** a backup to restore it: the upload is validated (it must be a real SQLite database) and stays "pending" — nothing is replaced right away, it only applies once you **fully close PitWall and reopen it**, and your current data is backed up automatically before applying it. You can cancel a pending import at any time before restarting.
+
 **Version history.** In the **footer of every page** you see PitWall's **version** number. Pressing it opens the **Version history** (`/changelog`), with what was **Added**, **Improved** and **Fixed** in each update. The version **goes up with every update**, so you always know which PitWall you have and what has changed.
 
 ## 18. Public tracking over the internet
