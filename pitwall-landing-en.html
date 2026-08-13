@@ -130,6 +130,14 @@
     box-shadow:0 0 9px var(--red);animation:rec 1.4s infinite;flex:0 0 auto}
   .nav-soon{padding:8px 14px;font-size:11px;letter-spacing:.12em}
 
+  /* "pruébalo ya" badge — misma forma que .soon, semáforo en verde */
+  .live{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    padding:14px 22px;border-radius:2px;border:1px dashed var(--green);color:var(--green);
+    display:inline-flex;align-items:center;gap:10px;background:rgba(34,197,94,.06);transition:.18s}
+  .live:hover{background:rgba(34,197,94,.14);transform:translateY(-1px)}
+  .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 9px var(--green);animation:rec 1.4s infinite;flex:0 0 auto}
+
   .hero-stats{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
   .hero-stats div{font-family:var(--mono)}
   .hero-stats .n{font-size:24px;font-weight:600;color:var(--ink)}
@@ -389,7 +397,6 @@
       <a href="#apps">Apps</a>
       <a href="#arquitectura">How it works</a>
       <a href="#porque">Why</a>
-      <span class="soon nav-soon">Coming soon</span>
       <div class="langs"><a class="lg" href="index.html">ES</a><b>EN</b><a class="lg" href="pitwall-landing-fr.html">FR</a><a class="lg" href="pitwall-landing-it.html">IT</a></div>
     </nav>
   </div>
@@ -406,7 +413,7 @@
       <h1>Where the<br><span class="r">race</span> is won.</h1>
       <p class="lede">PitWall is the complete ecosystem for your slot racing: <b>time</b> the race from the hardware, <b>follow it live</b> on your phone and <b>manage</b> the whole season. From the DS-300 or BART to the final standings.</p>
       <div class="cta-row">
-        <span class="soon">Coming soon</span>
+        <a class="live" href="#apps">Try it now! →</a>
         <a class="btn btn-ghost" href="#apps">See all three apps →</a>
       </div>
       <div class="hero-stats">
@@ -628,9 +635,9 @@
   <div class="wrap">
     <div class="gantry" id="gantry2"><b></b><b></b><b></b><b></b><b></b></div>
     <h2>Lights out.<br><span class="r">Race on.</span></h2>
-    <p>Do you run slot car races or championships? PitWall is on the final straight of development: very soon you'll be able to set it up in your club and stay on top of everything, from the first lap to the final standings.</p>
+    <p>Do you run slot car races or championships? Manager and Control are ready for your club now; Lap, the pocket co-driver, is coming very soon.</p>
     <div class="cta-row">
-      <span class="soon">Coming soon</span>
+      <a class="live" href="#apps">Try it now! →</a>
       <a class="btn btn-ghost" href="#arquitectura">See how it works</a>
     </div>
   </div>

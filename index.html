@@ -130,6 +130,14 @@
     box-shadow:0 0 9px var(--red);animation:rec 1.4s infinite;flex:0 0 auto}
   .nav-soon{padding:8px 14px;font-size:11px;letter-spacing:.12em}
 
+  /* "pruébalo ya" badge — misma forma que .soon, semáforo en verde */
+  .live{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    padding:14px 22px;border-radius:2px;border:1px dashed var(--green);color:var(--green);
+    display:inline-flex;align-items:center;gap:10px;background:rgba(34,197,94,.06);transition:.18s}
+  .live:hover{background:rgba(34,197,94,.14);transform:translateY(-1px)}
+  .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 9px var(--green);animation:rec 1.4s infinite;flex:0 0 auto}
+
   .hero-stats{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
   .hero-stats div{font-family:var(--mono)}
   .hero-stats .n{font-size:24px;font-weight:600;color:var(--ink)}
@@ -390,7 +398,6 @@
       <a href="#apps">Apps</a>
       <a href="#arquitectura">Cómo funciona</a>
       <a href="#porque">Por qué</a>
-      <span class="soon nav-soon">Próximamente</span>
       <div class="langs"><b>ES</b><a class="lg" href="pitwall-landing-en.html">EN</a><a class="lg" href="pitwall-landing-fr.html">FR</a><a class="lg" href="pitwall-landing-it.html">IT</a></div>
     </nav>
   </div>
@@ -407,7 +414,7 @@
       <h1>Donde se<br>gana la <span class="r">carrera</span>.</h1>
       <p class="lede">PitWall es el ecosistema completo para tu slot racing: <b>cronometra</b> la carrera desde el hardware, <b>síguela en directo</b> desde el móvil y <b>gestiona</b> toda la temporada. Del DS-300 o BART a la clasificación final.</p>
       <div class="cta-row">
-        <span class="soon">Próximamente disponible</span>
+        <a class="live" href="#apps">¡Pruébalo ya! →</a>
         <a class="btn btn-ghost" href="#apps">Ver las tres apps →</a>
       </div>
       <div class="hero-stats">
@@ -629,9 +636,9 @@
   <div class="wrap">
     <div class="gantry" id="gantry2"><b></b><b></b><b></b><b></b><b></b></div>
     <h2>Apaga las luces.<br><span class="r">Empieza la carrera.</span></h2>
-    <p>¿Organizas carreras o campeonatos de slot? PitWall está en la última recta de desarrollo: muy pronto podrás ponerlo en tu sala y llevar el control de todo, de la primera vuelta a la última clasificación.</p>
+    <p>¿Organizas carreras o campeonatos de slot? Manager y Control ya están listos para tu sala; Lap, el copiloto de bolsillo, llega muy pronto.</p>
     <div class="cta-row">
-      <span class="soon">Próximamente disponible</span>
+      <a class="live" href="#apps">¡Pruébalo ya! →</a>
       <a class="btn btn-ghost" href="#arquitectura">Ver cómo funciona</a>
     </div>
   </div>
