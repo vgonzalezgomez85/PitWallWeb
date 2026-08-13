@@ -34,6 +34,7 @@
             mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
     pointer-events:none;z-index:0}
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  .wrap:has(.dl-menu.open){z-index:50}
   a{color:inherit;text-decoration:none}
   .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
   .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-3)}
@@ -80,14 +81,23 @@
   .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
   .btn-ghost:hover{border-color:var(--ink-2);background:var(--surface)}
 
-  /* "próximamente" badge */
-  .soon{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-    padding:14px 22px;border-radius:2px;border:1px dashed var(--ac);color:var(--ac);
-    display:inline-flex;align-items:center;gap:10px}
-  .soon::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac);
-    box-shadow:0 0 9px var(--ac);animation:soonblink 1.4s infinite;flex:0 0 auto}
-  .nav-soon{padding:8px 14px;font-size:11px;letter-spacing:.12em}
-  @keyframes soonblink{0%,100%{opacity:1}50%{opacity:.25}}
+  /* download menu */
+  .dl-menu{position:relative;display:inline-flex}
+  .dl-toggle svg{transition:transform .18s}
+  .dl-menu.open .dl-toggle svg{transform:rotate(180deg)}
+  .dl-panel{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);
+    min-width:270px;background:var(--surface-2);border:1px solid var(--line-strong);border-radius:10px;
+    padding:14px;box-shadow:0 30px 60px -24px rgba(0,0,0,.85);
+    opacity:0;visibility:hidden;transition:.16s ease;z-index:60;text-align:left}
+  .dl-menu.open .dl-panel{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .dl-group+.dl-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .dl-os{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+  .dl-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 9px;
+    border-radius:5px;transition:background .15s;font-size:13.5px;color:var(--ink)}
+  .dl-item:hover{background:var(--elevated)}
+  .dl-item small{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+  @media(max-width:480px){.dl-panel{left:0;transform:translateX(0) translateY(-6px);min-width:250px}
+    .dl-menu.open .dl-panel{transform:translateX(0) translateY(0)}}
 
   section{padding:84px 0;position:relative}
   .sec-head{max-width:42em;margin-bottom:50px}
@@ -215,7 +225,6 @@
       <a href="pitwall-manager.html">Manager</a>
       <a href="pitwall-lap.html">Lap</a>
       <a href="manual-control.html">Manual</a>
-      <span class="soon nav-soon">Próximamente</span>
       <div class="langs"><b>ES</b><a class="lg" href="pitwall-control-en.html">EN</a><a class="lg" href="pitwall-control-fr.html">FR</a><a class="lg" href="pitwall-control-it.html">IT</a></div>
     </nav>
   </div>
@@ -228,7 +237,19 @@
       <h1>La temporada,<br>bajo <span class="a">control</span>.</h1>
       <p class="lede">PitWall Control ordena todo lo que pasa fuera de la pista: <b>clasificaciones por copas y categorías</b>, fichas de pilotos y equipos, calendario de pruebas, <b>tesorería</b> y créditos. Y cuando la jornada acaba, publica los resultados con un clic.</p>
       <div class="cta-row">
-        <span class="soon">Próximamente disponible</span>
+        <div class="dl-menu">
+          <button class="btn btn-primary dl-toggle" type="button">Descargar <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="dl-panel">
+            <div class="dl-group">
+              <div class="dl-os">Windows</div>
+              <a class="dl-item" href="https://github.com/vgonzalezgomez85/PitWallWeb/releases/download/pitwallcontrolwindows/PitWallControl.1.0.0.installer.exe" download><span>Instalador</span><small>.exe</small></a>
+            </div>
+            <div class="dl-group">
+              <div class="dl-os">Android</div>
+              <a class="dl-item" href="https://github.com/vgonzalezgomez85/PitWallWeb/releases/download/pitwallcontrolapk/PitWallControl.apk" download><span>APK</span><small>.apk</small></a>
+            </div>
+          </div>
+        </div>
         <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
       </div>
     </div>
@@ -403,7 +424,19 @@
     <h2>La jornada acaba.<br><span class="a">La clasificación ya está.</span></h2>
     <p>Resultados puntuados, tesorería al día y la web del club actualizada antes de recoger la pista.</p>
     <div class="cta-row">
-      <span class="soon">Próximamente disponible</span>
+      <div class="dl-menu">
+          <button class="btn btn-primary dl-toggle" type="button">Descargar <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="dl-panel">
+            <div class="dl-group">
+              <div class="dl-os">Windows</div>
+              <a class="dl-item" href="https://github.com/vgonzalezgomez85/PitWallWeb/releases/download/pitwallcontrolwindows/PitWallControl.1.0.0.installer.exe" download><span>Instalador</span><small>.exe</small></a>
+            </div>
+            <div class="dl-group">
+              <div class="dl-os">Android</div>
+              <a class="dl-item" href="https://github.com/vgonzalezgomez85/PitWallWeb/releases/download/pitwallcontrolapk/PitWallControl.apk" download><span>APK</span><small>.apk</small></a>
+            </div>
+          </div>
+        </div>
       <a class="btn btn-ghost" href="index.html">← Volver al ecosistema</a>
     </div>
   </div>
@@ -417,5 +450,26 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  document.querySelectorAll('.dl-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var menu = btn.closest('.dl-menu');
+      var wasOpen = menu.classList.contains('open');
+      document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
+      if(!wasOpen) menu.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(){
+    document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
+    }
+  });
+})();
+</script>
 </body>
 </html>
