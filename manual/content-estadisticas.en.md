@@ -102,6 +102,8 @@ Careful with this one: **your first complete lap DOES count** — it's real pace
 
 **How you get in.** The organization gives you the address (something like `http://<server-IP>:3000/lap/<race>`) and a **4-digit PIN** for your team. You open the address, pick your **team** in the list, enter the **PIN** and press Enter (“Entrar”). With Change team (“Cambiar equipo”) you can log out and log in with another.
 
+> The organization may have **turned the PIN off** for this event: then there's no PIN field and you get in just by picking your team from the list.
+
 ![img: 48-lap-team-panel.png]
 
 **Your panel.** At the top, your **position** in large: it's the **projected** one (where you'll finish adding up all the heats), the same one you see in the live screen and in the overall — not the standalone heat one. Below, your distance to the leader (*"N laps down"*, *"level"* or *"🏁 Race leader"*). The status line tells you live **which heat and lane you're on and how much is left** (or *"Resting"* / *"Waiting for next heat"* / *"Race finished"*). And the cards:

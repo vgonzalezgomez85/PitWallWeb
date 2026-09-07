@@ -102,6 +102,8 @@ Ojo con esto: **tu primera vuelta completa sí cuenta** —es ritmo real y puede
 
 **Cómo entras.** La organización te da la dirección (algo como `http://<IP-del-servidor>:3000/lap/<carrera>`) y un **PIN de 4 dígitos** de tu equipo. Abres la dirección, eliges tu **equipo** en la lista, metes el **PIN** y pulsas **Entrar**. Con **Cambiar equipo** puedes salir y entrar con otro.
 
+> Puede que la organización haya **desactivado el PIN** para este evento: entonces no aparece el campo del PIN y entras solo eligiendo tu equipo en la lista.
+
 ![img: 48-lap-team-panel.png]
 
 **Tu panel.** Arriba, tu **posición** en grande: es la **proyectada** (dónde vas a acabar sumando todas las mangas), la misma que ves en el directo y en la general — no la de la manga suelta. Debajo, tu distancia al líder (*"a N vueltas"*, *"a la par"* o *"🏁 Líder de la carrera"*). La línea de estado te dice en vivo **en qué manga y carril vas y cuánto queda** (o *"En descanso"* / *"Esperando próxima manga"* / *"Carrera finalizada"*). Y las tarjetas:

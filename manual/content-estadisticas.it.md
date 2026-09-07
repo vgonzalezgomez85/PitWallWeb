@@ -102,6 +102,8 @@ Attenzione a questo: **il tuo primo giro completo conta** — è ritmo reale e p
 
 **Come entri.** L'organizzazione ti dà l'indirizzo (qualcosa come `http://<IP-del-server>:3000/lap/<gara>`) e un **PIN di 4 cifre** della tua squadra. Apri l'indirizzo, scegli la tua **squadra** nell'elenco, inserisci il **PIN** e premi **Entra (“Entrar”)**. Con **Cambia squadra (“Cambiar equipo”)** puoi uscire ed entrare con un'altra.
 
+> L'organizzazione potrebbe aver **disattivato il PIN** per questo evento: in tal caso non compare il campo del PIN ed entri solo scegliendo la tua squadra dall'elenco.
+
 ![img: 48-lap-team-panel.png]
 
 **Il tuo pannello.** In alto, la tua **posizione** in grande: è la **proiettata** (dove finirai sommando tutte le manche), la stessa che vedi nella diretta e nella generale — non quella della singola manche. Sotto, la tua distanza dal leader (*"a N giri"*, *"alla pari"* o *"🏁 Leader della gara"*). La riga di stato ti dice in diretta **in quale manche e corsia sei e quanto manca** (o *"In riposo"* / *"In attesa della prossima manche"* / *"Gara finalizzata"*). E le schede:

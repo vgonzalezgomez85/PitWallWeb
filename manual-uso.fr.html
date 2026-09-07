@@ -168,6 +168,10 @@
         <img src="manual/img/op-qr-equipos.png" loading="lazy" alt="Cartes QR des pilotes regroupées par équipe, avec nom et catégorie en en-tête">
         <figcaption>Exporter QR par équipe : les cartes sont regroupées par équipe, avec son nom et sa catégorie en en-tête.</figcaption>
       </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Synchroniser le catalogue avec les courses en attente.</b> Si tu changes les <b>pilotes</b> ou le <b>pays</b> d'une équipe dans le catalogue <i>après</i> avoir créé une course, ces changements n'arrivent pas tout seuls dans la course déjà montée. Avec <b>Système → Synchroniser le catalogue</b> (« Sistema → Sincronizar catálogo », écran d'accueil) —ou le raccourci <b>« Actualizar desde catálogo »</b> (Mettre à jour depuis le catalogue) du menu <b>⋯</b> de la fiche de course, qui n'apparaît que si la course est candidate— tu les déverses dans toutes les courses qui <b>n'ont encore lancé aucune manche</b>, sans passer par « Éditer la série ». PitWall apparie les équipes <b>par leur nom</b>, rend l'effectif de chaque course <b>identique au catalogue</b> (ajoute et retire des pilotes jusqu'à concordance — un « miroir exact ») et met à jour le pays ; avant d'appliquer, il te montre un <b>résumé des changements</b>, avec une case par course. Il ne touche pas à la grille et n'ajoute ni ne supprime d'équipes, et n'agit que sur les courses <b>au format équipes</b>. La <b>catégorie</b> n'est pas synchronisée : elle est toujours lue en direct depuis le catalogue.</div>
+      </div>
     </section>
 
     <section id="crear">
@@ -295,6 +299,10 @@
         <img src="manual/img/op-edit-tanda.png" loading="lazy" alt="Formulaire d'édition d'une série : participants et mode renommer seulement">
         <figcaption>Éditer la série : participants et leur composition (ou mode renommer seulement si elle a déjà commencé).</figcaption>
       </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Si tu veux seulement reporter dans une course les changements de <b>pilotes ou de pays</b> faits dans le catalogue d'équipes et que la course <b>n'a pas encore démarré</b>, pas besoin de toucher à « Éditer la série » : utilise <b>Système → Synchroniser le catalogue</b> (voir <a class="inl" href="#escenarios">Scénarios, catégories et catalogues</a>). Pour une course qui a déjà couru une manche, « Éditer la série » en <b>mode renommer seulement</b> est la seule voie.</div>
+      </div>
       <ul>
         <li><b>Éditer la manche</b> — changer <b>qui court sur chaque voie</b> dans une manche précise, sans régénérer toute la série (utile si une équipe ne se présente pas ou en cas de changement de dernière minute).</li>
       </ul>
@@ -365,6 +373,7 @@
         <li>Entre dans <b>PitWall Lap · PINs</b> de la course. Tu verras l'adresse que les équipes ouvrent sur le mobile (par ex. <span class="mono">http://&lt;IP-du-serveur&gt;:3000/lap/&lt;id&gt;</span>) et le tableau <b>ÉQUIPE → PIN</b>.</li>
         <li>Donne à chaque équipe <b>son PIN</b>. En ouvrant l'adresse et en le saisissant, ils entrent directement sur leur panneau.</li>
         <li><b>Nouveau</b> régénère le PIN d'une équipe (au cas où il aurait fuité ou qu'ils veuillent le changer).</li>
+        <li><b>PIN d'accès — Activé / Désactivé</b> (« PIN de acceso — Activado / Desactivado »). Sur la même feuille de PIN, un interrupteur permet de <b>retirer le PIN</b> de cette course. Avec le PIN <b>désactivé</b>, chaque équipe entre sur son panneau de chrono <b>rien qu'en se choisissant dans la liste</b>, sans rien taper (pratique pour les événements internes où le PIN gêne). Les PIN sont <b>conservés</b> au cas où tu le réactives. C'est un réglage <b>par course</b>, et il voyage aussi vers le chronomètre esclave BART lors de la synchronisation de la course (Race Link).</li>
       </ul>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
@@ -389,6 +398,7 @@
         <li>À la fin (drapeau ou fin de temps), la manche se ferme et la <b>suivante</b> se prépare.</li>
         <li>Quand toutes les manches d'une série sont terminées, la <b>série suivante</b> démarre.</li>
       </ol>
+      <p><b>La fiche de la course reste accessible pendant qu'une manche tourne.</b> Ouvrir une course qui a une manche en cours ne t'emmène plus directement au direct : tu vois sa <b>fiche</b> (état, classement projeté, séries…) avec un lien <b>« Manga N »</b> (Manche N) pour sauter au direct quand tu veux. Quand tu <b>donnes le GO</b> depuis la fiche, l'écran saute bien tout seul au direct, et on ne peut toujours pas lancer une deuxième manche pendant qu'une autre tourne.</p>
       <p><b>Choisir la vue.</b> Avec le bouton <b>Vue</b>, tu changes la mise en page selon les voies : <i>Lignes horizontales</i> (peu de voies), <i>Grille compacte</i> (beaucoup) ou <i>Cartes détaillées</i> (avec tours/sorties/pit/pneus/Δ par carte).</p>
       <p><b>Distance au leader et estimation provisoire.</b> Sur les écrans de classement (<b>Le Mans</b> et <b>statistiques en direct</b>), la distance au leader est donnée <b>avec la virgule</b> et son équivalent <b>en secondes</b> —<i>« a 2,8 v (35,5") »</i>, soit à 2,8 tours, c'est-à-dire 35,5 secondes—, et non arrondie à des tours entiers. Et si une estimation porte un <b>astérisque orange</b>, c'est que cette équipe en est encore à sa <b>première manche</b> sans avoir dépassé les <b>60 %</b> : sa référence n'est pas figée et le chiffre peut encore bouger. Tout cela est expliqué en détail dans le <i>Manuel de statistiques</i>.</p>
 

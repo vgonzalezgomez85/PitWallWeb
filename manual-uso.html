@@ -168,6 +168,10 @@
         <img src="manual/img/op-qr-equipos.png" loading="lazy" alt="Tarjetas QR de los pilotos agrupadas por equipo, con cabecera de nombre y categoría">
         <figcaption>Exportar QR de equipos: las tarjetas se agrupan por equipo, con su nombre y categoría de cabecera.</figcaption>
       </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Sincronizar catálogo con carreras pendientes.</b> Si cambias los <b>pilotos</b> o el <b>país</b> de un equipo en el catálogo <i>después</i> de crear una carrera, esos cambios no llegan solos a la carrera ya montada. Con <b>Sistema → Sincronizar catálogo</b> (pantalla de inicio) —o el atajo <b>«Actualizar desde catálogo»</b> del menú <b>⋯</b> de la ficha de carrera, que solo aparece si la carrera es candidata— los vuelcas a todas las carreras que <b>aún no han arrancado ninguna manga</b>, sin pasar por «Editar tanda». PitWall empareja los equipos <b>por nombre</b>, deja la plantilla de cada carrera <b>idéntica al catálogo</b> (añade y quita pilotos hasta que coinciden — un "espejo exacto") y actualiza el país; antes de aplicar te muestra un <b>resumen de los cambios</b>, con una casilla por carrera. No toca la parrilla ni añade o elimina equipos, y solo actúa sobre carreras <b>en formato equipos</b>. La <b>categoría</b> no se sincroniza: siempre se lee en vivo del catálogo.</div>
+      </div>
     </section>
 
     <section id="crear">
@@ -295,6 +299,10 @@
         <img src="manual/img/op-edit-tanda.png" loading="lazy" alt="Formulario de edición de una tanda: participantes y modo solo renombrar">
         <figcaption>Editar tanda: participantes y su composición (o modo solo renombrar si ya empezó).</figcaption>
       </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Si solo quieres llevar a la carrera los cambios de <b>pilotos o país</b> hechos en el catálogo de equipos y la carrera <b>aún no ha arrancado</b>, no hace falta tocar «Editar tanda»: usa <b>Sistema → Sincronizar catálogo</b> (ver <a class="inl" href="#escenarios">Escenarios, categorías y catálogos</a>). Para una carrera que ya ha rodado alguna manga, «Editar tanda» en <b>modo solo renombrar</b> es la única vía.</div>
+      </div>
       <ul>
         <li><b>Editar manga</b> — cambiar <b>quién corre en cada carril</b> en una manga concreta, sin regenerar toda la tanda (útil si un equipo no se presenta o hay un cambio de última hora).</li>
       </ul>
@@ -365,6 +373,7 @@
         <li>Entra en <b>PitWall Lap · PINs</b> de la carrera. Verás la dirección que los equipos abren en el móvil (p.ej. <span class="mono">http://&lt;IP-del-servidor&gt;:3000/lap/&lt;id&gt;</span>) y la tabla <b>EQUIPO → PIN</b>.</li>
         <li>Da a cada equipo <b>su PIN</b>. Al abrir la dirección e introducirlo, entran directamente a su panel.</li>
         <li><b>Nuevo</b> regenera el PIN de un equipo (por si se filtró o quieren cambiarlo).</li>
+        <li><b>PIN de acceso — Activado / Desactivado.</b> En la misma hoja de PINs, un interruptor permite <b>quitar el PIN</b> de esta carrera. Con el PIN <b>desactivado</b>, cada equipo entra a su panel de timing <b>solo eligiéndose en la lista</b>, sin teclear nada (útil en eventos internos donde el PIN estorba). Los PINs <b>se conservan</b> por si lo vuelves a activar. Es un ajuste <b>por carrera</b> y viaja también al cronómetro esclavo BART al sincronizar la carrera (Race Link).</li>
       </ul>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
@@ -389,6 +398,7 @@
         <li>Al terminar (bandera o fin de tiempo), la manga se cierra y se prepara la <b>siguiente</b>.</li>
         <li>Al acabar todas las mangas de una tanda, arranca la <b>siguiente tanda</b>.</li>
       </ol>
+      <p><b>La ficha de la carrera es accesible con una manga en marcha.</b> Entrar en una carrera que tiene una manga en curso ya no te lleva directo al directo: ves su <b>ficha</b> (estado, clasificación proyectada, tandas…) con un enlace <b>«Manga N»</b> para saltar al directo cuando quieras. Al <b>dar el GO</b> desde la ficha, la pantalla sí salta sola al directo, y sigue sin poderse arrancar una segunda manga mientras otra corre.</p>
       <p><b>Elegir la vista.</b> Con el botón <b>Vista</b> cambias el layout según los carriles: <i>Filas horizontales</i> (pocos carriles), <i>Cuadrícula compacta</i> (muchos) o <i>Tarjetas con detalles</i> (con vueltas/salidas/pit/neumáticos/Δ por tarjeta).</p>
       <p><b>Distancia al líder y estimada provisional.</b> En las pantallas de clasificación (<b>Le Mans</b> y <b>estadísticas en vivo</b>) la distancia al líder se da <b>con la coma</b> y su equivalente <b>en segundos</b> —<i>"a 2,8 v (35,5")"</i>—, no redondeada a vueltas enteras. Y si una estimada lleva un <b>asterisco naranja</b>, es que ese equipo sigue en su <b>primera manga</b> sin haber pasado del <b>60 %</b>: su referencia aún no está fijada y la cifra puede moverse. Todo esto se explica en detalle en el <i>Manual de estadísticas</i>.</p>
 

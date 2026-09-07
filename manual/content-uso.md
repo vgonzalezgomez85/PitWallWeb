@@ -55,6 +55,8 @@ Todos se pueden **importar en bloque desde CSV** (botones **Plantilla CSV** e **
 
 ![img: op-qr-equipos.png]
 
+> **Sincronizar catálogo con carreras pendientes.** Si cambias los **pilotos** o el **país** de un equipo en el catálogo *después* de crear una carrera, esos cambios no llegan solos a la carrera ya montada. Con **Sistema → Sincronizar catálogo** (pantalla de inicio) —o el atajo **«Actualizar desde catálogo»** del menú **⋯** de la ficha de carrera, que solo aparece si la carrera es candidata— los vuelcas a todas las carreras que **aún no han arrancado ninguna manga**, sin pasar por «Editar tanda». PitWall empareja los equipos **por nombre**, deja la plantilla de cada carrera **idéntica al catálogo** (añade y quita pilotos hasta que coinciden — un "espejo exacto") y actualiza el país; antes de aplicar te muestra un **resumen de los cambios**, con una casilla por carrera. No toca la parrilla ni añade o elimina equipos, y solo actúa sobre carreras **en formato equipos**. La **categoría** no se sincroniza: siempre se lee en vivo del catálogo.
+
 ## 3. Crear una carrera
 ![img: 03-wizard-step1.png]
 
@@ -129,6 +131,8 @@ Después de crear una carrera puedes retocarla:
 
 ![img: op-edit-tanda.png]
 
+> Si solo quieres llevar a la carrera los cambios de **pilotos o país** hechos en el catálogo de equipos y la carrera **aún no ha arrancado**, no hace falta tocar «Editar tanda»: usa **Sistema → Sincronizar catálogo** (ver *Escenarios, categorías y catálogos*). Para una carrera que ya ha rodado alguna manga, «Editar tanda» en **modo solo renombrar** es la única vía.
+
 - **Editar manga** — cambiar **quién corre en cada carril** en una manga concreta, sin regenerar toda la tanda (útil si un equipo no se presenta o hay un cambio de última hora).
 
 ## 7. Pole (clasificación previa)
@@ -170,6 +174,7 @@ Los equipos pueden seguir su carrera desde el móvil de **dos formas**, no exclu
 - Entra en **PitWall Lap · PINs** de la carrera. Verás la dirección que los equipos abren en el móvil (p.ej. `http://<IP-del-servidor>:3000/lap/<id>`) y la tabla **EQUIPO → PIN**.
 - Da a cada equipo **su PIN**. Al abrir la dirección e introducirlo, entran directamente a su panel: posición proyectada, gap al líder, vueltas, media y pit-stops, con voz incluida — de solo lectura, y solo para carreras de **resistencia** (el detalle completo está en el *Manual de estadísticas*, apartado *PitWall Lap: tu carrera en el móvil*).
 - **Nuevo** regenera el PIN de un equipo (por si se filtró o quieren cambiarlo).
+- **PIN de acceso — Activado / Desactivado.** En la misma hoja de PINs, un interruptor permite **quitar el PIN** de esta carrera. Con el PIN **desactivado**, cada equipo entra a su panel de timing **solo eligiéndose en la lista**, sin teclear nada (útil en eventos internos donde el PIN estorba). Los PINs **se conservan** por si lo vuelves a activar. Es un ajuste **por carrera** y viaja también al cronómetro esclavo BART al sincronizar la carrera (Race Link).
 
 > Los móviles deben estar en la **misma red** que el ordenador que hace de servidor. Usa la IP del equipo, no `localhost`, cuando lo abran desde el teléfono. Si quieres que los equipos sigan la carrera **desde fuera del local** (por internet), mira *Seguimiento público por internet*.
 
@@ -194,6 +199,8 @@ Desde la página de la carrera:
 4. **Pausa / Reanudar / Parar** la manga cuando haga falta.
 5. Al terminar (bandera o fin de tiempo), la manga se cierra y se prepara la **siguiente**.
 6. Al acabar todas las mangas de una tanda, arranca la **siguiente tanda**.
+
+**La ficha de la carrera es accesible con una manga en marcha.** Entrar en una carrera que tiene una manga en curso ya no te lleva directo al directo: ves su **ficha** (estado, clasificación proyectada, tandas…) con un enlace **«Manga N»** para saltar al directo cuando quieras. Al **dar el GO** desde la ficha, la pantalla sí salta sola al directo, y sigue sin poderse arrancar una segunda manga mientras otra corre.
 
 **Elegir la vista.** Con el botón **Vista** cambias el layout según los carriles: *Filas horizontales* (pocos carriles), *Cuadrícula compacta* (muchos) o *Tarjetas con detalles* (con vueltas/salidas/pit/neumáticos/Δ por tarjeta).
 

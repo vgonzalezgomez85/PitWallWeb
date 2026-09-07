@@ -55,6 +55,8 @@ Tutti possono essere **importati in blocco da CSV** (pulsanti **Modello CSV (“
 
 ![img: op-qr-equipos.png]
 
+> **Sincronizzare il catalogo con le gare in attesa.** Se cambi i **piloti** o il **paese** di una squadra nel catalogo *dopo* aver creato una gara, quei cambiamenti non arrivano da soli alla gara già montata. Con **Sistema → Sincronizzare il catalogo** (“Sistema → Sincronizar catálogo”, schermata iniziale) —o la scorciatoia **“Actualizar desde catálogo”** (Aggiorna dal catalogo) del menu **⋯** della scheda gara, che compare solo se la gara è candidata— li riversi in tutte le gare che **non hanno ancora avviato nessuna manche**, senza passare per «Modifica tanda». PitWall abbina le squadre **per nome**, rende l'organico di ogni gara **identico al catalogo** (aggiunge e toglie piloti finché non coincidono — uno "specchio esatto") e aggiorna il paese; prima di applicare ti mostra un **riepilogo delle modifiche**, con una casella per gara. Non tocca la griglia né aggiunge o elimina squadre, e agisce solo sulle gare **in formato squadre**. La **categoria** non si sincronizza: si legge sempre in diretta dal catalogo.
+
 ## 3. Creare una gara
 ![img: 03-wizard-step1.png]
 
@@ -129,6 +131,8 @@ Dopo aver creato una gara puoi ritoccarla:
 
 ![img: op-edit-tanda.png]
 
+> Se vuoi solo portare in una gara i cambiamenti di **piloti o paese** fatti nel catalogo squadre e la gara **non è ancora partita**, non serve toccare «Modifica tanda»: usa **Sistema → Sincronizzare il catalogo** (vedi *Scenari, categorie e cataloghi*). Per una gara che ha già corso una manche, «Modifica tanda» in **modalità solo rinomina** è l'unica via.
+
 - **Modifica manche (“Editar manga”)** — cambiare **chi corre in ogni corsia** in una manche specifica, senza rigenerare tutta la tanda (utile se una squadra non si presenta o c'è un cambio dell'ultimo minuto).
 
 ## 7. Pole (qualifica preliminare)
@@ -170,6 +174,7 @@ Le squadre possono seguire la loro gara dal cellulare in **due modi**, non esclu
 - Entra in **PitWall Lap · PIN** della gara. Vedrai l'indirizzo che le squadre aprono sul cellulare (p.es. `http://<IP-del-server>:3000/lap/<id>`) e la tabella **SQUADRA → PIN**.
 - Dai a ogni squadra **il suo PIN**. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello: posizione proiettata, distacco dal leader, giri, media e pit-stop, con la voce inclusa — di sola lettura, e solo per gare di **endurance** (il dettaglio completo è nel *Manuale delle statistiche*, sezione *PitWall Lap: la tua gara sul cellulare*).
 - **Nuovo (“Nuevo”)** rigenera il PIN di una squadra (nel caso trapelasse o volessero cambiarlo).
+- **PIN di accesso — Attivato / Disattivato** (“PIN de acceso — Activado / Desactivado”). Sulla stessa scheda dei PIN, un interruttore permette di **togliere il PIN** a questa gara. Con il PIN **disattivato**, ogni squadra entra nel proprio pannello di cronometraggio **solo scegliendosi nell'elenco**, senza digitare nulla (comodo negli eventi interni dove il PIN è d'intralcio). I PIN vengono **conservati** nel caso lo riattivi. È un'impostazione **per gara** e viaggia anche verso il cronometro slave BART quando si sincronizza la gara (Race Link).
 
 > I cellulari devono essere sulla **stessa rete** del computer che fa da server. Usa l'IP del computer, non `localhost`, quando lo aprono dal telefono. Se vuoi che le squadre seguano la gara **da fuori della sede** (via internet), vedi *Seguito pubblico su internet*.
 
@@ -194,6 +199,8 @@ Dalla pagina della gara:
 4. **Pausa / Riprendi / Ferma** la manche quando serve.
 5. Al termine (bandiera o fine tempo), la manche si chiude e si prepara la **successiva**.
 6. Terminate tutte le manche di una tanda, parte la **tanda successiva**.
+
+**La scheda della gara è accessibile con una manche in corso.** Entrare in una gara che ha una manche in corso non ti porta più dritto alla diretta: vedi la sua **scheda** (stato, classifica proiettata, tande…) con un link **«Manga N»** (Manche N) per saltare alla diretta quando vuoi. Quando **dai il GO** dalla scheda, lo schermo salta comunque da solo alla diretta, e non si può ancora avviare una seconda manche mentre un'altra è in corso.
 
 **Scegliere la vista.** Con il pulsante **Vista** cambi il layout in base alle corsie: *Righe orizzontali* (poche corsie), *Griglia compatta* (molte) o *Schede con dettagli* (con giri/uscite/pit/gomme/Δ per scheda).
 

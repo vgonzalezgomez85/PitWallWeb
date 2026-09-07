@@ -55,6 +55,8 @@ Tous peuvent être **importés en bloc depuis un CSV** (boutons *Modèle CSV («
 
 ![img: op-qr-equipos.png]
 
+> **Synchroniser le catalogue avec les courses en attente.** Si tu changes les **pilotes** ou le **pays** d'une équipe dans le catalogue *après* avoir créé une course, ces changements n'arrivent pas tout seuls dans la course déjà montée. Avec **Système → Synchroniser le catalogue** (« Sistema → Sincronizar catálogo », écran d'accueil) —ou le raccourci **« Actualizar desde catálogo »** (Mettre à jour depuis le catalogue) du menu **⋯** de la fiche de course, qui n'apparaît que si la course est candidate— tu les déverses dans toutes les courses qui **n'ont encore lancé aucune manche**, sans passer par « Éditer la série ». PitWall apparie les équipes **par leur nom**, rend l'effectif de chaque course **identique au catalogue** (ajoute et retire des pilotes jusqu'à concordance — un « miroir exact ») et met à jour le pays ; avant d'appliquer, il te montre un **résumé des changements**, avec une case par course. Il ne touche pas à la grille et n'ajoute ni ne supprime d'équipes, et n'agit que sur les courses **au format équipes**. La **catégorie** n'est pas synchronisée : elle est toujours lue en direct depuis le catalogue.
+
 ## 3. Créer une course
 ![img: 03-wizard-step1.png]
 
@@ -129,6 +131,8 @@ Après avoir créé une course, tu peux la retoucher :
 
 ![img: op-edit-tanda.png]
 
+> Si tu veux seulement reporter dans une course les changements de **pilotes ou de pays** faits dans le catalogue d'équipes et que la course **n'a pas encore démarré**, pas besoin de toucher à « Éditer la série » : utilise **Système → Synchroniser le catalogue** (voir *Scénarios, catégories et catalogues*). Pour une course qui a déjà couru une manche, « Éditer la série » en **mode renommer seulement** est la seule voie.
+
 - **Éditer la manche** — changer **qui court sur chaque voie** dans une manche précise, sans régénérer toute la série (utile si une équipe ne se présente pas ou en cas de changement de dernière minute).
 
 ## 7. Pole (qualification préalable)
@@ -170,6 +174,7 @@ Les équipes peuvent suivre leur course depuis le mobile de **deux façons**, no
 - Entre dans **PitWall Lap · PINs** de la course. Tu verras l'adresse que les équipes ouvrent sur le mobile (par ex. `http://<IP-du-serveur>:3000/lap/<id>`) et le tableau **ÉQUIPE → PIN**.
 - Donne à chaque équipe **son PIN**. En ouvrant l'adresse et en le saisissant, ils entrent directement sur leur panneau : position projetée, écart au leader, tours, moyenne et arrêts aux stands, avec la voix incluse — en lecture seule, et uniquement pour les courses d'**endurance** (le détail complet est dans le *Manuel des statistiques*, section *PitWall Lap : ta course sur le mobile*).
 - *Nouveau (« Nuevo »)* régénère le PIN d'une équipe (au cas où il aurait fuité ou qu'ils veuillent le changer).
+- **PIN d'accès — Activé / Désactivé** (« PIN de acceso — Activado / Desactivado »). Sur la même feuille de PIN, un interrupteur permet de **retirer le PIN** de cette course. Avec le PIN **désactivé**, chaque équipe entre sur son panneau de chrono **rien qu'en se choisissant dans la liste**, sans rien taper (pratique pour les événements internes où le PIN gêne). Les PIN sont **conservés** au cas où tu le réactives. C'est un réglage **par course**, et il voyage aussi vers le chronomètre esclave BART lors de la synchronisation de la course (Race Link).
 
 > Les mobiles doivent être sur le **même réseau** que l'ordinateur qui fait office de serveur. Utilise l'IP de la machine, pas `localhost`, quand ils l'ouvrent depuis le téléphone. Si tu veux que les équipes suivent la course **depuis l'extérieur du local** (par internet), voir *Suivi public par internet*.
 
@@ -194,6 +199,8 @@ Depuis la page de la course :
 4. **Pause / Reprendre / Arrêter** la manche au besoin.
 5. À la fin (drapeau ou fin de temps), la manche se ferme et la **suivante** se prépare.
 6. Quand toutes les manches d'une série sont terminées, la **série suivante** démarre.
+
+**La fiche de la course reste accessible pendant qu'une manche tourne.** Ouvrir une course qui a une manche en cours ne t'emmène plus directement au direct : tu vois sa **fiche** (état, classement projeté, séries…) avec un lien **« Manga N »** (Manche N) pour sauter au direct quand tu veux. Quand tu **donnes le GO** depuis la fiche, l'écran saute bien tout seul au direct, et on ne peut toujours pas lancer une deuxième manche pendant qu'une autre tourne.
 
 **Choisir la vue.** Avec le bouton *Vue (« Vista »)*, tu changes la mise en page selon les voies : *Lignes horizontales* (peu de voies), *Grille compacte* (beaucoup) ou *Cartes détaillées* (avec tours/sorties/pit/pneus/Δ par carte).
 

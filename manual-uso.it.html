@@ -168,6 +168,10 @@
         <img src="manual/img/op-qr-equipos.png" loading="lazy" alt="Tessere QR dei piloti raggruppate per squadra, con nome e categoria come intestazione">
         <figcaption>Esporta QR per squadra: le tessere sono raggruppate per squadra, con nome e categoria come intestazione.</figcaption>
       </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Sincronizzare il catalogo con le gare in attesa.</b> Se cambi i <b>piloti</b> o il <b>paese</b> di una squadra nel catalogo <i>dopo</i> aver creato una gara, quei cambiamenti non arrivano da soli alla gara già montata. Con <b>Sistema → Sincronizzare il catalogo</b> (“Sistema → Sincronizar catálogo”, schermata iniziale) —o la scorciatoia <b>“Actualizar desde catálogo”</b> (Aggiorna dal catalogo) del menu <b>⋯</b> della scheda gara, che compare solo se la gara è candidata— li riversi in tutte le gare che <b>non hanno ancora avviato nessuna manche</b>, senza passare per «Modifica tanda». PitWall abbina le squadre <b>per nome</b>, rende l'organico di ogni gara <b>identico al catalogo</b> (aggiunge e toglie piloti finché non coincidono — uno "specchio esatto") e aggiorna il paese; prima di applicare ti mostra un <b>riepilogo delle modifiche</b>, con una casella per gara. Non tocca la griglia né aggiunge o elimina squadre, e agisce solo sulle gare <b>in formato squadre</b>. La <b>categoria</b> non si sincronizza: si legge sempre in diretta dal catalogo.</div>
+      </div>
     </section>
 
     <section id="crear">
@@ -295,6 +299,10 @@
         <img src="manual/img/op-edit-tanda.png" loading="lazy" alt="Modulo di modifica di una tanda: partecipanti e modalità solo rinomina">
         <figcaption>Modifica tanda: partecipanti e la sua composizione (o modalità solo rinomina se è già iniziata).</figcaption>
       </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Se vuoi solo portare in una gara i cambiamenti di <b>piloti o paese</b> fatti nel catalogo squadre e la gara <b>non è ancora partita</b>, non serve toccare «Modifica tanda»: usa <b>Sistema → Sincronizzare il catalogo</b> (vedi <a class="inl" href="#escenarios">Scenari, categorie e cataloghi</a>). Per una gara che ha già corso una manche, «Modifica tanda» in <b>modalità solo rinomina</b> è l'unica via.</div>
+      </div>
       <ul>
         <li><b>Modifica manche ("Editar manga")</b> — cambiare <b>chi corre in ogni corsia</b> in una manche specifica, senza rigenerare tutta la tanda (utile se una squadra non si presenta o c'è un cambio dell'ultimo minuto).</li>
       </ul>
@@ -365,6 +373,7 @@
         <li>Entra in <b>PitWall Lap · PIN</b> della gara. Vedrai l'indirizzo che le squadre aprono sul cellulare (p.es. <span class="mono">http://&lt;IP-del-server&gt;:3000/lap/&lt;id&gt;</span>) e la tabella <b>SQUADRA → PIN</b>.</li>
         <li>Dai a ogni squadra <b>il suo PIN</b>. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello.</li>
         <li><b>Nuovo ("Nuevo")</b> rigenera il PIN di una squadra (nel caso trapelasse o volessero cambiarlo).</li>
+        <li><b>PIN di accesso — Attivato / Disattivato</b> (“PIN de acceso — Activado / Desactivado”). Sulla stessa scheda dei PIN, un interruttore permette di <b>togliere il PIN</b> a questa gara. Con il PIN <b>disattivato</b>, ogni squadra entra nel proprio pannello di cronometraggio <b>solo scegliendosi nell'elenco</b>, senza digitare nulla (comodo negli eventi interni dove il PIN è d'intralcio). I PIN vengono <b>conservati</b> nel caso lo riattivi. È un'impostazione <b>per gara</b> e viaggia anche verso il cronometro slave BART quando si sincronizza la gara (Race Link).</li>
       </ul>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
@@ -389,6 +398,7 @@
         <li>Al termine (bandiera o fine tempo), la manche si chiude e si prepara la <b>successiva</b>.</li>
         <li>Terminate tutte le manche di una tanda, parte la <b>tanda successiva</b>.</li>
       </ol>
+      <p><b>La scheda della gara è accessibile con una manche in corso.</b> Entrare in una gara che ha una manche in corso non ti porta più dritto alla diretta: vedi la sua <b>scheda</b> (stato, classifica proiettata, tande…) con un link <b>«Manga N»</b> (Manche N) per saltare alla diretta quando vuoi. Quando <b>dai il GO</b> dalla scheda, lo schermo salta comunque da solo alla diretta, e non si può ancora avviare una seconda manche mentre un'altra è in corso.</p>
       <p><b>Scegliere la vista.</b> Con il pulsante <b>Vista</b> cambi il layout in base alle corsie: <i>Righe orizzontali</i> (poche corsie), <i>Griglia compatta</i> (molte) o <i>Schede con dettagli</i> (con giri/uscite/pit/gomme/Δ per scheda).</p>
       <p><b>Distanza dal leader e stima provvisoria.</b> Nelle schermate di classifica (<b>Le Mans</b> e <b>statistiche in diretta</b>) la distanza dal leader viene data <b>con la virgola</b> e il suo equivalente <b>in secondi</b> —<i>"a 2,8 v (35,5")"</i>, cioè a 2,8 giri, ovvero 35,5 secondi—, non arrotondata a giri interi. E se una stima porta un <b>asterisco arancione</b>, quella squadra è ancora nella sua <b>prima manche</b> senza aver superato il <b>60 %</b>: il suo riferimento non è fissato e la cifra può ancora muoversi. Tutto questo è spiegato in dettaglio nel <i>Manuale di statistiche</i>.</p>
 

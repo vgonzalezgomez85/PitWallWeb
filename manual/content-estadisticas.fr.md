@@ -102,6 +102,8 @@ Attention à ceci : **ton premier tour complet, lui, compte** — c'est du rythm
 
 **Comment tu entres.** L'organisation te donne l'adresse (quelque chose comme `http://<IP-du-serveur>:3000/lap/<course>`) et un **PIN à 4 chiffres** de ton équipe. Tu ouvres l'adresse, tu choisis ton **équipe** dans la liste, tu saisis le **PIN** et tu appuies sur *Entrer (« Entrar »)*. Avec *Changer d'équipe (« Cambiar equipo »)*, tu peux sortir et entrer avec une autre.
 
+> L'organisation peut avoir **désactivé le PIN** pour cet événement : dans ce cas, il n'y a pas de champ PIN et tu entres juste en choisissant ton équipe dans la liste.
+
 ![img: 48-lap-team-panel.png]
 
 **Ton panneau.** En haut, ta **position** en grand : c'est la **projetée** (où tu vas finir en additionnant toutes les manches), la même que celle que tu vois dans le direct et au général — pas celle de la manche isolée. En dessous, ta distance au leader (*« à N tours »*, *« à égalité »* ou *« 🏁 Leader de la course »*). La ligne d'état te dit en direct **dans quelle manche et voie tu es et combien il reste** (ou *« En repos »* / *« En attente de la prochaine manche »* / *« Course terminée »*). Et les cartes :

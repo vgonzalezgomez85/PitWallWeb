@@ -55,6 +55,8 @@ All of them can be **bulk-imported from CSV** (the CSV template (“Plantilla CS
 
 ![img: op-qr-equipos.png]
 
+> **Sync catalog with pending races.** If you change a team's **drivers** or **country** in the catalog *after* creating a race, those changes don't reach the race that's already set up on their own. From **System → Sync catalog** (“Sistema → Sincronizar catálogo”, home screen) —or the **“Actualizar desde catálogo”** (Update from catalog) shortcut in the **⋯** menu of the race sheet, which only shows if the race is a candidate— you push them into every race that **hasn't started any heat yet**, without going through "Edit batch". PitWall matches teams **by name**, makes each race's roster **identical to the catalog** (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a **summary of the changes**, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on **team-format** races. **Category** isn't synced: it's always read live from the catalog.
+
 ## 3. Creating a race
 ![img: 03-wizard-step1.png]
 
@@ -129,6 +131,8 @@ After creating a race you can tweak it:
 
 ![img: op-edit-tanda.png]
 
+> If all you want is to carry the **driver or country** changes made in the team catalog into a race that **hasn't started yet**, you don't need to touch "Edit batch": use **System → Sync catalog** (see *Scenarios, categories and catalogs*). For a race that has already run a heat, "Edit batch" in **rename-only mode** is the only way.
+
 - **Edit heat** — change **who runs in each lane** in a specific heat, without regenerating the whole batch (useful if a team doesn't show up or there's a last-minute change).
 
 ## 7. Pole (pre-race qualifying)
@@ -170,6 +174,7 @@ Teams can follow their race from the phone **two ways**, not mutually exclusive:
 - Go into **PitWall Lap · PINs** (“PitWall Lap · PINs”) of the race. You'll see the address teams open on the mobile (e.g. `http://<server-IP>:3000/lap/<id>`) and the **TEAM → PIN** table.
 - Give each team **their PIN**. When they open the address and enter it, they go straight into their panel: projected position, gap to the leader, laps, average and pit-stops, voice included — read-only, and only for **endurance** races (the full detail is in the *Statistics manual*, section *PitWall Lap: your race on the phone*).
 - New (“Nuevo”) regenerates a team's PIN (in case it was leaked or they want to change it).
+- **Access PIN — On / Off** (“PIN de acceso — Activado / Desactivado”). On the same PINs sheet, a toggle lets you **drop the PIN** for this race. With the PIN **off**, each team gets into its timing panel just by **picking itself from the list**, typing nothing (handy at internal events where the PIN is a nuisance). The PINs are **kept** in case you turn it back on. It's a **per-race** setting and it also travels to the BART slave timer when the race is synced (Race Link).
 
 > The phones must be on the **same network** as the computer acting as server. Use the computer's IP, not `localhost`, when they open it from the phone. If you want teams to follow the race **from outside the venue** (over the internet), see *Public tracking over the internet*.
 
@@ -194,6 +199,8 @@ From the race page:
 4. **Pause / Resume / Stop** the heat when needed.
 5. When it ends (flag or time out), the heat closes and the **next one** is prepared.
 6. When all the heats of a batch are done, the **next batch** starts.
+
+**The race sheet stays reachable with a heat running.** Opening a race that has a heat in progress no longer takes you straight to the live screen: you see its **sheet** (status, projected classification, batches…) with a **"Manga N"** (Heat N) link to jump to the live screen whenever you want. When you **give the GO** from the sheet, the screen does jump to live on its own, and you still can't start a second heat while another is running.
 
 **Choosing the view.** With the View (“Vista”) button you change the layout depending on the lanes: *Horizontal rows* (few lanes), *Compact grid* (many) or *Cards with details* (with laps/exits/pit/tyres/Δ per card).
 
