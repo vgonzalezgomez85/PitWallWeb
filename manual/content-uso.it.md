@@ -292,6 +292,7 @@ Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
 - **Comparativa** (griglia): per partecipante, ogni corsia con **Veloce / Media / Consistenza / Uscite / Pit-stop**. Nelle gare di **passate/ripeti-corsia**, ogni corsia si scompone nelle sue **occorrenze** (1/2, 2/2) per confrontare.
 - **Progressione / Posizioni / Gap dal leader / Gap (griglia) / Statistiche avanzate**: diverse viste di analisi (spiegate in dettaglio nel *Manuale delle statistiche*).
 - **Esportazioni**: **Excel**, **Punti (xlsx/csv)**, **Control (csv)**, **Esporta per GitHub**, **PDF**.
+- **L'esportazione in Excel** (risultati, punti e rapporto turni) **funziona solo a gara ferma o terminata**: non si può ottenere l'Excel mentre una manche è in corso (quel calcolo è pesante e bloccherebbe il cronometraggio, con il rischio di perdere un passaggio). Se una manche parte durante la generazione, l'esportazione viene annullata e basta rilanciarla dopo.
 
 **Risultati pubblici.** C'è una pagina aperta —**Risultati (“Resultados”)**, nel menu iniziale— dove chiunque può consultare (senza toccare nulla né poter modificare) i risultati delle gare **finalizzate**. È quella che condividi con piloti e pubblico affinché guardino la classifica e le statistiche della gara.
 

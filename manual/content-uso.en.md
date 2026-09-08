@@ -292,6 +292,7 @@ When it finishes (or at any time) go into **Results**:
 - **Comparison** (grid): per participant, each lane with **Fastest / Average / Consistency / Exits / Pit-stops**. In **passes/repeat-lane** races, each lane is broken down into its **occurrences** (1/2, 2/2) to compare.
 - **Progression / Positions / Gap to leader / Gap (grid) / Advanced statistics**: different analysis views (explained in detail in the *Statistics manual*).
 - **Exports**: **Excel**, **Points (xlsx/csv)**, **Control (csv)**, **Export for GitHub**, **PDF**.
+- **Exporting to Excel** (results, points and shifts report) **only works when the race is stopped or finished**: you can't get the Excel while a heat is running (that job is heavy and would stall the timing, risking a missed crossing). If a heat starts while one is being generated, the export is cancelled and you just run it again afterwards.
 
 **Public results.** There's an open page —**Results**, in the home menu— where anyone can consult (without touching anything or being able to edit) the results of the **finished** races. It's the one you share with drivers and public so they can look at the classification and statistics of the race.
 

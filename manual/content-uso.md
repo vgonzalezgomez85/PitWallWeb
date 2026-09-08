@@ -292,6 +292,7 @@ Al terminar (o en cualquier momento) entra en **Resultados**:
 - **Comparativa** (parrilla): por participante, cada carril con **Rápida / Media / Consistencia / Salidas / Pit-stops**. En carreras de **pasadas/repetir-carril**, cada carril se desglosa en sus **ocurrencias** (1/2, 2/2) para comparar.
 - **Progresión / Posiciones / Gap al líder / Gap (rejilla) / Estadísticas avanzadas**: distintas vistas de análisis (se explican en detalle en el *Manual de estadísticas*).
 - **Exports**: **Excel**, **Puntos (xlsx/csv)**, **Control (csv)**, **Exportar para GitHub**, **PDF**.
+- **Exportar a Excel** (resultados, puntos e informe de turnos) **solo funciona con la carrera parada o finalizada**: no se puede sacar el Excel mientras una manga está en marcha (ese cálculo es pesado y frenaría el cronometraje, con riesgo de perder un cruce). Si una manga arranca justo mientras se generaba, la exportación se cancela y basta con repetirla al acabar.
 
 **Resultados públicos.** Hay una página abierta —**Resultados**, en el menú de inicio— donde cualquiera puede consultar (sin tocar nada ni poder editar) los resultados de las carreras **finalizadas**. Es la que compartes con pilotos y público para que miren la clasificación y las estadísticas de la carrera.
 

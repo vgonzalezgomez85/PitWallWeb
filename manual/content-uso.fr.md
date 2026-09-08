@@ -292,6 +292,7 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 - **Comparatif** (grille) : par participant, chaque voie avec **Rapide / Moyenne / Consistance / Sorties / Pit-stops**. Dans les courses à **passages/répétition de voie**, chaque voie se décompose en ses **occurrences** (1/2, 2/2) pour comparer.
 - **Progression / Positions / Écart au leader / Écart (grille) / Statistiques avancées** : différentes vues d'analyse (expliquées en détail dans le *Manuel de statistiques*).
 - **Exports** : **Excel**, **Points (xlsx/csv)**, **Control (csv)**, **Exporter pour GitHub**, **PDF**.
+- **L'export Excel** (résultats, points et rapport de relais) **ne fonctionne que course arrêtée ou terminée** : impossible de sortir l'Excel pendant qu'une manche tourne (ce calcul lourd bloquerait le chronométrage, au risque de perdre un passage). Si une manche démarre pendant la génération, l'export est annulé et il suffit de le relancer ensuite.
 
 **Résultats publics.** Il existe une page ouverte — **Résultats**, dans le menu d'accueil — où n'importe qui peut consulter (sans rien toucher ni pouvoir éditer) les résultats des courses **terminées**. C'est celle que tu partages avec les pilotes et le public pour qu'ils regardent le classement et les statistiques de la course.
 
