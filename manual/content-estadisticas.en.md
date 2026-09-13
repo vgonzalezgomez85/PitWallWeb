@@ -258,7 +258,7 @@ Your distance to the leader **over time** (you can restrict the range of heats).
 
 ![img: st-gapgrid.png]
 
-The same idea but in a **table**: rows = teams, columns = heats, and each cell the **laps of disadvantage** at the close of that heat (0 = leader). The **gold border** warns that there was a **pit-stop** in that heat. You can pick 2–4 teams to see the gap **between them** (not just against the leader).
+The same idea but in a **table**: rows = teams, columns = heats, and each cell the **laps of disadvantage** at the close of that heat (0 = leader). The **gold border** warns that there was a **pit-stop** in that heat. Below each «M{n}» you'll see the **real time** that heat started (in your local time; hover to see the full date and time); if a heat crosses **midnight**, its header is highlighted in **gold** so you can spot it at a glance. You can pick 2–4 teams to see the gap **between them** (not just against the leader).
 
 ### Advanced statistics
 

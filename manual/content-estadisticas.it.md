@@ -258,7 +258,7 @@ La tua distanza dal leader **lungo il tempo** (puoi restringere l'intervallo di 
 
 ![img: st-gapgrid.png]
 
-La stessa idea ma in **tabella**: righe = squadre, colonne = manche, e ogni cella i **giri di svantaggio** alla chiusura di quella manche (0 = leader). Il **bordo dorato** avvisa che c'è stato un **pit-stop** in quella manche. Puoi scegliere 2–4 squadre per vedere il gap **tra di loro** (non solo contro il leader).
+La stessa idea ma in **tabella**: righe = squadre, colonne = manche, e ogni cella i **giri di svantaggio** alla chiusura di quella manche (0 = leader). Il **bordo dorato** avvisa che c'è stato un **pit-stop** in quella manche. Sotto ogni «M{n}» compare l'**ora reale** in cui è partita quella manche (nel tuo fuso orario locale; passa il mouse per vedere data e ora complete); se una manche attraversa la **mezzanotte**, la sua intestazione viene evidenziata in **dorato** per notarlo a colpo d'occhio. Puoi scegliere 2–4 squadre per vedere il gap **tra di loro** (non solo contro il leader).
 
 ### Statistiche avanzate
 

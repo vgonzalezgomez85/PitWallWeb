@@ -11,7 +11,7 @@ A guide for whoever **operates** PitWall: setting up the race, running it live, 
 
 - **DS-300** — via **serial port**. You can combine **up to 6 DS-300 tracks** in a single race: each box times its own lanes and PitWall combines them. Each box uses **its own port** (one box = one port).
 - **DS-300 aggregator** — when an **aggregator device** bundles **several DS-300 boxes (2 to 4) over a single COM port**. PitWall separates the boxes by their frame id and numbers lanes consecutively (box 1 → 1–8, box 2 → 9–16, and so on up to **32 lanes** with 4 boxes). A **single start signal** launches all boxes at once.
-- **BART (Policar)** — via **Bluetooth**. It supports **up to the maximum number of lanes that BART allows** (currently **32**).
+- **BART (Policar)** — via **Bluetooth**. It supports **up to the maximum number of lanes that BART allows** (currently **32**). Beyond 8 lanes you need **several independent BART Masters** (e.g. `BART_TRACK1`, `BART_TRACK2`…), one per block of lanes: PitWall connects to each one separately and numbers lanes consecutively, just like the DS-300 aggregator.
 
 You can use any of these sources; for PitWall the flow of crossings is equivalent.
 
@@ -282,7 +282,7 @@ From the race (the **lap correction** button in the live screen or in results) y
 
 > Use it with judgment: corrections change totals, averages and classification of that heat.
 
-> **Automatic ghost laps.** A lap below the **Pt** (minimum time) is marked as a **ghost** and the lane that produced it **never** counts it. PitWall no longer reassigns it by guessing: it **holds** it and only assigns it to the lane that **confirms** it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a **ghost** for you to review by hand.
+> **Automatic ghost laps.** A lap below the **Pt** (minimum time) is marked as a **ghost** and the lane that produced it **never** counts it. PitWall no longer reassigns it by guessing: it **holds** it and only assigns it to the lane that **confirms** it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a **ghost** for you to review by hand. With **multiple circuits** (a DS-300 aggregator or several BART Masters), automatic assignment **never crosses from one circuit to another**: a ghost can only be certified on a lane of its own circuit, never on another (they're physically separate tracks).
 
 ## 15. Results and exports
 ![img: 10-results-comparativa.png]
@@ -322,7 +322,7 @@ Each session can be **deleted** from its detail. If you stop the session with **
 ## 17. Settings
 ![img: 04-settings.png]
 
-- **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.
+- **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes. If you use **several BART Masters** (one per block of lanes), add one row per Master with its **BLE name** (e.g. `BART_TRACK1`, `BART_TRACK2`…) and **lane count**: they're numbered consecutively just like the DS-300 aggregator boxes, and each Master has to be paired separately.
 - **Port setup, kept simple**: for each DS-300 circuit (and the aggregator) you only see **Port** and **Baud rate** at a glance. Pick the **port** from the detected list; if yours isn't there, tap **"Type the path manually"** to enter it (e.g. `COM3` or `/dev/ttys003`). The **baud rate** is a dropdown with the usual speeds (9600–921600), with **"Type manually"** for an out-of-list value. The fine serial settings (**Data bits, Parity, Stop bits, Flow control**) are folded under **"Advanced port options"**: they default to **8N1** and rarely need touching.
 - **Tracks**: define saved tracks (lane sequence, minimum time).
 - **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).

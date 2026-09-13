@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="manual/manual.css">
 <style>body{--ac:var(--red)}</style>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
 <body>
 
@@ -94,7 +95,7 @@
       <ul>
         <li><b>DS-300</b> — via <b>serial port</b>. You can combine <b>up to 6 DS-300 tracks</b> in a single race: each box times its own lanes and PitWall combines them. Each box uses <b>its own port</b> (one box = one port).</li>
         <li><b>DS-300 aggregator</b> — when an <b>aggregator device</b> bundles <b>several DS-300 boxes (2 to 4) over a single COM port</b>. PitWall separates the boxes by their frame id and numbers lanes consecutively (box 1 → 1–8, box 2 → 9–16, and so on up to <b>32 lanes</b> with 4 boxes). A <b>single start signal</b> launches all boxes at once.</li>
-        <li><b>BART (Policar)</b> — via <b>Bluetooth</b>. It supports <b>up to the maximum number of lanes that BART allows</b> (currently <b>32</b>).</li>
+        <li><b>BART (Policar)</b> — via <b>Bluetooth</b>. It supports <b>up to the maximum number of lanes that BART allows</b> (currently <b>32</b>). Beyond 8 lanes you need <b>several independent BART Masters</b> (e.g. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…), one per block of lanes: PitWall connects to each one separately and numbers lanes consecutively, just like the DS-300 aggregator.</li>
       </ul>
       <p>You can use any of these sources; for PitWall the flow of crossings is equivalent.</p>
       <ul>
@@ -513,7 +514,7 @@
       </div>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Automatic ghost laps.</b> A lap below the <b>Pt</b> (minimum time) is marked as a <b>ghost</b> and the lane that produced it <b>never</b> counts it. PitWall no longer reassigns it by guessing: it <b>holds</b> it and only assigns it to the lane that <b>confirms</b> it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a <b>ghost</b> for you to review by hand.</div>
+        <div><b>Automatic ghost laps.</b> A lap below the <b>Pt</b> (minimum time) is marked as a <b>ghost</b> and the lane that produced it <b>never</b> counts it. PitWall no longer reassigns it by guessing: it <b>holds</b> it and only assigns it to the lane that <b>confirms</b> it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a <b>ghost</b> for you to review by hand. With <b>multiple circuits</b> (a DS-300 aggregator or several BART Masters), automatic assignment <b>never crosses from one circuit to another</b>: a ghost can only be certified on a lane of its own circuit, never on another (they're physically separate tracks).</div>
       </div>
     </section>
 
@@ -578,7 +579,7 @@
         <figcaption>Settings: hardware and ports, saved tracks, public tracking, license and language.</figcaption>
       </figure>
       <ul>
-        <li><b>Data source</b>: choose where crossings come from — <b>Simulation</b>, <b>DS-300</b> (one box per port, with its lane count), <b>DS-300 aggregator</b> (several boxes over a single COM port: set the <b>port</b>, <b>baud</b> —57600, 8N1— and <b>number of boxes</b> 2/3/4 → 16/24/32 lanes) or <b>BART</b> over Bluetooth (it connects over <b>direct BLE</b> by default; <b>TCP</b> stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.</li>
+        <li><b>Data source</b>: choose where crossings come from — <b>Simulation</b>, <b>DS-300</b> (one box per port, with its lane count), <b>DS-300 aggregator</b> (several boxes over a single COM port: set the <b>port</b>, <b>baud</b> —57600, 8N1— and <b>number of boxes</b> 2/3/4 → 16/24/32 lanes) or <b>BART</b> over Bluetooth (it connects over <b>direct BLE</b> by default; <b>TCP</b> stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes. If you use <b>several BART Masters</b> (one per block of lanes), add one row per Master with its <b>BLE name</b> (e.g. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) and <b>lane count</b>: they're numbered consecutively just like the DS-300 aggregator boxes, and each Master has to be paired separately.</li>
         <li><b>Port setup, kept simple</b>: for each DS-300 circuit (and the aggregator) you only see <b>Port</b> and <b>Baud rate</b> at a glance. Pick the <b>port</b> from the detected list; if yours isn't there, tap <b>"Type the path manually"</b> to enter it (e.g. <code>COM3</code> or <code>/dev/ttys003</code>). The <b>baud rate</b> is a dropdown with the usual speeds (9600–921600), with <b>"Type manually"</b> for an out-of-list value. The fine serial settings (<b>Data bits, Parity, Stop bits, Flow control</b>) are folded under <b>"Advanced port options"</b>: they default to <b>8N1</b> and rarely need touching.</li>
         <li><b>Tracks</b>: define saved tracks (lane sequence, minimum time).</li>
         <li><b>Public tracking over the internet</b>: publish the public views on the internet to follow the race from outside the venue (see the <a class="inl" href="#publico">next section</a>).</li>

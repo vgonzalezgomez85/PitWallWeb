@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="manual/manual.css">
 <style>body{--ac:var(--red)}</style>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
 <body>
 
@@ -94,7 +95,7 @@
       <ul>
         <li><b>DS-300</b> — por <b>puerto serie</b>. Puedes unir <b>hasta 6 circuitos</b> DS-300 en una sola carrera: cada caja cronometra sus carriles y PitWall los combina. Cada caja va por <b>su propio puerto</b> (una caja = un puerto).</li>
         <li><b>DS-300 agrupador</b> — cuando un <b>aparato agrupador</b> junta <b>varias cajas DS-300 (de 2 a 4) en un solo puerto COM</b>. PitWall separa las cajas por su identificador de trama y numera los carriles de corrido (caja 1 → 1–8, caja 2 → 9–16, y así hasta <b>32 carriles</b> con 4 cajas). Una <b>única señal de salida</b> arranca todas las cajas a la vez.</li>
-        <li><b>BART (Policar)</b> — por <b>Bluetooth</b>. Admite <b>hasta el máximo de carriles que permita BART</b> (actualmente <b>32</b>).</li>
+        <li><b>BART (Policar)</b> — por <b>Bluetooth</b>. Admite <b>hasta el máximo de carriles que permita BART</b> (actualmente <b>32</b>). Con más de 8 carriles hacen falta <b>varios Master BART independientes</b> (p. ej. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…), uno por cada bloque de carriles: PitWall se conecta a cada uno por separado y numera los carriles de corrido, igual que con el agrupador DS-300.</li>
       </ul>
       <p>Puedes usar cualquiera de estas fuentes; para PitWall el flujo de cruces es equivalente.</p>
       <ul>
@@ -513,7 +514,7 @@
       </div>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Vueltas fantasma automáticas.</b> Una vuelta por debajo del <b>Pt</b> (tiempo mínimo) se marca como <b>fantasma</b> y el carril que la generó <b>nunca</b> la cuenta. PitWall ya no la reasigna a ojo: la <b>retiene</b> y solo se la asigna al carril que <b>confirma</b> haberse saltado un cruce (cuando ese carril pasa con una vuelta de ~el doble de su media). Si nadie lo confirma, se queda aquí como <b>fantasma</b> para que la revises a mano.</div>
+        <div><b>Vueltas fantasma automáticas.</b> Una vuelta por debajo del <b>Pt</b> (tiempo mínimo) se marca como <b>fantasma</b> y el carril que la generó <b>nunca</b> la cuenta. PitWall ya no la reasigna a ojo: la <b>retiene</b> y solo se la asigna al carril que <b>confirma</b> haberse saltado un cruce (cuando ese carril pasa con una vuelta de ~el doble de su media). Si nadie lo confirma, se queda aquí como <b>fantasma</b> para que la revises a mano. Con <b>varios circuitos</b> (agrupador DS-300 o varios Master BART), la asignación automática <b>nunca cruza de un circuito a otro</b>: un fantasma solo puede certificarse en un carril de su mismo circuito, nunca en el de otro (son pistas físicamente distintas).</div>
       </div>
     </section>
 
@@ -578,7 +579,7 @@
         <figcaption>Ajustes: hardware y puertos, circuitos guardados, seguimiento público, licencia e idioma.</figcaption>
       </figure>
       <ul>
-        <li><b>Fuente de datos</b>: elige de dónde llegan los cruces — <b>Simulación</b>, <b>DS-300</b> (una caja por puerto, con su nº de carriles), <b>DS-300 agrupador</b> (varias cajas por un solo puerto COM: indica <b>puerto</b>, <b>baud</b> —57600, 8N1— y <b>nº de cajas</b> 2/3/4 → 16/24/32 carriles) o <b>BART</b> por Bluetooth (se conecta por <b>BLE directo</b> por defecto; queda <b>TCP</b> en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.</li>
+        <li><b>Fuente de datos</b>: elige de dónde llegan los cruces — <b>Simulación</b>, <b>DS-300</b> (una caja por puerto, con su nº de carriles), <b>DS-300 agrupador</b> (varias cajas por un solo puerto COM: indica <b>puerto</b>, <b>baud</b> —57600, 8N1— y <b>nº de cajas</b> 2/3/4 → 16/24/32 carriles) o <b>BART</b> por Bluetooth (se conecta por <b>BLE directo</b> por defecto; queda <b>TCP</b> en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas. Si usas <b>varios Master BART</b> (uno por cada bloque de carriles), añade una fila por cada uno con su <b>nombre BLE</b> (p. ej. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) y su <b>nº de carriles</b>: se numeran de corrido igual que las cajas DS-300 del agrupador, y cada Master hay que emparejarlo por separado.</li>
         <li><b>Configuración del puerto, sin líos</b>: en cada circuito DS-300 (y en el agrupador) de un vistazo solo ves <b>Puerto</b> y <b>Baud rate</b>. El <b>puerto</b> se elige de la lista de puertos detectados; si el tuyo no aparece, con <b>«Escribir el path a mano»</b> lo tecleas (p. ej. <code>COM3</code> o <code>/dev/ttys003</code>). El <b>baud rate</b> es un desplegable con las velocidades habituales (9600–921600), con <b>«Escribir a mano»</b> para un valor fuera de lista. Los ajustes finos de la conexión serie (<b>Data bits, Paridad, Stop bits, Control de flujo</b>) están plegados en <b>«Opciones avanzadas del puerto»</b>: por defecto <b>8N1</b> y casi nunca hay que tocarlos.</li>
         <li><b>Circuitos</b>: define pistas guardadas (secuencia de carriles, tiempo mínimo).</li>
         <li><b>Seguimiento público por internet</b>: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la <a class="inl" href="#publico">sección siguiente</a>).</li>

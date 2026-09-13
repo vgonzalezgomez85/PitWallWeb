@@ -260,7 +260,7 @@ Tu distancia al líder **a lo largo del tiempo** (puedes acotar el rango de mang
 
 ![img: st-gapgrid.png]
 
-La misma idea pero en **tabla**: filas = equipos, columnas = mangas, y cada celda las **vueltas de desventaja** al cierre de esa manga (0 = líder). El **borde dorado** avisa de que hubo **pit-stop** en esa manga. Puedes elegir 2–4 equipos para ver el gap **entre ellos** (no solo contra el líder).
+La misma idea pero en **tabla**: filas = equipos, columnas = mangas, y cada celda las **vueltas de desventaja** al cierre de esa manga (0 = líder). El **borde dorado** avisa de que hubo **pit-stop** en esa manga. Debajo de cada «M{n}» se ve la **hora real** a la que arrancó esa manga (en tu hora local; pasa el ratón para ver fecha y hora completas); si una manga cruza la **medianoche**, su cabecera se resalta en **dorado** para verlo de un vistazo. Puedes elegir 2–4 equipos para ver el gap **entre ellos** (no solo contra el líder).
 
 ### Estadísticas avanzadas
 

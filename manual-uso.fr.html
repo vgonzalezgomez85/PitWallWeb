@@ -16,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="manual/manual.css">
 <style>body{--ac:var(--red)}</style>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
 <body>
 
@@ -94,7 +95,7 @@
       <ul>
         <li><b>DS-300</b> — par <b>port série</b>. Tu peux relier <b>jusqu'à 6 circuits</b> DS-300 dans une seule course : chaque boîtier chronomètre ses voies et PitWall les combine. Chaque boîtier utilise <b>son propre port</b> (un boîtier = un port).</li>
         <li><b>DS-300 agrégateur</b> — lorsqu'un <b>appareil agrégateur</b> regroupe <b>plusieurs boîtiers DS-300 (de 2 à 4) sur un seul port COM</b>. PitWall sépare les boîtiers par leur identifiant de trame et numérote les voies à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16, et ainsi de suite jusqu'à <b>32 voies</b> avec 4 boîtiers). Un <b>seul signal de départ</b> lance tous les boîtiers en même temps.</li>
-        <li><b>BART (Policar)</b> — par <b>Bluetooth</b>. Il admet <b>jusqu'au nombre maximal de voies que permet BART</b> (actuellement <b>32</b>).</li>
+        <li><b>BART (Policar)</b> — par <b>Bluetooth</b>. Il admet <b>jusqu'au nombre maximal de voies que permet BART</b> (actuellement <b>32</b>). Au-delà de 8 voies il faut <b>plusieurs Master BART indépendants</b> (p. ex. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…), un par bloc de voies : PitWall se connecte à chacun séparément et numérote les voies à la suite, comme avec l'agrégateur DS-300.</li>
       </ul>
       <p>Tu peux utiliser n'importe laquelle de ces sources ; pour PitWall le flux de passages est équivalent.</p>
       <ul>
@@ -513,7 +514,7 @@
       </div>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Tours fantômes automatiques.</b> Un tour en dessous du <b>Pt</b> (temps minimum) est marqué comme <b>fantôme</b> et la voie qui l'a produit ne le compte <b>jamais</b>. PitWall ne le réattribue plus au jugé : il le <b>retient</b> et ne l'attribue qu'à la voie qui <b>confirme</b> avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en <b>fantôme</b> pour que tu le révises à la main.</div>
+        <div><b>Tours fantômes automatiques.</b> Un tour en dessous du <b>Pt</b> (temps minimum) est marqué comme <b>fantôme</b> et la voie qui l'a produit ne le compte <b>jamais</b>. PitWall ne le réattribue plus au jugé : il le <b>retient</b> et ne l'attribue qu'à la voie qui <b>confirme</b> avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en <b>fantôme</b> pour que tu le révises à la main. Avec <b>plusieurs circuits</b> (agrégateur DS-300 ou plusieurs Master BART), l'attribution automatique <b>ne passe jamais d'un circuit à l'autre</b> : un fantôme ne peut être certifié que sur une voie de son propre circuit, jamais sur celle d'un autre (ce sont des pistes physiquement distinctes).</div>
       </div>
     </section>
 
@@ -578,7 +579,7 @@
         <figcaption>Réglages : matériel et ports, circuits enregistrés, suivi public, licence et langue.</figcaption>
       </figure>
       <ul>
-        <li><b>Source de données</b> : choisis d'où arrivent les passages — <b>Simulation</b>, <b>DS-300</b> (un boîtier par port, avec son nombre de voies), <b>DS-300 agrégateur</b> (plusieurs boîtiers sur un seul port COM : indique le <b>port</b>, le <b>baud</b> —57600, 8N1— et le <b>nombre de boîtiers</b> 2/3/4 → 16/24/32 voies) ou <b>BART</b> par Bluetooth (il se connecte en <b>BLE direct</b> par défaut ; le <b>TCP</b> reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers.</li>
+        <li><b>Source de données</b> : choisis d'où arrivent les passages — <b>Simulation</b>, <b>DS-300</b> (un boîtier par port, avec son nombre de voies), <b>DS-300 agrégateur</b> (plusieurs boîtiers sur un seul port COM : indique le <b>port</b>, le <b>baud</b> —57600, 8N1— et le <b>nombre de boîtiers</b> 2/3/4 → 16/24/32 voies) ou <b>BART</b> par Bluetooth (il se connecte en <b>BLE direct</b> par défaut ; le <b>TCP</b> reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers. Si tu utilises <b>plusieurs Master BART</b> (un par bloc de voies), ajoute une ligne par Master avec son <b>nom BLE</b> (p. ex. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) et son <b>nombre de voies</b> : ils sont numérotés à la suite comme les boîtiers de l'agrégateur DS-300, et chaque Master doit être appairé séparément.</li>
         <li><b>Configuration du port, sans prise de tête</b> : pour chaque circuit DS-300 (et l'agrégateur) tu ne vois d'un coup d'œil que le <b>Port</b> et le <b>Baud rate</b>. Choisis le <b>port</b> dans la liste détectée ; s'il n'y figure pas, <b>« Saisir le chemin à la main »</b> permet de le taper (p. ex. <code>COM3</code> ou <code>/dev/ttys003</code>). Le <b>baud rate</b> est un menu déroulant avec les vitesses habituelles (9600–921600), avec <b>« Saisir à la main »</b> pour une valeur hors liste. Les réglages fins de la liaison série (<b>Data bits, Parité, Stop bits, Contrôle de flux</b>) sont repliés sous <b>« Options avancées du port »</b> : par défaut <b>8N1</b>, on n'y touche presque jamais.</li>
         <li><b>Circuits</b> : définis des pistes enregistrées (séquence de voies, temps minimum).</li>
         <li><b>Suivi public par internet</b> : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la <a class="inl" href="#publico">section suivante</a>).</li>

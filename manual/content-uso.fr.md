@@ -11,7 +11,7 @@ Guide destiné à celui qui **opère** PitWall : monter la course, la diriger en
 
 - **DS-300** — par **port série**. Tu peux relier **jusqu'à 6 circuits** DS-300 dans une seule course : chaque boîtier chronomètre ses voies et PitWall les combine. Chaque boîtier utilise **son propre port** (un boîtier = un port).
 - **DS-300 agrégateur** — lorsqu'un **appareil agrégateur** regroupe **plusieurs boîtiers DS-300 (de 2 à 4) sur un seul port COM**. PitWall sépare les boîtiers par leur identifiant de trame et numérote les voies à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16, et ainsi de suite jusqu'à **32 voies** avec 4 boîtiers). Un **seul signal de départ** lance tous les boîtiers en même temps.
-- **BART (Policar)** — par **Bluetooth**. Il admet **jusqu'au nombre maximal de voies que permet BART** (actuellement **32**).
+- **BART (Policar)** — par **Bluetooth**. Il admet **jusqu'au nombre maximal de voies que permet BART** (actuellement **32**). Au-delà de 8 voies il faut **plusieurs Master BART indépendants** (p. ex. `BART_TRACK1`, `BART_TRACK2`…), un par bloc de voies : PitWall se connecte à chacun séparément et numérote les voies à la suite, comme avec l'agrégateur DS-300.
 
 Tu peux utiliser n'importe laquelle de ces sources ; pour PitWall le flux de passages est équivalent.
 
@@ -282,7 +282,7 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 > Utilise-le avec discernement : les corrections modifient les totaux, les moyennes et le classement de cette manche.
 
-> **Tours fantômes automatiques.** Un tour en dessous du **Pt** (temps minimum) est marqué comme **fantôme** et la voie qui l'a produit ne le compte **jamais**. PitWall ne le réattribue plus au jugé : il le **retient** et ne l'attribue qu'à la voie qui **confirme** avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en **fantôme** pour que tu le révises à la main.
+> **Tours fantômes automatiques.** Un tour en dessous du **Pt** (temps minimum) est marqué comme **fantôme** et la voie qui l'a produit ne le compte **jamais**. PitWall ne le réattribue plus au jugé : il le **retient** et ne l'attribue qu'à la voie qui **confirme** avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en **fantôme** pour que tu le révises à la main. Avec **plusieurs circuits** (agrégateur DS-300 ou plusieurs Master BART), l'attribution automatique **ne passe jamais d'un circuit à l'autre** : un fantôme ne peut être certifié que sur une voie de son propre circuit, jamais sur celle d'un autre (ce sont des pistes physiquement distinctes).
 
 ## 15. Résultats et exports
 ![img: 10-results-comparativa.png]
@@ -322,7 +322,7 @@ Chaque séance peut être **supprimée** depuis son détail. Si tu arrêtes la s
 ## 17. Réglages
 ![img: 04-settings.png]
 
-- **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth (il se connecte en **BLE direct** par défaut ; le **TCP** reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers.
+- **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth (il se connecte en **BLE direct** par défaut ; le **TCP** reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers. Si tu utilises **plusieurs Master BART** (un par bloc de voies), ajoute une ligne par Master avec son **nom BLE** (p. ex. `BART_TRACK1`, `BART_TRACK2`…) et son **nombre de voies** : ils sont numérotés à la suite comme les boîtiers de l'agrégateur DS-300, et chaque Master doit être appairé séparément.
 - **Configuration du port, sans prise de tête** : pour chaque circuit DS-300 (et l'agrégateur) tu ne vois d'un coup d'œil que le **Port** et le **Baud rate**. Choisis le **port** dans la liste détectée ; s'il n'y figure pas, **« Saisir le chemin à la main »** permet de le taper (p. ex. `COM3` ou `/dev/ttys003`). Le **baud rate** est un menu déroulant avec les vitesses habituelles (9600–921600), avec **« Saisir à la main »** pour une valeur hors liste. Les réglages fins de la liaison série (**Data bits, Parité, Stop bits, Contrôle de flux**) sont repliés sous **« Options avancées du port »** : par défaut **8N1**, on n'y touche presque jamais.
 - **Circuits** : définis des pistes enregistrées (séquence de voies, temps minimum).
 - **Suivi public par internet** : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la section suivante).

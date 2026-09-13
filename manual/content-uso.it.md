@@ -11,7 +11,7 @@ Guida per chi **utilizza** PitWall: allestire la gara, dirigerla in diretta, cor
 
 - **DS-300** — tramite **porta seriale**. Puoi collegare **fino a 6 circuiti** DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina. Ogni box usa **la propria porta** (un box = una porta).
 - **DS-300 aggregatore** — quando un **dispositivo aggregatore** riunisce **più box DS-300 (da 2 a 4) su un'unica porta COM**. PitWall separa i box in base al loro identificatore di trama e numera le corsie di seguito (box 1 → 1–8, box 2 → 9–16, e così via fino a **32 corsie** con 4 box). Un **unico segnale di partenza** avvia tutti i box insieme.
-- **BART (Policar)** — tramite **Bluetooth**. Supporta **fino al massimo di corsie consentito da BART** (attualmente **32**).
+- **BART (Policar)** — tramite **Bluetooth**. Supporta **fino al massimo di corsie consentito da BART** (attualmente **32**). Oltre le 8 corsie servono **più Master BART indipendenti** (es. `BART_TRACK1`, `BART_TRACK2`…), uno per ogni blocco di corsie: PitWall si collega a ciascuno separatamente e numera le corsie di seguito, come con l'aggregatore DS-300.
 
 Puoi usare una qualsiasi di queste fonti; per PitWall il flusso dei passaggi è equivalente.
 
@@ -282,7 +282,7 @@ Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) e
 
 > Usalo con criterio: le correzioni cambiano totali, medie e classifica di quella manche.
 
-> **Giri fantasma automatici.** Un giro al di sotto del **Pt** (tempo minimo) viene segnato come **fantasma** e la corsia che lo ha generato non lo conta **mai**. PitWall non lo riassegna più a occhio: lo **trattiene** e lo assegna solo alla corsia che **conferma** di aver saltato un passaggio (quando quella corsia passa con un giro di ~il doppio della sua media). Se nessuno lo conferma, resta qui come **fantasma** perché tu lo riveda a mano.
+> **Giri fantasma automatici.** Un giro al di sotto del **Pt** (tempo minimo) viene segnato come **fantasma** e la corsia che lo ha generato non lo conta **mai**. PitWall non lo riassegna più a occhio: lo **trattiene** e lo assegna solo alla corsia che **conferma** di aver saltato un passaggio (quando quella corsia passa con un giro di ~il doppio della sua media). Se nessuno lo conferma, resta qui come **fantasma** perché tu lo riveda a mano. Con **più circuiti** (aggregatore DS-300 o più Master BART), l'assegnazione automatica **non passa mai da un circuito all'altro**: un fantasma può essere certificato solo su una corsia del proprio circuito, mai su quella di un altro (sono piste fisicamente separate).
 
 ## 15. Risultati ed esportazioni
 ![img: 10-results-comparativa.png]
@@ -322,7 +322,7 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 ## 17. Impostazioni
 ![img: 04-settings.png]
 
-- **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.
+- **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box. Se usi **più Master BART** (uno per ogni blocco di corsie), aggiungi una riga per Master con il suo **nome BLE** (es. `BART_TRACK1`, `BART_TRACK2`…) e il suo **n° di corsie**: sono numerate di seguito come i box dell'aggregatore DS-300, e ogni Master va abbinato separatamente.
 - **Configurazione della porta, senza complicazioni**: per ogni circuito DS-300 (e per l'aggregatore) a colpo d'occhio vedi solo **Porta** e **Baud rate**. La **porta** si sceglie dall'elenco rilevato; se la tua non compare, con **« Scrivi il percorso a mano »** la digiti (es. `COM3` o `/dev/ttys003`). Il **baud rate** è un menu a tendina con le velocità abituali (9600–921600), con **« Scrivi a mano »** per un valore fuori elenco. Le impostazioni fini della seriale (**Data bits, Parità, Stop bits, Controllo di flusso**) sono ripiegate in **« Opzioni avanzate della porta »**: di default **8N1**, quasi mai da toccare.
 - **Circuiti**: definisci le piste salvate (sequenza di corsie, tempo minimo).
 - **Seguito pubblico su internet**: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la sezione seguente).

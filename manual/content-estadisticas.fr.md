@@ -258,7 +258,7 @@ Ta distance au leader **au fil du temps** (tu peux borner la plage de manches). 
 
 ![img: st-gapgrid.png]
 
-La même idée mais en **tableau** : lignes = équipes, colonnes = manches, et chaque cellule les **tours de retard** à la clôture de cette manche (0 = leader). Le **bord doré** signale qu'il y a eu un **pit-stop** dans cette manche. Tu peux choisir 2 à 4 équipes pour voir l'écart **entre elles** (pas seulement contre le leader).
+La même idée mais en **tableau** : lignes = équipes, colonnes = manches, et chaque cellule les **tours de retard** à la clôture de cette manche (0 = leader). Le **bord doré** signale qu'il y a eu un **pit-stop** dans cette manche. Sous chaque « M{n} » figure l'**heure réelle** de départ de cette manche (dans ton heure locale ; survole pour voir la date et l'heure complètes) ; si une manche franchit **minuit**, son en-tête est surligné en **doré** pour le repérer d'un coup d'œil. Tu peux choisir 2 à 4 équipes pour voir l'écart **entre elles** (pas seulement contre le leader).
 
 ### Statistiques avancées
 

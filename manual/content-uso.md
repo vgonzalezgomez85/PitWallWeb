@@ -11,7 +11,7 @@ Guía para quien **opera** PitWall: montar la carrera, dirigirla en vivo, correg
 
 - **DS-300** — por **puerto serie**. Puedes unir **hasta 6 circuitos** DS-300 en una sola carrera: cada caja cronometra sus carriles y PitWall los combina. Cada caja va por **su propio puerto** (una caja = un puerto).
 - **DS-300 agrupador** — cuando un **aparato agrupador** junta **varias cajas DS-300 (de 2 a 4) en un solo puerto COM**. PitWall separa las cajas por su identificador de trama y numera los carriles de corrido (caja 1 → 1–8, caja 2 → 9–16, y así hasta **32 carriles** con 4 cajas). Una **única señal de salida** arranca todas las cajas a la vez.
-- **BART (Policar)** — por **Bluetooth**. Admite **hasta el máximo de carriles que permita BART** (actualmente **32**).
+- **BART (Policar)** — por **Bluetooth**. Admite **hasta el máximo de carriles que permita BART** (actualmente **32**). Con más de 8 carriles hacen falta **varios Master BART independientes** (p. ej. `BART_TRACK1`, `BART_TRACK2`…), uno por cada bloque de carriles: PitWall se conecta a cada uno por separado y numera los carriles de corrido, igual que con el agrupador DS-300.
 
 Puedes usar cualquiera de estas fuentes; para PitWall el flujo de cruces es equivalente.
 
@@ -282,7 +282,7 @@ Desde la carrera (botón de **corrección de vueltas** en el directo o en result
 
 > Úsalo con criterio: las correcciones cambian totales, medias y clasificación de esa manga.
 
-> **Vueltas fantasma automáticas.** Una vuelta por debajo del **Pt** (tiempo mínimo) se marca como **fantasma** y el carril que la generó **nunca** la cuenta. PitWall ya no la reasigna a ojo: la **retiene** y solo se la asigna al carril que **confirma** haberse saltado un cruce (cuando ese carril pasa con una vuelta de ~el doble de su media). Si nadie lo confirma, se queda aquí como **fantasma** para que la revises a mano.
+> **Vueltas fantasma automáticas.** Una vuelta por debajo del **Pt** (tiempo mínimo) se marca como **fantasma** y el carril que la generó **nunca** la cuenta. PitWall ya no la reasigna a ojo: la **retiene** y solo se la asigna al carril que **confirma** haberse saltado un cruce (cuando ese carril pasa con una vuelta de ~el doble de su media). Si nadie lo confirma, se queda aquí como **fantasma** para que la revises a mano. Con **varios circuitos** (agrupador DS-300 o varios Master BART), la asignación automática **nunca cruza de un circuito a otro**: un fantasma solo puede certificarse en un carril de su mismo circuito, nunca en el de otro (son pistas físicamente distintas).
 
 ## 15. Resultados y exports
 ![img: 10-results-comparativa.png]
@@ -322,7 +322,7 @@ Cada sesión se puede **borrar** desde su detalle. Si paras la sesión con **STO
 ## 17. Ajustes
 ![img: 04-settings.png]
 
-- **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth (se conecta por **BLE directo** por defecto; queda **TCP** en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.
+- **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth (se conecta por **BLE directo** por defecto; queda **TCP** en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas. Si usas **varios Master BART** (uno por cada bloque de carriles), añade una fila por cada uno con su **nombre BLE** (p. ej. `BART_TRACK1`, `BART_TRACK2`…) y su **nº de carriles**: se numeran de corrido igual que las cajas DS-300 del agrupador, y cada Master hay que emparejarlo por separado.
 - **Configuración del puerto, sin líos**: en cada circuito DS-300 (y en el agrupador) de un vistazo solo ves **Puerto** y **Baud rate**. El **puerto** se elige de la lista de puertos detectados; si el tuyo no aparece, con **«Escribir el path a mano»** lo tecleas (p. ej. `COM3` o `/dev/ttys003`). El **baud rate** es un desplegable con las velocidades habituales (9600–921600), con **«Escribir a mano»** para un valor fuera de lista. Los ajustes finos de la conexión serie (**Data bits, Paridad, Stop bits, Control de flujo**) están plegados en **«Opciones avanzadas del puerto»**: por defecto **8N1** y casi nunca hay que tocarlos.
 - **Circuitos**: define pistas guardadas (secuencia de carriles, tiempo mínimo).
 - **Seguimiento público por internet**: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la sección siguiente).
