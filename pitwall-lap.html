@@ -80,14 +80,6 @@
   .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
   .btn-ghost:hover{border-color:var(--ink-2);background:var(--surface)}
 
-  /* "próximamente" badge */
-  .soon{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-    padding:14px 22px;border-radius:2px;border:1px dashed var(--ac);color:var(--ac);
-    display:inline-flex;align-items:center;gap:10px}
-  .soon::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac);
-    box-shadow:0 0 9px var(--ac);animation:soonblink 1.4s infinite;flex:0 0 auto}
-  .nav-soon{padding:8px 14px;font-size:11px;letter-spacing:.12em}
-  @keyframes soonblink{0%,100%{opacity:1}50%{opacity:.25}}
 
   section{padding:84px 0;position:relative}
   .sec-head{max-width:42em;margin-bottom:50px}
@@ -171,6 +163,7 @@
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
 </style>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
 <body>
 
@@ -182,7 +175,6 @@
       <a href="#pantallas">En pantalla</a>
       <a href="pitwall-manager.html">Manager</a>
       <a href="pitwall-control.html">Control</a>
-      <span class="soon nav-soon">Próximamente</span>
       <div class="langs"><b>ES</b><a class="lg" href="pitwall-lap-en.html">EN</a><a class="lg" href="pitwall-lap-fr.html">FR</a><a class="lg" href="pitwall-lap-it.html">IT</a></div>
     </nav>
   </div>
@@ -195,7 +187,7 @@
       <h1>Tu copiloto<br>de <span class="a">bolsillo</span>.</h1>
       <p class="lede">Mientras corres no puedes mirar la pantalla. PitWall Lap te lo cuenta <b>por voz</b>: tiempos, posición y gaps al oído, sin apartar la vista de tu coche. Al acabar, <b>consulta la carrera</b> en el móvil; entre jornadas, <b>registra tus entrenamientos</b> y compara stints para encontrar el setup. iOS y Android.</p>
       <div class="cta-row">
-        <span class="soon">Próximamente disponible</span>
+        <a class="btn btn-primary" href="/software/pitwall-lap/PitWallLap.apk" data-umami-event="download-lap-android-apk" download>Descargar APK v1.0.0 →</a>
         <a class="btn btn-ghost" href="#pantallas">Ver pantallas</a>
       </div>
     </div>
@@ -382,7 +374,7 @@
     <h2>Deja el cuaderno.<br><span class="a">Escucha tu carrera.</span></h2>
     <p>Tus tiempos, tu posición y tus gaps, cantados al oído mientras no apartas la vista de tu coche.</p>
     <div class="cta-row">
-      <span class="soon">Próximamente disponible</span>
+      <a class="btn btn-primary" href="/software/pitwall-lap/PitWallLap.apk" data-umami-event="download-lap-android-apk" download>Descargar APK v1.0.0 →</a>
       <a class="btn btn-ghost" href="index.html">← Volver al ecosistema</a>
     </div>
   </div>
