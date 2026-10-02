@@ -117,6 +117,17 @@ Careful with this one: **your first complete lap DOES count** — it's real pace
 
 If projection is active, Estimate at the finish appears with your **estimated position** and your **projected laps**.
 
+**Rival tracking.** Further down, the **“Seguimiento · mangas terminadas”** (Tracking · finished heats) section compares your pace with that of the teams you want to keep an eye on. There is a card for your own team (highlighted, labelled **Tú** — “You”) and one for each rival you follow, **up to 5**. Each card is a **per-lane** table with a **Total** row:
+
+- **Vueltas** (Laps) — every valid lap on that lane (including the first lap of each heat).
+- **Rápida** (Fastest) — the best lap on that lane, not counting the first lap or exit laps.
+- **Media** (Average) — the average pace including exit laps (without the first lap).
+- **Limpia** (Clean) — the average pace without exit laps or the first lap: your “pure” pace on that lane.
+
+Only **finished heats** count: the heat in progress is left out until it closes, and then the table updates on its own. To choose rivals, open **“Elegir equipos a seguir (hasta 5)”** (Choose teams to follow, up to 5), tick the boxes and press **Guardar** (Save). The list belongs **to the team, not the phone**: every phone in your pit box sees the same rivals and, if someone changes it, the others update automatically.
+
+> The criteria are the same as the per-lane matrix in live statistics, so the figures match across both screens.
+
 **The voice (lap caller).** With the 🔊 Voice (“🔊 Voz”) button you enable the announcer (it starts **off**: you have to tap the screen once so the phone allows the audio to play). It calls out the **time of each lap**, and warns of **position change**, **half heat**, **last minute**, **last 30 s** and **end of heat**. In ⚙️ Voice settings (“⚙️ Ajustes de voz”) you enable/disable each alert and, in the advanced block, that it call out every X minutes your **lane average**, the **gaps with rivals** or the **average needed to climb** a position.
 
 **Screen always on.** While the panel is open, the screen **doesn't turn off**; after **30 seconds without touching it, it dims** (to not waste battery or bother you), but **the voice keeps calling out**. Touch the screen to light it up again.

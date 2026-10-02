@@ -175,6 +175,7 @@ Teams can follow their race from the phone **two ways**, not mutually exclusive:
 - Give each team **their PIN**. When they open the address and enter it, they go straight into their panel: projected position, gap to the leader, laps, average and pit-stops, voice included — read-only, and only for **endurance** races (the full detail is in the *Statistics manual*, section *PitWall Lap: your race on the phone*).
 - New (“Nuevo”) regenerates a team's PIN (in case it was leaked or they want to change it).
 - **Access PIN — On / Off** (“PIN de acceso — Activado / Desactivado”). On the same PINs sheet, a toggle lets you **drop the PIN** for this race. With the PIN **off**, each team gets into its timing panel just by **picking itself from the list**, typing nothing (handy at internal events where the PIN is a nuisance). The PINs are **kept** in case you turn it back on. It's a **per-race** setting and it also travels to the BART slave timer when the race is synced (Race Link).
+- **Rival tracking.** In its panel, each team can follow **up to 5 rivals** and compare, lane by lane, laps, fastest lap and averages (finished heats only). The list is saved per team, so every phone in the pit box shares it. Details in the *Statistics manual*, *PitWall Lap* section.
 
 > The phones must be on the **same network** as the computer acting as server. Use the computer's IP, not `localhost`, when they open it from the phone. If you want teams to follow the race **from outside the venue** (over the internet), see *Public tracking over the internet*.
 

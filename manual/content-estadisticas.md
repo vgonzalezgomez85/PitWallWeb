@@ -117,6 +117,17 @@ Ojo con esto: **tu primera vuelta completa sí cuenta** —es ritmo real y puede
 
 Si hay proyección activa, aparece **Estimación al final** con tu **posición estimada** y tus **vueltas proyectadas**.
 
+**Seguimiento de rivales.** Más abajo, la sección **«Seguimiento · mangas terminadas»** compara tu ritmo con el de los equipos que quieras vigilar. Hay una tarjeta para tu equipo (resaltada, con la etiqueta **Tú**) y otra por cada rival que sigas, **hasta 5**. Cada tarjeta es una tabla **por carril** con una fila **Total**:
+
+- **Vueltas** — todas las vueltas válidas en ese carril (incluida la primera de cada manga).
+- **Rápida** — la mejor vuelta en ese carril, sin contar la primera vuelta ni las salidas.
+- **Media** — el ritmo medio contando las vueltas de salida (sin la primera vuelta).
+- **Limpia** — el ritmo medio sin salidas ni primera vuelta: tu ritmo "puro" en ese carril.
+
+Solo cuentan las **mangas terminadas**: la manga en curso no entra hasta que se cierra, y entonces la tabla se actualiza sola. Para elegir rivales abre **«Elegir equipos a seguir (hasta 5)»**, marca las casillas y pulsa **Guardar**. La lista es **del equipo, no del móvil**: todos los móviles de tu box ven los mismos rivales y, si alguien la cambia, los demás se actualizan solos.
+
+> Los criterios son los mismos que la matriz por carril de las estadísticas en vivo, así que las cifras cuadran entre ambas pantallas.
+
 **La voz (canta-vueltas).** Con el botón **🔊 Voz** activas el locutor (arranca **apagado**: hay que tocar la pantalla una vez para que el móvil deje sonar el audio). Te canta el **tiempo de cada vuelta**, y avisa de **cambio de posición**, **media manga**, **último minuto**, **últimos 30 s** y **fin de manga**. En **⚙️ Ajustes de voz** activas/desactivas cada aviso y, en el bloque avanzado, que cante cada X minutos tu **media de carril**, los **gaps con rivales** o la **media para subir** una posición.
 
 **Pantalla siempre activa.** Mientras el panel esté abierto, la pantalla **no se apaga**; a los **30 segundos sin tocarla se oscurece** (para no gastar batería ni molestar), pero **la voz sigue cantando**. Toca la pantalla para iluminarla otra vez.

@@ -117,6 +117,17 @@ Attenzione a questo: **il tuo primo giro completo conta** — è ritmo reale e p
 
 Se c'è la proiezione attiva, compare **Stima alla fine** con la tua **posizione stimata** e i tuoi **giri proiettati**.
 
+**Monitoraggio dei rivali.** Più in basso, la sezione **“Seguimiento · mangas terminadas”** (Monitoraggio · manche terminate) confronta il tuo ritmo con quello delle squadre che vuoi tenere d'occhio. C'è una scheda per la tua squadra (evidenziata, con l'etichetta **Tú** — “Tu”) e una per ogni rivale seguito, **fino a 5**. Ogni scheda è una tabella **per corsia** con una riga **Total**:
+
+- **Vueltas** (Giri) — tutti i giri validi in quella corsia (compreso il primo di ogni manche).
+- **Rápida** (Migliore) — il giro migliore in quella corsia, senza contare il primo giro né le uscite.
+- **Media** — il ritmo medio contando i giri di uscita (senza il primo giro).
+- **Limpia** (Pulita) — il ritmo medio senza uscite né primo giro: il tuo ritmo “puro” in quella corsia.
+
+Contano solo le **manche terminate**: quella in corso non entra finché non si chiude, e allora la tabella si aggiorna da sola. Per scegliere i rivali apri **“Elegir equipos a seguir (hasta 5)”** (Scegli le squadre da seguire, fino a 5), spunta le caselle e premi **Guardar** (Salva). La lista è **della squadra, non del cellulare**: tutti i cellulari del tuo box vedono gli stessi rivali e, se qualcuno la cambia, gli altri si aggiornano da soli.
+
+> I criteri sono gli stessi della matrice per corsia delle statistiche dal vivo, quindi le cifre coincidono tra le due schermate.
+
 **La voce (annuncia-giri).** Con il pulsante **🔊 Voce (“🔊 Voz”)** attivi lo speaker (parte **spento**: bisogna toccare lo schermo una volta perché il cellulare lasci suonare l'audio). Ti annuncia il **tempo di ogni giro**, e avvisa del **cambio di posizione**, **metà manche**, **ultimo minuto**, **ultimi 30 s** e **fine manche**. In **⚙️ Impostazioni voce (“⚙️ Ajustes de voz”)** attivi/disattivi ogni avviso e, nel blocco avanzato, che annunci ogni X minuti la tua **media di corsia**, i **gap con i rivali** o la **media per salire** una posizione.
 
 **Schermo sempre attivo.** Finché il pannello è aperto, lo schermo **non si spegne**; dopo **30 secondi senza toccarlo si oscura** (per non consumare batteria né disturbare), ma **la voce continua ad annunciare**. Tocca lo schermo per illuminarlo di nuovo.

@@ -117,6 +117,17 @@ Attention à ceci : **ton premier tour complet, lui, compte** — c'est du rythm
 
 S'il y a une projection active, apparaît **Estimation à la fin** avec ta **position estimée** et tes **tours projetés**.
 
+**Suivi des rivaux.** Plus bas, la section **« Seguimiento · mangas terminadas »** (Suivi · manches terminées) compare ton rythme avec celui des équipes que tu veux surveiller. Il y a une carte pour ton équipe (mise en évidence, avec l'étiquette **Tú** — « Toi ») et une pour chaque rival suivi, **jusqu'à 5**. Chaque carte est un tableau **par voie** avec une ligne **Total** :
+
+- **Vueltas** (Tours) — tous les tours valides sur cette voie (y compris le premier de chaque manche).
+- **Rápida** (Meilleur) — le meilleur tour sur cette voie, sans compter le premier tour ni les sorties.
+- **Media** (Moyenne) — le rythme moyen en comptant les tours de sortie (sans le premier tour).
+- **Limpia** (Propre) — le rythme moyen sans sorties ni premier tour : ton rythme « pur » sur cette voie.
+
+Seules les **manches terminées** comptent : la manche en cours n'entre pas tant qu'elle n'est pas close, puis le tableau se met à jour tout seul. Pour choisir tes rivaux, ouvre **« Elegir equipos a seguir (hasta 5) »** (Choisir les équipes à suivre, jusqu'à 5), coche les cases et appuie sur **Guardar** (Enregistrer). La liste appartient **à l'équipe, pas au mobile** : tous les mobiles de ton stand voient les mêmes rivaux et, si quelqu'un la modifie, les autres se mettent à jour automatiquement.
+
+> Les critères sont les mêmes que ceux de la matrice par voie des statistiques en direct : les chiffres concordent entre les deux écrans.
+
 **La voix (annonceur de tours).** Avec le bouton *🔊 Voix (« 🔊 Voz »)*, tu actives l'annonceur (il démarre **éteint** : il faut toucher l'écran une fois pour que le mobile laisse le son passer). Il t'annonce le **temps de chaque tour**, et signale les **changements de position**, la **mi-manche**, la **dernière minute**, les **30 dernières secondes** et la **fin de manche**. Dans *⚙️ Réglages de voix (« ⚙️ Ajustes de voz »)*, tu actives/désactives chaque avis et, dans le bloc avancé, qu'il annonce toutes les X minutes ta **moyenne de voie**, les **écarts avec les rivaux** ou la **moyenne pour monter** d'une position.
 
 **Écran toujours actif.** Tant que le panneau est ouvert, l'écran **ne s'éteint pas** ; au bout de **30 secondes sans le toucher, il s'assombrit** (pour ne pas user la batterie ni déranger), mais **la voix continue d'annoncer**. Touche l'écran pour l'éclairer à nouveau.
