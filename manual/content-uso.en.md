@@ -205,6 +205,10 @@ From the race page:
 
 **Choosing the view.** With the View (“Vista”) button you change the layout depending on the lanes: *Horizontal rows* (few lanes), *Compact grid* (many) or *Cards with details* (with laps/exits/pit/tyres/Δ per card).
 
+**Projected standings alongside.** In the *Horizontal rows* view, the button with the **side panel** icon (next to **View**) opens or closes the **projected standings docked to the right** of the rows, like in TicTac: **#**, participant, **Proj. laps** (“V. Proy.”, estimated laps), **Total** (actual laps) and **Average**. PitWall remembers whether you left it open for each race. By default the panel uses **automatic width** (just enough to read full names, at most 40% of the screen) and adjusts the font so everyone fits; if they don't, it pages every 20 s. **Dragging its edge** lets you choose the width yourself (with spare room, **Gap V** and the trend also appear), and **double-clicking the edge** returns to automatic. The rows adapt their font to the remaining space: the driver's name takes priority and, in very narrow windows, Gap V is hidden first, then VLT and then LAST.
+
+**Fixed room or TV screens.** By adding parameters to the live view address, that screen always starts the same way without changing what is saved: `?side=standings` (panel open) or `?side=none` (closed), and `?view=1`, `?view=2` or `?view=3` (*Horizontal rows*, *Compact grid* or *Cards with details*). They can be combined: `?view=1&side=standings`.
+
 **Distance to the leader and provisional estimate.** On the classification screens (**Le Mans** and **live stats**) the distance to the leader is given **with the fraction** and its equivalent **in seconds** —*"a 2,8 v (35,5\")"*, i.e. 2.8 laps behind, worth 35.5 seconds—, not rounded to whole laps. And if an estimate carries an **orange asterisk**, that team is still in its **first heat** without having gone past **60 %** of it: its reference isn't locked in yet and the figure can still move. It's all explained in detail in the *Statistics manual*.
 
 **Switching batch, repeating a heat and finishing.** From the live screen itself you have shortcuts without leaving the screen:
