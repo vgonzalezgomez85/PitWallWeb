@@ -392,7 +392,7 @@
       <ol class="steps">
         <li>You pick the <b>PitWall</b> on the network and see the <b>list of races</b>; you select the one for this event.</li>
         <li>Control shows a <b>preview</b> with the teams <b>matched by name</b>, so you can check the pairing before applying.</li>
-        <li>On <b>apply</b>, the <b>positions per heat</b> are written into the event. The <b>points</b> are set by Control with its own <b>points table</b> (they don't come from PitWall).</li>
+        <li>On <b>apply</b>, each team's <b>position in the race's final standings</b> is written into the event (not its position within its heat: there is only one winner). The preview shows which heat each team ran in. The <b>points</b> are set by Control with its own <b>points table</b> (they don't come from PitWall).</li>
       </ol>
       <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
 
@@ -426,7 +426,7 @@
         <li><b>Drop score</b>: worst result that does not count towards the standings.</li>
         <li><b>Treasury</b>: fees per event and their split (organising committee / club).</li>
         <li><b>Batch</b>: the event package (<span class="mono">pitwall.tanda/v1</span>) sent to PitWall.</li>
-        <li><b>Bring back results</b>: import the positions per heat from PitWall (matched by name) for standings and credits; the points are set by Control.</li>
+        <li><b>Bring back results</b>: import from PitWall each team's position in the race's final standings (matched by name) for standings and credits; the points are set by Control.</li>
         <li><b>Send scrutineering</b>: send PitWall, over the network and with a PIN, the snapshot of what's been checked for each team (pinion/crown gear, weights, motor, wheels…) so it becomes visible —read-only— inside the race. Each submission fully replaces the previous one.</li>
         <li><b>Pairing PIN</b>: the code PitWall shows in <i>Import batch</i>, which Control asks for to authorize the network send.</li>
         <li><b>Brand</b>: the championship's title and tagline stamped onto the PDFs.</li>

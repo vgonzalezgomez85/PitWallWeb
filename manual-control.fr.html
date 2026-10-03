@@ -392,7 +392,7 @@
       <ol class="steps">
         <li>Tu choisis le <b>PitWall</b> sur le réseau et tu vois la <b>liste des courses</b> ; tu sélectionnes celle de cette épreuve.</li>
         <li>Control affiche un <b>aperçu</b> avec les équipes <b>appariées par nom</b>, pour vérifier l'appairage avant d'appliquer.</li>
-        <li>À l'<b>application</b>, les <b>positions par manche</b> sont écrites dans l'épreuve. Les <b>points</b> sont fixés par Control avec sa propre <b>table de points</b> (ils ne viennent pas de PitWall).</li>
+        <li>À l'<b>application</b>, la <b>position de chaque équipe au classement final</b> de la course est écrite dans l'épreuve (et non sa position dans sa manche : il n'y a qu'un seul vainqueur). L'aperçu indique dans quelle manche a couru chaque équipe. Les <b>points</b> sont fixés par Control avec sa propre <b>table de points</b> (ils ne viennent pas de PitWall).</li>
       </ol>
       <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
 
@@ -426,7 +426,7 @@
         <li><b>Résultat écarté</b> : plus mauvais résultat qui ne compte pas pour le classement.</li>
         <li><b>Trésorerie</b> : cotisations par épreuve et leur répartition (comité d'organisation / club).</li>
         <li><b>Série (tanda)</b> : paquet de l'épreuve (<span class="mono">pitwall.tanda/v1</span>) envoyé à PitWall.</li>
-        <li><b>Récupérer les résultats</b> : importer depuis PitWall les positions par manche (appariées par nom) pour le classement et les crédits ; les points sont fixés par Control.</li>
+        <li><b>Récupérer les résultats</b> : importer depuis PitWall la position de chaque équipe au classement final de la course (appariée par nom) pour le classement et les crédits ; les points sont fixés par Control.</li>
         <li><b>Envoyer les vérifications</b> : transmettre à PitWall, par réseau et avec PIN, l'instantané de ce qui est vérifié pour chaque équipe (pignon/couronne, poids, moteur, jantes…) pour qu'il soit visible —en consultation uniquement— dans la course. Chaque envoi remplace entièrement le précédent.</li>
         <li><b>PIN d'appairage</b> : le code que PitWall affiche dans <i>Importer une série</i>, que Control demande pour autoriser l'envoi par réseau.</li>
         <li><b>Marque</b> : titre et devise du championnat estampillés sur les PDF.</li>
