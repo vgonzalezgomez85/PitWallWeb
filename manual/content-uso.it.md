@@ -361,6 +361,7 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 - **Ripeti corsia**: correre ogni corsia N manche di seguito, sommando i giri.
 - **GO**: il segnale di partenza (del box DS-300) che avvia la manche.
 - **Giro fantasma**: giro segnato come non valido (non conta), ripristinabile.
+- **Uscita (⚠️)**: giro che impiega più del giro più veloce di quel pilota in quella corsia durante la manche + 1,5 s (come i «giri lenti» di TicTac); se impiega il doppio della sua media pulita o di più, è una sosta ai box (🔧). In diretta è provvisorio: quando il giro più veloce migliora, giri precedenti possono diventare uscite.
 - **Pole**: sessione di qualifica preliminare (facoltativa); tutti girano sulla stessa corsia e il loro miglior giro fissa la griglia di partenza.
 - **Eventi**: pagina (🗒️) con il registro manche per manche di tutto ciò che succede nella gara —GO, pause, fine manche, giri fantasma, check-in di pilota…—, in diretta.
 - **Allenamento libero**: modalità per registrare giri per corsia senza squadre né rotazione (sessione aperta).

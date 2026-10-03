@@ -361,6 +361,7 @@ Está en **Ajustes → Seguimiento público por internet**. Hay **dos modos**:
 - **Repetir carril**: correr cada carril N mangas seguidas, sumando vueltas.
 - **GO**: la señal de salida (de la caja DS-300) que arranca la manga.
 - **Vuelta fantasma**: vuelta marcada como no válida (no cuenta), restaurable.
+- **Salida (⚠️)**: vuelta que tarda más que la vuelta rápida de ese piloto en ese carril durante la manga + 1,5 s (como las «vueltas lentas» de TicTac); si tarda el doble de su media limpia o más, es parada en boxes (🔧). En directo es provisional: al mejorar la rápida, vueltas anteriores pueden pasar a ser salida.
 - **Pole**: sesión de clasificación previa (opcional); todos ruedan por el mismo carril y su mejor vuelta fija la parrilla de salida.
 - **Sucesos**: página (🗒️) con el registro manga a manga de todo lo que pasa en la carrera —GO, pausas, fin de manga, vueltas fantasma, fichajes de piloto…—, en vivo.
 - **Entrenamiento libre**: modo para registrar vueltas por carril sin equipos ni rotación (sesión abierta).

@@ -88,7 +88,9 @@ Attenzione a questo: **il tuo primo giro completo conta** — è ritmo reale e p
 
 **Δ (delta).** È la tua **media pulita meno il tuo miglior giro**. Cioè: quanto margine ti resta. Un Δ piccolo = giri quasi sempre al massimo, poco da raschiare. Un Δ grande = hai ritmo ma lo perdi in molti giri: lì c'è il tuo oro, nell'essere più costante. La "media pulita" qui non conta uscite né pit, solo il tuo girare normale.
 
-**USCITE / PIT-STOP.** Quante volte sei uscito e quante soste hai fatto. Ogni uscita ti costa tempo e posizioni.
+**USCITE / PIT-STOP.** Quante volte sei uscito e quante soste hai fatto. Ogni uscita ti costa tempo e posizioni. PitWall conta le uscite con la stessa regola dei «giri lenti» di TicTac: è **uscita** ogni giro che impiega **più del tuo giro più veloce in quella corsia durante la manche + 1,5 s** (compreso il primo giro). Se impiega anche il doppio della tua media pulita o di più, è una **sosta ai box (🔧)**. I giri ripristinati da PitWall (bandiera, caduta di connessione) non contano mai come uscita.
+
+**In diretta, il segno è provvisorio.** Il tuo giro più veloce scende durante la manche, e con lui il limite. Esempio: al minuto 1 il tuo migliore è 10,20 s → limite 11,70 s, quindi un giro da 11,50 s **non** è un'uscita. Al minuto 6 fai 9,80 s → il limite scende a 11,30 s e quel giro da 11,50 s **passa a contare come uscita**. Per questo il contatore delle uscite può salire mentre stai girando bene. A fine manche si ricontrolla tutto con il giro più veloce definitivo. Questa regola non cambia la virgola né lo spareggio, e le gare corse prima della v1.38.0 mantengono le uscite come erano state contate.
 
 **Tempo perso nelle uscite.** Quanto ti sono costate quelle uscite, in secondi. Mettilo in contesto: a volte una sola uscita vale più posizioni che decimi di ritmo per tutta la manche. Qui lo vedi chiaro.
 
@@ -292,10 +294,10 @@ Il **gap** di questa tabella si legge **"a 2,8 v (35,5\")"**: la distanza in gir
 - **Consistenza** — la tua regolarità giro dopo giro. 100 meno la tua variazione relativa. Più alto = più costante.
 - **±DS (deviazione standard) / CV** — il ±DS sono i secondi che oscilli da giro a giro (guarda questo numero). Il CV è quell'oscillazione in percentuale relativa al tuo ritmo; la % di consistenza è 100 − CV.
 - **Media** — media semplice dei tuoi tempi di giro, senza il passaggio di partenza (il tuo primo giro completo **entra**). Include uscite e pit. È quella che usa la proiezione e coincide con TicTac al millisecondo.
-- **Media pulita** — la tua media contando solo i giri normali (senza uscite). Si usa per il Δ e per rilevare gli incidenti, non per proiettare.
+- **Media pulita** — la tua media contando solo i giri normali (senza uscite, secondo la regola di *Uscita* di questo glossario). Si usa per il Δ e per rilevare gli incidenti, non per proiettare.
 - **Passaggio di partenza (warmup / passaggio parziale)** — il primo passaggio sul traguardo della manche: dalla griglia alla linea, partendo da fermo. È mezzo tracciato, non un giro, quindi non conta per media, migliore né consistenza. **Solo quello**: il primo giro completo che viene dopo conta per tutto.
 - **Sotto-minimo** — un tempo al di sotto del minimo di giro della gara. Passaggio fantasma impossibile; si scarta sempre.
-- **Uscita (exit)** — sei uscito di pista. Conta per la media (è tempo reale perso) ma non per il tuo miglior giro.
+- **Uscita (exit)** — un giro che impiega più del tuo giro più veloce in quella corsia durante la manche + 1,5 s (la stessa regola dei «giri lenti» di TicTac). Conta per la media (è tempo reale perso) ma non per il tuo miglior giro. In diretta è provvisorio: se migliori il tuo giro più veloce, giri precedenti possono diventare uscite.
 - **Pit-stop** — sosta ai box. Conta come tempo, non come miglior giro.
 - **Virgola** — la frazione di giro che hai percorso: in corsa, quello che hai fatto dal tuo ultimo passaggio sul traguardo; alla fine, quella che avevi al calare della bandiera. Conta nella distanza dal leader e decide il pareggio quando in due avete gli stessi giri.
 - **Proiezione** — stima del tuo risultato finale sommando tutte le manche: tempo totale di gara diviso per la tua media, più la virgola già percorsa.

@@ -88,7 +88,9 @@ Ojo con esto: **tu primera vuelta completa sí cuenta** —es ritmo real y puede
 
 **Δ (delta).** Es tu **media limpia menos tu mejor vuelta**. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.
 
-**SALIDAS / PIT-STOPS.** Cuántas veces te has salido y cuántas paradas has hecho. Cada salida te cuesta tiempo y posiciones.
+**SALIDAS / PIT-STOPS.** Cuántas veces te has salido y cuántas paradas has hecho. Cada salida te cuesta tiempo y posiciones. PitWall cuenta las salidas con la misma regla que las «vueltas lentas» de TicTac: es **salida** toda vuelta que tarde **más que tu vuelta rápida en ese carril durante la manga + 1,5 s** (también la primera vuelta). Si además tarda el doble o más de tu media limpia, es una **parada en boxes (🔧)**. Las vueltas que repone PitWall (bandera, caída de conexión) nunca cuentan como salida.
+
+**En directo, la marca es provisional.** Tu vuelta rápida va bajando durante la manga y, con ella, el límite. Ejemplo: al minuto 1 tu mejor es 10,20 s → límite 11,70 s, así que una vuelta de 11,50 s **no** es salida. Al minuto 6 haces 9,80 s → el límite baja a 11,30 s y aquella vuelta de 11,50 s **pasa a contar como salida**. Por eso el contador de salidas puede subir mientras ruedas bien. Al cerrar la manga se repasa todo con la vuelta rápida definitiva. Esta regla no cambia la coma ni el desempate, y las carreras corridas antes de la v1.38.0 conservan las salidas tal como se contaron.
 
 **Tiempo perdido en salidas.** Lo que te han costado esas salidas, en segundos. Ponlo en contexto: a veces una sola salida vale más posiciones que décimas de ritmo durante toda la manga. Aquí lo ves claro.
 
@@ -294,10 +296,10 @@ El **gap** de esta tabla se lee **"a 2,8 v (35,5\")"**: la distancia en vueltas 
 - **Consistencia** — tu regularidad vuelta a vuelta. 100 menos tu variación relativa. Más alto = más constante.
 - **±DE (desviación típica) / CV** — el ±DE son los segundos que oscilas de vuelta a vuelta (mira este número). El CV es esa oscilación en porcentaje relativo a tu ritmo; el % de consistencia es 100 − CV.
 - **Media** — media simple de tus tiempos de vuelta, sin el cruce de salida (tu primera vuelta completa **sí** entra). Incluye salidas y pits. Es la que usa la proyección y coincide al milisegundo con la de TicTac.
-- **Media limpia** — tu media contando solo vueltas normales (sin salidas). Se usa para el Δ y para detectar incidentes, no para proyectar.
+- **Media limpia** — tu media contando solo vueltas normales (sin salidas, según la regla de *Salida* de este glosario). Se usa para el Δ y para detectar incidentes, no para proyectar.
 - **Cruce de salida (warmup / cruce parcial)** — el primer paso por meta de la manga: de la rejilla a la línea, arrancando parado. Es medio trazado, no una vuelta, así que no cuenta para media, mejor ni consistencia. **Solo ese**: la primera vuelta completa que viene después sí cuenta para todo.
 - **Sub-mínimo** — un tiempo por debajo del mínimo de vuelta de la carrera. Cruce fantasma imposible; se descarta siempre.
-- **Salida (exit)** — te has salido de pista. Cuenta para la media (es tiempo real perdido) pero no para tu mejor vuelta.
+- **Salida (exit)** — una vuelta que tarda más que tu vuelta rápida en ese carril durante la manga + 1,5 s (la misma regla que las «vueltas lentas» de TicTac). Cuenta para la media (es tiempo real perdido) pero no para tu mejor vuelta. En directo es provisional: si mejoras tu rápida, vueltas anteriores pueden pasar a ser salida.
 - **Pit-stop** — parada en boxes. Cuenta como tiempo, no como mejor vuelta.
 - **Coma** — la fracción de vuelta que llevas hecha: en marcha, lo rodado desde tu último paso por meta; al final, la que llevabas al caer la bandera. Cuenta en la distancia al líder y desempata cuando dos tenéis las mismas vueltas.
 - **Proyección** — estimación de tu resultado final sumando todas las mangas: tiempo total de carrera dividido entre tu media, más la coma que ya llevas hecha.

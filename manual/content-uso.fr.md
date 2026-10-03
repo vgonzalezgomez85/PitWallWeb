@@ -361,6 +361,7 @@ C'est dans **Réglages → Suivi public par internet**. Il y a **deux modes** :
 - **Répéter la voie** : courir chaque voie N manches d'affilée, en cumulant les tours.
 - **GO** : le signal de départ (du boîtier DS-300) qui lance la manche.
 - **Tour fantôme** : tour marqué comme non valide (il ne compte pas), restaurable.
+- **Sortie (⚠️)** : tour qui dure plus que le tour le plus rapide de ce pilote sur cette voie pendant la manche + 1,5 s (comme les « tours lents » de TicTac) ; s'il dure le double de sa moyenne propre ou plus, c'est un arrêt aux stands (🔧). En direct, c'est provisoire : quand le meilleur tour s'améliore, des tours précédents peuvent devenir des sorties.
 - **Pole** : séance de qualification préalable (facultative) ; tous roulent sur la même voie et leur meilleur tour fixe la grille de départ.
 - **Événements** : page (🗒️) avec le journal manche par manche de tout ce qui se passe dans la course —GO, pauses, fin de manche, tours fantômes, enregistrements de pilote…—, en direct.
 - **Entraînement libre** : mode pour enregistrer des tours par voie sans équipes ni rotation (séance ouverte).

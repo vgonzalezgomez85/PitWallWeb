@@ -88,7 +88,9 @@ Careful with this one: **your first complete lap DOES count** — it's real pace
 
 **Δ (delta).** It's your **clean average minus your best lap**. That is: how much margin you have left. A small Δ = you almost always run flat out, very little to shave off. A big Δ = you have pace but lose it on many laps: that's where your gold is, in being more consistent. The "clean average" here doesn't count exits or pits, only your normal running.
 
-**EXITS / PIT-STOPS.** How many times you've gone off and how many stops you've made. Each exit costs you time and positions.
+**EXITS / PIT-STOPS.** How many times you've gone off and how many stops you've made. Each exit costs you time and positions. PitWall counts exits with the same rule as TicTac's “slow laps”: any lap that takes **longer than your fastest lap on that lane during the heat + 1.5 s** is an **exit** (the first lap included). If it also takes twice your clean average or more, it's a **pit-stop (🔧)**. Laps restored by PitWall (flag, connection drop) never count as exits.
+
+**Live, the mark is provisional.** Your fastest lap keeps dropping during the heat, and the limit drops with it. Example: at minute 1 your best is 10.20 s → limit 11.70 s, so an 11.50 s lap is **not** an exit. At minute 6 you do 9.80 s → the limit drops to 11.30 s and that 11.50 s lap **now counts as an exit**. That's why the exit counter can go up while you're driving well. When the heat ends everything is rechecked against the final fastest lap. This rule doesn't change the comma or the tie-break, and races run before v1.38.0 keep their exits as they were counted.
 
 **Time lost in exits.** What those exits cost you, in seconds. Put it in context: sometimes a single exit is worth more positions than tenths of pace throughout the whole heat. Here you see it clearly.
 
@@ -292,10 +294,10 @@ The **gap** in this table reads **"a 2,8 v (35,5\")"**: the distance in laps **w
 - **Consistency** — your lap-to-lap regularity. 100 minus your relative variation. Higher = more consistent.
 - **±SD (standard deviation) / CV** — the ±SD is the seconds you swing from lap to lap (look at this number). The CV is that swing as a percentage relative to your pace; the consistency % is 100 − CV.
 - **Average** — a simple average of your lap times, without the start crossing (your first complete lap **does** go in). Includes exits and pits. It's the one the projection uses, and it matches TicTac to the millisecond.
-- **Clean average** — your average counting only normal laps (without exits). Used for the Δ and to detect incidents, not to project.
+- **Clean average** — your average counting only normal laps (without exits, as defined under *Exit* in this glossary). Used for the Δ and to detect incidents, not to project.
 - **Start crossing (warmup / partial crossing)** — the first time you cross the line in the heat: from the grid to the line, starting from a standstill. It's half the layout, not a lap, so it doesn't count for average, best or consistency. **Only that one**: the first complete lap that comes after counts for everything.
 - **Sub-minimum** — a time below the race's minimum lap. An impossible ghost crossing; always discarded.
-- **Exit** — you've gone off the track. Counts for the average (it's real time lost) but not for your best lap.
+- **Exit** — a lap that takes longer than your fastest lap on that lane during the heat + 1.5 s (the same rule as TicTac's “slow laps”). Counts for the average (it's real time lost) but not for your best lap. Live it's provisional: if you improve your fastest lap, earlier laps can become exits.
 - **Pit-stop** — a stop in the pits. Counts as time, not as best lap.
 - **Fraction** — the fraction of a lap you've covered: while running, what you've done since your last time across the line; at the end, the one you had as the flag fell. It counts in the distance to the leader and breaks the tie when two of you have the same laps.
 - **Projection** — an estimate of your final result by adding up all the heats: total race time divided by your average, plus the fraction you've already covered.

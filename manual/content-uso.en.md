@@ -361,6 +361,7 @@ It's in **Settings → Public tracking over the internet**. There are **two mode
 - **Repeat lane**: run each lane N consecutive heats, adding up laps.
 - **GO**: the start signal (from the DS-300 box) that launches the heat.
 - **Ghost lap**: a lap marked as invalid (doesn't count), restorable.
+- **Exit (⚠️)**: a lap that takes longer than that driver's fastest lap on that lane during the heat + 1.5 s (like TicTac's “slow laps”); if it takes twice their clean average or more, it's a pit-stop (🔧). Live it's provisional: when the fastest lap improves, earlier laps can become exits.
 - **Pole**: a pre-race qualifying session (optional); everyone runs on the same lane and their best lap sets the starting grid.
 - **Race events**: the (🗒️) page with the heat-by-heat log of everything happening in the race —GO, pauses, end of heat, ghost laps, driver check-ins…—, live.
 - **Free training**: mode to record laps per lane without teams or rotation (open session).
