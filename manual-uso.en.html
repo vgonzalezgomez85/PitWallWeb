@@ -91,7 +91,7 @@
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Home screen</span></div>
         <img src="manual/img/01-home.png" loading="lazy" alt="PitWall home screen">
-        <figcaption>Home screen: side menu with every section, race-in-progress banner, quick links and latest races.</figcaption>
+        <figcaption>Home screen: «Go to…» search, race-in-progress banner, section tiles and recent races.</figcaption>
       </figure>
       <p><b>PitWall</b> is the timing and management system for slot racing. It detects each car crossing the finish line through the timing hardware, with two compatible options:</p>
       <ul>
@@ -101,10 +101,10 @@
       </ul>
       <p>You can use any of these sources; for PitWall the flow of crossings is equivalent.</p>
       <ul>
-        <li>The <b>home screen</b> has a <b>side menu</b> with every section, grouped into <b>Competition</b> (Races, Training, Live stats, Results, Lap, Driver shifts, Tyre control…), <b>Catalog</b> (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and <b>System</b> (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). The header shows the data source status (simulation, DS-300 connected or disconnected).</li>
-        <li>When a <b>race is in progress</b>, its banner appears at the top: <b>heat X of Y</b>, round, the <b>time remaining</b> in the heat, heats done and —once it has been calculated— the <b>projected leader</b>, with buttons to <b>Heat live</b>, <b>TV screen</b>, <b>Live stats</b>, <b>Driver shifts</b> (championships), <b>Tyres</b> (if the race has tyre sets), <b>Event log</b> and <b>Manage race</b>. With no race in progress, the banner shows the pole currently running or the <b>New race</b> / <b>Free practice</b> shortcuts.</li>
-        <li>Below are four <b>quick links</b> (New race, Training, Results, Lap) and the <b>latest races</b> with their direct action (Live, Results or Open).</li>
-        <li>Each section opens in <b>its own window</b>: click it again and PitWall brings the window you already had open to the front, without reloading it. That way you can keep the live view, the TV and the stats open at the same time. The <b>«New window / This window»</b> switch at the bottom of the menu lets you open everything in the same window instead, and a pill in the header tells you how many <b>windows</b> are open.</li>
+        <li>The <b>home screen</b> has a header with the <b>«Go to…»</b> search (shortcut <b>⌘K</b> on Mac or <b>Ctrl K</b>): type part of the name of a section or a race; <b>Enter</b> opens the first result and <b>Esc</b> clears the search. Next to it, pills show the data source status (simulation, DS-300 connected or disconnected) and the server's <b>IP address</b>, for connecting phones and screens.</li>
+        <li>When a <b>race is in progress</b>, its banner appears below: <b>heat X of Y</b>, round, the <b>time remaining</b> in the heat, the <b>heats</b> (the one being run already counts) and the <b>projected leader</b>, which is the same as in the live view's <i>Projected standings</i> and updates live. It has buttons to <b>Heat live</b>, <b>TV screen</b>, <b>Lap corrections</b> (for the heat in progress or the last one finished), <b>Live stats</b>, <b>Driver shifts</b> (championships), <b>Tyres</b> (if the race has tyre sets), <b>Event log</b> and <b>Manage race</b>. With no race in progress, the banner shows the pole currently running or the <b>New race</b> / <b>Free practice</b> shortcuts. The home screen refreshes on its own when a race starts and when a heat starts, finishes or is paused.</li>
+        <li>Below, the sections are laid out as <b>tiles</b>: <b>Competition</b> (Races, Training, Live stats, Results, Lap, Driver shifts, Tyre control…), <b>Catalog</b> (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and <b>System</b> (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). At the bottom, the <b>Recent races</b> table with their status, heats and direct action (Live, Results or Open).</li>
+        <li>Each section opens in <b>its own window</b>: click it again and PitWall brings the window you already had open to the front (in the desktop app, even if it's minimised or you went back to the home screen from it). That way you can keep the live view, the TV and the stats open at the same time. Open windows are listed in the home screen's <b>bottom bar</b>, with <b>Bring</b> to put them in front and <b>✕</b> to close them. The <b>«Open links in: New window / This window»</b> switch lets you open everything in the same window instead, and <b>Shift + click</b> opens a link right here without touching the switch.</li>
         <li>At the bottom right you always see the <b>link status</b> (green = connected; "No signal" = check the cable/port or the Bluetooth).</li>
       </ul>
       <p><b>The race list</b> shows all your races with their status (pending / active / finished) and the <b>+ New race</b> button.</p>
@@ -150,6 +150,7 @@
         <li><b>Cars</b> — make, model and category.</li>
       </ul>
       <p>All of them can be <b>bulk-imported from CSV</b> (the <b>CSV template</b> and <b>Import CSV</b> buttons, with a preview of new entries vs. duplicates) and exported.</p>
+      <p>All three catalogs have a <b>search box</b> at the top: it filters as you type (for drivers, by category too) and tells you how many match out of the total. The <b>/</b> key takes you to the search box and <b>Esc</b> clears it; if you open a record to edit it and come back, the filter is still applied.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Driver catalog</span></div>
         <img src="manual/img/op-catalogo-pilotos.png" loading="lazy" alt="Driver catalog with name, category and CSV import">
@@ -176,7 +177,7 @@
       </figure>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Sync catalog with pending races.</b> If you change a team's <b>drivers</b> or <b>country</b> in the catalog <i>after</i> creating a race, those changes don't reach the race that's already set up on their own. From <b>System → Sync catalog</b> (“Sistema → Sincronizar catálogo”, in the home side menu) —or the <b>“Actualizar desde catálogo”</b> (Update from catalog) shortcut in the <b>⋯</b> menu of the race sheet, which only shows if the race is a candidate— you push them into every race that <b>hasn't started any heat yet</b>, without going through "Edit batch". PitWall matches teams <b>by name</b>, makes each race's roster <b>identical to the catalog</b> (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a <b>summary of the changes</b>, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on <b>team-format</b> races. <b>Category</b> isn't synced: it's always read live from the catalog.</div>
+        <div><b>Sync catalog with pending races.</b> If you change a team's <b>drivers</b> or <b>country</b> in the catalog <i>after</i> creating a race, those changes don't reach the race that's already set up on their own. From <b>System → Sync catalog</b> (“Sistema → Sincronizar catálogo”, on the home screen) —or the <b>“Actualizar desde catálogo”</b> (Update from catalog) shortcut in the <b>⋯</b> menu of the race sheet, which only shows if the race is a candidate— you push them into every race that <b>hasn't started any heat yet</b>, without going through "Edit batch". PitWall matches teams <b>by name</b>, makes each race's roster <b>identical to the catalog</b> (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a <b>summary of the changes</b>, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on <b>team-format</b> races. <b>Category</b> isn't synced: it's always read live from the catalog.</div>
       </div>
     </section>
 
@@ -202,6 +203,7 @@
         <li><b>Repeat lane</b>: each lane is run this number of <b>consecutive heats</b> (same lane), adding up the laps — to compare each repetition.</li>
         <li><b>Pole</b> (optional) and <b>driver rules</b> (championship only: min/max per driver, change lock at the end of a heat).</li>
       </ul>
+      <p>The first step is organised in <b>numbered blocks</b> —<b>Details</b>, <b>Track</b>, <b>Format</b> and, for endurance only, <b>Endurance rules</b>— and a <b>fixed bar at the bottom</b> sums up your choices next to the <b>Next</b> button. Before moving on, PitWall checks that the race has a <b>name</b> and a <b>type</b> and that every circuit has <b>between 2 and 8 lanes</b>, and points out anything missing.</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Passes</b> and <b>repeat lane</b> only change how the heats are generated; totals are summed per participant.</div>
@@ -238,7 +240,7 @@
       </div>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Ecosystem connection.</b> The whole network bridge with PitWall Control —sending batches and bringing back results— can be <b>allowed or blocked</b> all at once from <b>System → Ecosystem connection</b>, in the home side menu. It's <b>enabled</b> by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.</div>
+        <div><b>Ecosystem connection.</b> The whole network bridge with PitWall Control —sending batches and bringing back results— can be <b>allowed or blocked</b> all at once from <b>System → Ecosystem connection</b>, on the home screen. It's <b>enabled</b> by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.</div>
       </div>
     </section>
 
@@ -573,6 +575,15 @@
         <li><b>Competition</b>: teams or drivers assigned to lanes with <b>automatic rotation after each batch</b>, like a race but designed to practice the championship format.</li>
       </ul>
       <p>Choose the mode, assign the lanes and press <b>Start</b>. Live timing works the same as in a race (box GO, laps, best/average per lane).</p>
+      <p><b>The training live view.</b> At the top you have the same buttons as in the race live view (<b>GO</b>, pause, <b>STOP</b>, voice, <b>View</b>, reset, full screen and <b>Back</b>). Each lane's card shows:</p>
+      <ul>
+        <li>the <b>last lap</b> and its gap to the best;</li>
+        <li>the <b>Best / Average / Record</b> row;</li>
+        <li>the <b>last 10 laps</b>, each with its lap number in front;</li>
+        <li>a <b>pace chart</b> with best-lap and average lines: hover (or tap) a point to see the lap number, its time and how far it is from the best.</li>
+      </ul>
+      <p>The <b>compact view</b> (<b>View</b> button) sums up each lane in little space: the last lap with its gap, Best / Average / Record and a mini pace chart.</p>
+      <p><b>Setting up a competition training.</b> The form goes in <b>numbered steps</b>: circuit, participants and lane-change sequence. To add teams, type in the <b>catalog search</b> (<b>Enter</b> adds the first match). Each participant can be <b>moved up or down a lane</b>; <b>Draw lanes</b> shuffles them at random and <b>Clear all</b> starts from scratch. If two participants share the same name, PitWall warns you. In the sequence, <b>Natural order</b> puts it back to 1, 2, 3… A <b>fixed bar at the bottom</b> sums up the lanes, how many are on track and how many in reserve, next to the <b>Prepare session</b> button.</p>
       <p><b>Competition training sessions are saved.</b> When <b>each heat's flag drops</b>, PitWall saves one row per lane that ran, with its <b>participant</b>, its <b>laps</b>, its <b>best lap</b> and its <b>average</b>. Participants who are <b>resting</b> and lanes <b>with no crossings</b> leave no row. A <b>forced stop does not save</b> that heat: it's discarded and repeated in full.</p>
       <p>From the competition training setup, the <b>See saved sessions</b> link opens the list of sessions (<b>date</b>, <b>no. of heats</b>, <b>participants</b>, <b>laps</b> and <b>best lap</b>), most recent first. Pressing a session shows its detail with two blocks:</p>
       <ul>

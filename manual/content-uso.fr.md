@@ -15,10 +15,10 @@ Guide destiné à celui qui **opère** PitWall : monter la course, la diriger en
 
 Tu peux utiliser n'importe laquelle de ces sources ; pour PitWall le flux de passages est équivalent.
 
-- L'**écran d'accueil** dispose d'un **menu latéral** avec toutes les sections, regroupées en **Compétition** (Courses, Entraînements, Statistiques en direct, Résultats, Lap, Contrôle des pilotes, Contrôle des pneus…), **Catalogue** (Pilotes, Équipes, Voitures, Catégories et Scénarios, avec le nombre de chacun) et **Système** (Réglages, Base de données, Synchroniser le catalogue, Connexion écosystème, Dépannage…). L'en-tête affiche l'état de la source de données (simulation, DS-300 connecté ou déconnecté).
-- Quand une **course est en cours**, son bandeau apparaît en haut : **manche X sur Y**, série, le **temps restant** de la manche, les manches faites et —dès qu'il est calculé— le **leader estimé**, avec des boutons vers **Direct de la manche**, **Écran TV**, **Statistiques en direct**, **Contrôle des pilotes** (en championnat), **Pneus** (si la course a des trains de pneus), **Journal des événements** et **Gérer la course**. Sans course en cours, le bandeau affiche la pole en cours ou les raccourcis **Nouvelle course** / **Entraînement libre**.
-- En dessous, quatre **accès rapides** (Nouvelle course, Entraînements, Résultats, Lap) et les **dernières courses** avec leur action directe (Direct, Résultats ou Ouvrir).
-- Chaque section s'ouvre dans **sa propre fenêtre** : si tu cliques à nouveau dessus, PitWall ramène au premier plan la fenêtre déjà ouverte, sans la recharger. Tu peux ainsi garder en même temps le direct, la TV et les statistiques. L'interrupteur **« Nouvelle fenêtre / Cette fenêtre »** en bas du menu te permet de tout ouvrir dans la même fenêtre si tu préfères, et une pastille dans l'en-tête t'indique combien de **fenêtres** sont ouvertes.
+- L'**écran d'accueil** a en haut un en-tête avec la recherche **« Aller à… »** (« Ir a… », raccourci **⌘K** sur Mac ou **Ctrl K**) : tape une partie du nom d'une section ou d'une course ; **Entrée** ouvre le premier résultat et **Échap** efface la recherche. À côté, des pastilles affichent l'état de la source de données (simulation, DS-300 connecté ou déconnecté) et l'**adresse IP** du serveur, pour connecter téléphones et écrans.
+- Quand une **course est en cours**, son bandeau apparaît en dessous : **manche X sur Y**, série, le **temps restant** de la manche, les **manches** (celle qui se court compte déjà) et le **leader estimé**, le même que dans le *Classement estimé* du direct, mis à jour en direct. Il a des boutons vers **Direct de la manche**, **Écran TV**, **Correction des tours** (de la manche en cours ou de la dernière terminée), **Statistiques en direct**, **Contrôle des pilotes** (en championnat), **Pneus** (si la course a des trains de pneus), **Journal des événements** et **Gérer la course**. Sans course en cours, le bandeau affiche la pole en cours ou les raccourcis **Nouvelle course** / **Entraînement libre**. L'accueil se met à jour tout seul quand une course démarre et quand une manche commence, se termine ou est mise en pause.
+- En dessous, les sections sont présentées en **tuiles** : **Compétition** (Courses, Entraînements, Statistiques en direct, Résultats, Lap, Contrôle des pilotes, Contrôle des pneus…), **Catalogue** (Pilotes, Équipes, Voitures, Catégories et Scénarios, avec le nombre de chacun) et **Système** (Réglages, Base de données, Synchroniser le catalogue, Connexion écosystème, Dépannage…). Tout en bas, le tableau des **Courses récentes** avec leur état, leurs manches et leur action directe (Direct, Résultats ou Ouvrir).
+- Chaque section s'ouvre dans **sa propre fenêtre** : si tu cliques à nouveau dessus, PitWall ramène au premier plan la fenêtre déjà ouverte (dans l'application de bureau, même si elle est réduite ou si tu es revenu à l'accueil depuis elle). Tu peux ainsi garder en même temps le direct, la TV et les statistiques. Les fenêtres ouvertes apparaissent dans la **barre du bas** de l'accueil, avec **Afficher** (« Traer ») pour les mettre devant et **✕** pour les fermer. L'interrupteur **« Ouvrir les liens dans : Nouvelle fenêtre / Cette fenêtre »** te permet de tout ouvrir dans la même fenêtre si tu préfères, et **Maj + clic** ouvre un lien ici même sans toucher à l'interrupteur.
 - En bas à droite, tu vois toujours l'**état de la liaison** (vert = connecté ; « Sans signal » = vérifie le câble/port ou le Bluetooth).
 
 **La liste des courses** te montre toutes tes courses avec leur état (en attente / active / terminée) et le bouton *Nouvelle course (« + Nueva carrera »)*.
@@ -48,6 +48,8 @@ Lors de l'édition d'un scénario, tu définis son nom, la configuration des voi
 
 Tous peuvent être **importés en bloc depuis un CSV** (boutons *Modèle CSV (« Plantilla CSV »)* et *Importer CSV (« Importar CSV »)*, avec un aperçu des nouveautés vs. doublons) et exportés.
 
+Les trois catalogues ont une **barre de recherche** en haut : elle filtre pendant que tu tapes (pour les pilotes, aussi par catégorie) et indique combien correspondent sur le total. La touche **/** t'amène à la recherche et **Échap** l'efface ; si tu ouvres une fiche pour la modifier et reviens, le filtre est toujours appliqué.
+
 ![img: op-catalogo-pilotos.png]
 
 ![img: op-qr-pilotos.png]
@@ -58,7 +60,7 @@ Tous peuvent être **importés en bloc depuis un CSV** (boutons *Modèle CSV («
 
 ![img: op-qr-equipos.png]
 
-> **Synchroniser le catalogue avec les courses en attente.** Si tu changes les **pilotes** ou le **pays** d'une équipe dans le catalogue *après* avoir créé une course, ces changements n'arrivent pas tout seuls dans la course déjà montée. Avec **Système → Synchroniser le catalogue** (« Sistema → Sincronizar catálogo », menu latéral de l'accueil) —ou le raccourci **« Actualizar desde catálogo »** (Mettre à jour depuis le catalogue) du menu **⋯** de la fiche de course, qui n'apparaît que si la course est candidate— tu les déverses dans toutes les courses qui **n'ont encore lancé aucune manche**, sans passer par « Éditer la série ». PitWall apparie les équipes **par leur nom**, rend l'effectif de chaque course **identique au catalogue** (ajoute et retire des pilotes jusqu'à concordance — un « miroir exact ») et met à jour le pays ; avant d'appliquer, il te montre un **résumé des changements**, avec une case par course. Il ne touche pas à la grille et n'ajoute ni ne supprime d'équipes, et n'agit que sur les courses **au format équipes**. La **catégorie** n'est pas synchronisée : elle est toujours lue en direct depuis le catalogue.
+> **Synchroniser le catalogue avec les courses en attente.** Si tu changes les **pilotes** ou le **pays** d'une équipe dans le catalogue *après* avoir créé une course, ces changements n'arrivent pas tout seuls dans la course déjà montée. Avec **Système → Synchroniser le catalogue** (« Sistema → Sincronizar catálogo », sur l'écran d'accueil) —ou le raccourci **« Actualizar desde catálogo »** (Mettre à jour depuis le catalogue) du menu **⋯** de la fiche de course, qui n'apparaît que si la course est candidate— tu les déverses dans toutes les courses qui **n'ont encore lancé aucune manche**, sans passer par « Éditer la série ». PitWall apparie les équipes **par leur nom**, rend l'effectif de chaque course **identique au catalogue** (ajoute et retire des pilotes jusqu'à concordance — un « miroir exact ») et met à jour le pays ; avant d'appliquer, il te montre un **résumé des changements**, avec une case par course. Il ne touche pas à la grille et n'ajoute ni ne supprime d'équipes, et n'agit que sur les courses **au format équipes**. La **catégorie** n'est pas synchronisée : elle est toujours lue en direct depuis le catalogue.
 
 ## 3. Créer une course
 ![img: 03-wizard-step1.png]
@@ -73,6 +75,8 @@ Appuie sur *Nouvelle course (« + Nueva carrera »)* et suis l'assistant :
 - **Passages** : combien de fois la **séquence de voies entière** est parcourue. 2 passages = la rotation complète est courue 2 fois (deux fois plus de manches).
 - **Répéter la voie** : chaque voie est courue ce nombre de **manches d'affilée** (même voie), en cumulant les tours — pour comparer chaque répétition.
 - **Pole** (facultatif) et **règles de pilote** (championnat uniquement : min/max par pilote, blocage de changement en fin de manche).
+
+La première étape est organisée en **blocs numérotés** —**Données**, **Piste**, **Format** et, en endurance uniquement, **Règles d'endurance**— et une **barre fixe en bas** résume tes choix à côté du bouton **Suivant**. Avant de continuer, PitWall vérifie que la course a un **nom** et un **type** et que chaque circuit a **entre 2 et 8 voies**, et te signale ce qui manque.
 
 > Les **passages** et la **répétition de voie** ne changent que la façon dont les manches sont générées ; les totaux se cumulent par participant.
 
@@ -96,7 +100,7 @@ Entre dans **Courses → Importer une série (« Importar tanda »)**. Il y a **
 
 > **Prérequis :** pour l'envoi par réseau, PitWall et PitWall Control doivent être sur le **même réseau** LAN/Wi-Fi. Le PIN d'appairage s'affiche dans **Importer une série** de PitWall. L'autre moitié du pont —**récupérer les résultats** vers Control— est expliquée dans le *Manuel de PitWall Control*.
 
-> **Connexion écosystème.** Tout le pont réseau avec PitWall Control —envoi des séries et récupération des résultats— peut être **autorisé ou bloqué** d'un coup depuis **Système → Connexion écosystème**, dans le menu latéral de l'accueil. Il est **activé** par défaut ; si tu le désactives, tout PitWall Control du réseau est rejeté (même avec le bon PIN) jusqu'à ce que tu le réactives. Le PIN d'appairage y est aussi consultable.
+> **Connexion écosystème.** Tout le pont réseau avec PitWall Control —envoi des séries et récupération des résultats— peut être **autorisé ou bloqué** d'un coup depuis **Système → Connexion écosystème**, sur l'écran d'accueil. Il est **activé** par défaut ; si tu le désactives, tout PitWall Control du réseau est rejeté (même avec le bon PIN) jusqu'à ce que tu le réactives. Le PIN d'appairage y est aussi consultable.
 
 ## 5. Séries, participants et rotation
 ![img: 34-tanda.png]
@@ -323,6 +327,17 @@ En plus des courses, PitWall dispose d'un mode **Entraînement** (depuis l'écra
 - **De compétition** : équipes ou pilotes affectés à des voies avec **rotation automatique après chaque série**, comme une course mais pensé pour s'entraîner au format championnat.
 
 Choisis la modalité, attribue les voies et appuie sur *Commencer (« Empezar »)*. Le chronométrage en direct fonctionne comme en course (GO du boîtier, tours, meilleur/moyenne par voie).
+
+**Le direct de l'entraînement.** En haut, tu as les mêmes boutons que dans le direct de course (**GO**, pause, **STOP**, voix, **Vue**, réinitialiser, plein écran et **Retour**). La carte de chaque voie affiche :
+
+- le **dernier tour** et son écart avec le meilleur ;
+- la ligne **Meilleur / Moyenne / Record** ;
+- les **10 derniers tours**, chacun précédé de son numéro de tour ;
+- un **graphique de rythme** avec les lignes du meilleur tour et de la moyenne : en survolant (ou en touchant) un point, tu vois le numéro du tour, son temps et son écart avec le meilleur.
+
+La **vue compacte** (bouton **Vue**) résume chaque voie en peu de place : le dernier tour avec son écart, Meilleur / Moyenne / Record et le rythme en miniature.
+
+**Préparer un entraînement de compétition.** Le formulaire avance par **étapes numérotées** : circuit, participants et séquence de changement de voie. Pour ajouter des équipes, tape dans la **recherche du catalogue** (**Entrée** ajoute la première qui correspond). Chaque participant peut **monter ou descendre d'une voie** ; *Tirer les voies au sort* (« Sortear carriles ») les répartit au hasard et *Tout vider* (« Vaciar todo ») repart de zéro. Si deux participants portent le même nom, PitWall te prévient. Dans la séquence, *Ordre naturel* (« Orden natural ») la remet dans l'ordre 1, 2, 3… Une **barre fixe en bas** résume les voies, combien sont en piste et combien en réserve, à côté du bouton *Préparer la séance* (« Preparar sesión »).
 
 **Les entraînements de compétition sont enregistrés.** À la **chute du drapeau de chaque série**, PitWall enregistre une ligne par voie ayant roulé, avec son **participant**, ses **tours**, son **meilleur tour** et sa **moyenne**. Les participants **au repos** et les voies **sans passages** ne laissent aucune ligne. Un **arrêt forcé n'enregistre pas** cette série : elle est écartée et refaite en entier.
 

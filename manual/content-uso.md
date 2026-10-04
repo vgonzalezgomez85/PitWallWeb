@@ -15,10 +15,10 @@ Guía para quien **opera** PitWall: montar la carrera, dirigirla en vivo, correg
 
 Puedes usar cualquiera de estas fuentes; para PitWall el flujo de cruces es equivalente.
 
-- La **pantalla de inicio** tiene un **menú lateral** con todas las secciones, agrupadas en **Competición** (Carreras, Entrenamientos, Estadísticas en vivo, Resultados, Lap, Control de pilotos, Control de neumáticos…), **Catálogo** (Pilotos, Equipos, Coches, Categorías y Escenarios, con cuántos tienes de cada) y **Sistema** (Ajustes, Base de datos, Sincronizar catálogo, Conexión ecosistema, Solución de problemas…). En la cabecera ves el estado de la fuente de datos (simulación, DS-300 conectado o sin conexión).
-- Si hay una **carrera en curso**, arriba aparece su franja: **manga X de Y**, tanda, el **tiempo que queda** de la manga, las mangas hechas y —cuando ya está calculado— el **líder estimado**, con botones a **Directo de la manga**, **Pantalla TV**, **Estadísticas en vivo**, **Control de pilotos** (en campeonato), **Neumáticos** (si la carrera tiene juegos), **Registro de sucesos** y **Gestionar carrera**. Sin carrera en curso, la franja muestra la pole que esté en marcha o los atajos **Nueva carrera** / **Entreno libre**.
-- Debajo tienes cuatro **accesos rápidos** (Nueva carrera, Entrenamientos, Resultados, Lap) y las **últimas carreras** con su acción directa (Directo, Resultados o Abrir).
-- Cada sección se abre en **su propia ventana**: si la vuelves a pulsar, PitWall trae al frente la ventana que ya tenías abierta, sin recargarla. Así puedes tener a la vez el directo, la TV y las estadísticas. Con el interruptor **«Ventana nueva / Esta ventana»** del pie del menú eliges si prefieres abrirlo todo en la misma ventana, y en la cabecera una píldora te dice cuántas **ventanas** tienes abiertas.
+- La **pantalla de inicio** tiene arriba una cabecera con el buscador **«Ir a…»** (atajo **⌘K** en Mac o **Ctrl K**): escribe parte del nombre de una sección o de una carrera; **Intro** abre el primer resultado y **Esc** limpia la búsqueda. A su lado, unas píldoras muestran el estado de la fuente de datos (simulación, DS-300 conectado o sin conexión) y la **dirección IP** del servidor, para conectar móviles y pantallas.
+- Si hay una **carrera en curso**, debajo aparece su franja: **manga X de Y**, tanda, el **tiempo que queda** de la manga, las **mangas** (cuenta ya la que se está corriendo) y el **líder estimado**, que es el mismo de la *Clasificación estimada* del directo y se actualiza en vivo. Tiene botones a **Directo de la manga**, **Pantalla TV**, **Corrección de vueltas** (de la manga en curso o de la última terminada), **Estadísticas en vivo**, **Control de pilotos** (en campeonato), **Neumáticos** (si la carrera tiene juegos), **Registro de sucesos** y **Gestionar carrera**. Sin carrera en curso, la franja muestra la pole que esté en marcha o los atajos **Nueva carrera** / **Entreno libre**. El inicio se actualiza solo cuando arranca una carrera y al empezar, terminar o pausar una manga.
+- Debajo están las secciones en **mosaicos**: **Competición** (Carreras, Entrenamientos, Estadísticas en vivo, Resultados, Lap, Control de pilotos, Control de neumáticos…), **Catálogo** (Pilotos, Equipos, Coches, Categorías y Escenarios, con cuántos tienes de cada) y **Sistema** (Ajustes, Base de datos, Sincronizar catálogo, Conexión ecosistema, Solución de problemas…). Al final, la tabla de **Carreras recientes** con su estado, sus mangas y la acción directa (Directo, Resultados o Abrir).
+- Cada sección se abre en **su propia ventana**: si la vuelves a pulsar, PitWall trae al frente la ventana que ya tenías abierta (en la app de escritorio, aunque esté minimizada o hayas vuelto al inicio desde ella). Así puedes tener a la vez el directo, la TV y las estadísticas. Las ventanas abiertas aparecen en la **barra inferior** del inicio, con **Traer** para ponerlas delante y **✕** para cerrarlas. Con el interruptor **«Abrir enlaces en: Ventana nueva / Esta ventana»** eliges si prefieres abrirlo todo en la misma ventana, y **Mayús + clic** abre un enlace aquí mismo sin tocar el interruptor.
 - Abajo a la derecha siempre ves el **estado del enlace** (verde = conectado; "Sin señal" = revisa el cable/puerto o el Bluetooth).
 
 **El listado de carreras** te muestra todas tus carreras con su estado (pendiente / activa / terminada) y el botón **+ Nueva carrera**.
@@ -48,6 +48,8 @@ Al editar un escenario defines su nombre, la configuración de carriles, arrastr
 
 Todos se pueden **importar en bloque desde CSV** (botones **Plantilla CSV** e **Importar CSV**, con vista previa de novedades vs. duplicados) y exportar.
 
+En los tres catálogos tienes un **buscador** arriba: filtra mientras escribes (en pilotos, también por categoría) y te dice cuántos coinciden del total. La tecla **/** te lleva al buscador y **Esc** lo limpia; si entras a editar una ficha y vuelves, el filtro sigue puesto.
+
 ![img: op-catalogo-pilotos.png]
 
 ![img: op-qr-pilotos.png]
@@ -58,7 +60,7 @@ Todos se pueden **importar en bloque desde CSV** (botones **Plantilla CSV** e **
 
 ![img: op-qr-equipos.png]
 
-> **Sincronizar catálogo con carreras pendientes.** Si cambias los **pilotos** o el **país** de un equipo en el catálogo *después* de crear una carrera, esos cambios no llegan solos a la carrera ya montada. Con **Sistema → Sincronizar catálogo** (menú lateral del inicio) —o el atajo **«Actualizar desde catálogo»** del menú **⋯** de la ficha de carrera, que solo aparece si la carrera es candidata— los vuelcas a todas las carreras que **aún no han arrancado ninguna manga**, sin pasar por «Editar tanda». PitWall empareja los equipos **por nombre**, deja la plantilla de cada carrera **idéntica al catálogo** (añade y quita pilotos hasta que coinciden — un "espejo exacto") y actualiza el país; antes de aplicar te muestra un **resumen de los cambios**, con una casilla por carrera. No toca la parrilla ni añade o elimina equipos, y solo actúa sobre carreras **en formato equipos**. La **categoría** no se sincroniza: siempre se lee en vivo del catálogo.
+> **Sincronizar catálogo con carreras pendientes.** Si cambias los **pilotos** o el **país** de un equipo en el catálogo *después* de crear una carrera, esos cambios no llegan solos a la carrera ya montada. Con **Sistema → Sincronizar catálogo** (en el inicio) —o el atajo **«Actualizar desde catálogo»** del menú **⋯** de la ficha de carrera, que solo aparece si la carrera es candidata— los vuelcas a todas las carreras que **aún no han arrancado ninguna manga**, sin pasar por «Editar tanda». PitWall empareja los equipos **por nombre**, deja la plantilla de cada carrera **idéntica al catálogo** (añade y quita pilotos hasta que coinciden — un "espejo exacto") y actualiza el país; antes de aplicar te muestra un **resumen de los cambios**, con una casilla por carrera. No toca la parrilla ni añade o elimina equipos, y solo actúa sobre carreras **en formato equipos**. La **categoría** no se sincroniza: siempre se lee en vivo del catálogo.
 
 ## 3. Crear una carrera
 ![img: 03-wizard-step1.png]
@@ -73,6 +75,8 @@ Pulsa **+ Nueva carrera** y sigue el asistente:
 - **Pasadas**: cuántas veces se recorre la **secuencia de carriles entera**. 2 pasadas = la rotación completa se corre 2 veces (el doble de mangas).
 - **Repetir carril**: cada carril se corre este nº de **mangas seguidas** (mismo carril), sumando las vueltas — para comparar cada repetición.
 - **Pole** (opcional) y **reglas de piloto** (solo campeonato: min/max por piloto, bloqueo de cambio al final de manga).
+
+El primer paso se ordena en **bloques numerados** —**Datos**, **Pista**, **Formato** y, solo en resistencia, **Reglas de resistencia**— y una **barra fija abajo** resume lo elegido junto al botón **Siguiente**. Antes de continuar, PitWall comprueba que la carrera tenga **nombre** y **tipo** y que cada circuito tenga **entre 2 y 8 carriles**, y te señala lo que falta.
 
 > **Pasadas** y **repetir carril** solo cambian cómo se generan las mangas; los totales se suman por participante.
 
@@ -96,7 +100,7 @@ Entra en **Carreras → Importar tanda**. Hay **dos formas** de traer la prueba:
 
 > **Requisito:** para el envío por red, PitWall y PitWall Control deben estar en la **misma red** LAN/WiFi. El PIN de emparejamiento se ve en **Importar tanda** de PitWall. La otra mitad del puente —**traer los resultados** de vuelta a Control— se explica en el *Manual de PitWall Control*.
 
-> **Conexión ecosistema.** Todo el puente con PitWall Control por red —enviar tandas y traer resultados— se puede **permitir o bloquear** de golpe desde **Sistema → Conexión ecosistema**, en el menú lateral del inicio. Viene **activado** de fábrica; si lo apagas, cualquier PitWall Control de la red queda rechazado (aunque el PIN sea correcto) hasta que lo vuelvas a activar. Ahí mismo puedes consultar también el PIN de emparejamiento.
+> **Conexión ecosistema.** Todo el puente con PitWall Control por red —enviar tandas y traer resultados— se puede **permitir o bloquear** de golpe desde **Sistema → Conexión ecosistema**, en el inicio. Viene **activado** de fábrica; si lo apagas, cualquier PitWall Control de la red queda rechazado (aunque el PIN sea correcto) hasta que lo vuelvas a activar. Ahí mismo puedes consultar también el PIN de emparejamiento.
 
 ## 5. Tandas, participantes y rotación
 ![img: 34-tanda.png]
@@ -323,6 +327,17 @@ Además de las carreras, PitWall tiene un modo **Entrenamiento** (desde la panta
 - **De competición**: equipos o pilotos asignados a carriles con **rotación automática tras cada tanda**, como una carrera pero pensado para entrenar el formato de campeonato.
 
 Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en directo funciona igual que en carrera (GO de la caja, vueltas, mejor/media por carril).
+
+**El directo del entreno.** Arriba tienes los mismos botones que en el directo de carrera (**GO**, pausa, **STOP**, voz, **Vista**, reiniciar, pantalla completa y **Volver**). La tarjeta de cada carril muestra:
+
+- la **última vuelta** y su diferencia con la mejor;
+- la fila **Mejor / Media / Récord**;
+- las **10 últimas vueltas**, cada una con su número de vuelta delante;
+- un **gráfico de ritmo** con las líneas de mejor vuelta y media: al pasar el ratón (o el dedo) por un punto ves el número de vuelta, su tiempo y cuánto se aleja de la mejor.
+
+La **vista compacta** (botón **Vista**) resume cada carril en poco espacio: la última vuelta con su diferencia, Mejor / Media / Récord y el ritmo en miniatura.
+
+**Preparar un entreno de competición.** El formulario va por **pasos numerados**: circuito, participantes y secuencia de cambio de carril. Para añadir equipos, escribe en el **buscador del catálogo** (**Intro** añade el primero que coincida). Cada participante se puede **subir o bajar de carril**; **Sortear carriles** los reparte al azar y **Vaciar todo** empieza de cero. Si hay dos participantes con el mismo nombre, PitWall te avisa. En la secuencia, **Orden natural** la devuelve al orden 1, 2, 3… Una **barra fija abajo** resume los carriles, cuántos van en pista y cuántos en reserva, junto al botón **Preparar sesión**.
 
 **Los entrenos de competición se guardan.** Al **caer la bandera de cada heat**, PitWall guarda una fila por cada carril que ha rodado, con su **participante**, sus **vueltas**, su **mejor vuelta** y su **media**. Los participantes que **descansan** y los carriles **sin cruces** no dejan fila. Un **stop forzado no guarda** ese heat: se descarta y se repite entero.
 
