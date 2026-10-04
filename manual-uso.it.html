@@ -91,7 +91,7 @@
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Schermata iniziale</span></div>
         <img src="manual/img/01-home.png" loading="lazy" alt="Schermata iniziale di PitWall">
-        <figcaption>Schermata iniziale: accesso a Gare, Impostazioni e stato del collegamento.</figcaption>
+        <figcaption>Schermata iniziale: menu laterale con tutte le sezioni, fascia della gara in corso, accessi rapidi e ultime gare.</figcaption>
       </figure>
       <p><b>PitWall</b> è il sistema di cronometraggio e gestione delle gare di slot. Rileva il passaggio di ciascuna auto sulla linea del traguardo tramite l'hardware di cronometraggio, con due opzioni compatibili:</p>
       <ul>
@@ -101,7 +101,10 @@
       </ul>
       <p>Puoi usare una qualsiasi di queste fonti; per PitWall il flusso dei passaggi è equivalente.</p>
       <ul>
-        <li>Dalla <b>schermata iniziale</b> accedi a <b>Gare ("Carreras")</b>, <b>Impostazioni ("Ajustes")</b> e al resto dei moduli.</li>
+        <li>La <b>schermata iniziale</b> ha un <b>menu laterale</b> con tutte le sezioni, raggruppate in <b>Competizione</b> (Gare, Allenamenti, Statistiche live, Risultati, Lap, Controllo piloti, Controllo gomme…), <b>Catalogo</b> (Piloti, Squadre, Auto, Categorie e Scenari, con quanti ne hai di ciascuno) e <b>Sistema</b> (Impostazioni, Database, Sincronizza catalogo, Connessione ecosistema, Risoluzione dei problemi…). Nell'intestazione vedi lo stato della sorgente dati (simulazione, DS-300 connesso o disconnesso).</li>
+        <li>Se c'è una <b>gara in corso</b>, in alto compare la sua fascia: <b>manche X di Y</b>, tornata, il <b>tempo rimanente</b> della manche, le manche fatte e —quando è già calcolato— il <b>leader stimato</b>, con pulsanti per <b>Diretta della manche</b>, <b>Schermo TV</b>, <b>Statistiche live</b>, <b>Controllo piloti</b> (nei campionati), <b>Gomme</b> (se la gara ha treni di gomme), <b>Registro eventi</b> e <b>Gestisci gara</b>. Senza gara in corso, la fascia mostra la pole in corso oppure le scorciatoie <b>Nuova gara</b> / <b>Allenamento libero</b>.</li>
+        <li>Sotto trovi quattro <b>accessi rapidi</b> (Nuova gara, Allenamenti, Risultati, Lap) e le <b>ultime gare</b> con la loro azione diretta (Diretta, Risultati o Apri).</li>
+        <li>Ogni sezione si apre nella <b>sua finestra</b>: se la clicchi di nuovo, PitWall porta in primo piano la finestra già aperta, senza ricaricarla. Così puoi tenere insieme la diretta, la TV e le statistiche. Con l'interruttore <b>«Finestra nuova / Questa finestra»</b> in fondo al menu scegli se preferisci aprire tutto nella stessa finestra, e una pillola nell'intestazione ti dice quante <b>finestre</b> hai aperte.</li>
         <li>In basso a destra vedi sempre lo <b>stato del collegamento</b> (verde = connesso; "Sin señal" = controlla il cavo/porta o il Bluetooth).</li>
       </ul>
       <p><b>L'elenco delle gare</b> ti mostra tutte le tue gare con il loro stato (in attesa / attiva / terminata) e il pulsante <b>Nuova gara ("+ Nueva carrera")</b>.</p>
@@ -173,7 +176,7 @@
       </figure>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Sincronizzare il catalogo con le gare in attesa.</b> Se cambi i <b>piloti</b> o il <b>paese</b> di una squadra nel catalogo <i>dopo</i> aver creato una gara, quei cambiamenti non arrivano da soli alla gara già montata. Con <b>Sistema → Sincronizzare il catalogo</b> (“Sistema → Sincronizar catálogo”, schermata iniziale) —o la scorciatoia <b>“Actualizar desde catálogo”</b> (Aggiorna dal catalogo) del menu <b>⋯</b> della scheda gara, che compare solo se la gara è candidata— li riversi in tutte le gare che <b>non hanno ancora avviato nessuna manche</b>, senza passare per «Modifica tanda». PitWall abbina le squadre <b>per nome</b>, rende l'organico di ogni gara <b>identico al catalogo</b> (aggiunge e toglie piloti finché non coincidono — uno "specchio esatto") e aggiorna il paese; prima di applicare ti mostra un <b>riepilogo delle modifiche</b>, con una casella per gara. Non tocca la griglia né aggiunge o elimina squadre, e agisce solo sulle gare <b>in formato squadre</b>. La <b>categoria</b> non si sincronizza: si legge sempre in diretta dal catalogo.</div>
+        <div><b>Sincronizzare il catalogo con le gare in attesa.</b> Se cambi i <b>piloti</b> o il <b>paese</b> di una squadra nel catalogo <i>dopo</i> aver creato una gara, quei cambiamenti non arrivano da soli alla gara già montata. Con <b>Sistema → Sincronizzare il catalogo</b> (“Sistema → Sincronizar catálogo”, menu laterale della schermata iniziale) —o la scorciatoia <b>“Actualizar desde catálogo”</b> (Aggiorna dal catalogo) del menu <b>⋯</b> della scheda gara, che compare solo se la gara è candidata— li riversi in tutte le gare che <b>non hanno ancora avviato nessuna manche</b>, senza passare per «Modifica tanda». PitWall abbina le squadre <b>per nome</b>, rende l'organico di ogni gara <b>identico al catalogo</b> (aggiunge e toglie piloti finché non coincidono — uno "specchio esatto") e aggiorna il paese; prima di applicare ti mostra un <b>riepilogo delle modifiche</b>, con una casella per gara. Non tocca la griglia né aggiunge o elimina squadre, e agisce solo sulle gare <b>in formato squadre</b>. La <b>categoria</b> non si sincronizza: si legge sempre in diretta dal catalogo.</div>
       </div>
     </section>
 
@@ -235,7 +238,7 @@
       </div>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Connessione ecosistema.</b> L'intero ponte di rete con PitWall Control —invio delle tande e recupero dei risultati— si può <b>permettere o bloccare</b> in blocco da <b>Sistema → Connessione ecosistema</b>, nella schermata iniziale. È <b>attiva</b> di default; se la disattivi, qualsiasi PitWall Control della rete viene rifiutato (anche con il PIN corretto) finché non la riattivi. Da lì puoi anche consultare il PIN di abbinamento.</div>
+        <div><b>Connessione ecosistema.</b> L'intero ponte di rete con PitWall Control —invio delle tande e recupero dei risultati— si può <b>permettere o bloccare</b> in blocco da <b>Sistema → Connessione ecosistema</b>, nel menu laterale della schermata iniziale. È <b>attiva</b> di default; se la disattivi, qualsiasi PitWall Control della rete viene rifiutato (anche con il PIN corretto) finché non la riattivi. Da lì puoi anche consultare il PIN di abbinamento.</div>
       </div>
     </section>
 
@@ -403,14 +406,17 @@
         <li>Terminate tutte le manche di una tanda, parte la <b>tanda successiva</b>.</li>
       </ol>
       <p><b>La scheda della gara è accessibile con una manche in corso.</b> Entrare in una gara che ha una manche in corso non ti porta più dritto alla diretta: vedi la sua <b>scheda</b> (stato, classifica proiettata, tande…) con un link <b>«Manga N»</b> (Manche N) per saltare alla diretta quando vuoi. Quando <b>dai il GO</b> dalla scheda, lo schermo salta comunque da solo alla diretta, e non si può ancora avviare una seconda manche mentre un'altra è in corso.</p>
-      <p><b>Scegliere la vista.</b> Con il pulsante <b>Vista</b> cambi il layout in base alle corsie: <i>Righe orizzontali</i> (poche corsie), <i>Griglia compatta</i> (molte) o <i>Schede con dettagli</i> (con giri/uscite/pit/gomme/Δ per scheda).</p>
-      <p><b>Classifica stimata a lato.</b> Nella vista <i>Righe orizzontali</i>, il pulsante con l'icona del <b>pannello laterale</b> (accanto a <b>Vista</b>) apre o chiude la <b>classifica stimata agganciata a destra</b> delle righe, come in TicTac: <b>#</b>, partecipante, <b>G. Proi.</b> (« V. Proy. », giri stimati), <b>Totale</b> (giri reali) e <b>Media</b>. PitWall ricorda se l'hai lasciata aperta per ogni gara. Di base il pannello usa la <b>larghezza automatica</b> (quella giusta per leggere i nomi interi, al massimo il 40% dello schermo) e regola il carattere perché ci stiano tutti; se non ci stanno, cambia pagina ogni 20 s. <b>Trascinando il bordo</b> scegli tu la larghezza (se avanza spazio compaiono anche <b>Gap V</b> e la tendenza) e con un <b>doppio clic sul bordo</b> torna all'automatica. Le righe adattano il carattere allo spazio rimasto: il nome del pilota ha la priorità e, nelle finestre molto strette, si nascondono prima Gap V, poi VLT e poi ULTIMO.</p>
+      <p><b>Scegliere la vista.</b> Con il pulsante <b>Vista</b> scegli tra due viste: <i>Righe orizzontali</i> (una riga per corsia) o <i>Schede con dettagli</i> (una scheda per corsia, leggibile da lontano). La vecchia <i>Griglia compatta</i> non esiste più: se l'avevi scelta, si aprono le schede.</p>
+      <p><b>Le schede.</b> L'<b>ultimo giro</b> compare in grande con il <b>totale dei giri</b> accanto e, sotto, miglior giro, media, Gap V e giri della manche; le cifre si adattano da sole alla dimensione della scheda, che ci siano 6, 24 o 40 squadre. L'ultimo giro diventa <b>viola con «RÉCORD CARRERA»</b> (record della gara) se è il giro più veloce della gara e <b>blu con «BOXES»</b> (box) se includeva una sosta. Ogni scheda mostra il <b>pilota al volante</b> con una <b>barra del tempo già guidato</b> rispetto al massimo per pilota (<b>ambra</b> dall'85 %, <b>rossa</b> se lo supera); se una corsia non ha fatto il check-in, vedrai <b>«SIN PILOTO»</b> (senza pilota) mentre la manche è in corso. Segnala anche uscite, <b>soste ai box</b> («PIT 2») e <b>treni di gomme</b> usati sul totale («4/12»).</p>
+      <p><b>Righe su due colonne.</b> Quando le squadre non stanno in una colonna, la vista a righe si divide in <b>due colonne</b>, ognuna con la sua intestazione, per vederle <b>tutte insieme</b> (fino a 40 su uno schermo 1080p). Nelle gare con controllo piloti, ogni riga mostra il <b>pilota sotto la squadra</b>.</p>
+      <p><b>Ordine della diretta.</b> In <b>Impostazioni → Preferenze → Ordine della diretta</b> («Orden del directo») scegli come ordinare schede e righe: per <b>classifica stimata</b> (consigliato) o per <b>giri reali</b> (a parità, minor tempo totale). Con i giri reali il Gap V non viene mostrato. La classifica stimata del pannello laterale non cambia.</p>
+      <p><b>Classifica stimata a lato.</b> In entrambe le viste, il pulsante con l'icona del <b>pannello laterale</b> (accanto a <b>Vista</b>) apre o chiude la <b>classifica stimata agganciata a destra</b> delle righe, come in TicTac: <b>#</b>, partecipante, <b>G. Proi.</b> (« V. Proy. », giri stimati), <b>Totale</b> (giri reali) e <b>Media</b>. PitWall ricorda se l'hai lasciata aperta per ogni gara. Di base il pannello usa la <b>larghezza automatica</b> (quella giusta per leggere i nomi interi, al massimo il 40% dello schermo) e regola il carattere perché ci stiano tutti; se non ci stanno, cambia pagina ogni 20 s. <b>Trascinando il bordo</b> scegli tu la larghezza (se avanza spazio compaiono anche <b>Gap V</b> e la tendenza) e con un <b>doppio clic sul bordo</b> torna all'automatica. Le righe adattano il carattere allo spazio rimasto: il nome del pilota ha la priorità e, nelle finestre molto strette, si nascondono prima Gap V, poi VLT e poi ULTIMO. Nella vista a schede, con il pannello aperto le schede tolgono miglior giro, media e Gap V (sono già nella classifica) e mantengono i giri della manche sotto il totale.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Cronometraggio in diretta</span></div>
         <img src="manual/img/20b-live-panel-estimada.png" loading="lazy" alt="Diretta in vista a righe con la classifica stimata affiancata a destra">
         <figcaption>Vista a righe con la classifica stimata accanto: giri stimati, Totale e Media.</figcaption>
       </figure>
-      <p><b>Schermi fissi di sala o TV.</b> Aggiungendo parametri all'indirizzo della diretta, quello schermo parte sempre allo stesso modo senza toccare ciò che è salvato: <code>?side=standings</code> (pannello aperto) o <code>?side=none</code> (chiuso), e <code>?view=1</code>, <code>?view=2</code> o <code>?view=3</code> (<i>Righe orizzontali</i>, <i>Griglia compatta</i> o <i>Schede con dettagli</i>). Si possono combinare: <code>?view=1&amp;side=standings</code>.</p>
+      <p><b>Schermi fissi di sala o TV.</b> Aggiungendo parametri all'indirizzo della diretta, quello schermo parte sempre allo stesso modo senza toccare ciò che è salvato: <code>?side=standings</code> (pannello aperto) o <code>?side=none</code> (chiuso), e <code>?view=1</code> o <code>?view=3</code> (<i>Righe orizzontali</i> o <i>Schede con dettagli</i>; un vecchio link con <code>?view=2</code> apre anch'esso le schede). Si possono combinare: <code>?view=1&amp;side=standings</code>.</p>
       <p><b>Distanza dal leader e stima provvisoria.</b> Nelle schermate di classifica (<b>Le Mans</b> e <b>statistiche in diretta</b>) la distanza dal leader viene data <b>con la virgola</b> e il suo equivalente <b>in secondi</b> —<i>"a 2,8 v (35,5")"</i>, cioè a 2,8 giri, ovvero 35,5 secondi—, non arrotondata a giri interi. E se una stima porta un <b>asterisco arancione</b>, quella squadra è ancora nella sua <b>prima manche</b> senza aver superato il <b>60 %</b>: il suo riferimento non è fissato e la cifra può ancora muoversi. Tutto questo è spiegato in dettaglio nel <i>Manuale di statistiche</i>.</p>
 
       <h3>Cambiare tanda, ripetere una manche e finalizzare</h3>
@@ -465,7 +471,7 @@
       <p>Si apre in <b>due modi</b>:</p>
       <ul>
         <li>Dalla gara, con il pulsante <b>🛞 Gomme</b> (appare solo in endurance e con una dotazione maggiore di 0).</li>
-        <li>Come <b>chiosco</b> su <span class="mono">/control/tires</span> (con la sua scheda nella schermata iniziale), che <b>rileva da solo</b> la gara di endurance in corso —come il chiosco dei turni—. Ideale da lasciare aperto su un tablet accanto al box.</li>
+        <li>Come <b>chiosco</b> su <span class="mono">/control/tires</span> (dal menu iniziale: <b>Competizione → Controllo gomme</b>), che <b>rileva da solo</b> la gara di endurance in corso —come il chiosco dei turni—. Ideale da lasciare aperto su un tablet accanto al box.</li>
       </ul>
       <p>La schermata è una <b>griglia con tutte le squadre</b>. Ogni riquadro mostra il nome della squadra e due numeri: <b>Disponibili</b> e <b>Usati</b>.</p>
       <ul>
@@ -586,18 +592,37 @@
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Impostazioni</span></div>
         <img src="manual/img/04-settings.png" loading="lazy" alt="Schermata delle impostazioni di PitWall">
-        <figcaption>Impostazioni: hardware e porte, circuiti salvati, seguito pubblico, licenza e lingua.</figcaption>
+        <figcaption>Impostazioni: menu laterale delle sezioni e barra di salvataggio fissa.</figcaption>
       </figure>
+      <p>Le <b>Impostazioni</b> sono organizzate con un <b>menu laterale</b>: <b>Sorgente dati</b>, <b>Preferenze</b>, <b>Rete locale</b>, <b>Seguito online</b>, <b>Integrazioni</b> e <b>Diagnostica</b>. Ogni sezione ha la sua schermata, il menu mostra dei punti di stato (cronometro, tunnel, modalità debug) e, dopo aver salvato, torni alla sezione in cui eri. In basso, una <b>barra di salvataggio fissa</b> ti avvisa delle <b>modifiche non salvate</b> e di quali <b>richiedono il riavvio</b> di PitWall (solo l'interfaccia di rete e HTTPS; il resto si applica al salvataggio).</p>
       <ul>
         <li><b>Sorgente dati</b>: scegli da dove arrivano i passaggi — <b>Simulazione</b>, <b>DS-300</b> (un box per porta, con il suo n° di corsie), <b>DS-300 aggregatore</b> (più box su un'unica porta COM: indica <b>porta</b>, <b>baud</b> —57600, 8N1— e <b>n° di box</b> 2/3/4 → 16/24/32 corsie) o <b>BART</b> via Bluetooth (si connette in <b>BLE diretto</b> per impostazione predefinita; il <b>TCP</b> resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box. Se usi <b>più Master BART</b> (uno per ogni blocco di corsie), aggiungi una riga per Master con il suo <b>nome BLE</b> (es. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) e il suo <b>n° di corsie</b>: sono numerate di seguito come i box dell'aggregatore DS-300, e ogni Master va abbinato separatamente.</li>
         <li><b>Configurazione della porta, senza complicazioni</b>: per ogni circuito DS-300 (e per l'aggregatore) a colpo d'occhio vedi solo <b>Porta</b> e <b>Baud rate</b>. La <b>porta</b> si sceglie dall'elenco rilevato; se la tua non compare, con <b>« Scrivi il percorso a mano »</b> la digiti (es. <code>COM3</code> o <code>/dev/ttys003</code>). Il <b>baud rate</b> è un menu a tendina con le velocità abituali (9600–921600), con <b>« Scrivi a mano »</b> per un valore fuori elenco. Le impostazioni fini della seriale (<b>Data bits, Parità, Stop bits, Controllo di flusso</b>) sono ripiegate in <b>« Opzioni avanzate della porta »</b>: di default <b>8N1</b>, quasi mai da toccare.</li>
-        <li><b>Circuiti</b>: definisci le piste salvate (sequenza di corsie, tempo minimo).</li>
+        <li><b>Preferenze</b>: l'<b>Ordine della diretta</b> (per classifica stimata o per giri reali; vedi <i>Dirigere la gara in diretta</i>).</li>
+        <li><b>Rete locale</b>: interfaccia di rete, limitare l'accesso web e HTTPS locale (per la fotocamera del QR).</li>
         <li><b>Seguito pubblico su internet</b>: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la <a class="inl" href="#publico">sezione seguente</a>).</li>
-        <li><b>Licenza</b> e lingua (ES/EN).</li>
+        <li><b>Integrazioni</b> (compatibilità Infolap, che si attiva e disattiva all'istante) e <b>Diagnostica</b> (modalità debug e strumenti per indagare un problema).</li>
+        <li>La <b>lingua</b> (ES/EN) si cambia dal piè di pagina.</li>
       </ul>
 
+      <h3>Database</h3>
+      <p><b>Sistema → Database</b> (<code>/database</code>) ha un menu con <b>Riepilogo</b> (quante gare, squadre, piloti, circuiti e giri ci sono, e la dimensione del file), <b>Esp. / Imp. gara</b>, <b>Copia di sicurezza</b> e <b>Ripristina copia</b>.</p>
+      <h3>Esportare e importare una gara</h3>
+      <p>Per portare sul tuo PC una gara corsa in un altro club senza spostare l'intero database. <b>Esporta gara</b> scarica un file <b><code>.pwrace</code></b> con tutto: squadre, piloti, tornate, manche, giri, turni dei piloti, gomme, eventi, verifiche con foto, pole e categorie (una 24 h da 150.000 giri occupa circa 3 MB). <b>Importa gara</b> la aggiunge come <b>gara nuova, all'istante e senza riavviare</b>, senza toccare le altre gare; se il suo circuito non esiste su questo PC, viene creato.</p>
+      <ul>
+        <li>Non si può importare <b>due volte la stessa gara</b>: PitWall ti avvisa e ti collega a quella che hai già.</li>
+        <li>Una gara con una <b>manche non chiusa</b> non si esporta: chiudila o annullala prima in <b>Risoluzione dei problemi → Manche bloccate</b>.</li>
+        <li>Una gara che era <b>in corso</b> entra come <b>in attesa</b>, così non prende mai il GO del DS-300 di questo PC.</li>
+        <li>Esportazione e importazione aspettano che <b>non ci sia una manche in corso</b>, come l'esportazione in Excel.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Database · Esp. / Imp. gara</span></div>
+        <img src="manual/img/op-database-carrera.png" loading="lazy" alt="Database: esportare una gara in .pwrace e importare una gara">
+        <figcaption>Esp. / Imp. gara: scegli la gara da esportare oppure trascina un file .pwrace per importarla come gara nuova.</figcaption>
+      </figure>
+
       <h3>Backup del database</h3>
-      <p>Dalla home, la scheda <b>Database</b> (<span class="mono">/database</span>) permette di <b>scaricare</b> uno snapshot completo dei tuoi dati (<span class="mono">.db</span>) e, se un giorno serve recuperare un'installazione o spostare PitWall su un altro PC, di <b>caricare</b> una copia per ripristinarla: il caricamento viene validato (deve essere un vero database SQLite) e resta "in attesa" — non sostituisce nulla al momento, si applica solo <b>chiudendo PitWall del tutto e riaprendolo</b>, e prima di applicarlo viene salvata automaticamente una copia dei dati attuali. Puoi annullare un'importazione in attesa in qualsiasi momento prima di riavviare.</p>
+      <p><b>Copia di sicurezza</b> e <b>Ripristina copia</b> permettono di <b>scaricare</b> uno snapshot completo dei tuoi dati (<span class="mono">.db</span>) e, se un giorno serve recuperare un'installazione o spostare PitWall su un altro PC, di <b>caricare</b> una copia per ripristinarla: il caricamento viene validato (deve essere un vero database SQLite) e resta "in attesa" — non sostituisce nulla al momento, si applica solo <b>chiudendo PitWall del tutto e riaprendolo</b>, e prima di applicarlo viene salvata automaticamente una copia dei dati attuali. Puoi annullare un'importazione in attesa in qualsiasi momento prima di riavviare.</p>
 
       <h3>Cronologia delle versioni</h3>
       <p>Nel <b>piè di pagina di tutte le pagine</b> vedi il numero di <b>versione</b> di PitWall. Premendolo si apre la <b>Cronologia delle versioni</b> (<span class="mono">/changelog</span>), con ciò che è stato <b>Aggiunto</b>, <b>Migliorato</b> e <b>Corretto</b> in ogni aggiornamento. La versione <b>sale a ogni aggiornamento</b>, così sai sempre quale PitWall hai e cosa è cambiato.</p>

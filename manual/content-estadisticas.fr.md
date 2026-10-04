@@ -14,30 +14,35 @@ C'est l'écran de la manche en cours. Ce que tu vois en temps réel, tour par to
 
 **Horloges par circuit (C1, C2, C3…).** Si la course utilise plusieurs circuits en même temps, tu as en haut une horloge pour chacun. Chaque horloge marque le temps de cette manche sur ce circuit. Quand l'horloge arrive à zéro, cette manche se termine et vous tournez tous de voie.
 
-**Cartes de voie.** Une carte pour chaque voiture en piste. Sur chaque carte, tu lis d'un coup d'œil :
+**Cartes de voie.** Une carte pour chaque voiture en piste, pensée pour se lire de loin : le **dernier tour** s'affiche en grand avec le **total** à côté et, en dessous, le meilleur tour, la moyenne, le Gap V et les tours de la manche. Les chiffres s'adaptent tout seuls à la taille de la carte. Ce que tu lis sur chacune :
 
 - **TOTAL** — tours cumulés jusqu'à présent dans la manche.
 - **DERNIER** — ton dernier tour complet. C'est ta référence immédiate : tu progresses ou tu chutes ?
 - **MOYENNE** — ton rythme moyen dans la manche (moyenne simple de tes tours, sans compter le **passage de départ** ; ton premier tour complet, lui, **compte**). C'est ce qui commande vraiment pour gagner en endurance : pas le meilleur tour isolé, mais le rythme soutenu.
 - **MEILLEUR** — ton meilleur tour valide de la manche.
 
+**Couleurs et avis de la carte.**
+- **Violet avec « RÉCORD CARRERA »** (record de la course) — ce dernier tour est le meilleur tour de toute la course.
+- **Bleu avec « BOXES »** (stand) — ce tour comprenait un arrêt au stand ; ça ne veut pas dire que tu es lent.
+- **Pilote au volant** avec une **barre** du temps qu'il a conduit dans la course face au maximum par pilote : **ambre** à partir de 85 %, **rouge** s'il le dépasse. **« SIN PILOTO »** (sans pilote) = cette voie n'a pas pointé et la manche est en cours.
+- **Avis** : sorties, arrêts au stand (**« PIT 2 »**) et trains de pneus utilisés sur le total (**« 4/12 »**). Un arrêt ou un changement de pneus qui vient d'avoir lieu est mis en avant quelques secondes.
+- **Repos** : qui ne court pas cette manche affiche sa position, son équipe, ses tours et **« DESCANSO x/y »** (repos).
+
 **Bannière du meilleur tour.** Quand quelqu'un signe le tour le plus rapide du moment, un avis mis en avant apparaît. Si c'est le tien, tant mieux. Si c'est celui d'un rival, c'est la référence à battre.
 
-### Les trois vues du direct (bouton « Vue »)
+### Les deux vues du direct (bouton « Vue »)
 
-Avec le bouton *Vue (« Vista »)*, tu choisis comment les cartes s'affichent, selon le nombre de voies. Il y a trois modes :
+Avec le bouton *Vue (« Vista »)*, tu choisis comment les voies s'affichent. Il y a deux modes :
 
-**1 · Lignes horizontales** — une ligne par voie. Recommandée pour **peu de voies** : chaque voie occupe une ligne large et se lit très confortablement.
+**Lignes horizontales** — une ligne par voie, très confortable à lire. Quand les équipes ne tiennent pas sur une colonne, la vue se répartit sur **deux colonnes**, chacune avec son en-tête, pour les voir toutes à la fois (jusqu'à 40 sur un écran 1080p). Dans les courses avec contrôle des pilotes, le pilote s'affiche sous l'équipe.
 
 ![img: 31-vista-1.png]
 
-**2 · Grille compacte** — toutes les pistes à la fois en grille. Idéale pour **beaucoup de voies** : tu vois tout sans faire défiler.
-
-![img: 31-vista-2.png]
-
-**3 · Cartes détaillées** — comme la compacte, mais avec **TR** (tours), **SOR** (sorties), **PIT** et **Δ** visibles sur chaque carte. Plus d'informations par voie d'un coup d'œil.
+**Cartes détaillées** — une carte par voie avec tout ce qui est décrit plus haut : dernier tour en grand, total, meilleur, moyenne, Gap V, pilote et avis. Avec le **classement estimé à côté** ouvert, les cartes retirent meilleur, moyenne et Gap V (ils sont déjà dans le classement) et gardent les tours de la manche sous le total.
 
 ![img: 31-vista-3.png]
+
+L'ancienne *Grille compacte* n'existe plus : si tu l'avais choisie (ou si tu ouvres un lien avec `?view=2`), ce sont les cartes qui s'ouvrent. L'ordre des cartes et des lignes —par **classement estimé** ou par **tours réels**— se choisit dans **Réglages → Préférences → Ordre du direct** ; avec les tours réels, le Gap V n'est pas affiché.
 
 ---
 
