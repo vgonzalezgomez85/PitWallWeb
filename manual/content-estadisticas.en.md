@@ -14,30 +14,35 @@ It's the screen of the heat in progress. What you see in real time, lap by lap.
 
 **Clocks per track (C1, C2, C3…).** If the race uses several tracks at once, at the top you have one clock for each. Each clock marks the time of that heat on that track. When the clock reaches zero, that heat ends and everyone rotates lanes.
 
-**Lane cards.** One card per car on track. On each card you read, at a glance:
+**Lane cards.** One card per car on track, designed to be read from a distance: the **last lap** is shown large with the **total** beside it and, below, best lap, average, Gap V and laps in the heat. The figures resize to fit the card. What you read on each one:
 
 - **TOTAL** — laps accumulated so far in the heat.
 - **LAST** — your last complete lap. It's your immediate reference: are you improving or dropping off?
 - **AVERAGE** — your average pace in the heat (a simple average of your laps, not counting the **start crossing**; your first complete lap **does** count). It's what really matters for winning in endurance: not the odd fast lap, but sustained pace.
 - **BEST** — your best valid lap of the heat.
 
+**Card colours and alerts.**
+- **Purple with “RACE RECORD”** — that last lap is the fastest lap of the whole race.
+- **Blue with “PIT”** — that lap included a pit stop; it doesn't mean you are slow.
+- **Driver at the wheel** with a **bar** of the time they have driven in the race against the per-driver maximum: **amber** from 85 %, **red** once over it. **“NO DRIVER”** = that lane has not checked in and the heat is running.
+- **Alerts**: exits, pit stops (**“PIT 2”**) and tyre sets used out of the total (**“4/12”**). A pit stop or tyre change that has just happened is highlighted for a few seconds.
+- **Rest**: whoever is not racing this heat shows position, team, laps and **“REST x/y”**.
+
 **Fastest lap banner.** When someone sets the fastest lap of the moment, a highlighted alert pops up. If it's yours, good. If it's a rival's, it's the benchmark to beat.
 
-### The three live views (the "Vista" button)
+### The two live views (the "View" button)
 
-With the View (“Vista”) button you choose how the cards are shown, depending on how many lanes there are. There are three modes:
+With the View (“Vista”) button you choose how the lanes are shown. There are two modes:
 
-**1 · Horizontal rows** — one row per lane. Recommended for **few lanes**: each lane takes a wide row and reads very comfortably.
+**Horizontal rows** — one row per lane, very comfortable to read. When the teams do not fit in one column, the view splits into **two columns**, each with its own header, so you see everyone at once (up to 40 on a 1080p screen). In races with driver shifts, the driver is shown under the team.
 
 ![img: 31-vista-1.png]
 
-**2 · Compact grid** — all the tracks at once in a grid. Ideal for **many lanes**: you see everything without scrolling.
-
-![img: 31-vista-2.png]
-
-**3 · Cards with details** — like the compact one, but with **LAP** (laps), **EXIT** (exits), **PIT** and **Δ** visible on each card. More information per lane at a glance.
+**Cards with details** — one card per lane with everything described above: big last lap, total, best, average, Gap V, driver and alerts. With the **projected standings alongside** open, the cards drop best, average and Gap V (they are already in the standings) and keep the laps in the heat under the total.
 
 ![img: 31-vista-3.png]
+
+The old *Compact grid* no longer exists: if you had it selected (or open a link with `?view=2`), the cards open instead. The order of cards and rows —by **projected standings** or by **actual laps**— is chosen in **Settings → Preferences → Live view order**; with actual laps, Gap V is not shown.
 
 ---
 

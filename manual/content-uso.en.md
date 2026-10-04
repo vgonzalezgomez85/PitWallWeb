@@ -15,7 +15,10 @@ A guide for whoever **operates** PitWall: setting up the race, running it live, 
 
 You can use any of these sources; for PitWall the flow of crossings is equivalent.
 
-- From the **home screen** you reach **Races**, **Settings** and the rest of the modules.
+- The **home screen** has a **side menu** with every section, grouped into **Competition** (Races, Training, Live stats, Results, Lap, Driver shifts, Tyre control…), **Catalog** (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and **System** (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). The header shows the data source status (simulation, DS-300 connected or disconnected).
+- When a **race is in progress**, its banner appears at the top: **heat X of Y**, round, the **time remaining** in the heat, heats done and —once it has been calculated— the **projected leader**, with buttons to **Heat live**, **TV screen**, **Live stats**, **Driver shifts** (championships), **Tyres** (if the race has tyre sets), **Event log** and **Manage race**. With no race in progress, the banner shows the pole currently running or the **New race** / **Free practice** shortcuts.
+- Below are four **quick links** (New race, Training, Results, Lap) and the **latest races** with their direct action (Live, Results or Open).
+- Each section opens in **its own window**: click it again and PitWall brings the window you already had open to the front, without reloading it. That way you can keep the live view, the TV and the stats open at the same time. The **«New window / This window»** switch at the bottom of the menu lets you open everything in the same window instead, and a pill in the header tells you how many **windows** are open.
 - At the bottom right you always see the **link status** (green = connected; "Sin señal" / no signal = check the cable/port or the Bluetooth).
 
 **The race list** shows all your races with their status (pending / active / finished) and the New race (“+ Nueva carrera”) button.
@@ -55,7 +58,7 @@ All of them can be **bulk-imported from CSV** (the CSV template (“Plantilla CS
 
 ![img: op-qr-equipos.png]
 
-> **Sync catalog with pending races.** If you change a team's **drivers** or **country** in the catalog *after* creating a race, those changes don't reach the race that's already set up on their own. From **System → Sync catalog** (“Sistema → Sincronizar catálogo”, home screen) —or the **“Actualizar desde catálogo”** (Update from catalog) shortcut in the **⋯** menu of the race sheet, which only shows if the race is a candidate— you push them into every race that **hasn't started any heat yet**, without going through "Edit batch". PitWall matches teams **by name**, makes each race's roster **identical to the catalog** (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a **summary of the changes**, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on **team-format** races. **Category** isn't synced: it's always read live from the catalog.
+> **Sync catalog with pending races.** If you change a team's **drivers** or **country** in the catalog *after* creating a race, those changes don't reach the race that's already set up on their own. From **System → Sync catalog** (“Sistema → Sincronizar catálogo”, in the home side menu) —or the **“Actualizar desde catálogo”** (Update from catalog) shortcut in the **⋯** menu of the race sheet, which only shows if the race is a candidate— you push them into every race that **hasn't started any heat yet**, without going through "Edit batch". PitWall matches teams **by name**, makes each race's roster **identical to the catalog** (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a **summary of the changes**, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on **team-format** races. **Category** isn't synced: it's always read live from the catalog.
 
 ## 3. Creating a race
 ![img: 03-wizard-step1.png]
@@ -93,7 +96,7 @@ Go into **Races → Import batch**. There are **two ways** to bring the event ov
 
 > **Requirement:** for the network send, PitWall and PitWall Control must be on the **same** LAN/WiFi network. The pairing PIN is shown in PitWall's **Import batch**. The other half of the bridge —**bringing the results** back to Control— is explained in the *PitWall Control manual*.
 
-> **Ecosystem connection.** The whole network bridge with PitWall Control —sending batches and bringing back results— can be **allowed or blocked** all at once from **System → Ecosystem connection**, on the home screen. It's **enabled** by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.
+> **Ecosystem connection.** The whole network bridge with PitWall Control —sending batches and bringing back results— can be **allowed or blocked** all at once from **System → Ecosystem connection**, in the home side menu. It's **enabled** by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.
 
 ## 5. Batches, participants and rotation
 ![img: 34-tanda.png]
@@ -203,13 +206,19 @@ From the race page:
 
 **The race sheet stays reachable with a heat running.** Opening a race that has a heat in progress no longer takes you straight to the live screen: you see its **sheet** (status, projected classification, batches…) with a **"Manga N"** (Heat N) link to jump to the live screen whenever you want. When you **give the GO** from the sheet, the screen does jump to live on its own, and you still can't start a second heat while another is running.
 
-**Choosing the view.** With the View (“Vista”) button you change the layout depending on the lanes: *Horizontal rows* (few lanes), *Compact grid* (many) or *Cards with details* (with laps/exits/pit/tyres/Δ per card).
+**Choosing the view.** With the View (“Vista”) button you pick one of two views: *Horizontal rows* (one row per lane) or *Cards with details* (one card per lane, readable from a distance). The old *Compact grid* no longer exists: if you had it selected, the cards open instead.
 
-**Projected standings alongside.** In the *Horizontal rows* view, the button with the **side panel** icon (next to **View**) opens or closes the **projected standings docked to the right** of the rows, like in TicTac: **#**, participant, **Proj. laps** (“V. Proy.”, estimated laps), **Total** (actual laps) and **Average**. PitWall remembers whether you left it open for each race. By default the panel uses **automatic width** (just enough to read full names, at most 40% of the screen) and adjusts the font so everyone fits; if they don't, it pages every 20 s. **Dragging its edge** lets you choose the width yourself (with spare room, **Gap V** and the trend also appear), and **double-clicking the edge** returns to automatic. The rows adapt their font to the remaining space: the driver's name takes priority and, in very narrow windows, Gap V is hidden first, then VLT and then LAST.
+**The cards.** The **last lap** is shown large with the **total laps** beside it and, below, best lap, average, Gap V and laps in the heat; the figures resize to fit each card, whether there are 6, 24 or 40 teams. The last lap turns **purple with “RACE RECORD”** if it is the fastest lap of the race and **blue with “PIT”** if it included a stop. Each card shows the **driver at the wheel** with a **bar of the time they have driven** against the per-driver maximum (**amber** from 85 %, **red** once over it); if a lane has not checked in, you will see **“NO DRIVER”** while the heat is running. It also flags exits, **pit stops** (“PIT 2”) and **tyre sets** used out of the total (“4/12”).
+
+**Rows in two columns.** When the teams do not fit in one column, the rows view splits into **two columns**, each with its own header, so you see **everyone at once** (up to 40 on a 1080p screen). In races with driver shifts, each row shows the **driver under the team**.
+
+**Live view order.** In **Settings → Preferences → Live view order** you choose how cards and rows are sorted: by **projected standings** (recommended) or by **actual laps** (ties: lower total time). With actual laps, Gap V is not shown. The projected standings side panel does not change.
+
+**Projected standings alongside.** In both views, the button with the **side panel** icon (next to **View**) opens or closes the **projected standings docked to the right** of the rows, like in TicTac: **#**, participant, **Proj. laps** (“V. Proy.”, estimated laps), **Total** (actual laps) and **Average**. PitWall remembers whether you left it open for each race. By default the panel uses **automatic width** (just enough to read full names, at most 40% of the screen) and adjusts the font so everyone fits; if they don't, it pages every 20 s. **Dragging its edge** lets you choose the width yourself (with spare room, **Gap V** and the trend also appear), and **double-clicking the edge** returns to automatic. The rows adapt their font to the remaining space: the driver's name takes priority and, in very narrow windows, Gap V is hidden first, then VLT and then LAST. In the cards view, with the panel open the cards drop best lap, average and Gap V (they are already in the standings) and keep the laps in the heat under the total.
 
 ![img: 20b-live-panel-estimada.png]
 
-**Fixed room or TV screens.** By adding parameters to the live view address, that screen always starts the same way without changing what is saved: `?side=standings` (panel open) or `?side=none` (closed), and `?view=1`, `?view=2` or `?view=3` (*Horizontal rows*, *Compact grid* or *Cards with details*). They can be combined: `?view=1&side=standings`.
+**Fixed room or TV screens.** By adding parameters to the live view address, that screen always starts the same way without changing what is saved: `?side=standings` (panel open) or `?side=none` (closed), and `?view=1` or `?view=3` (*Horizontal rows* or *Cards with details*; an old link with `?view=2` also opens the cards). They can be combined: `?view=1&side=standings`.
 
 **Distance to the leader and provisional estimate.** On the classification screens (**Le Mans** and **live stats**) the distance to the leader is given **with the fraction** and its equivalent **in seconds** —*"a 2,8 v (35,5\")"*, i.e. 2.8 laps behind, worth 35.5 seconds—, not rounded to whole laps. And if an estimate carries an **orange asterisk**, that team is still in its **first heat** without having gone past **60 %** of it: its reference isn't locked in yet and the figure can still move. It's all explained in detail in the *Statistics manual*.
 
@@ -247,7 +256,7 @@ In an **endurance** race you can keep track of the **tyre sets** each team uses.
 
 It opens **two ways**:
 - From the race, with the **🛞 Tyres** button (only shows in endurance races and with an allotment greater than 0).
-- As a **kiosk** at `/control/tires` (with its card on the home screen), which **auto-detects** the endurance race currently running —just like the shifts kiosk—. Ideal to leave open on a tablet next to the pit.
+- As a **kiosk** at `/control/tires` (from the home menu: **Competition → Tyre control**), which **auto-detects** the endurance race currently running —just like the shifts kiosk—. Ideal to leave open on a tablet next to the pit.
 
 The screen is a **grid with every team**. Each box shows the team name and two numbers: **Available** and **Used**.
 
@@ -329,13 +338,27 @@ Each session can be **deleted** from its detail. If you stop the session with **
 ## 17. Settings
 ![img: 04-settings.png]
 
+**Settings** are organised with a **side menu**: **Data source**, **Preferences**, **Local network**, **Online tracking**, **Integrations** and **Diagnostics**. Each section has its own screen, the menu shows status dots (timer, tunnel, debug mode) and saving brings you back to the section you were in. At the bottom, a **fixed save bar** warns you about **unsaved changes** and which ones **need a PitWall restart** (only the network interface and HTTPS; everything else applies on save).
+
 - **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes. If you use **several BART Masters** (one per block of lanes), add one row per Master with its **BLE name** (e.g. `BART_TRACK1`, `BART_TRACK2`…) and **lane count**: they're numbered consecutively just like the DS-300 aggregator boxes, and each Master has to be paired separately.
 - **Port setup, kept simple**: for each DS-300 circuit (and the aggregator) you only see **Port** and **Baud rate** at a glance. Pick the **port** from the detected list; if yours isn't there, tap **"Type the path manually"** to enter it (e.g. `COM3` or `/dev/ttys003`). The **baud rate** is a dropdown with the usual speeds (9600–921600), with **"Type manually"** for an out-of-list value. The fine serial settings (**Data bits, Parity, Stop bits, Flow control**) are folded under **"Advanced port options"**: they default to **8N1** and rarely need touching.
-- **Tracks**: define saved tracks (lane sequence, minimum time).
+- **Preferences**: the **Live view order** (by projected standings or by actual laps; see *Running the race live*).
+- **Local network**: network interface, restrict web access and local HTTPS (for the QR camera).
 - **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).
-- **License** and language (ES/EN).
+- **Integrations** (Infolap compatibility, switched on and off instantly) and **Diagnostics** (debug mode and tools to investigate a problem).
+- The **language** (ES/EN) is changed from the page footer.
 
-**Database backup.** From the home screen, the **Database** card (`/database`) lets you **download** a full snapshot of your data (`.db`) and, if you ever need to recover an install or move PitWall to another PC, **upload** a backup to restore it: the upload is validated (it must be a real SQLite database) and stays "pending" — nothing is replaced right away, it only applies once you **fully close PitWall and reopen it**, and your current data is backed up automatically before applying it. You can cancel a pending import at any time before restarting.
+**Database.** **System → Database** (`/database`) has a menu with **Summary** (how many races, teams, drivers, circuits and laps there are, plus the file size), **Export / import race**, **Backup** and **Restore backup**.
+
+**Exporting and importing a race.** To bring a race you ran at another club onto your PC without moving the whole database. **Export race** downloads a **`.pwrace`** file with everything: teams, drivers, rounds, heats, laps, driver shifts, tyres, events, inspections with photos, pole and categories (a 24 h race with 150,000 laps takes about 3 MB). **Import race** adds it as a **new race, instantly and without restarting**, leaving your other races untouched; if its circuit does not exist on this PC, it is created.
+- The **same race cannot be imported twice**: PitWall warns you and links to the one you already have.
+- A race with an **unclosed heat** cannot be exported: close or cancel it first in **Troubleshooting → Stuck heats**.
+- A race that was **in progress** comes in as **pending**, so it never picks up the DS-300 GO on this PC.
+- Export and import wait until **no heat is running**, just like the Excel export.
+
+![img: op-database-carrera.png]
+
+**Database backup.** **Backup** and **Restore backup** let you **download** a full snapshot of your data (`.db`) and, if you ever need to recover an install or move PitWall to another PC, **upload** a backup to restore it: the upload is validated (it must be a real SQLite database) and stays "pending" — nothing is replaced right away, it only applies once you **fully close PitWall and reopen it**, and your current data is backed up automatically before applying it. You can cancel a pending import at any time before restarting.
 
 **Version history.** In the **footer of every page** you see PitWall's **version** number. Pressing it opens the **Version history** (`/changelog`), with what was **Added**, **Improved** and **Fixed** in each update. The version **goes up with every update**, so you always know which PitWall you have and what has changed.
 

@@ -14,30 +14,35 @@ Es la pantalla de la manga en curso. Lo que ves en tiempo real, vuelta a vuelta.
 
 **Relojes por circuito (C1, C2, C3…).** Si la carrera usa varios circuitos a la vez, arriba tienes un reloj por cada uno. Cada reloj marca el tiempo de esa manga en ese circuito. Cuando el reloj llega a cero, esa manga termina y todos rotáis de carril.
 
-**Tarjetas de carril.** Una tarjeta por cada coche en pista. En cada tarjeta lees, de un vistazo:
+**Tarjetas de carril.** Una tarjeta por cada coche en pista, pensada para leerse de lejos: la **última vuelta** va en grande con el **total** al lado y, debajo, la mejor vuelta, la media, el Gap V y las vueltas de la manga. Las cifras se ajustan solas al tamaño de la tarjeta. Lo que lees en cada una:
 
 - **TOTAL** — vueltas acumuladas hasta ahora en la manga.
 - **ÚLTIMA** — tu última vuelta completa. Es tu referencia inmediata: ¿mejoras o te caes?
 - **MEDIA** — tu ritmo medio en la manga (media simple de tus vueltas, sin contar el **cruce de salida**; tu primera vuelta completa **sí** cuenta). Es lo que de verdad manda para ganar en resistencia: no la mejor vuelta suelta, sino el ritmo sostenido.
 - **MEJOR** — tu mejor vuelta válida de la manga.
 
+**Colores y avisos de la tarjeta.**
+- **Morado con «RÉCORD CARRERA»** — esa última vuelta es la vuelta rápida de toda la carrera.
+- **Azul con «BOXES»** — esa vuelta incluyó una parada en boxes; no es que vayas lento.
+- **Piloto al volante** con una **barra** del tiempo que lleva conducido en la carrera frente al máximo por piloto: **ámbar** desde el 85 %, **roja** si lo pasa. **«SIN PILOTO»** = ese carril no ha fichado y la manga está en marcha.
+- **Avisos**: salidas, paradas en boxes (**«PIT 2»**) y juegos de neumáticos usados sobre el total (**«4/12»**). Una parada o un cambio de neumáticos recién hechos se resaltan unos segundos.
+- **Descanso**: quien no corre esta manga muestra su posición, equipo, vueltas y **«DESCANSO x/y»**.
+
 **Banner de vuelta rápida.** Cuando alguien marca la vuelta más rápida del momento, salta un aviso destacado. Si es tuya, bien. Si es de un rival, es la vara de medir a batir.
 
-### Las tres vistas del directo (botón "Vista")
+### Las dos vistas del directo (botón "Vista")
 
-Con el botón **Vista** eliges cómo se muestran las tarjetas, según cuántos carriles haya. Hay tres modos:
+Con el botón **Vista** eliges cómo se muestran los carriles. Hay dos modos:
 
-**1 · Filas horizontales** — una fila por carril. Recomendada para **pocos carriles**: cada carril ocupa una fila ancha y se lee muy cómodo.
+**Filas horizontales** — una fila por carril, muy cómoda de leer. Si los equipos no caben en una columna, la vista se reparte en **dos columnas**, cada una con su cabecera, para verlos a todos a la vez (hasta 40 en una pantalla de 1080p). En carreras con control de pilotos, el piloto va debajo del equipo.
 
 ![img: 31-vista-1.png]
 
-**2 · Cuadrícula compacta** — todas las pistas a la vez en rejilla. Ideal para **muchos carriles**: lo ves todo sin desplazarte.
-
-![img: 31-vista-2.png]
-
-**3 · Tarjetas con detalles** — como la compacta, pero con **VLT** (vueltas), **SAL** (salidas), **PIT** y **Δ** visibles en cada tarjeta. Más información por carril de un vistazo.
+**Tarjetas con detalles** — una tarjeta por carril con todo lo descrito arriba: última vuelta en grande, total, mejor, media, Gap V, piloto y avisos. Con la **clasificación estimada al lado** abierta, las tarjetas quitan mejor, media y Gap V (ya están en la clasificación) y mantienen las vueltas de la manga bajo el total.
 
 ![img: 31-vista-3.png]
+
+La antigua *Cuadrícula compacta* ya no existe: si la tenías elegida (o abres un enlace con `?view=2`), se abren las tarjetas. El orden de tarjetas y filas —por **clasificación estimada** o por **vueltas reales**— se elige en **Ajustes → Preferencias → Orden del directo**; con vueltas reales no se muestra el Gap V.
 
 ---
 

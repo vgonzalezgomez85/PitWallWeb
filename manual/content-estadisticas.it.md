@@ -14,30 +14,35 @@ In PitWall corri per **corsie** (C1, C2, C3…) e **ruoti di corsia manche dopo 
 
 **Orologi per circuito (C1, C2, C3…).** Se la gara usa più circuiti insieme, in alto hai un orologio per ciascuno. Ogni orologio segna il tempo di quella manche su quel circuito. Quando l'orologio arriva a zero, quella manche termina e tutti ruotate di corsia.
 
-**Schede di corsia.** Una scheda per ogni auto in pista. In ogni scheda leggi, a colpo d'occhio:
+**Schede di corsia.** Una scheda per ogni auto in pista, pensata per essere letta da lontano: l'**ultimo giro** compare in grande con il **totale** accanto e, sotto, il miglior giro, la media, il Gap V e i giri della manche. Le cifre si adattano da sole alla dimensione della scheda. Cosa leggi in ognuna:
 
 - **TOTALE** — giri accumulati finora nella manche.
 - **ULTIMO** — il tuo ultimo giro completo. È il tuo riferimento immediato: migliori o cali?
 - **MEDIA** — il tuo ritmo medio nella manche (media semplice dei tuoi giri, senza contare il **passaggio di partenza**; il tuo primo giro completo **conta**). È ciò che davvero conta per vincere in resistenza: non il miglior giro isolato, ma il ritmo sostenuto.
 - **MIGLIORE** — il tuo miglior giro valido della manche.
 
+**Colori e avvisi della scheda.**
+- **Viola con «RÉCORD CARRERA»** (record della gara) — quell'ultimo giro è il giro più veloce di tutta la gara.
+- **Blu con «BOXES»** (box) — quel giro includeva una sosta ai box; non significa che vai piano.
+- **Pilota al volante** con una **barra** del tempo già guidato in gara rispetto al massimo per pilota: **ambra** dall'85 %, **rossa** se lo supera. **«SIN PILOTO»** (senza pilota) = quella corsia non ha fatto il check-in e la manche è in corso.
+- **Avvisi**: uscite, soste ai box (**«PIT 2»**) e treni di gomme usati sul totale (**«4/12»**). Una sosta o un cambio gomme appena fatti vengono evidenziati per qualche secondo.
+- **Riposo**: chi non corre questa manche mostra posizione, squadra, giri e **«DESCANSO x/y»** (riposo).
+
 **Banner del giro veloce.** Quando qualcuno segna il giro più veloce del momento, appare un avviso in evidenza. Se è tuo, bene. Se è di un rivale, è il metro di misura da battere.
 
-### Le tre viste della diretta (pulsante "Vista")
+### Le due viste della diretta (pulsante "Vista")
 
-Con il pulsante **Vista** scegli come mostrare le schede, in base a quante corsie ci sono. Ci sono tre modalità:
+Con il pulsante **Vista** scegli come mostrare le corsie. Ci sono due modalità:
 
-**1 · Righe orizzontali** — una riga per corsia. Consigliata per **poche corsie**: ogni corsia occupa una riga larga e si legge molto comodamente.
+**Righe orizzontali** — una riga per corsia, molto comoda da leggere. Quando le squadre non stanno in una colonna, la vista si divide in **due colonne**, ognuna con la sua intestazione, per vederle tutte insieme (fino a 40 su uno schermo 1080p). Nelle gare con controllo piloti, il pilota compare sotto la squadra.
 
 ![img: 31-vista-1.png]
 
-**2 · Griglia compatta** — tutte le piste insieme in griglia. Ideale per **molte corsie**: vedi tutto senza scorrere.
-
-![img: 31-vista-2.png]
-
-**3 · Schede con dettagli** — come la compatta, ma con **VLT** (giri), **SAL** (uscite), **PIT** e **Δ** visibili in ogni scheda. Più informazioni per corsia a colpo d'occhio.
+**Schede con dettagli** — una scheda per corsia con tutto quanto descritto sopra: ultimo giro in grande, totale, migliore, media, Gap V, pilota e avvisi. Con la **classifica stimata a lato** aperta, le schede tolgono migliore, media e Gap V (sono già nella classifica) e mantengono i giri della manche sotto il totale.
 
 ![img: 31-vista-3.png]
+
+La vecchia *Griglia compatta* non esiste più: se l'avevi scelta (o apri un link con `?view=2`), si aprono le schede. L'ordine di schede e righe —per **classifica stimata** o per **giri reali**— si sceglie in **Impostazioni → Preferenze → Ordine della diretta**; con i giri reali il Gap V non viene mostrato.
 
 ---
 

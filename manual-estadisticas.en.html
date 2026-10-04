@@ -86,38 +86,38 @@
       </figure>
       <p>It's the screen of the heat in progress. What you see in real time, lap by lap.</p>
       <p><b>Clocks per track (C1, C2, C3…).</b> If the race uses several tracks at once, at the top you have one clock for each. Each clock marks the time of that heat on that track. When the clock reaches zero, that heat ends and everyone rotates lanes.</p>
-      <p><b>Lane cards.</b> One card per car on track. On each card you read, at a glance:</p>
+      <p><b>Lane cards.</b> One card per car on track, designed to be read from a distance: the <b>last lap</b> is shown large with the <b>total</b> beside it and, below, best lap, average, Gap V and laps in the heat. The figures resize to fit the card. What you read on each one:</p>
       <ul>
         <li><b>TOTAL</b> — laps accumulated so far in the heat.</li>
         <li><b>LAST</b> — your last complete lap. It's your immediate reference: are you improving or dropping off?</li>
         <li><b>AVERAGE</b> — your average pace in the heat (a simple average of your laps, not counting the <b>start crossing</b>; your first complete lap <b>does</b> count). It's what really matters for winning in endurance: not the odd fast lap, but sustained pace.</li>
         <li><b>BEST</b> — your best valid lap of the heat.</li>
       </ul>
+      <p><b>Card colours and alerts.</b></p>
+      <ul>
+        <li><b>Purple with “RACE RECORD”</b> — that last lap is the fastest lap of the whole race.</li>
+        <li><b>Blue with “PIT”</b> — that lap included a pit stop; it doesn't mean you are slow.</li>
+        <li><b>Driver at the wheel</b> with a <b>bar</b> of the time they have driven in the race against the per-driver maximum: <b>amber</b> from 85 %, <b>red</b> once over it. <b>“NO DRIVER”</b> = that lane has not checked in and the heat is running.</li>
+        <li><b>Alerts</b>: exits, pit stops (<b>“PIT 2”</b>) and tyre sets used out of the total (<b>“4/12”</b>). A pit stop or tyre change that has just happened is highlighted for a few seconds.</li>
+        <li><b>Rest</b>: whoever is not racing this heat shows position, team, laps and <b>“REST x/y”</b>.</li>
+      </ul>
       <p><b>Fastest lap banner.</b> When someone sets the fastest lap of the moment, a highlighted alert pops up. If it's yours, good. If it's a rival's, it's the benchmark to beat.</p>
 
-      <h3>The three live views (the "View" button)</h3>
-      <p>With the <b>View</b> button you choose how the cards are shown, depending on how many lanes there are. There are three modes:</p>
-
-      <p><b>1 · Horizontal rows</b> — one row per lane. Recommended for <b>few lanes</b>: each lane takes a wide row and reads very comfortably.</p>
+      <h3>The two live views (the "View" button)</h3>
+      <p>With the View (“Vista”) button you choose how the lanes are shown. There are two modes:</p>
+      <p><b>Horizontal rows</b> — one row per lane, very comfortable to read. When the teams do not fit in one column, the view splits into <b>two columns</b>, each with its own header, so you see everyone at once (up to 40 on a 1080p screen). In races with driver shifts, the driver is shown under the team.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>Live · View · Horizontal rows</span></div>
         <img src="manual/img/31-vista-1.png" loading="lazy" alt="Horizontal rows view, one row per lane">
-        <figcaption>Horizontal rows: one wide row per lane, ideal with few lanes.</figcaption>
+        <figcaption>Horizontal rows: one row per lane; with many teams, in two columns.</figcaption>
       </figure>
-
-      <p><b>2 · Compact grid</b> — all the tracks at once in a grid. Ideal for <b>many lanes</b>: you see everything without scrolling.</p>
-      <figure class="shot">
-        <div class="shot-bar"><i></i><i></i><i></i><span>Live · View · Compact grid</span></div>
-        <img src="manual/img/31-vista-2.png" loading="lazy" alt="Compact grid view with all lanes in a grid">
-        <figcaption>Compact grid: all the tracks at once, ideal with many lanes.</figcaption>
-      </figure>
-
-      <p><b>3 · Cards with details</b> — like the compact one, but with <b>LAP</b> (laps), <b>EXIT</b> (exits), <b>PIT</b> and <b>Δ</b> visible on each card. More information per lane at a glance.</p>
+      <p><b>Cards with details</b> — one card per lane with everything described above: big last lap, total, best, average, Gap V, driver and alerts. With the <b>projected standings alongside</b> open, the cards drop best, average and Gap V (they are already in the standings) and keep the laps in the heat under the total.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>Live · View · Cards with details</span></div>
-        <img src="manual/img/31-vista-3.png" loading="lazy" alt="Cards with details view: laps, exits, pit and delta per lane">
-        <figcaption>Cards with details: laps, exits, pit and Δ visible on each lane.</figcaption>
+        <img src="manual/img/31-vista-3.png" loading="lazy" alt="Cards view: big last lap, total, best, average, Gap V, driver and alerts">
+        <figcaption>Cards with details: big last lap with the total beside it, driver with their time bar, and exit, pit and tyre alerts.</figcaption>
       </figure>
+      <p>The old <i>Compact grid</i> no longer exists: if you had it selected (or open a link with <code>?view=2</code>), the cards open instead. The order of cards and rows —by <b>projected standings</b> or by <b>actual laps</b>— is chosen in <b>Settings → Preferences → Live view order</b>; with actual laps, Gap V is not shown.</p>
     </section>
 
     <section id="pestanas">
