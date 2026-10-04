@@ -60,7 +60,28 @@
   nav.links .langs a{color:var(--ink-3)}
   nav.links .langs a:hover{color:var(--ink)}
   .langs b{color:var(--ac);font-weight:600}
-  @media(max-width:780px){nav.links a:not(.nav-cta):not(.lg){display:none}}
+  /* menú móvil */
+  .menu-btn{display:none;width:40px;height:40px;margin-right:-8px;padding:0;border:0;background:none;
+    color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
+  .menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:20px;height:1.5px;
+    background:currentColor;position:relative;transition:transform .2s,background .2s}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+  .menu-btn span::before{top:-6px}
+  .menu-btn span::after{top:6px}
+  header.open .menu-btn span{background:transparent}
+  header.open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+  header.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
+  @media(max-width:780px){
+    .menu-btn{display:inline-flex}
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+      align-items:stretch;gap:0;padding:4px 28px 22px;background:#08080a;
+      border-bottom:1px solid var(--line);max-height:calc(100vh - 62px);overflow-y:auto}
+    header.open nav.links{display:flex}
+    nav.links>a{padding:15px 0;border-bottom:1px solid var(--line);font-size:13px}
+    nav.links>a.nav-cta{margin-top:18px;border:1px solid var(--line-strong);justify-content:center;text-align:center}
+    nav.links .langs{margin:16px 0 0;gap:18px}
+    nav.links .langs a,.langs b{font-size:12px}
+  }
 
   .hero{padding:64px 0 40px}
   .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:54px;align-items:center}
@@ -167,7 +188,7 @@
 <header>
   <div class="wrap bar">
     <a class="logo" href="pitwall-landing-it.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>Manager</small></a>
-    <nav class="links">
+    <nav class="links" id="nav-links">
       <a href="#funciones">Funzioni</a>
       <a href="#pantallas">Su schermo</a>
       <a href="manual-uso.it.html">Manuale</a>
@@ -176,8 +197,10 @@
       <a href="pitwall-control-it.html">Control</a>
       <div class="langs"><a class="lg" href="pitwall-manager.html">ES</a><a class="lg" href="pitwall-manager-en.html">EN</a><a class="lg" href="pitwall-manager-fr.html">FR</a><b>IT</b></div>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
   </div>
 </header>
+<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <section class="hero">
   <div class="wrap hero-grid">

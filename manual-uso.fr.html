@@ -23,7 +23,7 @@
 <header>
   <div class="wrap bar">
     <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <nav class="links">
+    <nav class="links" id="nav-links">
       <a href="pitwall-landing-fr.html">Landing</a>
       <a href="manual-uso.fr.html" class="here">Manuel d'utilisation</a>
       <a href="manual-estadisticas.fr.html">Statistiques</a>
@@ -35,8 +35,10 @@
       </div>
       <a href="manual-estadisticas.fr.html" class="nav-cta">Interpréter les données →</a>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
   </div>
 </header>
+<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <a id="top"></a>
 <section class="doc-hero">

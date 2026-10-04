@@ -28,7 +28,7 @@
 <header>
   <div class="wrap bar">
     <a class="logo" href="pitwall-landing-it.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>CONTROL</small></a>
-    <nav class="links">
+    <nav class="links" id="nav-links">
       <a href="pitwall-landing-it.html">Landing</a>
       <a href="pitwall-control-it.html">Prodotto</a>
       <a href="manual-control.it.html" class="here">Manuale</a>
@@ -40,8 +40,10 @@
       </div>
       <a href="pitwall-control-it.html" class="nav-cta">PitWall Control →</a>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
   </div>
 </header>
+<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <a id="top"></a>
 <section class="doc-hero">
