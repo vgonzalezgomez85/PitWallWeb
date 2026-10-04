@@ -15,11 +15,23 @@ A guide for whoever **operates** PitWall: setting up the race, running it live, 
 
 You can use any of these sources; for PitWall the flow of crossings is equivalent.
 
-- The **home screen** has a **side menu** with every section, grouped into **Competition** (Races, Training, Live stats, Results, Lap, Driver shifts, Tyre control…), **Catalog** (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and **System** (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). The header shows the data source status (simulation, DS-300 connected or disconnected).
-- When a **race is in progress**, its banner appears at the top: **heat X of Y**, round, the **time remaining** in the heat, heats done and —once it has been calculated— the **projected leader**, with buttons to **Heat live**, **TV screen**, **Live stats**, **Driver shifts** (championships), **Tyres** (if the race has tyre sets), **Event log** and **Manage race**. With no race in progress, the banner shows the pole currently running or the **New race** / **Free practice** shortcuts.
-- Below are four **quick links** (New race, Training, Results, Lap) and the **latest races** with their direct action (Live, Results or Open).
-- Each section opens in **its own window**: click it again and PitWall brings the window you already had open to the front, without reloading it. That way you can keep the live view, the TV and the stats open at the same time. The **«New window / This window»** switch at the bottom of the menu lets you open everything in the same window instead, and a pill in the header tells you how many **windows** are open.
+- The **home screen** has a header with the **«Go to…»** search (shortcut **⌘K** on Mac or **Ctrl K**): type part of the name of a section or a race; **Enter** opens the first result and **Esc** clears the search. Next to it, pills show the data source status (simulation, DS-300 connected or disconnected) and the server's **IP address**, for connecting phones and screens.
+- When a **race is in progress**, its banner appears below: **heat X of Y**, round, the **time remaining** in the heat, the **heats** (the one being run already counts) and the **projected leader**, which is the same as in the live view's *Projected standings* and updates live. It has buttons to **Heat live**, **TV screen**, **Lap corrections** (for the heat in progress or the last one finished), **Live stats**, **Driver shifts** (championships), **Tyres** (if the race has tyre sets), **Event log** and **Manage race**. With no race in progress, the banner shows the pole currently running or the **New race** / **Free practice** shortcuts. The home screen refreshes on its own when a race starts and when a heat starts, finishes or is paused.
+- Below, the sections are laid out as **tiles**: **Competition** (Races, Training, Live stats, Results, Lap, Driver shifts, Tyre control…), **Catalog** (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and **System** (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). At the bottom, the **Recent races** table with their status, heats and direct action (Live, Results or Open).
+- Each section opens in **its own window**: click it again and PitWall brings the window you already had open to the front (in the desktop app, even if it's minimised or you went back to the home screen from it). That way you can keep the live view, the TV and the stats open at the same time. Open windows are listed in the home screen's **bottom bar**, with **Bring** to put them in front and **✕** to close them. The **«Open links in: New window / This window»** («Abrir enlaces en») switch, in the header next to **Customise**, lets you open everything in the same window instead, and **Shift + click** opens a link right here without touching the switch.
 - At the bottom right you always see the **link status** (green = connected; "Sin señal" / no signal = check the cable/port or the Bluetooth).
+
+**Customising the home screen.** On the right of the header you'll find the **«Open links in»** («Abrir enlaces en») switch and the **Customise** («Personalizar») button, which opens a dialog to choose between **five home layouts**:
+
+- **A + C · Command + launcher** («Mando con lanzador», default): search, race strip, tiles and windows bar.
+- **A · Command centre** («Centro de mando»): big race strip, competition cards, catalog list and system.
+- **B · Sidebar + dashboard** («Menú lateral + panel»): left menu, status cards and races table.
+- **C · Compact launcher** («Lanzador compacto»): search, thin strip and tiles, with the windows bar below.
+- **D · Command with sidebar** («Mando con menú lateral»): left menu with the big race strip and quick access.
+
+The choice is **saved in PitWall itself**, not on the computer: you'll see the same layout in the desktop app and in any browser that connects. What is described above is the default layout; the others arrange the sections differently (not all of them include the «Go to…» search or the races table).
+
+![img: 01b-home-personalizar.png]
 
 **The race list** shows all your races with their status (pending / active / finished) and the New race (“+ Nueva carrera”) button.
 
@@ -48,6 +60,8 @@ When editing a scenario you define its name, the lane configuration, you drag th
 
 All of them can be **bulk-imported from CSV** (the CSV template (“Plantilla CSV”) and Import CSV (“Importar CSV”) buttons, with a preview of new entries vs. duplicates) and exported.
 
+All three catalogs have a **search box** at the top: it filters as you type (for drivers, by category too) and tells you how many match out of the total. The **/** key takes you to the search box and **Esc** clears it; if you open a record to edit it and come back, the filter is still applied.
+
 ![img: op-catalogo-pilotos.png]
 
 ![img: op-qr-pilotos.png]
@@ -58,7 +72,7 @@ All of them can be **bulk-imported from CSV** (the CSV template (“Plantilla CS
 
 ![img: op-qr-equipos.png]
 
-> **Sync catalog with pending races.** If you change a team's **drivers** or **country** in the catalog *after* creating a race, those changes don't reach the race that's already set up on their own. From **System → Sync catalog** (“Sistema → Sincronizar catálogo”, in the home side menu) —or the **“Actualizar desde catálogo”** (Update from catalog) shortcut in the **⋯** menu of the race sheet, which only shows if the race is a candidate— you push them into every race that **hasn't started any heat yet**, without going through "Edit batch". PitWall matches teams **by name**, makes each race's roster **identical to the catalog** (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a **summary of the changes**, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on **team-format** races. **Category** isn't synced: it's always read live from the catalog.
+> **Sync catalog with pending races.** If you change a team's **drivers** or **country** in the catalog *after* creating a race, those changes don't reach the race that's already set up on their own. From **System → Sync catalog** (“Sistema → Sincronizar catálogo”, on the home screen) —or the **“Actualizar desde catálogo”** (Update from catalog) shortcut in the **⋯** menu of the race sheet, which only shows if the race is a candidate— you push them into every race that **hasn't started any heat yet**, without going through "Edit batch". PitWall matches teams **by name**, makes each race's roster **identical to the catalog** (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a **summary of the changes**, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on **team-format** races. **Category** isn't synced: it's always read live from the catalog.
 
 ## 3. Creating a race
 ![img: 03-wizard-step1.png]
@@ -73,6 +87,8 @@ Press New race (“+ Nueva carrera”) and follow the wizard:
 - **Passes**: how many times the **entire lane sequence** is run. 2 passes = the full rotation is run twice (double the heats).
 - **Repeat lane**: each lane is run this number of **consecutive heats** (same lane), adding up the laps — to compare each repetition.
 - **Pole** (optional) and **driver rules** (championship only: min/max per driver, change lock at the end of a heat).
+
+The first step is organised in **numbered blocks** —**Details**, **Track**, **Format** and, for endurance only, **Endurance rules**— and a **fixed bar at the bottom** sums up your choices next to the **Next** button. Before moving on, PitWall checks that the race has a **name** and a **type** and that every circuit has **between 2 and 8 lanes**, and points out anything missing.
 
 > **Passes** and **repeat lane** only change how the heats are generated; totals are summed per participant.
 
@@ -96,7 +112,7 @@ Go into **Races → Import batch**. There are **two ways** to bring the event ov
 
 > **Requirement:** for the network send, PitWall and PitWall Control must be on the **same** LAN/WiFi network. The pairing PIN is shown in PitWall's **Import batch**. The other half of the bridge —**bringing the results** back to Control— is explained in the *PitWall Control manual*.
 
-> **Ecosystem connection.** The whole network bridge with PitWall Control —sending batches and bringing back results— can be **allowed or blocked** all at once from **System → Ecosystem connection**, in the home side menu. It's **enabled** by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.
+> **Ecosystem connection.** The whole network bridge with PitWall Control —sending batches and bringing back results— can be **allowed or blocked** all at once from **System → Ecosystem connection**, on the home screen. It's **enabled** by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.
 
 ## 5. Batches, participants and rotation
 ![img: 34-tanda.png]
@@ -205,6 +221,10 @@ From the race page:
 6. When all the heats of a batch are done, the **next batch** starts.
 
 **The race sheet stays reachable with a heat running.** Opening a race that has a heat in progress no longer takes you straight to the live screen: you see its **sheet** (status, projected classification, batches…) with a **"Manga N"** (Heat N) link to jump to the live screen whenever you want. When you **give the GO** from the sheet, the screen does jump to live on its own, and you still can't start a second heat while another is running.
+
+**Changing a race's status.** On the race sheet, next to the status label, the **Change status** («Cambiar estado») button offers **Pending** («Pendiente», not started yet), **Active** («En curso», shown on the home screen and receives the GO) and **Completed** («Completada», moves to results). Use it, for instance, to reopen a race closed by mistake or to park one you won't run yet. It can't be changed while a **heat of that race is running**. If you set a race to **Active** while another one is already active, PitWall warns you: the next GO from the DS goes to the **first pending heat of any active race**, so it's best to keep only one.
+
+![img: 06b-race-status.png]
 
 **Choosing the view.** With the View (“Vista”) button you pick one of two views: *Horizontal rows* (one row per lane) or *Cards with details* (one card per lane, readable from a distance). The old *Compact grid* no longer exists: if you had it selected, the cards open instead.
 
@@ -323,6 +343,21 @@ Besides races, PitWall has a **Training** mode (from the home screen) to run wit
 - **Competition**: teams or drivers assigned to lanes with **automatic rotation after each batch**, like a race but designed to practice the championship format.
 
 Choose the mode, assign the lanes and press **Start**. Live timing works the same as in a race (box GO, laps, best/average per lane).
+
+**The training live view.** At the top you have the same buttons as in the race live view (**GO**, pause, **STOP**, voice, **View**, reset, full screen and **Back**). Each lane's card shows:
+
+- the **last lap** and its gap to the best;
+- the **Best / Average / Record** row;
+- the **last 10 laps**, each with its lap number in front;
+- a **pace chart** with best-lap and average lines: hover (or tap) a point to see the lap number, its time and how far it is from the best.
+
+![img: 41-training-free.png]
+
+The **compact view** (**View** button) sums up each lane in little space: the last lap with its gap, Best / Average / Record and a mini pace chart.
+![img: 41b-training-compact.png]
+
+
+**Setting up a competition training.** The form goes in **numbered steps**: circuit, participants and lane-change sequence. To add teams, type in the **catalog search** (**Enter** adds the first match). Each participant can be **moved up or down a lane**; **Draw lanes** shuffles them at random and **Clear all** starts from scratch. If two participants share the same name, PitWall warns you. In the sequence, **Natural order** puts it back to 1, 2, 3… A **fixed bar at the bottom** sums up the lanes, how many are on track and how many in reserve, next to the **Prepare session** button.
 
 **Competition training sessions are saved.** When **each heat's flag drops**, PitWall saves one row per lane that ran, with its **participant**, its **laps**, its **best lap** and its **average**. Participants who are **resting** and lanes **with no crossings** leave no row. A **forced stop does not save** that heat: it's discarded and repeated in full.
 

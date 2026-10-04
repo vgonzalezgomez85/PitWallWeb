@@ -15,11 +15,23 @@ Guida per chi **utilizza** PitWall: allestire la gara, dirigerla in diretta, cor
 
 Puoi usare una qualsiasi di queste fonti; per PitWall il flusso dei passaggi è equivalente.
 
-- La **schermata iniziale** ha un **menu laterale** con tutte le sezioni, raggruppate in **Competizione** (Gare, Allenamenti, Statistiche live, Risultati, Lap, Controllo piloti, Controllo gomme…), **Catalogo** (Piloti, Squadre, Auto, Categorie e Scenari, con quanti ne hai di ciascuno) e **Sistema** (Impostazioni, Database, Sincronizza catalogo, Connessione ecosistema, Risoluzione dei problemi…). Nell'intestazione vedi lo stato della sorgente dati (simulazione, DS-300 connesso o disconnesso).
-- Se c'è una **gara in corso**, in alto compare la sua fascia: **manche X di Y**, tornata, il **tempo rimanente** della manche, le manche fatte e —quando è già calcolato— il **leader stimato**, con pulsanti per **Diretta della manche**, **Schermo TV**, **Statistiche live**, **Controllo piloti** (nei campionati), **Gomme** (se la gara ha treni di gomme), **Registro eventi** e **Gestisci gara**. Senza gara in corso, la fascia mostra la pole in corso oppure le scorciatoie **Nuova gara** / **Allenamento libero**.
-- Sotto trovi quattro **accessi rapidi** (Nuova gara, Allenamenti, Risultati, Lap) e le **ultime gare** con la loro azione diretta (Diretta, Risultati o Apri).
-- Ogni sezione si apre nella **sua finestra**: se la clicchi di nuovo, PitWall porta in primo piano la finestra già aperta, senza ricaricarla. Così puoi tenere insieme la diretta, la TV e le statistiche. Con l'interruttore **«Finestra nuova / Questa finestra»** in fondo al menu scegli se preferisci aprire tutto nella stessa finestra, e una pillola nell'intestazione ti dice quante **finestre** hai aperte.
+- La **schermata iniziale** ha in alto un'intestazione con la ricerca **«Vai a…»** («Ir a…», scorciatoia **⌘K** su Mac o **Ctrl K**): scrivi parte del nome di una sezione o di una gara; **Invio** apre il primo risultato ed **Esc** cancella la ricerca. Accanto, delle pillole mostrano lo stato della sorgente dati (simulazione, DS-300 connesso o disconnesso) e l'**indirizzo IP** del server, per collegare telefoni e schermi.
+- Se c'è una **gara in corso**, sotto compare la sua fascia: **manche X di Y**, tornata, il **tempo rimanente** della manche, le **manche** (quella in corso conta già) e il **leader stimato**, lo stesso della *Classifica stimata* della diretta, aggiornato in tempo reale. Ha pulsanti per **Diretta della manche**, **Schermo TV**, **Correzione dei giri** (della manche in corso o dell'ultima terminata), **Statistiche live**, **Controllo piloti** (nei campionati), **Gomme** (se la gara ha treni di gomme), **Registro eventi** e **Gestisci gara**. Senza gara in corso, la fascia mostra la pole in corso oppure le scorciatoie **Nuova gara** / **Allenamento libero**. La schermata iniziale si aggiorna da sola quando parte una gara e quando una manche inizia, finisce o va in pausa.
+- Sotto, le sezioni sono disposte a **riquadri**: **Competizione** (Gare, Allenamenti, Statistiche live, Risultati, Lap, Controllo piloti, Controllo gomme…), **Catalogo** (Piloti, Squadre, Auto, Categorie e Scenari, con quanti ne hai di ciascuno) e **Sistema** (Impostazioni, Database, Sincronizza catalogo, Connessione ecosistema, Risoluzione dei problemi…). In fondo, la tabella delle **Gare recenti** con stato, manche e azione diretta (Diretta, Risultati o Apri).
+- Ogni sezione si apre nella **sua finestra**: se la clicchi di nuovo, PitWall porta in primo piano la finestra già aperta (nell'app desktop, anche se è ridotta a icona o se da lì sei tornato alla schermata iniziale). Così puoi tenere insieme la diretta, la TV e le statistiche. Le finestre aperte compaiono nella **barra in basso** della schermata iniziale, con **Porta avanti** («Traer») per metterle davanti e **✕** per chiuderle. Con l'interruttore **«Apri i link in: Finestra nuova / Questa finestra»** («Abrir enlaces en»), che si trova nell'intestazione accanto a **Personalizza**, scegli se preferisci aprire tutto nella stessa finestra, e **Maiusc + clic** apre un link qui stesso senza toccare l'interruttore.
 - In basso a destra vedi sempre lo **stato del collegamento** (verde = connesso; "Sin señal" = controlla il cavo/porta o il Bluetooth).
+
+**Personalizzare la schermata iniziale.** A destra dell'intestazione ci sono l'interruttore **«Apri i link in»** («Abrir enlaces en») e il pulsante **Personalizza** («Personalizar»), che apre una finestra per scegliere tra **cinque layout** della schermata iniziale:
+
+- **A + C · Comando con lanciatore** («Mando con lanzador», predefinito): ricerca, fascia della gara, riquadri e barra delle finestre.
+- **A · Centro di comando** («Centro de mando»): fascia grande, schede di competizione, catalogo in elenco e sistema.
+- **B · Menu laterale + pannello** («Menú lateral + panel»): menu a sinistra, schede di stato e tabella delle gare.
+- **C · Lanciatore compatto** («Lanzador compacto»): ricerca, fascia sottile e riquadri, con la barra delle finestre in basso.
+- **D · Comando con menu laterale** («Mando con menú lateral»): menu a sinistra con la fascia grande e accessi rapidi.
+
+La scelta **si salva in PitWall**, non sul computer: vedrai lo stesso layout nell'app desktop e in qualsiasi browser che si colleghi. Quanto descritto sopra corrisponde al layout predefinito; gli altri organizzano le sezioni in modo diverso (non tutti hanno la ricerca «Vai a…» né la tabella delle gare).
+
+![img: 01b-home-personalizar.png]
 
 **L'elenco delle gare** ti mostra tutte le tue gare con il loro stato (in attesa / attiva / terminata) e il pulsante **Nuova gara (“+ Nueva carrera”)**.
 
@@ -48,6 +60,8 @@ Modificando uno scenario ne definisci il nome, la configurazione delle corsie, t
 
 Tutti possono essere **importati in blocco da CSV** (pulsanti **Modello CSV (“Plantilla CSV”)** e **Importa CSV (“Importar CSV”)**, con anteprima delle novità vs. duplicati) ed esportati.
 
+I tre cataloghi hanno una **casella di ricerca** in alto: filtra mentre scrivi (per i piloti, anche per categoria) e ti dice quanti corrispondono sul totale. Il tasto **/** ti porta alla ricerca ed **Esc** la cancella; se apri una scheda per modificarla e torni indietro, il filtro resta applicato.
+
 ![img: op-catalogo-pilotos.png]
 
 ![img: op-qr-pilotos.png]
@@ -58,7 +72,7 @@ Tutti possono essere **importati in blocco da CSV** (pulsanti **Modello CSV (“
 
 ![img: op-qr-equipos.png]
 
-> **Sincronizzare il catalogo con le gare in attesa.** Se cambi i **piloti** o il **paese** di una squadra nel catalogo *dopo* aver creato una gara, quei cambiamenti non arrivano da soli alla gara già montata. Con **Sistema → Sincronizzare il catalogo** (“Sistema → Sincronizar catálogo”, menu laterale della schermata iniziale) —o la scorciatoia **“Actualizar desde catálogo”** (Aggiorna dal catalogo) del menu **⋯** della scheda gara, che compare solo se la gara è candidata— li riversi in tutte le gare che **non hanno ancora avviato nessuna manche**, senza passare per «Modifica tanda». PitWall abbina le squadre **per nome**, rende l'organico di ogni gara **identico al catalogo** (aggiunge e toglie piloti finché non coincidono — uno "specchio esatto") e aggiorna il paese; prima di applicare ti mostra un **riepilogo delle modifiche**, con una casella per gara. Non tocca la griglia né aggiunge o elimina squadre, e agisce solo sulle gare **in formato squadre**. La **categoria** non si sincronizza: si legge sempre in diretta dal catalogo.
+> **Sincronizzare il catalogo con le gare in attesa.** Se cambi i **piloti** o il **paese** di una squadra nel catalogo *dopo* aver creato una gara, quei cambiamenti non arrivano da soli alla gara già montata. Con **Sistema → Sincronizzare il catalogo** (“Sistema → Sincronizar catálogo”, nella schermata iniziale) —o la scorciatoia **“Actualizar desde catálogo”** (Aggiorna dal catalogo) del menu **⋯** della scheda gara, che compare solo se la gara è candidata— li riversi in tutte le gare che **non hanno ancora avviato nessuna manche**, senza passare per «Modifica tanda». PitWall abbina le squadre **per nome**, rende l'organico di ogni gara **identico al catalogo** (aggiunge e toglie piloti finché non coincidono — uno "specchio esatto") e aggiorna il paese; prima di applicare ti mostra un **riepilogo delle modifiche**, con una casella per gara. Non tocca la griglia né aggiunge o elimina squadre, e agisce solo sulle gare **in formato squadre**. La **categoria** non si sincronizza: si legge sempre in diretta dal catalogo.
 
 ## 3. Creare una gara
 ![img: 03-wizard-step1.png]
@@ -73,6 +87,8 @@ Premi **Nuova gara (“+ Nueva carrera”)** e segui la procedura guidata:
 - **Passate**: quante volte si percorre l'**intera sequenza di corsie**. 2 passate = la rotazione completa si corre 2 volte (il doppio delle manche).
 - **Ripeti corsia**: ogni corsia si corre questo n° di **manche di seguito** (stessa corsia), sommando i giri — per confrontare ogni ripetizione.
 - **Pole** (facoltativa) e **regole di pilota** (solo campionato: min/max per pilota, blocco del cambio a fine manche).
+
+Il primo passo è organizzato in **blocchi numerati** —**Dati**, **Pista**, **Formato** e, solo in endurance, **Regole di endurance**— e una **barra fissa in basso** riassume le tue scelte accanto al pulsante **Avanti**. Prima di proseguire, PitWall controlla che la gara abbia un **nome** e un **tipo** e che ogni circuito abbia **tra 2 e 8 corsie**, e ti segnala cosa manca.
 
 > **Passate** e **ripeti corsia** cambiano solo il modo in cui si generano le manche; i totali si sommano per partecipante.
 
@@ -96,7 +112,7 @@ Entra in **Gare → Importa tanda**. Ci sono **due modi** per portare la prova:
 
 > **Requisito:** per l'invio via rete, PitWall e PitWall Control devono trovarsi sulla **stessa rete** LAN/WiFi. Il PIN di abbinamento è mostrato in **Importa tanda** di PitWall. L'altra metà del ponte —**riportare i risultati** verso Control— è spiegata nel *Manuale di PitWall Control*.
 
-> **Connessione ecosistema.** L'intero ponte di rete con PitWall Control —invio delle tande e recupero dei risultati— si può **permettere o bloccare** in blocco da **Sistema → Connessione ecosistema**, nel menu laterale della schermata iniziale. È **attiva** di default; se la disattivi, qualsiasi PitWall Control della rete viene rifiutato (anche con il PIN corretto) finché non la riattivi. Da lì puoi anche consultare il PIN di abbinamento.
+> **Connessione ecosistema.** L'intero ponte di rete con PitWall Control —invio delle tande e recupero dei risultati— si può **permettere o bloccare** in blocco da **Sistema → Connessione ecosistema**, nella schermata iniziale. È **attiva** di default; se la disattivi, qualsiasi PitWall Control della rete viene rifiutato (anche con il PIN corretto) finché non la riattivi. Da lì puoi anche consultare il PIN di abbinamento.
 
 ## 5. Tande, partecipanti e rotazione
 ![img: 34-tanda.png]
@@ -205,6 +221,10 @@ Dalla pagina della gara:
 6. Terminate tutte le manche di una tanda, parte la **tanda successiva**.
 
 **La scheda della gara è accessibile con una manche in corso.** Entrare in una gara che ha una manche in corso non ti porta più dritto alla diretta: vedi la sua **scheda** (stato, classifica proiettata, tande…) con un link **«Manga N»** (Manche N) per saltare alla diretta quando vuoi. Quando **dai il GO** dalla scheda, lo schermo salta comunque da solo alla diretta, e non si può ancora avviare una seconda manche mentre un'altra è in corso.
+
+**Cambiare lo stato di una gara.** Nella scheda della gara, accanto all'etichetta di stato, il pulsante **Cambia stato** («Cambiar estado») offre **In attesa** («Pendiente», non ancora iniziata), **In corso** («En curso», compare nella schermata iniziale e riceve il GO) e **Completata** («Completada», passa ai risultati). Serve, per esempio, a riaprire una gara chiusa per errore o a parcheggiarne una che non correrai ancora. Non si può cambiare mentre c'è una **manche di quella gara in corso**. Se metti una gara **In corso** e ce n'è già un'altra, PitWall ti avvisa: il prossimo GO del DS va alla **prima manche in attesa di qualsiasi gara in corso**, quindi conviene lasciarne una sola.
+
+![img: 06b-race-status.png]
 
 **Scegliere la vista.** Con il pulsante **Vista** scegli tra due viste: *Righe orizzontali* (una riga per corsia) o *Schede con dettagli* (una scheda per corsia, leggibile da lontano). La vecchia *Griglia compatta* non esiste più: se l'avevi scelta, si aprono le schede.
 
@@ -323,6 +343,21 @@ Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** 
 - **Da competizione**: squadre o piloti assegnati alle corsie con **rotazione automatica dopo ogni tanda**, come una gara ma pensato per allenare il formato di campionato.
 
 Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cronometraggio in diretta funziona come in gara (GO del box, giri, miglior/media per corsia).
+
+**La diretta dell'allenamento.** In alto hai gli stessi pulsanti della diretta di gara (**GO**, pausa, **STOP**, voce, **Vista**, azzera, schermo intero e **Indietro**). La scheda di ogni corsia mostra:
+
+- l'**ultimo giro** e il suo distacco dal migliore;
+- la riga **Migliore / Media / Record**;
+- gli **ultimi 10 giri**, ciascuno preceduto dal suo numero di giro;
+- un **grafico del ritmo** con le linee del miglior giro e della media: passando il mouse (o il dito) su un punto vedi il numero del giro, il suo tempo e quanto si discosta dal migliore.
+
+![img: 41-training-free.png]
+
+La **vista compatta** (pulsante **Vista**) riassume ogni corsia in poco spazio: l'ultimo giro con il suo distacco, Migliore / Media / Record e il ritmo in miniatura.
+![img: 41b-training-compact.png]
+
+
+**Preparare un allenamento da competizione.** Il modulo procede per **passi numerati**: circuito, partecipanti e sequenza di cambio corsia. Per aggiungere squadre, scrivi nella **ricerca del catalogo** (**Invio** aggiunge la prima che corrisponde). Ogni partecipante si può **spostare su o giù di corsia**; **Sorteggia corsie** («Sortear carriles») li distribuisce a caso e **Svuota tutto** («Vaciar todo») riparte da zero. Se due partecipanti hanno lo stesso nome, PitWall ti avvisa. Nella sequenza, **Ordine naturale** («Orden natural») la riporta all'ordine 1, 2, 3… Una **barra fissa in basso** riassume le corsie, quanti sono in pista e quanti di riserva, accanto al pulsante **Prepara sessione** («Preparar sesión»).
 
 **Gli allenamenti da competizione vengono salvati.** Alla **caduta della bandiera di ogni tanda**, PitWall salva una riga per ogni corsia che ha girato, con il suo **partecipante**, i suoi **giri**, il suo **miglior giro** e la sua **media**. I partecipanti **a riposo** e le corsie **senza passaggi** non lasciano righe. Uno **stop forzato non salva** quella tanda: viene scartata e ripetuta per intero.
 
