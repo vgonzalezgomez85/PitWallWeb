@@ -18,8 +18,20 @@ Puedes usar cualquiera de estas fuentes; para PitWall el flujo de cruces es equi
 - La **pantalla de inicio** tiene arriba una cabecera con el buscador **«Ir a…»** (atajo **⌘K** en Mac o **Ctrl K**): escribe parte del nombre de una sección o de una carrera; **Intro** abre el primer resultado y **Esc** limpia la búsqueda. A su lado, unas píldoras muestran el estado de la fuente de datos (simulación, DS-300 conectado o sin conexión) y la **dirección IP** del servidor, para conectar móviles y pantallas.
 - Si hay una **carrera en curso**, debajo aparece su franja: **manga X de Y**, tanda, el **tiempo que queda** de la manga, las **mangas** (cuenta ya la que se está corriendo) y el **líder estimado**, que es el mismo de la *Clasificación estimada* del directo y se actualiza en vivo. Tiene botones a **Directo de la manga**, **Pantalla TV**, **Corrección de vueltas** (de la manga en curso o de la última terminada), **Estadísticas en vivo**, **Control de pilotos** (en campeonato), **Neumáticos** (si la carrera tiene juegos), **Registro de sucesos** y **Gestionar carrera**. Sin carrera en curso, la franja muestra la pole que esté en marcha o los atajos **Nueva carrera** / **Entreno libre**. El inicio se actualiza solo cuando arranca una carrera y al empezar, terminar o pausar una manga.
 - Debajo están las secciones en **mosaicos**: **Competición** (Carreras, Entrenamientos, Estadísticas en vivo, Resultados, Lap, Control de pilotos, Control de neumáticos…), **Catálogo** (Pilotos, Equipos, Coches, Categorías y Escenarios, con cuántos tienes de cada) y **Sistema** (Ajustes, Base de datos, Sincronizar catálogo, Conexión ecosistema, Solución de problemas…). Al final, la tabla de **Carreras recientes** con su estado, sus mangas y la acción directa (Directo, Resultados o Abrir).
-- Cada sección se abre en **su propia ventana**: si la vuelves a pulsar, PitWall trae al frente la ventana que ya tenías abierta (en la app de escritorio, aunque esté minimizada o hayas vuelto al inicio desde ella). Así puedes tener a la vez el directo, la TV y las estadísticas. Las ventanas abiertas aparecen en la **barra inferior** del inicio, con **Traer** para ponerlas delante y **✕** para cerrarlas. Con el interruptor **«Abrir enlaces en: Ventana nueva / Esta ventana»** eliges si prefieres abrirlo todo en la misma ventana, y **Mayús + clic** abre un enlace aquí mismo sin tocar el interruptor.
+- Cada sección se abre en **su propia ventana**: si la vuelves a pulsar, PitWall trae al frente la ventana que ya tenías abierta (en la app de escritorio, aunque esté minimizada o hayas vuelto al inicio desde ella). Así puedes tener a la vez el directo, la TV y las estadísticas. Las ventanas abiertas aparecen en la **barra inferior** del inicio, con **Traer** para ponerlas delante y **✕** para cerrarlas. Con el interruptor **«Abrir enlaces en: Ventana nueva / Esta ventana»**, que está en la cabecera junto a **Personalizar**, eliges si prefieres abrirlo todo en la misma ventana, y **Mayús + clic** abre un enlace aquí mismo sin tocar el interruptor.
 - Abajo a la derecha siempre ves el **estado del enlace** (verde = conectado; "Sin señal" = revisa el cable/puerto o el Bluetooth).
+
+**Personalizar el inicio.** En la cabecera, a la derecha, están el interruptor **«Abrir enlaces en»** y el botón **«Personalizar»**, que abre un diálogo para elegir entre **cinco diseños** del inicio:
+
+- **A + C · Mando con lanzador** (por defecto): buscador, franja de la carrera, mosaicos y barra de ventanas.
+- **A · Centro de mando**: franja grande, tarjetas de competición, catálogo en lista y sistema.
+- **B · Menú lateral + panel**: menú a la izquierda, tarjetas de estado y tabla de carreras.
+- **C · Lanzador compacto**: buscador, franja fina y mosaicos, con la barra de ventanas abajo.
+- **D · Mando con menú lateral**: menú a la izquierda con la franja grande y accesos rápidos.
+
+La elección **se guarda en el PitWall**, no en el ordenador: la verás igual en la app de escritorio y en cualquier navegador que se conecte. Lo explicado arriba corresponde al diseño por defecto; los demás reparten las secciones de otra forma (no todos llevan el buscador «Ir a…» ni la tabla de carreras).
+
+![img: 01b-home-personalizar.png]
 
 **El listado de carreras** te muestra todas tus carreras con su estado (pendiente / activa / terminada) y el botón **+ Nueva carrera**.
 
@@ -210,6 +222,10 @@ Desde la página de la carrera:
 
 **La ficha de la carrera es accesible con una manga en marcha.** Entrar en una carrera que tiene una manga en curso ya no te lleva directo al directo: ves su **ficha** (estado, clasificación proyectada, tandas…) con un enlace **«Manga N»** para saltar al directo cuando quieras. Al **dar el GO** desde la ficha, la pantalla sí salta sola al directo, y sigue sin poderse arrancar una segunda manga mientras otra corre.
 
+**Cambiar el estado de una carrera.** En la ficha de la carrera, junto a la etiqueta de estado, el botón **«Cambiar estado»** despliega **Pendiente** (aún no ha empezado), **En curso** (sale en el inicio y recibe el GO) y **Completada** (pasa a resultados). Sirve, por ejemplo, para reabrir una carrera que se cerró por error o para aparcar una que no vas a correr todavía. No deja cambiarlo mientras haya una **manga de esa carrera en marcha**. Si pones una carrera **En curso** y ya hay otra en curso, PitWall te avisa: el siguiente GO del DS va a la **primera manga pendiente de cualquier carrera en curso**, así que conviene dejar solo una.
+
+![img: 06b-race-status.png]
+
 **Elegir la vista.** Con el botón **Vista** eliges entre dos vistas: *Filas horizontales* (una fila por carril) o *Tarjetas con detalles* (una tarjeta por carril, legible de lejos). La antigua *Cuadrícula compacta* ya no existe: si la tenías elegida, se abren las tarjetas.
 
 **Las tarjetas.** La **última vuelta** va en grande con el **total de vueltas** al lado y, debajo, mejor vuelta, media, Gap V y vueltas de la manga; las cifras se ajustan solas al tamaño de la tarjeta, haya 6, 24 o 40 equipos. La última vuelta sale en **morado con «RÉCORD CARRERA»** si es la vuelta rápida de la carrera y en **azul con «BOXES»** si fue una parada. Cada tarjeta muestra el **piloto al volante** con una **barra del tiempo que lleva conducido** frente al máximo por piloto (**ámbar** desde el 85 %, **roja** si lo pasa); si un carril no ha fichado, verás **«SIN PILOTO»** mientras corre la manga. También avisa de salidas, **paradas en boxes** («PIT 2») y **juegos de neumáticos** usados sobre el total («4/12»).
@@ -335,7 +351,11 @@ Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en 
 - las **10 últimas vueltas**, cada una con su número de vuelta delante;
 - un **gráfico de ritmo** con las líneas de mejor vuelta y media: al pasar el ratón (o el dedo) por un punto ves el número de vuelta, su tiempo y cuánto se aleja de la mejor.
 
+![img: 41-training-free.png]
+
 La **vista compacta** (botón **Vista**) resume cada carril en poco espacio: la última vuelta con su diferencia, Mejor / Media / Récord y el ritmo en miniatura.
+![img: 41b-training-compact.png]
+
 
 **Preparar un entreno de competición.** El formulario va por **pasos numerados**: circuito, participantes y secuencia de cambio de carril. Para añadir equipos, escribe en el **buscador del catálogo** (**Intro** añade el primero que coincida). Cada participante se puede **subir o bajar de carril**; **Sortear carriles** los reparte al azar y **Vaciar todo** empieza de cero. Si hay dos participantes con el mismo nombre, PitWall te avisa. En la secuencia, **Orden natural** la devuelve al orden 1, 2, 3… Una **barra fija abajo** resume los carriles, cuántos van en pista y cuántos en reserva, junto al botón **Preparar sesión**.
 

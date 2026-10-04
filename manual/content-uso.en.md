@@ -18,8 +18,20 @@ You can use any of these sources; for PitWall the flow of crossings is equivalen
 - The **home screen** has a header with the **«Go to…»** search (shortcut **⌘K** on Mac or **Ctrl K**): type part of the name of a section or a race; **Enter** opens the first result and **Esc** clears the search. Next to it, pills show the data source status (simulation, DS-300 connected or disconnected) and the server's **IP address**, for connecting phones and screens.
 - When a **race is in progress**, its banner appears below: **heat X of Y**, round, the **time remaining** in the heat, the **heats** (the one being run already counts) and the **projected leader**, which is the same as in the live view's *Projected standings* and updates live. It has buttons to **Heat live**, **TV screen**, **Lap corrections** (for the heat in progress or the last one finished), **Live stats**, **Driver shifts** (championships), **Tyres** (if the race has tyre sets), **Event log** and **Manage race**. With no race in progress, the banner shows the pole currently running or the **New race** / **Free practice** shortcuts. The home screen refreshes on its own when a race starts and when a heat starts, finishes or is paused.
 - Below, the sections are laid out as **tiles**: **Competition** (Races, Training, Live stats, Results, Lap, Driver shifts, Tyre control…), **Catalog** (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and **System** (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). At the bottom, the **Recent races** table with their status, heats and direct action (Live, Results or Open).
-- Each section opens in **its own window**: click it again and PitWall brings the window you already had open to the front (in the desktop app, even if it's minimised or you went back to the home screen from it). That way you can keep the live view, the TV and the stats open at the same time. Open windows are listed in the home screen's **bottom bar**, with **Bring** to put them in front and **✕** to close them. The **«Open links in: New window / This window»** switch lets you open everything in the same window instead, and **Shift + click** opens a link right here without touching the switch.
+- Each section opens in **its own window**: click it again and PitWall brings the window you already had open to the front (in the desktop app, even if it's minimised or you went back to the home screen from it). That way you can keep the live view, the TV and the stats open at the same time. Open windows are listed in the home screen's **bottom bar**, with **Bring** to put them in front and **✕** to close them. The **«Open links in: New window / This window»** («Abrir enlaces en») switch, in the header next to **Customise**, lets you open everything in the same window instead, and **Shift + click** opens a link right here without touching the switch.
 - At the bottom right you always see the **link status** (green = connected; "Sin señal" / no signal = check the cable/port or the Bluetooth).
+
+**Customising the home screen.** On the right of the header you'll find the **«Open links in»** («Abrir enlaces en») switch and the **Customise** («Personalizar») button, which opens a dialog to choose between **five home layouts**:
+
+- **A + C · Command + launcher** («Mando con lanzador», default): search, race strip, tiles and windows bar.
+- **A · Command centre** («Centro de mando»): big race strip, competition cards, catalog list and system.
+- **B · Sidebar + dashboard** («Menú lateral + panel»): left menu, status cards and races table.
+- **C · Compact launcher** («Lanzador compacto»): search, thin strip and tiles, with the windows bar below.
+- **D · Command with sidebar** («Mando con menú lateral»): left menu with the big race strip and quick access.
+
+The choice is **saved in PitWall itself**, not on the computer: you'll see the same layout in the desktop app and in any browser that connects. What is described above is the default layout; the others arrange the sections differently (not all of them include the «Go to…» search or the races table).
+
+![img: 01b-home-personalizar.png]
 
 **The race list** shows all your races with their status (pending / active / finished) and the New race (“+ Nueva carrera”) button.
 
@@ -210,6 +222,10 @@ From the race page:
 
 **The race sheet stays reachable with a heat running.** Opening a race that has a heat in progress no longer takes you straight to the live screen: you see its **sheet** (status, projected classification, batches…) with a **"Manga N"** (Heat N) link to jump to the live screen whenever you want. When you **give the GO** from the sheet, the screen does jump to live on its own, and you still can't start a second heat while another is running.
 
+**Changing a race's status.** On the race sheet, next to the status label, the **Change status** («Cambiar estado») button offers **Pending** («Pendiente», not started yet), **Active** («En curso», shown on the home screen and receives the GO) and **Completed** («Completada», moves to results). Use it, for instance, to reopen a race closed by mistake or to park one you won't run yet. It can't be changed while a **heat of that race is running**. If you set a race to **Active** while another one is already active, PitWall warns you: the next GO from the DS goes to the **first pending heat of any active race**, so it's best to keep only one.
+
+![img: 06b-race-status.png]
+
 **Choosing the view.** With the View (“Vista”) button you pick one of two views: *Horizontal rows* (one row per lane) or *Cards with details* (one card per lane, readable from a distance). The old *Compact grid* no longer exists: if you had it selected, the cards open instead.
 
 **The cards.** The **last lap** is shown large with the **total laps** beside it and, below, best lap, average, Gap V and laps in the heat; the figures resize to fit each card, whether there are 6, 24 or 40 teams. The last lap turns **purple with “RACE RECORD”** if it is the fastest lap of the race and **blue with “PIT”** if it included a stop. Each card shows the **driver at the wheel** with a **bar of the time they have driven** against the per-driver maximum (**amber** from 85 %, **red** once over it); if a lane has not checked in, you will see **“NO DRIVER”** while the heat is running. It also flags exits, **pit stops** (“PIT 2”) and **tyre sets** used out of the total (“4/12”).
@@ -335,7 +351,11 @@ Choose the mode, assign the lanes and press **Start**. Live timing works the sam
 - the **last 10 laps**, each with its lap number in front;
 - a **pace chart** with best-lap and average lines: hover (or tap) a point to see the lap number, its time and how far it is from the best.
 
+![img: 41-training-free.png]
+
 The **compact view** (**View** button) sums up each lane in little space: the last lap with its gap, Best / Average / Record and a mini pace chart.
+![img: 41b-training-compact.png]
+
 
 **Setting up a competition training.** The form goes in **numbered steps**: circuit, participants and lane-change sequence. To add teams, type in the **catalog search** (**Enter** adds the first match). Each participant can be **moved up or down a lane**; **Draw lanes** shuffles them at random and **Clear all** starts from scratch. If two participants share the same name, PitWall warns you. In the sequence, **Natural order** puts it back to 1, 2, 3… A **fixed bar at the bottom** sums up the lanes, how many are on track and how many in reserve, next to the **Prepare session** button.
 

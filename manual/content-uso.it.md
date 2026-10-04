@@ -18,8 +18,20 @@ Puoi usare una qualsiasi di queste fonti; per PitWall il flusso dei passaggi è 
 - La **schermata iniziale** ha in alto un'intestazione con la ricerca **«Vai a…»** («Ir a…», scorciatoia **⌘K** su Mac o **Ctrl K**): scrivi parte del nome di una sezione o di una gara; **Invio** apre il primo risultato ed **Esc** cancella la ricerca. Accanto, delle pillole mostrano lo stato della sorgente dati (simulazione, DS-300 connesso o disconnesso) e l'**indirizzo IP** del server, per collegare telefoni e schermi.
 - Se c'è una **gara in corso**, sotto compare la sua fascia: **manche X di Y**, tornata, il **tempo rimanente** della manche, le **manche** (quella in corso conta già) e il **leader stimato**, lo stesso della *Classifica stimata* della diretta, aggiornato in tempo reale. Ha pulsanti per **Diretta della manche**, **Schermo TV**, **Correzione dei giri** (della manche in corso o dell'ultima terminata), **Statistiche live**, **Controllo piloti** (nei campionati), **Gomme** (se la gara ha treni di gomme), **Registro eventi** e **Gestisci gara**. Senza gara in corso, la fascia mostra la pole in corso oppure le scorciatoie **Nuova gara** / **Allenamento libero**. La schermata iniziale si aggiorna da sola quando parte una gara e quando una manche inizia, finisce o va in pausa.
 - Sotto, le sezioni sono disposte a **riquadri**: **Competizione** (Gare, Allenamenti, Statistiche live, Risultati, Lap, Controllo piloti, Controllo gomme…), **Catalogo** (Piloti, Squadre, Auto, Categorie e Scenari, con quanti ne hai di ciascuno) e **Sistema** (Impostazioni, Database, Sincronizza catalogo, Connessione ecosistema, Risoluzione dei problemi…). In fondo, la tabella delle **Gare recenti** con stato, manche e azione diretta (Diretta, Risultati o Apri).
-- Ogni sezione si apre nella **sua finestra**: se la clicchi di nuovo, PitWall porta in primo piano la finestra già aperta (nell'app desktop, anche se è ridotta a icona o se da lì sei tornato alla schermata iniziale). Così puoi tenere insieme la diretta, la TV e le statistiche. Le finestre aperte compaiono nella **barra in basso** della schermata iniziale, con **Porta avanti** («Traer») per metterle davanti e **✕** per chiuderle. Con l'interruttore **«Apri i link in: Finestra nuova / Questa finestra»** scegli se preferisci aprire tutto nella stessa finestra, e **Maiusc + clic** apre un link qui stesso senza toccare l'interruttore.
+- Ogni sezione si apre nella **sua finestra**: se la clicchi di nuovo, PitWall porta in primo piano la finestra già aperta (nell'app desktop, anche se è ridotta a icona o se da lì sei tornato alla schermata iniziale). Così puoi tenere insieme la diretta, la TV e le statistiche. Le finestre aperte compaiono nella **barra in basso** della schermata iniziale, con **Porta avanti** («Traer») per metterle davanti e **✕** per chiuderle. Con l'interruttore **«Apri i link in: Finestra nuova / Questa finestra»** («Abrir enlaces en»), che si trova nell'intestazione accanto a **Personalizza**, scegli se preferisci aprire tutto nella stessa finestra, e **Maiusc + clic** apre un link qui stesso senza toccare l'interruttore.
 - In basso a destra vedi sempre lo **stato del collegamento** (verde = connesso; "Sin señal" = controlla il cavo/porta o il Bluetooth).
+
+**Personalizzare la schermata iniziale.** A destra dell'intestazione ci sono l'interruttore **«Apri i link in»** («Abrir enlaces en») e il pulsante **Personalizza** («Personalizar»), che apre una finestra per scegliere tra **cinque layout** della schermata iniziale:
+
+- **A + C · Comando con lanciatore** («Mando con lanzador», predefinito): ricerca, fascia della gara, riquadri e barra delle finestre.
+- **A · Centro di comando** («Centro de mando»): fascia grande, schede di competizione, catalogo in elenco e sistema.
+- **B · Menu laterale + pannello** («Menú lateral + panel»): menu a sinistra, schede di stato e tabella delle gare.
+- **C · Lanciatore compatto** («Lanzador compacto»): ricerca, fascia sottile e riquadri, con la barra delle finestre in basso.
+- **D · Comando con menu laterale** («Mando con menú lateral»): menu a sinistra con la fascia grande e accessi rapidi.
+
+La scelta **si salva in PitWall**, non sul computer: vedrai lo stesso layout nell'app desktop e in qualsiasi browser che si colleghi. Quanto descritto sopra corrisponde al layout predefinito; gli altri organizzano le sezioni in modo diverso (non tutti hanno la ricerca «Vai a…» né la tabella delle gare).
+
+![img: 01b-home-personalizar.png]
 
 **L'elenco delle gare** ti mostra tutte le tue gare con il loro stato (in attesa / attiva / terminata) e il pulsante **Nuova gara (“+ Nueva carrera”)**.
 
@@ -210,6 +222,10 @@ Dalla pagina della gara:
 
 **La scheda della gara è accessibile con una manche in corso.** Entrare in una gara che ha una manche in corso non ti porta più dritto alla diretta: vedi la sua **scheda** (stato, classifica proiettata, tande…) con un link **«Manga N»** (Manche N) per saltare alla diretta quando vuoi. Quando **dai il GO** dalla scheda, lo schermo salta comunque da solo alla diretta, e non si può ancora avviare una seconda manche mentre un'altra è in corso.
 
+**Cambiare lo stato di una gara.** Nella scheda della gara, accanto all'etichetta di stato, il pulsante **Cambia stato** («Cambiar estado») offre **In attesa** («Pendiente», non ancora iniziata), **In corso** («En curso», compare nella schermata iniziale e riceve il GO) e **Completata** («Completada», passa ai risultati). Serve, per esempio, a riaprire una gara chiusa per errore o a parcheggiarne una che non correrai ancora. Non si può cambiare mentre c'è una **manche di quella gara in corso**. Se metti una gara **In corso** e ce n'è già un'altra, PitWall ti avvisa: il prossimo GO del DS va alla **prima manche in attesa di qualsiasi gara in corso**, quindi conviene lasciarne una sola.
+
+![img: 06b-race-status.png]
+
 **Scegliere la vista.** Con il pulsante **Vista** scegli tra due viste: *Righe orizzontali* (una riga per corsia) o *Schede con dettagli* (una scheda per corsia, leggibile da lontano). La vecchia *Griglia compatta* non esiste più: se l'avevi scelta, si aprono le schede.
 
 **Le schede.** L'**ultimo giro** compare in grande con il **totale dei giri** accanto e, sotto, miglior giro, media, Gap V e giri della manche; le cifre si adattano da sole alla dimensione della scheda, che ci siano 6, 24 o 40 squadre. L'ultimo giro diventa **viola con «RÉCORD CARRERA»** (record della gara) se è il giro più veloce della gara e **blu con «BOXES»** (box) se includeva una sosta. Ogni scheda mostra il **pilota al volante** con una **barra del tempo già guidato** rispetto al massimo per pilota (**ambra** dall'85 %, **rossa** se lo supera); se una corsia non ha fatto il check-in, vedrai **«SIN PILOTO»** (senza pilota) mentre la manche è in corso. Segnala anche uscite, **soste ai box** («PIT 2») e **treni di gomme** usati sul totale («4/12»).
@@ -335,7 +351,11 @@ Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cr
 - gli **ultimi 10 giri**, ciascuno preceduto dal suo numero di giro;
 - un **grafico del ritmo** con le linee del miglior giro e della media: passando il mouse (o il dito) su un punto vedi il numero del giro, il suo tempo e quanto si discosta dal migliore.
 
+![img: 41-training-free.png]
+
 La **vista compatta** (pulsante **Vista**) riassume ogni corsia in poco spazio: l'ultimo giro con il suo distacco, Migliore / Media / Record e il ritmo in miniatura.
+![img: 41b-training-compact.png]
+
 
 **Preparare un allenamento da competizione.** Il modulo procede per **passi numerati**: circuito, partecipanti e sequenza di cambio corsia. Per aggiungere squadre, scrivi nella **ricerca del catalogo** (**Invio** aggiunge la prima che corrisponde). Ogni partecipante si può **spostare su o giù di corsia**; **Sorteggia corsie** («Sortear carriles») li distribuisce a caso e **Svuota tutto** («Vaciar todo») riparte da zero. Se due partecipanti hanno lo stesso nome, PitWall ti avvisa. Nella sequenza, **Ordine naturale** («Orden natural») la riporta all'ordine 1, 2, 3… Una **barra fissa in basso** riassume le corsie, quanti sono in pista e quanti di riserva, accanto al pulsante **Prepara sessione** («Preparar sesión»).
 

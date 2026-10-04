@@ -18,8 +18,20 @@ Tu peux utiliser n'importe laquelle de ces sources ; pour PitWall le flux de pas
 - L'**écran d'accueil** a en haut un en-tête avec la recherche **« Aller à… »** (« Ir a… », raccourci **⌘K** sur Mac ou **Ctrl K**) : tape une partie du nom d'une section ou d'une course ; **Entrée** ouvre le premier résultat et **Échap** efface la recherche. À côté, des pastilles affichent l'état de la source de données (simulation, DS-300 connecté ou déconnecté) et l'**adresse IP** du serveur, pour connecter téléphones et écrans.
 - Quand une **course est en cours**, son bandeau apparaît en dessous : **manche X sur Y**, série, le **temps restant** de la manche, les **manches** (celle qui se court compte déjà) et le **leader estimé**, le même que dans le *Classement estimé* du direct, mis à jour en direct. Il a des boutons vers **Direct de la manche**, **Écran TV**, **Correction des tours** (de la manche en cours ou de la dernière terminée), **Statistiques en direct**, **Contrôle des pilotes** (en championnat), **Pneus** (si la course a des trains de pneus), **Journal des événements** et **Gérer la course**. Sans course en cours, le bandeau affiche la pole en cours ou les raccourcis **Nouvelle course** / **Entraînement libre**. L'accueil se met à jour tout seul quand une course démarre et quand une manche commence, se termine ou est mise en pause.
 - En dessous, les sections sont présentées en **tuiles** : **Compétition** (Courses, Entraînements, Statistiques en direct, Résultats, Lap, Contrôle des pilotes, Contrôle des pneus…), **Catalogue** (Pilotes, Équipes, Voitures, Catégories et Scénarios, avec le nombre de chacun) et **Système** (Réglages, Base de données, Synchroniser le catalogue, Connexion écosystème, Dépannage…). Tout en bas, le tableau des **Courses récentes** avec leur état, leurs manches et leur action directe (Direct, Résultats ou Ouvrir).
-- Chaque section s'ouvre dans **sa propre fenêtre** : si tu cliques à nouveau dessus, PitWall ramène au premier plan la fenêtre déjà ouverte (dans l'application de bureau, même si elle est réduite ou si tu es revenu à l'accueil depuis elle). Tu peux ainsi garder en même temps le direct, la TV et les statistiques. Les fenêtres ouvertes apparaissent dans la **barre du bas** de l'accueil, avec **Afficher** (« Traer ») pour les mettre devant et **✕** pour les fermer. L'interrupteur **« Ouvrir les liens dans : Nouvelle fenêtre / Cette fenêtre »** te permet de tout ouvrir dans la même fenêtre si tu préfères, et **Maj + clic** ouvre un lien ici même sans toucher à l'interrupteur.
+- Chaque section s'ouvre dans **sa propre fenêtre** : si tu cliques à nouveau dessus, PitWall ramène au premier plan la fenêtre déjà ouverte (dans l'application de bureau, même si elle est réduite ou si tu es revenu à l'accueil depuis elle). Tu peux ainsi garder en même temps le direct, la TV et les statistiques. Les fenêtres ouvertes apparaissent dans la **barre du bas** de l'accueil, avec **Afficher** (« Traer ») pour les mettre devant et **✕** pour les fermer. L'interrupteur **« Ouvrir les liens dans : Nouvelle fenêtre / Cette fenêtre »** (« Abrir enlaces en »), placé dans l'en-tête à côté de **Personnaliser**, te permet de tout ouvrir dans la même fenêtre si tu préfères, et **Maj + clic** ouvre un lien ici même sans toucher à l'interrupteur.
 - En bas à droite, tu vois toujours l'**état de la liaison** (vert = connecté ; « Sans signal » = vérifie le câble/port ou le Bluetooth).
+
+**Personnaliser l'accueil.** À droite de l'en-tête se trouvent l'interrupteur **« Ouvrir les liens dans »** (« Abrir enlaces en ») et le bouton **Personnaliser** (« Personalizar »), qui ouvre une fenêtre pour choisir entre **cinq mises en page** de l'accueil :
+
+- **A + C · Poste de commande avec lanceur** (« Mando con lanzador », par défaut) : recherche, bandeau de la course, tuiles et barre des fenêtres.
+- **A · Centre de commande** (« Centro de mando ») : grand bandeau, cartes de compétition, catalogue en liste et système.
+- **B · Menu latéral + tableau de bord** (« Menú lateral + panel ») : menu à gauche, cartes d'état et tableau des courses.
+- **C · Lanceur compact** (« Lanzador compacto ») : recherche, bandeau fin et tuiles, avec la barre des fenêtres en bas.
+- **D · Poste de commande avec menu latéral** (« Mando con menú lateral ») : menu à gauche avec le grand bandeau et des accès rapides.
+
+Le choix est **enregistré dans PitWall**, pas sur l'ordinateur : tu verras la même mise en page dans l'application de bureau et dans n'importe quel navigateur connecté. Ce qui est décrit plus haut correspond à la mise en page par défaut ; les autres organisent les sections autrement (tous n'ont pas la recherche « Aller à… » ni le tableau des courses).
+
+![img: 01b-home-personalizar.png]
 
 **La liste des courses** te montre toutes tes courses avec leur état (en attente / active / terminée) et le bouton *Nouvelle course (« + Nueva carrera »)*.
 
@@ -210,6 +222,10 @@ Depuis la page de la course :
 
 **La fiche de la course reste accessible pendant qu'une manche tourne.** Ouvrir une course qui a une manche en cours ne t'emmène plus directement au direct : tu vois sa **fiche** (état, classement projeté, séries…) avec un lien **« Manga N »** (Manche N) pour sauter au direct quand tu veux. Quand tu **donnes le GO** depuis la fiche, l'écran saute bien tout seul au direct, et on ne peut toujours pas lancer une deuxième manche pendant qu'une autre tourne.
 
+**Changer l'état d'une course.** Sur la fiche de la course, à côté de l'étiquette d'état, le bouton **Changer l'état** (« Cambiar estado ») propose **En attente** (« Pendiente », pas encore commencée), **En cours** (« En curso », affichée sur l'accueil et reçoit le GO) et **Terminée** (« Completada », passe aux résultats). Utile, par exemple, pour rouvrir une course fermée par erreur ou mettre de côté une course que tu ne vas pas encore courir. Impossible de le changer pendant qu'une **manche de cette course tourne**. Si tu mets une course **En cours** alors qu'une autre l'est déjà, PitWall te prévient : le prochain GO du DS va à la **première manche en attente de n'importe quelle course en cours**, il vaut donc mieux n'en garder qu'une.
+
+![img: 06b-race-status.png]
+
 **Choisir la vue.** Avec le bouton *Vue (« Vista »)*, tu choisis entre deux vues : *Lignes horizontales* (une ligne par voie) ou *Cartes détaillées* (une carte par voie, lisible de loin). L'ancienne *Grille compacte* n'existe plus : si tu l'avais choisie, ce sont les cartes qui s'ouvrent.
 
 **Les cartes.** Le **dernier tour** s'affiche en grand avec le **total de tours** à côté et, en dessous, meilleur tour, moyenne, Gap V et tours de la manche ; les chiffres s'adaptent tout seuls à la taille de la carte, qu'il y ait 6, 24 ou 40 équipes. Le dernier tour passe en **violet avec « RÉCORD CARRERA »** (record de la course) si c'est le meilleur tour de la course et en **bleu avec « BOXES »** (stand) s'il comprenait un arrêt. Chaque carte montre le **pilote au volant** avec une **barre du temps qu'il a déjà conduit** face au maximum par pilote (**ambre** à partir de 85 %, **rouge** s'il le dépasse) ; si une voie n'a pas pointé, tu verras **« SIN PILOTO »** (sans pilote) pendant la manche. Elle signale aussi les sorties, les **arrêts au stand** (« PIT 2 ») et les **trains de pneus** utilisés sur le total (« 4/12 »).
@@ -335,7 +351,11 @@ Choisis la modalité, attribue les voies et appuie sur *Commencer (« Empezar »
 - les **10 derniers tours**, chacun précédé de son numéro de tour ;
 - un **graphique de rythme** avec les lignes du meilleur tour et de la moyenne : en survolant (ou en touchant) un point, tu vois le numéro du tour, son temps et son écart avec le meilleur.
 
+![img: 41-training-free.png]
+
 La **vue compacte** (bouton **Vue**) résume chaque voie en peu de place : le dernier tour avec son écart, Meilleur / Moyenne / Record et le rythme en miniature.
+![img: 41b-training-compact.png]
+
 
 **Préparer un entraînement de compétition.** Le formulaire avance par **étapes numérotées** : circuit, participants et séquence de changement de voie. Pour ajouter des équipes, tape dans la **recherche du catalogue** (**Entrée** ajoute la première qui correspond). Chaque participant peut **monter ou descendre d'une voie** ; *Tirer les voies au sort* (« Sortear carriles ») les répartit au hasard et *Tout vider* (« Vaciar todo ») repart de zéro. Si deux participants portent le même nom, PitWall te prévient. Dans la séquence, *Ordre naturel* (« Orden natural ») la remet dans l'ordre 1, 2, 3… Une **barre fixe en bas** résume les voies, combien sont en piste et combien en réserve, à côté du bouton *Préparer la séance* (« Preparar sesión »).
 
