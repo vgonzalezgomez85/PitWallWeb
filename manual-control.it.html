@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PitWall Control · Manuale d'uso</title>
-<meta name="description" content="Manuale d'uso di PitWall Control: gestisci i campionati di slot dall'inizio alla fine — piloti, squadre, prove, verifiche tecniche, crediti, classifica ed export.">
+<meta name="description" content="Manuale d'uso di PitWall Control: gestisci i campionati di slot dall'inizio alla fine — piloti, squadre, prove e manche, verifiche tecniche (anche libere), tesoreria, crediti, classifica ed export.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
   <div class="wrap">
     <div class="kicker">Manuale d'uso · Gestione di campionati</div>
     <h1>Gestisci il<br>campionato<br>dall'inizio alla <span class="ac">fine</span>.</h1>
-    <p class="lede">Guida per chi <b>amministra</b> PitWall Control: creare il campionato, mantenere i cataloghi, iscrivere piloti e squadre, allestire prove e manche, <b>verificare</b> le auto rispetto ai regolamenti, gestire <b>crediti</b> e <b>tesoreria</b>, pubblicare la <b>classifica</b> ed esportare tutto in PDF. Dalla prima iscrizione alla chiusura della stagione.</p>
+    <p class="lede">Guida per chi <b>amministra</b> PitWall Control: creare il campionato, mantenere i cataloghi, iscrivere piloti e squadre, allestire prove e manche, <b>verificare</b> le auto rispetto ai regolamenti (anche senza campionato), <b>incassare</b> le quote, gestire i <b>crediti</b>, pubblicare la <b>classifica</b> ed esportare tutto in PDF ed Excel. Dalla prima iscrizione alla chiusura della stagione.</p>
     <div class="xlink">
       <a class="cur" href="manual-control.it.html">▮ Manuale di PitWall Control</a>
       <a href="pitwall-control-it.html">Vedi il prodotto ↔</a>
@@ -69,16 +69,17 @@
       <li><a href="#campeonato">Creare il campionato</a></li>
       <li><a href="#catalogos">Cataloghi (la tua libreria)</a></li>
       <li><a href="#pilotos">Piloti</a></li>
-      <li><a href="#equipos">Squadre</a></li>
+      <li><a href="#equipos">Squadre e iscrizioni</a></li>
       <li><a href="#pruebas">Prove e manche</a></li>
       <li><a href="#verificaciones">Verifiche tecniche</a></li>
       <li><a href="#clasificacion">Classifica</a></li>
       <li><a href="#tesoreria">Tesoreria</a></li>
       <li><a href="#creditos">Crediti e chiusura</a></li>
       <li><a href="#sorteo">Sorteggio motore</a></li>
-      <li><a href="#google">Sincronizzare con Google Sheets</a></li>
+      <li><a href="#libre">Verifica libera</a></li>
+      <li><a href="#google">Google Sheets e Drive</a></li>
       <li><a href="#csv">Modelli CSV</a></li>
-      <li><a href="#pdf">Esportare in PDF</a></li>
+      <li><a href="#pdf">Esportare (PDF ed Excel)</a></li>
       <li><a href="#pitwall">Inviare a PitWall / risultati</a></li>
       <li><a href="#glosario">Glossario</a></li>
     </ol>
@@ -90,348 +91,439 @@
     <section id="introduccion">
       <div class="num">// 01</div>
       <h2>Introduzione</h2>
-      <p><b>PitWall Control</b> è il gestore dei <b>campionati di slot</b>: la parte amministrativa e di stagione. Non cronometra le gare (di questo si occupa <b>PitWall</b>, il cronometratore); Control gestisce tutto ciò che ruota attorno alla competizione — piloti, squadre, cataloghi tecnici, verifiche tecniche, crediti, tesoreria e classifica — e comunica con PitWall per inviare le tande e importare i risultati.</p>
+      <p><b>PitWall Control</b> è il gestore di <b>campionati di slot</b>: la parte amministrativa e di stagione. Non cronometra le gare (se ne occupa <b>PitWall</b>, il cronometro); Control gestisce tutto ciò che circonda la competizione — piloti, squadre, cataloghi tecnici, verifiche, crediti, tesoreria e classifica — e comunica con PitWall per inviare le tande e importare i risultati.</p>
+      <p class="mono">L'interfaccia dell'app è in spagnolo; questo manuale cita le sue etichette in spagnolo dove aiuta a trovarle sullo schermo.</p>
       <ul>
-        <li>Gira su <b>desktop</b> (macOS/Windows) e su <b>mobile</b>. I dati risiedono sul dispositivo stesso.</li>
-        <li>La navigazione principale, a sinistra, cambia in base al <b>campionato attivo</b>: <b>Home, Piloti, Squadre, Prove, Verifiche tecniche, Classifica, Tesoreria</b> e <b>Crediti</b>.</li>
-        <li>In basso nel pannello di navigazione trovi gli accessi secondari: <b>Sorteggio motore, Campionati, Cataloghi, Configurazione di Google</b> e <b>Modelli CSV</b>.</li>
+        <li>Funziona su <b>desktop</b> (macOS, Windows e Linux) e su <b>Android</b> (tablet o telefono). I dati restano sul dispositivo; per condividerli tra più dispositivi usa la <a class="inl" href="#google">copia su Google Drive</a>.</li>
+        <li>La navigazione principale, a sinistra, dipende dal <b>campionato attivo</b> (lo scegli in alto, nel riquadro rosso): <b>Home, Piloti, Squadre, Prove, «Resum. Verifi.»</b> (il riepilogo delle verifiche), <b>Classifica, Tesoreria</b> e <b>Crediti</b>. Tesoreria e Crediti compaiono solo se il campionato li usa.</li>
+        <li>In basso ci sono gli accessi generali: <b>Verifica libera, Campionati, Cataloghi, Google Sheets, Modelli CSV, Novità</b> (lo storico delle versioni) e il cambio <b>modalità chiara / scura</b>. Sotto, la versione installata.</li>
+        <li>Se non hai ancora nessun campionato, la home ti propone <b>Creare campionato</b> o <b>Solo verificare auto</b> (la <a class="inl" href="#libre">verifica libera</a>).</li>
       </ul>
       <div class="summary">
         <span class="tag">In una frase</span>
-        <p>Configuri il campionato e i suoi cataloghi una volta, e da lì in poi ti limiti a iscrivere, verificare e pubblicare: PitWall Control applica i regolamenti al posto tuo.</p>
+        <p>Configuri il campionato e i suoi cataloghi una volta e da lì in poi iscrivi, verifichi, incassi e pubblichi: PitWall Control applica le regole per te.</p>
       </div>
       <figure class="shot">
-        <img src="manual/img/control-01-inicio.png" loading="lazy" alt="Schermata iniziale di PitWall Control con il campionato attivo, la prossima prova, il leader e gli accessi rapidi">
-        <figcaption>Home: campionato attivo, prossima prova, leader e accessi rapidi. A sinistra, la navigazione.</figcaption>
+        <img src="manual/img/control-01-inicio.png" loading="lazy" alt="Schermata home di PitWall Control con il campionato attivo, la prossima prova, il leader e gli accessi rapidi">
+        <figcaption>Home: campionato attivo, prossima prova, leader e accessi rapidi. A sinistra la navigazione e, in basso, gli accessi generali.</figcaption>
       </figure>
     </section>
 
     <section id="campeonato">
       <div class="num">// 02</div>
       <h2>Creare il campionato</h2>
-      <p>Tutto dipende da un <b>campionato</b>. Da <b>Campionati</b> (accesso secondario) ne crei uno nuovo e definisci come funziona. Il campionato che imposti come <b>attivo</b> è quello che vedi in tutta l'app.</p>
+      <p>Tutto dipende da un <b>campionato</b>. Da <b>Campionati</b> ne crei uno nuovo e definisci come funziona. Il campionato che scegli come <b>attivo</b> è quello che vedi in tutta l'app. Un campionato nuovo parte <b>vuoto</b>: senza coppe selezionate e senza quote, così metti le tue.</p>
 
       <h3>Dati di base</h3>
       <ul>
-        <li><b>Nome</b>, <b>anno</b> e <b>organizzazione</b> (appare nelle intestazioni e nei PDF).</li>
-        <li><b>Formato</b>: <b>Individuale</b> (1 pilota per squadra), <b>Coppie</b> (2) o <b>Endurance</b> (squadre fino a 6 piloti, tipicamente 4-5).</li>
-        <li><b>Coppe / classi</b>: l'elenco delle classi che gareggiano (ad es. <span class="mono">GRUPO C1</span>, <span class="mono">GRUPO C2</span>, <span class="mono">GT</span>, <span class="mono">CLÁSICOS</span>). Si usano per la classifica e per <b>filtrare i cataloghi</b> nella verifica.</li>
+        <li><b>Nome</b> e <b>anno</b>.</li>
+        <li><b>Formato</b>: <b>Coppie</b> (2 piloti per squadra), <b>Individuale</b> (1 pilota) o <b>24h</b> (squadre endurance fino a 6 piloti).</li>
+        <li><b>Coppe / categorie</b>: seleziona le classi che corrono (es. <span class="mono">LMP</span>, <span class="mono">GT3</span>, <span class="mono">GRUPO C</span>) o aggiungine una nuova. Bisogna selezionarne <b>almeno una</b> per salvare. Servono per la classifica e per <b>filtrare i cataloghi</b> nella verifica.</li>
+        <li><b>Larghezza assale</b>: massimo anteriore e posteriore (mm) <b>per coppa</b>. Lascialo vuoto se in quella coppa non si controlla.</li>
       </ul>
 
-      <h3>Regole tecniche</h3>
+      <h3>Regole</h3>
       <ul>
-        <li><b>Intervallo di denti</b> consentito nella verifica: pignone (min/max) e corona (min/max). Se min = max, il valore è fisso (ad es. pignone 12).</li>
-        <li><b>Intervallo di sorteggio motore</b> dell'organizzazione (numeri min/max). Necessario per poter sorteggiare i motori.</li>
+        <li><b>Crediti</b>: attiva il sistema di handicap, con il suo <b>tetto di regolarizzazione</b>. Creando il campionato puoi <b>importare i crediti</b> da un altro campionato. Se lo disattivi, tutti i campi e la sezione Crediti vengono nascosti.</li>
+        <li><b>Tesoreria</b>: attiva le quote per prova. Indica il <b>Pagat</b> (la quota totale, obbligatoria) e la sua ripartizione: quanto va all'<b>ente coordinatore</b> («Coordinadora») e quanto al <b>club</b>. Coordinatore + Club devono sommare il Pagat, altrimenti non si può salvare.</li>
+        <li><b>Punteggio</b>: numero di <b>scarti</b> (peggiori prove che non contano). La tabella punti si modifica in <a class="inl" href="#clasificacion">Classifica</a>.</li>
       </ul>
 
-      <h3>Moduli opzionali</h3>
+      <h3>Motore (verifica)</h3>
+      <p>Qui decidi <b>da dove arrivano i motori</b> del campionato, così la verifica non lo chiede ogni volta:</p>
       <ul>
-        <li><b>Crediti</b>: attiva il sistema di handicap. Se lo disattivi, vengono nascosti tutti i campi e la sezione Crediti.</li>
-        <li><b>Tesoreria</b>: attiva il controllo delle quote per prova (e la loro ripartizione). Se lo disattivi, viene nascosta.</li>
-        <li><b>Marchio</b>: titolo e slogan propri del campionato per l'intestazione e il piè di pagina dei PDF. Se li lasci vuoti, si usa il marchio predefinito dell'app.</li>
-        <li><b>Concluso</b>: contrassegna la stagione come chiusa.</li>
+        <li><b>Sorteggio</b> («Sorteo»): l'organizzazione sorteggia i motori. Nella verifica si annota solo il numero del motore.</li>
+        <li><b>Proprio</b> («Propio»): ogni squadra porta il suo motore. Nella verifica si sceglie dal catalogo e si controllano RPM e uMs.</li>
+        <li><b>Misto</b> («Mixto»): in ogni verifica si indica se il motore è dell'organizzazione o proprio.</li>
+      </ul>
+      <p>Con <b>Sorteggio</b> o <b>Misto</b> compare l'<b>intervallo di numeri</b> da sorteggiare (motore da / a), necessario per <a class="inl" href="#sorteo">sorteggiare</a>. Creando il campionato bisogna scegliere una delle tre opzioni.</p>
+
+      <h3>Costruttore, marchio e stato</h3>
+      <ul>
+        <li><b>Limitare il costruttore</b>: per campionati monomarca. Scegli le marche ammesse e, nella verifica, i menu di marca di <b>pignone, corona, cerchi e treccia</b> offrono solo quelle; qualsiasi altra già salvata risulta <b>infrazione</b>.</li>
+        <li><b>Marchio nei PDF</b>: titolo di intestazione e motto a piè di pagina propri del campionato. Se li lasci vuoti si usa il marchio predefinito.</li>
+        <li><b>Campionato visibile</b> (solo quelli visibili compaiono nel selettore) e <b>Campionato concluso</b> (stagione chiusa: la classifica ordina per punti netti e si abilita il bonus di fine stagione).</li>
       </ul>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-        <div>Le <b>coppe</b> del campionato sono l'elemento chiave: quasi tutto (squadre, cataloghi, verifica, classifica) si appoggia su di esse. Definiscile prima di iniziare a iscrivere.</div>
+        <div>Le <b>coppe</b> del campionato sono il pezzo chiave: quasi tutto (squadre, cataloghi, verifica, classifica) si basa su di esse. Definiscile prima di iniziare a iscrivere.</div>
       </div>
       <figure class="shot">
-        <img src="manual/img/control-02-campeonatos.png" loading="lazy" alt="Elenco dei campionati con formato, anno e scarti; l'attivo evidenziato">
-        <figcaption>Campionati: ognuno con il suo formato (Coppie / Individuale / 24H), anno e scarti. L'attivo, evidenziato.</figcaption>
+        <img src="manual/img/control-02-campeonatos.png" loading="lazy" alt="Elenco dei campionati con formato, anno e scarti">
+        <figcaption>Campionati: ognuno con il suo formato, anno e scarti. La matita apre l'editor; in basso, «Nuevo campeonato».</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="manual/img/control-02b-campeonato-reglas.png" loading="lazy" alt="Editor del campionato con tesoreria, punteggio, tipo di motore, limitare il costruttore e marchio nei PDF">
+        <figcaption>Editor del campionato: tesoreria, punteggio, <b>Motore</b> (Sorteggio / Proprio / Misto), limitare il costruttore e marchio nei PDF.</figcaption>
       </figure>
     </section>
 
     <section id="catalogos">
       <div class="num">// 03</div>
       <h2>Cataloghi (la tua libreria)</h2>
-      <p>I <b>cataloghi</b> sono le liste riutilizzabili di materiale omologato. Si mantengono una volta e alimentano i menu a tendina della verifica. Ogni scheda ha un <b>motore di ricerca</b> e, dove applicabile, un <b>filtro per coppa</b>.</p>
+      <p>I cataloghi sono gli elenchi riutilizzabili di materiale omologato. Si mantengono una volta e alimentano i menu della verifica. Ogni scheda ha una ricerca e, dove serve, un filtro per coppa.</p>
       <ul>
-        <li><b>Auto</b>: modello, <b>coppa/e</b> a cui appartiene e una <b>foto di riferimento</b> (per confrontarla con l'auto che consegna la squadra). Un'auto può valere per più coppe.</li>
-        <li><b>Motori</b>: identificatore, RPM, gauss e <b>coppa/e</b>.</li>
-        <li><b>Ingranaggi</b>: pignoni e corone (marca e denti) con <b>coppa/e</b>.</li>
-        <li><b>Gomme</b>: nome, riferimento e <b>coppa/e</b>.</li>
-        <li><b>Supporti motore</b> e <b>telai</b>: con <b>coppa/e</b>.</li>
-        <li><b>Cerchi</b>: misura (dimensione), <b>tipo</b> per asse (anteriore / posteriore / entrambi) e <b>coppa/e</b>.</li>
-        <li><b>Marche</b>, <b>coppe</b> e <b>club</b>: liste di supporto.</li>
+        <li><b>Auto</b>: modello, marca, peso minimo, crediti, coppa/e e una <b>foto di riferimento</b> (da fotocamera o galleria) da confrontare con l'auto consegnata dalla squadra.</li>
+        <li><b>Marche</b>: codice breve e nome (quelle offerte per pignone, corona, cerchi e treccia).</li>
+        <li><b>Cerchi</b>: misura, tipo per assale (<span class="mono">DELANTERA</span> / <span class="mono">TRASERA</span> / <span class="mono">AMBAS</span> — anteriore / posteriore / entrambi) e coppa/e.</li>
+        <li><b>Ingranaggi</b>: pignoni e corone con i loro <b>denti</b>, diametro e coppa/e. I denti offerti nella verifica vengono da qui.</li>
+        <li><b>Motori</b>: nome, RPM e gauss di riferimento, e coppa/e.</li>
+        <li><b>Supporti motore</b> e <b>Gomme</b>: con coppa/e.</li>
+        <li><b>Telai</b>: senza coppa; nella verifica compaiono sempre tutti.</li>
+        <li><b>Coppe</b> (l'elenco principale) e <b>Club</b>: elenchi di supporto.</li>
       </ul>
 
-      <h3>Quali cataloghi hanno la coppa</h3>
-      <p>Sono <b>sette</b> i cataloghi in cui ogni scheda può contrassegnare a quali coppe si applica: <b>Auto</b>, <b>Cerchi</b>, <b>Supporti motore</b>, <b>Telai</b>, <b>Gomme</b>, <b>Ingranaggi</b> e <b>Motori</b>. Gli altri tre — <b>Marche</b>, <b>Coppe</b> (la lista principale) e <b>Club</b> — sono liste di supporto e non hanno coppa.</p>
-      <div class="callout">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-        <div><b>Coppa contrassegnata vs. non contrassegnata.</b> Se in una scheda <b>non contrassegni nessuna coppa</b>, quella scheda si applica a <b>TUTTE</b> le coppe. Non appena contrassegni coppe specifiche, la <b>limiti</b> solo a quelle. Così, nella verifica di una squadra di <span class="mono">GRUPO C2</span> vedrai il suo materiale e quello "per tutte", ma <b>mai</b> quello esclusivo del <span class="mono">GRUPO C1</span>. La regola è identica in tutti e sette i cataloghi.</div>
+      <h3>La coppa nel catalogo</h3>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div><b>Una scheda senza coppa non compare in nessuna verifica.</b> In Auto, Cerchi, Ingranaggi, Motori, Supporti e Gomme devi selezionare a quali coppe si applica ogni scheda; nella verifica di una squadra <span class="mono">LMP</span> vedi solo ciò che è segnato <span class="mono">LMP</span>. Se per una coppa non c'è nulla, il menu resta vuoto (e lo segnala). Le coppe si confrontano ignorando maiuscole, spazi, trattini e punti: <span class="mono">LMP-2</span>, <span class="mono">LMP 2</span> e <span class="mono">LMP2</span> sono la stessa.</div>
       </div>
-      <p>Nella finestra di <b>nuova scheda / modifica</b> (cerchi inclusi) trovi il <b>selettore di coppe</b>, e la lista del catalogo mostra sotto ogni scheda le sue <span class="mono">Coppe: …</span> — oppure <span class="mono">Coppe: Tutte</span> se non ne hai contrassegnata nessuna.</p>
-      <!-- figura: manual/img/control-03b-llanta-copas.png — Finestra di modifica del cerchio con il selettore di coppe e la lista che mostra "Coppe: GT, GT2" -->
-
-      <p>Puoi riempire i cataloghi a mano, <b>importarli via CSV</b> (vedi <a class="inl" href="#csv">Modelli CSV</a>), <b>esportarli e importarli in Excel</b> (vedi sotto) o <b>sincronizzarli con Google Sheets</b> (vedi <a class="inl" href="#google">Sincronizzare</a>).</p>
+      <p>Nella finestra <b>nuova scheda / modifica</b> c'è il selettore di coppe, e l'elenco mostra sotto ogni scheda le sue <span class="mono">Copas: …</span>. Puoi compilare i cataloghi a mano, <b>importarli da CSV</b> (vedi <a class="inl" href="#csv">Modelli CSV</a>), in <b>Excel</b> (sotto) o <b>sincronizzarli con Google Sheets</b> (vedi <a class="inl" href="#google">Google Sheets e Drive</a>).</p>
       <figure class="shot">
-        <img src="manual/img/control-03-catalogos.png" loading="lazy" alt="Catalogo delle auto con schede per tipo, motore di ricerca e filtro per coppa">
-        <figcaption>Cataloghi: schede per tipo (auto, marche, ingranaggi, motori…), con motore di ricerca e filtro per coppa.</figcaption>
+        <img src="manual/img/control-03-catalogos.png" loading="lazy" alt="Catalogo auto con foto di riferimento, marca, peso minimo e coppe di ogni modello">
+        <figcaption>Cataloghi: una scheda per tipo, con ricerca e filtro per coppa. Ogni auto mostra foto, marca, peso minimo e coppe.</figcaption>
       </figure>
 
       <h3>Tutto il catalogo in Excel</h3>
-      <p>In alto a destra in <b>Cataloghi</b>, il pulsante con l'<b>icona di tabella</b> apre due azioni che lavorano su <b>tutti</b> i cataloghi in una volta sola:</p>
+      <p>In alto a destra di Cataloghi, il pulsante con l'icona di tabella apre due azioni che lavorano su <b>tutti i cataloghi insieme</b>:</p>
       <ul>
-        <li><b>Esporta tutto in Excel</b>: genera un file <span class="mono">.xlsx</span> con <b>una scheda per catalogo</b> — <span class="mono">Coches, Marcas, Llantas, Engranajes, Motores, Bancadas, Chasis, Neumaticos, Copas, Clubs</span> (Auto, Marche, Cerchi, Ingranaggi, Motori, Supporti motore, Telai, Gomme, Coppe e Club). I nomi delle schede sono in spagnolo, esattamente come compaiono nel file.</li>
-        <li><b>Importa l'Excel modificato</b>: restituisci il foglio e l'app applica le modifiche.</li>
+        <li><b>Esporta tutto in Excel</b>: un <span class="mono">.xlsx</span> con una scheda per catalogo — <span class="mono">Coches</span>, <span class="mono">Marcas</span>, <span class="mono">Llantas</span>, <span class="mono">Engranajes</span>, <span class="mono">Motores</span>, <span class="mono">Bancadas</span>, <span class="mono">Chasis</span>, <span class="mono">Neumaticos</span>, <span class="mono">Copas</span>, <span class="mono">Clubs</span>.</li>
+        <li><b>Importa Excel modificato</b>: restituisci il foglio e l'app applica le modifiche.</li>
       </ul>
-      <p>La <b>prima colonna di ogni scheda è l'ID</b>. Da lì nascono le uniche tre regole da ricordare:</p>
-      <ul>
-        <li>Riga <b>con ID</b> → quella scheda viene <b>aggiornata</b>.</li>
-        <li>Riga <b>senza ID</b> (cella vuota) → viene <b>creata</b> una scheda nuova.</li>
-        <li>Riga che <b>elimini</b> dal foglio → <b>resta nell'app</b>. L'importazione <b>non elimina mai nulla</b>.</li>
-      </ul>
-      <p>La colonna <b>Coppe</b> viaggia come testo leggibile separato da punto e virgola (p. es. <span class="mono">GT;GT2</span>), con il significato di sempre: <b>cella vuota = si applica a tutte le coppe</b>.</p>
-      <p>Prima di applicare, l'app <b>chiede conferma</b>; al termine riepiloga <b>quante schede sono state create e quante aggiornate</b> in ogni catalogo.</p>
-      <div class="callout tip">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-        <div>È la <b>via rapida per classificare per coppa tutto il catalogo in un colpo solo</b>: esporta, riempi la colonna <span class="mono">Coppe</span> nel foglio trascinando come in qualsiasi Excel, e reimporta. Molto più comodo che aprire scheda per scheda.</div>
-      </div>
+      <p>La prima colonna di ogni scheda è l'<b>ID</b>: riga <b>con ID</b> → si aggiorna quella scheda; riga <b>senza ID</b> → se ne crea una nuova; riga che <b>cancelli</b> dal foglio → resta nell'app (l'import non cancella mai). La colonna <span class="mono">Copas</span> è testo separato da punto e virgola (es. <span class="mono">GT;GT2</span>). Prima di applicare l'app chiede conferma e alla fine riassume quante schede ha creato e aggiornato.</p>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
-        <div><b>Non cancellare gli ID.</b> Se svuoti la cella dell'ID di una riga esistente, quella scheda verrà creata <b>di nuovo</b> come nuova (avrai un duplicato). E poiché l'importazione non elimina, per <b>cancellare</b> una scheda devi farlo dall'app. <b>E non rinominare le schede:</b> l'importatore le cerca per nome (ignorando maiuscole e accenti) e, se non ne riconosce una, <b>ti avvisa che quella scheda non è stata importata</b> invece di ignorarla in silenzio.</div>
+        <div><b>Non cancellare gli ID</b> (la scheda verrebbe creata di nuovo) <b>e non rinominare le schede</b>: l'importatore le cerca per nome e ti avvisa se non ne riconosce una.</div>
       </div>
-      <!-- figura: manual/img/control-03c-excel-menu.png — Pulsante tabella in Cataloghi, aperto con "Esporta tutto in Excel" e "Importa l'Excel modificato" -->
-      <!-- figura: manual/img/control-03d-excel-hoja.png — Foglio .xlsx esportato: una scheda per catalogo e colonne ID … Coppe ("GT;GT2") -->
     </section>
 
     <section id="pilotos">
       <div class="num">// 04</div>
       <h2>Piloti</h2>
-      <p>Il pilota è un <b>anagrafica unica</b> (nome, palmarès, telefono, email) che può partecipare a più campionati. Per ogni campionato ha un <b>profilo</b> proprio:</p>
+      <p>Il pilota è un'anagrafica unica (nome, telefono, email) che può correre in più campionati. In ogni campionato ha un <b>profilo</b> proprio:</p>
       <ul>
-        <li><b>Categoria</b> (PLATINO · ORO · ARGENTO · BRONZO), la "scala" usata dal bonus di fine stagione e dalla promozione tra le stagioni.</li>
-        <li><b>Crediti iniziali/attuali</b> e saldo della stagione precedente (se il campionato usa i crediti).</li>
-        <li><b>Comitato organizzatore</b>: se un pilota è del comitato organizzatore, la sua squadra non paga la quota.</li>
+        <li><b>Categoria</b> (<span class="mono">PLATINO · ORO · PLATA · BRONCE</span>), la scala usata dal bonus di fine stagione e dalla promozione tra stagioni.</li>
+        <li><b>Crediti</b> iniziali e attuali (se il campionato usa i crediti).</li>
+        <li><b>Ente coordinatore</b>: se tutti i piloti di una squadra sono dell'ente coordinatore, la squadra non paga la quota.</li>
       </ul>
-      <p>Da <b>Piloti</b> registri, modifichi e cerchi. Per inserirne molti in una volta, usa l'importazione via CSV.</p>
+      <p>Da Piloti aggiungi, modifichi e cerchi. Con il pulsante <b>Importa</b> ne porti molti insieme da CSV, Excel o Google Sheets, e il <b>punteggio precedente</b>: i punti della stagione precedente dei piloti già iscritti, che servono a ordinare le manche della prima prova di un nuovo campionato. Appena ci sono risultati propri, comanda la classifica reale.</p>
       <figure class="shot">
-        <img src="manual/img/control-04-pilotos.png" loading="lazy" alt="Elenco dei piloti del campionato con motore di ricerca">
-        <figcaption>Piloti: l'anagrafica dei piloti del campionato, con ricerca per nome e registrazione rapida.</figcaption>
+        <img src="manual/img/control-04-pilotos.png" loading="lazy" alt="Elenco piloti con ricerca e pulsante nuovo pilota">
+        <figcaption>Piloti: ricerca, aggiunta rapida e importazione (in alto a destra).</figcaption>
       </figure>
     </section>
 
     <section id="equipos">
       <div class="num">// 05</div>
-      <h2>Squadre</h2>
-      <p>Una <b>squadra</b> raggruppa i piloti che condividono l'auto e gareggia in una <b>coppa</b> specifica. Il numero di piloti dipende dal formato del campionato:</p>
+      <h2>Squadre e iscrizioni</h2>
+      <p>Una squadra raggruppa i piloti che condividono l'auto e corre in una coppa precisa. Il numero di piloti dipende dal formato:</p>
       <ul>
-        <li><b>Individuale</b>: 1 pilota.</li>
+        <li><b>Individuale</b>: 1 pilota. La schermata si chiama <b>Iscrizioni</b> («Inscripciones») e non chiede il nome della squadra: si usa quello del pilota.</li>
         <li><b>Coppie</b>: 2 piloti.</li>
-        <li><b>Endurance</b>: da 1 a 6 piloti (di solito 4-5). Aggiungi e togli posti nell'editor.</li>
+        <li><b>24h</b>: da 1 a 6 piloti; aggiungi e togli posti nell'editor.</li>
       </ul>
       <div class="callout">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <div>La <b>coppa della squadra</b> è quella che comanda nella verifica: determina quali auto, motori, ingranaggi, gomme, supporti motore e telai vengono proposti.</div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <div>La <b>coppa della squadra</b> comanda nella verifica: decide quali auto, motori, ingranaggi, cerchi, gomme e supporti vengono offerti. Si può cambiare <b>solo per una prova</b> (all'iscrizione o dalla verifica stessa) senza toccare il resto del campionato.</div>
       </div>
-      <p>Come per i piloti, puoi creare le squadre a mano o <b>importarle via CSV</b> (il modello endurance accetta le colonne <span class="mono">Piloto 1…5</span>).</p>
+      <p>Puoi crearle a mano o importarle da CSV (il modello endurance accetta <span class="mono">Piloto 1…5</span>).</p>
       <figure class="shot">
-        <img src="manual/img/control-05-equipos.png" loading="lazy" alt="Elenco delle squadre endurance con 4-5 piloti e la loro coppa (GRUPO C1 / C2)">
-        <figcaption>Squadre: in endurance, ogni squadra raggruppa 4-5 piloti e mostra la sua coppa (GRUPO C1 / GRUPO C2).</figcaption>
+        <img src="manual/img/control-05-equipos.png" loading="lazy" alt="Iscrizioni di un campionato individuale con la coppa di ogni pilota">
+        <figcaption>In un campionato individuale, «Squadre» sono le iscrizioni di ogni pilota con la sua coppa.</figcaption>
       </figure>
     </section>
 
     <section id="pruebas">
       <div class="num">// 06</div>
       <h2>Prove e manche</h2>
-      <p>Una <b>prova</b> è ogni appuntamento del calendario (nome, sede, data, ordine). All'interno della prova si allestiscono le <b>manche</b> con le loro corsie, e si registrano le <b>iscrizioni</b> delle squadre.</p>
+      <p>Una <b>prova</b> è ogni appuntamento del calendario (nome, sede, data, ordine e stato: programmata, in corso o terminata). Aprendola vedi le sue <b>manche</b> e, a sinistra, le <b>opzioni della prova</b>: iscritti, risultati, verifiche, riepilogo verifiche, modificare manche, sorteggio motori, tesoreria della prova, PDF di manche e verifiche, e lo scambio con PitWall.</p>
       <ol class="steps">
         <li>Crea la prova e ordinala nel calendario.</li>
-        <li>Iscrivi le squadre che partecipano (ogni iscrizione salva la coppa in cui gareggia la squadra <b>in quella prova</b>).</li>
-        <li>Genera le <b>manche</b> e l'assegnazione delle corsie.</li>
+        <li><b>Iscrivi</b> le squadre (o i piloti) che corrono.</li>
+        <li><b>Genera le manche</b> con l'assegnazione delle corsie.</li>
+        <li>Il giorno di gara, <b>verifica</b>, <b>incassa</b> e regola le manche se serve.</li>
       </ol>
-      <div class="callout tip">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/></svg>
-        <div>La coppa viene salvata come <b>istantanea fissa</b> al momento dell'iscrizione: se in seguito cambia la coppa della squadra, la prova già disputata mantiene quella con cui ha gareggiato.</div>
-      </div>
       <figure class="shot">
-        <img src="manual/img/control-06-pruebas.png" loading="lazy" alt="Elenco delle prove del calendario con il loro stato">
-        <figcaption>Prove: il calendario del campionato con lo stato di ogni appuntamento (programmata / in corso / terminata).</figcaption>
+        <img src="manual/img/control-06-pruebas.png" loading="lazy" alt="Calendario delle prove del campionato con sede, data e stato">
+        <figcaption>Prove: il calendario del campionato con sede, data e stato di ogni appuntamento.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="manual/img/control-06b-detalle-prueba.png" loading="lazy" alt="Dettaglio di una prova con le sue manche e il pannello delle opzioni della prova">
+        <figcaption>Una prova dall'interno: le sue manche e, a sinistra, tutte le opzioni della prova.</figcaption>
+      </figure>
+
+      <h3>Iscritti</h3>
+      <p>In <b>Iscritti alla prova</b> vedi chi corre, con la sua coppa e il giorno preferito. Puoi <b>aggiungere a mano</b> (icona persona con «+», in alto), <b>importare da CSV/Excel o Google Sheets</b> e <b>ritirare</b> chi non corre (lo toglie dagli iscritti e dalla sua manche). La coppa si salva come istantanea di quella prova: se poi cambia quella della squadra, la prova mantiene quella con cui ha corso.</p>
+      <figure class="shot">
+        <img src="manual/img/control-06c-inscritos.png" loading="lazy" alt="Elenco iscritti alla prova con coppa e giorno, e il pulsante Genera manche">
+        <figcaption>Iscritti: coppa e giorno di ognuno. Quando ci sono tutti, «Generar mangas» (genera manche).</figcaption>
+      </figure>
+
+      <h3>Generare le manche</h3>
+      <p>La procedura guidata distribuisce gli iscritti in manche per giorno:</p>
+      <ul>
+        <li><b>Corsie</b> della pista e <b>minuti per corsia</b> (calcola la durata reale di ogni manche e distanzia gli orari suggeriti).</li>
+        <li><b>Numero di manche</b>: tante quante corsie piene si possono riempire, distribuendo il resto; l'ultima manche del giorno non resta mai a metà.</li>
+        <li><b>Nomi e orari</b> di ogni manche.</li>
+        <li><b>Assegna corsia automaticamente</b> e <b>assegna i commissari</b> (campionati individuali): per punti dal più alto, nelle corsie 1…N e, se avanzano, riposi <span class="mono">D1, D2…</span>; i commissari si distribuiscono tra le manche dello stesso giorno.</li>
+        <li><b>Anteprima</b> prima di creare e opzione di <b>sostituire</b> le manche esistenti.</li>
+      </ul>
+
+      <h3>La manche, il giorno di gara</h3>
+      <p>Il dettaglio della manche mostra la griglia: ogni corsia con il suo pilota, le <b>corsie libere</b> («Libre») e, alla fine, chi non ha ancora corsia. Tocca un pilota (o «Cambia corsia» nel suo menu) e compare una <b>griglia con tutte le corsie</b>: tocca una libera per spostarlo lì o una occupata per <b>scambiarli</b>. Puoi anche <b>rinumerare le corsie</b> per punti, scegliere i <b>commissari</b>, togliere qualcuno dalla manche e vedere un <b>avviso</b> se ci sono corsie ripetute. In <b>Modifica manche</b> sposti i piloti da una manche all'altra (arrivano senza corsia, da assegnare lì).</p>
+      <figure class="shot">
+        <img src="manual/img/control-06d-manga.png" loading="lazy" alt="Dettaglio di una manche con le corsie da 1 a 6 e i riposi D1 e D2">
+        <figcaption>Una manche: corsie 1–6 e riposi D1, D2. In alto: risultati, verifiche, rinumerare e modificare.</figcaption>
       </figure>
     </section>
 
     <section id="verificaciones">
       <div class="num">// 07</div>
       <h2>Verifiche tecniche</h2>
-      <p>La <b>verifica</b> è il cuore amministrativo del giorno di gara: per ogni squadra controlli che il suo materiale rispetti i regolamenti prima di convalidarlo. Entri da <b>Verifiche tecniche</b>, scegli la manche e la squadra.</p>
-      <p>Sotto il nome della squadra viene mostrata la <b>coppa in cui gareggia</b>, e tutti i menu a tendina si <b>filtrano per quella coppa</b>:</p>
-      <ul>
-        <li><b>Auto</b>: solo i modelli della sua coppa (o "per tutte"), con la <b>foto di riferimento</b> sotto per confrontarla con l'auto consegnata.</li>
-        <li><b>Motore</b>: dell'organizzazione (con <b>sorteggio</b>) o proprio, con RPM/misure.</li>
-        <li><b>Pignone e corona</b>: marca (limitata a quelle omologate di quella coppa) e denti, validati rispetto all'<b>intervallo del campionato</b>; inoltre <b>diametro</b> (testo libero, così come lo annota il verificatore) e <b>materiale</b> — pignone: PL / ERG / LAT / ACR / ALU; corona: PL / MET.</li>
-        <li><b>Gomma, supporto motore, telaio</b>: filtrati per coppa.</li>
-        <li><b>Cerchio anteriore</b> e <b>cerchio posteriore</b>: due menu a tendina, entrambi <b>ridotti alla coppa della squadra</b>.</li>
-        <li><b>Peso</b>, sospensione, treccia, note e <b>foto</b>.</li>
-      </ul>
-
-      <h3>I cerchi, in dettaglio</h3>
-      <p>Ogni menu a tendina dei cerchi applica <b>due filtri contemporaneamente</b>:</p>
-      <ul>
-        <li>Per <b>coppa</b>: solo i cerchi contrassegnati con la coppa della squadra, più quelli che <b>non hanno nessuna coppa contrassegnata</b> (quelli validi per tutte).</li>
-        <li>Per <b>tipo</b>: il menu dell'anteriore offre quelli <span class="mono">ANTERIORE</span> e quelli <span class="mono">ENTRAMBI</span>; quello del posteriore, i <span class="mono">POSTERIORE</span> e gli <span class="mono">ENTRAMBI</span>.</li>
-      </ul>
-      <p>Se l'incrocio dei due filtri lasciasse il menu a tendina <b>vuoto</b>, l'app mostra <b>tutti</b> i cerchi: è una rete di sicurezza perché il verificatore non resti mai senza opzioni in pieno tavolo dei commissari.</p>
-      <div class="callout warn">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
-        <div>Se nella coppa della squadra non c'è alcun elemento contrassegnato nel catalogo, il menu a tendina <b>ripiega sulle coppe del campionato</b> e, in ultima istanza, su tutto — così non resti mai senza opzioni, ma dà sempre priorità a ciò che è della sua coppa.</div>
-      </div>
-      <!-- figura: manual/img/control-07b-llantas-copa.png — Verifica di una squadra di GRUPO C2 con i menu a tendina del cerchio anteriore/posteriore già ridotti alla sua coppa -->
-      <p>La verifica si <b>salva automaticamente</b> come bozza a ogni modifica (in alto a destra vedi lo stato: in attesa / salvataggio / salvato), così puoi averne diverse aperte senza perdere nulla. Quando tutto è conforme, appare <b>"Tutto conforme ai regolamenti. Puoi convalidare"</b> e confermi.</p>
+      <p>La verifica è il cuore del giorno di gara: per ogni squadra controlli che il materiale rispetti il regolamento prima di convalidarlo. Entri dalla prova (<b>Verifiche</b>), scegli la manche e la squadra. Ogni manche mostra quante ne ha convalidate.</p>
       <figure class="shot">
-        <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Riepilogo delle verifiche tecniche per manche con l'avanzamento delle squadre convalidate">
-        <figcaption>Verifiche tecniche: per prova e manche, con l'avanzamento delle squadre convalidate (0 / 27).</figcaption>
+        <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Manche di una prova con l'avanzamento delle verifiche convalidate">
+        <figcaption>Verifiche di una prova: l'avanzamento di ogni manche (in corso / tutto convalidato).</figcaption>
+      </figure>
+
+      <h3>La scheda di verifica</h3>
+      <p>In alto, il nome della squadra e la sua <b>coppa</b> (toccala per cambiarla <b>solo in questa prova</b>). Sotto, il riepilogo di ciò che non è conforme e una barra con i <b>blocchi completati</b> e quelli mancanti. Se il campionato gestisce la tesoreria, il blocco <b>Tesoreria</b> ti permette di <b>incassare lì stesso</b>, con lo stesso modulo della <a class="inl" href="#tesoreria">tesoreria della prova</a>.</p>
+      <figure class="shot">
+        <img src="manual/img/control-07b-verificacion-ficha.png" loading="lazy" alt="Scheda di verifica con la coppa, l'avanzamento dei blocchi, il blocco tesoreria e l'auto con la foto di riferimento">
+        <figcaption>La scheda: coppa modificabile, avanzamento dei blocchi, incasso della quota e l'auto con la sua foto di riferimento.</figcaption>
+      </figure>
+      <p>Ogni blocco è in un riquadro con il suo stato: <b>ambra «Pendiente»</b> se manca qualche dato, <b>verde «Hecho»</b> quando è completo e <b>rosso «Revisar»</b> se qualcosa è fuori regolamento. I blocchi sono:</p>
+      <ul>
+        <li><b>Auto</b>: solo i modelli della sua coppa, con la <b>foto di riferimento</b> del catalogo sotto per confrontare.</li>
+        <li><b>Carrozzeria</b>: <b>peso</b> (con il minimo dell'auto) ed <b>estetica</b> — «Bien» (a posto) o «Faltan piezas» (mancano pezzi), con un testo per annotare quali.</li>
+        <li><b>Motore</b>: secondo il <a class="inl" href="#campeonato">tipo di motore</a> del campionato. Dell'organizzazione: il numero (con pulsante <b>Sorteggia</b>). Proprio: il motore del catalogo, con <b>RPM</b> e <b>uMs</b> controllati dal vivo contro il riferimento (✓/✗; entrambi sono massimi). Inoltre, <b>altezza motore dalla pista</b>: conforme / non conforme.</li>
+        <li><b>Larghezza assale</b> anteriore e posteriore, contro il massimo della sua coppa (conta solo se la coppa ha un massimo).</li>
+        <li><b>Cerchio anteriore</b> e <b>posteriore</b>: marca e misura, filtrati per coppa e per assale.</li>
+        <li><b>Pignone</b> e <b>corona</b>: marca, <b>denti</b> (quelli del catalogo ingranaggi della sua coppa), diametro e materiale — pignone <span class="mono">PL / ERG / LAT / ACR / ALU</span>; corona <span class="mono">PL / MET</span>.</li>
+        <li><b>Supporto motore</b>, <b>telaio</b>, <b>peso dell'auto completa</b> e <b>altri</b> (gomma, treccia, sospensione).</li>
+        <li><b>Note</b> e <b>foto</b> (fino a 4), facoltative.</li>
+      </ul>
+      <figure class="shot">
+        <img src="manual/img/control-07c-verificacion-bloques.png" loading="lazy" alt="Blocchi auto, carrozzeria, motore e larghezza assale con stato Fatto o In sospeso">
+        <figcaption>Blocchi con il loro stato: «Hecho» (fatto) in verde, «Pendiente» (in sospeso) in ambra. Il motore proprio confronta RPM e uMs con il catalogo.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="manual/img/control-07d-verificacion-transmision.png" loading="lazy" alt="Blocchi pignone, corona, supporto, telaio, peso auto completa, altri, note e foto">
+        <figcaption>Trasmissione, supporto, telaio, peso dell'auto completa, altri e le foto della verifica.</figcaption>
+      </figure>
+
+      <h3>Infrazioni e convalida</h3>
+      <p>L'app segnala in rosso ciò che è <b>fuori regolamento</b>: peso sotto il minimo, assale oltre il massimo, RPM o uMs sopra il riferimento, motore che tocca la pista, marca non ammessa (con <b>limitare il costruttore</b>), pezzi mancanti… La verifica si <b>salva automaticamente</b> come bozza a ogni modifica, quindi puoi averne diverse aperte insieme. Quando tutto è conforme, la convalidi.</p>
+      <figure class="shot">
+        <img src="manual/img/control-07e-verificacion-infraccion.png" loading="lazy" alt="Scheda di verifica con un'infrazione per peso sotto il minimo">
+        <figcaption>Un'infrazione: il peso iniziale è sotto il minimo dell'auto.</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div><b>I menu imparano.</b> Auto, motore, marche, denti, materiali, cerchi, supporto, telaio, gomma e treccia mostrano prima ciò che è stato <b>scelto più spesso</b> nelle verifiche salvate; ciò che non è mai stato usato resta dietro, nel suo ordine abituale.</div>
+      </div>
+
+      <h3>Riepilogo a griglia</h3>
+      <p><b>«Resum. Verifi.»</b> (nella barra laterale, nella prova o con il pulsante griglia di Verifiche) mostra tutte le verifiche di una prova in una <b>tabella tipo foglio di calcolo</b>, in sola lettura: una riga per iscritto con stato, coppa, auto, pesi, motore, assali, trasmissione, cerchi, supporto, telaio, gomma, carrozzeria e note. Ciò che è <b>fuori regolamento appare in rosso</b> (passando il mouse si vede il motivo). Ha ricerca e filtri (con infrazione, non verificati, in bozza) e si esporta in <b>PDF</b> ed <b>Excel</b>.</p>
+      <figure class="shot">
+        <img src="manual/img/control-07f-resumen-rejilla.png" loading="lazy" alt="Riepilogo verifiche a griglia con una cella del peso in rosso perché fuori regolamento">
+        <figcaption>Riepilogo a griglia: filtri in alto; in rosso, ciò che è fuori regolamento. Esportabile in PDF ed Excel.</figcaption>
       </figure>
     </section>
 
     <section id="clasificacion">
       <div class="num">// 08</div>
       <h2>Classifica</h2>
-      <p>La <b>classifica</b> si calcola con i risultati delle prove e le regole del campionato:</p>
+      <p>La classifica si calcola con i risultati delle prove e le regole del campionato:</p>
       <ul>
-        <li><b>Tabella dei punti</b> per posizione (definita per campionato).</li>
-        <li><b>Scarti</b>: numero dei peggiori risultati che non contano.</li>
-        <li><b>Tetto di regolarizzazione</b>.</li>
-        <li><b>Per coppa</b>: la classifica è <b>individuale</b> (per pilota) all'interno di ogni coppa/classe.</li>
+        <li><b>Tabella punti</b> per posizione, propria di ogni campionato. Si modifica dal pulsante <b>Tabella punti</b>: quante posizioni prendono punti e quanti punti dà ognuna (o ripristinare i valori predefiniti).</li>
+        <li><b>Scarti</b>: peggiori risultati che non contano.</li>
+        <li><b>Generale</b> e una scheda <b>per coppa</b>. La colonna Coppa mostra la coppa con cui il pilota ha corso.</li>
       </ul>
-      <p>Si esporta in PDF (vedi <a class="inl" href="#pdf">Esportare</a>).</p>
+      <p>Puoi anche <b>compilarla a mano</b> o <b>importarla</b>, ed esportarla in PDF.</p>
       <figure class="shot">
-        <img src="manual/img/control-08-clasificacion.png" loading="lazy" alt="Classifica generale e per coppa, con punti, scarti e totale per pilota">
-        <figcaption>Classifica: schede Generale e per coppa; punti per prova, scarti e totale per pilota. Esportabile in PDF.</figcaption>
+        <img src="manual/img/control-08-clasificacion.png" loading="lazy" alt="Classifica generale con punti per prova, lordo, scarti e totale">
+        <figcaption>Classifica: Generale e per coppa; punti per prova, lordo, scarti e totale.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="manual/img/control-08b-tabla-puntos.png" loading="lazy" alt="Editor della tabella punti con i punti di ogni posizione">
+        <figcaption>Tabella punti del campionato: punti per posizione, modificabile.</figcaption>
       </figure>
     </section>
 
     <section id="tesoreria">
       <div class="num">// 09</div>
       <h2>Tesoreria</h2>
-      <p>Se il campionato usa la tesoreria, ogni prova ha una <b>quota</b> per squadra, con ripartizione tra <b>comitato organizzatore</b> e <b>club</b>. I piloti del comitato organizzatore non pagano. Da <b>Tesoreria</b> tieni il controllo di quanto incassato per prova.</p>
-      <!-- figura: manual/img/control-09-tesoreria.png — Tesorería por prueba -->
+      <p>Se il campionato usa la tesoreria, ogni squadra paga una <b>quota per prova</b> (il <b>Pagat</b>), ripartita tra <b>ente coordinatore</b> e <b>club</b>. La schermata <b>Tesoreria</b> mostra il saldo del campionato, quanto incassato in ogni prova e i <b>movimenti extra</b> (sponsor, spese di materiale… con il pulsante «Movimiento»).</p>
+      <ul>
+        <li><b>Ripartizione</b> («Reparto»): cambia il Pagat e quanto va a ciascuna parte (con la % di ognuna). Puoi <b>applicarla anche ai pagamenti già incassati</b>: si ripartisce di nuovo quanto pagato da ogni squadra, senza cambiare l'incassato.</li>
+      </ul>
+      <figure class="shot">
+        <img src="manual/img/control-09-tesoreria.png" loading="lazy" alt="Tesoreria del campionato con il saldo, il dettaglio per prova e i movimenti extra">
+        <figcaption>Tesoreria: saldo (Pagat, ente coordinatore, club), incassato per prova e movimenti extra. In alto, «Reparto».</figcaption>
+      </figure>
+
+      <h3>Incassare in una prova</h3>
+      <p>In <b>Tesoreria della prova</b> (o direttamente nella <a class="inl" href="#verificaciones">verifica</a> di ogni squadra) incassi con:</p>
+      <ul>
+        <li><b>Pagat / Coordinadora / Club</b>. Se scrivi solo il Pagat, la ripartizione si compila con la proporzione del campionato; se non quadra, compare un avviso con il pulsante <b>«Repartir»</b> (ripartisci).</li>
+        <li><b>Pagamento rapido</b>: la quota intera con un tocco; <b>«Coord. + piloto»</b> (un pilota è dell'ente coordinatore: paga metà); <b>«Coord. total»</b> (lo sono tutti: non paga); <b>«Limpiar»</b> (pulisci).</li>
+        <li><b>Wildcard</b> (icona regalo): ospite, non paga. Chi non paga non conta come in sospeso: il contatore mostra «X / Y pagati · N non pagano».</li>
+        <li>Una <b>ricerca</b> fissa in alto per trovare subito chi sta pagando.</li>
+      </ul>
+      <p>Si salva uscendo da ogni campo. La tesoreria della prova e la verifica mostrano sempre lo stesso.</p>
+      <figure class="shot">
+        <img src="manual/img/control-09b-tesoreria-prueba.png" loading="lazy" alt="Tesoreria di una prova con ricerca, incassato e il modulo di pagamento di ogni squadra">
+        <figcaption>Tesoreria della prova: ricerca, incassato e pagamento di ogni squadra con i pulsanti di pagamento rapido.</figcaption>
+      </figure>
     </section>
 
     <section id="creditos">
       <div class="num">// 10</div>
       <h2>Crediti e chiusura</h2>
-      <p>Il sistema di <b>crediti</b> è l'handicap del campionato: ogni pilota parte con un certo numero di crediti e questi salgono o scendono in base al risultato. Da <b>Crediti</b> vedi il saldo, i movimenti (ciascuno con la sua <b>descrizione</b>) e gestisci la chiusura.</p>
-
+      <p>Il sistema dei crediti è l'<b>handicap</b> del campionato: ogni pilota parte con dei crediti che salgono o scendono in base al risultato. Da <b>Crediti</b> vedi il saldo e i movimenti (ognuno con la sua descrizione), puoi <b>regolare a mano</b>, esportare in <b>PDF</b> o <b>CSV</b> e gestire la chiusura.</p>
       <h3>Bonus di fine stagione</h3>
-      <p>Al termine della stagione si applica un <b>bonus</b> in funzione della <b>categoria</b> del pilota e del numero di <b>gare</b> disputate (fasce configurabili per campionato). Il movimento resta descritto (ad es. <span class="mono">"bonificación por 6 carreras"</span>).</p>
-
+      <p>A fine stagione si applica un bonus in base alla <b>categoria</b> del pilota e al <b>numero di gare</b> disputate (fasce configurabili). Il movimento resta descritto (es. «bonus per 6 gare»).</p>
       <h3>Revisione delle categorie</h3>
-      <p>Prima di concludere, la schermata di <b>Revisione delle categorie</b> permette di decidere, pilota per pilota, se <b>promuove, retrocede o si mantiene</b> (pulsanti Sali / Scendi / Mantieni sulla scala BRONZO→ARGENTO→ORO→PLATINO). La categoria risultante si usa per il bonus e come <b>categoria iniziale all'importazione nel campionato successivo</b>. La schermata ha una ricerca per nome.</p>
+      <p>Prima di concludere, la <b>Revisione delle categorie</b> permette di decidere pilota per pilota se <b>sale</b>, <b>scende</b> o <b>resta</b> nella scala BRONCE→PLATA→ORO→PLATINO. Quella categoria si usa per il bonus e come categoria iniziale importando nel campionato successivo.</p>
       <div class="callout tip">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-        <div>Regola prima le categorie in <b>Revisione</b> e poi applica il bonus di fine stagione: così entrambi usano la stessa istantanea finale.</div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>Regola prima le categorie in Revisione e poi applica il bonus di fine stagione: così entrambi usano la stessa fotografia finale.</div>
       </div>
-      <!-- figura: manual/img/control-10-revision.png — Revisión de categorías de cierre -->
     </section>
 
     <section id="sorteo">
       <div class="num">// 11</div>
       <h2>Sorteggio motore</h2>
-      <p>Per i motori dell'<b>organizzazione</b>, PitWall Control sorteggia un numero all'interno dell'<b>intervallo configurato nel campionato</b>, escludendo quelli già assegnati nella prova. Puoi sorteggiare dall'accesso <b>Sorteggio motore</b> (scegliendo la prova) o direttamente dentro la verifica della squadra.</p>
+      <p>Se il motore del campionato è a <b>Sorteggio</b> o <b>Misto</b> e ha configurato l'<b>intervallo di numeri</b>, Control sorteggia per ogni squadra un numero nell'intervallo, escludendo quelli già assegnati nella prova. Da <b>Sorteggio motori</b> (nella prova) sorteggi squadra per squadra o <b>«Sortear restantes»</b> (sorteggia i restanti) in un colpo, e nella scheda <b>Numeri</b> vedi chi ha quale. Si può sorteggiare anche dalla verifica stessa.</p>
       <figure class="shot">
-        <img src="manual/img/control-11-sorteo.png" loading="lazy" alt="Schermata del sorteggio motore: scegliere la prova su cui sorteggiare">
-        <figcaption>Sorteggio motore: scegli la prova e l'app distribuisce i numeri di motore dell'organizzazione disponibili.</figcaption>
+        <img src="manual/img/control-11-sorteo.png" loading="lazy" alt="Sorteggio motori con l'intervallo, gli assegnati e il pulsante Sorteggia di ogni squadra">
+        <figcaption>Sorteggio motori: intervallo, assegnati e disponibili; «Sortear» per squadra o «Sortear restantes».</figcaption>
       </figure>
     </section>
 
-    <section id="google">
+    <section id="libre">
       <div class="num">// 12</div>
-      <h2>Sincronizzare con Google Sheets</h2>
-      <p>I cataloghi possono essere sincronizzati in modo <b>bidirezionale</b> con un foglio Google, utile per modificare in squadra o fare una copia. Da <b>Configurazione di Google</b> colleghi il tuo account e indichi il foglio.</p>
-      <ol class="steps">
-        <li>Collega il tuo account Google e autorizza l'accesso.</li>
-        <li>Indica il foglio di calcolo che userai come catalogo.</li>
-        <li><b>Scarica</b> dal Sheet porta i dati nell'app; <b>Carica sul Sheet</b> invia i tuoi. I <b>conflitti</b> si risolvono riga per riga.</li>
-      </ol>
-      <div class="callout">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.77 1 6.4 2.6"/><path d="M21 3v6h-6"/></svg>
-        <div>La configurazione della connessione a Google (credenziali e permessi) è spiegata nel <b>manuale di configurazione</b>. Qui si copre solo l'uso.</div>
-      </div>
-      <!-- figura: manual/img/control-12-google.png — Configuración de Google y sincronización -->
+      <h2>Verifica libera</h2>
+      <p>Per verificare auto <b>senza campionato né prova</b>: una gara occasionale, un controllo al club o qualsiasi altro appuntamento. Si apre da <b>Verifica libera</b> («Verificación libre») nella barra laterale (o dalla home, anche senza campionati).</p>
+      <ul>
+        <li>Ogni <b>sessione</b> ha nome, luogo e data, e il suo <b>regolamento</b>: coppe, larghezza assale per coppa, <b>limitare il costruttore</b> e <b>tipo di motore</b> (Sorteggio / Proprio / Misto, con il suo intervallo). Una sessione nuova parte <b>vuota</b>, come un campionato.</li>
+        <li><b>Partecipanti</b>: aggiungili uno a uno (pilota con completamento automatico, secondo pilota e squadra facoltativi, e coppa) o <b>importali</b> da un file CSV / Excel o da Google Sheets. L'importatore riconosce le colonne da solo, ha una <b>coppa predefinita</b> per le righe senza coppa e un'anteprima per deselezionare righe. Tieni premuto un partecipante per toglierlo.</li>
+        <li>La verifica è <b>quella di sempre</b>: salvataggio automatico, foto, sorteggio, convalida per coppa.</li>
+        <li><b>Esportare</b>: in <b>PDF</b> o in <b>Excel con foto</b>.</li>
+      </ul>
+      <p>Le sessioni non usano crediti né tesoreria, non si inviano a PitWall Manager e non compaiono tra i campionati.</p>
+      <figure class="shot">
+        <img src="manual/img/control-17-verificacion-libre.png" loading="lazy" alt="Sessione di verifica libera con i partecipanti e lo stato di ogni verifica">
+        <figcaption>Una sessione: partecipanti con auto, coppa e stato. In alto: importa, regolamento, esporta PDF, Excel con foto ed elimina.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="manual/img/control-17b-sesion-reglamento.png" loading="lazy" alt="Regolamento di una sessione di verifica libera con coppe, larghezza assale, costruttore e motore">
+        <figcaption>Regolamento della sessione: coppe, larghezza assale, costruttore e tipo di motore.</figcaption>
+      </figure>
+
+      <h3>Excel con foto</h3>
+      <p>L'<span class="mono">.xlsx</span> ha una riga per partecipante con le colonne del riepilogo verifiche (fuori regolamento in rosso e una colonna con i motivi) e, alla fine della riga, la <b>foto dell'auto nel catalogo</b> («Foto catálogo») seguita da <b>tutte le foto della verifica</b>, come miniature dentro le celle. Si vede bene in Excel, LibreOffice e sul telefono (iPhone, iPad, Android).</p>
+    </section>
+
+    <section id="google">
+      <div class="num">// 13</div>
+      <h2>Google Sheets e Drive</h2>
+      <p>Control può lavorare con i tuoi fogli Google e salvare copie su Google Drive. Prima, in <b>Google Sheets</b>, incolli le <b>credenziali</b> del tuo progetto Google Cloud (il pulsante «Cómo conseguirlas» ti guida) e colleghi il tuo account. Control chiede solo di leggere i tuoi fogli e di creare o modificare il proprio file di copia; non tocca nessun tuo file.</p>
+      <ul>
+        <li><b>Cataloghi</b>: colleghi ogni catalogo alla sua scheda. <b>Aggiorna da Drive</b> porta i dati e <b>Carica sul foglio</b> invia i tuoi (con revisione prima di cancellare). Se il foglio ha una colonna <span class="mono">ID</span>, le righe si abbinano con essa invece che per nome.</li>
+        <li><b>Foto delle auto</b>: una colonna <span class="mono">FOTO</span> con il link Drive dell'immagine. Aggiornando si scarica la foto; caricando, le foto presenti solo nell'app vanno su Drive e se ne scrive il link.</li>
+        <li><b>Piloti, squadre e iscrizioni</b> si possono importare anche da un foglio.</li>
+        <li><b>Copia condivisa su Drive</b>: carica o scarica il database (con le foto delle verifiche) per lavorare su più dispositivi, anche da Android.</li>
+      </ul>
+      <figure class="shot">
+        <img src="manual/img/control-12-google.png" loading="lazy" alt="Configurazione Google con stato della connessione, credenziali, permessi e copia su Drive">
+        <figcaption>Google Sheets: stato della connessione, credenziali, permessi richiesti e copia condivisa su Drive.</figcaption>
+      </figure>
     </section>
 
     <section id="csv">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Modelli CSV</h2>
-      <p>Da <b>Modelli CSV</b> (accesso secondario, globale) scarichi i modelli pronti da riempire e importare: piloti, squadre (incluso quello di <b>endurance</b> con le colonne <span class="mono">Equipo · Copa · Piloto 1…5</span>) e cataloghi. Riempi il CSV, lo importi dalla sezione corrispondente e l'app mappa le colonne automaticamente.</p>
-      <p>Per <b>modificare in blocco ciò che hai già</b> nei cataloghi (e non solo aggiungere schede nuove), la via comoda è <a class="inl" href="#catalogos">Tutto il catalogo in Excel</a>: esporti, correggi e reimporti.</p>
+      <p>Da <b>Modelli CSV</b> scarichi i modelli pronti da compilare e importare: piloti, squadre (coppie ed endurance, con <span class="mono">Piloto 1…5</span>), iscrizioni a una prova, <b>partecipanti della verifica libera</b> e ogni catalogo. Compili il file, lo importi dalla sua sezione e l'app riconosce le colonne.</p>
+      <p>Per correggere in blocco ciò che hai già nei cataloghi, la via comoda è <a class="inl" href="#catalogos">Tutto il catalogo in Excel</a>.</p>
       <figure class="shot">
-        <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="Sezione dei modelli CSV con i download per piloti, squadre, endurance e cataloghi">
-        <figcaption>Modelli CSV: scarica il modello di ogni import (piloti, squadre, endurance, cataloghi) con le sue colonne.</figcaption>
+        <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="Modelli CSV di piloti, squadre, iscrizioni, verifica libera e cataloghi">
+        <figcaption>Modelli CSV: uno per importazione, con le sue colonne.</figcaption>
       </figure>
     </section>
 
     <section id="pdf">
-      <div class="num">// 14</div>
-      <h2>Esportare in PDF</h2>
-      <p>PitWall Control genera PDF di <b>verifiche tecniche</b>, <b>manche</b>, <b>classifica</b> e <b>crediti</b>. All'esportazione scegli la <b>lingua</b> del documento (spagnolo, inglese, italiano o francese) e si applica il <b>marchio del campionato</b> (titolo e slogan) nell'intestazione e nel piè di pagina.</p>
-      <div class="callout tip">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
-        <div>Il PDF della tanda si adatta a una sola pagina (A4 → A3 se necessario) per stamparlo comodamente al tavolo dei commissari.</div>
+      <div class="num">// 15</div>
+      <h2>Esportare (PDF ed Excel)</h2>
+      <ul>
+        <li><b>PDF</b>: manche, verifiche di una prova o sessione, riepilogo a griglia, classifica e crediti. Esportando scegli la <b>lingua</b> del documento (spagnolo, inglese, italiano o francese) e si applica il <b>marchio</b> del campionato in intestazione e piè di pagina. Ogni PDF sta su un solo foglio (A4 → A3 se serve) per stamparlo comodamente.</li>
+        <li><b>Excel</b>: il catalogo completo, il riepilogo a griglia e la verifica libera con foto.</li>
+        <li><b>CSV</b>: crediti.</li>
+      </ul>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <div>Sul computer si apre il «Salva con nome»; su <b>Android</b>, il foglio di condivisione del sistema (salva nei file, invia via WhatsApp, email…).</div>
       </div>
-      <!-- figura: manual/img/control-14-pdf.png — Elección de idioma al exportar -->
     </section>
 
     <section id="pitwall">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Inviare a PitWall / importare i risultati</h2>
-      <p>PitWall Control comunica con il cronometratore <b>PitWall</b> per non digitare due volte: gli <b>invia la prova</b> allestita (squadre, corsie e rotazione) e poi <b>importa i risultati</b> per classifica e crediti. Entrambe le app devono trovarsi sulla <b>stessa rete</b> LAN/WiFi.</p>
+      <p>PitWall Control comunica con il cronometro <b>PitWall</b> per non digitare due volte: gli invia la prova pronta e poi importa i risultati. Entrambe le app devono essere sulla <b>stessa rete</b> LAN/WiFi.</p>
 
-      <h3>Inviare la tanda a PitWall (andata)</h3>
-      <p>Genera la tanda (formato <span class="mono">pitwall.tanda/v1</span>) affinché PitWall <b>crei automaticamente la gara</b> — ogni manche diventa una tanda con ciascuna squadra nella sua corsia di partenza, e i <b>riposi</b> (<span class="mono">D1…Dk</span>) vengono collocati e ruotati correttamente. Ci sono due vie:</p>
+      <h3>Scegliere il PitWall</h3>
+      <p>I tre invii usano lo stesso selettore: per qualche secondo vedi «Buscando…» (ricerca) e compaiono i PitWall della rete (via Bonjour/mDNS e provando direttamente la rete locale, quindi funziona anche se il router blocca gli annunci). Puoi premere <b>«Buscar de nuevo»</b> (cerca di nuovo) o scrivere IP:porta a mano. Funziona su macOS, Windows e Android; su Linux la ricerca automatica non è disponibile e va scritto l'indirizzo.</p>
+
+      <h3>Inviare la tanda (andata)</h3>
+      <p>Ogni manche diventa una tanda con ogni squadra nella sua corsia e i riposi (<span class="mono">D1…Dk</span>) collocati e a rotazione. Due vie:</p>
       <ul>
-        <li><b>Esporta tanda (JSON)</b>: salva la prova in un file che poi <b>carichi</b> in PitWall (Gare → Importa tanda). Esportando su file, l'app ti <b>chiede se la gara ha la pole</b>.</li>
-        <li><b>Invia a PitWall</b> (via rete): Control <b>rileva</b> il PitWall sulla rete locale (o gli indichi l'<b>IP</b> a mano) e ti chiede il <b>PIN di abbinamento</b> — quello mostrato dalla schermata <b>Importa tanda</b> di PitWall.</li>
+        <li><b>Esporta tanda (JSON)</b>: un file da caricare in PitWall (Gare → Importa tanda). Esportando chiede se la gara ha la pole.</li>
+        <li><b>Invia a PitWall</b> (in rete): scegli il PitWall e inserisci il <b>PIN di abbinamento</b> che mostra la schermata Importa tanda di PitWall.</li>
       </ul>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-        <div>Con l'interruttore <b>La gara ha pole</b> attivo, Control <b>non invia l'ordine delle corsie</b>: PitWall crea la gara con la sessione di pole (tutte le squadre) e la griglia si decide dopo aver corso la pole.</div>
+        <div>Con <b>La gara ha la pole</b> attivato, Control non invia l'ordine di corsia: PitWall crea la gara con la sessione di pole e la griglia si decide dopo averla corsa.</div>
       </div>
 
-      <h3>Importare i risultati da PitWall (ritorno)</h3>
-      <p>Quando la gara è terminata, dal pannello della prova premi <b>Importa risultati da PitWall</b>:</p>
-      <ol class="steps">
-        <li>Scegli il <b>PitWall</b> sulla rete e vedi l'<b>elenco delle gare</b>; selezioni quella corrispondente a questa prova.</li>
-        <li>Control mostra un'<b>anteprima</b> con le squadre <b>abbinate per nome</b>, così puoi controllare l'abbinamento prima di applicare.</li>
-        <li><b>Applicando</b>, viene scritta nella prova la <b>posizione di ogni squadra nella classifica finale</b> della gara (non quella all'interno della sua manche: il vincitore è uno solo). L'anteprima indica in quale manche ha corso ogni squadra. I <b>punti</b> li assegna Control con la sua <b>tabella dei punti</b> (non provengono da PitWall).</li>
-      </ol>
-      <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
+      <h3>Importare i risultati (ritorno)</h3>
+      <p>Alla fine, nella prova premi <b>Importa risultati da PitWall</b>: scegli il PitWall e la gara, controlli nell'anteprima come sono state abbinate le squadre per nome e applichi. Si salva la <b>posizione di ogni squadra nella classifica finale</b> della gara; i punti li assegna Control con la sua tabella. Puoi anche importare i risultati da un <b>file di cronometraggio</b> nei Risultati della prova.</p>
 
-      <h3>Inviare le verifiche a PitWall</h3>
-      <p>Dal pannello della prova, <b>Invia verifiche a PitWall</b> manda lo snapshot di ciò che è stato verificato —pignone/corona, coppe, pesi, motore, cerchi, gomma, convalidato, note e gli altri campi della scheda— affinché resti visibile dentro la gara. Segue lo stesso percorso dell'invio della tanda: Control <b>rileva</b> il PitWall sulla rete locale (o gli indichi l'<b>IP</b> a mano), chiede il <b>PIN di abbinamento</b> e ti lascia scegliere, dall'elenco delle gare di quel PitWall, quella corrispondente a questa prova. Scelta una volta, Control la ricorda per la prossima: i reinvii di questa prova vanno sempre <b>alla stessa gara</b>, senza doverla ricercare di nuovo per nome.</p>
+      <h3>Inviare le verifiche</h3>
+      <p><b>Invia verifiche a PitWall</b> manda i <b>dati</b> di quanto verificato (pesi, motore, pignone, corona, cerchi, convalidato, note…), senza le foto, perché si vedano dentro la gara. Stessa via: PitWall, PIN e la gara corrispondente, che Control ricorda per i reinvii.</p>
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-        <div>In PitWall le verifiche sono di <b>sola consultazione</b>: non si modificano né si creano lì, e ogni nuovo invio da Control <b>sostituisce completamente</b> quelle di quella gara. Richiede di avere <b>Connessione ecosistema</b> consentita in PitWall (vedi il <i>Manuale d'uso</i>, sezione <i>Verifiche tecniche di PitWall Control</i>).</div>
+        <div>In PitWall le verifiche sono <b>di sola consultazione</b>, e ogni nuovo invio sostituisce completamente il precedente. Richiede di avere <b>Connessione ecosistema</b> consentita in PitWall.</div>
       </div>
     </section>
 
     <section id="glosario">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Glossario</h2>
       <ul>
-        <li><b>Campionato</b>: il contenitore di tutta la stagione (formato, coppe, regole, moduli).</li>
-        <li><b>Coppa / classe</b>: la classe in cui gareggia una squadra (GRUPO C1, GT, Clásicos…). Filtra i cataloghi e raggruppa la classifica.</li>
-        <li><b>Formato</b>: Individuale (1), Coppie (2) o Endurance (fino a 6 piloti per squadra).</li>
-        <li><b>Catalogo</b>: libreria riutilizzabile di materiale (auto, motori, ingranaggi, gomme, supporti motore, telai, cerchi…).</li>
-        <li><b>Coppa nel catalogo</b>: le coppe contrassegnate in una scheda. Senza nessuna contrassegnata, la scheda vale per <b>tutte</b> le coppe; contrassegnando delle coppe, si limita a quelle. Ce l'hanno sette cataloghi: auto, cerchi, supporti motore, telai, gomme, ingranaggi e motori.</li>
-        <li><b>Esportare / importare il catalogo in Excel</b>: riversare tutti i cataloghi in un file <span class="mono">.xlsx</span> (una scheda per catalogo) e restituirlo modificato. Con ID aggiorna, senza ID crea, e non elimina mai nulla.</li>
-        <li><b>Profilo del pilota</b>: i dati del pilota <b>in un campionato</b> (categoria, crediti).</li>
-        <li><b>Prova</b>: ogni appuntamento del calendario; contiene manche e iscrizioni.</li>
-        <li><b>Manche</b>: una tornata della prova con la sua assegnazione delle corsie.</li>
-        <li><b>Verifica tecnica</b>: controllo del materiale di una squadra rispetto ai regolamenti prima di convalidarlo.</li>
-        <li><b>Foto di riferimento</b>: immagine dell'auto nel catalogo per confrontarla con quella che consegna la squadra.</li>
-        <li><b>Crediti</b>: sistema di handicap; salgono/scendono in base al risultato.</li>
-        <li><b>Bonus di fine stagione</b>: crediti che si sommano alla fine in base a categoria e n° di gare.</li>
-        <li><b>Revisione delle categorie</b>: promozione/retrocessione di ogni pilota prima della chiusura (scala BRONZO→PLATINO).</li>
-        <li><b>Scala delle categorie</b>: BRONZO · ARGENTO · ORO · PLATINO.</li>
+        <li><b>Campionato</b>: il contenitore della stagione (formato, coppe, regole, tipo di motore, moduli).</li>
+        <li><b>Coppa / categoria</b>: la classe in cui corre una squadra. Filtra i cataloghi e raggruppa la classifica.</li>
+        <li><b>Formato</b>: Individuale (1 pilota), Coppie (2) o 24h (fino a 6).</li>
+        <li><b>Catalogo</b>: libreria di materiale (auto, marche, cerchi, ingranaggi, motori, supporti, telai, gomme). Una scheda senza coppa non compare nella verifica.</li>
+        <li><b>Tipo di motore</b>: Sorteggio (dell'organizzazione), Proprio (della squadra) o Misto (si sceglie in ogni verifica).</li>
+        <li><b>Limitare il costruttore</b>: solo le marche scelte sono ammesse in pignone, corona, cerchi e treccia.</li>
+        <li><b>Prova</b>: ogni appuntamento del calendario; contiene iscritti e manche.</li>
+        <li><b>Manche</b>: una tornata della prova con la sua griglia di corsie; <span class="mono">D1, D2…</span> sono riposi.</li>
+        <li><b>Commissari</b> («pisters»): i piloti di un'altra manche che fanno da commissari di pista.</li>
+        <li><b>Verifica</b>: controllo del materiale di una squadra prima di convalidarlo, per blocchi.</li>
+        <li><b>«Resum. Verifi.»</b>: tutte le verifiche di una prova in una tabella, con il fuori regolamento in rosso.</li>
+        <li><b>Verifica libera</b>: sessione di verifica senza campionato né prova, con il suo regolamento.</li>
+        <li><b>Foto di riferimento</b>: l'immagine dell'auto nel catalogo, da confrontare con quella consegnata dalla squadra.</li>
+        <li><b>Pagat</b>: la quota totale per prova; si ripartisce tra ente coordinatore e club.</li>
+        <li><b>Wildcard / «Coord. total»</b>: squadre che non pagano in quella prova (ospite / tutti dell'ente coordinatore).</li>
+        <li><b>Crediti</b>: sistema di handicap; salgono o scendono in base al risultato.</li>
+        <li><b>Bonus di fine stagione</b>: crediti aggiunti alla fine in base a categoria e numero di gare.</li>
+        <li><b>Scala delle categorie</b>: BRONCE · PLATA · ORO · PLATINO.</li>
         <li><b>Scarto</b>: peggior risultato che non conta per la classifica.</li>
-        <li><b>Tesoreria</b>: quote per prova e loro ripartizione (comitato organizzatore / club).</li>
-        <li><b>Tanda</b>: pacchetto della prova (<span class="mono">pitwall.tanda/v1</span>) che si invia a PitWall.</li>
-        <li><b>Importare i risultati</b>: importare da PitWall la posizione di ogni squadra nella classifica finale della gara (abbinata per nome) per classifica e crediti; i punti li assegna Control.</li>
-        <li><b>Invia verifiche</b>: mandare a PitWall, via rete e con PIN, lo snapshot di ciò che è stato verificato di ogni squadra (pignone/corona, pesi, motore, cerchi…) affinché resti visibile —di sola consultazione— dentro la gara. Ogni invio sostituisce completamente il precedente.</li>
-        <li><b>PIN di abbinamento</b>: codice che PitWall mostra in <i>Importa tanda</i> e che Control richiede per autorizzare l'invio via rete.</li>
-        <li><b>Marchio</b>: titolo e slogan del campionato che vengono stampati sui PDF.</li>
+        <li><b>Punteggio precedente</b>: punti della stagione precedente per ordinare le manche della prima prova.</li>
+        <li><b>Tanda</b>: la prova impacchettata (<span class="mono">pitwall.tanda/v1</span>) che si invia a PitWall.</li>
+        <li><b>PIN di abbinamento</b>: il codice che mostra PitWall e che Control chiede per inviare in rete.</li>
+        <li><b>Marchio</b>: titolo e motto del campionato nei PDF.</li>
       </ul>
     </section>
 
