@@ -147,6 +147,7 @@
         <img src="manual/img/op-escenario-form.png" loading="lazy" alt="Modulo di modifica di uno scenario con la sequenza di rotazione e il tempo minimo per categoria">
         <figcaption>Modifica scenario: corsie, sequenza di rotazione (con riposi DSC), tempo minimo predefinito e per categoria.</figcaption>
       </figure>
+      <p><b>Colori delle corsie.</b> Nella scheda dello scenario, il blocco <b>Colori delle corsie</b> («Colores de los carriles») ha un campione per corsia. Spunta <b>Usa colori propri in questo circuito</b> («Usar colores propios en este circuito») e clicca ogni campione per sceglierne il colore, così lo schermo coincide con i colori dipinti sulla pista; <b>Copia i colori globali</b> («Copiar los colores globales») parte dalla tavolozza generale. Senza spunta, lo scenario usa i colori globali di <b>Impostazioni → Preferenze</b>. I colori si vedono in tutte le schermate (diretta, TV, pannelli, allenamenti, pole, batterie e risultati) e il numero della corsia diventa nero o bianco per leggersi bene su qualsiasi colore.</p>
 
       <h3>Categorie</h3>
       <p>Gruppi di livello/classe (GT, Turismo, Classiche…) che servono a <b>sovrascrivere il tempo minimo (Pt) per categoria</b> in ogni scenario e a classificare auto e piloti.</p>
@@ -599,7 +600,7 @@
       <ul>
         <li>l'<b>ultimo giro</b> e il suo distacco dal migliore;</li>
         <li>la riga <b>Migliore / Media / Record</b>;</li>
-        <li>gli <b>ultimi 10 giri</b>, ciascuno preceduto dal suo numero di giro;</li>
+        <li>gli <b>ultimi 10 giri</b>, in grande e ciascuno preceduto dal suo numero di giro;</li>
         <li>un <b>grafico del ritmo</b> con le linee del miglior giro e della media: passando il mouse (o il dito) su un punto vedi il numero del giro, il suo tempo e quanto si discosta dal migliore.</li>
       </ul>
       <figure class="shot">
@@ -607,6 +608,7 @@
         <img src="manual/img/41-training-free.png" loading="lazy" alt="Diretta dell'allenamento libero con gli ultimi 10 giri e il grafico del ritmo">
         <figcaption>Diretta dell'allenamento libero: ultimi 10 giri e grafico del ritmo, con il dettaglio di un giro al passaggio del mouse.</figcaption>
       </figure>
+      <p><b>A fine sessione i tempi restano sullo schermo.</b> Quando finisce (segnale di fine della centralina o tempo scaduto), i giri, il migliore, la media e il grafico di ogni corsia restano visibili per commentarli; si cancellano al <b>GO successivo</b>. Il <b>Record</b> di ogni corsia si mantiene tra una sessione e l’altra e si cancella solo con <b>Reset</b>.</p>
       <p>La <b>vista compatta</b> (pulsante <b>Vista</b>) riassume ogni corsia in poco spazio: l'ultimo giro con il suo distacco, Migliore / Media / Record e il ritmo in miniatura.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Allenamento (vista compatta)</span></div>
@@ -639,7 +641,7 @@
       <ul>
         <li><b>Sorgente dati</b>: scegli da dove arrivano i passaggi — <b>Simulazione</b>, <b>DS-300</b> (un box per porta, con il suo n° di corsie), <b>DS-300 aggregatore</b> (più box su un'unica porta COM: indica <b>porta</b>, <b>baud</b> —57600, 8N1— e <b>n° di box</b> 2/3/4 → 16/24/32 corsie) o <b>BART</b> via Bluetooth (si connette in <b>BLE diretto</b> per impostazione predefinita; il <b>TCP</b> resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box. Se usi <b>più Master BART</b> (uno per ogni blocco di corsie), aggiungi una riga per Master con il suo <b>nome BLE</b> (es. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) e il suo <b>n° di corsie</b>: sono numerate di seguito come i box dell'aggregatore DS-300, e ogni Master va abbinato separatamente.</li>
         <li><b>Configurazione della porta, senza complicazioni</b>: per ogni circuito DS-300 (e per l'aggregatore) a colpo d'occhio vedi solo <b>Porta</b> e <b>Baud rate</b>. La <b>porta</b> si sceglie dall'elenco rilevato; se la tua non compare, con <b>« Scrivi il percorso a mano »</b> la digiti (es. <code>COM3</code> o <code>/dev/ttys003</code>). Il <b>baud rate</b> è un menu a tendina con le velocità abituali (9600–921600), con <b>« Scrivi a mano »</b> per un valore fuori elenco. Le impostazioni fini della seriale (<b>Data bits, Parità, Stop bits, Controllo di flusso</b>) sono ripiegate in <b>« Opzioni avanzate della porta »</b>: di default <b>8N1</b>, quasi mai da toccare.</li>
-        <li><b>Preferenze</b>: l'<b>Ordine della diretta</b> (per classifica stimata o per giri reali; vedi <i>Dirigere la gara in diretta</i>).</li>
+        <li><b>Preferenze</b>: l'<b>Ordine della diretta</b> (per classifica stimata o per giri reali; vedi <i>Dirigere la gara in diretta</i>) e i <b>Colori delle corsie</b> globali («Colores de carril»): quelli usati quando non c’è uno scenario o lo scenario non ha colori propri. Clicca ogni campione per cambiarne il colore; <b>Salva colori</b> («Guardar colores») li applica subito senza toccare la connessione del cronometraggio, e <b>Colori di fabbrica</b> («Colores de fábrica») ripristina la tavolozza originale.</li>
         <li><b>Rete locale</b>: interfaccia di rete, limitare l'accesso web e HTTPS locale (per la fotocamera del QR).</li>
         <li><b>Seguito pubblico su internet</b>: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la <a class="inl" href="#publico">sezione seguente</a>).</li>
         <li><b>Integrazioni</b> (compatibilità Infolap, che si attiva e disattiva all'istante) e <b>Diagnostica</b> (modalità debug e strumenti per indagare un problema).</li>

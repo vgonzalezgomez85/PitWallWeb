@@ -49,6 +49,8 @@ Lors de l'édition d'un scénario, tu définis son nom, la configuration des voi
 
 ![img: op-escenario-form.png]
 
+**Couleurs des voies.** Dans la fiche du scénario, le bloc **Couleurs des voies** (« Colores de los carriles ») a un échantillon par voie. Coche **Utiliser des couleurs propres à ce circuit** (« Usar colores propios en este circuito ») et clique sur chaque échantillon pour choisir sa couleur : l’écran correspond ainsi aux couleurs peintes sur la piste ; **Copier les couleurs globales** (« Copiar los colores globales ») part de la palette générale. Sans la coche, le scénario utilise les couleurs globales de **Réglages → Préférences**. Les couleurs apparaissent sur tous les écrans (direct, TV, panneaux, entraînements, pole, manches et résultats) et le numéro de voie passe en noir ou en blanc pour rester lisible sur n’importe quelle couleur.
+
 **Catégories.** Groupes de niveau/classe (GT, Tourisme, Classiques…) qui servent à **surcharger le temps minimum (Pt) par catégorie** dans chaque scénario et à classer voitures et pilotes.
 
 ![img: op-categorias.png]
@@ -348,10 +350,12 @@ Choisis la modalité, attribue les voies et appuie sur *Commencer (« Empezar »
 
 - le **dernier tour** et son écart avec le meilleur ;
 - la ligne **Meilleur / Moyenne / Record** ;
-- les **10 derniers tours**, chacun précédé de son numéro de tour ;
+- les **10 derniers tours**, en grand et chacun précédé de son numéro de tour ;
 - un **graphique de rythme** avec les lignes du meilleur tour et de la moyenne : en survolant (ou en touchant) un point, tu vois le numéro du tour, son temps et son écart avec le meilleur.
 
 ![img: 41-training-free.png]
+
+**À la fin de la séance, les temps restent à l’écran.** Quand elle se termine (signal de fin du boîtier ou temps écoulé), les tours, le meilleur, la moyenne et le graphique de chaque voie restent visibles pour les commenter ; ils s’effacent au **GO suivant**. Le **Record** de chaque voie est conservé d’une séance à l’autre et ne s’efface qu’avec **Reset**.
 
 La **vue compacte** (bouton **Vue**) résume chaque voie en peu de place : le dernier tour avec son écart, Meilleur / Moyenne / Record et le rythme en miniature.
 ![img: 41b-training-compact.png]
@@ -377,7 +381,7 @@ Les **Réglages** s'organisent avec un **menu latéral** : **Source de données*
 
 - **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth (il se connecte en **BLE direct** par défaut ; le **TCP** reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers. Si tu utilises **plusieurs Master BART** (un par bloc de voies), ajoute une ligne par Master avec son **nom BLE** (p. ex. `BART_TRACK1`, `BART_TRACK2`…) et son **nombre de voies** : ils sont numérotés à la suite comme les boîtiers de l'agrégateur DS-300, et chaque Master doit être appairé séparément.
 - **Configuration du port, sans prise de tête** : pour chaque circuit DS-300 (et l'agrégateur) tu ne vois d'un coup d'œil que le **Port** et le **Baud rate**. Choisis le **port** dans la liste détectée ; s'il n'y figure pas, **« Saisir le chemin à la main »** permet de le taper (p. ex. `COM3` ou `/dev/ttys003`). Le **baud rate** est un menu déroulant avec les vitesses habituelles (9600–921600), avec **« Saisir à la main »** pour une valeur hors liste. Les réglages fins de la liaison série (**Data bits, Parité, Stop bits, Contrôle de flux**) sont repliés sous **« Options avancées du port »** : par défaut **8N1**, on n'y touche presque jamais.
-- **Préférences** : l'**Ordre du direct** (par classement estimé ou par tours réels ; voir *Diriger la course en direct*).
+- **Préférences** : l'**Ordre du direct** (par classement estimé ou par tours réels ; voir *Diriger la course en direct*) et les **Couleurs de voie** globales (« Colores de carril ») : celles utilisées quand il n’y a pas de scénario ou que le scénario n’a pas de couleurs propres. Clique sur chaque échantillon pour changer sa couleur ; **Enregistrer les couleurs** (« Guardar colores ») les applique tout de suite sans toucher à la connexion du chronométrage, et **Couleurs d’usine** (« Colores de fábrica ») rétablit la palette d’origine.
 - **Réseau local** : interface réseau, restreindre l'accès web et HTTPS local (pour la caméra du QR).
 - **Suivi public par internet** : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la section suivante).
 - **Intégrations** (compatibilité Infolap, qui s'active et se désactive sur le moment) et **Diagnostic** (mode debug et outils pour enquêter sur un problème).

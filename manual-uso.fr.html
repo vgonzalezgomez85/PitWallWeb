@@ -147,6 +147,7 @@
         <img src="manual/img/op-escenario-form.png" loading="lazy" alt="Formulaire d'édition d'un scénario avec la séquence de rotation et le temps minimum par catégorie">
         <figcaption>Éditer le scénario : voies, séquence de rotation (avec repos DSC), temps minimum par défaut et par catégorie.</figcaption>
       </figure>
+      <p><b>Couleurs des voies.</b> Dans la fiche du scénario, le bloc <b>Couleurs des voies</b> (« Colores de los carriles ») a un échantillon par voie. Coche <b>Utiliser des couleurs propres à ce circuit</b> (« Usar colores propios en este circuito ») et clique sur chaque échantillon pour choisir sa couleur : l’écran correspond ainsi aux couleurs peintes sur la piste ; <b>Copier les couleurs globales</b> (« Copiar los colores globales ») part de la palette générale. Sans la coche, le scénario utilise les couleurs globales de <b>Réglages → Préférences</b>. Les couleurs apparaissent sur tous les écrans (direct, TV, panneaux, entraînements, pole, manches et résultats) et le numéro de voie passe en noir ou en blanc pour rester lisible sur n’importe quelle couleur.</p>
 
       <h3>Catégories</h3>
       <p>Groupes de niveau/classe (GT, Tourisme, Classiques…) qui servent à <b>surcharger le temps minimum (Pt) par catégorie</b> dans chaque scénario et à classer voitures et pilotes.</p>
@@ -599,7 +600,7 @@
       <ul>
         <li>le <b>dernier tour</b> et son écart avec le meilleur ;</li>
         <li>la ligne <b>Meilleur / Moyenne / Record</b> ;</li>
-        <li>les <b>10 derniers tours</b>, chacun précédé de son numéro de tour ;</li>
+        <li>les <b>10 derniers tours</b>, en grand et chacun précédé de son numéro de tour ;</li>
         <li>un <b>graphique de rythme</b> avec les lignes du meilleur tour et de la moyenne : en survolant (ou en touchant) un point, tu vois le numéro du tour, son temps et son écart avec le meilleur.</li>
       </ul>
       <figure class="shot">
@@ -607,6 +608,7 @@
         <img src="manual/img/41-training-free.png" loading="lazy" alt="Direct d'entraînement libre avec les 10 derniers tours et le graphique de rythme">
         <figcaption>Direct d'entraînement libre : 10 derniers tours et graphique de rythme, avec le détail d'un tour au survol.</figcaption>
       </figure>
+      <p><b>À la fin de la séance, les temps restent à l’écran.</b> Quand elle se termine (signal de fin du boîtier ou temps écoulé), les tours, le meilleur, la moyenne et le graphique de chaque voie restent visibles pour les commenter ; ils s’effacent au <b>GO suivant</b>. Le <b>Record</b> de chaque voie est conservé d’une séance à l’autre et ne s’efface qu’avec <b>Reset</b>.</p>
       <p>La <b>vue compacte</b> (bouton <b>Vue</b>) résume chaque voie en peu de place : le dernier tour avec son écart, Meilleur / Moyenne / Record et le rythme en miniature.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entraînement (vue compacte)</span></div>
@@ -639,7 +641,7 @@
       <ul>
         <li><b>Source de données</b> : choisis d'où arrivent les passages — <b>Simulation</b>, <b>DS-300</b> (un boîtier par port, avec son nombre de voies), <b>DS-300 agrégateur</b> (plusieurs boîtiers sur un seul port COM : indique le <b>port</b>, le <b>baud</b> —57600, 8N1— et le <b>nombre de boîtiers</b> 2/3/4 → 16/24/32 voies) ou <b>BART</b> par Bluetooth (il se connecte en <b>BLE direct</b> par défaut ; le <b>TCP</b> reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers. Si tu utilises <b>plusieurs Master BART</b> (un par bloc de voies), ajoute une ligne par Master avec son <b>nom BLE</b> (p. ex. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) et son <b>nombre de voies</b> : ils sont numérotés à la suite comme les boîtiers de l'agrégateur DS-300, et chaque Master doit être appairé séparément.</li>
         <li><b>Configuration du port, sans prise de tête</b> : pour chaque circuit DS-300 (et l'agrégateur) tu ne vois d'un coup d'œil que le <b>Port</b> et le <b>Baud rate</b>. Choisis le <b>port</b> dans la liste détectée ; s'il n'y figure pas, <b>« Saisir le chemin à la main »</b> permet de le taper (p. ex. <code>COM3</code> ou <code>/dev/ttys003</code>). Le <b>baud rate</b> est un menu déroulant avec les vitesses habituelles (9600–921600), avec <b>« Saisir à la main »</b> pour une valeur hors liste. Les réglages fins de la liaison série (<b>Data bits, Parité, Stop bits, Contrôle de flux</b>) sont repliés sous <b>« Options avancées du port »</b> : par défaut <b>8N1</b>, on n'y touche presque jamais.</li>
-        <li><b>Préférences</b> : l'<b>Ordre du direct</b> (par classement estimé ou par tours réels ; voir <i>Diriger la course en direct</i>).</li>
+        <li><b>Préférences</b> : l'<b>Ordre du direct</b> (par classement estimé ou par tours réels ; voir <i>Diriger la course en direct</i>) et les <b>Couleurs de voie</b> globales (« Colores de carril ») : celles utilisées quand il n’y a pas de scénario ou que le scénario n’a pas de couleurs propres. Clique sur chaque échantillon pour changer sa couleur ; <b>Enregistrer les couleurs</b> (« Guardar colores ») les applique tout de suite sans toucher à la connexion du chronométrage, et <b>Couleurs d’usine</b> (« Colores de fábrica ») rétablit la palette d’origine.</li>
         <li><b>Réseau local</b> : interface réseau, restreindre l'accès web et HTTPS local (pour la caméra du QR).</li>
         <li><b>Suivi public par internet</b> : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la <a class="inl" href="#publico">section suivante</a>).</li>
         <li><b>Intégrations</b> (compatibilité Infolap, qui s'active et se désactive sur le moment) et <b>Diagnostic</b> (mode debug et outils pour enquêter sur un problème).</li>

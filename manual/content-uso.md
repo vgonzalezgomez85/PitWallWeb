@@ -49,6 +49,8 @@ Al editar un escenario defines su nombre, la configuración de carriles, arrastr
 
 ![img: op-escenario-form.png]
 
+**Colores de los carriles.** En la ficha del escenario, el bloque **Colores de los carriles** tiene una muestra por carril. Marca **Usar colores propios en este circuito** y pulsa cada muestra para elegir su color, así la pantalla coincide con los colores pintados en la pista; **Copiar los colores globales** parte de la paleta general. Sin marcar, el escenario usa los colores globales de **Ajustes → Preferencias**. Los colores se ven en todas las pantallas (directo, TV, paneles, entrenos, pole, tandas y resultados) y el número del carril sale en negro o en blanco para que se lea bien sobre cualquier color.
+
 **Categorías.** Grupos de nivel/clase (GT, Turismo, Clásicos…) que sirven para **sobrescribir el tiempo mínimo (Pt) por categoría** en cada escenario y para clasificar coches y pilotos.
 
 ![img: op-categorias.png]
@@ -348,10 +350,12 @@ Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en 
 
 - la **última vuelta** y su diferencia con la mejor;
 - la fila **Mejor / Media / Récord**;
-- las **10 últimas vueltas**, cada una con su número de vuelta delante;
+- las **10 últimas vueltas**, en grande y cada una con su número de vuelta delante;
 - un **gráfico de ritmo** con las líneas de mejor vuelta y media: al pasar el ratón (o el dedo) por un punto ves el número de vuelta, su tiempo y cuánto se aleja de la mejor.
 
 ![img: 41-training-free.png]
+
+**Al acabar la tanda los tiempos se quedan en pantalla.** Cuando termina (fin de la caja o fin del tiempo), las vueltas, la mejor, la media y el gráfico de cada carril siguen a la vista para comentarlos; se borran al dar el **siguiente GO**. El **Récord** de cada carril se mantiene entre tandas y solo se borra con **Reset**.
 
 La **vista compacta** (botón **Vista**) resume cada carril en poco espacio: la última vuelta con su diferencia, Mejor / Media / Récord y el ritmo en miniatura.
 ![img: 41b-training-compact.png]
@@ -377,7 +381,7 @@ La **Configuración** se organiza con un **menú lateral**: **Fuente de datos**,
 
 - **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth (se conecta por **BLE directo** por defecto; queda **TCP** en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas. Si usas **varios Master BART** (uno por cada bloque de carriles), añade una fila por cada uno con su **nombre BLE** (p. ej. `BART_TRACK1`, `BART_TRACK2`…) y su **nº de carriles**: se numeran de corrido igual que las cajas DS-300 del agrupador, y cada Master hay que emparejarlo por separado.
 - **Configuración del puerto, sin líos**: en cada circuito DS-300 (y en el agrupador) de un vistazo solo ves **Puerto** y **Baud rate**. El **puerto** se elige de la lista de puertos detectados; si el tuyo no aparece, con **«Escribir el path a mano»** lo tecleas (p. ej. `COM3` o `/dev/ttys003`). El **baud rate** es un desplegable con las velocidades habituales (9600–921600), con **«Escribir a mano»** para un valor fuera de lista. Los ajustes finos de la conexión serie (**Data bits, Paridad, Stop bits, Control de flujo**) están plegados en **«Opciones avanzadas del puerto»**: por defecto **8N1** y casi nunca hay que tocarlos.
-- **Preferencias**: el **Orden del directo** (por clasificación estimada o por vueltas reales; ver *Dirigir la carrera en vivo*).
+- **Preferencias**: el **Orden del directo** (por clasificación estimada o por vueltas reales; ver *Dirigir la carrera en vivo*) y los **Colores de carril** globales: los que se usan cuando no hay escenario o el escenario no tiene colores propios. Pulsa cada muestra para cambiar su color; **Guardar colores** los aplica al momento sin tocar la conexión del cronometraje, y **Colores de fábrica** recupera la paleta original.
 - **Red local**: interfaz de red, restringir el acceso web y HTTPS local (para la cámara del QR).
 - **Seguimiento público por internet**: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la sección siguiente).
 - **Integraciones** (compatibilidad Infolap, que se activa y desactiva al momento) y **Diagnóstico** (modo debug y herramientas para investigar un problema).

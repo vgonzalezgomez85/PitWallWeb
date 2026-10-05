@@ -49,6 +49,8 @@ When editing a scenario you define its name, the lane configuration, you drag th
 
 ![img: op-escenario-form.png]
 
+**Lane colors.** On the scenario form, the **Lane colors** block has one swatch per lane. Tick **Use this circuit’s own colors** and click each swatch to pick its color, so the screen matches the colors painted on the track; **Copy global colors** starts from the general palette. Unticked, the scenario uses the global colors from **Settings → Preferences**. The colors show on every screen (live view, TV, panels, training, pole, heats and results), and the lane number turns black or white so it reads well on any color.
+
 **Categories.** Level/class groups (GT, Touring, Classics…) that serve to **override the minimum time (Pt) per category** in each scenario and to classify cars and drivers.
 
 ![img: op-categorias.png]
@@ -348,10 +350,12 @@ Choose the mode, assign the lanes and press **Start**. Live timing works the sam
 
 - the **last lap** and its gap to the best;
 - the **Best / Average / Record** row;
-- the **last 10 laps**, each with its lap number in front;
+- the **last 10 laps**, in large type and each with its lap number in front;
 - a **pace chart** with best-lap and average lines: hover (or tap) a point to see the lap number, its time and how far it is from the best.
 
 ![img: 41-training-free.png]
+
+**When the session ends, the times stay on screen.** When it finishes (end signal from the box or time up), each lane’s laps, best, average and pace chart stay visible so you can go over them; they are cleared on the **next GO**. Each lane’s **Record** is kept between sessions and is only cleared with **Reset**.
 
 The **compact view** (**View** button) sums up each lane in little space: the last lap with its gap, Best / Average / Record and a mini pace chart.
 ![img: 41b-training-compact.png]
@@ -377,7 +381,7 @@ Each session can be **deleted** from its detail. If you stop the session with **
 
 - **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes. If you use **several BART Masters** (one per block of lanes), add one row per Master with its **BLE name** (e.g. `BART_TRACK1`, `BART_TRACK2`…) and **lane count**: they're numbered consecutively just like the DS-300 aggregator boxes, and each Master has to be paired separately.
 - **Port setup, kept simple**: for each DS-300 circuit (and the aggregator) you only see **Port** and **Baud rate** at a glance. Pick the **port** from the detected list; if yours isn't there, tap **"Type the path manually"** to enter it (e.g. `COM3` or `/dev/ttys003`). The **baud rate** is a dropdown with the usual speeds (9600–921600), with **"Type manually"** for an out-of-list value. The fine serial settings (**Data bits, Parity, Stop bits, Flow control**) are folded under **"Advanced port options"**: they default to **8N1** and rarely need touching.
-- **Preferences**: the **Live view order** (by projected standings or by actual laps; see *Running the race live*).
+- **Preferences**: the **Live view order** (by projected standings or by actual laps; see *Running the race live*) and the global **Lane colors**: the ones used when there is no scenario or the scenario has no colors of its own. Click each swatch to change its color; **Save colors** applies them instantly without touching the timing connection, and **Factory colors** restores the original palette.
 - **Local network**: network interface, restrict web access and local HTTPS (for the QR camera).
 - **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).
 - **Integrations** (Infolap compatibility, switched on and off instantly) and **Diagnostics** (debug mode and tools to investigate a problem).

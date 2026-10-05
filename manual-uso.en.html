@@ -147,6 +147,7 @@
         <img src="manual/img/op-escenario-form.png" loading="lazy" alt="Scenario edit form with the rotation sequence and the minimum time per category">
         <figcaption>Edit scenario: lanes, rotation sequence (with DSC rests), default minimum time and per category.</figcaption>
       </figure>
+      <p><b>Lane colors.</b> On the scenario form, the <b>Lane colors</b> block has one swatch per lane. Tick <b>Use this circuit’s own colors</b> and click each swatch to pick its color, so the screen matches the colors painted on the track; <b>Copy global colors</b> starts from the general palette. Unticked, the scenario uses the global colors from <b>Settings → Preferences</b>. The colors show on every screen (live view, TV, panels, training, pole, heats and results), and the lane number turns black or white so it reads well on any color.</p>
 
       <h3>Categories</h3>
       <p>Level/class groups (GT, Touring, Classics…) that serve to <b>override the minimum time (Pt) per category</b> in each scenario and to classify cars and drivers.</p>
@@ -599,7 +600,7 @@
       <ul>
         <li>the <b>last lap</b> and its gap to the best;</li>
         <li>the <b>Best / Average / Record</b> row;</li>
-        <li>the <b>last 10 laps</b>, each with its lap number in front;</li>
+        <li>the <b>last 10 laps</b>, in large type and each with its lap number in front;</li>
         <li>a <b>pace chart</b> with best-lap and average lines: hover (or tap) a point to see the lap number, its time and how far it is from the best.</li>
       </ul>
       <figure class="shot">
@@ -607,6 +608,7 @@
         <img src="manual/img/41-training-free.png" loading="lazy" alt="Free-training live view with the last 10 laps and the pace chart">
         <figcaption>Free-training live view: last 10 laps and pace chart, with a lap's details on hover.</figcaption>
       </figure>
+      <p><b>When the session ends, the times stay on screen.</b> When it finishes (end signal from the box or time up), each lane’s laps, best, average and pace chart stay visible so you can go over them; they are cleared on the <b>next GO</b>. Each lane’s <b>Record</b> is kept between sessions and is only cleared with <b>Reset</b>.</p>
       <p>The <b>compact view</b> (<b>View</b> button) sums up each lane in little space: the last lap with its gap, Best / Average / Record and a mini pace chart.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Training (compact view)</span></div>
@@ -639,7 +641,7 @@
       <ul>
         <li><b>Data source</b>: choose where crossings come from — <b>Simulation</b>, <b>DS-300</b> (one box per port, with its lane count), <b>DS-300 aggregator</b> (several boxes over a single COM port: set the <b>port</b>, <b>baud</b> —57600, 8N1— and <b>number of boxes</b> 2/3/4 → 16/24/32 lanes) or <b>BART</b> over Bluetooth (it connects over <b>direct BLE</b> by default; <b>TCP</b> stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes. If you use <b>several BART Masters</b> (one per block of lanes), add one row per Master with its <b>BLE name</b> (e.g. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) and <b>lane count</b>: they're numbered consecutively just like the DS-300 aggregator boxes, and each Master has to be paired separately.</li>
         <li><b>Port setup, kept simple</b>: for each DS-300 circuit (and the aggregator) you only see <b>Port</b> and <b>Baud rate</b> at a glance. Pick the <b>port</b> from the detected list; if yours isn't there, tap <b>"Type the path manually"</b> to enter it (e.g. <code>COM3</code> or <code>/dev/ttys003</code>). The <b>baud rate</b> is a dropdown with the usual speeds (9600–921600), with <b>"Type manually"</b> for an out-of-list value. The fine serial settings (<b>Data bits, Parity, Stop bits, Flow control</b>) are folded under <b>"Advanced port options"</b>: they default to <b>8N1</b> and rarely need touching.</li>
-        <li><b>Preferences</b>: the <b>Live view order</b> (by projected standings or by actual laps; see <i>Running the race live</i>).</li>
+        <li><b>Preferences</b>: the <b>Live view order</b> (by projected standings or by actual laps; see <i>Running the race live</i>) and the global <b>Lane colors</b>: the ones used when there is no scenario or the scenario has no colors of its own. Click each swatch to change its color; <b>Save colors</b> applies them instantly without touching the timing connection, and <b>Factory colors</b> restores the original palette.</li>
         <li><b>Local network</b>: network interface, restrict web access and local HTTPS (for the QR camera).</li>
         <li><b>Public tracking over the internet</b>: publish the public views on the internet to follow the race from outside the venue (see the <a class="inl" href="#publico">next section</a>).</li>
         <li><b>Integrations</b> (Infolap compatibility, switched on and off instantly) and <b>Diagnostics</b> (debug mode and tools to investigate a problem).</li>

@@ -49,6 +49,8 @@ Modificando uno scenario ne definisci il nome, la configurazione delle corsie, t
 
 ![img: op-escenario-form.png]
 
+**Colori delle corsie.** Nella scheda dello scenario, il blocco **Colori delle corsie** («Colores de los carriles») ha un campione per corsia. Spunta **Usa colori propri in questo circuito** («Usar colores propios en este circuito») e clicca ogni campione per sceglierne il colore, così lo schermo coincide con i colori dipinti sulla pista; **Copia i colori globali** («Copiar los colores globales») parte dalla tavolozza generale. Senza spunta, lo scenario usa i colori globali di **Impostazioni → Preferenze**. I colori si vedono in tutte le schermate (diretta, TV, pannelli, allenamenti, pole, batterie e risultati) e il numero della corsia diventa nero o bianco per leggersi bene su qualsiasi colore.
+
 **Categorie.** Gruppi di livello/classe (GT, Turismo, Classiche…) che servono a **sovrascrivere il tempo minimo (Pt) per categoria** in ogni scenario e a classificare auto e piloti.
 
 ![img: op-categorias.png]
@@ -348,10 +350,12 @@ Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cr
 
 - l'**ultimo giro** e il suo distacco dal migliore;
 - la riga **Migliore / Media / Record**;
-- gli **ultimi 10 giri**, ciascuno preceduto dal suo numero di giro;
+- gli **ultimi 10 giri**, in grande e ciascuno preceduto dal suo numero di giro;
 - un **grafico del ritmo** con le linee del miglior giro e della media: passando il mouse (o il dito) su un punto vedi il numero del giro, il suo tempo e quanto si discosta dal migliore.
 
 ![img: 41-training-free.png]
+
+**A fine sessione i tempi restano sullo schermo.** Quando finisce (segnale di fine della centralina o tempo scaduto), i giri, il migliore, la media e il grafico di ogni corsia restano visibili per commentarli; si cancellano al **GO successivo**. Il **Record** di ogni corsia si mantiene tra una sessione e l’altra e si cancella solo con **Reset**.
 
 La **vista compatta** (pulsante **Vista**) riassume ogni corsia in poco spazio: l'ultimo giro con il suo distacco, Migliore / Media / Record e il ritmo in miniatura.
 ![img: 41b-training-compact.png]
@@ -377,7 +381,7 @@ Le **Impostazioni** sono organizzate con un **menu laterale**: **Sorgente dati**
 
 - **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box. Se usi **più Master BART** (uno per ogni blocco di corsie), aggiungi una riga per Master con il suo **nome BLE** (es. `BART_TRACK1`, `BART_TRACK2`…) e il suo **n° di corsie**: sono numerate di seguito come i box dell'aggregatore DS-300, e ogni Master va abbinato separatamente.
 - **Configurazione della porta, senza complicazioni**: per ogni circuito DS-300 (e per l'aggregatore) a colpo d'occhio vedi solo **Porta** e **Baud rate**. La **porta** si sceglie dall'elenco rilevato; se la tua non compare, con **« Scrivi il percorso a mano »** la digiti (es. `COM3` o `/dev/ttys003`). Il **baud rate** è un menu a tendina con le velocità abituali (9600–921600), con **« Scrivi a mano »** per un valore fuori elenco. Le impostazioni fini della seriale (**Data bits, Parità, Stop bits, Controllo di flusso**) sono ripiegate in **« Opzioni avanzate della porta »**: di default **8N1**, quasi mai da toccare.
-- **Preferenze**: l'**Ordine della diretta** (per classifica stimata o per giri reali; vedi *Dirigere la gara in diretta*).
+- **Preferenze**: l'**Ordine della diretta** (per classifica stimata o per giri reali; vedi *Dirigere la gara in diretta*) e i **Colori delle corsie** globali («Colores de carril»): quelli usati quando non c’è uno scenario o lo scenario non ha colori propri. Clicca ogni campione per cambiarne il colore; **Salva colori** («Guardar colores») li applica subito senza toccare la connessione del cronometraggio, e **Colori di fabbrica** («Colores de fábrica») ripristina la tavolozza originale.
 - **Rete locale**: interfaccia di rete, limitare l'accesso web e HTTPS locale (per la fotocamera del QR).
 - **Seguito pubblico su internet**: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la sezione seguente).
 - **Integrazioni** (compatibilità Infolap, che si attiva e disattiva all'istante) e **Diagnostica** (modalità debug e strumenti per indagare un problema).

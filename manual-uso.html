@@ -147,6 +147,7 @@
         <img src="manual/img/op-escenario-form.png" loading="lazy" alt="Formulario de edición de un escenario con la secuencia de rotación y el tiempo mínimo por categoría">
         <figcaption>Editar escenario: carriles, secuencia de rotación (con descansos DSC), tiempo mínimo por defecto y por categoría.</figcaption>
       </figure>
+      <p><b>Colores de los carriles.</b> En la ficha del escenario, el bloque <b>Colores de los carriles</b> tiene una muestra por carril. Marca <b>Usar colores propios en este circuito</b> y pulsa cada muestra para elegir su color, así la pantalla coincide con los colores pintados en la pista; <b>Copiar los colores globales</b> parte de la paleta general. Sin marcar, el escenario usa los colores globales de <b>Ajustes → Preferencias</b>. Los colores se ven en todas las pantallas (directo, TV, paneles, entrenos, pole, tandas y resultados) y el número del carril sale en negro o en blanco para que se lea bien sobre cualquier color.</p>
 
       <h3>Categorías</h3>
       <p>Grupos de nivel/clase (GT, Turismo, Clásicos…) que sirven para <b>sobrescribir el tiempo mínimo (Pt) por categoría</b> en cada escenario y para clasificar coches y pilotos.</p>
@@ -599,7 +600,7 @@
       <ul>
         <li>la <b>última vuelta</b> y su diferencia con la mejor;</li>
         <li>la fila <b>Mejor / Media / Récord</b>;</li>
-        <li>las <b>10 últimas vueltas</b>, cada una con su número de vuelta delante;</li>
+        <li>las <b>10 últimas vueltas</b>, en grande y cada una con su número de vuelta delante;</li>
         <li>un <b>gráfico de ritmo</b> con las líneas de mejor vuelta y media: al pasar el ratón (o el dedo) por un punto ves el número de vuelta, su tiempo y cuánto se aleja de la mejor.</li>
       </ul>
       <figure class="shot">
@@ -607,6 +608,7 @@
         <img src="manual/img/41-training-free.png" loading="lazy" alt="Directo de entreno libre con las 10 últimas vueltas y el gráfico de ritmo">
         <figcaption>Directo de entreno libre: últimas 10 vueltas y gráfico de ritmo, con el detalle de una vuelta al pasar el ratón.</figcaption>
       </figure>
+      <p><b>Al acabar la tanda los tiempos se quedan en pantalla.</b> Cuando termina (fin de la caja o fin del tiempo), las vueltas, la mejor, la media y el gráfico de cada carril siguen a la vista para comentarlos; se borran al dar el <b>siguiente GO</b>. El <b>Récord</b> de cada carril se mantiene entre tandas y solo se borra con <b>Reset</b>.</p>
       <p>La <b>vista compacta</b> (botón <b>Vista</b>) resume cada carril en poco espacio: la última vuelta con su diferencia, Mejor / Media / Récord y el ritmo en miniatura.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entreno (vista compacta)</span></div>
@@ -639,7 +641,7 @@
       <ul>
         <li><b>Fuente de datos</b>: elige de dónde llegan los cruces — <b>Simulación</b>, <b>DS-300</b> (una caja por puerto, con su nº de carriles), <b>DS-300 agrupador</b> (varias cajas por un solo puerto COM: indica <b>puerto</b>, <b>baud</b> —57600, 8N1— y <b>nº de cajas</b> 2/3/4 → 16/24/32 carriles) o <b>BART</b> por Bluetooth (se conecta por <b>BLE directo</b> por defecto; queda <b>TCP</b> en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas. Si usas <b>varios Master BART</b> (uno por cada bloque de carriles), añade una fila por cada uno con su <b>nombre BLE</b> (p. ej. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) y su <b>nº de carriles</b>: se numeran de corrido igual que las cajas DS-300 del agrupador, y cada Master hay que emparejarlo por separado.</li>
         <li><b>Configuración del puerto, sin líos</b>: en cada circuito DS-300 (y en el agrupador) de un vistazo solo ves <b>Puerto</b> y <b>Baud rate</b>. El <b>puerto</b> se elige de la lista de puertos detectados; si el tuyo no aparece, con <b>«Escribir el path a mano»</b> lo tecleas (p. ej. <code>COM3</code> o <code>/dev/ttys003</code>). El <b>baud rate</b> es un desplegable con las velocidades habituales (9600–921600), con <b>«Escribir a mano»</b> para un valor fuera de lista. Los ajustes finos de la conexión serie (<b>Data bits, Paridad, Stop bits, Control de flujo</b>) están plegados en <b>«Opciones avanzadas del puerto»</b>: por defecto <b>8N1</b> y casi nunca hay que tocarlos.</li>
-        <li><b>Preferencias</b>: el <b>Orden del directo</b> (por clasificación estimada o por vueltas reales; ver <i>Dirigir la carrera en vivo</i>).</li>
+        <li><b>Preferencias</b>: el <b>Orden del directo</b> (por clasificación estimada o por vueltas reales; ver <i>Dirigir la carrera en vivo</i>) y los <b>Colores de carril</b> globales: los que se usan cuando no hay escenario o el escenario no tiene colores propios. Pulsa cada muestra para cambiar su color; <b>Guardar colores</b> los aplica al momento sin tocar la conexión del cronometraje, y <b>Colores de fábrica</b> recupera la paleta original.</li>
         <li><b>Red local</b>: interfaz de red, restringir el acceso web y HTTPS local (para la cámara del QR).</li>
         <li><b>Seguimiento público por internet</b>: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la <a class="inl" href="#publico">sección siguiente</a>).</li>
         <li><b>Integraciones</b> (compatibilidad Infolap, que se activa y desactiva al momento) y <b>Diagnóstico</b> (modo debug y herramientas para investigar un problema).</li>
