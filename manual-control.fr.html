@@ -72,6 +72,7 @@
       <li><a href="#equipos">Équipes et inscriptions</a></li>
       <li><a href="#pruebas">Épreuves et manches</a></li>
       <li><a href="#verificaciones">Vérifications techniques</a></li>
+      <li><a href="#varios">Vérifier à plusieurs</a></li>
       <li><a href="#clasificacion">Classement</a></li>
       <li><a href="#tesoreria">Trésorerie</a></li>
       <li><a href="#creditos">Crédits et clôture</a></li>
@@ -94,7 +95,7 @@
       <p><b>PitWall Control</b> est le gestionnaire de <b>championnats de slot</b> : la partie administrative et saisonnière. Il ne chronomètre pas les courses (c'est le rôle de <b>PitWall</b>, le chronométreur) ; Control gère tout ce qui entoure la compétition — pilotes, équipes, catalogues techniques, vérifications, crédits, trésorerie et classement — et communique avec PitWall pour envoyer les séries et récupérer les résultats.</p>
       <p class="mono">L'interface de l'application est en espagnol ; ce manuel cite ses libellés en espagnol lorsque cela aide à les retrouver à l'écran.</p>
       <ul>
-        <li>Fonctionne sur <b>ordinateur</b> (macOS, Windows et Linux) et sur <b>Android</b> (tablette ou téléphone). Les données restent sur l'appareil ; pour les partager entre plusieurs appareils, utilisez la <a class="inl" href="#google">copie sur Google Drive</a>.</li>
+        <li>Fonctionne sur <b>ordinateur</b> (macOS, Windows et Linux) et sur <b>Android</b> (tablette ou téléphone). Les données restent sur l'appareil ; pour les partager entre plusieurs appareils, utilisez la <a class="inl" href="#google">copie sur Google Drive</a>. Pour vérifier à plusieurs en même temps le jour de course, voir <a class="inl" href="#varios">Vérifier à plusieurs</a>.</li>
         <li>La navigation principale, à gauche, dépend du <b>championnat actif</b> (choisi en haut, dans le cadre rouge) : <b>Accueil, Pilotes, Équipes, Épreuves, « Resum. Verifi. »</b> (le récapitulatif des vérifications), <b>Classement, Trésorerie</b> et <b>Crédits</b>. Trésorerie et Crédits n'apparaissent que si le championnat les utilise.</li>
         <li>En bas se trouvent les accès généraux : <b>Vérification libre, Championnats, Catalogues, Google Sheets, Modèles CSV, Nouveautés</b> (l'historique des versions) et le passage <b>mode clair / sombre</b>. Tout en bas, la version installée.</li>
         <li>Si vous n'avez encore aucun championnat, l'accueil propose <b>Créer un championnat</b> ou <b>Vérifier seulement des voitures</b> (la <a class="inl" href="#libre">vérification libre</a>).</li>
@@ -331,8 +332,47 @@
       </figure>
     </section>
 
-    <section id="clasificacion">
+    <section id="varios">
       <div class="num">// 08</div>
+      <h2>Vérifier à plusieurs</h2>
+      <p>Quand il y a plusieurs vérificateurs, chacun peut travailler sur son propre appareil (Mac, Windows ou Android) sur la <b>même épreuve en même temps</b>. Chaque Control enregistre sur son appareil et ils se passent les modifications par le <b>wifi</b>. <b>Pas besoin d'internet</b> : un routeur sans connexion ou le point d'accès d'un téléphone suffit.</p>
+
+      <h3>Avant l'événement</h3>
+      <ul>
+        <li>Tout le monde part de la <b>même copie des données</b> : championnat, épreuve, manches et équipes. Le plus simple est de restaurer sur chaque appareil la même <a class="inl" href="#google">copie Google Drive</a>.</li>
+        <li>Tout le monde sur la <b>même version</b> de PitWall Control (sinon la synchronisation prévient et ne se fait pas).</li>
+        <li><b>Heure automatique</b> activée sur tous les appareils.</li>
+      </ul>
+
+      <h3>Se connecter</h3>
+      <p>Dans l'épreuve, ouvrez <b>« Verificar entre varios »</b> (depuis le menu de l'épreuve ou avec l'icône de synchronisation de <b>Vérifications techniques</b>). Sur chaque appareil :</p>
+      <ol class="steps">
+        <li>Donnez-lui un <b>nom</b> différent : « Mesa 1 », « Tablet boxes »…</li>
+        <li>Saisissez la <b>clé de l'événement</b> (« Clave del evento »), la même partout.</li>
+        <li>Activez <b>« Conectar con otros Controls »</b> (se connecter aux autres Control).</li>
+      </ol>
+      <p>Ils se trouvent tout seuls sur le réseau et apparaissent dans <b>« Controls en la red »</b>, avec l'heure de la dernière synchronisation et ce qui est arrivé. Si l'un n'apparaît pas (certains routeurs ne le permettent pas), ajoutez-le avec le bouton de lien en saisissant l'adresse affichée sous « Visible como » sur son écran. Avec <b>« Sincronizar automáticamente »</b> les modifications passent toutes les 20 secondes ; vous pouvez aussi appuyer sur <b>« Sincronizar ahora »</b> (synchroniser maintenant). L'icône de <b>Vérifications techniques</b> indique combien de Control sont connectés.</p>
+      <figure class="shot">
+        <img src="manual/img/control-07g-verificar-entre-varios.png" loading="lazy" alt="Écran Vérifier à plusieurs avec le nom de l'appareil, la clé de l'événement et deux Control connectés sur le réseau">
+        <figcaption>« Verificar entre varios » : nom de ce Control, clé de l'événement et les autres Control du réseau avec leur dernière synchronisation.</figcaption>
+      </figure>
+
+      <h3>Ce qui est partagé</h3>
+      <ul>
+        <li>Les <b>vérifications</b>, avec leurs <b>photos</b>, et les <b>suppressions</b>.</li>
+        <li>La <b>coupe</b> de chaque équipe dans l'épreuve.</li>
+        <li>Les <b>encaissements</b> de la trésorerie, y compris wildcard et « Coord. total ».</li>
+      </ul>
+      <p>Les modifications passent d'un Control à l'autre même si ces deux-là ne se sont pas synchronisés directement. Les <b>crédits</b> ne sont jamais déduits deux fois : chaque Control calcule les siens en recevant une vérification validée.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div><b>Si deux personnes touchent la même vérification, la dernière modification l'emporte.</b> Si vous avez une vérification ouverte et qu'un autre Control la modifie, elle se met à jour à l'écran ; si vous étiez en pleine saisie, un avertissement vous laisse choisir entre « Seguir con lo mío » (garder la mienne) ou voir celle de l'autre. Le plus pratique est de se répartir les équipes.</div>
+      </div>
+      <p>L'application doit être ouverte sur chaque appareil (sur Android, si elle passe en arrière-plan, elle cesse de partager). La <a class="inl" href="#libre">vérification libre</a> n'est pas synchronisée. La première fois, Windows demande l'autorisation du pare-feu et macOS celle du réseau local : acceptez-les.</p>
+    </section>
+
+    <section id="clasificacion">
+      <div class="num">// 09</div>
       <h2>Classement</h2>
       <p>Le classement se calcule à partir des résultats des épreuves et des règles du championnat :</p>
       <ul>
@@ -352,7 +392,7 @@
     </section>
 
     <section id="tesoreria">
-      <div class="num">// 09</div>
+      <div class="num">// 10</div>
       <h2>Trésorerie</h2>
       <p>Si le championnat utilise la trésorerie, chaque équipe paie une <b>cotisation par épreuve</b> (le <b>Pagat</b>), répartie entre le <b>comité d'organisation</b> et le <b>club</b>. L'écran <b>Trésorerie</b> montre le solde du championnat, l'encaissé à chaque épreuve et les <b>mouvements supplémentaires</b> (sponsoring, frais de matériel… avec le bouton « Movimiento »).</p>
       <ul>
@@ -379,7 +419,7 @@
     </section>
 
     <section id="creditos">
-      <div class="num">// 10</div>
+      <div class="num">// 11</div>
       <h2>Crédits et clôture</h2>
       <p>Le système de crédits est le <b>handicap</b> du championnat : chaque pilote démarre avec des crédits qui montent ou descendent selon le résultat. Depuis <b>Crédits</b>, vous voyez le solde et les mouvements (chacun avec sa description), pouvez <b>ajuster à la main</b>, exporter en <b>PDF</b> ou <b>CSV</b> et gérer la clôture.</p>
       <h3>Bonus de fin de saison</h3>
@@ -393,7 +433,7 @@
     </section>
 
     <section id="sorteo">
-      <div class="num">// 11</div>
+      <div class="num">// 12</div>
       <h2>Tirage moteur</h2>
       <p>Si le moteur du championnat est en <b>Tirage</b> ou <b>Mixte</b> et que sa <b>plage de numéros</b> est configurée, Control tire pour chaque équipe un numéro dans la plage, en excluant ceux déjà attribués dans l'épreuve. Depuis <b>Tirage des moteurs</b> (dans l'épreuve), vous tirez équipe par équipe ou <b>« Sortear restantes »</b> (tirer le reste) d'un coup, et l'onglet <b>Numéros</b> montre qui a lequel. On peut aussi tirer depuis la vérification elle-même.</p>
       <figure class="shot">
@@ -403,7 +443,7 @@
     </section>
 
     <section id="libre">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Vérification libre</h2>
       <p>Pour vérifier des voitures <b>sans championnat ni épreuve</b> : une course ponctuelle, un contrôle au club ou tout autre rendez-vous. Elle s'ouvre depuis <b>Vérification libre</b> (« Verificación libre ») dans la barre latérale (ou depuis l'accueil, même sans championnat).</p>
       <ul>
@@ -427,7 +467,7 @@
     </section>
 
     <section id="google">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Google Sheets et Drive</h2>
       <p>Control peut travailler avec vos feuilles Google et garder des copies sur Google Drive. D'abord, dans <b>Google Sheets</b>, collez les <b>identifiants</b> de votre projet Google Cloud (le bouton « Cómo conseguirlas » vous guide) et connectez votre compte. Control ne demande qu'à lire vos feuilles et à créer ou modifier son propre fichier de copie ; il ne touche à aucun de vos fichiers.</p>
       <ul>
@@ -443,7 +483,7 @@
     </section>
 
     <section id="csv">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>Modèles CSV</h2>
       <p>Depuis <b>Modèles CSV</b>, vous téléchargez les modèles prêts à remplir et importer : pilotes, équipes (doublettes et endurance, avec <span class="mono">Piloto 1…5</span>), inscriptions à une épreuve, <b>participants de vérification libre</b> et chaque catalogue. Remplissez le fichier, importez-le depuis sa section et l'application reconnaît les colonnes.</p>
       <p>Pour corriger en masse ce que vous avez déjà dans les catalogues, la voie pratique est <a class="inl" href="#catalogos">Tout le catalogue en Excel</a>.</p>
@@ -454,7 +494,7 @@
     </section>
 
     <section id="pdf">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Exporter (PDF et Excel)</h2>
       <ul>
         <li><b>PDF</b> : manches, vérifications d'une épreuve ou d'une session, récapitulatif en grille, classement et crédits. À l'export, vous choisissez la <b>langue</b> du document (espagnol, anglais, italien ou français) et la <b>marque</b> du championnat est appliquée en en-tête et en pied de page. Chaque PDF tient sur une seule page (A4 → A3 si besoin) pour l'imprimer facilement.</li>
@@ -468,7 +508,7 @@
     </section>
 
     <section id="pitwall">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Envoyer à PitWall / récupérer les résultats</h2>
       <p>PitWall Control communique avec le chronométreur <b>PitWall</b> pour ne rien saisir deux fois : il lui envoie l'épreuve préparée puis récupère les résultats. Les deux applications doivent être sur le <b>même réseau</b> LAN/WiFi.</p>
 
@@ -498,7 +538,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 17</div>
+      <div class="num">// 18</div>
       <h2>Glossaire</h2>
       <ul>
         <li><b>Championnat</b> : le conteneur de la saison (format, coupes, règles, type de moteur, modules).</li>
@@ -513,6 +553,7 @@
         <li><b>Vérification</b> : contrôle du matériel d'une équipe avant validation, bloc par bloc.</li>
         <li><b>« Resum. Verifi. »</b> : toutes les vérifications d'une épreuve dans un tableau, le hors-règlement en rouge.</li>
         <li><b>Vérification libre</b> : session de vérification sans championnat ni épreuve, avec son propre règlement.</li>
+        <li><b>« Verificar entre varios »</b> (vérifier à plusieurs) : plusieurs Control qui vérifient la même épreuve en même temps, synchronisés par wifi (sans internet).</li>
         <li><b>Photo de référence</b> : l'image de la voiture au catalogue, à comparer avec celle remise par l'équipe.</li>
         <li><b>Pagat</b> : la cotisation totale par épreuve ; répartie entre comité d'organisation et club.</li>
         <li><b>Wildcard / « Coord. total »</b> : équipes qui ne paient pas à cette épreuve (invité / tous du comité).</li>

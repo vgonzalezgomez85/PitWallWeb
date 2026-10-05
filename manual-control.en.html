@@ -72,6 +72,7 @@
       <li><a href="#equipos">Teams and entries</a></li>
       <li><a href="#pruebas">Events and heats</a></li>
       <li><a href="#verificaciones">Scrutineering</a></li>
+      <li><a href="#varios">Scrutineering with several devices</a></li>
       <li><a href="#clasificacion">Standings</a></li>
       <li><a href="#tesoreria">Treasury</a></li>
       <li><a href="#creditos">Credits and season close</a></li>
@@ -94,7 +95,7 @@
       <p><b>PitWall Control</b> is the <b>slot racing championship</b> manager: the administrative and season side. It does not time races (that is handled by <b>PitWall</b>, the timing app); Control maintains everything around the competition — drivers, teams, technical catalogues, scrutineering, credits, treasury and standings — and talks to PitWall to send the heats and bring back the results.</p>
       <p class="mono">The app's interface is in Spanish; this manual quotes its labels in Spanish where it helps you find them on screen.</p>
       <ul>
-        <li>Runs on <b>desktop</b> (macOS, Windows and Linux) and on <b>Android</b> (tablet or phone). The data lives on the device itself; to share it between several devices, use the <a class="inl" href="#google">Google Drive copy</a>.</li>
+        <li>Runs on <b>desktop</b> (macOS, Windows and Linux) and on <b>Android</b> (tablet or phone). The data lives on the device itself; to share it between several devices, use the <a class="inl" href="#google">Google Drive copy</a>. To scrutineer with several devices at once on race day, see <a class="inl" href="#varios">Scrutineering with several devices</a>.</li>
         <li>The main navigation, on the left, depends on the <b>active championship</b> (chosen at the top, in the red box): <b>Home, Drivers, Teams, Events, «Resum. Verifi.»</b> (the scrutineering summary), <b>Standings, Treasury</b> and <b>Credits</b>. Treasury and Credits only appear if the championship uses them.</li>
         <li>At the bottom are the general shortcuts: <b>Free scrutineering, Championships, Catalogues, Google Sheets, CSV templates, What's new</b> (the version history) and the <b>light / dark mode</b> switch. Below them, the installed version.</li>
         <li>If you have no championship yet, the home screen offers <b>Create championship</b> or <b>Only scrutineer cars</b> (<a class="inl" href="#libre">free scrutineering</a>).</li>
@@ -331,8 +332,47 @@
       </figure>
     </section>
 
-    <section id="clasificacion">
+    <section id="varios">
       <div class="num">// 08</div>
+      <h2>Scrutineering with several devices</h2>
+      <p>When there are several scrutineers, each one can work on their own device (Mac, Windows or Android) on the <b>same event at the same time</b>. Each Control saves on its own device and they pass changes to each other over <b>Wi‑Fi</b>. <b>No internet needed</b>: a router with no connection or a phone's hotspot will do.</p>
+
+      <h3>Before the event</h3>
+      <ul>
+        <li>Everyone starts from the <b>same copy of the data</b>: championship, event, heats and teams. The easiest way is to restore the same <a class="inl" href="#google">Google Drive copy</a> on every device.</li>
+        <li>Everyone on the <b>same version</b> of PitWall Control (otherwise the sync warns and doesn't run).</li>
+        <li><b>Automatic time</b> turned on on every device.</li>
+      </ul>
+
+      <h3>Connecting</h3>
+      <p>In the event, open <b>«Verificar entre varios»</b> (from the event menu or with the sync icon in <b>Scrutineering</b>). On each device:</p>
+      <ol class="steps">
+        <li>Give it a different <b>name</b>: «Mesa 1», «Tablet boxes»…</li>
+        <li>Type the <b>event key</b> («Clave del evento»), the same on all of them.</li>
+        <li>Turn on <b>«Conectar con otros Controls»</b> (connect with other Controls).</li>
+      </ol>
+      <p>They find each other on the network and appear under <b>«Controls en la red»</b>, with the time of the last sync and what arrived. If one doesn't show up (some routers don't allow it), add it with the link button by typing the address shown under «Visible como» on its screen. With <b>«Sincronizar automáticamente»</b> changes are passed every 20 seconds; you can also press <b>«Sincronizar ahora»</b> (sync now). The icon in <b>Scrutineering</b> shows how many Controls are connected.</p>
+      <figure class="shot">
+        <img src="manual/img/control-07g-verificar-entre-varios.png" loading="lazy" alt="Scrutineering with several devices screen with the device name, the event key and two Controls connected on the network">
+        <figcaption>«Verificar entre varios»: this Control's name, the event key and the other Controls on the network with their last sync.</figcaption>
+      </figure>
+
+      <h3>What is shared</h3>
+      <ul>
+        <li>The <b>scrutineering sheets</b>, with their <b>photos</b>, and <b>deletions</b>.</li>
+        <li>Each team's <b>cup</b> in the event.</li>
+        <li>Treasury <b>payments</b>, including wildcard and «Coord. total».</li>
+      </ul>
+      <p>Changes travel from one Control to another even if those two haven't synced directly. <b>Credits</b> are never deducted twice: each Control works out its own when it receives an approved scrutineering sheet.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div><b>If two people touch the same scrutineering sheet, the latest change wins.</b> If you have a sheet open and another Control changes it, it updates on screen; if you were halfway through editing, it warns you so you can choose «Seguir con lo mío» (keep mine) or see the other one. The easiest way is to split the teams between you.</div>
+      </div>
+      <p>The app must be open on every device (on Android, if it goes to the background it stops sharing). <a class="inl" href="#libre">Free scrutineering</a> isn't synced. The first time, Windows asks for firewall permission and macOS for local network access: accept them.</p>
+    </section>
+
+    <section id="clasificacion">
+      <div class="num">// 09</div>
       <h2>Standings</h2>
       <p>The standings are worked out from the event results and the championship rules:</p>
       <ul>
@@ -352,7 +392,7 @@
     </section>
 
     <section id="tesoreria">
-      <div class="num">// 09</div>
+      <div class="num">// 10</div>
       <h2>Treasury</h2>
       <p>If the championship uses a treasury, each team pays a <b>fee per event</b> (the <b>Pagat</b>), split between the <b>coordinating body</b> and the <b>club</b>. The <b>Treasury</b> screen shows the championship balance, what was collected at each event and the <b>extra movements</b> (sponsorship, equipment costs… with the «Movimiento» button).</p>
       <ul>
@@ -379,7 +419,7 @@
     </section>
 
     <section id="creditos">
-      <div class="num">// 10</div>
+      <div class="num">// 11</div>
       <h2>Credits and season close</h2>
       <p>The credits system is the championship's <b>handicap</b>: each driver starts with some credits that go up or down with results. In <b>Credits</b> you see the balance and the movements (each with its description), can <b>adjust by hand</b>, export to <b>PDF</b> or <b>CSV</b> and manage the season close.</p>
       <h3>Season-end bonus</h3>
@@ -393,7 +433,7 @@
     </section>
 
     <section id="sorteo">
-      <div class="num">// 11</div>
+      <div class="num">// 12</div>
       <h2>Motor draw</h2>
       <p>If the championship's motor type is <b>Draw</b> or <b>Mixed</b> and it has its <b>number range</b> set, Control draws a number within the range for each team, leaving out those already assigned in the event. From <b>Motor draw</b> (in the event) you draw team by team or <b>«Sortear restantes»</b> (draw the rest) in one go, and the <b>Numbers</b> tab shows who has which. You can also draw from the scrutineering sheet itself.</p>
       <figure class="shot">
@@ -403,7 +443,7 @@
     </section>
 
     <section id="libre">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Free scrutineering</h2>
       <p>To scrutineer cars <b>without a championship or event</b>: a one-off race, a club check or any other meeting. It opens from <b>Free scrutineering</b> («Verificación libre») in the side bar (or from home, even if you have no championships).</p>
       <ul>
@@ -427,7 +467,7 @@
     </section>
 
     <section id="google">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Google Sheets and Drive</h2>
       <p>Control can work with your Google sheets and keep copies in Google Drive. First, in <b>Google Sheets</b>, paste your Google Cloud project's <b>credentials</b> (the «Cómo conseguirlas» button guides you) and connect your account. Control only asks to read your sheets and to create or modify its own backup file; it doesn't touch any file of yours.</p>
       <ul>
@@ -443,7 +483,7 @@
     </section>
 
     <section id="csv">
-      <div class="num">// 14</div>
+      <div class="num">// 15</div>
       <h2>CSV templates</h2>
       <p>From <b>CSV templates</b> you download ready-to-fill templates to import: drivers, teams (pairs and endurance, with <span class="mono">Piloto 1…5</span>), event entries, <b>free scrutineering participants</b> and each catalogue. Fill in the file, import it from its section and the app recognises the columns.</p>
       <p>To correct in bulk what you already have in the catalogues, the easy route is <a class="inl" href="#catalogos">The whole catalogue in Excel</a>.</p>
@@ -454,7 +494,7 @@
     </section>
 
     <section id="pdf">
-      <div class="num">// 15</div>
+      <div class="num">// 16</div>
       <h2>Export (PDF and Excel)</h2>
       <ul>
         <li><b>PDF</b>: heats, scrutineering of an event or session, grid summary, standings and credits. When exporting you choose the document <b>language</b> (Spanish, English, Italian or French) and the championship's <b>branding</b> is applied to header and footer. Each PDF fits on a single page (A4 → A3 if needed) for easy printing.</li>
@@ -468,7 +508,7 @@
     </section>
 
     <section id="pitwall">
-      <div class="num">// 16</div>
+      <div class="num">// 17</div>
       <h2>Send to PitWall / bring back results</h2>
       <p>PitWall Control talks to the <b>PitWall</b> timing app so you don't type things twice: it sends the prepared event and then brings back the results. Both apps must be on the <b>same network</b> (LAN/WiFi).</p>
 
@@ -498,7 +538,7 @@
     </section>
 
     <section id="glosario">
-      <div class="num">// 17</div>
+      <div class="num">// 18</div>
       <h2>Glossary</h2>
       <ul>
         <li><b>Championship</b>: the container for the season (format, cups, rules, motor type, modules).</li>
@@ -513,6 +553,7 @@
         <li><b>Scrutineering</b>: checking a team's equipment before approving it, block by block.</li>
         <li><b>«Resum. Verifi.»</b>: all of an event's scrutineering in a table, with rule breaches in red.</li>
         <li><b>Free scrutineering</b>: a scrutineering session with no championship or event, with its own rules.</li>
+        <li><b>«Verificar entre varios»</b> (scrutineering with several devices): several Controls scrutineering the same event at once, synced over Wi‑Fi (no internet).</li>
         <li><b>Reference photo</b>: the car's image in the catalogue, to compare with the one the team hands in.</li>
         <li><b>Pagat</b>: the total fee per event; split between the coordinating body and the club.</li>
         <li><b>Wildcard / «Coord. total»</b>: teams that don't pay at that event (guest / all from the coordinating body).</li>
