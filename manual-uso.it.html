@@ -67,7 +67,7 @@
       <li><a href="#tandas">Tande, partecipanti e rotazione</a></li>
       <li><a href="#editar">Modificare gara, tande e manche</a></li>
       <li><a href="#pole">Pole (qualifica preliminare)</a></li>
-      <li><a href="#lap">PitWall Lap — PIN per le squadre</a></li>
+      <li><a href="#lap">PitWall Lap — per le squadre</a></li>
       <li><a href="#vivo">Dirigere la gara in diretta</a></li>
       <li><a href="#sucesos">Eventi di gara</a></li>
       <li><a href="#turnos">Controllo dei turni di pilota</a></li>
@@ -386,17 +386,18 @@
 
     <section id="lap">
       <div class="num">// 08</div>
-      <h2>PitWall Lap — PIN per le squadre</h2>
+      <h2>PitWall Lap — per le squadre</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PIN per squadra</span></div>
         <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Tabella di PIN per squadra per accedere a PitWall Lap dal cellulare">
         <figcaption>PitWall Lap · PIN: l'indirizzo per il cellulare e il PIN di ogni squadra.</figcaption>
       </figure>
-      <p><b>PitWall Lap</b> è la vista mobile che permette a ciascuna <b>squadra/pilota</b> di seguire il proprio cronometraggio dal telefono (i propri giri, annunciati a voce, e la propria posizione). Perché entrino solo nel <i>loro</i> pannello si distribuisce un <b>PIN</b> per squadra.</p>
+      <p>Le squadre possono seguire la loro gara dal cellulare in <b>due modi</b>, non esclusivi: la <b>vista web con PIN</b> (niente da installare, di sola lettura) o l'<b>app nativa PitWall Lap</b> (si installa sul cellulare, con voce e strategia gomme in diretta).</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Funziona già durante la pole stessa, non solo dopo la sua conclusione.</b> Le squadre (con il loro PIN) vengono create alla conferma della procedura guidata della gara, invece di aspettare l'assegnazione delle corsie alla fine della pole. Così, ogni squadra vede nel suo pannello se tocca a lei adesso, un cronometro in diretta del suo tentativo, i suoi giri e il suo miglior tempo, con la voce che annuncia ogni giro come in gara; al termine della pole, il pannello passa automaticamente a mostrare il suo risultato (posizione e tempo).</div>
       </div>
+      <p><b>Vista web con PIN.</b></p>
       <ul>
         <li>Entra in <b>PitWall Lap · PIN</b> della gara. Vedrai l'indirizzo che le squadre aprono sul cellulare (p.es. <span class="mono">http://&lt;IP-del-server&gt;:3000/lap/&lt;id&gt;</span>) e la tabella <b>SQUADRA → PIN</b>.</li>
         <li>Dai a ogni squadra <b>il suo PIN</b>. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello.</li>
@@ -407,6 +408,18 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div>I cellulari devono essere sulla <b>stessa rete</b> del computer che fa da server. Usa l'IP del computer, non <span class="mono">localhost</span>, quando lo aprono dal telefono. Se vuoi che le squadre seguano la gara <b>da fuori della sede</b> (via internet), vedi <a class="inl" href="#publico">Seguito pubblico su internet</a>.</div>
+      </div>
+      <p><b>App nativa PitWall Lap (iOS/Android).</b> È la via completa: il pilota installa l'app sul cellulare e, aprendola, sceglie la fonte (<b>PitWall</b> o il cronometro <b>TicTac Slot</b> da solo, senza server dietro) e l'app <b>scopre il server da sola</b> sulla rete locale in pochi secondi — senza URL né PIN da distribuire. Se la scoperta automatica fallisce, si inserisce l'IP a mano una volta e l'app la ricorda la volta successiva. Se il server ha più gare o tande attive, lascia scegliere; poi il pilota sceglie il suo <b>nome/squadra</b> dalla lista per entrare nel proprio pannello.</p>
+      <p>Condivide con la vista web il cronometraggio in diretta e la voce (giri, cambi di posizione, metà manche, avvisi di tempo e, in modalità avanzata, ogni N minuti: <b>media della manche</b>, <b>media di gara</b> — su tutte le tue manche —, distacchi e "media per risalire"), e in più offre:</p>
+      <ul>
+        <li><b>Una schermata di gara pensata per uno sguardo veloce</b>: il tuo ultimo giro in grande, in <b>viola</b> se è il tuo giro migliore, in <b>verde</b> se sei entro il 2 % da esso e in <b>ambra</b> se sei più lento, con la differenza sotto (<span class="mono">+0.23 vs mejor</span>); la tua posizione e i distacchi con il nome del rivale davanti e dietro. Se la direzione gara <b>mette in pausa</b>, <b>ferma (STOP)</b> o termina la manche, l'app lo mostra e la voce lo annuncia; alla fine ti dice la tua prossima manche e corsia. Le impostazioni della voce restano chiuse mentre guidi, con l'interruttore generale sempre a portata di mano.</li>
+        <li><b>Strategia gomme in diretta</b> (gare di endurance, con un pilota selezionato): raccomanda quando cambiare — per degradazione reale del ritmo, oppure in modo <b>pianificato</b> in base ai giri/treni rimanenti quando la gomma non perde ritmo —, con consiglio in base alla posizione e modellazione dell'usura dei rivali davanti e dietro. Se la gara usa il <b>controllo gomme del server</b> (vedi <i>Controllo delle gomme di endurance</i>) e la squadra corrisponde per nome, la dotazione e i cambi li gestisce <b>PitWall Manager</b>: l'app li mostra in diretta (treni disponibili, ultimo cambio) senza pulsanti manuali. Senza controllo del server, il pilota tiene il conto a mano (treni, cambi obbligatori, costo del pit-stop) e conferma da sé con <b>Cambié gomas</b> ("ho cambiato le gomme").</li>
+        <li><b>Pole</b>: schermata propria per seguire il tuo giro di qualifica, il distacco dalla pole e la classifica finale, se la gara ne ha una.</li>
+        <li><b>Storico e Allenamento</b>: gare passate (anche quelle non seguite in diretta) e una modalità di allenamento libero che registra le tue sessioni di guida (giri, migliore, media) sul cellulare stesso, con grafico e confronto tra loro.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>L'app non usa il PIN: chiunque sulla <b>stessa rete locale</b> scopra il server può scegliere qualsiasi squadra dalla lista. Per un accesso controllato o da fuori dalla pista, usa la vista web con PIN — l'app ha sempre bisogno della rete locale, che tu pubblichi o meno il tunnel di <i>Seguito pubblico su internet</i>.</div>
       </div>
     </section>
 

@@ -67,7 +67,7 @@
       <li><a href="#tandas">Séries, participants et rotation</a></li>
       <li><a href="#editar">Éditer la course, les séries et les manches</a></li>
       <li><a href="#pole">Pole (qualification préalable)</a></li>
-      <li><a href="#lap">PitWall Lap — PIN pour les équipes</a></li>
+      <li><a href="#lap">PitWall Lap — pour les équipes</a></li>
       <li><a href="#vivo">Diriger la course en direct</a></li>
       <li><a href="#sucesos">Événements de course</a></li>
       <li><a href="#turnos">Contrôle des relais de pilote</a></li>
@@ -386,17 +386,18 @@
 
     <section id="lap">
       <div class="num">// 08</div>
-      <h2>PitWall Lap — PIN pour les équipes</h2>
+      <h2>PitWall Lap — pour les équipes</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PINs par équipe</span></div>
         <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Tableau de PINs par équipe pour accéder à PitWall Lap depuis le mobile">
         <figcaption>PitWall Lap · PINs : l'adresse pour le mobile et le PIN de chaque équipe.</figcaption>
       </figure>
-      <p><b>PitWall Lap</b> est la vue mobile qui permet à chaque <b>équipe/pilote</b> de suivre son propre chronométrage depuis le téléphone (ses tours, annoncés par la voix, et sa position). Pour qu'ils accèdent uniquement à <i>leur</i> panneau, un <b>PIN</b> est distribué par équipe.</p>
+      <p>Les équipes peuvent suivre leur course depuis le mobile de <b>deux façons</b>, non exclusives : la <b>vue web avec PIN</b> (rien à installer, en lecture seule) ou l'<b>appli native PitWall Lap</b> (installée sur le mobile, avec la voix et la stratégie pneus en direct).</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Elle fonctionne déjà pendant la pole elle-même, pas seulement une fois terminée.</b> Les équipes (avec leur PIN) sont créées à la confirmation de l'assistant de la course, au lieu d'attendre l'attribution des voies à la fin de la pole. Ainsi, chaque équipe voit sur son panneau si c'est son tour maintenant, un chronomètre en direct de sa tentative, ses tours et son meilleur temps, avec la voix qui annonce chaque tour comme en course ; à la fin de la pole, le panneau passe automatiquement à l'affichage de son résultat (position et temps).</div>
       </div>
+      <p><b>Vue web avec PIN.</b></p>
       <ul>
         <li>Entre dans <b>PitWall Lap · PINs</b> de la course. Tu verras l'adresse que les équipes ouvrent sur le mobile (par ex. <span class="mono">http://&lt;IP-du-serveur&gt;:3000/lap/&lt;id&gt;</span>) et le tableau <b>ÉQUIPE → PIN</b>.</li>
         <li>Donne à chaque équipe <b>son PIN</b>. En ouvrant l'adresse et en le saisissant, ils entrent directement sur leur panneau.</li>
@@ -407,6 +408,18 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div>Les mobiles doivent être sur le <b>même réseau</b> que l'ordinateur qui fait office de serveur. Utilise l'IP de la machine, pas <span class="mono">localhost</span>, quand ils l'ouvrent depuis le téléphone. Si tu veux que les équipes suivent la course <b>depuis l'extérieur du local</b> (par internet), voir <a class="inl" href="#publico">Suivi public par internet</a>.</div>
+      </div>
+      <p><b>Appli native PitWall Lap (iOS/Android).</b> C'est la voie complète : le pilote installe l'appli sur son mobile et, à l'ouverture, choisit la source (<b>PitWall</b> ou le chronomètre <b>TicTac Slot</b> en solo, sans serveur derrière) et l'appli <b>découvre le serveur toute seule</b> sur le réseau local en quelques secondes — sans URL ni PIN à distribuer. Si la découverte automatique échoue, on saisit l'IP à la main une fois et l'appli s'en souvient la fois suivante. Si le serveur a plusieurs courses ou séries actives, elle laisse choisir ; ensuite le pilote choisit son <b>nom/équipe</b> dans la liste pour entrer sur son panneau.</p>
+      <p>Elle partage avec la vue web le chronométrage en direct et la voix (tours, changements de position, mi-manche, alertes de temps et, en mode avancé, toutes les N minutes : <b>moyenne de la manche</b>, <b>moyenne de course</b> — sur toutes tes manches —, écarts et « moyenne pour remonter »), et offre en plus :</p>
+      <ul>
+        <li><b>Un écran de course fait pour un coup d'œil</b> : ton dernier tour en grand, en <b>violet</b> si c'est ton meilleur tour, en <b>vert</b> si tu es à moins de 2 % de celui-ci et en <b>orange</b> si tu es plus lent, avec l'écart en dessous (<span class="mono">+0.23 vs mejor</span>) ; ta position et les écarts avec le nom du rival devant et derrière. Si la direction de course <b>met en pause</b>, <b>arrête (STOP)</b> ou termine la manche, l'appli l'affiche et la voix l'annonce ; à la fin, elle t'indique ta prochaine manche et ta voie. Les réglages de la voix restent repliés pendant que tu roules, avec l'interrupteur général toujours à portée de main.</li>
+        <li><b>Stratégie pneus en direct</b> (courses d'endurance, avec un pilote sélectionné) : recommande quand changer — par dégradation réelle du rythme, ou de façon <b>planifiée</b> selon les tours/trains restants quand le pneu ne perd pas de rythme —, avec un conseil selon la position et une modélisation de l'usure des rivaux devant et derrière. Si la course utilise le <b>contrôle des pneus du serveur</b> (voir <i>Contrôle des pneus d'endurance</i>) et que l'équipe correspond par son nom, la dotation et les changements sont pilotés par <b>PitWall Manager</b> : l'appli les affiche en direct (trains disponibles, dernier changement) sans bouton manuel. Sans contrôle du serveur, le pilote tient le compte à la main (trains, changements obligatoires, coût d'arrêt) et confirme lui-même avec <b>Cambié gomas</b> (« j'ai changé les pneus »).</li>
+        <li><b>Pole</b> : son propre écran pour suivre ton tour de qualification, l'écart à la pole et le classement final, si la course en a une.</li>
+        <li><b>Historique et Entraînement</b> : les courses passées (même celles que tu n'as pas suivies en direct) et un mode d'entraînement libre qui enregistre tes relais de roulage (tours, meilleur, moyenne) directement sur le mobile, avec un graphique et une comparaison entre eux.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>L'appli n'utilise pas de PIN : n'importe qui sur le <b>même réseau local</b> qui découvre le serveur peut choisir n'importe quelle équipe dans la liste. Pour un accès contrôlé ou depuis l'extérieur du circuit, utilise la vue web avec PIN — l'appli a toujours besoin du réseau local, que tu publies ou non le tunnel de <i>Suivi public par internet</i>.</div>
       </div>
     </section>
 

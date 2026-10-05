@@ -67,7 +67,7 @@
       <li><a href="#tandas">Batches, participants and rotation</a></li>
       <li><a href="#editar">Editing race, batches and heats</a></li>
       <li><a href="#pole">Pole (pre-race qualifying)</a></li>
-      <li><a href="#lap">PitWall Lap — PIN for teams</a></li>
+      <li><a href="#lap">PitWall Lap — for the teams</a></li>
       <li><a href="#vivo">Running the race live</a></li>
       <li><a href="#sucesos">Race events</a></li>
       <li><a href="#turnos">Driver shift control</a></li>
@@ -386,17 +386,18 @@
 
     <section id="lap">
       <div class="num">// 08</div>
-      <h2>PitWall Lap — PIN for the teams</h2>
+      <h2>PitWall Lap — for the teams</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PINs per team</span></div>
         <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Table of PINs per team to access PitWall Lap from the phone">
         <figcaption>PitWall Lap · PINs: the mobile address and each team's PIN.</figcaption>
       </figure>
-      <p><b>PitWall Lap</b> is the mobile view for each <b>team/driver</b> to follow their own timing from the phone (their laps, called out by voice, and their position). So that they only enter <i>their</i> panel, a <b>PIN</b> is handed out per team.</p>
+      <p>Teams can follow their race from the phone <b>two ways</b>, not mutually exclusive: the <b>web view with PIN</b> (nothing to install, read-only) or the <b>native PitWall Lap app</b> (installed on the phone, with voice and live tyre strategy).</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>It already works during the pole itself, not just after it's over.</b> Teams (with their PIN) are created as soon as the race wizard is confirmed, instead of waiting for lanes to be assigned at the end of the pole. So each team's panel tells them if it's their turn now, with a live timer for their attempt, their laps and their best time, with the voice calling out every lap just like in the race; once the pole ends, the panel switches on its own to showing their result (position and time).</div>
       </div>
+      <p><b>Web view with PIN.</b></p>
       <ul>
         <li>Go into <b>PitWall Lap · PINs</b> of the race. You'll see the address teams open on the mobile (e.g. <span class="mono">http://&lt;server-IP&gt;:3000/lap/&lt;id&gt;</span>) and the <b>TEAM → PIN</b> table.</li>
         <li>Give each team <b>their PIN</b>. When they open the address and enter it, they go straight into their panel.</li>
@@ -407,6 +408,18 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div>The phones must be on the <b>same network</b> as the computer acting as server. Use the computer's IP, not <span class="mono">localhost</span>, when they open it from the phone. If you want teams to follow the race <b>from outside the venue</b> (over the internet), see <a class="inl" href="#publico">Public tracking over the internet</a>.</div>
+      </div>
+      <p><b>Native PitWall Lap app (iOS/Android).</b> This is the full route: the driver installs the app on their phone and, on opening it, picks the source (<b>PitWall</b> or the <b>TicTac Slot</b> timer standalone, with no server behind it) and the app <b>discovers the server on its own</b> on the local network within a few seconds — no URL or PIN to hand out. If auto-discovery fails, the IP is entered by hand once and the app remembers it for next time. If the server has several active races or batches, it lets you choose; then the driver picks their <b>name/team</b> from the list to enter their panel.</p>
+      <p>It shares live timing and voice with the web view (laps, position changes, half-heat, time warnings and, in advanced mode, every N minutes: <b>heat average</b>, <b>race average</b> —across all your heats—, gaps and "average to catch up"), and on top of that offers:</p>
+      <ul>
+        <li><b>A race screen built for a quick glance</b>: your last lap in big type, in <b>purple</b> if it's your best lap, <b>green</b> if you're within 2 % of it and <b>amber</b> if you're slower, with the difference underneath (<span class="mono">+0.23 vs mejor</span>); your position and the gaps with the name of the rival ahead and behind. If race control <b>pauses</b>, <b>stops (STOP)</b> or ends the heat, the app shows it and the voice announces it; when it ends, it tells you your next heat and lane. The voice settings stay folded away while you drive, with the master switch always at hand.</li>
+        <li><b>Live tyre strategy</b> (endurance races, with a driver selected): recommends when to change — by real pace degradation, or on a <b>scheduled</b> basis by remaining laps/sets when the tyre isn't losing pace — with position-based advice and modelling of the tyre wear of the rivals ahead and behind. If the race is running the <b>server tyre control</b> (see <i>Endurance tyre control</i>) and the team matches by name, the allotment and the changes are driven by <b>PitWall Manager</b>: the app shows them live (sets available, last change) with no manual buttons. Without server control, the driver keeps count by hand (sets, mandatory changes, pit-stop cost) and confirms it themselves with <b>Cambié gomas</b> ("I changed tyres").</li>
+        <li><b>Pole</b>: its own screen to follow your qualifying lap, the gap to pole and the final classification, if the race has one.</li>
+        <li><b>History and Training</b>: past races (even ones you didn't follow live) and a free-training mode that records your practice runs (laps, best, average) on the phone itself, with a chart and comparison between them.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>The app doesn't use a PIN: anyone on the <b>same local network</b> who discovers the server can pick any team from the list. For controlled access or from outside the venue, use the web view with PIN — the app always needs the local network, whether or not you publish the <i>Public tracking over the internet</i> tunnel.</div>
       </div>
     </section>
 
