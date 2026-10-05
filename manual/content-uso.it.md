@@ -51,6 +51,8 @@ Modificando uno scenario ne definisci il nome, la configurazione delle corsie, t
 
 **Colori delle corsie.** Nella scheda dello scenario, il blocco **Colori delle corsie** («Colores de los carriles») ha un campione per corsia. Spunta **Usa colori propri in questo circuito** («Usar colores propios en este circuito») e clicca ogni campione per sceglierne il colore, così lo schermo coincide con i colori dipinti sulla pista; **Copia i colori globali** («Copiar los colores globales») parte dalla tavolozza generale. Senza spunta, lo scenario usa i colori globali di **Impostazioni → Preferenze**. I colori si vedono in tutte le schermate (diretta, TV, pannelli, allenamenti, pole, batterie e risultati) e il numero della corsia diventa nero o bianco per leggersi bene su qualsiasi colore.
 
+![img: op-escenario-colores.png]
+
 **Categorie.** Gruppi di livello/classe (GT, Turismo, Classiche…) che servono a **sovrascrivere il tempo minimo (Pt) per categoria** in ogni scenario e a classificare auto e piloti.
 
 ![img: op-categorias.png]
@@ -386,6 +388,8 @@ Le **Impostazioni** sono organizzate con un **menu laterale**: **Sorgente dati**
 - **Seguito pubblico su internet**: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la sezione seguente).
 - **Integrazioni** (compatibilità Infolap, che si attiva e disattiva all'istante) e **Diagnostica** (modalità debug e strumenti per indagare un problema).
 - La **lingua** (ES/EN) si cambia dal piè di pagina.
+
+![img: op-colores-carril.png]
 
 **Database.** **Sistema → Database** (`/database`) ha un menu con **Riepilogo** (quante gare, squadre, piloti, circuiti e giri ci sono, e la dimensione del file), **Esp. / Imp. gara**, **Copia di sicurezza** e **Ripristina copia**.
 

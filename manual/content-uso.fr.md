@@ -51,6 +51,8 @@ Lors de l'édition d'un scénario, tu définis son nom, la configuration des voi
 
 **Couleurs des voies.** Dans la fiche du scénario, le bloc **Couleurs des voies** (« Colores de los carriles ») a un échantillon par voie. Coche **Utiliser des couleurs propres à ce circuit** (« Usar colores propios en este circuito ») et clique sur chaque échantillon pour choisir sa couleur : l’écran correspond ainsi aux couleurs peintes sur la piste ; **Copier les couleurs globales** (« Copiar los colores globales ») part de la palette générale. Sans la coche, le scénario utilise les couleurs globales de **Réglages → Préférences**. Les couleurs apparaissent sur tous les écrans (direct, TV, panneaux, entraînements, pole, manches et résultats) et le numéro de voie passe en noir ou en blanc pour rester lisible sur n’importe quelle couleur.
 
+![img: op-escenario-colores.png]
+
 **Catégories.** Groupes de niveau/classe (GT, Tourisme, Classiques…) qui servent à **surcharger le temps minimum (Pt) par catégorie** dans chaque scénario et à classer voitures et pilotes.
 
 ![img: op-categorias.png]
@@ -386,6 +388,8 @@ Les **Réglages** s'organisent avec un **menu latéral** : **Source de données*
 - **Suivi public par internet** : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la section suivante).
 - **Intégrations** (compatibilité Infolap, qui s'active et se désactive sur le moment) et **Diagnostic** (mode debug et outils pour enquêter sur un problème).
 - La **langue** (ES/EN) se change depuis le pied de page.
+
+![img: op-colores-carril.png]
 
 **Base de données.** **Système → Base de données** (`/database`) propose un menu avec **Résumé** (combien de courses, équipes, pilotes, circuits et tours il y a, et la taille du fichier), **Exp. / Imp. course**, **Copie de sauvegarde** et **Restaurer une copie**.
 

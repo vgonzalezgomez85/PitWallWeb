@@ -51,6 +51,8 @@ When editing a scenario you define its name, the lane configuration, you drag th
 
 **Lane colors.** On the scenario form, the **Lane colors** block has one swatch per lane. Tick **Use this circuit’s own colors** and click each swatch to pick its color, so the screen matches the colors painted on the track; **Copy global colors** starts from the general palette. Unticked, the scenario uses the global colors from **Settings → Preferences**. The colors show on every screen (live view, TV, panels, training, pole, heats and results), and the lane number turns black or white so it reads well on any color.
 
+![img: op-escenario-colores.png]
+
 **Categories.** Level/class groups (GT, Touring, Classics…) that serve to **override the minimum time (Pt) per category** in each scenario and to classify cars and drivers.
 
 ![img: op-categorias.png]
@@ -386,6 +388,8 @@ Each session can be **deleted** from its detail. If you stop the session with **
 - **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).
 - **Integrations** (Infolap compatibility, switched on and off instantly) and **Diagnostics** (debug mode and tools to investigate a problem).
 - The **language** (ES/EN) is changed from the page footer.
+
+![img: op-colores-carril.png]
 
 **Database.** **System → Database** (`/database`) has a menu with **Summary** (how many races, teams, drivers, circuits and laps there are, plus the file size), **Export / import race**, **Backup** and **Restore backup**.
 

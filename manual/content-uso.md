@@ -51,6 +51,8 @@ Al editar un escenario defines su nombre, la configuración de carriles, arrastr
 
 **Colores de los carriles.** En la ficha del escenario, el bloque **Colores de los carriles** tiene una muestra por carril. Marca **Usar colores propios en este circuito** y pulsa cada muestra para elegir su color, así la pantalla coincide con los colores pintados en la pista; **Copiar los colores globales** parte de la paleta general. Sin marcar, el escenario usa los colores globales de **Ajustes → Preferencias**. Los colores se ven en todas las pantallas (directo, TV, paneles, entrenos, pole, tandas y resultados) y el número del carril sale en negro o en blanco para que se lea bien sobre cualquier color.
 
+![img: op-escenario-colores.png]
+
 **Categorías.** Grupos de nivel/clase (GT, Turismo, Clásicos…) que sirven para **sobrescribir el tiempo mínimo (Pt) por categoría** en cada escenario y para clasificar coches y pilotos.
 
 ![img: op-categorias.png]
@@ -386,6 +388,8 @@ La **Configuración** se organiza con un **menú lateral**: **Fuente de datos**,
 - **Seguimiento público por internet**: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la sección siguiente).
 - **Integraciones** (compatibilidad Infolap, que se activa y desactiva al momento) y **Diagnóstico** (modo debug y herramientas para investigar un problema).
 - El **idioma** (ES/EN) se cambia desde el pie de página.
+
+![img: op-colores-carril.png]
 
 **Base de datos.** En **Sistema → Base de datos** (`/database`) tienes un menú con **Resumen** (cuántas carreras, equipos, pilotos, circuitos y vueltas hay, y el tamaño del fichero), **Exp. / Imp. carrera**, **Copia de seguridad** y **Restaurar copia**.
 
