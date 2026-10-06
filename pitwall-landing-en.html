@@ -388,6 +388,29 @@
   .why h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:19px;margin:11px 0 8px}
   .why p{font-size:13.5px;color:var(--ink-2)}
 
+  /* ---------- who are you ---------- */
+  .who{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:780px){.who{grid-template-columns:1fr}}
+  .who a{display:flex;flex-direction:column;gap:8px;padding:24px 22px;border:1px solid var(--line-strong);
+    border-top:3px solid var(--ac);border-radius:8px;background:var(--surface);transition:.18s}
+  .who a:hover{transform:translateY(-2px);border-color:var(--ac);background:var(--elevated)}
+  .who h4{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:23px}
+  .who p{font-size:14.5px;color:var(--ink-2)}
+  .who .go{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ac)}
+
+  /* ---------- getting started ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:8px;overflow:hidden;counter-reset:step}
+  @media(max-width:780px){.steps{grid-template-columns:1fr}}
+  .steps>div{background:var(--bg);padding:28px 24px;display:flex;flex-direction:column;gap:10px}
+  .steps .n{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--red)}
+  .steps h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:21px}
+  .steps p{font-size:14.5px;color:var(--ink-2)}
+  .steps a{margin-top:auto;padding-top:6px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink)}
+  .steps a:hover{color:var(--red)}
+
   /* ---------- CTA ---------- */
   .final{padding:100px 0 90px;text-align:center}
   .final .gantry{margin-bottom:26px}
@@ -416,9 +439,11 @@
   <div class="wrap bar">
     <a class="logo" href="#top"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
     <nav class="links" id="nav-links">
+      <a href="#empezar">Get started</a>
       <a href="#apps">Apps</a>
-      <a href="#arquitectura">How it works</a>
       <a href="#porque">Why</a>
+      <a href="#arquitectura">How it works</a>
+      <a href="manual-uso.en.html">Manual</a>
       <div class="langs"><a class="lg" href="index.html">ES</a><b>EN</b><a class="lg" href="pitwall-landing-fr.html">FR</a><a class="lg" href="pitwall-landing-it.html">IT</a></div>
     </nav>
     <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
@@ -435,17 +460,15 @@
       </div>
       <div class="eyebrow">Timing · Real time · Championships</div>
       <h1>Where the<br><span class="r">race</span> is won.</h1>
-      <p class="lede">PitWall is the complete ecosystem for your slot racing: <b>time</b> the race from the hardware, <b>follow it live</b> on your phone and <b>manage</b> the whole season. From the DS-300 or BART to the final standings.</p>
+      <p class="lede">PitWall <b>times</b> your slot car races, lets you <b>follow them live</b> on your phone and <b>runs</b> the whole championship. Install it on the club computer and get going in minutes.</p>
       <div class="cta-row">
-        <a class="live" href="#apps">Try it now! →</a>
-        <a class="btn btn-ghost" href="#apps">See all three apps →</a>
+        <a class="live" href="pitwall-manager-en.html#descargar">Download Manager →</a>
+        <a class="btn btn-ghost" href="#empezar">How to start →</a>
       </div>
       <div class="hero-stats">
         <div><div class="n">8</div><div class="l">lanes</div></div>
         <div><div class="n">6</div><div class="l">simultaneous tracks</div></div>
-        <div><div class="n">2</div><div class="l">timers · serial + BLE</div></div>
-        <div><div class="n">&lt;1ms</div><div class="l">live push</div></div>
-        <div><div class="n">3</div><div class="l">connected apps</div></div>
+        <div><div class="n">2</div><div class="l">timers · DS-300 and BART</div></div>
       </div>
     </div>
 
@@ -470,6 +493,65 @@
       <div class="mgr-fast" id="fast"></div>
       <div class="mgr-grid" id="rows"></div>
       <div class="mgr-foot"><span>Lap <span id="lapn">1</span></span><span>Demo · simulated data</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="quien" style="padding-top:30px;padding-bottom:30px">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:30px">
+      <div class="eyebrow">Pick your case</div>
+      <h2>What do you want to do?</h2>
+      <p>One app for each role at the track.</p>
+    </div>
+    <div class="who">
+      <a href="pitwall-lap-en.html" style="--ac:var(--cyan)">
+        <h4>I’m a driver</h4>
+        <p>I want to hear my times and follow my race on my phone.</p>
+        <span class="go">Lap →</span>
+      </a>
+      <a href="pitwall-manager-en.html" style="--ac:var(--red)">
+        <h4>I run races</h4>
+        <p>I want to time races and project the standings in the room.</p>
+        <span class="go">Manager →</span>
+      </a>
+      <a href="pitwall-control-en.html" style="--ac:var(--amber)">
+        <h4>I run a championship</h4>
+        <p>I want to score rounds and manage driver files and the treasury.</p>
+        <span class="go">Control →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GETTING STARTED -->
+<section id="empezar" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Get started</div>
+      <h2>Up and running in three steps.</h2>
+      <p>No accounts, no internet: just your computer, your timer and a WiFi network.</p>
+    </div>
+    <div class="steps">
+      <div>
+        <div class="n">01</div>
+        <h4>Install Manager</h4>
+        <p>Download it for Windows, Mac or Linux and install it on the computer next to the track.</p>
+        <a href="pitwall-manager-en.html#descargar">Download →</a>
+      </div>
+      <div>
+        <div class="n">02</div>
+        <h4>Connect the timer</h4>
+        <p>Plug your DS-300 into the serial port or pair your BART over Bluetooth. Manager counts every crossing and works out the times.</p>
+        <a href="inicio-rapido-en.html">Quick guide →</a>
+      </div>
+      <div>
+        <div class="n">03</div>
+        <h4>Follow the race</h4>
+        <p>Each driver opens the race on their phone over your WiFi, and you project the standings on the big screen.</p>
+        <a href="pitwall-lap-en.html">See Lap →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -555,22 +637,47 @@
         </ul>
         <div class="shot" aria-hidden="true">
           <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Control · Standings</span></div>
-          <div class="ctl-app">
-            <div class="ctl-rail"><i></i><i></i><i class="on"></i><i></i><i></i></div>
-            <div class="ctl-main">
-              <div class="ctl-head">Standings <span class="ctl-chip">24 drivers</span></div>
-              <div class="ctl-row"><b class="p1">1</b><span class="cn">M. Coll <small>Scuderia Llinars</small></span><span class="cp">182</span></div>
-              <div class="ctl-row"><b class="p2">2</b><span class="cn">A. Puig <small>Blue Racing Team</small></span><span class="cp">176</span></div>
-              <div class="ctl-row"><b class="p3">3</b><span class="cn">J. Roca <small>Green Arrows</small></span><span class="cp">169</span></div>
-              <div class="ctl-row"><b>4</b><span class="cn">X. Solé <small>Team PitWall</small></span><span class="cp">161</span></div>
-            </div>
-          </div>
+          <img class="mgr-img" src="manual/img/control-08-clasificacion.png" alt="" loading="lazy">
         </div>
         <a class="more" href="pitwall-control-en.html">Discover Control →</a>
       </article>
     </div>
   </div>
 </section>
+
+<!-- WHY -->
+<section id="porque">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why PitWall</div>
+      <h2>Built by slot racers.</h2>
+    </div>
+    <div class="why">
+      <div>
+        <div class="n">01</div>
+        <h4>From any device</h4>
+        <p>The Manager server is web-based: any driver or team can check and follow the race from any of their phones, instantly and with nothing to install.</p>
+      </div>
+      <div>
+        <div class="n">02</div>
+        <h4>Made to project</h4>
+        <p>The race screen is designed to be read from a distance on a projector: every driver visible, no scrolling.</p>
+      </div>
+      <div>
+        <div class="n">03</div>
+        <h4>Endurance included</h4>
+        <p>Relays, driver changes and NFC identification for long-format events like 24-hour races.</p>
+      </div>
+      <div>
+        <div class="n">04</div>
+        <h4>From race to league</h4>
+        <p>What you time feeds the championship. A race day ends and the standings are already up to date.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
 
 <!-- ARCHITECTURE -->
 <section id="arquitectura" style="padding-top:30px">
@@ -579,6 +686,7 @@
       <div class="eyebrow">Architecture</div>
       <h2>How it all fits together.</h2>
       <p>A single web server in the room —PitWall Manager— talks to the timing hardware, whether the DS-300 over serial or the BART system over Bluetooth, and streams the data live to every client: each driver or team follows the race from any of their devices. No internet needed: your own WiFi network is enough.</p>
+      <p style="margin-top:10px">DS-300 and BART are the track timers: the boxes that detect every car as it crosses the finish line.</p>
     </div>
 
     <div class="arch">
@@ -622,46 +730,14 @@
 
 <div class="wrap"><div class="rule"></div></div>
 
-<!-- WHY -->
-<section id="porque">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Why PitWall</div>
-      <h2>Built by slot racers.</h2>
-    </div>
-    <div class="why">
-      <div>
-        <div class="n">01</div>
-        <h4>From any device</h4>
-        <p>The Manager server is web-based: any driver or team can check and follow the race from any of their phones, instantly and with nothing to install.</p>
-      </div>
-      <div>
-        <div class="n">02</div>
-        <h4>Made to project</h4>
-        <p>The race screen is designed to be read from a distance on a projector: every driver visible, no scrolling.</p>
-      </div>
-      <div>
-        <div class="n">03</div>
-        <h4>Endurance included</h4>
-        <p>Relays, driver changes and NFC identification for long-format events like 24-hour races.</p>
-      </div>
-      <div>
-        <div class="n">04</div>
-        <h4>From race to league</h4>
-        <p>What you time feeds the championship. A race day ends and the standings are already up to date.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FINAL CTA -->
 <section class="final" id="contacto">
   <div class="wrap">
     <div class="gantry" id="gantry2"><b></b><b></b><b></b><b></b><b></b></div>
     <h2>Lights out.<br><span class="r">Race on.</span></h2>
-    <p>Do you run slot car races or championships? Manager and Control are ready for your club now; Lap, the pocket co-driver, is coming very soon.</p>
+    <p>Do you run slot car races or championships? Manager, Control and Lap are ready for your club. Start by downloading Manager.</p>
     <div class="cta-row">
-      <a class="live" href="#apps">Try it now! →</a>
+      <a class="live" href="pitwall-manager-en.html#descargar">Download Manager →</a>
       <a class="btn btn-ghost" href="#arquitectura">See how it works</a>
     </div>
   </div>

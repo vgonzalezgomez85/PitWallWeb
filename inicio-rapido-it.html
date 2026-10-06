@@ -5,11 +5,11 @@
   cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
   Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
 -->
-<html lang="fr">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PitWall Manager · Contrôle de course et chronométrage</title>
+<title>PitWall · Avvio rapido</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -120,6 +120,17 @@
   @media(max-width:480px){.dl-panel{left:0;transform:translateX(0) translateY(-6px);min-width:250px}
     .dl-menu.open .dl-panel{transform:translateX(0) translateY(0)}}
 
+  button.btn-ghost{background:transparent;cursor:pointer}
+  .dl-hint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-top:14px;max-width:34em}
+  /* ---------- quick start ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  @media(max-width:880px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.steps{grid-template-columns:1fr}}
+  .steps>div{background:var(--bg);padding:28px 24px;display:flex;flex-direction:column;gap:10px}
+  .steps .n{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--ac)}
+  .steps h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:21px}
+  .steps p{font-size:14.5px;color:var(--ink-2)}
   section{padding:84px 0;position:relative}
   .sec-head{max-width:42em;margin-bottom:50px}
   .sec-head h2{font-family:var(--display);font-weight:700;text-transform:uppercase;
@@ -187,202 +198,74 @@
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>Manager</small></a>
+    <a class="logo" href="pitwall-landing-it.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>Manager</small></a>
     <nav class="links" id="nav-links">
-      <a href="#funciones">Fonctions</a>
-      <a href="#pantallas">À l'écran</a>
-      <a href="manual-uso.fr.html">Manuel</a>
-      <a href="manual-estadisticas.fr.html">Statistiques</a>
-      <a href="pitwall-lap-fr.html">Lap</a>
-      <a href="pitwall-control-fr.html">Control</a>
-      <div class="langs"><a class="lg" href="pitwall-manager.html">ES</a><a class="lg" href="pitwall-manager-en.html">EN</a><b>FR</b><a class="lg" href="pitwall-manager-it.html">IT</a></div>
+      <a href="pitwall-manager-it.html">Manager</a>
+      <a href="manual-uso.it.html">Manuale</a>
+      <a href="pitwall-lap-it.html">Lap</a>
+      <a href="pitwall-control-it.html">Control</a>
+      <div class="langs"><a class="lg" href="inicio-rapido.html">ES</a><a class="lg" href="inicio-rapido-en.html">EN</a><a class="lg" href="inicio-rapido-fr.html">FR</a><b>IT</b></div>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <button class="menu-btn" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
   </div>
 </header>
 <script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="crumb"><a href="pitwall-landing-fr.html">← Écosystème PitWall</a> · Bureau</div>
-      <h1>Le moteur de<br>la <span class="a">course</span>.</h1>
-      <p class="lede">PitWall Manager est le cerveau du système : il dialogue avec le chronométreur — <b>DS-300 par port série</b> ou <b>BART en Bluetooth LE</b> —, compte chaque passage, calcule temps et statistiques, et fait office de <b>serveur web</b> : Lap, Control et n'importe quel appareil du pilote ou de l'équipe vivent la course en direct.</p>
-      <div class="cta-row" id="descargar">
-        <div class="dl-menu">
-          <button class="btn btn-primary dl-toggle" type="button">Télécharger <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="dl-panel">
-            <div class="dl-group">
-              <div class="dl-os">Windows</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall%201.46.0%20Installer.exe" data-umami-event="download-manager-windows-installer" download><span>Installateur</span><small>v1.46.0 · .exe</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall%201.46.0%20Portable.exe" data-umami-event="download-manager-windows-portable" download><span>Portable</span><small>v1.46.0 · .exe</small></a>
-            </div>
-            <div class="dl-group">
-              <div class="dl-os">macOS</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.46.0-arm64.dmg" data-umami-event="download-manager-macos-arm64" download><span>Apple Silicon</span><small>v1.46.0 · .dmg</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.46.0.dmg" data-umami-event="download-manager-macos-intel" download><span>Intel</span><small>v1.46.0 · .dmg</small></a>
-            </div>
-            <div class="dl-group">
-              <div class="dl-os">Linux</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.46.0.AppImage" data-umami-event="download-manager-linux-appimage" download><span>AppImage</span><small>v1.46.0 · .AppImage</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/pitwall-manager_1.46.0_amd64.deb" data-umami-event="download-manager-linux-deb" download><span>Debian / Ubuntu</span><small>v1.46.0 · .deb</small></a>
-            </div>
-          </div>
-        </div>
-        <a class="btn btn-ghost" href="#funciones">Voir les fonctions</a>
-      </div>
+  <div class="wrap">
+    <div class="crumb"><a href="pitwall-manager-it.html">← Ecosistema PitWall · Avvio rapido</a></div>
+    <h1>La tua prima gara<br>in <span class="a">sei passi</span>.</h1>
+    <p class="lede">Una guida di una pagina per passare da «l’ho appena installato» a «la gara è in corso». Per il dettaglio di ogni schermata c’è il <b>manuale completo</b>.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="pitwall-manager-it.html#descargar">Scarica Manager →</a>
+      <a class="btn btn-ghost" href="manual-uso.it.html">Manuale completo →</a>
     </div>
-
-    <figure class="shot" aria-label="Écran de course en direct de PitWall Manager (démonstration)">
-      <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Manager · Course en direct</span></div>
-      <img src="manual/img/20-live-timing.png" alt="Écran de course en direct de PitWall Manager : chronos, cartes de voie et meilleurs tours" loading="lazy" style="width:100%;display:block">
-    </figure>
   </div>
 </section>
 
-<div class="wrap"><div class="rule"></div></div>
-
-<section id="funciones">
+<section style="padding-top:20px">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Fonctions</div>
-      <h2>Tout le contrôle, dans une salle.</h2>
-      <p>Manager tourne sur ton ordinateur, au bord de la piste. Sans internet, sans cloud : ton hardware, ton réseau WiFi et la course.</p>
-    </div>
-    <div class="why">
+    <div class="steps">
       <div>
         <div class="n">01</div>
-        <h4>Un direct lisible de loin</h4>
-        <p>Lignes horizontales (sur deux colonnes avec beaucoup d'équipes) ou cartes avec le dernier tour en grand, le pilote au volant et le classement estimé à côté.</p>
+        <h4>Installa Manager</h4>
+        <p>Scaricalo per Windows, Mac o Linux e installalo sul computer che terrai accanto alla pista.</p>
       </div>
       <div>
         <div class="n">02</div>
-        <h4>Classement projeté</h4>
-        <p>Tours projetés en fin de course, écart avec celui de devant et rythme nécessaire pour le rattraper. Dans une fenêtre à part, prête à projeter.</p>
+        <h4>Scegli la fonte dei dati</h4>
+        <p>In Impostazioni → Sorgente dati: DS-300 via seriale, DS-300 aggregatore (più box su una sola porta) o BART via Bluetooth. Senza l’hardware a portata di mano, l’opzione Simulazione ti fa provare tutto.</p>
       </div>
       <div>
         <div class="n">03</div>
-        <h4>Endurance</h4>
-        <p>Pauses, relais et rotation des voies pour les courses longues type 24 heures, avec la séquence de rotation toujours sous les yeux.</p>
+        <h4>Controlla il collegamento</h4>
+        <p>In basso a destra vedi lo stato: verde significa connesso; «Nessun segnale» ti chiede di controllare cavo, porta o Bluetooth.</p>
       </div>
       <div>
         <div class="n">04</div>
-        <h4>Correction de tours</h4>
-        <p>Ajoute ou retire des passages sans arrêter la course. Les résultats finaux s'exportent prêts à partager ou à compter les points.</p>
+        <h4>Crea la gara</h4>
+        <p>Nella home premi Gara sprint o Gara endurance (o + Nuova gara nell’elenco) e segui la procedura guidata.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="pantallas" style="padding-top:20px">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">À l'écran</div>
-      <h2>Pensé pour être regardé de loin.</h2>
-      <p>De grands chiffres, l'or pour ce qui compte maintenant et le vert pour celui qui est en piste. Le classement général vit dans sa propre fenêtre, prête pour le projecteur.</p>
-    </div>
-    <div class="duo">
-      <figure>
-        <div class="shot" aria-label="Classement général (démonstration)">
-          <div class="shot-bar"><i></i><i></i><i></i><span>Classement général</span></div>
-          <img src="manual/img/21-livestats-manga.png" alt="Classement de la manche : tours, meilleur, moyenne, écart et sorties par participant" loading="lazy" style="width:100%;display:block">
-        </div>
-        <figcaption>Classement projeté · fenêtre flottante</figcaption>
-      </figure>
-      <figure>
-        <div class="shot" aria-label="Structure de la course (démonstration)">
-          <div class="shot-bar"><i></i><i></i><i></i><span>Structure de la course</span></div>
-          <img src="manual/img/06-race-page.png" alt="Page de la course : séries et manches avec la structure et les boutons de contrôle" loading="lazy" style="width:100%;display:block">
-        </div>
-        <figcaption>Pole → séries → résultats · rotation avec pause</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><div class="rule"></div></div>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">L'écosystème</div>
-      <h2>Manager ne court jamais seul.</h2>
-    </div>
-    <div class="xapps">
-      <a class="xapp" style="--xc:var(--cyan)" href="pitwall-lap-fr.html">
-        <div class="tag">Mobile · Le copilote</div>
-        <h3>Lap</h3>
-        <p>Annonces vocales pendant que tu roules, course consultable à l'arrivée et entraînements comparés.</p>
-        <div class="go">Découvrir Lap →</div>
-      </a>
-      <a class="xapp" style="--xc:var(--amber)" href="pitwall-control-fr.html">
-        <div class="tag">Gestion · La saison</div>
-        <h3>Control</h3>
-        <p>Les résultats de Manager alimentent le championnat : classements, calendrier et trésorerie.</p>
-        <div class="go">Découvrir Control →</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="final">
-  <div class="wrap">
-    <h2>Ta salle mérite<br>son <span class="a">mur des stands</span>.</h2>
-    <p>Branche ton DS-300 ou ton BART, ouvre Manager et laisse le chronométrage se débrouiller tout seul.</p>
-    <div class="cta-row">
-      <div class="dl-menu">
-          <button class="btn btn-primary dl-toggle" type="button">Télécharger <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="dl-panel">
-            <div class="dl-group">
-              <div class="dl-os">Windows</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall%201.46.0%20Installer.exe" data-umami-event="download-manager-windows-installer" download><span>Installateur</span><small>v1.46.0 · .exe</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall%201.46.0%20Portable.exe" data-umami-event="download-manager-windows-portable" download><span>Portable</span><small>v1.46.0 · .exe</small></a>
-            </div>
-            <div class="dl-group">
-              <div class="dl-os">macOS</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.46.0-arm64.dmg" data-umami-event="download-manager-macos-arm64" download><span>Apple Silicon</span><small>v1.46.0 · .dmg</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.46.0.dmg" data-umami-event="download-manager-macos-intel" download><span>Intel</span><small>v1.46.0 · .dmg</small></a>
-            </div>
-            <div class="dl-group">
-              <div class="dl-os">Linux</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.46.0.AppImage" data-umami-event="download-manager-linux-appimage" download><span>AppImage</span><small>v1.46.0 · .AppImage</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/pitwall-manager_1.46.0_amd64.deb" data-umami-event="download-manager-linux-deb" download><span>Debian / Ubuntu</span><small>v1.46.0 · .deb</small></a>
-            </div>
-          </div>
-        </div>
-      <a class="btn btn-ghost" href="pitwall-landing-fr.html">← Retour à l'écosystème</a>
+      <div>
+        <div class="n">05</div>
+        <h4>Collega i telefoni</h4>
+        <p>Nell’intestazione della home vedrai l’indirizzo IP del server. Apri Lap (si collega da sola; altrimenti inserisci l’IP una volta) o il browser del telefono, sempre sulla stessa WiFi.</p>
+      </div>
+      <div>
+        <div class="n">06</div>
+        <h4>Dirigi la gara</h4>
+        <p>Dalla fascia della gara in corso apri il Live, lo Schermo TV, la Correzione dei giri e le Statistiche in diretta.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <div class="apps-mini"><a href="pitwall-manager-fr.html">Manager</a><a href="pitwall-lap-fr.html">Lap</a><a href="pitwall-control-fr.html">Control</a></div>
-    <div class="mono">© 2026 · Chronométrage et gestion de slot racing</div>
+    <a class="logo" href="pitwall-landing-it.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="pitwall-manager-it.html">Manager</a><a href="pitwall-lap-it.html">Lap</a><a href="pitwall-control-it.html">Control</a></div>
+    <div class="mono">© 2026 · Cronometraggio e gestione slot racing</div>
   </div>
 </footer>
-
-<script>
-(function(){
-  document.querySelectorAll('.dl-toggle').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.stopPropagation();
-      var menu = btn.closest('.dl-menu');
-      var wasOpen = menu.classList.contains('open');
-      document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
-      if(!wasOpen) menu.classList.add('open');
-    });
-  });
-  document.addEventListener('click', function(){
-    document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-      document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
-    }
-  });
-})();
-</script>
 </body>
 </html>
