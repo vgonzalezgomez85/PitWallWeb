@@ -17,7 +17,7 @@ Tu peux utiliser n'importe laquelle de ces sources ; pour PitWall le flux de pas
 
 - L'**écran d'accueil** a en haut un en-tête avec la recherche **« Aller à… »** (« Ir a… », raccourci **⌘K** sur Mac ou **Ctrl K**) : tape une partie du nom d'une section ou d'une course ; **Entrée** ouvre le premier résultat et **Échap** efface la recherche. À côté, des pastilles affichent l'état de la source de données (simulation, DS-300 connecté ou déconnecté) et l'**adresse IP** du serveur, pour connecter téléphones et écrans.
 - Quand une **course est en cours**, son bandeau apparaît en dessous : **manche X sur Y**, série, le **temps restant** de la manche, les **manches** (celle qui se court compte déjà) et le **leader estimé**, le même que dans le *Classement estimé* du direct, mis à jour en direct. Il a des boutons vers **Direct de la manche**, **Écran TV**, **Correction des tours** (de la manche en cours ou de la dernière terminée), **Statistiques en direct**, **Contrôle des pilotes** (en championnat), **Pneus** (si la course a des trains de pneus), **Journal des événements** et **Gérer la course**. Sans course en cours, le bandeau affiche la pole en cours ou les raccourcis **Nouvelle course** / **Entraînement libre**. L'accueil se met à jour tout seul quand une course démarre et quand une manche commence, se termine ou est mise en pause.
-- En dessous, les sections sont présentées en **tuiles** : **Compétition** (Courses, Entraînements, Statistiques en direct, Résultats, Lap, Contrôle des pilotes, Contrôle des pneus…), **Catalogue** (Pilotes, Équipes, Voitures, Catégories et Scénarios, avec le nombre de chacun) et **Système** (Réglages, Base de données, Synchroniser le catalogue, Connexion écosystème, Dépannage…). Tout en bas, le tableau des **Courses récentes** avec leur état, leurs manches et leur action directe (Direct, Résultats ou Ouvrir).
+- En dessous, les sections sont présentées en **tuiles** : **Compétition** (Courses, Course sprint, Course d'endurance, Entraînement libre, Entraînement de compétition, Statistiques en direct, Résultats, Lap, Contrôle des pilotes, Contrôle des pneus…), **Catalogue** (Pilotes, Équipes, Voitures, Catégories et Scénarios, avec le nombre de chacun) et **Système** (Réglages, Base de données, Synchroniser le catalogue, Connexion écosystème, Dépannage…). Tout en bas, le tableau des **Courses récentes** avec leur état, leurs manches et leur action directe (Direct, Résultats ou Ouvrir). **Course sprint** et **Course d'endurance** ouvrent l'assistant de nouvelle course avec le type déjà coché. Si un **mot de passe d'accès** est défini, les boutons de **Catalogue** et **Système** portent un **cadenas** et le demandent quand on appuie dessus ; le reste de l'accueil n'en a jamais besoin (voir *Réglages*).
 - Chaque section s'ouvre dans **sa propre fenêtre** : si tu cliques à nouveau dessus, PitWall ramène au premier plan la fenêtre déjà ouverte (dans l'application de bureau, même si elle est réduite ou si tu es revenu à l'accueil depuis elle). Tu peux ainsi garder en même temps le direct, la TV et les statistiques. Les fenêtres ouvertes apparaissent dans la **barre du bas** de l'accueil, avec **Afficher** (« Traer ») pour les mettre devant et **✕** pour les fermer. L'interrupteur **« Ouvrir les liens dans : Nouvelle fenêtre / Cette fenêtre »** (« Abrir enlaces en »), placé dans l'en-tête à côté de **Personnaliser**, te permet de tout ouvrir dans la même fenêtre si tu préfères, et **Maj + clic** ouvre un lien ici même sans toucher à l'interrupteur.
 - En bas à droite, tu vois toujours l'**état de la liaison** (vert = connecté ; « Sans signal » = vérifie le câble/port ou le Bluetooth).
 
@@ -32,6 +32,8 @@ Tu peux utiliser n'importe laquelle de ces sources ; pour PitWall le flux de pas
 Le choix est **enregistré dans PitWall**, pas sur l'ordinateur : tu verras la même mise en page dans l'application de bureau et dans n'importe quel navigateur connecté. Ce qui est décrit plus haut correspond à la mise en page par défaut ; les autres organisent les sections autrement (tous n'ont pas la recherche « Aller à… » ni le tableau des courses).
 
 ![img: 01b-home-personalizar.png]
+
+**Mode basique / avancé.** Dans la même fenêtre **Personnaliser** (ou dans **Réglages → Préférences → « Mode de l'app »**, « Modo de la app ») tu choisis combien d'accès affiche l'accueil. Le mode **Basique** garde l'essentiel pour un club : dans Compétition, **Entraînement libre**, **Course sprint** et **Résultats** ; dans Catalogue, **Catégories** et **Scénarios** ; et dans Système, **Réglages**, d'où l'on revient au mode avancé. Comme le mode basique n'a pas de bouton **Courses**, le tableau des **Courses récentes** apparaît dans toutes les mises en page pour ouvrir les courses déjà créées. Le mode **Avancé** (celui de toujours) affiche tout. Le changement s'enregistre sur le moment, sans couper le chronométrage, et le bandeau de la course en cours est le même dans les deux modes.
 
 **La liste des courses** te montre toutes tes courses avec leur état (en attente / active / terminée) et le bouton *Nouvelle course (« + Nueva carrera »)*.
 
@@ -81,18 +83,20 @@ Les trois catalogues ont une **barre de recherche** en haut : elle filtre pendan
 ## 3. Créer une course
 ![img: 03-wizard-step1.png]
 
-Appuie sur *Nouvelle course (« + Nueva carrera »)* et suis l'assistant :
+Appuie sur **Course sprint** ou **Course d'endurance** dans l'accueil, ou sur **+ Nouvelle course** dans la liste des courses, et suis l'assistant.
 
-- **Type** :
+- **Type** : si tu entres par **Course sprint** ou **Course d'endurance**, il n'est pas demandé : le titre indique déjà **Nouvelle course sprint** ou **Nouvelle course d'endurance** (« Nueva carrera sprint » / « Nueva carrera de resistencia »), et le lien **Passer en endurance** / **Passer en sprint** (« Cambiar a resistencia » / « Cambiar a sprint ») le change. Depuis **+ Nouvelle course**, tu le choisis avec deux cartes :
   - *Sprint* → une **course rapide**, de **pilotes ou d'équipes**.
   - *Endurance* → une **course d'endurance** (par équipes), qui ajoute le **contrôle du temps couru par chaque pilote** de l'équipe (voir *Contrôle des relais de pilote*).
-- **Voies et circuits** : nombre total de voies et répartition entre les boîtiers (par ex. 8+8+6 = 3 boîtiers DS-300).
-- **Temps minimum de tour (Pt)** : en dessous de ce temps, un passage est considéré comme **fantôme** (rebond/double lecture) et ne compte pas.
-- **Passages** : combien de fois la **séquence de voies entière** est parcourue. 2 passages = la rotation complète est courue 2 fois (deux fois plus de manches).
-- **Répéter la voie** : chaque voie est courue ce nombre de **manches d'affilée** (même voie), en cumulant les tours — pour comparer chaque répétition.
-- **Pole** (facultatif) et **règles de pilote** (championnat uniquement : min/max par pilote, blocage de changement en fin de manche).
+- **Nom de la course** (« Nombre de la carrera »).
+- **Circuit** : choisis un circuit enregistré et il se résume en une ligne (p. ex. « 24 carriles · 3 circuitos (8 + 8 + 8) · vuelta mínima 6,00 s »), sans rien d'autre à remplir. Avec **— Configurer à la main —** (« Configurar a mano ») apparaissent le **nombre de circuits**, les **voies** de chacun (par ex. 8+8+6 = 3 boîtiers DS-300) et le **temps minimum de tour (Pt)** : en dessous de ce temps, un passage est considéré comme **fantôme** (rebond/double lecture) et ne compte pas. Si le circuit a des temps par catégorie, **Catégorie** apparaît aussi.
+- **Pole position** : **Sans pole** ou **Avec pole** (« Sin pole » / « Con pole » ; le plus rapide choisit sa voie en premier).
+- **Règles d'endurance** (« Reglas de resistencia », en endurance uniquement) : **minimum** et **maximum par pilote** (en minutes), **maximum de relais**, **pneus** (en paires par équipe) et **Pas de changement à la fin** (« Sin cambios al final » : les dernières secondes de chaque manche, où l'on ne peut pas changer de pilote). Ce que tu laisses vide n'est pas contrôlé.
+- **Plus d'options** (« Más opciones », replié ; il s'ouvre tout seul si l'une des deux valeurs dépasse 1) :
+  - **Passages** : combien de fois la **séquence de voies entière** est parcourue. 2 passages = la rotation complète est courue 2 fois (deux fois plus de manches).
+  - **Répéter la voie** : chaque voie est courue ce nombre de **manches d'affilée** (même voie), en cumulant les tours — pour comparer chaque répétition.
 
-La première étape est organisée en **blocs numérotés** —**Données**, **Piste**, **Format** et, en endurance uniquement, **Règles d'endurance**— et une **barre fixe en bas** résume tes choix à côté du bouton **Suivant**. Avant de continuer, PitWall vérifie que la course a un **nom** et un **type** et que chaque circuit a **entre 2 et 8 voies**, et te signale ce qui manque.
+Une **barre fixe en bas** résume tes choix à côté du bouton **Suivant**. Avant de continuer, PitWall vérifie que la course a un **nom** et un **type** et que chaque circuit a **entre 2 et 8 voies**, et te signale ce qui manque. Dans les étapes suivantes (Séquence, Participants, Confirmer), **Retour** te ramène en arrière **sans perdre ce que tu avais déjà rempli**.
 
 > Les **passages** et la **répétition de voie** ne changent que la façon dont les manches sont générées ; les totaux se cumulent par participant.
 
@@ -321,6 +325,8 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
   - **Supprimer** (🗑) — éliminer un tour.
   - **Ajouter un tour manuel** — s'il a manqué un passage, tu l'ajoutes à la main.
 
+**Corrections pendant la manche.** Chaque correction se voit **tout de suite** dans le direct et dans le classement, sans attendre le passage suivant, et la numérotation des tours reste juste (par exemple, après avoir ajouté un tour à la main, le passage suivant reçoit le bon numéro). Si la manche est déjà terminée, le direct que tu as ouvert se recharge tout seul avec les données corrigées.
+
 > Utilise-le avec discernement : les corrections modifient les totaux, les moyennes et le classement de cette manche.
 
 > **Tours fantômes automatiques.** Un tour en dessous du **Pt** (temps minimum) est marqué comme **fantôme** et la voie qui l'a produit ne le compte **jamais**. PitWall ne le réattribue plus au jugé : il le **retient** et ne l'attribue qu'à la voie qui **confirme** avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en **fantôme** pour que tu le révises à la main. Avec **plusieurs circuits** (agrégateur DS-300 ou plusieurs Master BART), l'attribution automatique **ne passe jamais d'un circuit à l'autre** : un fantôme ne peut être certifié que sur une voie de son propre circuit, jamais sur celle d'un autre (ce sont des pistes physiquement distinctes).
@@ -335,14 +341,14 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 - **Exports** : **Excel**, **Points (xlsx/csv)**, **Control (csv)**, **Exporter pour GitHub**, **PDF**.
 - **L'export Excel** (résultats, points et rapport de relais) **ne fonctionne que course arrêtée ou terminée** : impossible de sortir l'Excel pendant qu'une manche tourne (ce calcul lourd bloquerait le chronométrage, au risque de perdre un passage). Si une manche démarre pendant la génération, l'export est annulé et il suffit de le relancer ensuite.
 
-**Résultats publics.** Il existe une page ouverte — **Résultats**, dans le menu d'accueil — où n'importe qui peut consulter (sans rien toucher ni pouvoir éditer) les résultats des courses **terminées**. C'est celle que tu partages avec les pilotes et le public pour qu'ils regardent le classement et les statistiques de la course.
+**Résultats publics.** Il existe une page ouverte — **Résultats**, dans le menu d'accueil — où n'importe qui peut consulter (sans rien toucher ni pouvoir éditer) les résultats des courses **terminées**. C'est celle que tu partages avec les pilotes et le public pour qu'ils regardent le classement et les statistiques de la course. La page a un **moteur de recherche** (par course, circuit, ou équipe ou pilote du podium) et des onglets **Toutes / Sprint / Endurance**. La dernière course est **mise en avant** en haut, sur toute la largeur, et chaque carte indique le type, la date de fin, le circuit, le nombre de pilotes ou d'équipes et de manches, le **podium** avec ses tours et le **meilleur tour** de la course.
 
 ![img: op-resultados-publicos.png]
 
 ## 16. Entraînement
 ![img: 40-training.png]
 
-En plus des courses, PitWall dispose d'un mode **Entraînement** (depuis l'écran d'accueil) pour rouler sans monter une compétition complète. Il y a deux modalités :
+En plus des courses, PitWall dispose d'un mode **Entraînement** (boutons **Entraînement libre** et **Entraînement de compétition** de l'accueil) pour rouler sans monter une compétition complète. Il y a deux modalités :
 
 - **Entraînement libre** : enregistre des **tours par voie sans structure d'équipes**. Idéal pour des séances ouvertes où chacun teste voiture et piste ; il n'y a ni rotation ni classement, seulement des temps par voie.
 - **De compétition** : équipes ou pilotes affectés à des voies avec **rotation automatique après chaque série**, comme une course mais pensé pour s'entraîner au format championnat.
@@ -353,7 +359,7 @@ Choisis la modalité, attribue les voies et appuie sur *Commencer (« Empezar »
 
 - le **dernier tour** et son écart avec le meilleur ;
 - la ligne **Meilleur / Moyenne / Record** ;
-- les **10 derniers tours**, en grand et chacun précédé de son numéro de tour ;
+- les **10 derniers tours** (le plus récent en haut) ou, si tu le choisis dans **Réglages → Préférences → « Historique des tours en entraînement »** (« Historial de vueltas en entrenos »), les **10 meilleurs**, du meilleur au moins bon ; en grand et chacun précédé de son numéro de tour (avec un entraînement déjà ouvert, le changement se voit en rechargeant) ;
 - un **graphique de rythme** avec les lignes du meilleur tour et de la moyenne : en survolant (ou en touchant) un point, tu vois le numéro du tour, son temps et son écart avec le meilleur.
 
 ![img: 41-training-free.png]
@@ -380,17 +386,32 @@ Chaque séance peut être **supprimée** depuis son détail. Si tu arrêtes la s
 ## 17. Réglages
 ![img: 04-settings.png]
 
-Les **Réglages** s'organisent avec un **menu latéral** : **Source de données**, **Préférences**, **Réseau local**, **Suivi en ligne**, **Intégrations** et **Diagnostic**. Chaque section a son propre écran, le menu affiche des points d'état (chrono, tunnel, mode debug) et, après l'enregistrement, tu reviens à la section où tu étais. En bas, une **barre d'enregistrement fixe** t'avertit des **modifications non enregistrées** et de celles qui **demandent de redémarrer** PitWall (seulement l'interface réseau et HTTPS ; le reste s'applique à l'enregistrement).
+Les **Réglages** s'organisent avec un **menu latéral** : **Source de données**, **Préférences**, **Réseau local**, **Sécurité**, **Suivi en ligne**, **Intégrations** et **Diagnostic**. Chaque section a son propre écran, le menu affiche des points d'état (chrono, tunnel, mode debug) et, après l'enregistrement, tu reviens à la section où tu étais. En bas, une **barre d'enregistrement fixe** t'avertit des **modifications non enregistrées** et de celles qui **demandent de redémarrer** PitWall (seulement l'interface réseau et HTTPS ; le reste s'applique à l'enregistrement).
 
 - **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth (il se connecte en **BLE direct** par défaut ; le **TCP** reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers. Si tu utilises **plusieurs Master BART** (un par bloc de voies), ajoute une ligne par Master avec son **nom BLE** (p. ex. `BART_TRACK1`, `BART_TRACK2`…) et son **nombre de voies** : ils sont numérotés à la suite comme les boîtiers de l'agrégateur DS-300, et chaque Master doit être appairé séparément.
 - **Configuration du port, sans prise de tête** : pour chaque circuit DS-300 (et l'agrégateur) tu ne vois d'un coup d'œil que le **Port** et le **Baud rate**. Choisis le **port** dans la liste détectée ; s'il n'y figure pas, **« Saisir le chemin à la main »** permet de le taper (p. ex. `COM3` ou `/dev/ttys003`). Le **baud rate** est un menu déroulant avec les vitesses habituelles (9600–921600), avec **« Saisir à la main »** pour une valeur hors liste. Les réglages fins de la liaison série (**Data bits, Parité, Stop bits, Contrôle de flux**) sont repliés sous **« Options avancées du port »** : par défaut **8N1**, on n'y touche presque jamais.
-- **Préférences** : l'**Ordre du direct** (par classement estimé ou par tours réels ; voir *Diriger la course en direct*) et les **Couleurs de voie** globales (« Colores de carril ») : celles utilisées quand il n’y a pas de scénario ou que le scénario n’a pas de couleurs propres. Clique sur chaque échantillon pour changer sa couleur ; **Enregistrer les couleurs** (« Guardar colores ») les applique tout de suite sans toucher à la connexion du chronométrage, et **Couleurs d’usine** (« Colores de fábrica ») rétablit la palette d’origine.
+- **Préférences** : le **Mode de l'app** (« Modo de la app » : basique ou avancé ; voir *Introduction*), l'**Historique des tours en entraînement** (les 10 derniers ou les 10 meilleurs ; voir *Entraînement*), l'**Ordre du direct** (par classement estimé ou par tours réels ; voir *Diriger la course en direct*) et les **Couleurs de voie** globales (« Colores de carril ») : celles utilisées quand il n’y a pas de scénario ou que le scénario n’a pas de couleurs propres. Clique sur chaque échantillon pour changer sa couleur ; **Enregistrer les couleurs** (« Guardar colores ») les applique tout de suite sans toucher à la connexion du chronométrage, et **Couleurs d’usine** (« Colores de fábrica ») rétablit la palette d’origine.
 - **Réseau local** : interface réseau, restreindre l'accès web et HTTPS local (pour la caméra du QR).
+- **Sécurité** (« Seguridad ») : un **mot de passe** pour que seuls ceux qui le connaissent entrent dans **Système** et **Catalogue** (voir *Mot de passe d'accès* plus bas).
 - **Suivi public par internet** : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la section suivante).
 - **Intégrations** (compatibilité Infolap, qui s'active et se désactive sur le moment) et **Diagnostic** (mode debug et outils pour enquêter sur un problème).
 - La **langue** (ES/EN) se change depuis le pied de page.
 
 ![img: op-colores-carril.png]
+
+**Mot de passe d'accès.** Il sert à ce que ceux qui ne connaissent pas le programme ne touchent pas à ce qu'ils ne doivent pas toucher. Dans **Réglages → Sécurité**, active **« Demander un mot de passe d'accès »** (« Pedir contraseña de acceso »), tape le mot de passe deux fois (4 caractères minimum) et appuie sur **Activer avec ce mot de passe** (« Activar con esta contraseña »). Dès lors, le mot de passe protège **uniquement les boutons de Système** (Réglages, Base de données, Synchroniser le catalogue, Synchroniser la course, Connexion écosystème, Dépannage et le tunnel du suivi en ligne) **et de Catalogue** (Pilotes, Équipes, Voitures, Catégories et Scénarios), y compris sur l'ordinateur de PitWall lui-même et dans l'application de bureau. Le navigateur depuis lequel tu l'actives reste connecté jusqu'à ce que tu appuies sur **Verrouiller** (« Bloquear ») ou **Se déconnecter**, et la connexion du chronométrage n'est pas touchée.
+
+- Tout le reste se fait **sans mot de passe** : l'**accueil** et toute la **Compétition** (courses et leur assistant, entraînements, direct, TV, corrections de tours, contrôle des pilotes et des pneus, résultats, statistiques en direct), ainsi que **Lap** (avec son PIN), l'**application mobile**, la liaison entre PitWall maître et esclave et l'import depuis PitWall Control (avec son PIN). N'importe qui peut donc diriger une course sans connaître le mot de passe. Dans l'assistant, seul **+ Nouveau circuit** le demande, car il ouvre les Scénarios.
+- Il se combine avec **Restreindre l'accès web** de **Réseau local** : il s'ajoute à cette restriction par IP.
+- Après **5 tentatives ratées** d'affilée, cet appareil doit attendre **30 s** avant de réessayer. L'ordinateur de PitWall lui-même n'est jamais bloqué.
+- Dans l'accueil, tant que tu n'es pas connecté, les boutons de **Système** et **Catalogue** portent un **cadenas jaune** et l'en-tête affiche **Entrer** (« Entrar »). Un bouton avec cadenas ouvre l'écran du mot de passe (avec **← Retour à l'accueil** si tu ne le connais pas) et, une fois connecté, tu arrives directement sur cette page. Avec la session ouverte, l'en-tête affiche **Verrouiller** (« Bloquear »), qui ferme la session tout de suite (par exemple si tu laisses l'ordinateur sans surveillance).
+- Le mot de passe **reste actif même si tu redémarres PitWall** (il est enregistré dans la base de données). Ce qui se perd au redémarrage, c'est la **session** : il faut donc se reconnecter. **Se déconnecter** (« Cerrar sesión ») est dans la même section.
+- **Changer le mot de passe** en met un nouveau ; **désactiver** l'interrupteur efface le mot de passe.
+- **Tu l'as oublié ?** Ferme complètement PitWall et lance-le en **mode récupération**, avec la variable d'environnement `PITWALL_DISABLE_PASSWORD=1` : tant qu'elle est définie, aucun mot de passe n'est demandé. Va dans **Réglages → Sécurité**, mets-en un nouveau (ou désactive-le), puis ferme PitWall et rouvre-le normalement. Comment le lancer ainsi :
+  - **Mac** (application installée), dans le Terminal : `PITWALL_DISABLE_PASSWORD=1 /Applications/PitWall.app/Contents/MacOS/PitWall`
+  - **Windows**, dans PowerShell : `$env:PITWALL_DISABLE_PASSWORD=1; & "$env:LOCALAPPDATA\Programs\PitWall\PitWall.exe"` (chemin de l'installation normale, pour ton utilisateur seulement ; si tu l'as installé pour tous les utilisateurs, il se trouve en général dans `C:\Program Files\PitWall\PitWall.exe`)
+  - **Linux** (AppImage), depuis le dossier où il se trouve : `PITWALL_DISABLE_PASSWORD=1 ./PitWall*.AppImage`
+  - **Depuis le code** (développement) : `PITWALL_DISABLE_PASSWORD=1 npm start`
 
 **Base de données.** **Système → Base de données** (`/database`) propose un menu avec **Résumé** (combien de courses, équipes, pilotes, circuits et tours il y a, et la taille du fichier), **Exp. / Imp. course**, **Copie de sauvegarde** et **Restaurer une copie**.
 

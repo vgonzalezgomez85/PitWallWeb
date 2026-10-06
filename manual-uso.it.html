@@ -103,7 +103,7 @@
       <ul>
         <li>La <b>schermata iniziale</b> ha in alto un'intestazione con la ricerca <b>«Vai a…»</b> («Ir a…», scorciatoia <b>⌘K</b> su Mac o <b>Ctrl K</b>): scrivi parte del nome di una sezione o di una gara; <b>Invio</b> apre il primo risultato ed <b>Esc</b> cancella la ricerca. Accanto, delle pillole mostrano lo stato della sorgente dati (simulazione, DS-300 connesso o disconnesso) e l'<b>indirizzo IP</b> del server, per collegare telefoni e schermi.</li>
         <li>Se c'è una <b>gara in corso</b>, sotto compare la sua fascia: <b>manche X di Y</b>, tornata, il <b>tempo rimanente</b> della manche, le <b>manche</b> (quella in corso conta già) e il <b>leader stimato</b>, lo stesso della <i>Classifica stimata</i> della diretta, aggiornato in tempo reale. Ha pulsanti per <b>Diretta della manche</b>, <b>Schermo TV</b>, <b>Correzione dei giri</b> (della manche in corso o dell'ultima terminata), <b>Statistiche live</b>, <b>Controllo piloti</b> (nei campionati), <b>Gomme</b> (se la gara ha treni di gomme), <b>Registro eventi</b> e <b>Gestisci gara</b>. Senza gara in corso, la fascia mostra la pole in corso oppure le scorciatoie <b>Nuova gara</b> / <b>Allenamento libero</b>. La schermata iniziale si aggiorna da sola quando parte una gara e quando una manche inizia, finisce o va in pausa.</li>
-        <li>Sotto, le sezioni sono disposte a <b>riquadri</b>: <b>Competizione</b> (Gare, Allenamenti, Statistiche live, Risultati, Lap, Controllo piloti, Controllo gomme…), <b>Catalogo</b> (Piloti, Squadre, Auto, Categorie e Scenari, con quanti ne hai di ciascuno) e <b>Sistema</b> (Impostazioni, Database, Sincronizza catalogo, Connessione ecosistema, Risoluzione dei problemi…). In fondo, la tabella delle <b>Gare recenti</b> con stato, manche e azione diretta (Diretta, Risultati o Apri).</li>
+        <li>Sotto, le sezioni sono disposte a <b>riquadri</b>: <b>Competizione</b> (Gare, Gara sprint, Gara endurance, Allenamento libero, Allenamento di competizione, Statistiche live, Risultati, Lap, Controllo piloti, Controllo gomme…), <b>Catalogo</b> (Piloti, Squadre, Auto, Categorie e Scenari, con quanti ne hai di ciascuno) e <b>Sistema</b> (Impostazioni, Database, Sincronizza catalogo, Connessione ecosistema, Risoluzione dei problemi…). In fondo, la tabella delle <b>Gare recenti</b> con stato, manche e azione diretta (Diretta, Risultati o Apri). <b>Gara sprint</b> e <b>Gara endurance</b> aprono la procedura di nuova gara con il tipo già selezionato. Se c'è una <b>password di accesso</b>, i pulsanti di <b>Catalogo</b> e <b>Sistema</b> hanno un <b>lucchetto</b> e la chiedono quando li premi; il resto della schermata iniziale non la richiede mai (vedi <i>Impostazioni</i>).</li>
         <li>Ogni sezione si apre nella <b>sua finestra</b>: se la clicchi di nuovo, PitWall porta in primo piano la finestra già aperta (nell'app desktop, anche se è ridotta a icona o se da lì sei tornato alla schermata iniziale). Così puoi tenere insieme la diretta, la TV e le statistiche. Le finestre aperte compaiono nella <b>barra in basso</b> della schermata iniziale, con <b>Porta avanti</b> («Traer») per metterle davanti e <b>✕</b> per chiuderle. Con l'interruttore <b>«Apri i link in: Finestra nuova / Questa finestra»</b> («Abrir enlaces en»), che si trova nell'intestazione accanto a <b>Personalizza</b>, scegli se preferisci aprire tutto nella stessa finestra, e <b>Maiusc + clic</b> apre un link qui stesso senza toccare l'interruttore.</li>
         <li>In basso a destra vedi sempre lo <b>stato del collegamento</b> (verde = connesso; "Sin señal" = controlla il cavo/porta o il Bluetooth).</li>
       </ul>
@@ -121,6 +121,7 @@
         <img src="manual/img/01b-home-personalizar.png" loading="lazy" alt="Finestra Personalizza con i cinque layout della schermata iniziale">
         <figcaption>Finestra «Personalizza»: i cinque layout della schermata iniziale; quello evidenziato è in uso.</figcaption>
       </figure>
+      <p><b>Modalità base / avanzata.</b> Nella stessa finestra <b>Personalizza</b> (o in <b>Impostazioni → Preferenze → «Modalità dell'app»</b>, «Modo de la app») scegli quanti accessi mostra la schermata iniziale. La modalità <b>Base</b> lascia lo stretto necessario per un club: in Competizione, <b>Allenamento libero</b>, <b>Gara sprint</b> e <b>Risultati</b>; in Catalogo, <b>Categorie</b> e <b>Scenari</b>; e in Sistema, <b>Impostazioni</b>, da dove si torna all'avanzata. Dato che in base non c'è il pulsante <b>Gare</b>, la tabella delle <b>Gare recenti</b> compare in tutti i layout per aprire le gare già create. La modalità <b>Avanzata</b> (quella di sempre) mostra tutto. La modifica si salva all'istante, senza interrompere il cronometraggio, e la fascia della gara in corso è uguale in entrambe le modalità.</p>
       <p><b>L'elenco delle gare</b> ti mostra tutte le tue gare con il loro stato (in attesa / attiva / terminata) e il pulsante <b>Nuova gara ("+ Nueva carrera")</b>.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Elenco delle gare</span></div>
@@ -209,21 +210,26 @@
         <img src="manual/img/03-wizard-step1.png" loading="lazy" alt="Procedura guidata per creare una nuova gara, passo 1">
         <figcaption>Procedura guidata di nuova gara: tipo, corsie, tempo minimo, passate e regole.</figcaption>
       </figure>
-      <p>Premi <b>Nuova gara ("+ Nueva carrera")</b> e segui la procedura guidata:</p>
+      <p>Premi <b>Gara sprint</b> o <b>Gara endurance</b> nella schermata iniziale, oppure <b>+ Nuova gara</b> nell'elenco delle gare, e segui la procedura guidata.</p>
       <ul>
-        <li><b>Tipo</b>:
+        <li><b>Tipo</b>: se entri da <b>Gara sprint</b> o <b>Gara endurance</b> non viene chiesto: il titolo dice già <b>Nuova gara sprint</b> o <b>Nuova gara di resistenza</b> («Nueva carrera sprint» / «Nueva carrera de resistencia»), e il link <b>Passa a resistenza</b> / <b>Passa a sprint</b> («Cambiar a resistencia» / «Cambiar a sprint») lo cambia. Da <b>+ Nuova gara</b> lo scegli con due schede:
           <ul>
             <li><i>Sprint</i> → una <b>gara veloce</b>, di <b>piloti o squadre</b>.</li>
             <li><i>Resistenza</i> → una <b>gara di resistenza</b> (a squadre), che aggiunge il <b>controllo di quanto ha corso ciascun pilota</b> della squadra (vedi <i>Controllo dei turni di pilota</i>).</li>
           </ul>
         </li>
-        <li><b>Corsie e circuiti</b>: n° totale di corsie e come si ripartiscono tra i box (p.es. 8+8+6 = 3 box DS-300).</li>
-        <li><b>Tempo minimo di giro (Pt)</b>: al di sotto di questo tempo, un passaggio è considerato <b>fantasma</b> (rimbalzo/doppia lettura) e non conta.</li>
-        <li><b>Passate</b>: quante volte si percorre l'<b>intera sequenza di corsie</b>. 2 passate = la rotazione completa si corre 2 volte (il doppio delle manche).</li>
-        <li><b>Ripeti corsia</b>: ogni corsia si corre questo n° di <b>manche di seguito</b> (stessa corsia), sommando i giri — per confrontare ogni ripetizione.</li>
-        <li><b>Pole</b> (facoltativa) e <b>regole di pilota</b> (solo campionato: min/max per pilota, blocco del cambio a fine manche).</li>
+        <li><b>Nome della gara</b> («Nombre de la carrera»).</li>
+        <li><b>Circuito</b>: scegli un circuito salvato e si riassume in una riga (es. «24 carriles · 3 circuitos (8 + 8 + 8) · vuelta mínima 6,00 s»), senza nient'altro da compilare. Con <b>— Configura a mano —</b> («Configurar a mano») compaiono il <b>n° di circuiti</b>, le <b>corsie</b> di ciascuno (p.es. 8+8+6 = 3 box DS-300) e il <b>tempo minimo di giro (Pt)</b>: al di sotto di questo tempo, un passaggio è considerato <b>fantasma</b> (rimbalzo/doppia lettura) e non conta. Se il circuito ha tempi per categoria, compare anche <b>Categoria</b>.</li>
+        <li><b>Pole position</b>: <b>Senza pole</b> o <b>Con pole</b> («Sin pole» / «Con pole»; il più veloce sceglie la corsia per primo).</li>
+        <li><b>Regole di resistenza</b> («Reglas de resistencia», solo in resistenza): <b>minimo</b> e <b>massimo per pilota</b> (in minuti), <b>massimo di turni</b>, <b>gomme</b> (in coppie per squadra) e <b>Nessun cambio alla fine</b> («Sin cambios al final»: gli ultimi secondi di ogni manche, in cui non si può cambiare pilota). Ciò che lasci vuoto non viene controllato.</li>
+        <li><b>Altre opzioni</b> («Más opciones», ripiegato; si apre da solo se uno dei due valori è maggiore di 1):
+          <ul>
+            <li><b>Passate</b>: quante volte si percorre l'<b>intera sequenza di corsie</b>. 2 passate = la rotazione completa si corre 2 volte (il doppio delle manche).</li>
+            <li><b>Ripeti corsia</b>: ogni corsia si corre questo n° di <b>manche di seguito</b> (stessa corsia), sommando i giri — per confrontare ogni ripetizione.</li>
+          </ul>
+        </li>
       </ul>
-      <p>Il primo passo è organizzato in <b>blocchi numerati</b> —<b>Dati</b>, <b>Pista</b>, <b>Formato</b> e, solo in endurance, <b>Regole di endurance</b>— e una <b>barra fissa in basso</b> riassume le tue scelte accanto al pulsante <b>Avanti</b>. Prima di proseguire, PitWall controlla che la gara abbia un <b>nome</b> e un <b>tipo</b> e che ogni circuito abbia <b>tra 2 e 8 corsie</b>, e ti segnala cosa manca.</p>
+      <p>Una <b>barra fissa in basso</b> riassume le tue scelte accanto al pulsante <b>Avanti</b>. Prima di proseguire, PitWall controlla che la gara abbia un <b>nome</b> e un <b>tipo</b> e che ogni circuito abbia <b>tra 2 e 8 corsie</b>, e ti segnala cosa manca. Nei passi successivi (Sequenza, Partecipanti, Conferma), <b>Indietro</b> ti riporta indietro <b>senza perdere quello che avevi già compilato</b>.</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Passate</b> e <b>ripeti corsia</b> cambiano solo il modo in cui si generano le manche; i totali si sommano per partecipante.</div>
@@ -565,6 +571,7 @@
           </ul>
         </li>
       </ul>
+      <p><b>Correzioni con la manche in corso.</b> Ogni correzione si vede <b>subito</b> nella diretta e in classifica, senza aspettare il passaggio successivo, e la numerazione dei giri resta corretta (per esempio, dopo aver aggiunto un giro a mano, il passaggio successivo prende il numero giusto). Se la manche è già finita, la diretta che hai aperta si ricarica da sola con i dati corretti.</p>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div>Usalo con criterio: le correzioni cambiano totali, medie e classifica di quella manche.</div>
@@ -592,7 +599,7 @@
       </ul>
 
       <h3>Risultati pubblici</h3>
-      <p>C'è una pagina aperta —<b>Risultati ("Resultados")</b>, nel menu iniziale— dove chiunque può consultare (senza toccare nulla né poter modificare) i risultati delle gare <b>finalizzate</b>. È quella che condividi con piloti e pubblico affinché guardino la classifica e le statistiche della gara.</p>
+      <p>C'è una pagina aperta —<b>Risultati ("Resultados")</b>, nel menu iniziale— dove chiunque può consultare (senza toccare nulla né poter modificare) i risultati delle gare <b>finalizzate</b>. È quella che condividi con piloti e pubblico affinché guardino la classifica e le statistiche della gara. La pagina ha una <b>ricerca</b> (per gara, circuito, o squadra o pilota del podio) e le schede <b>Tutte / Sprint / Endurance</b>. L'ultima gara è <b>in evidenza</b> in alto, a tutta larghezza, e ogni scheda mostra il tipo, la data di fine, il circuito, quanti piloti o squadre e quante manche ha avuto, il <b>podio</b> con i suoi giri e il <b>giro più veloce</b> della gara.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Risultati pubblici</span></div>
         <img src="manual/img/op-resultados-publicos.png" loading="lazy" alt="Pagina pubblica di risultati delle gare finalizzate, in sola lettura">
@@ -608,7 +615,7 @@
         <img src="manual/img/40-training.png" loading="lazy" alt="Schermata della modalità Allenamento di PitWall">
         <figcaption>Allenamento: girare senza allestire una competizione completa (libero o da competizione).</figcaption>
       </figure>
-      <p>Oltre alle gare, PitWall ha una modalità <b>Allenamento ("Entrenamiento")</b> (dalla schermata iniziale) per girare senza allestire una competizione completa. Ci sono due modalità:</p>
+      <p>Oltre alle gare, PitWall ha una modalità <b>Allenamento ("Entrenamiento")</b> (pulsanti <b>Allenamento libero</b> e <b>Allenamento di competizione</b> della schermata iniziale) per girare senza allestire una competizione completa. Ci sono due modalità:</p>
       <ul>
         <li><b>Allenamento libero</b>: registra <b>giri per corsia senza struttura di squadre</b>. Ideale per sessioni aperte dove ciascuno prova auto e pista; non c'è rotazione né classifica, solo tempi per corsia.</li>
         <li><b>Da competizione</b>: squadre o piloti assegnati alle corsie con <b>rotazione automatica dopo ogni tanda</b>, come una gara ma pensato per allenare il formato di campionato.</li>
@@ -618,7 +625,7 @@
       <ul>
         <li>l'<b>ultimo giro</b> e il suo distacco dal migliore;</li>
         <li>la riga <b>Migliore / Media / Record</b>;</li>
-        <li>gli <b>ultimi 10 giri</b>, in grande e ciascuno preceduto dal suo numero di giro;</li>
+        <li>gli <b>ultimi 10 giri</b> (il più recente in alto) oppure, se lo scegli in <b>Impostazioni → Preferenze → «Storico dei giri negli allenamenti»</b> («Historial de vueltas en entrenos»), i <b>10 migliori</b>, dal migliore al peggiore; in grande e ciascuno preceduto dal suo numero di giro (con un allenamento già aperto, la modifica si vede ricaricando);</li>
         <li>un <b>grafico del ritmo</b> con le linee del miglior giro e della media: passando il mouse (o il dito) su un punto vedi il numero del giro, il suo tempo e quanto si discosta dal migliore.</li>
       </ul>
       <figure class="shot">
@@ -655,12 +662,13 @@
         <img src="manual/img/04-settings.png" loading="lazy" alt="Schermata delle impostazioni di PitWall">
         <figcaption>Impostazioni: menu laterale delle sezioni e barra di salvataggio fissa.</figcaption>
       </figure>
-      <p>Le <b>Impostazioni</b> sono organizzate con un <b>menu laterale</b>: <b>Sorgente dati</b>, <b>Preferenze</b>, <b>Rete locale</b>, <b>Seguito online</b>, <b>Integrazioni</b> e <b>Diagnostica</b>. Ogni sezione ha la sua schermata, il menu mostra dei punti di stato (cronometro, tunnel, modalità debug) e, dopo aver salvato, torni alla sezione in cui eri. In basso, una <b>barra di salvataggio fissa</b> ti avvisa delle <b>modifiche non salvate</b> e di quali <b>richiedono il riavvio</b> di PitWall (solo l'interfaccia di rete e HTTPS; il resto si applica al salvataggio).</p>
+      <p>Le <b>Impostazioni</b> sono organizzate con un <b>menu laterale</b>: <b>Sorgente dati</b>, <b>Preferenze</b>, <b>Rete locale</b>, <b>Sicurezza</b>, <b>Seguito online</b>, <b>Integrazioni</b> e <b>Diagnostica</b>. Ogni sezione ha la sua schermata, il menu mostra dei punti di stato (cronometro, tunnel, modalità debug) e, dopo aver salvato, torni alla sezione in cui eri. In basso, una <b>barra di salvataggio fissa</b> ti avvisa delle <b>modifiche non salvate</b> e di quali <b>richiedono il riavvio</b> di PitWall (solo l'interfaccia di rete e HTTPS; il resto si applica al salvataggio).</p>
       <ul>
         <li><b>Sorgente dati</b>: scegli da dove arrivano i passaggi — <b>Simulazione</b>, <b>DS-300</b> (un box per porta, con il suo n° di corsie), <b>DS-300 aggregatore</b> (più box su un'unica porta COM: indica <b>porta</b>, <b>baud</b> —57600, 8N1— e <b>n° di box</b> 2/3/4 → 16/24/32 corsie) o <b>BART</b> via Bluetooth (si connette in <b>BLE diretto</b> per impostazione predefinita; il <b>TCP</b> resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box. Se usi <b>più Master BART</b> (uno per ogni blocco di corsie), aggiungi una riga per Master con il suo <b>nome BLE</b> (es. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) e il suo <b>n° di corsie</b>: sono numerate di seguito come i box dell'aggregatore DS-300, e ogni Master va abbinato separatamente.</li>
         <li><b>Configurazione della porta, senza complicazioni</b>: per ogni circuito DS-300 (e per l'aggregatore) a colpo d'occhio vedi solo <b>Porta</b> e <b>Baud rate</b>. La <b>porta</b> si sceglie dall'elenco rilevato; se la tua non compare, con <b>« Scrivi il percorso a mano »</b> la digiti (es. <code>COM3</code> o <code>/dev/ttys003</code>). Il <b>baud rate</b> è un menu a tendina con le velocità abituali (9600–921600), con <b>« Scrivi a mano »</b> per un valore fuori elenco. Le impostazioni fini della seriale (<b>Data bits, Parità, Stop bits, Controllo di flusso</b>) sono ripiegate in <b>« Opzioni avanzate della porta »</b>: di default <b>8N1</b>, quasi mai da toccare.</li>
-        <li><b>Preferenze</b>: l'<b>Ordine della diretta</b> (per classifica stimata o per giri reali; vedi <i>Dirigere la gara in diretta</i>) e i <b>Colori delle corsie</b> globali («Colores de carril»): quelli usati quando non c’è uno scenario o lo scenario non ha colori propri. Clicca ogni campione per cambiarne il colore; <b>Salva colori</b> («Guardar colores») li applica subito senza toccare la connessione del cronometraggio, e <b>Colori di fabbrica</b> («Colores de fábrica») ripristina la tavolozza originale.</li>
+        <li><b>Preferenze</b>: la <b>Modalità dell'app</b> («Modo de la app»: base o avanzata; vedi <i>Introduzione</i>), lo <b>Storico dei giri negli allenamenti</b> (gli ultimi 10 o i 10 migliori; vedi <i>Allenamento</i>), l'<b>Ordine della diretta</b> (per classifica stimata o per giri reali; vedi <i>Dirigere la gara in diretta</i>) e i <b>Colori delle corsie</b> globali («Colores de carril»): quelli usati quando non c’è uno scenario o lo scenario non ha colori propri. Clicca ogni campione per cambiarne il colore; <b>Salva colori</b> («Guardar colores») li applica subito senza toccare la connessione del cronometraggio, e <b>Colori di fabbrica</b> («Colores de fábrica») ripristina la tavolozza originale.</li>
         <li><b>Rete locale</b>: interfaccia di rete, limitare l'accesso web e HTTPS locale (per la fotocamera del QR).</li>
+        <li><b>Sicurezza</b> («Seguridad»): una <b>password</b> perché solo chi la conosce entri in <b>Sistema</b> e <b>Catalogo</b> (vedi <i>Password di accesso</i> più sotto).</li>
         <li><b>Seguito pubblico su internet</b>: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la <a class="inl" href="#publico">sezione seguente</a>).</li>
         <li><b>Integrazioni</b> (compatibilità Infolap, che si attiva e disattiva all'istante) e <b>Diagnostica</b> (modalità debug e strumenti per indagare un problema).</li>
         <li>La <b>lingua</b> (ES/EN) si cambia dal piè di pagina.</li>
@@ -670,6 +678,25 @@
         <img src="manual/img/op-colores-carril.png" loading="lazy" alt="Impostazioni, Preferenze, con la tavolozza globale dei colori delle corsie">
         <figcaption>Preferenze → Colori delle corsie: la tavolozza globale, con «Salva colori» e «Colori di fabbrica».</figcaption>
       </figure>
+
+      <h3>Password di accesso</h3>
+      <p>Serve perché chi non conosce il programma non tocchi ciò che non deve. In <b>Impostazioni → Sicurezza</b> attiva <b>«Richiedi una password di accesso»</b> («Pedir contraseña de acceso»), scrivi la password due volte (minimo 4 caratteri) e premi <b>Attiva con questa password</b> («Activar con esta contraseña»). Da quel momento la password protegge <b>solo i pulsanti di Sistema</b> (Impostazioni, Database, Sincronizza catalogo, Sincronizza gara, Connessione ecosistema, Risoluzione dei problemi e il tunnel del seguito online) <b>e di Catalogo</b> (Piloti, Squadre, Auto, Categorie e Scenari), anche sul computer stesso di PitWall e nell'app desktop. Il browser da cui la attivi resta dentro finché non premi <b>Blocca</b> («Bloquear») o <b>Esci</b>, e la connessione del cronometraggio non viene toccata.</p>
+      <ul>
+        <li>Tutto il resto va <b>senza password</b>: la <b>schermata iniziale</b> e tutta la <b>Competizione</b> (gare e relativa procedura guidata, allenamenti, diretta, TV, correzioni dei giri, controllo piloti e gomme, risultati, statistiche live), oltre a <b>Lap</b> (con il suo PIN), l'<b>app mobile</b>, il collegamento tra PitWall master e slave e l'importazione da PitWall Control (con il suo PIN). Così chiunque può dirigere una gara senza conoscere la password. Nella procedura guidata la chiede solo <b>+ Nuovo circuito</b>, perché apre gli Scenari.</li>
+        <li>Si combina con <b>Limitare l'accesso web</b> di <b>Rete locale</b>: si aggiunge a quella restrizione per IP.</li>
+        <li>Dopo <b>5 tentativi falliti</b> di fila, quel dispositivo deve aspettare <b>30 s</b> prima di riprovare. Il computer di PitWall non viene mai bloccato.</li>
+        <li>Nella schermata iniziale, finché non sei entrato, i pulsanti di <b>Sistema</b> e <b>Catalogo</b> hanno un <b>lucchetto giallo</b> e l'intestazione mostra <b>Entra</b> («Entrar»). Premendo un pulsante con lucchetto compare la schermata della password (con <b>← Torna all'inizio</b> se non la conosci) e, una volta entrato, vai direttamente a quella pagina. Con la sessione aperta, l'intestazione mostra <b>Blocca</b> («Bloquear»), che chiude subito la sessione (per esempio se lasci il computer incustodito).</li>
+        <li>La password <b>resta attiva anche se riavvii PitWall</b> (è salvata nel database). Quello che si perde al riavvio è la <b>sessione</b>, quindi bisogna rientrare. <b>Esci</b> («Cerrar sesión») si trova nella stessa sezione.</li>
+        <li><b>Cambia password</b> ne imposta una nuova; <b>disattivando</b> l'interruttore la password viene cancellata.</li>
+        <li><b>L'hai dimenticata?</b> Chiudi del tutto PitWall e avvialo in <b>modalità di recupero</b>, con la variabile d'ambiente <code>PITWALL_DISABLE_PASSWORD=1</code>: finché è impostata non viene chiesta nessuna password. Vai in <b>Impostazioni → Sicurezza</b>, impostane una nuova (o disattivala), poi chiudi PitWall e riaprilo nel modo normale. Come avviarlo così:
+          <ul>
+            <li><b>Mac</b> (app installata), nel Terminale: <code>PITWALL_DISABLE_PASSWORD=1 /Applications/PitWall.app/Contents/MacOS/PitWall</code></li>
+            <li><b>Windows</b>, in PowerShell: <code>$env:PITWALL_DISABLE_PASSWORD=1; &amp; "$env:LOCALAPPDATA\Programs\PitWall\PitWall.exe"</code> (percorso dell'installazione normale, solo per il tuo utente; se l'hai installato per tutti gli utenti di solito è in <code>C:\Program Files\PitWall\PitWall.exe</code>)</li>
+            <li><b>Linux</b> (AppImage), dalla cartella in cui si trova: <code>PITWALL_DISABLE_PASSWORD=1 ./PitWall*.AppImage</code></li>
+            <li><b>Dal codice</b> (sviluppo): <code>PITWALL_DISABLE_PASSWORD=1 npm start</code></li>
+          </ul>
+        </li>
+      </ul>
 
       <h3>Database</h3>
       <p><b>Sistema → Database</b> (<code>/database</code>) ha un menu con <b>Riepilogo</b> (quante gare, squadre, piloti, circuiti e giri ci sono, e la dimensione del file), <b>Esp. / Imp. gara</b>, <b>Copia di sicurezza</b> e <b>Ripristina copia</b>.</p>

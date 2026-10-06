@@ -103,7 +103,7 @@
       <ul>
         <li>La <b>pantalla de inicio</b> tiene arriba una cabecera con el buscador <b>«Ir a…»</b> (atajo <b>⌘K</b> en Mac o <b>Ctrl K</b>): escribe parte del nombre de una sección o de una carrera; <b>Intro</b> abre el primer resultado y <b>Esc</b> limpia la búsqueda. A su lado, unas píldoras muestran el estado de la fuente de datos (simulación, DS-300 conectado o sin conexión) y la <b>dirección IP</b> del servidor, para conectar móviles y pantallas.</li>
         <li>Si hay una <b>carrera en curso</b>, debajo aparece su franja: <b>manga X de Y</b>, tanda, el <b>tiempo que queda</b> de la manga, las <b>mangas</b> (cuenta ya la que se está corriendo) y el <b>líder estimado</b>, que es el mismo de la <i>Clasificación estimada</i> del directo y se actualiza en vivo. Tiene botones a <b>Directo de la manga</b>, <b>Pantalla TV</b>, <b>Corrección de vueltas</b> (de la manga en curso o de la última terminada), <b>Estadísticas en vivo</b>, <b>Control de pilotos</b> (en campeonato), <b>Neumáticos</b> (si la carrera tiene juegos), <b>Registro de sucesos</b> y <b>Gestionar carrera</b>. Sin carrera en curso, la franja muestra la pole que esté en marcha o los atajos <b>Nueva carrera</b> / <b>Entreno libre</b>. El inicio se actualiza solo cuando arranca una carrera y al empezar, terminar o pausar una manga.</li>
-        <li>Debajo están las secciones en <b>mosaicos</b>: <b>Competición</b> (Carreras, Entrenamientos, Estadísticas en vivo, Resultados, Lap, Control de pilotos, Control de neumáticos…), <b>Catálogo</b> (Pilotos, Equipos, Coches, Categorías y Escenarios, con cuántos tienes de cada) y <b>Sistema</b> (Ajustes, Base de datos, Sincronizar catálogo, Conexión ecosistema, Solución de problemas…). Al final, la tabla de <b>Carreras recientes</b> con su estado, sus mangas y la acción directa (Directo, Resultados o Abrir).</li>
+        <li>Debajo están las secciones en <b>mosaicos</b>: <b>Competición</b> (Carreras, Carrera sprint, Carrera resistencia, Entreno libre, Entreno de competición, Estadísticas en vivo, Resultados, Lap, Control de pilotos, Control de neumáticos…), <b>Catálogo</b> (Pilotos, Equipos, Coches, Categorías y Escenarios, con cuántos tienes de cada) y <b>Sistema</b> (Ajustes, Base de datos, Sincronizar catálogo, Conexión ecosistema, Solución de problemas…). Al final, la tabla de <b>Carreras recientes</b> con su estado, sus mangas y la acción directa (Directo, Resultados o Abrir). <b>Carrera sprint</b> y <b>Carrera resistencia</b> abren el asistente de nueva carrera con el tipo ya marcado. Si hay <b>contraseña de acceso</b>, los botones de <b>Catálogo</b> y <b>Sistema</b> llevan un <b>candado</b> y la piden al pulsarlos; el resto del inicio va siempre sin contraseña (ver <i>Ajustes</i>).</li>
         <li>Cada sección se abre en <b>su propia ventana</b>: si la vuelves a pulsar, PitWall trae al frente la ventana que ya tenías abierta (en la app de escritorio, aunque esté minimizada o hayas vuelto al inicio desde ella). Así puedes tener a la vez el directo, la TV y las estadísticas. Las ventanas abiertas aparecen en la <b>barra inferior</b> del inicio, con <b>Traer</b> para ponerlas delante y <b>✕</b> para cerrarlas. Con el interruptor <b>«Abrir enlaces en: Ventana nueva / Esta ventana»</b>, que está en la cabecera junto a <b>Personalizar</b>, eliges si prefieres abrirlo todo en la misma ventana, y <b>Mayús + clic</b> abre un enlace aquí mismo sin tocar el interruptor.</li>
         <li>Abajo a la derecha siempre ves el <b>estado del enlace</b> (verde = conectado; "Sin señal" = revisa el cable/puerto o el Bluetooth).</li>
       </ul>
@@ -121,6 +121,7 @@
         <img src="manual/img/01b-home-personalizar.png" loading="lazy" alt="Diálogo Personalizar con los cinco diseños del inicio">
         <figcaption>Diálogo «Personalizar»: los cinco diseños del inicio; el marcado es el que está en uso.</figcaption>
       </figure>
+      <p><b>Modo básico / avanzado.</b> En el mismo diálogo <b>Personalizar</b> (o en <b>Ajustes → Preferencias → «Modo de la app»</b>) eliges cuántos accesos muestra el inicio. El modo <b>Básico</b> deja lo justo para un club: en Competición, <b>Entreno libre</b>, <b>Carrera sprint</b> y <b>Resultados</b>; en Catálogo, <b>Categorías</b> y <b>Escenarios</b>; y en Sistema, <b>Ajustes</b>, desde donde se vuelve al avanzado. Como en básico no hay botón <b>Carreras</b>, la tabla de <b>Carreras recientes</b> sale en todos los diseños para abrir las carreras ya creadas. El modo <b>Avanzado</b> (el de siempre) lo muestra todo. El cambio se guarda al momento, sin cortar el cronometraje, y la franja de la carrera en curso es igual en los dos modos.</p>
       <p><b>El listado de carreras</b> te muestra todas tus carreras con su estado (pendiente / activa / terminada) y el botón <b>+ Nueva carrera</b>.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Listado de carreras</span></div>
@@ -209,21 +210,26 @@
         <img src="manual/img/03-wizard-step1.png" loading="lazy" alt="Asistente para crear una carrera nueva, paso 1">
         <figcaption>Asistente de nueva carrera: tipo, carriles, tiempo mínimo, pasadas y reglas.</figcaption>
       </figure>
-      <p>Pulsa <b>+ Nueva carrera</b> y sigue el asistente:</p>
+      <p>Pulsa <b>Carrera sprint</b> o <b>Carrera resistencia</b> en el inicio, o <b>+ Nueva carrera</b> en el listado de carreras, y sigue el asistente.</p>
       <ul>
-        <li><b>Tipo</b>:
+        <li><b>Tipo</b>: si entras por <b>Carrera sprint</b> o <b>Carrera resistencia</b> no se pregunta: el título ya dice <b>Nueva carrera sprint</b> o <b>Nueva carrera de resistencia</b>, y el enlace <b>Cambiar a resistencia</b> / <b>Cambiar a sprint</b> lo cambia. Desde <b>+ Nueva carrera</b> lo eliges con dos tarjetas:
           <ul>
             <li><i>Sprint</i> → una <b>carrera rápida</b>, de <b>pilotos o equipos</b>.</li>
             <li><i>Resistencia</i> → una <b>carrera de resistencia</b> (por equipos), que añade el <b>control de cuánto ha corrido cada piloto</b> del equipo (ver <i>Control de turnos de piloto</i>).</li>
           </ul>
         </li>
-        <li><b>Carriles y circuitos</b>: nº total de carriles y cómo se reparten entre cajas (p.ej. 8+8+6 = 3 cajas DS-300).</li>
-        <li><b>Tiempo mínimo de vuelta (Pt)</b>: por debajo de este tiempo, un cruce se considera <b>fantasma</b> (rebote/doble lectura) y no cuenta.</li>
-        <li><b>Pasadas</b>: cuántas veces se recorre la <b>secuencia de carriles entera</b>. 2 pasadas = la rotación completa se corre 2 veces (el doble de mangas).</li>
-        <li><b>Repetir carril</b>: cada carril se corre este nº de <b>mangas seguidas</b> (mismo carril), sumando las vueltas — para comparar cada repetición.</li>
-        <li><b>Pole</b> (opcional) y <b>reglas de piloto</b> (solo campeonato: min/max por piloto, bloqueo de cambio al final de manga).</li>
+        <li><b>Nombre de la carrera</b>.</li>
+        <li><b>Circuito</b>: elige un circuito guardado y se resume en una línea (p. ej. «24 carriles · 3 circuitos (8 + 8 + 8) · vuelta mínima 6,00 s»), sin nada más que rellenar. Con <b>— Configurar a mano —</b> aparecen el <b>nº de circuitos</b>, los <b>carriles</b> de cada uno (p. ej. 8+8+6 = 3 cajas DS-300) y la <b>vuelta mínima (Pt)</b>: por debajo de ese tiempo, un cruce se considera <b>fantasma</b> (rebote/doble lectura) y no cuenta. Si el circuito tiene tiempos por categoría, aparece también <b>Categoría</b>.</li>
+        <li><b>Pole position</b>: <b>Sin pole</b> o <b>Con pole</b> (el más rápido elige carril primero).</li>
+        <li><b>Reglas de resistencia</b> (solo en resistencia): <b>mínimo</b> y <b>máximo por piloto</b> (en minutos), <b>máximo de turnos</b>, <b>neumáticos</b> (en pares por equipo) y <b>Sin cambios al final</b> (los últimos segundos de cada manga, en los que no se puede cambiar de piloto). Lo que dejes en blanco no se controla.</li>
+        <li><b>Más opciones</b> (plegado; se abre solo si alguno es mayor que 1):
+          <ul>
+            <li><b>Pasadas</b>: cuántas veces se recorre la <b>secuencia de carriles entera</b>. 2 pasadas = la rotación completa se corre 2 veces (el doble de mangas).</li>
+            <li><b>Repetir carril</b>: cada carril se corre este nº de <b>mangas seguidas</b> (mismo carril), sumando las vueltas — para comparar cada repetición.</li>
+          </ul>
+        </li>
       </ul>
-      <p>El primer paso se ordena en <b>bloques numerados</b> —<b>Datos</b>, <b>Pista</b>, <b>Formato</b> y, solo en resistencia, <b>Reglas de resistencia</b>— y una <b>barra fija abajo</b> resume lo elegido junto al botón <b>Siguiente</b>. Antes de continuar, PitWall comprueba que la carrera tenga <b>nombre</b> y <b>tipo</b> y que cada circuito tenga <b>entre 2 y 8 carriles</b>, y te señala lo que falta.</p>
+      <p>Una <b>barra fija abajo</b> resume lo elegido junto al botón <b>Siguiente</b>. Antes de continuar, PitWall comprueba que la carrera tenga <b>nombre</b> y <b>tipo</b> y que cada circuito tenga <b>entre 2 y 8 carriles</b>, y te señala lo que falta. En los pasos siguientes (Secuencia, Participantes, Confirmar), <b>Volver</b> te lleva atrás <b>sin perder lo que ya habías rellenado</b>.</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Pasadas</b> y <b>repetir carril</b> solo cambian cómo se generan las mangas; los totales se suman por participante.</div>
@@ -565,6 +571,7 @@
           </ul>
         </li>
       </ul>
+      <p><b>Correcciones con la manga en marcha.</b> Cada corrección se ve <b>al momento</b> en el directo y en la clasificación, sin esperar al siguiente cruce, y la numeración de vueltas sigue bien (por ejemplo, tras añadir una vuelta a mano, el siguiente cruce lleva el número que toca). Si la manga ya ha terminado, el directo que tengas abierto se recarga solo con los datos corregidos.</p>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div>Úsalo con criterio: las correcciones cambian totales, medias y clasificación de esa manga.</div>
@@ -592,7 +599,7 @@
       </ul>
 
       <h3>Resultados públicos</h3>
-      <p>Hay una página abierta —<b>Resultados</b>, en el menú de inicio— donde cualquiera puede consultar (sin tocar nada ni poder editar) los resultados de las carreras <b>finalizadas</b>. Es la que compartes con pilotos y público para que miren la clasificación y las estadísticas de la carrera.</p>
+      <p>Hay una página abierta —<b>Resultados</b>, en el menú de inicio— donde cualquiera puede consultar (sin tocar nada ni poder editar) los resultados de las carreras <b>finalizadas</b>. Es la que compartes con pilotos y público para que miren la clasificación y las estadísticas de la carrera. La página tiene un <b>buscador</b> (por carrera, circuito, o equipo o piloto del podio) y pestañas <b>Todas / Sprint / Resistencia</b>. La última carrera sale <b>destacada</b> arriba, a todo el ancho, y cada tarjeta muestra el tipo, la fecha de fin, el circuito, cuántos pilotos o equipos y cuántas mangas tuvo, el <b>podio</b> con sus vueltas y la <b>vuelta rápida</b> de la carrera.</p>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Resultados públicos</span></div>
         <img src="manual/img/op-resultados-publicos.png" loading="lazy" alt="Página pública de resultados de carreras finalizadas, de solo lectura">
@@ -608,7 +615,7 @@
         <img src="manual/img/40-training.png" loading="lazy" alt="Pantalla del modo Entrenamiento de PitWall">
         <figcaption>Entrenamiento: rodar sin montar una competición completa (libre o de competición).</figcaption>
       </figure>
-      <p>Además de las carreras, PitWall tiene un modo <b>Entrenamiento</b> (desde la pantalla de inicio) para rodar sin montar una competición completa. Hay dos modalidades:</p>
+      <p>Además de las carreras, PitWall tiene un modo <b>Entrenamiento</b> (botones <b>Entreno libre</b> y <b>Entreno de competición</b> del inicio) para rodar sin montar una competición completa. Hay dos modalidades:</p>
       <ul>
         <li><b>Entrenamiento libre</b>: registra <b>vueltas por carril sin estructura de equipos</b>. Ideal para sesiones abiertas donde cada uno prueba coche y pista; no hay rotación ni clasificación, solo tiempos por carril.</li>
         <li><b>De competición</b>: equipos o pilotos asignados a carriles con <b>rotación automática tras cada tanda</b>, como una carrera pero pensado para entrenar el formato de campeonato.</li>
@@ -618,7 +625,7 @@
       <ul>
         <li>la <b>última vuelta</b> y su diferencia con la mejor;</li>
         <li>la fila <b>Mejor / Media / Récord</b>;</li>
-        <li>las <b>10 últimas vueltas</b>, en grande y cada una con su número de vuelta delante;</li>
+        <li>las <b>10 últimas vueltas</b> (la más reciente arriba) o, si lo eliges en <b>Ajustes → Preferencias → «Historial de vueltas en entrenos»</b>, las <b>10 mejores</b>, de mejor a peor; en grande y cada una con su número de vuelta delante (con un entreno ya abierto, el cambio se ve al recargar);</li>
         <li>un <b>gráfico de ritmo</b> con las líneas de mejor vuelta y media: al pasar el ratón (o el dedo) por un punto ves el número de vuelta, su tiempo y cuánto se aleja de la mejor.</li>
       </ul>
       <figure class="shot">
@@ -655,12 +662,13 @@
         <img src="manual/img/04-settings.png" loading="lazy" alt="Pantalla de ajustes de PitWall">
         <figcaption>Ajustes: menú lateral de secciones y barra fija de guardado.</figcaption>
       </figure>
-      <p>La <b>Configuración</b> se organiza con un <b>menú lateral</b>: <b>Fuente de datos</b>, <b>Preferencias</b>, <b>Red local</b>, <b>Seguimiento online</b>, <b>Integraciones</b> y <b>Diagnóstico</b>. Cada sección va en su pantalla, el menú lleva puntos de estado (cronómetro, túnel, modo debug) y, al guardar, vuelves a la sección en la que estabas. Abajo, una <b>barra fija de guardado</b> te avisa de los <b>cambios sin guardar</b> y de cuáles <b>necesitan reiniciar</b> PitWall (solo la interfaz de red y HTTPS; el resto se aplica al guardar).</p>
+      <p>La <b>Configuración</b> se organiza con un <b>menú lateral</b>: <b>Fuente de datos</b>, <b>Preferencias</b>, <b>Red local</b>, <b>Seguridad</b>, <b>Seguimiento online</b>, <b>Integraciones</b> y <b>Diagnóstico</b>. Cada sección va en su pantalla, el menú lleva puntos de estado (cronómetro, túnel, modo debug) y, al guardar, vuelves a la sección en la que estabas. Abajo, una <b>barra fija de guardado</b> te avisa de los <b>cambios sin guardar</b> y de cuáles <b>necesitan reiniciar</b> PitWall (solo la interfaz de red y HTTPS; el resto se aplica al guardar).</p>
       <ul>
         <li><b>Fuente de datos</b>: elige de dónde llegan los cruces — <b>Simulación</b>, <b>DS-300</b> (una caja por puerto, con su nº de carriles), <b>DS-300 agrupador</b> (varias cajas por un solo puerto COM: indica <b>puerto</b>, <b>baud</b> —57600, 8N1— y <b>nº de cajas</b> 2/3/4 → 16/24/32 carriles) o <b>BART</b> por Bluetooth (se conecta por <b>BLE directo</b> por defecto; queda <b>TCP</b> en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas. Si usas <b>varios Master BART</b> (uno por cada bloque de carriles), añade una fila por cada uno con su <b>nombre BLE</b> (p. ej. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) y su <b>nº de carriles</b>: se numeran de corrido igual que las cajas DS-300 del agrupador, y cada Master hay que emparejarlo por separado.</li>
         <li><b>Configuración del puerto, sin líos</b>: en cada circuito DS-300 (y en el agrupador) de un vistazo solo ves <b>Puerto</b> y <b>Baud rate</b>. El <b>puerto</b> se elige de la lista de puertos detectados; si el tuyo no aparece, con <b>«Escribir el path a mano»</b> lo tecleas (p. ej. <code>COM3</code> o <code>/dev/ttys003</code>). El <b>baud rate</b> es un desplegable con las velocidades habituales (9600–921600), con <b>«Escribir a mano»</b> para un valor fuera de lista. Los ajustes finos de la conexión serie (<b>Data bits, Paridad, Stop bits, Control de flujo</b>) están plegados en <b>«Opciones avanzadas del puerto»</b>: por defecto <b>8N1</b> y casi nunca hay que tocarlos.</li>
-        <li><b>Preferencias</b>: el <b>Orden del directo</b> (por clasificación estimada o por vueltas reales; ver <i>Dirigir la carrera en vivo</i>) y los <b>Colores de carril</b> globales: los que se usan cuando no hay escenario o el escenario no tiene colores propios. Pulsa cada muestra para cambiar su color; <b>Guardar colores</b> los aplica al momento sin tocar la conexión del cronometraje, y <b>Colores de fábrica</b> recupera la paleta original.</li>
+        <li><b>Preferencias</b>: el <b>Modo de la app</b> (básico o avanzado; ver <i>Introducción</i>), el <b>Historial de vueltas en entrenos</b> (las 10 últimas o las 10 mejores; ver <i>Entrenamiento</i>), el <b>Orden del directo</b> (por clasificación estimada o por vueltas reales; ver <i>Dirigir la carrera en vivo</i>) y los <b>Colores de carril</b> globales: los que se usan cuando no hay escenario o el escenario no tiene colores propios. Pulsa cada muestra para cambiar su color; <b>Guardar colores</b> los aplica al momento sin tocar la conexión del cronometraje, y <b>Colores de fábrica</b> recupera la paleta original.</li>
         <li><b>Red local</b>: interfaz de red, restringir el acceso web y HTTPS local (para la cámara del QR).</li>
+        <li><b>Seguridad</b>: una <b>contraseña</b> para que solo quien la sepa entre en <b>Sistema</b> y <b>Catálogo</b> (ver <i>Contraseña de acceso</i>, más abajo).</li>
         <li><b>Seguimiento público por internet</b>: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la <a class="inl" href="#publico">sección siguiente</a>).</li>
         <li><b>Integraciones</b> (compatibilidad Infolap, que se activa y desactiva al momento) y <b>Diagnóstico</b> (modo debug y herramientas para investigar un problema).</li>
         <li>El <b>idioma</b> (ES/EN) se cambia desde el pie de página.</li>
@@ -670,6 +678,25 @@
         <img src="manual/img/op-colores-carril.png" loading="lazy" alt="Configuración, Preferencias, con la paleta global de colores de carril">
         <figcaption>Preferencias → Colores de carril: la paleta global, con «Guardar colores» y «Colores de fábrica».</figcaption>
       </figure>
+
+      <h3>Contraseña de acceso</h3>
+      <p>Sirve para que quien no conoce el programa no toque lo que no debe. En <b>Ajustes → Seguridad</b> activa <b>«Pedir contraseña de acceso»</b>, escribe la contraseña dos veces (mínimo 4 caracteres) y pulsa <b>Activar con esta contraseña</b>. Desde ese momento la contraseña protege <b>solo los botones de Sistema</b> (Ajustes, Base de datos, Sincronizar catálogo, Sincronizar carrera, Conexión ecosistema, Solución de problemas y el túnel del seguimiento online) <b>y de Catálogo</b> (Pilotos, Equipos, Coches, Categorías y Escenarios), también en el propio ordenador de PitWall y en la app de escritorio. El navegador desde el que la activas sigue dentro hasta que pulsas <b>Bloquear</b> o <b>Cerrar sesión</b>, y no se toca la conexión del cronometraje.</p>
+      <ul>
+        <li>Todo lo demás va <b>sin contraseña</b>: el <b>inicio</b> y toda la <b>Competición</b> (carreras y su asistente, entrenos, directo, TV, correcciones de vueltas, control de pilotos y de neumáticos, resultados, estadísticas en vivo), además de <b>Lap</b> (con su PIN), la <b>app móvil</b>, el enlace entre PitWall maestro y esclavo y la importación desde PitWall Control (con su PIN). Así cualquiera puede dirigir una carrera sin saber la contraseña. En el asistente solo la pide <b>+ Nuevo circuito</b>, porque abre Escenarios.</li>
+        <li>Es compatible con <b>Restringir el acceso web</b> de <b>Red local</b>: se suma a esa restricción por IP.</li>
+        <li>Tras <b>5 intentos fallidos</b> seguidos, ese dispositivo tiene que esperar <b>30 s</b> para volver a probar. El propio ordenador de PitWall nunca se bloquea.</li>
+        <li>En el inicio, sin haber entrado, los botones de <b>Sistema</b> y <b>Catálogo</b> llevan un <b>candado amarillo</b> y la cabecera muestra <b>Entrar</b>. Al pulsar un botón con candado aparece la pantalla de contraseña (con <b>← Volver al inicio</b> por si no la sabes) y, al entrar, vas directo a esa página. Con la sesión abierta, la cabecera muestra <b>Bloquear</b>, que cierra la sesión al momento (por ejemplo, si dejas el ordenador solo).</li>
+        <li>La contraseña <b>sigue activa aunque reinicies PitWall</b> (se guarda en la base de datos). Lo que se pierde al reiniciar es la <b>sesión</b>, así que hay que volver a entrar. <b>Cerrar sesión</b> está en la misma sección.</li>
+        <li><b>Cambiar contraseña</b> pone una nueva; al <b>desactivar</b> el interruptor, la contraseña se borra.</li>
+        <li><b>¿Se te ha olvidado?</b> Cierra PitWall del todo y arráncalo en <b>modo recuperación</b>, con la variable de entorno <code>PITWALL_DISABLE_PASSWORD=1</code>: mientras esté puesta no se pide contraseña. Entra en <b>Ajustes → Seguridad</b>, pon una nueva (o desactívala), cierra PitWall y ábrelo otra vez de la forma normal. Cómo arrancarlo así:
+          <ul>
+            <li><b>Mac</b> (app instalada), en Terminal: <code>PITWALL_DISABLE_PASSWORD=1 /Applications/PitWall.app/Contents/MacOS/PitWall</code></li>
+            <li><b>Windows</b>, en PowerShell: <code>$env:PITWALL_DISABLE_PASSWORD=1; &amp; "$env:LOCALAPPDATA\Programs\PitWall\PitWall.exe"</code> (es la ruta de la instalación normal, solo para tu usuario; si lo instalaste para todos los usuarios suele estar en <code>C:\Program Files\PitWall\PitWall.exe</code>)</li>
+            <li><b>Linux</b> (AppImage), desde la carpeta donde lo tengas: <code>PITWALL_DISABLE_PASSWORD=1 ./PitWall*.AppImage</code></li>
+            <li><b>Desde el código</b> (desarrollo): <code>PITWALL_DISABLE_PASSWORD=1 npm start</code></li>
+          </ul>
+        </li>
+      </ul>
 
       <h3>Base de datos</h3>
       <p>En <b>Sistema → Base de datos</b> (<code>/database</code>) tienes un menú con <b>Resumen</b> (cuántas carreras, equipos, pilotos, circuitos y vueltas hay, y el tamaño del fichero), <b>Exp. / Imp. carrera</b>, <b>Copia de seguridad</b> y <b>Restaurar copia</b>.</p>

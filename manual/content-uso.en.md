@@ -17,7 +17,7 @@ You can use any of these sources; for PitWall the flow of crossings is equivalen
 
 - The **home screen** has a header with the **«Go to…»** search (shortcut **⌘K** on Mac or **Ctrl K**): type part of the name of a section or a race; **Enter** opens the first result and **Esc** clears the search. Next to it, pills show the data source status (simulation, DS-300 connected or disconnected) and the server's **IP address**, for connecting phones and screens.
 - When a **race is in progress**, its banner appears below: **heat X of Y**, round, the **time remaining** in the heat, the **heats** (the one being run already counts) and the **projected leader**, which is the same as in the live view's *Projected standings* and updates live. It has buttons to **Heat live**, **TV screen**, **Lap corrections** (for the heat in progress or the last one finished), **Live stats**, **Driver shifts** (championships), **Tyres** (if the race has tyre sets), **Event log** and **Manage race**. With no race in progress, the banner shows the pole currently running or the **New race** / **Free practice** shortcuts. The home screen refreshes on its own when a race starts and when a heat starts, finishes or is paused.
-- Below, the sections are laid out as **tiles**: **Competition** (Races, Training, Live stats, Results, Lap, Driver shifts, Tyre control…), **Catalog** (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and **System** (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). At the bottom, the **Recent races** table with their status, heats and direct action (Live, Results or Open).
+- Below, the sections are laid out as **tiles**: **Competition** (Races, Sprint race, Endurance race, Free practice, Competition practice, Live stats, Results, Lap, Driver shifts, Tyre control…), **Catalog** (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and **System** (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). At the bottom, the **Recent races** table with their status, heats and direct action (Live, Results or Open). **Sprint race** and **Endurance race** open the new-race wizard with the type already selected. If an **access password** is set, the **Catalog** and **System** buttons show a **padlock** and ask for it when pressed; the rest of the home screen never needs it (see *Settings*).
 - Each section opens in **its own window**: click it again and PitWall brings the window you already had open to the front (in the desktop app, even if it's minimised or you went back to the home screen from it). That way you can keep the live view, the TV and the stats open at the same time. Open windows are listed in the home screen's **bottom bar**, with **Bring** to put them in front and **✕** to close them. The **«Open links in: New window / This window»** («Abrir enlaces en») switch, in the header next to **Customise**, lets you open everything in the same window instead, and **Shift + click** opens a link right here without touching the switch.
 - At the bottom right you always see the **link status** (green = connected; "Sin señal" / no signal = check the cable/port or the Bluetooth).
 
@@ -32,6 +32,8 @@ You can use any of these sources; for PitWall the flow of crossings is equivalen
 The choice is **saved in PitWall itself**, not on the computer: you'll see the same layout in the desktop app and in any browser that connects. What is described above is the default layout; the others arrange the sections differently (not all of them include the «Go to…» search or the races table).
 
 ![img: 01b-home-personalizar.png]
+
+**Basic / advanced mode.** In the same **Customise** dialog (or in **Settings → Preferences → "App mode"**) you choose how many shortcuts the home screen shows. **Basic** mode keeps just what a club needs: under Competition, **Free practice**, **Sprint race** and **Results**; under Catalog, **Categories** and **Scenarios**; and under System, **Settings**, where you switch back to advanced. Since basic mode has no **Races** button, the **Recent races** table appears in every layout so you can open races you have already created. **Advanced** mode (the usual one) shows everything. The change is saved instantly without interrupting timing, and the live-race strip is the same in both modes.
 
 **The race list** shows all your races with their status (pending / active / finished) and the New race (“+ Nueva carrera”) button.
 
@@ -81,18 +83,20 @@ All three catalogs have a **search box** at the top: it filters as you type (for
 ## 3. Creating a race
 ![img: 03-wizard-step1.png]
 
-Press New race (“+ Nueva carrera”) and follow the wizard:
+Press **Sprint race** or **Endurance race** on the home screen, or **+ New race** in the race list, and follow the wizard.
 
-- **Type**:
+- **Type**: if you come in through **Sprint race** or **Endurance race** it is not asked: the title already reads **New sprint race** or **New endurance race**, and the **Switch to endurance** / **Switch to sprint** link changes it. From **+ New race** you pick it with two cards:
   - *Sprint* → a **quick race**, of **drivers or teams**.
   - *Endurance* → an **endurance race** (by teams), which adds the **control of how much each driver of the team has run** (see *Driver shift control*).
-- **Lanes and tracks**: total number of lanes and how they are split across boxes (e.g. 8+8+6 = 3 DS-300 boxes).
-- **Minimum lap time (Pt)**: below this time, a crossing is considered a **ghost** (bounce/double read) and does not count.
-- **Passes**: how many times the **entire lane sequence** is run. 2 passes = the full rotation is run twice (double the heats).
-- **Repeat lane**: each lane is run this number of **consecutive heats** (same lane), adding up the laps — to compare each repetition.
-- **Pole** (optional) and **driver rules** (championship only: min/max per driver, change lock at the end of a heat).
+- **Race name**.
+- **Circuit**: pick a saved circuit and it is summed up in one line (e.g. "24 lanes · 3 circuits (8 + 8 + 8) · min lap 6.00 s"), with nothing else to fill in. With **— Configure manually —** you get the **number of circuits**, the **lanes** of each one (e.g. 8+8+6 = 3 DS-300 boxes) and the **min lap time (Pt)**: below that time a crossing is considered a **ghost** (bounce/double read) and does not count. If the circuit has times per category, **Category** also appears.
+- **Pole position**: **No pole** or **With pole** (the fastest picks a lane first).
+- **Endurance rules** (endurance only): **min** and **max per driver** (in minutes), **max turns**, **tyres** (in pairs per team) and **No swaps at the end** (the last seconds of each heat, when drivers cannot be changed). Anything left blank is not checked.
+- **More options** (folded; it opens by itself if either value is above 1):
+  - **Passes**: how many times the **entire lane sequence** is run. 2 passes = the full rotation is run twice (double the heats).
+  - **Repeat lane**: each lane is run this number of **consecutive heats** (same lane), adding up the laps — to compare each repetition.
 
-The first step is organised in **numbered blocks** —**Details**, **Track**, **Format** and, for endurance only, **Endurance rules**— and a **fixed bar at the bottom** sums up your choices next to the **Next** button. Before moving on, PitWall checks that the race has a **name** and a **type** and that every circuit has **between 2 and 8 lanes**, and points out anything missing.
+A **fixed bar at the bottom** sums up your choices next to the **Next** button. Before moving on, PitWall checks that the race has a **name** and a **type** and that every circuit has **between 2 and 8 lanes**, and points out anything missing. In the next steps (Sequence, Participants, Confirm), **Back** takes you back **without losing what you had filled in**.
 
 > **Passes** and **repeat lane** only change how the heats are generated; totals are summed per participant.
 
@@ -321,6 +325,8 @@ From the race (the **lap correction** button in the live screen or in results) y
   - **Delete** (🗑) — remove a lap.
   - **Add manual lap** — if a crossing was missed, you add it by hand.
 
+**Corrections while the heat is running.** Each correction shows **instantly** on the live screen and in the standings, without waiting for the next crossing, and lap numbering stays right (for example, after adding a lap by hand, the next crossing gets the correct number). If the heat has already finished, any open live screen reloads itself with the corrected data.
+
 > Use it with judgment: corrections change totals, averages and classification of that heat.
 
 > **Automatic ghost laps.** A lap below the **Pt** (minimum time) is marked as a **ghost** and the lane that produced it **never** counts it. PitWall no longer reassigns it by guessing: it **holds** it and only assigns it to the lane that **confirms** it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a **ghost** for you to review by hand. With **multiple circuits** (a DS-300 aggregator or several BART Masters), automatic assignment **never crosses from one circuit to another**: a ghost can only be certified on a lane of its own circuit, never on another (they're physically separate tracks).
@@ -335,14 +341,14 @@ When it finishes (or at any time) go into **Results**:
 - **Exports**: **Excel**, **Points (xlsx/csv)**, **Control (csv)**, **Export for GitHub**, **PDF**.
 - **Exporting to Excel** (results, points and shifts report) **only works when the race is stopped or finished**: you can't get the Excel while a heat is running (that job is heavy and would stall the timing, risking a missed crossing). If a heat starts while one is being generated, the export is cancelled and you just run it again afterwards.
 
-**Public results.** There's an open page —**Results**, in the home menu— where anyone can consult (without touching anything or being able to edit) the results of the **finished** races. It's the one you share with drivers and public so they can look at the classification and statistics of the race.
+**Public results.** There's an open page —**Results**, in the home menu— where anyone can consult (without touching anything or being able to edit) the results of the **finished** races. It's the one you share with drivers and public so they can look at the classification and statistics of the race. The page has a **search box** (by race, circuit, or team or driver on the podium) and **All / Sprint / Endurance** tabs. The latest race is **featured** at the top, full width, and each card shows the type, end date, circuit, how many drivers or teams and heats it had, the **podium** with its laps and the race's **fastest lap**.
 
 ![img: op-resultados-publicos.png]
 
 ## 16. Training
 ![img: 40-training.png]
 
-Besides races, PitWall has a **Training** mode (from the home screen) to run without setting up a full competition. There are two modes:
+Besides races, PitWall has a **Training** mode (the **Free practice** and **Competition practice** buttons on the home screen) to run without setting up a full competition. There are two modes:
 
 - **Free training**: records **laps per lane without a team structure**. Ideal for open sessions where each person tries the car and track; there's no rotation or classification, just times per lane.
 - **Competition**: teams or drivers assigned to lanes with **automatic rotation after each batch**, like a race but designed to practice the championship format.
@@ -353,7 +359,7 @@ Choose the mode, assign the lanes and press **Start**. Live timing works the sam
 
 - the **last lap** and its gap to the best;
 - the **Best / Average / Record** row;
-- the **last 10 laps**, in large type and each with its lap number in front;
+- the **last 10 laps** (newest on top) or, if you choose it in **Settings → Preferences → "Practice lap history"**, the **best 10**, best first; in large type and each with its lap number in front (with a practice already open, the change shows after reloading);
 - a **pace chart** with best-lap and average lines: hover (or tap) a point to see the lap number, its time and how far it is from the best.
 
 ![img: 41-training-free.png]
@@ -380,17 +386,32 @@ Each session can be **deleted** from its detail. If you stop the session with **
 ## 17. Settings
 ![img: 04-settings.png]
 
-**Settings** are organised with a **side menu**: **Data source**, **Preferences**, **Local network**, **Online tracking**, **Integrations** and **Diagnostics**. Each section has its own screen, the menu shows status dots (timer, tunnel, debug mode) and saving brings you back to the section you were in. At the bottom, a **fixed save bar** warns you about **unsaved changes** and which ones **need a PitWall restart** (only the network interface and HTTPS; everything else applies on save).
+**Settings** are organised with a **side menu**: **Data source**, **Preferences**, **Local network**, **Security**, **Online tracking**, **Integrations** and **Diagnostics**. Each section has its own screen, the menu shows status dots (timer, tunnel, debug mode) and saving brings you back to the section you were in. At the bottom, a **fixed save bar** warns you about **unsaved changes** and which ones **need a PitWall restart** (only the network interface and HTTPS; everything else applies on save).
 
 - **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes. If you use **several BART Masters** (one per block of lanes), add one row per Master with its **BLE name** (e.g. `BART_TRACK1`, `BART_TRACK2`…) and **lane count**: they're numbered consecutively just like the DS-300 aggregator boxes, and each Master has to be paired separately.
 - **Port setup, kept simple**: for each DS-300 circuit (and the aggregator) you only see **Port** and **Baud rate** at a glance. Pick the **port** from the detected list; if yours isn't there, tap **"Type the path manually"** to enter it (e.g. `COM3` or `/dev/ttys003`). The **baud rate** is a dropdown with the usual speeds (9600–921600), with **"Type manually"** for an out-of-list value. The fine serial settings (**Data bits, Parity, Stop bits, Flow control**) are folded under **"Advanced port options"**: they default to **8N1** and rarely need touching.
-- **Preferences**: the **Live view order** (by projected standings or by actual laps; see *Running the race live*) and the global **Lane colors**: the ones used when there is no scenario or the scenario has no colors of its own. Click each swatch to change its color; **Save colors** applies them instantly without touching the timing connection, and **Factory colors** restores the original palette.
+- **Preferences**: the **App mode** (basic or advanced; see *Introduction*), the **Practice lap history** (last 10 or best 10; see *Training*), the **Live view order** (by projected standings or by actual laps; see *Running the race live*) and the global **Lane colors**: the ones used when there is no scenario or the scenario has no colors of its own. Click each swatch to change its color; **Save colors** applies them instantly without touching the timing connection, and **Factory colors** restores the original palette.
 - **Local network**: network interface, restrict web access and local HTTPS (for the QR camera).
+- **Security**: a **password** so only those who know it can enter **System** and **Catalog** (see *Access password* below).
 - **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).
 - **Integrations** (Infolap compatibility, switched on and off instantly) and **Diagnostics** (debug mode and tools to investigate a problem).
 - The **language** (ES/EN) is changed from the page footer.
 
 ![img: op-colores-carril.png]
+
+**Access password.** It keeps people who don't know the program from touching what they shouldn't. In **Settings → Security**, switch on **"Require an access password"**, type the password twice (at least 4 characters) and press **Enable with this password**. From then on the password protects **only the System buttons** (Settings, Database, Sync catalog, Sync race, Ecosystem connection, Troubleshooting and the online-tracking tunnel) **and the Catalog buttons** (Drivers, Teams, Cars, Categories and Scenarios), also on the PitWall computer itself and in the desktop app. The browser you enable it from stays signed in until you press **Lock** or **Sign out**, and the timing connection is not touched.
+
+- Everything else needs **no password**: the **home screen** and all of **Competition** (races and their wizard, practice, live screen, TV, lap corrections, driver and tyre control, results, live stats), plus **Lap** (with its PIN), the **mobile app**, the link between master and slave PitWalls and imports from PitWall Control (with their PIN). So anyone can run a race without knowing the password. The only part of the wizard that asks for it is **+ New circuit**, because it opens Scenarios.
+- It works together with **Restrict web access** in **Local network**: it is added on top of that IP restriction.
+- After **5 failed attempts** in a row, that device has to wait **30 s** before trying again. The PitWall computer itself is never locked out.
+- On the home screen, before signing in, the **System** and **Catalog** buttons show a **yellow padlock** and the header shows **Sign in**. Pressing a padlocked button brings up the password screen (with **← Back to home** in case you don't know it) and, once signed in, takes you straight to that page. With the session open, the header shows **Lock**, which signs you out at once (for example when you leave the computer unattended).
+- The password **stays on after PitWall restarts** (it is stored in the database). What a restart drops is the **session**, so you have to sign in again. **Sign out** is in the same section.
+- **Change password** sets a new one; **switching it off** deletes the password.
+- **Forgot it?** Close PitWall completely and start it in **recovery mode**, with the environment variable `PITWALL_DISABLE_PASSWORD=1`: while it is set, no password is asked. Go to **Settings → Security**, set a new one (or switch it off), then close PitWall and open it again the usual way. How to start it like that:
+  - **Mac** (installed app), in Terminal: `PITWALL_DISABLE_PASSWORD=1 /Applications/PitWall.app/Contents/MacOS/PitWall`
+  - **Windows**, in PowerShell: `$env:PITWALL_DISABLE_PASSWORD=1; & "$env:LOCALAPPDATA\Programs\PitWall\PitWall.exe"` (the path of the normal install, for your user only; if you installed it for all users it is usually `C:\Program Files\PitWall\PitWall.exe`)
+  - **Linux** (AppImage), from the folder where it is: `PITWALL_DISABLE_PASSWORD=1 ./PitWall*.AppImage`
+  - **From source** (development): `PITWALL_DISABLE_PASSWORD=1 npm start`
 
 **Database.** **System → Database** (`/database`) has a menu with **Summary** (how many races, teams, drivers, circuits and laps there are, plus the file size), **Export / import race**, **Backup** and **Restore backup**.
 
