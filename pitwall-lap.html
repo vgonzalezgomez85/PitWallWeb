@@ -156,6 +156,50 @@
   .excel{background:#1f5f2a;color:#fff;text-align:center;padding:11px;border-radius:9px;
     font-family:var(--body);font-size:13px;font-weight:600;margin-top:12px}
 
+  /* ---------- Lap · pantalla «Mi turno» (réplica de la app) ---------- */
+  .lm-scr{--u:.64px;background:#0a0d13;border-radius:25px;padding:calc(20*var(--u));
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:#fff}
+  .lm-lbl{font-size:calc(12*var(--u));font-weight:600;text-transform:uppercase;letter-spacing:calc(.6*var(--u));color:#9aa3ad;white-space:nowrap}
+  .lm-hd{display:flex;align-items:center;gap:calc(12*var(--u))}
+  .lm-hd>div{flex:1;min-width:0}
+  .lm-name{font-size:calc(22*var(--u));font-weight:700;margin-top:calc(2*var(--u));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lm-chip{padding:calc(9*var(--u)) calc(14*var(--u));border-radius:999px;background:#f6c90e;color:#0a0d13;font-size:calc(13*var(--u));font-weight:600;white-space:nowrap}
+  .lm-card{background:#141923;border:1px solid #1f2633;border-radius:calc(12*var(--u));padding:calc(16*var(--u));margin-top:calc(12*var(--u))}
+  .lm-hero{margin-top:calc(16*var(--u));padding:calc(20*var(--u)) calc(16*var(--u))}
+  .lm-top{display:flex;align-items:center;justify-content:space-between}
+  .lm-lane{background:#f6c90e;color:#0a0d13;border-radius:calc(8*var(--u));padding:calc(6*var(--u)) calc(12*var(--u));font-size:calc(18*var(--u));font-weight:800}
+  .lm-rem{text-align:right}
+  .lm-rem b{display:block;font-size:calc(24*var(--u));font-weight:700;color:#cfd5dc;margin-top:calc(2*var(--u))}
+  .lm-center{text-align:center}
+  .lm-hero .lm-center.lm-lbl{margin-top:calc(20*var(--u))}
+  .lm-big{font-size:calc(76*var(--u));font-weight:800;letter-spacing:calc(-1*var(--u));line-height:1.1;text-align:center;margin-top:calc(4*var(--u))}
+  .lm-delta{text-align:center;font-size:calc(16*var(--u));font-weight:700}
+  .lm-good{color:#4ade80}.lm-best{color:#c084fc}
+  .lm-div{height:1px;background:#1f2633;margin:calc(16*var(--u)) 0}
+  .lm-row{display:flex;gap:calc(12*var(--u))}
+  .lm-row>div{flex:1;min-width:0}
+  .lm-row .lm-lbl{letter-spacing:calc(.2*var(--u));overflow:hidden;text-overflow:ellipsis}
+  .lm-val{white-space:nowrap}
+  .lm-val{font-size:calc(26*var(--u));font-weight:700;margin-top:calc(4*var(--u))}
+  .lm-val.s{font-size:calc(20*var(--u))}
+  .lm-pos{font-size:calc(34*var(--u));font-weight:700;color:#f6c90e;margin-top:calc(4*var(--u));white-space:nowrap}
+  .lm-pos small{font-size:calc(18*var(--u));font-weight:600;color:#9aa3ad}
+  .lm-sub{font-size:calc(12*var(--u));color:#6b7480;margin-top:calc(2*var(--u));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lm-inl{display:flex;align-items:center;justify-content:space-between}
+  .lm-nav{display:flex;align-items:center;gap:calc(12*var(--u));min-height:calc(56*var(--u));padding:calc(12*var(--u)) calc(16*var(--u));
+    background:#141923;border:1px solid #1f2633;border-radius:calc(12*var(--u));margin-top:calc(8*var(--u))}
+  .lm-nav:first-of-type{margin-top:calc(16*var(--u))}
+  .lm-nav>div{flex:1;min-width:0}
+  .lm-nav b{display:block;font-size:calc(16*var(--u));font-weight:600}
+  .lm-nav span{display:block;font-size:calc(13*var(--u));color:#9aa3ad;margin-top:calc(2*var(--u))}
+  .lm-nav i{font-style:normal;min-width:calc(24*var(--u));height:calc(24*var(--u));border-radius:999px;background:#f6c90e;color:#0a0d13;
+    font-size:calc(13*var(--u));font-weight:800;display:flex;align-items:center;justify-content:center}
+  .lm-nav em{font-style:normal;color:#6b7480;font-size:calc(26*var(--u));font-weight:300}
+  .lm-sec{display:flex;align-items:center;justify-content:space-between;gap:calc(12*var(--u));margin-top:calc(28*var(--u))}
+  .lm-sec span{display:flex;gap:calc(8*var(--u));align-items:center;min-width:0}
+  .lm-sec small{font-size:calc(12*var(--u));color:#6b7480;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lm-sec b{font-size:calc(13*var(--u));font-weight:600;color:#f6c90e}
+
   /* cross apps */
   .xapps{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   @media(max-width:720px){.xapps{grid-template-columns:1fr}}
@@ -217,25 +261,33 @@
 
     <figure class="phone-fig" aria-label="Pantalla de cronometraje en vivo de PitWall Lap (demostración)">
       <div class="shot-phone">
-        <div class="lap-scr">
-          <div class="lap-kind">PitWall Lap · en vivo</div>
-          <div class="lap-self">Scuderia Llinars</div>
-          <div class="lap-head"><span class="lap-lane">Carril 3</span><span class="lap-rem">3:42</span></div>
-          <div class="lap-block"><div class="lap-lbl">Última vuelta</div><div class="lap-big">8.47</div></div>
-          <div class="lap-cols">
-            <div><div class="lap-lbl">Vuelta rápida</div><div class="lap-med">8.12</div></div>
-            <div><div class="lap-lbl">Vueltas</div><div class="lap-med">27</div></div>
+        <div class="lm-scr">
+            <div class="lm-hd"><div><div class="lm-lbl">PitWall</div><div class="lm-name">Scuderia Llinars</div></div><span class="lm-chip">Voz ON</span></div>
+            <div class="lm-card lm-hero">
+              <div class="lm-top"><span class="lm-lane">Carril 3</span><div class="lm-rem"><div class="lm-lbl">Restante</div><b>3:42</b></div></div>
+              <div class="lm-lbl lm-center">Última vuelta</div>
+              <div class="lm-big lm-good">8.19</div>
+              <div class="lm-delta lm-good">+0.07 vs mejor</div>
+              <div class="lm-div"></div>
+              <div class="lm-row">
+                <div><div class="lm-lbl">Rápida</div><div class="lm-val lm-best">8.12</div></div>
+                <div><div class="lm-lbl">Media carril</div><div class="lm-val">8.31</div></div>
+                <div><div class="lm-lbl">Vueltas</div><div class="lm-val">27</div></div>
+              </div>
+            </div>
+            <div class="lm-card">
+              <div class="lm-row">
+                <div><div class="lm-lbl">Posición</div><div class="lm-pos">P2 <small>/ 12</small></div></div>
+                <div><div class="lm-lbl">Delante</div><div class="lm-val s">A la par</div><div class="lm-sub">Team PitWall</div></div>
+                <div><div class="lm-lbl">Detrás</div><div class="lm-val s">1 vuelta</div><div class="lm-sub">Blue Racing</div></div>
+              </div>
+              <div class="lm-div"></div>
+              <div class="lm-inl"><span class="lm-lbl">Media para subir</span><b class="lm-val s" style="margin:0">8.05</b></div>
+            </div>
+            <div class="lm-nav"><div><b>Estrategia de neumáticos</b><span>Plan y avisos de cambio de goma</span></div><i>2</i><em>›</em></div>
+            <div class="lm-nav"><div><b>Seguimiento de rivales</b><span>Vueltas y medias por carril</span></div><em>›</em></div>
+            <div class="lm-sec"><span class="lm-lbl">Voz y ajustes</span><span><small>Voz ON · 5 avisos</small><b>Mostrar</b></span></div>
           </div>
-          <div class="lap-cols">
-            <div><div class="lap-lbl">Posición</div><div class="lap-med">2 / 12</div></div>
-            <div><div class="lap-lbl">Gap delante</div><div class="lap-med">1.30</div></div>
-          </div>
-          <div class="lap-sec">Voz</div>
-          <div class="lap-chips">
-            <span class="on">Voz ON</span><span class="on">Vueltas</span><span class="on">Posición</span>
-            <span>Último min</span><span>30 s</span><span class="on">Media 2 min</span><span>Gaps</span>
-          </div>
-        </div>
       </div>
       <figcaption>Mi turno · cronometraje en vivo</figcaption>
     </figure>
