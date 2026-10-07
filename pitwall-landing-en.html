@@ -433,6 +433,19 @@
   .lm-sec b{font-size:calc(13*var(--u));font-weight:600;color:#f6c90e}
   .phone-crop .lm-scr{--u:.505px;border-radius:20px}
 
+  /* ---------- help / contact ---------- */
+  .help{display:grid;grid-template-columns:1.2fr 1fr;gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  @media(max-width:780px){.help{grid-template-columns:1fr}}
+  .help>div{background:var(--bg);padding:30px 26px;display:flex;flex-direction:column;gap:14px}
+  .help .mail{font-family:var(--display);font-weight:700;font-size:clamp(24px,4vw,34px);color:var(--ink);
+    word-break:break-all;line-height:1.1}
+  .help .mail:hover{color:var(--red)}
+  .help .tip{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .help ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .help li a{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--ink)}
+  .help li a:hover{color:var(--red)}
+
   /* ---------- who are you ---------- */
   .who{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   @media(max-width:780px){.who{grid-template-columns:1fr}}
@@ -490,6 +503,7 @@
       <a href="#arquitectura">How it works</a>
       <a href="inicio-rapido-en.html">Quick start</a>
       <a href="manual-uso.en.html">Manual</a>
+      <a href="#ayuda">Help</a>
       <div class="langs"><a class="lg" href="index.html">ES</a><b>EN</b><a class="lg" href="pitwall-landing-fr.html">FR</a><a class="lg" href="pitwall-landing-it.html">IT</a></div>
     </nav>
     <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
@@ -791,6 +805,32 @@
 </section>
 
 <div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- HELP -->
+<section id="ayuda" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Contact & help</div>
+      <h2>Questions? Write to us.</h2>
+      <p>If something doesn’t work, you don’t know where to start or you have an idea to improve PitWall, send us an email and we’ll give you a hand.</p>
+    </div>
+    <div class="help">
+      <div>
+        <a class="btn btn-primary" style="align-self:flex-start" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">Send an email →</a>
+        <a class="mail" href="mailto:info.pitwall@gmail.com">info.pitwall@gmail.com</a>
+      </div>
+      <div>
+        <div class="tip">Before you write, this may save you time:</div>
+        <ul>
+          <li><a href="inicio-rapido-en.html">Quick start guide →</a></li>
+          <li><a href="manual-uso.en.html">Full manual →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FINAL CTA -->
 <section class="final" id="contacto">
