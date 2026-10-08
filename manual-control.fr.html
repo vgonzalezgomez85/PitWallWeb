@@ -480,6 +480,39 @@
         <img src="manual/img/control-12-google.png" loading="lazy" alt="Configuration Google avec état de la connexion, identifiants, autorisations et copie sur Drive">
         <figcaption>Google Sheets : état de la connexion, identifiants, autorisations demandées et copie partagée sur Drive.</figcaption>
       </figure>
+    
+
+      <h3>Obtenir les identifiants Google, pas à pas</h3>
+      <p>On ne le fait qu’<b>une fois</b>, c’est <b>gratuit</b> et sans carte bancaire. Il faut un compte Google (celui de vos feuilles et de votre Drive) et environ 10 minutes. Les noms de menus sont ceux de Google Cloud en espagnol ; dans une autre langue, ils sont proches.</p>
+      <ol class="steps">
+        <li><b>Ouvrez Google Cloud Console.</b> Allez sur <span class="mono">console.cloud.google.com</span> avec votre compte Google et acceptez les conditions si c’est la première fois.</li>
+        <li><b>Créez un projet.</b> En haut, à côté du logo Google Cloud, cliquez sur le sélecteur de projet → <b>Nouveau projet</b>. Nom : <span class="mono">PitWall Control</span>. Cliquez sur <b>Créer</b> et vérifiez qu’il est sélectionné en haut.</li>
+        <li><b>Activez les deux API.</b> Menu ☰ → <b>API et services → Bibliothèque</b>. Cherchez <span class="mono">Google Sheets API</span> et cliquez sur <b>Activer</b>. Retournez dans la bibliothèque, cherchez <span class="mono">Google Drive API</span> et cliquez aussi sur <b>Activer</b>.</li>
+        <li><b>Configurez l’écran de consentement.</b> Menu ☰ → <b>API et services → Écran de consentement OAuth</b> (Google l’appelle <b>Google Auth Platform</b>) → <b>Commencer</b>. Un assistant en 4 étapes s’ouvre :<ul><li><b>Informations sur l’application</b> : nom <span class="mono">PitWall Control</span> et votre e-mail comme e-mail d’assistance → <b>Suivant</b>.</li><li><b>Audience</b> : choisissez <b>Externe</b> (« Usuarios externos » sur la capture en espagnol) → <b>Suivant</b>. « Interne » ne fonctionne que pour les comptes d’entreprise (Google Workspace), pas avec un Gmail classique.</li><li><b>Coordonnées</b> : votre e-mail → <b>Suivant</b>.</li><li><b>Terminer</b> : cochez la case de la politique de données → <b>Continuer</b> puis <b>Créer</b>.</li></ul><figure class="shot"><img src="manual/img/control-google-publico.png" loading="lazy" alt="Assistant de configuration de Google Auth Platform à l’étape Audience, avec les options Interne et Externe (Google en espagnol)"><figcaption>Étape 2 de l’assistant : choisissez « Externe » (« Usuarios externos ») et cliquez sur « Suivant ».</figcaption></figure></li>
+        <li><b>Ajoutez votre compte comme utilisateur test.</b> Dans le menu latéral, <b>Audience</b> → section <b>Utilisateurs test</b> → <b>Add users</b>. Saisissez l’e-mail Google <b>avec lequel vous connecterez Control</b> (et celui de toute autre personne qui se connectera avec son compte) et cliquez sur <b>Enregistrer</b>. Si vous sautez cette étape, Google bloquera l’accès (voir « Si l’erreur 403 apparaît » plus bas).</li>
+        <li><b>Créez le client OAuth.</b> Menu latéral → <b>Clients</b> (ou <b>API et services → Identifiants</b>) → <b>Créer un client</b>. Type d’application : <b>Application de bureau</b>. Nom : <span class="mono">PitWall Control Desktop</span>. Cliquez sur <b>Créer</b>.</li>
+        <li><b>Copiez l’ID et le secret.</b> Une fenêtre affiche l’<b>ID client</b> (qui finit par <span class="mono">.apps.googleusercontent.com</span>) et le <b>code secret du client</b>. Copiez-les et cliquez sur <b>Télécharger le JSON</b> pour les conserver : Google ne montre le secret qu’à ce moment-là.</li>
+        <li><b>Collez-les dans Control et connectez-vous.</b> Sur l’écran d’accueil, ouvrez <b>Google Sheets</b>, collez le <b>Client ID</b> et le <b>Client Secret</b> puis cliquez sur <b>Guardar credenciales</b>. Ensuite cliquez sur <b>Conectar con Google</b> : le navigateur s’ouvre, choisissez le compte ajouté à l’étape 5 et, si « Google n’a pas validé cette application » s’affiche, cliquez sur <b>Paramètres avancés → Accéder à PitWall Control (non sécurisé)</b>. Cochez toutes les autorisations et cliquez sur <b>Continuer</b>. De retour dans Control, il doit indiquer « Conectado ».</li>
+      </ol>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div><b>Pour que ça n’expire pas au bout de 7 jours.</b> Tant que l’application est en statut <b>Test</b>, Google vous déconnecte tous les 7 jours et il faut se reconnecter. Pour l’éviter, dans <b>Audience</b> cliquez sur <b>Publier l’application</b> (elle passe en <b>En production</b>). Pour un usage personnel, Google n’a pas besoin de la valider : vous verrez seulement l’avertissement « application non validée » à la connexion, accepté comme à l’étape 8.</div>
+      </div>
+      <h3>Si l’erreur 403 : access_denied apparaît</h3>
+      <p>C’est l’échec le plus courant. Google affiche « Accès bloqué : PitWall Control n’a pas terminé le processus de validation de Google ». Cela veut dire que le compte utilisé <b>n’est pas dans la liste des utilisateurs test</b>.</p>
+      <figure class="shot"><img src="manual/img/control-google-403.png" loading="lazy" alt="Écran « Accès bloqué » de Google avec l’erreur 403 access_denied (Google en espagnol)"><figcaption>Erreur 403 access_denied : le compte n’est pas dans « Utilisateurs test ».</figcaption></figure>
+      <p>Ça se corrige en une minute :</p>
+      <ul>
+        <li>Allez dans <b>Audience → Utilisateurs test → Add users</b>, ajoutez ce compte exact et enregistrez (étape 5). Ou cliquez sur <b>Publier l’application</b> et la liste n’est plus nécessaire.</li>
+        <li>Retournez dans Control et cliquez de nouveau sur <b>Conectar con Google</b>.</li>
+        <li><span class="mono">invalid_client</span> : l’ID ou le secret est mal copié ou avec une espace en trop. Copiez-les de nouveau depuis le JSON téléchargé.</li>
+        <li>« API has not been used in project… » : Sheets ou Drive n’est pas activé (étape 3).</li>
+        <li>Il demande de se reconnecter chaque semaine : l’application est toujours en <b>Test</b> ; publiez-la (avertissement sous l’étape 8).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div><b>Traitez-les comme un mot de passe.</b> Quiconque possède le Client ID et le Secret peut se faire passer pour votre application. Ne les publiez pas et ne les envoyez pas par messagerie ; en cas de fuite, supprimez le client dans Google Cloud et créez-en un autre. Control ne les garde que sur votre appareil.</div>
+      </div>
     </section>
 
     <section id="csv">

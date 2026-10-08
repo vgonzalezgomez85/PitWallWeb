@@ -480,6 +480,39 @@
         <img src="manual/img/control-12-google.png" loading="lazy" alt="Google settings with connection status, credentials, permissions and the Drive copy">
         <figcaption>Google Sheets: connection status, credentials, requested permissions and the shared Drive copy.</figcaption>
       </figure>
+    
+
+      <h3>Getting the Google credentials, step by step</h3>
+      <p>You only do this <b>once</b>, it is <b>free</b> and asks for no card. You need a Google account (the one with your sheets and Drive) and about 10 minutes. Menu names are those of Google Cloud in Spanish; in another language they are similar.</p>
+      <ol class="steps">
+        <li><b>Open Google Cloud Console.</b> Go to <span class="mono">console.cloud.google.com</span> with your Google account and accept the terms if it is your first time.</li>
+        <li><b>Create a project.</b> At the top, next to the Google Cloud logo, click the project picker → <b>New project</b>. Name: <span class="mono">PitWall Control</span>. Click <b>Create</b> and check it is selected at the top.</li>
+        <li><b>Enable the two APIs.</b> ☰ menu → <b>APIs &amp; Services → Library</b>. Search <span class="mono">Google Sheets API</span> and click <b>Enable</b>. Back in the library, search <span class="mono">Google Drive API</span> and click <b>Enable</b> too.</li>
+        <li><b>Set up the consent screen.</b> ☰ menu → <b>APIs &amp; Services → OAuth consent screen</b> (Google calls it <b>Google Auth Platform</b>) → <b>Get started</b>. A 4-step wizard opens:<ul><li><b>App information</b>: name <span class="mono">PitWall Control</span> and your email as support email → <b>Next</b>.</li><li><b>Audience</b>: choose <b>External</b> (“Usuarios externos” in the Spanish screenshot) → <b>Next</b>. “Internal” only works for company accounts (Google Workspace) and cannot be used with a regular Gmail.</li><li><b>Contact information</b>: your email → <b>Next</b>.</li><li><b>Finish</b>: tick the data policy box → <b>Continue</b> and then <b>Create</b>.</li></ul><figure class="shot"><img src="manual/img/control-google-publico.png" loading="lazy" alt="Google Auth Platform setup wizard at the Audience step, with the Internal and External options (Google in Spanish)"><figcaption>Wizard step 2: choose “External” (“Usuarios externos”) and click “Next”.</figcaption></figure></li>
+        <li><b>Add your account as a test user.</b> In the side menu, <b>Audience</b> → <b>Test users</b> section → <b>Add users</b>. Type the Google email <b>you will connect Control with</b> (and that of anyone else who will connect with their own account) and click <b>Save</b>. If you skip this, Google will block access (see “If you get error 403” below).</li>
+        <li><b>Create the OAuth client.</b> Side menu → <b>Clients</b> (or <b>APIs &amp; Services → Credentials</b>) → <b>Create client</b>. Application type: <b>Desktop app</b>. Name: <span class="mono">PitWall Control Desktop</span>. Click <b>Create</b>.</li>
+        <li><b>Copy the ID and the secret.</b> A box shows the <b>Client ID</b> (ends in <span class="mono">.apps.googleusercontent.com</span>) and the <b>Client secret</b>. Copy them and click <b>Download JSON</b> to keep them: Google only shows the secret at this moment.</li>
+        <li><b>Paste them into Control and connect.</b> On the home screen open <b>Google Sheets</b>, paste the <b>Client ID</b> and the <b>Client Secret</b> and click <b>Guardar credenciales</b>. Then click <b>Conectar con Google</b>: the browser opens, pick the account you added in step 5 and, if you see “Google hasn’t verified this app”, click <b>Advanced → Go to PitWall Control (unsafe)</b>. Tick all the permissions and click <b>Continue</b>. Back in Control it should say “Conectado”.</li>
+      </ol>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div><b>So it does not expire after 7 days.</b> While the app is in <b>Testing</b> status, Google signs you out every 7 days and you have to reconnect. To avoid it, in <b>Audience</b> click <b>Publish app</b> (it becomes <b>In production</b>). For your own use Google does not need to verify it: you will only see the “unverified app” warning when connecting, accepted as in step 8.</div>
+      </div>
+      <h3>If you get error 403: access_denied</h3>
+      <p>This is the most common failure. Google shows “Access blocked: PitWall Control has not completed the Google verification process”. It means the account you signed in with <b>is not in the test users list</b>.</p>
+      <figure class="shot"><img src="manual/img/control-google-403.png" loading="lazy" alt="Google “Access blocked” screen with error 403 access_denied (Google in Spanish)"><figcaption>Error 403 access_denied: the account is not in “Test users”.</figcaption></figure>
+      <p>It takes a minute to fix:</p>
+      <ul>
+        <li>Go to <b>Audience → Test users → Add users</b>, add that exact account and save (step 5). Or click <b>Publish app</b> and the list is no longer needed.</li>
+        <li>Go back to Control and click <b>Conectar con Google</b> again.</li>
+        <li><span class="mono">invalid_client</span>: the ID or the secret was copied wrongly or with an extra space. Copy them again from the downloaded JSON.</li>
+        <li>“API has not been used in project…”: Sheets or Drive is not enabled (step 3).</li>
+        <li>It asks you to reconnect every week: the app is still in <b>Testing</b>; publish it (warning under step 8).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div><b>Treat them like a password.</b> Anyone with the Client ID and Secret can impersonate your app. Do not publish them or send them over chat; if they leak, delete the client in Google Cloud and create another. Control keeps them only on your device.</div>
+      </div>
     </section>
 
     <section id="csv">

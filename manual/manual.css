@@ -197,6 +197,14 @@ header.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
   border:1px solid var(--ac);color:var(--ac);font-family:var(--mono);font-size:12px;
   font-weight:600;display:flex;align-items:center;justify-content:center}
 
+/* lista y captura dentro de un paso numerado */
+.doc ol.steps li{min-width:0}
+.doc ol.steps li ul{margin:10px 0 0;gap:6px}
+.doc ol.steps li ul li{padding-left:20px;min-height:0}
+.doc ol.steps li ul li::before{counter-increment:none;content:"";left:2px;top:10px;
+  width:7px;height:7px;border:0;border-radius:1px;background:var(--ac)}
+.doc ol.steps li figure.shot{margin:14px 0 4px}
+
 /* ---------- callouts (blockquotes) ---------- */
 .callout{display:flex;gap:14px;margin:22px 0;padding:16px 18px;border-radius:8px;
   background:var(--bg-2);border:1px solid var(--line);border-left:3px solid var(--cy,var(--ac));
