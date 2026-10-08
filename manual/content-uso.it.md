@@ -348,7 +348,8 @@ Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
 
 - **Comparativa** (griglia): per partecipante, ogni corsia con **Veloce / Media / Consistenza / Uscite / Pit-stop**. Nelle gare di **passate/ripeti-corsia**, ogni corsia si scompone nelle sue **occorrenze** (1/2, 2/2) per confrontare.
 - **Progressione / Posizioni / Gap dal leader / Gap (griglia) / Statistiche avanzate**: diverse viste di analisi (spiegate in dettaglio nel *Manuale delle statistiche*).
-- **Esportazioni**: **Excel**, **Punti (xlsx/csv)**, **Control (csv)**, **Esporta per GitHub**, **PDF**.
+- **Esportazioni**: **Excel**, **Punti (xlsx/csv)**, **Control (csv)**, **area-corse**, **Esporta per GitHub**, **PDF**.
+- **area-corse**: scarica la **classifica generale** della gara in un CSV nel formato che importa la piattaforma italiana **Area Corse** (area-corse.it), per pubblicare le gare del club nei loro campionati. L'identificativo pilota nel file è l'**ID interno di PitWall**; Area Corse abbina ogni risultato tramite il **nome** del pilota o della squadra, incluso nel file.
 - **L'esportazione in Excel** (risultati, punti e rapporto turni) **funziona solo a gara ferma o terminata**: non si può ottenere l'Excel mentre una manche è in corso (quel calcolo è pesante e bloccherebbe il cronometraggio, con il rischio di perdere un passaggio). Se una manche parte durante la generazione, l'esportazione viene annullata e basta rilanciarla dopo.
 - Se la gara ha attivato gli interruttori **Categoria** e **Auto** (vedi *Creare una gara*), l'**Excel dei risultati** aggiunge quelle due colonne **accanto al nome** nei fogli **Classifica** («Clasificación»), **Miglior giro** («Mejor vuelta») e **Comparativa**. Con essi spenti, l'Excel esce esattamente come sempre.
 

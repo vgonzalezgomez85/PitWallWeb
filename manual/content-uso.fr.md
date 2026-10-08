@@ -348,7 +348,8 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 - **Comparatif** (grille) : par participant, chaque voie avec **Rapide / Moyenne / Consistance / Sorties / Pit-stops**. Dans les courses à **passages/répétition de voie**, chaque voie se décompose en ses **occurrences** (1/2, 2/2) pour comparer.
 - **Progression / Positions / Écart au leader / Écart (grille) / Statistiques avancées** : différentes vues d'analyse (expliquées en détail dans le *Manuel de statistiques*).
-- **Exports** : **Excel**, **Points (xlsx/csv)**, **Control (csv)**, **Exporter pour GitHub**, **PDF**.
+- **Exports** : **Excel**, **Points (xlsx/csv)**, **Control (csv)**, **area-corse**, **Exporter pour GitHub**, **PDF**.
+- **area-corse** : télécharge le **classement général** de la course dans un CSV au format qu'importe la plateforme italienne **Area Corse** (area-corse.it), pour publier les courses du club dans leurs championnats. L'identifiant de pilote du fichier est l'**identifiant interne de PitWall** ; Area Corse associe chaque résultat par le **nom** du pilote ou de l'équipe, qui est inclus.
 - **L'export Excel** (résultats, points et rapport de relais) **ne fonctionne que course arrêtée ou terminée** : impossible de sortir l'Excel pendant qu'une manche tourne (ce calcul lourd bloquerait le chronométrage, au risque de perdre un passage). Si une manche démarre pendant la génération, l'export est annulé et il suffit de le relancer ensuite.
 - Si la course a activé les interrupteurs **Catégorie** et **Voiture** (voir *Créer une course*), l'**Excel des résultats** ajoute ces deux colonnes **à côté du nom** dans les feuilles **Classement** (« Clasificación »), **Meilleur tour** (« Mejor vuelta ») et **Comparatif** (« Comparativa »). Sans eux, l'Excel sort exactement comme d'habitude.
 

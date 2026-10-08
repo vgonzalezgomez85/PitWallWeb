@@ -349,7 +349,8 @@ Al terminar (o en cualquier momento) entra en **Resultados**:
 
 - **Comparativa** (parrilla): por participante, cada carril con **Rápida / Media / Consistencia / Salidas / Pit-stops**. En carreras de **pasadas/repetir-carril**, cada carril se desglosa en sus **ocurrencias** (1/2, 2/2) para comparar.
 - **Progresión / Posiciones / Gap al líder / Gap (rejilla) / Estadísticas avanzadas**: distintas vistas de análisis (se explican en detalle en el *Manual de estadísticas*).
-- **Exports**: **Excel**, **Puntos (xlsx/csv)**, **Control (csv)**, **Exportar para GitHub**, **PDF**.
+- **Exports**: **Excel**, **Puntos (xlsx/csv)**, **Control (csv)**, **area-corse**, **Exportar para GitHub**, **PDF**.
+- **area-corse**: descarga la **clasificación general** de la carrera en un CSV con el formato que importa la plataforma italiana **Area Corse** (area-corse.it), para publicar las carreras del club en sus campeonatos. El identificador de piloto del archivo es el **interno de PitWall**; Area Corse empareja cada resultado por el **nombre** del piloto o equipo, que va incluido.
 - **Exportar a Excel** (resultados, puntos e informe de turnos) **solo funciona con la carrera parada o finalizada**: no se puede sacar el Excel mientras una manga está en marcha (ese cálculo es pesado y frenaría el cronometraje, con riesgo de perder un cruce). Si una manga arranca justo mientras se generaba, la exportación se cancela y basta con repetirla al acabar.
 - Si la carrera tiene activados los interruptores de **Categoría** y **Coche** (ver *Crear una carrera*), el **Excel de resultados** añade esas dos columnas **junto al nombre** en las hojas **Clasificación**, **Mejor vuelta** y **Comparativa**. Con ellos apagados, el Excel sale exactamente como siempre.
 
