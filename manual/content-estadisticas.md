@@ -93,7 +93,7 @@ Ojo con esto: **tu primera vuelta completa sí cuenta** —es ritmo real y puede
 
 **Δ (delta).** Es tu **media limpia menos tu mejor vuelta**. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.
 
-**SALIDAS / PIT-STOPS.** Cuántas veces te has salido y cuántas paradas has hecho. Cada salida te cuesta tiempo y posiciones. PitWall cuenta las salidas con la misma regla que las «vueltas lentas» de TicTac: es **salida** toda vuelta que tarde **más que tu vuelta rápida en ese carril durante la manga + 1,5 s** (también la primera vuelta). Si además tarda el doble o más de tu media limpia, es una **parada en boxes (🔧)**. Las vueltas que repone PitWall (bandera, caída de conexión) nunca cuentan como salida.
+**SALIDAS / PIT-STOPS.** Cuántas veces te has salido y cuántas paradas has hecho. Cada salida te cuesta tiempo y posiciones. PitWall cuenta las salidas con la misma regla que las «vueltas lentas» de TicTac: es **salida** toda vuelta que tarde **más que tu vuelta rápida en ese carril durante la manga + 1,5 s** (también la primera vuelta). Si además tarda el doble o más de tu media limpia, es una **parada en boxes (🔧)**. Las **vueltas de bandera** (cronometradas o repuestas) y las que repone PitWall tras una caída de conexión nunca cuentan como salida.
 
 **En directo, la marca es provisional.** Tu vuelta rápida va bajando durante la manga y, con ella, el límite. Ejemplo: al minuto 1 tu mejor es 10,20 s → límite 11,70 s, así que una vuelta de 11,50 s **no** es salida. Al minuto 6 haces 9,80 s → el límite baja a 11,30 s y aquella vuelta de 11,50 s **pasa a contar como salida**. Por eso el contador de salidas puede subir mientras ruedas bien. Al cerrar la manga se repasa todo con la vuelta rápida definitiva. Esta regla no cambia la coma ni el desempate, y las carreras corridas antes de la v1.38.0 conservan las salidas tal como se contaron.
 
@@ -231,7 +231,7 @@ De dónde sale la coma: **con la manga en marcha** es la coma **viva** —lo que
 - **Gap en segundos** — esa misma distancia traducida a tiempo con **tu** media. Es lo que hay que recortar.
 - **Gap por minuto** — cómo evoluciona la distancia con el tiempo, para ver si recortas o te descuelgas.
 
-Cuando dos pilotos tienen las mismas vueltas, desempata la **coma**: la fracción de vuelta que llevabas hecha justo al caer la bandera. Rodar apurado hasta el final puede darte esa fracción de más que te sube una posición. Y si también empatáis en coma, decide el **tiempo total** acumulado.
+Cuando dos pilotos tienen las mismas vueltas, lo primero que decide es **quién cruzó antes la meta**: si los dos acabaron en la **misma manga** y hay instante del cruce, va delante el que pasó antes por línea. Si no (mangas distintas o carreras antiguas sin ese dato), desempata la **coma**: la fracción de vuelta que llevabas hecha justo al caer la bandera. Rodar apurado hasta el final puede darte esa fracción de más que te sube una posición. Y si también empatáis en coma, decide el **tiempo total** acumulado.
 
 ---
 
@@ -303,10 +303,11 @@ El **gap** de esta tabla se lee **"a 2,8 v (35,5\")"**: la distancia en vueltas 
 - **Media** — media simple de tus tiempos de vuelta, sin el cruce de salida (tu primera vuelta completa **sí** entra). Incluye salidas y pits. Es la que usa la proyección y coincide al milisegundo con la de TicTac.
 - **Media limpia** — tu media contando solo vueltas normales (sin salidas, según la regla de *Salida* de este glosario). Se usa para el Δ y para detectar incidentes, no para proyectar.
 - **Cruce de salida (warmup / cruce parcial)** — el primer paso por meta de la manga: de la rejilla a la línea, arrancando parado. Es medio trazado, no una vuelta, así que no cuenta para media, mejor ni consistencia. **Solo ese**: la primera vuelta completa que viene después sí cuenta para todo.
+- **Vuelta de bandera** — la última vuelta que cruzas al caer la bandera de tu manga. PitWall espera unos segundos ese cruce (**Ajustes → Preferencias → «Espera de cruces tras el final»**; 0 lo desactiva) para guardarla con su **tiempo real**; si el paso por meta no llega, la repone con tu **media**. De esa vuelta salen tu coma y el instante del cruce que desempata cuando dos acabáis con las mismas vueltas.
 - **Sub-mínimo** — un tiempo por debajo del mínimo de vuelta de la carrera. Cruce fantasma imposible; se descarta siempre.
 - **Salida (exit)** — una vuelta que tarda más que tu vuelta rápida en ese carril durante la manga + 1,5 s (la misma regla que las «vueltas lentas» de TicTac). Cuenta para la media (es tiempo real perdido) pero no para tu mejor vuelta. En directo es provisional: si mejoras tu rápida, vueltas anteriores pueden pasar a ser salida.
 - **Pit-stop** — parada en boxes. Cuenta como tiempo, no como mejor vuelta.
-- **Coma** — la fracción de vuelta que llevas hecha: en marcha, lo rodado desde tu último paso por meta; al final, la que llevabas al caer la bandera. Cuenta en la distancia al líder y desempata cuando dos tenéis las mismas vueltas.
+- **Coma** — la fracción de vuelta que llevas hecha: en marcha, lo rodado desde tu último paso por meta; al final, la que llevabas al caer la bandera. Cuenta en la distancia al líder y desempata cuando dos tenéis las mismas vueltas, salvo que ambos acabéis en la **misma manga**: ahí va delante quien cruzó antes (ver *Vuelta de bandera*).
 - **Proyección** — estimación de tu resultado final sumando todas las mangas: tiempo total de carrera dividido entre tu media, más la coma que ya llevas hecha.
 - **Estimada provisional (\*)** — asterisco naranja junto a una estimada: el equipo está en su primera manga y aún no ha pasado del 60 %, así que su referencia no está fijada y el número puede moverse.
 - **Gap** — tu distancia a otro coche (o al líder), en vueltas **con coma**, en segundos (esas vueltas × tu media) o por minuto. Se lee *"a 2,8 v (35,5\")"*.

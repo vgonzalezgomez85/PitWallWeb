@@ -93,7 +93,7 @@ Careful with this one: **your first complete lap DOES count** — it's real pace
 
 **Δ (delta).** It's your **clean average minus your best lap**. That is: how much margin you have left. A small Δ = you almost always run flat out, very little to shave off. A big Δ = you have pace but lose it on many laps: that's where your gold is, in being more consistent. The "clean average" here doesn't count exits or pits, only your normal running.
 
-**EXITS / PIT-STOPS.** How many times you've gone off and how many stops you've made. Each exit costs you time and positions. PitWall counts exits with the same rule as TicTac's “slow laps”: any lap that takes **longer than your fastest lap on that lane during the heat + 1.5 s** is an **exit** (the first lap included). If it also takes twice your clean average or more, it's a **pit-stop (🔧)**. Laps restored by PitWall (flag, connection drop) never count as exits.
+**EXITS / PIT-STOPS.** How many times you've gone off and how many stops you've made. Each exit costs you time and positions. PitWall counts exits with the same rule as TicTac's “slow laps”: any lap that takes **longer than your fastest lap on that lane during the heat + 1.5 s** is an **exit** (the first lap included). If it also takes twice your clean average or more, it's a **pit-stop (🔧)**. **Flag laps** (timed or restored) and the laps PitWall restores after a **connection drop** never count as exits.
 
 **Live, the mark is provisional.** Your fastest lap keeps dropping during the heat, and the limit drops with it. Example: at minute 1 your best is 10.20 s → limit 11.70 s, so an 11.50 s lap is **not** an exit. At minute 6 you do 9.80 s → the limit drops to 11.30 s and that 11.50 s lap **now counts as an exit**. That's why the exit counter can go up while you're driving well. When the heat ends everything is rechecked against the final fastest lap. This rule doesn't change the comma or the tie-break, and races run before v1.38.0 keep their exits as they were counted.
 
@@ -231,7 +231,7 @@ Where the fraction comes from: **with the heat running** it's the **live** fract
 - **Gap in seconds** — that same distance turned into time using **your** average. That's what you have to claw back.
 - **Gap by minute** — how the distance evolves with time, to see if you're closing in or dropping off.
 
-When two drivers have the same laps, the **fraction** breaks the tie: the fraction of a lap you'd completed just as the flag fell. Running right to the end can give you that extra fraction that moves you up a position. And if you're level on the fraction too, the accumulated **total time** decides.
+When two drivers have the same laps, the first thing that decides is **who crossed the line first**: if both finished in the **same heat** and the crossing instant is known, the one who went past the line first goes ahead. If not (different heats or old races without that data), the **fraction** breaks the tie: the fraction of a lap you'd completed just as the flag fell. Running right to the end can give you that extra fraction that moves you up a position. And if you're level on the fraction too, the accumulated **total time** decides.
 
 ## 9. The Results view (after the race)
 
@@ -301,10 +301,11 @@ The **gap** in this table reads **"a 2,8 v (35,5\")"**: the distance in laps **w
 - **Average** — a simple average of your lap times, without the start crossing (your first complete lap **does** go in). Includes exits and pits. It's the one the projection uses, and it matches TicTac to the millisecond.
 - **Clean average** — your average counting only normal laps (without exits, as defined under *Exit* in this glossary). Used for the Δ and to detect incidents, not to project.
 - **Start crossing (warmup / partial crossing)** — the first time you cross the line in the heat: from the grid to the line, starting from a standstill. It's half the layout, not a lap, so it doesn't count for average, best or consistency. **Only that one**: the first complete lap that comes after counts for everything.
+- **Flag lap** — the last lap you cross as the flag falls on your heat. PitWall waits a few seconds for that crossing (**Settings → Preferences → "Wait for crossings after the end"**; 0 disables it) to save it with its **real time**; if the crossing doesn't arrive, it restores it using your **average**. Your fraction and the crossing instant that breaks ties when two of you end on the same laps come from that lap.
 - **Sub-minimum** — a time below the race's minimum lap. An impossible ghost crossing; always discarded.
 - **Exit** — a lap that takes longer than your fastest lap on that lane during the heat + 1.5 s (the same rule as TicTac's “slow laps”). Counts for the average (it's real time lost) but not for your best lap. Live it's provisional: if you improve your fastest lap, earlier laps can become exits.
 - **Pit-stop** — a stop in the pits. Counts as time, not as best lap.
-- **Fraction** — the fraction of a lap you've covered: while running, what you've done since your last time across the line; at the end, the one you had as the flag fell. It counts in the distance to the leader and breaks the tie when two of you have the same laps.
+- **Fraction** — the fraction of a lap you've covered: while running, what you've done since your last time across the line; at the end, the one you had as the flag fell. It counts in the distance to the leader and breaks the tie when two of you have the same laps, unless you both finish in the **same heat**: there the one who crossed first goes ahead (see *Flag lap*).
 - **Projection** — an estimate of your final result by adding up all the heats: total race time divided by your average, plus the fraction you've already covered.
 - **Provisional estimate (\*)** — the orange asterisk next to an estimate: the team is in its first heat and hasn't gone past 60 % of it, so its reference isn't locked in and the number can still move.
 - **Gap** — your distance to another car (or to the leader), in laps **with the fraction**, in seconds (those laps × your average) or per minute. It reads *"a 2,8 v (35,5\")"*.
