@@ -78,7 +78,7 @@ All three catalogs have a **search box** at the top: it filters as you type (for
 
 ![img: op-qr-equipos.png]
 
-> **Sync catalog with pending races.** If you change a team's **drivers** or **country** in the catalog *after* creating a race, those changes don't reach the race that's already set up on their own. From **System → Sync catalog** (“Sistema → Sincronizar catálogo”, on the home screen) —or the **“Actualizar desde catálogo”** (Update from catalog) shortcut in the **⋯** menu of the race sheet, which only shows if the race is a candidate— you push them into every race that **hasn't started any heat yet**, without going through "Edit batch". PitWall matches teams **by name**, makes each race's roster **identical to the catalog** (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a **summary of the changes**, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on **team-format** races. **Category** isn't synced: it's always read live from the catalog.
+> **Sync catalog with pending races.** If you change a team's **drivers** or **country** in the catalog *after* creating a race, those changes don't reach the race that's already set up on their own. From **System → Sync catalog** (“Sistema → Sincronizar catálogo”, on the home screen) —or the **“Actualizar desde catálogo”** (Update from catalog) shortcut in the **⋯** menu of the race sheet, which only shows if the race is a candidate— you push them into every race that **hasn't started any heat yet**, without going through "Edit batch". PitWall matches teams **by name**, makes each race's roster **identical to the catalog** (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a **summary of the changes**, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on **team-format** races. **Category** isn't synced: it keeps being read live from the catalog, except the one noted in the race itself (see *Batches, participants and rotation*).
 
 ## 3. Creating a race
 ![img: 03-wizard-step1.png]
@@ -91,6 +91,7 @@ Press **Sprint race** or **Endurance race** on the home screen, or **+ New race*
 - **Race name**.
 - **Circuit**: pick a saved circuit and it is summed up in one line (e.g. "24 lanes · 3 circuits (8 + 8 + 8) · min lap 6.00 s"), with nothing else to fill in. With **— Configure manually —** you get the **number of circuits**, the **lanes** of each one (e.g. 8+8+6 = 3 DS-300 boxes) and the **min lap time (Pt)**: below that time a crossing is considered a **ghost** (bounce/double read) and does not count. If the circuit has times per category, **Category** also appears.
 - **Pole position**: **No pole** or **With pole** (the fastest picks a lane first).
+- **Category and car (optional)**: two switches, **Category / cup** («Categoría / copa») and **Car** («Coche»), to note each team's or driver's cup and the car they race with (see *Batches, participants and rotation*). They are **off** by default: with them off nothing changes. The category is shown next to the name in the live view; with the switches on, category and car also come out as columns next to the name in the **results Excel**.
 - **Endurance rules** (endurance only): **min** and **max per driver** (in minutes), **max turns**, **tyres** (in pairs per team) and **No swaps at the end** (the last seconds of each heat, when drivers cannot be changed). Anything left blank is not checked.
 - **More options** (folded; it opens by itself if either value is above 1):
   - **Passes**: how many times the **entire lane sequence** is run. 2 passes = the full rotation is run twice (double the heats).
@@ -127,6 +128,8 @@ Go into **Races → Import batch**. There are **two ways** to bring the event ov
 
 A **batch** groups the participants and their **lane rotation** per heat. When you add the **teams/drivers**, PitWall automatically generates all the **heats**.
 
+**Category and car (optional).** If the race has them on (see *Creating a race*), when signing up the participants —in the wizard's participants step (races with pole) and on the **new batch** screen— each team or driver gets two **free-text** fields: their **category/cup** and their **car**. Both are **optional** (they can be left blank) and, when you sign up a **team from the catalog**, its data is copied as a starting point. Later they can be **edited from the batch** —including in the **rename-only mode** of a batch with heats already run—: they are applied when you save and they don't touch the rotation. The **category** is shown next to the name in the live view and, in the results Excel, category and car come out as columns.
+
 **How rotation works.** Each participant keeps changing lanes from heat to heat following the configured sequence (e.g. `1, 3, 5, 6, 4, 2`). This way everyone goes through every lane and conditions are evened out.
 
 - *Example (6 lanes, 6 drivers):* in heat 1 driver A runs lane 1; in heat 2, lane 3; in heat 3, lane 5… until completing the loop through all lanes.
@@ -153,6 +156,8 @@ After creating a race you can tweak it:
 > Typical case: you **import a batch from PitWall Control** (which arrives in manual mode) and then **edit it to assign your club's scenario**, so it inherits your track's lanes, sequence and minimum time.
 
 - **Endurance rules (driver shifts and tyres)** — in an **endurance** race, and **as long as no heat has been run yet**, Edit race also lets you adjust the **driver-shift rules** (minimum and maximum per driver, maximum number of stints and the end-of-heat lockout) and the **tyres per team** (the allowance the tyre control starts from) — the same fields you set in the wizard when creating the race. So you can fix a number without rebuilding the whole race. As soon as the **first heat** runs, those fields are **locked** (dimmed, with a padlock 🔒) so as not to unbalance what has already been run; the **name** and the **scenario** keep their usual rules. If you set a **maximum per driver lower than the minimum**, PitWall warns you.
+
+- **Category and car (optional)** — the wizard's two switches (**Category / cup** and **Car**) can be **turned on or off at any time**, including with the race running: they only change what is noted, shown and exported per participant, never the timing or the schedule. When you **turn them off**, the data already noted is **not deleted**: turn them back on and it reappears.
 
 - **Edit batch** — change the **names** of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters **rename-only mode** (no participants added or removed, so as not to unbalance the rotation).
 
@@ -240,6 +245,8 @@ From the race page:
 **The cards.** The **last lap** is shown large with the **total laps** beside it and, below, best lap, average, Gap V and laps in the heat; the figures resize to fit each card, whether there are 6, 24 or 40 teams. The last lap turns **purple with “RACE RECORD”** if it is the fastest lap of the race and **blue with “PIT”** if it included a stop. Each card shows the **driver at the wheel** with a **bar of the time they have driven** against the per-driver maximum (**amber** from 85 %, **red** once over it); if a lane has not checked in, you will see **“NO DRIVER”** while the heat is running. It also flags exits, **pit stops** (“PIT 2”) and **tyre sets** used out of the total (“4/12”).
 
 **Rows in two columns.** When the teams do not fit in one column, the rows view splits into **two columns**, each with its own header, so you see **everyone at once** (up to 40 on a 1080p screen). In races with driver shifts, each row shows the **driver under the team**.
+
+**The category, next to the name.** If the race has **Category / cup** on (see *Creating a race*), each participant shows their category next to their name on the cards, the rows, the standings, the TV, the best laps and the live stats. In **sprint races** (of drivers) there used to be none and now each driver's is shown too. The **car** is not shown in the live view: it appears in the **Le Mans** view and in the results Excel.
 
 **Live view order.** In **Settings → Preferences → Live view order** you choose how cards and rows are sorted: by **projected standings** (recommended) or by **actual laps** (ties: lower total time). With actual laps, Gap V is not shown. The projected standings side panel does not change.
 
@@ -344,6 +351,7 @@ When it finishes (or at any time) go into **Results**:
 - **Progression / Positions / Gap to leader / Gap (grid) / Advanced statistics**: different analysis views (explained in detail in the *Statistics manual*).
 - **Exports**: **Excel**, **Points (xlsx/csv)**, **Control (csv)**, **Export for GitHub**, **PDF**.
 - **Exporting to Excel** (results, points and shifts report) **only works when the race is stopped or finished**: you can't get the Excel while a heat is running (that job is heavy and would stall the timing, risking a missed crossing). If a heat starts while one is being generated, the export is cancelled and you just run it again afterwards.
+- If the race has the **Category** and **Car** switches on (see *Creating a race*), the **results Excel** adds those two columns **next to the name** on the **Standings**, **Best lap** and **Comparison** sheets. With them off, the Excel comes out exactly as always.
 
 **Public results.** There's an open page —**Results**, in the home menu— where anyone can consult (without touching anything or being able to edit) the results of the **finished** races. It's the one you share with drivers and public so they can look at the classification and statistics of the race. The page has a **search box** (by race, circuit, or team or driver on the podium) and **All / Sprint / Endurance** tabs. The latest race is **featured** at the top, full width, and each card shows the type, end date, circuit, how many drivers or teams and heats it had, the **podium** with its laps and the race's **fastest lap**.
 
