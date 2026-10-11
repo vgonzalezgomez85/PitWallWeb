@@ -154,7 +154,7 @@ Si la course a une **pole** (le tour qualificatif qui décide de l'ordre de dép
 - Depuis la **page d'accueil invité**, tant qu'une pole est en cours apparaît une **carte** qui mène directement à son tableau.
 - On y accède aussi depuis **Live-stats**.
 
-C'est une vue en **lecture seule** : il n'y a pas de boutons pour démarrer, arrêter ou passer au pilote suivant, seulement ce qui est en train de se passer : **qui est en piste en ce moment**, l'**ordre de départ** qu'il reste à courir et le **classement provisoire** (du plus rapide au plus lent) au fur et à mesure que les temps sont enregistrés. Elle se met à jour toute seule, sans recharger.
+C'est une vue en **lecture seule** : il n'y a pas de boutons pour démarrer, arrêter ou passer au pilote suivant, seulement ce qui est en train de se passer : **qui est en piste en ce moment**, l'**ordre de départ** qu'il reste à courir et le **classement provisoire** (du plus rapide au plus lent) au fur et à mesure que les temps sont enregistrés. Elle se met à jour toute seule, sans recharger. En plus, elle **annonce les temps** à voix haute, dans la langue de la page : « Nouvelle pole » si quelqu'un la bat, « Meilleur tour » si le pilote en piste améliore le sien et, sinon, seulement le temps. Si tu ne veux pas l'entendre, désactive **Annoncer les temps** (« Cantar tiempos ») dans la barre du haut : cela ne concerne que ton appareil.
 
 > Si ton équipe participe à la course d'endurance qui suit la pole, dès que la course est confirmée tu as déjà ton **panneau PitWall Lap** actif — tu peux y suivre ta propre tentative de pole, voix comprise (voir *PitWall Lap : ta course sur le mobile*).
 

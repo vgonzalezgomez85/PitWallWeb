@@ -7,15 +7,16 @@ A guide for whoever **operates** PitWall: setting up the race, running it live, 
 ## 1. Introduction
 ![img: 01-home.png]
 
-**PitWall** is the timing and management system for slot racing. It detects each car crossing the finish line through the timing hardware, with two compatible options:
+**PitWall** is the timing and management system for slot racing. It detects each car crossing the finish line through the timing hardware, with several compatible options:
 
-- **DS-300** — via **serial port**. You can combine **up to 6 DS-300 tracks** in a single race: each box times its own lanes and PitWall combines them. Each box uses **its own port** (one box = one port).
+- **DS** (**DS-300**, DS-200, DS-030 or DS-080) — via **serial port**. You can combine **up to 6 DS-300 tracks** in a single race: each box times its own lanes and PitWall combines them. Each box uses **its own port** (one box = one port).
 - **DS-300 aggregator** — when an **aggregator device** bundles **several DS-300 boxes (2 to 4) over a single COM port**. PitWall separates the boxes by their frame id and numbers lanes consecutively (box 1 → 1–8, box 2 → 9–16, and so on up to **32 lanes** with 4 boxes). A **single start signal** launches all boxes at once.
 - **BART (Policar)** — via **Bluetooth**. It supports **up to the maximum number of lanes that BART allows** (currently **32**). Beyond 8 lanes you need **several independent BART Masters** (e.g. `BART_TRACK1`, `BART_TRACK2`…), one per block of lanes: PitWall connects to each one separately and numbers lanes consecutively, just like the DS-300 aggregator.
+- **TicTac (TicTacSlot "Lap counter" interface)** — via **USB**. PitWall detects it by itself; it only sends crossings, so with this device **PitWall runs the race** (see *Running the race live*).
 
 You can use any of these sources; for PitWall the flow of crossings is equivalent.
 
-- The **home screen** has a header with the **«Go to…»** search (shortcut **⌘K** on Mac or **Ctrl K**): type part of the name of a section or a race; **Enter** opens the first result and **Esc** clears the search. Next to it, pills show the data source status (simulation, DS-300 connected or disconnected) and the server's **IP address**, for connecting phones and screens.
+- The **home screen** has a header with the **«Go to…»** search (shortcut **⌘K** on Mac or **Ctrl K**): type part of the name of a section or a race; **Enter** opens the first result and **Esc** clears the search. Next to it, pills show the data source status (simulation or the real source —"DS-300 ×2", "DS-200", "BART", "TicTac", or combined such as "DS-300 + TicTac"—, connected or disconnected) and the server's **IP address**, for connecting phones and screens.
 - When a **race is in progress**, its banner appears below: **heat X of Y**, round, the **time remaining** in the heat, the **heats** (the one being run already counts) and the **projected leader**, which is the same as in the live view's *Projected standings* and updates live. It has buttons to **Heat live**, **TV screen**, **Lap corrections** (for the heat in progress or the last one finished), **Live stats**, **Driver shifts** (championships), **Tyres** (if the race has tyre sets), **Event log** and **Manage race**. With no race in progress, the banner shows the pole currently running or the **New race** / **Free practice** shortcuts. The home screen refreshes on its own when a race starts and when a heat starts, finishes or is paused.
 - Below, the sections are laid out as **tiles**: **Competition** (Races, Sprint race, Endurance race, Free practice, Competition practice, Live stats, Results, Lap, Driver shifts, Tyre control…), **Catalog** (Drivers, Teams, Cars, Categories and Scenarios, with how many you have of each) and **System** (Settings, Database, Sync catalog, Ecosystem connection, Troubleshooting…). At the bottom, the **Recent races** table with their status, heats and direct action (Live, Results or Open). **Sprint race** and **Endurance race** open the new-race wizard with the type already selected. If an **access password** is set, the **Catalog** and **System** buttons show a **padlock** and ask for it when pressed; the rest of the home screen never needs it (see *Settings*).
 - Each section opens in **its own window**: click it again and PitWall brings the window you already had open to the front (in the desktop app, even if it's minimised or you went back to the home screen from it). That way you can keep the live view, the TV and the stats open at the same time. Open windows are listed in the home screen's **bottom bar**, with **Bring** to put them in front and **✕** to close them. The **«Open links in: New window / This window»** («Abrir enlaces en») switch, in the header next to **Customise**, lets you open everything in the same window instead, and **Shift + click** opens a link right here without touching the switch.
@@ -89,7 +90,7 @@ Press **Sprint race** or **Endurance race** on the home screen, or **+ New race*
   - *Sprint* → a **quick race**, of **drivers or teams**.
   - *Endurance* → an **endurance race** (by teams), which adds the **control of how much each driver of the team has run** (see *Driver shift control*).
 - **Race name**.
-- **Circuit**: pick a saved circuit and it is summed up in one line (e.g. "24 lanes · 3 circuits (8 + 8 + 8) · min lap 6.00 s"), with nothing else to fill in. With **— Configure manually —** you get the **number of circuits**, the **lanes** of each one (e.g. 8+8+6 = 3 DS-300 boxes) and the **min lap time (Pt)**: below that time a crossing is considered a **ghost** (bounce/double read) and does not count. If the circuit has times per category, **Category** also appears.
+- **Circuit**: pick a saved circuit and it is summed up in one line (e.g. "24 lanes · 3 circuits (8 + 8 + 8) · min lap 6.00 s"), with nothing else to fill in. With **— Configure manually —** you get the **number of circuits**, the **lanes** of each one (e.g. 8+8+6 = 3 DS boxes) and the **min lap time (Pt)**: below that time a crossing is considered a **ghost** (bounce/double read) and does not count. If the circuit has times per category, **Category** also appears.
 - **Pole position**: **No pole** or **With pole** (the fastest picks a lane first).
 - **Category and car (optional)**: two switches, **Category / cup** («Categoría / copa») and **Car** («Coche»), to note each team's or driver's cup and the car they race with (see *Batches, participants and rotation*). They are **off** by default: with them off nothing changes. The category is shown next to the name in the live view; with the switches on, category and car also come out as columns next to the name in the **results Excel**.
 - **Endurance rules** (endurance only): **min** and **max per driver** (in minutes), **max turns**, **tyres** (in pairs per team) and **No swaps at the end** (the last seconds of each heat, when drivers cannot be changed). Anything left blank is not checked.
@@ -176,7 +177,11 @@ The **pole** is a qualifying lap **before** the race to decide the starting orde
 - **Pole lane**: **everyone** does their qualifying lap on the **same lane** (so it's comparable). Pick it with **−/+** or with 🎲 Random (“🎲 Aleatorio”).
 - **Automatic driver advance**: a toggle next to Skip 1st crossing (“Omitir 1er cruce”). With it on, when a driver's attempt ends the Next driver (“Siguiente piloto”) button counts down 3 seconds and advances on its own, without waiting for a manual click. It's a preference of the control desk (saved in the browser itself), not of the race.
 - Press Start Pole (“Empezar Pole”): each participant enters in turn, does their lap and PitWall records their best time. In timing you can enable Skip 1st crossing (“Omitir 1er cruce”) (out-lap) so the launch lap isn't counted.
+- **Announce times**: a toggle in the top bar of the timing screen, next to Skip 1st crossing (out-lap) and Automatic driver advance. PitWall calls out every lap of the driver on track: “New pole, 11.85” if it beats the current pole, “Best lap, 11.90” if it improves their own without beating the pole and, otherwise, just the time (“11.94”). It's **on** by default and each browser remembers its choice: guests following the pole from another device have it too, and each one can mute their own. The voice speaks the page's language.
+- **Pole with BART, TicTac or simulation**: pole used to start only with the GO from a DS box. Now, with these sources, the pole screen shows **"Press GO to start"** and the **GO** (same 3-second start light), **PAUSE** and **RESUME** buttons. The pole **ends by itself when time runs out** and saves the best lap; **Stop**, **Skip** and **Next driver** work as usual. With a DS box nothing changes and the new buttons don't appear.
 - No-show (“No se presenta”): if the participant whose turn it is doesn't show up on track, the No-show button skips them. The first time it sends them to the **end of the queue** —they'll get another chance when their turn comes round again—; if they get skipped a second time without having run in between, they're marked **absent** for good. No-shows don't compete for pole with a synthetic 0.00 as if it were the fastest lap: they appear separately, in their own block, both in the live standings and in the final results.
+
+![img: 44b-pole-timing.png]
 
 **Pole results.** When it finishes, Pole Results (“Resultados Pole”) appears with the **final classification** (from fastest to slowest, with the gap to the leader and the **fastest lap**). From here you can ✏️ Edit times (“✏️ Editar tiempos”) if there was an error, or continue with 🚦 Assign starting lanes (“🚦 Asignar carriles de salida”).
 
@@ -232,13 +237,43 @@ From the race page:
 3. During the heat you see per lane: **total laps**, **last**, **average**, **best**, and at the top the **fastest lap** banner.
 4. **Pause / Resume / Stop** the heat when needed.
 5. When it ends (flag or time out), the heat closes and the **next one** is prepared.
-6. When all the heats of a batch are done, the **next batch** starts.
+6. When all the heats of a batch are done, the race stops there and the GO goes back to **training**: the **next batch** starts when you press **▶ Round N** (see *Who gets the box GO*, below).
 
 **The race sheet stays reachable with a heat running.** Opening a race that has a heat in progress no longer takes you straight to the live screen: you see its **sheet** (status, projected classification, batches…) with a **"Manga N"** (Heat N) link to jump to the live screen whenever you want. When you **give the GO** from the sheet, the screen does jump to live on its own, and you still can't start a second heat while another is running.
 
-**Changing a race's status.** On the race sheet, next to the status label, the **Change status** («Cambiar estado») button offers **Pending** («Pendiente», not started yet), **Active** («En curso», shown on the home screen and receives the GO) and **Completed** («Completada», moves to results). Use it, for instance, to reopen a race closed by mistake or to park one you won't run yet. It can't be changed while a **heat of that race is running**. If you set a race to **Active** while another one is already active, PitWall warns you: the next GO from the DS goes to the **first pending heat of any active race**, so it's best to keep only one.
+**Changing a race's status.** On the race sheet, next to the status label, the **Change status** («Cambiar estado») button offers **Pending** («Pendiente», not started yet), **Active** («En curso», shown on the home screen and can receive the GO) and **Completed** («Completada», moves to results). Use it, for instance, to reopen a race closed by mistake or to park one you won't run yet. It can't be changed while a **heat of that race is running**. If you set a race to **Active** while another one is already active, PitWall warns you: it's best to keep only one. Being active is not enough to get the GO: see the next part.
 
 ![img: 06b-race-status.png]
+
+**Who gets the box GO.** The same GO can start a race heat or training, and PitWall decides with **a single rule**, the same for the race, training and the desktop app. **The GO belongs to training**, unless:
+
+- a **race has asked for it**: opening, on the track computer, the **live view of the heat that's up next**, pressing **▶ Round N**, **Repeat** on a heat, or pressing **Take back the GO** in the live view's banner;
+- a **batch is half-run** (between two heats of the same batch; also after restarting PitWall);
+- a **pole** is running.
+
+For the race to start, there must also be a **live view open on the track computer**, as always. If the race can't start, the GO goes to training: **no GO is lost any more**.
+
+- **When a batch ends, the GO goes back to training on its own**, even if the live view was left open. To continue the race, press **▶ Round N** (also after restarting PitWall).
+- **Looking at a race sheet no longer prepares the race**: you can check it without leaving training without the GO.
+- **Amber banner in the live view.** On the track computer, if the race still has something to run and the GO isn't its own, the live view says so: “Training has the GO: this live view will not start the race”, with a **Take back the GO** button. When a batch has just ended it says “To continue the race, press ▶ Round N”, with no button. If a pole or another race has the GO, it says that too.
+
+![img: 20c-live-go-franja.png]
+
+> **Example: a race over two nights.** You set up the race days in advance and keep training: the GO belongs to training. On Thursday you open the live view of heat 1 on the track computer and run batches 1 and 2. When batch 2 ends the GO goes back to training, even with the live view still open, and you can train. On Friday, even if you restarted PitWall and trained first, you press **▶ Round 3** and the race carries on where it stopped.
+
+**What the GO starts, case by case.** A race with **2 batches**: batch 1 is run on Thursday and batch 2 on Friday. Unless stated otherwise, a live view is open on the track computer. These cases were checked with the DS-300 emulator:
+
+| Situation | The GO starts… |
+|---|---|
+| 1. Race set up; someone looks at its race sheet | Training |
+| 2. A live view left open by mistake, without opening the one for the heat that's up next | Training |
+| 3. They open the live view of heat 1 and then enter training | Training |
+| 4. They go back to the live view of heat 1 | Heat 1 |
+| 5. Batch half-run, even if someone enters training | Heat 2 |
+| 6. End of batch with the live view left open | Training |
+| 7. Friday, after restarting PitWall, with the live view open | Training |
+| 8. They press “Take back the GO” without pressing “▶ Round 2” | Training |
+| 9. After pressing “▶ Round 2” | Heat 1 of batch 2 |
 
 **Choosing the view.** With the View (“Vista”) button you pick one of two views: *Horizontal rows* (one row per lane) or *Cards with details* (one card per lane, readable from a distance). The old *Compact grid* no longer exists: if you had it selected, the cards open instead.
 
@@ -260,12 +295,19 @@ From the race page:
 
 **The flag lap is timed.** Each car's last crossing of the line comes a moment after the flag falls, so PitWall keeps waiting for that crossing during the seconds set in **"Wait for crossings after the end"** (**Settings → Preferences**; 1.5 s by default and **0 disables it**): if it arrives, the flag lap is saved with its **real time**, and in the **race events log** you'll see whether it was **timed** or **restored**. If the crossing doesn't arrive, PitWall restores the lap using the lane's **average** so that no lap is lost. That lap is also the one that decides the tie when laps are level: if two cars finish in the **same heat**, the one who **crossed the line first** goes ahead; if not, the **fraction** of the last heat decides. The *Statistics manual* explains it in detail.
 
+**When PitWall runs the race (TicTac, BART and simulation).** The TicTac **only sends crossings**: it has no GO, pause or finish. So with **TicTac, BART or simulation** PitWall runs the heat, and the **live** screen and **practice** show the **GO**, **PAUSE / RESUME** and **STOP** buttons. With a DS box they don't appear: the box is in charge.
+
+- **GO**: starts the **3-second start light** and launches the heat with its duration. On GO **every lane starts from zero**: the first crossing counts as the **start lap**.
+- **PAUSE / RESUME**: freezes **PitWall's clock**, but it does **not cut power to the track** (the interface doesn't do that; if the club cuts it, it is done by hand). **Crossings during the pause are ignored**.
+- **STOP**: stops the heat.
+- **Finish with TicTac**: the heat closes **exactly when time runs out**. The **flag lap** counts if the crossing falls within the **"Wait for crossings after the end"** window in **Settings → Preferences** (1.5 s by default, up to 10 s), just like with other devices. A car that is halfway round a lap when time runs out and crosses outside that window **does not add that lap**; raising the window softens this.
+
 **Switching batch, repeating a heat and finishing.** From the live screen itself you have shortcuts without leaving the screen:
 - **Next batch** — when a batch's heats are done, it moves straight to the next.
 - **Repeat heat** — if a heat was called bad (false start, incident), you launch it again with the same participants and lanes.
 - **Finish race** — closes the race (the "flag"): the classification is frozen and the summary is generated for results and for the mobiles (PitWall Lap).
 
-> "Sin señal del DS-300" (no DS-300 signal) warning: while it's showing, laps are **not recorded**. Check the connection before giving the GO.
+> "No timing signal" warning: while it's showing, laps are **not recorded**. Check the connection before giving the GO.
 
 ## 10. Race events
 
@@ -368,6 +410,14 @@ Besides races, PitWall has a **Training** mode (the **Free practice** and **Comp
 
 Choose the mode, assign the lanes and press **Start**. Live timing works the same as in a race (box GO, laps, best/average per lane).
 
+**Training and the box GO.** When you **enter training** (open free training or start a competition one) from the track computer, training takes the GO, unless a **heat is running**, a **batch is half-run** or a **pole** is on (see *Who gets the box GO* in *Running the race live*). From the TV or a phone on the network nothing changes.
+
+- If the GO is **not** training's, the screen says so and why: heat running, batch N half-run, live view of “X” open on this computer, pole running or simulated race. If the race has asked for it but hasn't started yet, the notice has a **Give GO to training** button. This notice replaces the old “There is an active race…” one, which showed up whenever a race was active.
+- **Competition training** no longer starts at the same time as an official heat or a pole with the same GO.
+- The **desktop app** opens free training at startup (if enabled in **Settings → Windows and screens**) unless the GO belongs to a race or a pole; before, any active race was enough to stop it opening.
+
+![img: 41c-training-go-aviso.png]
+
 **The training live view.** At the top you have the same buttons as in the race live view (**GO**, pause, **STOP**, voice, **View**, reset, full screen and **Back**). Each lane's card shows:
 
 - the **last lap** and its gap to the best;
@@ -401,8 +451,11 @@ Each session can be **deleted** from its detail. If you stop the session with **
 
 **Settings** are organised with a **side menu**: **Data source**, **Preferences**, **Local network**, **Security**, **Online tracking**, **Integrations** and **Diagnostics**. Each section has its own screen, the menu shows status dots (timer, tunnel, debug mode) and saving brings you back to the section you were in. At the bottom, a **fixed save bar** warns you about **unsaved changes** and which ones **need a PitWall restart** (only the network interface and HTTPS; everything else applies on save).
 
-- **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes. If you use **several BART Masters** (one per block of lanes), add one row per Master with its **BLE name** (e.g. `BART_TRACK1`, `BART_TRACK2`…) and **lane count**: they're numbered consecutively just like the DS-300 aggregator boxes, and each Master has to be paired separately.
-- **Port setup, kept simple**: for each DS-300 circuit (and the aggregator) you only see **Port** and **Baud rate** at a glance. Pick the **port** from the detected list; if yours isn't there, tap **"Type the path manually"** to enter it (e.g. `COM3` or `/dev/ttys003`). The **baud rate** is a dropdown with the usual speeds (9600–921600), with **"Type manually"** for an out-of-list value. The fine serial settings (**Data bits, Parity, Stop bits, Flow control**) are folded under **"Advanced port options"**: they default to **8N1** and rarely need touching.
+- **Data source**: choose where crossings come from — **Simulation**, **DS** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes. If you use **several BART Masters** (one per block of lanes), add one row per Master with its **BLE name** (e.g. `BART_TRACK1`, `BART_TRACK2`…) and **lane count**: they're numbered consecutively just like the DS-300 aggregator boxes, and each Master has to be paired separately.
+- **Port setup, kept simple**: for each DS circuit (and the aggregator) you only see **Port** and **Baud rate** at a glance. Pick the **port** from the detected list; if yours isn't there, tap **"Type the path manually"** to enter it (e.g. `COM3` or `/dev/ttys003`). The **baud rate** is a dropdown with the usual speeds (9600–921600), with **"Type manually"** for an out-of-list value. The fine serial settings (**Data bits, Parity, Stop bits, Flow control**) are folded under **"Advanced port options"**: they default to **8N1** and rarely need touching.
+- **DS model**: the card that used to be called "DS-300" is now called **"DS"**. Each circuit has a **Model** selector: **DS-300**, **DS-200**, **DS-030** and **DS-080**. Choosing a model sets its own **speed** (baud rate) —**56000** baud for the DS-300, **4800** for the others— and you can change it by hand. The **DS-200** has **2 lanes**; the **DS-080** carries **two circuits on a single port** (lanes 1–8 and 9–16). With a DS, **the box is in charge**: the GO, pause and finish come from the device itself.
+- **TicTac (TicTacSlot "Lap counter")**: it has its **own card** in **Data source**. It is a **USB** device (it creates no COM port): PitWall detects it by itself, just plug it in, **even if PitWall is already running**. If you unplug it, it is marked as down and **re-attaches by itself** when you plug it back in. Settings shows its status: **"✓ TicTacSlot detected over USB"**, **"Not detected: connect the interface by USB"** or **"USB reading not available in this installation"**. The **Connection** selector offers **"USB (automatic)"** (default) or **"Serial port (emulator or bridge)"**, the latter only for tests with the emulator. Choose the **number of lanes** (1–8). Each lap time comes from the **device's own clock**. On **macOS** it may ask for the **"Input Monitoring"** permission; on **Linux** a udev rule is needed to access the USB device.
+- **What has been tested and what hasn't**: only the **DS-300** has been checked against a real device. The **DS-200, DS-030 and DS-080** follow the protocol document and are **untested with hardware**; the **TicTac** has not been tested with the physical device yet either. If you use them, run a test before race day.
 - **Preferences**: the **App mode** (basic or advanced; see *Introduction*), the **Practice lap history** (last 10 or best 10; see *Training*), the **Live view order** (by projected standings or by actual laps; see *Running the race live*), the **Manual correction of the fraction** (Automatic —recommended, the default— or Allow manual correction: with the second, in the corrections screen of a finished heat each lane can have its fraction corrected by hand, and that fraction wins the tie-break on equal laps — see *Lap by lap and corrections*), the **Wait for crossings after the end** (how many seconds PitWall keeps waiting, after a heat ends, for the crossing that times the flag lap; 0 to 10 s, 1.5 s by default, and 0 disables it — see *Running the race live*) and the global **Lane colors**: the ones used when there is no scenario or the scenario has no colors of its own. Click each swatch to change its color; **Save colors** applies them instantly without touching the timing connection, and **Factory colors** restores the original palette.
 - **Local network**: network interface, restrict web access and local HTTPS (for the QR camera).
 - **Security**: a **password** so only those who know it can enter **System** and **Catalog** (see *Access password* below).
@@ -431,7 +484,7 @@ Each session can be **deleted** from its detail. If you stop the session with **
 **Exporting and importing a race.** To bring a race you ran at another club onto your PC without moving the whole database. **Export race** downloads a **`.pwrace`** file with everything: teams, drivers, rounds, heats, laps, driver shifts, tyres, events, inspections with photos, pole and categories (a 24 h race with 150,000 laps takes about 3 MB). **Import race** adds it as a **new race, instantly and without restarting**, leaving your other races untouched; if its circuit does not exist on this PC, it is created.
 - The **same race cannot be imported twice**: PitWall warns you and links to the one you already have.
 - A race with an **unclosed heat** cannot be exported: close or cancel it first in **Troubleshooting → Stuck heats**.
-- A race that was **in progress** comes in as **pending**, so it never picks up the DS-300 GO on this PC.
+- A race that was **in progress** comes in as **pending**, so it never picks up the DS GO on this PC.
 - Export and import wait until **no heat is running**, just like the Excel export.
 
 ![img: op-database-carrera.png]
@@ -466,7 +519,7 @@ It's in **Settings → Public tracking over the internet**. There are **two mode
 - **Rest**: a heat in which a participant doesn't run (a `0` gap in the sequence).
 - **Pass**: a complete run through the lane sequence; N passes = N× heats.
 - **Repeat lane**: run each lane N consecutive heats, adding up laps.
-- **GO**: the start signal (from the DS-300 box) that launches the heat.
+- **GO**: the start signal (from the DS box) that launches the heat.
 - **Ghost lap**: a lap marked as invalid (doesn't count), restorable.
 - **Exit (⚠️)**: a lap that takes longer than that driver's fastest lap on that lane during the heat + 1.5 s (like TicTac's “slow laps”); if it takes twice their clean average or more, it's a pit-stop (🔧). Live it's provisional: when the fastest lap improves, earlier laps can become exits.
 - **Pole**: a pre-race qualifying session (optional); everyone runs on the same lane and their best lap sets the starting grid.
@@ -480,7 +533,7 @@ It's in **Settings → Public tracking over the internet**. There are **two mode
 - **Catalog**: reusable library of drivers, teams and cars (importable via CSV).
 - **Driver QR**: a code that identifies the driver to record their shift when scanned.
 - **Shift**: the period a driver is at the wheel within their team in endurance.
-- **DS-300**: the timing box that detects the crossing at the line.
+- **DS**: the timing box that detects the crossing at the line.
 - **Import batch**: bring in an event set up in PitWall Control (by JSON or over LAN + PIN) so PitWall auto-creates the race.
 - **PitWall Control**: the championship-management app that sets up the event and receives the results from PitWall.
 - **Public tracking over the internet**: publish the public views (live timing, results, Lap) on the internet with the club's own Cloudflare tunnel.

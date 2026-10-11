@@ -7,15 +7,16 @@ Guía para quien **opera** PitWall: montar la carrera, dirigirla en vivo, correg
 ## 1. Introducción
 ![img: 01-home.png]
 
-**PitWall** es el sistema de cronometraje y gestión de carreras de slot. Detecta el paso de cada coche por la línea de meta a través del hardware de cronometraje, con dos opciones compatibles:
+**PitWall** es el sistema de cronometraje y gestión de carreras de slot. Detecta el paso de cada coche por la línea de meta a través del hardware de cronometraje, con varias opciones compatibles:
 
-- **DS-300** — por **puerto serie**. Puedes unir **hasta 6 circuitos** DS-300 en una sola carrera: cada caja cronometra sus carriles y PitWall los combina. Cada caja va por **su propio puerto** (una caja = un puerto).
+- **DS** (**DS-300**, DS-200, DS-030 o DS-080) — por **puerto serie**. Puedes unir **hasta 6 circuitos** DS-300 en una sola carrera: cada caja cronometra sus carriles y PitWall los combina. Cada caja va por **su propio puerto** (una caja = un puerto).
 - **DS-300 agrupador** — cuando un **aparato agrupador** junta **varias cajas DS-300 (de 2 a 4) en un solo puerto COM**. PitWall separa las cajas por su identificador de trama y numera los carriles de corrido (caja 1 → 1–8, caja 2 → 9–16, y así hasta **32 carriles** con 4 cajas). Una **única señal de salida** arranca todas las cajas a la vez.
 - **BART (Policar)** — por **Bluetooth**. Admite **hasta el máximo de carriles que permita BART** (actualmente **32**). Con más de 8 carriles hacen falta **varios Master BART independientes** (p. ej. `BART_TRACK1`, `BART_TRACK2`…), uno por cada bloque de carriles: PitWall se conecta a cada uno por separado y numera los carriles de corrido, igual que con el agrupador DS-300.
+- **TicTac (interface TicTacSlot «Cuentavueltas»)** — por **USB**. PitWall lo detecta solo; solo envía los cruces, así que con este aparato **PitWall dirige la carrera** (ver *Dirigir la carrera en vivo*).
 
 Puedes usar cualquiera de estas fuentes; para PitWall el flujo de cruces es equivalente.
 
-- La **pantalla de inicio** tiene arriba una cabecera con el buscador **«Ir a…»** (atajo **⌘K** en Mac o **Ctrl K**): escribe parte del nombre de una sección o de una carrera; **Intro** abre el primer resultado y **Esc** limpia la búsqueda. A su lado, unas píldoras muestran el estado de la fuente de datos (simulación, DS-300 conectado o sin conexión) y la **dirección IP** del servidor, para conectar móviles y pantallas.
+- La **pantalla de inicio** tiene arriba una cabecera con el buscador **«Ir a…»** (atajo **⌘K** en Mac o **Ctrl K**): escribe parte del nombre de una sección o de una carrera; **Intro** abre el primer resultado y **Esc** limpia la búsqueda. A su lado, unas píldoras muestran el estado de la fuente de datos (simulación o la fuente real —«DS-300 ×2», «DS-200», «BART», «TicTac», o combinadas como «DS-300 + TicTac»—, conectada o sin conexión) y la **dirección IP** del servidor, para conectar móviles y pantallas.
 - Si hay una **carrera en curso**, debajo aparece su franja: **manga X de Y**, tanda, el **tiempo que queda** de la manga, las **mangas** (cuenta ya la que se está corriendo) y el **líder estimado**, que es el mismo de la *Clasificación estimada* del directo y se actualiza en vivo. Tiene botones a **Directo de la manga**, **Pantalla TV**, **Corrección de vueltas** (de la manga en curso o de la última terminada), **Estadísticas en vivo**, **Control de pilotos** (en campeonato), **Neumáticos** (si la carrera tiene juegos), **Registro de sucesos** y **Gestionar carrera**. Sin carrera en curso, la franja muestra la pole que esté en marcha o los atajos **Nueva carrera** / **Entreno libre**. El inicio se actualiza solo cuando arranca una carrera y al empezar, terminar o pausar una manga.
 - Debajo están las secciones en **mosaicos**: **Competición** (Carreras, Carrera sprint, Carrera resistencia, Entreno libre, Entreno de competición, Estadísticas en vivo, Resultados, Lap, Control de pilotos, Control de neumáticos…), **Catálogo** (Pilotos, Equipos, Coches, Categorías y Escenarios, con cuántos tienes de cada) y **Sistema** (Ajustes, Base de datos, Sincronizar catálogo, Conexión ecosistema, Solución de problemas…). Al final, la tabla de **Carreras recientes** con su estado, sus mangas y la acción directa (Directo, Resultados o Abrir). **Carrera sprint** y **Carrera resistencia** abren el asistente de nueva carrera con el tipo ya marcado. Si hay **contraseña de acceso**, los botones de **Catálogo** y **Sistema** llevan un **candado** y la piden al pulsarlos; el resto del inicio va siempre sin contraseña (ver *Ajustes*).
 - Cada sección se abre en **su propia ventana**: si la vuelves a pulsar, PitWall trae al frente la ventana que ya tenías abierta (en la app de escritorio, aunque esté minimizada o hayas vuelto al inicio desde ella). Así puedes tener a la vez el directo, la TV y las estadísticas. Las ventanas abiertas aparecen en la **barra inferior** del inicio, con **Traer** para ponerlas delante y **✕** para cerrarlas. Con el interruptor **«Abrir enlaces en: Ventana nueva / Esta ventana»**, que está en la cabecera junto a **Personalizar**, eliges si prefieres abrirlo todo en la misma ventana, y **Mayús + clic** abre un enlace aquí mismo sin tocar el interruptor.
@@ -89,7 +90,7 @@ Pulsa **Carrera sprint** o **Carrera resistencia** en el inicio, o **+ Nueva car
   - *Sprint* → una **carrera rápida**, de **pilotos o equipos**.
   - *Resistencia* → una **carrera de resistencia** (por equipos), que añade el **control de cuánto ha corrido cada piloto** del equipo (ver *Control de turnos de piloto*).
 - **Nombre de la carrera**.
-- **Circuito**: elige un circuito guardado y se resume en una línea (p. ej. «24 carriles · 3 circuitos (8 + 8 + 8) · vuelta mínima 6,00 s»), sin nada más que rellenar. Con **— Configurar a mano —** aparecen el **nº de circuitos**, los **carriles** de cada uno (p. ej. 8+8+6 = 3 cajas DS-300) y la **vuelta mínima (Pt)**: por debajo de ese tiempo, un cruce se considera **fantasma** (rebote/doble lectura) y no cuenta. Si el circuito tiene tiempos por categoría, aparece también **Categoría**.
+- **Circuito**: elige un circuito guardado y se resume en una línea (p. ej. «24 carriles · 3 circuitos (8 + 8 + 8) · vuelta mínima 6,00 s»), sin nada más que rellenar. Con **— Configurar a mano —** aparecen el **nº de circuitos**, los **carriles** de cada uno (p. ej. 8+8+6 = 3 cajas DS) y la **vuelta mínima (Pt)**: por debajo de ese tiempo, un cruce se considera **fantasma** (rebote/doble lectura) y no cuenta. Si el circuito tiene tiempos por categoría, aparece también **Categoría**.
 - **Pole position**: **Sin pole** o **Con pole** (el más rápido elige carril primero).
 - **Categoría y coche (opcional)**: dos interruptores, **Categoría / copa** y **Coche**, para anotar por equipo o piloto la copa en la que corre y el coche con el que participa (ver *Tandas, participantes y rotación*). Vienen **apagados** por defecto: con ellos apagados nada cambia. La categoría se muestra junto al nombre en el directo; con los interruptores activos, categoría y coche salen además como columnas junto al nombre en el **Excel de resultados**.
 - **Reglas de resistencia** (solo en resistencia): **mínimo** y **máximo por piloto** (en minutos), **máximo de turnos**, **neumáticos** (en pares por equipo) y **Sin cambios al final** (los últimos segundos de cada manga, en los que no se puede cambiar de piloto). Lo que dejes en blanco no se controla.
@@ -176,7 +177,11 @@ La **pole** es una vuelta clasificatoria **antes** de la carrera para decidir el
 - **Carril de pole**: **todos** hacen su vuelta clasificatoria por el **mismo carril** (para que sea comparable). Elígelo con **−/+** o con **🎲 Aleatorio**.
 - **Cambio automático de piloto**: interruptor junto a **Omitir 1er cruce**. Con la casilla activa, al terminar el intento de un piloto el botón **Siguiente piloto** hace una cuenta atrás de 3 segundos y avanza solo, sin esperar el clic manual. Es una preferencia del puesto de control (se guarda en el propio navegador), no de la carrera.
 - Pulsa **Empezar Pole**: cada participante entra por turnos, da su vuelta y PitWall registra su mejor tiempo. En el cronometraje puedes activar **Omitir 1er cruce (out-lap)** para no contar la vuelta de lanzamiento.
+- **Cantar tiempos**: interruptor en la barra superior del cronometraje, junto a **Omitir 1er cruce (out-lap)** y **Cambio automático de piloto**. PitWall canta en voz alta cada vuelta del piloto en pista: «Nueva pole, 11 con 85» si bate la pole vigente, «Mejor vuelta, 11 con 90» si mejora la suya sin batir la pole y, si no, solo el tiempo («11 con 94»). Viene **activo** y cada navegador recuerda su elección: los invitados que siguen la pole desde otro dispositivo también lo tienen, y cada uno puede silenciar el suyo. La voz habla en el idioma de la página.
+- **Pole con BART, TicTac o simulación**: antes la pole solo arrancaba con el GO de una caja DS. Ahora, con esas fuentes, la pantalla de pole muestra **«Pulsa GO para empezar»** y los botones **GO** (con el mismo semáforo de 3 s), **PAUSE** y **REANUDAR**. La pole **termina sola al agotar el tiempo** y guarda la mejor vuelta; **Parar**, **Saltar** y **Siguiente piloto** funcionan como siempre. Con una caja DS no cambia nada y los botones nuevos no aparecen.
 - **No se presenta**: si al participante de turno no se le ve por pista, el botón **No se presenta** lo salta. La primera vez lo manda al **final de la cola** —tendrá otra oportunidad cuando le vuelva a tocar—; si se le vuelve a saltar sin haber llegado a correr entre medias, queda marcado **Ausente** de verdad. Los ausentes no compiten por la pole con un 0.00 como si fuera la vuelta más rápida: aparecen aparte, en su propio bloque, tanto en la clasificación en vivo como en los resultados finales.
+
+![img: 44b-pole-timing.png]
 
 **Resultados de la pole.** Al terminar aparece **Resultados Pole** con la **clasificación final** (del más rápido al más lento, con el gap al líder y la **vuelta rápida**). Desde aquí puedes **✏️ Editar tiempos** si hubo un error, o seguir con **🚦 Asignar carriles de salida**.
 
@@ -232,13 +237,43 @@ Desde la página de la carrera:
 3. Durante la manga ves por carril: **total de vueltas**, **última**, **media**, **mejor**, y arriba el banner de **vuelta rápida**.
 4. **Pausa / Reanudar / Parar** la manga cuando haga falta.
 5. Al terminar (bandera o fin de tiempo), la manga se cierra y se prepara la **siguiente**.
-6. Al acabar todas las mangas de una tanda, arranca la **siguiente tanda**.
+6. Al acabar todas las mangas de una tanda, la carrera se detiene ahí y el GO vuelve al **entreno**: la **siguiente tanda** empieza cuando pulsas **▶ Tanda N** (ver *Quién se lleva el GO de la caja*, más abajo).
 
 **La ficha de la carrera es accesible con una manga en marcha.** Entrar en una carrera que tiene una manga en curso ya no te lleva directo al directo: ves su **ficha** (estado, clasificación proyectada, tandas…) con un enlace **«Manga N»** para saltar al directo cuando quieras. Al **dar el GO** desde la ficha, la pantalla sí salta sola al directo, y sigue sin poderse arrancar una segunda manga mientras otra corre.
 
-**Cambiar el estado de una carrera.** En la ficha de la carrera, junto a la etiqueta de estado, el botón **«Cambiar estado»** despliega **Pendiente** (aún no ha empezado), **En curso** (sale en el inicio y recibe el GO) y **Completada** (pasa a resultados). Sirve, por ejemplo, para reabrir una carrera que se cerró por error o para aparcar una que no vas a correr todavía. No deja cambiarlo mientras haya una **manga de esa carrera en marcha**. Si pones una carrera **En curso** y ya hay otra en curso, PitWall te avisa: el siguiente GO del DS va a la **primera manga pendiente de cualquier carrera en curso**, así que conviene dejar solo una.
+**Cambiar el estado de una carrera.** En la ficha de la carrera, junto a la etiqueta de estado, el botón **«Cambiar estado»** despliega **Pendiente** (aún no ha empezado), **En curso** (sale en el inicio y puede recibir el GO) y **Completada** (pasa a resultados). Sirve, por ejemplo, para reabrir una carrera que se cerró por error o para aparcar una que no vas a correr todavía. No deja cambiarlo mientras haya una **manga de esa carrera en marcha**. Si pones una carrera **En curso** y ya hay otra en curso, PitWall te avisa: conviene dejar solo una. Estar en curso no basta para llevarse el GO: ver el apartado siguiente.
 
 ![img: 06b-race-status.png]
+
+**Quién se lleva el GO de la caja.** El mismo GO puede arrancar una manga de la carrera o el entreno, y PitWall decide con **una sola regla**, la misma para la carrera, el entreno y la app de escritorio. **El GO es del entreno**, salvo que:
+
+- una **carrera lo haya pedido**: abrir en el ordenador de la pista el **directo de la manga que toca correr**, pulsar **▶ Tanda N**, **Repetir** una manga o pulsar **Recuperar el GO** en la franja del directo;
+- haya una **tanda a medias** (entre dos mangas de la misma tanda; también después de reiniciar PitWall);
+- haya una **pole** en marcha.
+
+Para que la carrera arranque, además tiene que haber un **directo abierto en el ordenador de la pista**, como siempre. Si la carrera no puede arrancar, el GO es del entreno: **ya no se pierde ningún GO**.
+
+- **Al acabar una tanda el GO vuelve solo al entreno**, aunque el directo se haya quedado abierto. Para seguir la carrera, pulsa **▶ Tanda N** (también después de reiniciar PitWall).
+- **Mirar la ficha de una carrera ya no la prepara**: puedes consultarla sin dejar el entreno sin GO.
+- **Franja ámbar en el directo.** En el ordenador de la pista, si a la carrera le queda algo por correr y el GO no es suyo, el directo lo avisa: «El GO lo tiene el entreno: este directo no arrancará la carrera», con el botón **Recuperar el GO**. Al acabar una tanda dice «Para seguir la carrera, pulsa «▶ Tanda N»», sin botón. Si el GO lo tiene una pole u otra carrera, también lo dice.
+
+![img: 20c-live-go-franja.png]
+
+> **Ejemplo: una carrera en dos noches.** Dejas la carrera preparada días antes y seguís entrenando: el GO es del entreno. El jueves abres en el ordenador de la pista el directo de la manga 1 y corréis las tandas 1 y 2. Al terminar la tanda 2 el GO vuelve al entreno, aunque el directo siga abierto, y podéis entrenar. El viernes, aunque hayas reiniciado PitWall y entrenado antes, pulsas **▶ Tanda 3** y la carrera sigue donde se quedó.
+
+**Qué arranca con el GO, caso a caso.** Una carrera de **2 tandas**: la tanda 1 se corre el jueves y la tanda 2 el viernes. Salvo que se diga otra cosa, hay un directo abierto en el ordenador de la pista. Estos casos están comprobados con el emulador del DS-300:
+
+| Situación | El GO arranca… |
+|---|---|
+| 1. Carrera preparada; alguien mira su ficha | Entreno |
+| 2. Directo abierto por despiste, sin haber abierto el de la manga que toca | Entreno |
+| 3. Abren el directo de la manga 1 y luego entran al entreno | Entreno |
+| 4. Vuelven al directo de la manga 1 | Manga 1 |
+| 5. Tanda a medias, aunque alguien entre al entreno | Manga 2 |
+| 6. Fin de tanda con el directo olvidado abierto | Entreno |
+| 7. Viernes, tras reiniciar PitWall, con el directo abierto | Entreno |
+| 8. Pulsan «Recuperar el GO» sin pulsar «▶ Tanda 2» | Entreno |
+| 9. Tras pulsar «▶ Tanda 2» | Manga 1 de la tanda 2 |
 
 **Elegir la vista.** Con el botón **Vista** eliges entre dos vistas: *Filas horizontales* (una fila por carril) o *Tarjetas con detalles* (una tarjeta por carril, legible de lejos). La antigua *Cuadrícula compacta* ya no existe: si la tenías elegida, se abren las tarjetas.
 
@@ -260,12 +295,19 @@ Desde la página de la carrera:
 
 **La vuelta de bandera se cronometra.** El último paso de cada coche por meta llega un instante después de que caiga la bandera, así que PitWall sigue esperando ese cruce los segundos del ajuste **«Espera de cruces tras el final»** (**Ajustes → Preferencias**; 1,5 s por defecto y **0 lo desactiva**): si llega, la vuelta de bandera se guarda con su **tiempo real**, y en el **registro de sucesos** verás si quedó **cronometrada** o **repuesta**. Si el cruce no llega, PitWall repone la vuelta con la **media** del carril para que no se pierda ninguna. Esta vuelta es también la que fija el desempate a igualdad de vueltas: si dos acaban en la **misma manga**, va delante **quien cruzó antes la meta**; si no, decide la **coma** de la última manga. El *Manual de estadísticas* lo explica con detalle.
 
+**Cuando PitWall dirige la carrera (TicTac, BART y simulación).** El TicTac **solo envía cruces**: no tiene GO, pausa ni fin. Por eso, con **TicTac, BART o simulación** es PitWall quien dirige la manga, y en el **directo** y en el **entrenamiento** aparecen los botones **GO**, **PAUSE / REANUDAR** y **STOP**. Con una caja DS no aparecen: manda la caja.
+
+- **GO**: lanza el **semáforo de 3 segundos** y arranca la manga con su duración. Al dar el GO **cada carril empieza de cero**: el primer cruce cuenta como **vuelta de salida**.
+- **PAUSE / REANUDAR**: congela el **cronómetro de PitWall**, pero **no corta la corriente de la pista** (el interface no lo hace; si el club la corta, es a mano). Los **cruces durante la pausa se ignoran**.
+- **STOP**: para la manga.
+- **Final con TicTac**: la manga se cierra **justo al agotar el tiempo**. La **vuelta de bandera** cuenta si el cruce cae dentro de la ventana **«Espera de cruces tras el final»** de **Ajustes → Preferencias** (1,5 s por defecto, hasta 10 s), igual que con el resto de dispositivos. Un coche que va a mitad de vuelta cuando se acaba el tiempo y cruza fuera de esa ventana **no suma esa vuelta**; subir la ventana lo suaviza.
+
 **Cambiar de tanda, repetir una manga y finalizar.** Desde el propio directo tienes atajos sin salir de la pantalla:
 - **Siguiente tanda** — cuando acaban las mangas de una tanda, pasa directamente a la siguiente.
 - **Repetir manga** — si una manga se dio por mala (falsa salida, incidencia), la vuelves a lanzar con los mismos participantes y carriles.
 - **Finalizar carrera** — cierra la carrera (la "bandera"): se congela la clasificación y se genera el resumen para resultados y para los móviles (PitWall Lap).
 
-> Aviso **"Sin señal del DS-300"**: mientras esté, las vueltas **no se registran**. Revisa la conexión antes de dar el GO.
+> Aviso **"Sin señal del cronometraje"**: mientras esté, las vueltas **no se registran**. Revisa la conexión antes de dar el GO.
 
 ## 10. Sucesos de carrera
 
@@ -368,6 +410,14 @@ Además de las carreras, PitWall tiene un modo **Entrenamiento** (botones **Entr
 
 Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en directo funciona igual que en carrera (GO de la caja, vueltas, mejor/media por carril).
 
+**El entreno y el GO de la caja.** Al **entrar al entreno** (abrir el libre o iniciar uno de competición) desde el ordenador de la pista, el entreno se queda con el GO, salvo que haya una **manga en marcha**, una **tanda a medias** o una **pole** (ver *Quién se lleva el GO de la caja* en *Dirigir la carrera en vivo*). Desde la TV o un móvil conectados por la red no cambia nada.
+
+- Si el GO **no** es del entreno, la pantalla lo avisa con el motivo: manga en marcha, tanda N a medias, directo de «X» abierto en este ordenador, pole en marcha o carrera simulada. Si la carrera lo ha pedido pero aún no ha empezado, el aviso trae el botón **Ceder el GO al entreno**. Este aviso sustituye al antiguo «Hay una carrera activa…», que salía siempre que hubiera una carrera en curso.
+- El **entreno de competición** ya no arranca a la vez que una manga oficial o una pole con el mismo GO.
+- La **app de escritorio** abre el entreno libre al arrancar (si lo tienes activado en **Ajustes → Ventanas y pantallas**) salvo que el GO sea de una carrera o de una pole; antes bastaba con que hubiera cualquier carrera en curso para no abrirlo.
+
+![img: 41c-training-go-aviso.png]
+
 **El directo del entreno.** Arriba tienes los mismos botones que en el directo de carrera (**GO**, pausa, **STOP**, voz, **Vista**, reiniciar, pantalla completa y **Volver**). La tarjeta de cada carril muestra:
 
 - la **última vuelta** y su diferencia con la mejor;
@@ -401,8 +451,11 @@ Cada sesión se puede **borrar** desde su detalle. Si paras la sesión con **STO
 
 La **Configuración** se organiza con un **menú lateral**: **Fuente de datos**, **Preferencias**, **Red local**, **Seguridad**, **Seguimiento online**, **Integraciones** y **Diagnóstico**. Cada sección va en su pantalla, el menú lleva puntos de estado (cronómetro, túnel, modo debug) y, al guardar, vuelves a la sección en la que estabas. Abajo, una **barra fija de guardado** te avisa de los **cambios sin guardar** y de cuáles **necesitan reiniciar** PitWall (solo la interfaz de red y HTTPS; el resto se aplica al guardar).
 
-- **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth (se conecta por **BLE directo** por defecto; queda **TCP** en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas. Si usas **varios Master BART** (uno por cada bloque de carriles), añade una fila por cada uno con su **nombre BLE** (p. ej. `BART_TRACK1`, `BART_TRACK2`…) y su **nº de carriles**: se numeran de corrido igual que las cajas DS-300 del agrupador, y cada Master hay que emparejarlo por separado.
-- **Configuración del puerto, sin líos**: en cada circuito DS-300 (y en el agrupador) de un vistazo solo ves **Puerto** y **Baud rate**. El **puerto** se elige de la lista de puertos detectados; si el tuyo no aparece, con **«Escribir el path a mano»** lo tecleas (p. ej. `COM3` o `/dev/ttys003`). El **baud rate** es un desplegable con las velocidades habituales (9600–921600), con **«Escribir a mano»** para un valor fuera de lista. Los ajustes finos de la conexión serie (**Data bits, Paridad, Stop bits, Control de flujo**) están plegados en **«Opciones avanzadas del puerto»**: por defecto **8N1** y casi nunca hay que tocarlos.
+- **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth (se conecta por **BLE directo** por defecto; queda **TCP** en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas. Si usas **varios Master BART** (uno por cada bloque de carriles), añade una fila por cada uno con su **nombre BLE** (p. ej. `BART_TRACK1`, `BART_TRACK2`…) y su **nº de carriles**: se numeran de corrido igual que las cajas DS-300 del agrupador, y cada Master hay que emparejarlo por separado.
+- **Configuración del puerto, sin líos**: en cada circuito DS (y en el agrupador) de un vistazo solo ves **Puerto** y **Baud rate**. El **puerto** se elige de la lista de puertos detectados; si el tuyo no aparece, con **«Escribir el path a mano»** lo tecleas (p. ej. `COM3` o `/dev/ttys003`). El **baud rate** es un desplegable con las velocidades habituales (9600–921600), con **«Escribir a mano»** para un valor fuera de lista. Los ajustes finos de la conexión serie (**Data bits, Paridad, Stop bits, Control de flujo**) están plegados en **«Opciones avanzadas del puerto»**: por defecto **8N1** y casi nunca hay que tocarlos.
+- **Modelo de DS**: la tarjeta que antes se llamaba «DS-300» ahora se llama **«DS»**. Cada circuito tiene un selector de **Modelo**: **DS-300**, **DS-200**, **DS-030** y **DS-080**. Al elegir modelo, la **velocidad** (baud rate) pasa a la suya —**56000** baudios en el DS-300, **4800** en los demás— y puedes cambiarla a mano. El **DS-200** tiene **2 carriles**; el **DS-080** lleva **dos circuitos por un solo puerto** (carriles 1–8 y 9–16). Con un DS **manda la caja**: el GO, la pausa y el fin llegan del propio aparato.
+- **TicTac (TicTacSlot «Cuentavueltas»)**: tiene su **tarjeta propia** en **Fuente de datos**. Es un aparato **USB** (no crea ningún puerto COM): PitWall lo detecta solo, basta enchufarlo, **aunque PitWall ya esté arrancado**. Si lo desenchufas se marca como caído y **se reengancha solo** al volver a conectarlo. Ajustes muestra su estado: **«✓ TicTacSlot detectado por USB»**, **«No se detecta: conecta el interface por USB»** o **«Lectura USB no disponible en esta instalación»**. El selector **Conexión** ofrece **«USB (automática)»** (por defecto) o **«Puerto serie (emulador o puente)»**, este último solo para pruebas con el emulador. Elige el **nº de carriles** (1–8). El tiempo de cada vuelta sale del **reloj del propio aparato**. En **macOS** puede pedirte el permiso **«Monitorización de entrada»**; en **Linux** hace falta una regla udev para acceder al USB.
+- **Qué está probado y qué no**: solo el **DS-300** está contrastado con aparato real. **DS-200, DS-030 y DS-080** siguen el documento de protocolo y están **sin probar con hardware**; y el **TicTac** tampoco se ha probado todavía con el aparato físico. Si los usas, haz una prueba antes de la carrera.
 - **Preferencias**: el **Modo de la app** (básico o avanzado; ver *Introducción*), el **Historial de vueltas en entrenos** (las 10 últimas o las 10 mejores; ver *Entrenamiento*), el **Orden del directo** (por clasificación estimada o por vueltas reales; ver *Dirigir la carrera en vivo*), la **Corrección manual de la coma** (Automática —recomendado, por defecto— o Permitir corregirla a mano: con lo segundo, en la pantalla de Correcciones de una manga cerrada cada carril puede llevar su coma corregida a mano, y esa coma manda en el desempate a igualdad de vueltas — ver *Vuelta a vuelta y correcciones*), la **Espera de cruces tras el final** (los segundos que, tras el final de una manga, se sigue esperando el cruce que cronometra la vuelta de bandera; de 0 a 10 s, 1,5 s por defecto, y 0 lo desactiva — ver *Dirigir la carrera en vivo*) y los **Colores de carril** globales: los que se usan cuando no hay escenario o el escenario no tiene colores propios. Pulsa cada muestra para cambiar su color; **Guardar colores** los aplica al momento sin tocar la conexión del cronometraje, y **Colores de fábrica** recupera la paleta original.
 - **Red local**: interfaz de red, restringir el acceso web y HTTPS local (para la cámara del QR).
 - **Seguridad**: una **contraseña** para que solo quien la sepa entre en **Sistema** y **Catálogo** (ver *Contraseña de acceso*, más abajo).
@@ -431,7 +484,7 @@ La **Configuración** se organiza con un **menú lateral**: **Fuente de datos**,
 **Exportar e importar una carrera.** Para llevarte a tu PC una carrera que has corrido en otro club sin mover la base de datos entera. **Exportar carrera** descarga un archivo **`.pwrace`** con todo: equipos, pilotos, tandas, mangas, vueltas, turnos de piloto, neumáticos, sucesos, verificaciones con fotos, pole y categorías (una 24 h de 150.000 vueltas ocupa unos 3 MB). **Importar carrera** la añade como **carrera nueva, al momento y sin reiniciar**, sin tocar tus otras carreras; si su circuito no existe en este PC, se crea.
 - No se puede importar **dos veces la misma carrera**: PitWall avisa y te enlaza a la que ya tienes.
 - No se exporta una carrera con una **manga sin cerrar**: ciérrala o cancélala antes en **Solución de problemas → Mangas atascadas**.
-- Una carrera que venía **en curso** entra como **pendiente**, para que nunca se quede con el GO del DS-300 de este PC.
+- Una carrera que venía **en curso** entra como **pendiente**, para que nunca se quede con el GO del DS de este PC.
 - Exportar e importar esperan a que **no haya una manga en marcha**, igual que la exportación a Excel.
 
 ![img: op-database-carrera.png]
@@ -466,7 +519,7 @@ Está en **Ajustes → Seguimiento público por internet**. Hay **dos modos**:
 - **Descanso**: manga en la que un participante no corre (hueco `0` en la secuencia).
 - **Pasada**: recorrido completo de la secuencia de carriles; N pasadas = N× mangas.
 - **Repetir carril**: correr cada carril N mangas seguidas, sumando vueltas.
-- **GO**: la señal de salida (de la caja DS-300) que arranca la manga.
+- **GO**: la señal de salida (de la caja DS) que arranca la manga.
 - **Vuelta fantasma**: vuelta marcada como no válida (no cuenta), restaurable.
 - **Salida (⚠️)**: vuelta que tarda más que la vuelta rápida de ese piloto en ese carril durante la manga + 1,5 s (como las «vueltas lentas» de TicTac); si tarda el doble de su media limpia o más, es parada en boxes (🔧). En directo es provisional: al mejorar la rápida, vueltas anteriores pueden pasar a ser salida.
 - **Pole**: sesión de clasificación previa (opcional); todos ruedan por el mismo carril y su mejor vuelta fija la parrilla de salida.
@@ -480,7 +533,7 @@ Está en **Ajustes → Seguimiento público por internet**. Hay **dos modos**:
 - **Catálogo**: biblioteca reutilizable de pilotos, equipos y coches (importable por CSV).
 - **QR de piloto**: código que identifica al piloto para registrar su turno al escanearlo.
 - **Turno (shift)**: periodo que un piloto está al volante dentro de su equipo en resistencia.
-- **DS-300**: la caja de cronometraje que detecta el paso por meta.
+- **DS**: la caja de cronometraje que detecta el paso por meta.
 - **Importar tanda**: traer una prueba montada en PitWall Control (por JSON o por red LAN + PIN) para que PitWall autocree la carrera.
 - **PitWall Control**: la app de gestión de campeonatos que monta la prueba y recibe los resultados de PitWall.
 - **Seguimiento público por internet**: publicar las vistas públicas (directo, resultados, Lap) en internet con un túnel Cloudflare propio del club.

@@ -154,7 +154,7 @@ Si la carrera tiene **pole** (la vuelta clasificatoria que decide el orden de sa
 - Desde la **home de invitado**, mientras hay una pole en marcha aparece una **tarjeta** que lleva directamente a su tablero.
 - También se llega desde **Estadísticas en vivo**.
 
-Es una vista de **solo lectura**: no hay botones de iniciar, parar ni pasar al siguiente piloto, solo lo que está pasando: **quién está en pista ahora mismo**, el **orden de salida** que queda por rodar y la **clasificación provisional** (del más rápido al más lento) según se van registrando los tiempos. Se actualiza sola, sin recargar.
+Es una vista de **solo lectura**: no hay botones de iniciar, parar ni pasar al siguiente piloto, solo lo que está pasando: **quién está en pista ahora mismo**, el **orden de salida** que queda por rodar y la **clasificación provisional** (del más rápido al más lento) según se van registrando los tiempos. Se actualiza sola, sin recargar. Además **canta los tiempos** en voz alta, en el idioma de la página: «Nueva pole» si alguien la bate, «Mejor vuelta» si el piloto en pista mejora la suya y, si no, solo el tiempo. Si no quieres oírlo, apaga **Cantar tiempos** en la barra de arriba: solo afecta a tu dispositivo.
 
 > Si tu equipo compite en la carrera de resistencia que sigue a la pole, en cuanto se confirma la carrera ya tienes tu **panel de PitWall Lap** activo — puedes seguir tu propio intento de pole ahí mismo, con voz incluida (ver *PitWall Lap: tu carrera en el móvil*).
 

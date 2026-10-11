@@ -154,7 +154,7 @@ Se la gara ha la **pole** (il giro di qualifica che decide l'ordine di partenza)
 - Dalla **home ospiti**, mentre è in corso una pole compare una **scheda** che porta direttamente al suo tabellone.
 - Ci si arriva anche da **Statistiche in diretta**.
 
-È una vista in **sola lettura**: non ci sono pulsanti per avviare, fermare o passare al pilota successivo, solo ciò che sta succedendo: **chi è in pista in questo momento**, l'**ordine di partenza** che resta da percorrere e la **classifica provvisoria** (dal più veloce al più lento) man mano che si registrano i tempi. Si aggiorna da sola, senza ricaricare.
+È una vista in **sola lettura**: non ci sono pulsanti per avviare, fermare o passare al pilota successivo, solo ciò che sta succedendo: **chi è in pista in questo momento**, l'**ordine di partenza** che resta da percorrere e la **classifica provvisoria** (dal più veloce al più lento) man mano che si registrano i tempi. Si aggiorna da sola, senza ricaricare. Inoltre **annuncia i tempi** a voce, nella lingua della pagina: «Nuova pole» se qualcuno la batte, «Miglior giro» se il pilota in pista migliora il suo e, altrimenti, solo il tempo. Se non vuoi sentirlo, disattiva **Annuncia i tempi** («Cantar tiempos») nella barra in alto: riguarda solo il tuo dispositivo.
 
 > Se la tua squadra gareggia nella gara di resistenza che segue la pole, appena la gara viene confermata hai già il tuo **pannello di PitWall Lap** attivo — puoi seguire lì stesso il tuo tentativo di pole, voce inclusa (vedi *PitWall Lap: la tua gara sul cellulare*).
 

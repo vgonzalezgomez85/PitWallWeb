@@ -154,7 +154,7 @@ If the race has a **pole** (the qualifying lap that decides the starting order),
 - From the **guest home**, while a pole is under way a **card** appears that takes you straight to its board.
 - You can also get there from **Live stats**.
 
-It's a **read-only** view: there are no start, stop or next-driver buttons, just what's happening: **who's on track right now**, the **starting order** still to run and the **provisional classification** (fastest to slowest) as times are recorded. It updates on its own, without reloading.
+It's a **read-only** view: there are no start, stop or next-driver buttons, just what's happening: **who's on track right now**, the **starting order** still to run and the **provisional classification** (fastest to slowest) as times are recorded. It updates on its own, without reloading. It also **announces the times** out loud, in the page's language: “New pole” if someone beats it, “Best lap” if the driver on track improves their own and, otherwise, just the time. If you don't want to hear it, switch off **Announce times** in the top bar: it only affects your device.
 
 > If your team is competing in the endurance race that follows the pole, as soon as the race is confirmed you already have your **PitWall Lap panel** active — you can follow your own pole attempt right there, voice included (see *PitWall Lap: your race on the phone*).
 

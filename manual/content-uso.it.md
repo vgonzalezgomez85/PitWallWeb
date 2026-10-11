@@ -7,15 +7,16 @@ Guida per chi **utilizza** PitWall: allestire la gara, dirigerla in diretta, cor
 ## 1. Introduzione
 ![img: 01-home.png]
 
-**PitWall** è il sistema di cronometraggio e gestione delle gare di slot. Rileva il passaggio di ciascuna auto sulla linea del traguardo tramite l'hardware di cronometraggio, con due opzioni compatibili:
+**PitWall** è il sistema di cronometraggio e gestione delle gare di slot. Rileva il passaggio di ciascuna auto sulla linea del traguardo tramite l'hardware di cronometraggio, con diverse opzioni compatibili:
 
-- **DS-300** — tramite **porta seriale**. Puoi collegare **fino a 6 circuiti** DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina. Ogni box usa **la propria porta** (un box = una porta).
+- **DS** (**DS-300**, DS-200, DS-030 o DS-080) — tramite **porta seriale**. Puoi collegare **fino a 6 circuiti** DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina. Ogni box usa **la propria porta** (un box = una porta).
 - **DS-300 aggregatore** — quando un **dispositivo aggregatore** riunisce **più box DS-300 (da 2 a 4) su un'unica porta COM**. PitWall separa i box in base al loro identificatore di trama e numera le corsie di seguito (box 1 → 1–8, box 2 → 9–16, e così via fino a **32 corsie** con 4 box). Un **unico segnale di partenza** avvia tutti i box insieme.
 - **BART (Policar)** — tramite **Bluetooth**. Supporta **fino al massimo di corsie consentito da BART** (attualmente **32**). Oltre le 8 corsie servono **più Master BART indipendenti** (es. `BART_TRACK1`, `BART_TRACK2`…), uno per ogni blocco di corsie: PitWall si collega a ciascuno separatamente e numera le corsie di seguito, come con l'aggregatore DS-300.
+- **TicTac (interfaccia TicTacSlot «Cuentavueltas»)** — tramite **USB**. PitWall lo rileva da solo; invia solo i passaggi, quindi con questo apparecchio **è PitWall a dirigere la gara** (vedi *Dirigere la gara in diretta*).
 
 Puoi usare una qualsiasi di queste fonti; per PitWall il flusso dei passaggi è equivalente.
 
-- La **schermata iniziale** ha in alto un'intestazione con la ricerca **«Vai a…»** («Ir a…», scorciatoia **⌘K** su Mac o **Ctrl K**): scrivi parte del nome di una sezione o di una gara; **Invio** apre il primo risultato ed **Esc** cancella la ricerca. Accanto, delle pillole mostrano lo stato della sorgente dati (simulazione, DS-300 connesso o disconnesso) e l'**indirizzo IP** del server, per collegare telefoni e schermi.
+- La **schermata iniziale** ha in alto un'intestazione con la ricerca **«Vai a…»** («Ir a…», scorciatoia **⌘K** su Mac o **Ctrl K**): scrivi parte del nome di una sezione o di una gara; **Invio** apre il primo risultato ed **Esc** cancella la ricerca. Accanto, delle pillole mostrano lo stato della sorgente dati (simulazione o la sorgente reale —«DS-300 ×2», «DS-200», «BART», «TicTac», o combinate come «DS-300 + TicTac»—, connessa o disconnessa) e l'**indirizzo IP** del server, per collegare telefoni e schermi.
 - Se c'è una **gara in corso**, sotto compare la sua fascia: **manche X di Y**, tornata, il **tempo rimanente** della manche, le **manche** (quella in corso conta già) e il **leader stimato**, lo stesso della *Classifica stimata* della diretta, aggiornato in tempo reale. Ha pulsanti per **Diretta della manche**, **Schermo TV**, **Correzione dei giri** (della manche in corso o dell'ultima terminata), **Statistiche live**, **Controllo piloti** (nei campionati), **Gomme** (se la gara ha treni di gomme), **Registro eventi** e **Gestisci gara**. Senza gara in corso, la fascia mostra la pole in corso oppure le scorciatoie **Nuova gara** / **Allenamento libero**. La schermata iniziale si aggiorna da sola quando parte una gara e quando una manche inizia, finisce o va in pausa.
 - Sotto, le sezioni sono disposte a **riquadri**: **Competizione** (Gare, Gara sprint, Gara endurance, Allenamento libero, Allenamento di competizione, Statistiche live, Risultati, Lap, Controllo piloti, Controllo gomme…), **Catalogo** (Piloti, Squadre, Auto, Categorie e Scenari, con quanti ne hai di ciascuno) e **Sistema** (Impostazioni, Database, Sincronizza catalogo, Connessione ecosistema, Risoluzione dei problemi…). In fondo, la tabella delle **Gare recenti** con stato, manche e azione diretta (Diretta, Risultati o Apri). **Gara sprint** e **Gara endurance** aprono la procedura di nuova gara con il tipo già selezionato. Se c'è una **password di accesso**, i pulsanti di **Catalogo** e **Sistema** hanno un **lucchetto** e la chiedono quando li premi; il resto della schermata iniziale non la richiede mai (vedi *Impostazioni*).
 - Ogni sezione si apre nella **sua finestra**: se la clicchi di nuovo, PitWall porta in primo piano la finestra già aperta (nell'app desktop, anche se è ridotta a icona o se da lì sei tornato alla schermata iniziale). Così puoi tenere insieme la diretta, la TV e le statistiche. Le finestre aperte compaiono nella **barra in basso** della schermata iniziale, con **Porta avanti** («Traer») per metterle davanti e **✕** per chiuderle. Con l'interruttore **«Apri i link in: Finestra nuova / Questa finestra»** («Abrir enlaces en»), che si trova nell'intestazione accanto a **Personalizza**, scegli se preferisci aprire tutto nella stessa finestra, e **Maiusc + clic** apre un link qui stesso senza toccare l'interruttore.
@@ -89,7 +90,7 @@ Premi **Gara sprint** o **Gara endurance** nella schermata iniziale, oppure **+ 
   - *Sprint* → una **gara veloce**, di **piloti o squadre**.
   - *Resistenza* → una **gara di resistenza** (a squadre), che aggiunge il **controllo di quanto ha corso ciascun pilota** della squadra (vedi *Controllo dei turni di pilota*).
 - **Nome della gara** («Nombre de la carrera»).
-- **Circuito**: scegli un circuito salvato e si riassume in una riga (es. «24 carriles · 3 circuitos (8 + 8 + 8) · vuelta mínima 6,00 s»), senza nient'altro da compilare. Con **— Configura a mano —** («Configurar a mano») compaiono il **n° di circuiti**, le **corsie** di ciascuno (p.es. 8+8+6 = 3 box DS-300) e il **tempo minimo di giro (Pt)**: al di sotto di questo tempo, un passaggio è considerato **fantasma** (rimbalzo/doppia lettura) e non conta. Se il circuito ha tempi per categoria, compare anche **Categoria**.
+- **Circuito**: scegli un circuito salvato e si riassume in una riga (es. «24 carriles · 3 circuitos (8 + 8 + 8) · vuelta mínima 6,00 s»), senza nient'altro da compilare. Con **— Configura a mano —** («Configurar a mano») compaiono il **n° di circuiti**, le **corsie** di ciascuno (p.es. 8+8+6 = 3 box DS) e il **tempo minimo di giro (Pt)**: al di sotto di questo tempo, un passaggio è considerato **fantasma** (rimbalzo/doppia lettura) e non conta. Se il circuito ha tempi per categoria, compare anche **Categoria**.
 - **Pole position**: **Senza pole** o **Con pole** («Sin pole» / «Con pole»; il più veloce sceglie la corsia per primo).
 - **Categoria e auto (facoltativo)** («Categoría y coche (opcional)»): due interruttori, **Categoria / coppa** («Categoría / copa») e **Auto** («Coche»), per annotare per squadra o pilota la coppa in cui corre e l'auto con cui partecipa (vedi *Tande, partecipanti e rotazione*). Sono **disattivati** per impostazione predefinita: senza di essi nulla cambia. La categoria compare accanto al nome nella diretta; con i due interruttori attivi, categoria e auto escono anche come colonne accanto al nome nell'**Excel dei risultati**.
 - **Regole di resistenza** («Reglas de resistencia», solo in resistenza): **minimo** e **massimo per pilota** (in minuti), **massimo di turni**, **gomme** (in coppie per squadra) e **Nessun cambio alla fine** («Sin cambios al final»: gli ultimi secondi di ogni manche, in cui non si può cambiare pilota). Ciò che lasci vuoto non viene controllato.
@@ -175,7 +176,11 @@ La **pole** è un giro di qualifica **prima** della gara per decidere l'ordine d
 - **Corsia di pole**: **tutti** fanno il loro giro di qualifica sulla **stessa corsia** (perché sia confrontabile). Scegliela con **−/+** o con **🎲 Casuale (“🎲 Aleatorio”)**.
 - **Cambio automatico di pilota**: interruttore accanto a **Salta 1° passaggio (“Omitir 1er cruce”)**. Con la casella attiva, al termine del tentativo di un pilota il pulsante **Pilota successivo (“Siguiente piloto”)** fa un conto alla rovescia di 3 secondi e avanza da solo, senza aspettare il clic manuale. È una preferenza della postazione di controllo (si salva nel browser stesso), non della gara.
 - Premi **Inizia Pole (“Empezar Pole”)**: ogni partecipante entra a turno, fa il suo giro e PitWall registra il suo miglior tempo. Nel cronometraggio puoi attivare **Salta 1° passaggio (out-lap) (“Omitir 1er cruce (out-lap)”)** per non contare il giro di lancio.
+- **Annuncia i tempi (“Cantar tiempos”)**: interruttore nella barra superiore del cronometraggio, accanto a **Salta 1° passaggio (out-lap)** e **Cambio automatico di pilota**. PitWall annuncia a voce ogni giro del pilota in pista: «Nuova pole, 11 e 85» se batte la pole attuale, «Miglior giro, 11 e 90» se migliora il suo senza battere la pole e, altrimenti, solo il tempo («11 e 94»). È **attivo** di serie e ogni browser ricorda la sua scelta: ce l'hanno anche gli ospiti che seguono la pole da un altro dispositivo, e ognuno può silenziare il proprio. La voce parla nella lingua della pagina.
+- **Pole con BART, TicTac o simulazione**: prima la pole partiva solo con il GO di una scatola DS. Ora, con queste sorgenti, la schermata della pole mostra **«Premi GO per iniziare»** e i pulsanti **GO** (con lo stesso semaforo di 3 s), **PAUSE** e **RIPRENDI**. La pole **termina da sola allo scadere del tempo** e salva il giro migliore; **Ferma**, **Salta** e **Pilota successivo** funzionano come sempre. Con una scatola DS non cambia nulla e i nuovi pulsanti non compaiono.
 - **Non si presenta (“No se presenta”)**: se il partecipante di turno non si vede in pista, il pulsante Non si presenta lo salta. La prima volta lo manda in **fondo alla coda** —avrà un'altra occasione quando torna il suo turno—; se viene saltato una seconda volta senza aver corso nel frattempo, viene segnato **Assente** per davvero. Gli assenti non competono per la pole con uno 0.00 sintetico come se fosse il giro più veloce: compaiono a parte, in un proprio blocco, sia nella classifica dal vivo sia nei risultati finali.
+
+![img: 44b-pole-timing.png]
 
 **Risultati della pole.** Al termine compare **Risultati Pole (“Resultados Pole”)** con la **classifica finale** (dal più veloce al più lento, con il gap dal leader e il **giro veloce**). Da qui puoi **✏️ Modificare i tempi (“✏️ Editar tiempos”)** se c'è stato un errore, o proseguire con **🚦 Assegna corsie di partenza (“🚦 Asignar carriles de salida”)**.
 
@@ -231,13 +236,43 @@ Dalla pagina della gara:
 3. Durante la manche vedi per ogni corsia: **totale giri**, **ultimo**, **media**, **miglior**, e in alto il banner del **giro veloce**.
 4. **Pausa / Riprendi / Ferma** la manche quando serve.
 5. Al termine (bandiera o fine tempo), la manche si chiude e si prepara la **successiva**.
-6. Terminate tutte le manche di una tanda, parte la **tanda successiva**.
+6. Terminate tutte le manche di una tanda, la gara si ferma lì e il GO torna all'**allenamento**: la **tanda successiva** parte quando premi **▶ Tanda N** (vedi *Chi prende il GO del box*, più sotto).
 
 **La scheda della gara è accessibile con una manche in corso.** Entrare in una gara che ha una manche in corso non ti porta più dritto alla diretta: vedi la sua **scheda** (stato, classifica proiettata, tande…) con un link **«Manga N»** (Manche N) per saltare alla diretta quando vuoi. Quando **dai il GO** dalla scheda, lo schermo salta comunque da solo alla diretta, e non si può ancora avviare una seconda manche mentre un'altra è in corso.
 
-**Cambiare lo stato di una gara.** Nella scheda della gara, accanto all'etichetta di stato, il pulsante **Cambia stato** («Cambiar estado») offre **In attesa** («Pendiente», non ancora iniziata), **In corso** («En curso», compare nella schermata iniziale e riceve il GO) e **Completata** («Completada», passa ai risultati). Serve, per esempio, a riaprire una gara chiusa per errore o a parcheggiarne una che non correrai ancora. Non si può cambiare mentre c'è una **manche di quella gara in corso**. Se metti una gara **In corso** e ce n'è già un'altra, PitWall ti avvisa: il prossimo GO del DS va alla **prima manche in attesa di qualsiasi gara in corso**, quindi conviene lasciarne una sola.
+**Cambiare lo stato di una gara.** Nella scheda della gara, accanto all'etichetta di stato, il pulsante **Cambia stato** («Cambiar estado») offre **In attesa** («Pendiente», non ancora iniziata), **In corso** («En curso», compare nella schermata iniziale e può ricevere il GO) e **Completata** («Completada», passa ai risultati). Serve, per esempio, a riaprire una gara chiusa per errore o a parcheggiarne una che non correrai ancora. Non si può cambiare mentre c'è una **manche di quella gara in corso**. Se metti una gara **In corso** e ce n'è già un'altra, PitWall ti avvisa: conviene lasciarne una sola. Essere in corso non basta per prendere il GO: vedi la parte seguente.
 
 ![img: 06b-race-status.png]
+
+**Chi prende il GO del box.** Lo stesso GO può avviare una manche della gara o l'allenamento, e PitWall decide con **un'unica regola**, la stessa per la gara, l'allenamento e l'app desktop. **Il GO è dell'allenamento**, a meno che:
+
+- una **gara l'abbia chiesto**: aprire sul computer della pista la **diretta della manche che tocca correre**, premere **▶ Tanda N**, **Ripeti** («Repetir») una manche o premere **Recupera il GO** («Recuperar el GO») nella fascia della diretta;
+- ci sia una **tanda a metà** (tra due manche della stessa tanda; anche dopo aver riavviato PitWall);
+- ci sia una **pole** in corso.
+
+Perché la gara parta, inoltre, dev'esserci una **diretta aperta sul computer della pista**, come sempre. Se la gara non può partire, il GO va all'allenamento: **nessun GO va più perso**.
+
+- **Finita una tanda, il GO torna da solo all'allenamento**, anche se la diretta è rimasta aperta. Per continuare la gara, premi **▶ Tanda N** (anche dopo aver riavviato PitWall).
+- **Guardare la scheda di una gara non la prepara più**: puoi consultarla senza lasciare l'allenamento senza GO.
+- **Fascia ambra nella diretta.** Sul computer della pista, se alla gara resta qualcosa da correre e il GO non è suo, la diretta lo segnala: «Il GO ce l'ha l'allenamento: questa diretta non avvierà la gara» («El GO lo tiene el entreno…»), con il pulsante **Recupera il GO**. Alla fine di una tanda dice «Per continuare la gara, premi «▶ Tanda N»», senza pulsante. Se il GO ce l'ha una pole o un'altra gara, lo dice.
+
+![img: 20c-live-go-franja.png]
+
+> **Esempio: una gara in due serate.** Prepari la gara qualche giorno prima e continuate ad allenarvi: il GO è dell'allenamento. Giovedì apri sul computer della pista la diretta della manche 1 e correte le tande 1 e 2. Finita la tanda 2 il GO torna all'allenamento, anche con la diretta ancora aperta, e potete allenarvi. Venerdì, anche se hai riavviato PitWall e vi siete allenati prima, premi **▶ Tanda 3** e la gara riprende da dove si era fermata.
+
+**Cosa avvia il GO, caso per caso.** Una gara di **2 tande**: la tanda 1 si corre giovedì e la tanda 2 venerdì. Salvo indicazione contraria, c'è una diretta aperta sul computer della pista. Questi casi sono stati verificati con l'emulatore del DS-300:
+
+| Situazione | Il GO avvia… |
+|---|---|
+| 1. Gara preparata; qualcuno guarda la sua scheda | Allenamento |
+| 2. Diretta aperta per distrazione, senza aver aperto quella della manche che tocca | Allenamento |
+| 3. Aprono la diretta della manche 1 e poi entrano nell'allenamento | Allenamento |
+| 4. Tornano alla diretta della manche 1 | Manche 1 |
+| 5. Tanda a metà, anche se qualcuno entra nell'allenamento | Manche 2 |
+| 6. Fine della tanda con la diretta dimenticata aperta | Allenamento |
+| 7. Venerdì, dopo aver riavviato PitWall, con la diretta aperta | Allenamento |
+| 8. Premono «Recupera il GO» senza premere «▶ Tanda 2» | Allenamento |
+| 9. Dopo aver premuto «▶ Tanda 2» | Manche 1 della tanda 2 |
 
 **Scegliere la vista.** Con il pulsante **Vista** scegli tra due viste: *Righe orizzontali* (una riga per corsia) o *Schede con dettagli* (una scheda per corsia, leggibile da lontano). La vecchia *Griglia compatta* non esiste più: se l'avevi scelta, si aprono le schede.
 
@@ -259,12 +294,19 @@ Dalla pagina della gara:
 
 **Il giro di bandiera è cronometrato.** L'ultimo passaggio di ogni auto sul traguardo arriva un istante dopo il calare della bandiera, quindi PitWall continua ad aspettare quel passaggio per i secondi impostati in **« Espera de cruces tras el final (s) »** (l'Attesa dei passaggi dopo la fine; **Impostazioni → Preferenze**; 1,5 s per impostazione predefinita e **0 la disattiva**): se arriva, il giro di bandiera viene salvato con il suo **tempo reale**, e nel **registro degli eventi** vedrai se è stato **cronometrato** o **ripristinato**. Se il passaggio non arriva, PitWall ripristina il giro con la **media** della corsia perché non se ne perda nessuno. È inoltre il giro che decide lo spareggio a parità di giri: se due auto chiudono nella **stessa manche**, passa avanti **chi ha tagliato per primo il traguardo**; altrimenti decide la **virgola** dell'ultima manche. Il *Manuale di statistiche* lo spiega in dettaglio.
 
+**Quando PitWall dirige la gara (TicTac, BART e simulazione).** Il TicTac **invia solo passaggi**: non ha GO, pausa né fine. Per questo, con **TicTac, BART o simulazione** è PitWall a dirigere la manche, e nella **diretta** e nell'**allenamento** compaiono i pulsanti **GO**, **PAUSE / RIPRENDI** e **STOP**. Con una scatola DS non compaiono: comanda la scatola.
+
+- **GO**: avvia il **semaforo di 3 secondi** e fa partire la manche con la sua durata. Al GO **ogni corsia riparte da zero**: il primo passaggio conta come **giro di uscita**.
+- **PAUSE / RIPRENDI**: congela il **cronometro di PitWall**, ma **non toglie la corrente alla pista** (l'interfaccia non lo fa; se il club la toglie, è a mano). I **passaggi durante la pausa vengono ignorati**.
+- **STOP**: ferma la manche.
+- **Fine con TicTac**: la manche si chiude **proprio quando scade il tempo**. Il **giro di bandiera** conta se il passaggio cade dentro la finestra **«Attesa dei passaggi dopo la fine»** di **Impostazioni → Preferenze** (1,5 s per impostazione predefinita, fino a 10 s), come con gli altri dispositivi. Un'auto a metà giro quando scade il tempo e che passa fuori dalla finestra **non aggiunge quel giro**; alzare la finestra lo attenua.
+
 **Cambiare tanda, ripetere una manche e finalizzare.** Dalla diretta stessa hai scorciatoie senza uscire dalla schermata:
 - **Tanda successiva (“Siguiente tanda”)** — quando finiscono le manche di una tanda, passa direttamente alla successiva.
 - **Ripeti manche (“Repetir manga”)** — se una manche è stata annullata (falsa partenza, incidente), la rilanci con gli stessi partecipanti e corsie.
 - **Finalizza gara (“Finalizar carrera”)** — chiude la gara (la "bandiera"): si congela la classifica e si genera il riepilogo per i risultati e per i cellulari (PitWall Lap).
 
-> Avviso **"Sin señal del DS-300"**: finché è presente, i giri **non vengono registrati**. Controlla la connessione prima di dare il GO.
+> Avviso **"Nessun segnale dal cronometraggio"**: finché è presente, i giri **non vengono registrati**. Controlla la connessione prima di dare il GO.
 
 ## 10. Eventi di gara
 
@@ -367,6 +409,14 @@ Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** 
 
 Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cronometraggio in diretta funziona come in gara (GO del box, giri, miglior/media per corsia).
 
+**L'allenamento e il GO del box.** Quando **entri nell'allenamento** (apri quello libero o avvii uno di competizione) dal computer della pista, l'allenamento prende il GO, a meno che ci sia una **manche in corso**, una **tanda a metà** o una **pole** (vedi *Chi prende il GO del box* in *Dirigere la gara in diretta*). Dalla TV o da un cellulare collegati in rete non cambia nulla.
+
+- Se il GO **non** è dell'allenamento, lo schermo lo segnala con il motivo: manche in corso, tanda N a metà, diretta di «X» aperta su questo computer, pole in corso o gara simulata. Se la gara l'ha chiesto ma non è ancora partita, l'avviso ha il pulsante **Cedi il GO all'allenamento** («Ceder el GO al entreno»). Questo avviso sostituisce il vecchio «C'è una gara attiva…», che compariva ogni volta che c'era una gara in corso.
+- L'**allenamento di competizione** non parte più insieme a una manche ufficiale o a una pole con lo stesso GO.
+- L'**app desktop** apre l'allenamento libero all'avvio (se attivato in **Impostazioni → Finestre e schermi**, «Ventanas y pantallas») a meno che il GO sia di una gara o di una pole; prima bastava una qualsiasi gara in corso per non aprirlo.
+
+![img: 41c-training-go-aviso.png]
+
 **La diretta dell'allenamento.** In alto hai gli stessi pulsanti della diretta di gara (**GO**, pausa, **STOP**, voce, **Vista**, azzera, schermo intero e **Indietro**). La scheda di ogni corsia mostra:
 
 - l'**ultimo giro** e il suo distacco dal migliore;
@@ -400,8 +450,11 @@ Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con 
 
 Le **Impostazioni** sono organizzate con un **menu laterale**: **Sorgente dati**, **Preferenze**, **Rete locale**, **Sicurezza**, **Seguito online**, **Integrazioni** e **Diagnostica**. Ogni sezione ha la sua schermata, il menu mostra dei punti di stato (cronometro, tunnel, modalità debug) e, dopo aver salvato, torni alla sezione in cui eri. In basso, una **barra di salvataggio fissa** ti avvisa delle **modifiche non salvate** e di quali **richiedono il riavvio** di PitWall (solo l'interfaccia di rete e HTTPS; il resto si applica al salvataggio).
 
-- **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box. Se usi **più Master BART** (uno per ogni blocco di corsie), aggiungi una riga per Master con il suo **nome BLE** (es. `BART_TRACK1`, `BART_TRACK2`…) e il suo **n° di corsie**: sono numerate di seguito come i box dell'aggregatore DS-300, e ogni Master va abbinato separatamente.
-- **Configurazione della porta, senza complicazioni**: per ogni circuito DS-300 (e per l'aggregatore) a colpo d'occhio vedi solo **Porta** e **Baud rate**. La **porta** si sceglie dall'elenco rilevato; se la tua non compare, con **« Scrivi il percorso a mano »** la digiti (es. `COM3` o `/dev/ttys003`). Il **baud rate** è un menu a tendina con le velocità abituali (9600–921600), con **« Scrivi a mano »** per un valore fuori elenco. Le impostazioni fini della seriale (**Data bits, Parità, Stop bits, Controllo di flusso**) sono ripiegate in **« Opzioni avanzate della porta »**: di default **8N1**, quasi mai da toccare.
+- **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box. Se usi **più Master BART** (uno per ogni blocco di corsie), aggiungi una riga per Master con il suo **nome BLE** (es. `BART_TRACK1`, `BART_TRACK2`…) e il suo **n° di corsie**: sono numerate di seguito come i box dell'aggregatore DS-300, e ogni Master va abbinato separatamente.
+- **Configurazione della porta, senza complicazioni**: per ogni circuito DS (e per l'aggregatore) a colpo d'occhio vedi solo **Porta** e **Baud rate**. La **porta** si sceglie dall'elenco rilevato; se la tua non compare, con **« Scrivi il percorso a mano »** la digiti (es. `COM3` o `/dev/ttys003`). Il **baud rate** è un menu a tendina con le velocità abituali (9600–921600), con **« Scrivi a mano »** per un valore fuori elenco. Le impostazioni fini della seriale (**Data bits, Parità, Stop bits, Controllo di flusso**) sono ripiegate in **« Opzioni avanzate della porta »**: di default **8N1**, quasi mai da toccare.
+- **Modello di DS**: la scheda che prima si chiamava «DS-300» ora si chiama **«DS»**. Ogni circuito ha un selettore di **Modello**: **DS-300**, **DS-200**, **DS-030** e **DS-080**. Scegliendo il modello, la **velocità** (baud rate) passa alla sua —**56000** baud per il DS-300, **4800** per gli altri— e puoi cambiarla a mano. Il **DS-200** ha **2 corsie**; il **DS-080** gestisce **due circuiti su una sola porta** (corsie 1–8 e 9–16). Con un DS **comanda la scatola**: il GO, la pausa e la fine arrivano dall'apparecchio stesso.
+- **TicTac (TicTacSlot «Cuentavueltas»)**: ha la sua **scheda dedicata** in **Sorgente dati**. È un apparecchio **USB** (non crea nessuna porta COM): PitWall lo rileva da solo, basta collegarlo, **anche se PitWall è già avviato**. Se lo scolleghi viene segnato come caduto e **si riaggancia da solo** quando lo ricolleghi. Le Impostazioni mostrano il suo stato: **«✓ TicTacSlot rilevato via USB»**, **«Non rilevato: collega l'interfaccia via USB»** oppure **«Lettura USB non disponibile in questa installazione»**. Il selettore **Connessione** offre **«USB (automatica)»** (predefinita) o **«Porta seriale (emulatore o ponte)»**, quest'ultima solo per prove con l'emulatore. Scegli il **numero di corsie** (1–8). Il tempo di ogni giro viene dall'**orologio dell'apparecchio stesso**. Su **macOS** può chiedere il permesso **«Monitoraggio input»**; su **Linux** serve una regola udev per accedere all'USB.
+- **Cosa è stato provato e cosa no**: solo il **DS-300** è stato verificato con un apparecchio reale. **DS-200, DS-030 e DS-080** seguono il documento di protocollo e sono **non provati con l'hardware**; anche il **TicTac** non è ancora stato provato con l'apparecchio fisico. Se li usi, fai una prova prima della gara.
 - **Preferenze**: la **Modalità dell'app** («Modo de la app»: base o avanzata; vedi *Introduzione*), lo **Storico dei giri negli allenamenti** (gli ultimi 10 o i 10 migliori; vedi *Allenamento*), l'**Ordine della diretta** (per classifica stimata o per giri reali; vedi *Dirigere la gara in diretta*), la **Correzione manuale della virgola** (« Corrección manual de la coma »: Automatica —consigliato, per impostazione predefinita— o Permettere di correggerla a mano: con la seconda, nella schermata di correzioni di una manche terminata ogni corsia può avere la sua virgola corretta a mano, e quella virgola decide lo spareggio a parità di giri — vedi *Giro per giro e correzioni*), l'**Attesa dei passaggi dopo la fine** (« Espera de cruces tras el final »: i secondi durante i quali, dopo la fine di una manche, si aspetta ancora il passaggio che cronometra il giro di bandiera; da 0 a 10 s, 1,5 s per impostazione predefinita e 0 la disattiva — vedi *Dirigere la gara in diretta*) e i **Colori delle corsie** globali («Colores de carril»): quelli usati quando non c’è uno scenario o lo scenario non ha colori propri. Clicca ogni campione per cambiarne il colore; **Salva colori** («Guardar colores») li applica subito senza toccare la connessione del cronometraggio, e **Colori di fabbrica** («Colores de fábrica») ripristina la tavolozza originale.
 - **Rete locale**: interfaccia di rete, limitare l'accesso web e HTTPS locale (per la fotocamera del QR).
 - **Sicurezza** («Seguridad»): una **password** perché solo chi la conosce entri in **Sistema** e **Catalogo** (vedi *Password di accesso* più sotto).
@@ -430,7 +483,7 @@ Le **Impostazioni** sono organizzate con un **menu laterale**: **Sorgente dati**
 **Esportare e importare una gara.** Per portare sul tuo PC una gara corsa in un altro club senza spostare l'intero database. **Esporta gara** scarica un file **`.pwrace`** con tutto: squadre, piloti, tornate, manche, giri, turni dei piloti, gomme, eventi, verifiche con foto, pole e categorie (una 24 h da 150.000 giri occupa circa 3 MB). **Importa gara** la aggiunge come **gara nuova, all'istante e senza riavviare**, senza toccare le altre gare; se il suo circuito non esiste su questo PC, viene creato.
 - Non si può importare **due volte la stessa gara**: PitWall ti avvisa e ti collega a quella che hai già.
 - Una gara con una **manche non chiusa** non si esporta: chiudila o annullala prima in **Risoluzione dei problemi → Manche bloccate**.
-- Una gara che era **in corso** entra come **in attesa**, così non prende mai il GO del DS-300 di questo PC.
+- Una gara che era **in corso** entra come **in attesa**, così non prende mai il GO del DS di questo PC.
 - Esportazione e importazione aspettano che **non ci sia una manche in corso**, come l'esportazione in Excel.
 
 ![img: op-database-carrera.png]
@@ -465,7 +518,7 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 - **Riposo**: manche in cui un partecipante non corre (spazio vuoto `0` nella sequenza).
 - **Passata**: percorso completo della sequenza di corsie; N passate = N× manche.
 - **Ripeti corsia**: correre ogni corsia N manche di seguito, sommando i giri.
-- **GO**: il segnale di partenza (del box DS-300) che avvia la manche.
+- **GO**: il segnale di partenza (del box DS) che avvia la manche.
 - **Giro fantasma**: giro segnato come non valido (non conta), ripristinabile.
 - **Uscita (⚠️)**: giro che impiega più del giro più veloce di quel pilota in quella corsia durante la manche + 1,5 s (come i «giri lenti» di TicTac); se impiega il doppio della sua media pulita o di più, è una sosta ai box (🔧). In diretta è provvisorio: quando il giro più veloce migliora, giri precedenti possono diventare uscite.
 - **Pole**: sessione di qualifica preliminare (facoltativa); tutti girano sulla stessa corsia e il loro miglior giro fissa la griglia di partenza.
@@ -479,7 +532,7 @@ Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due mod
 - **Catalogo**: libreria riutilizzabile di piloti, squadre e auto (importabile da CSV).
 - **QR di pilota**: codice che identifica il pilota per registrare il suo turno alla scansione.
 - **Turno (shift)**: periodo in cui un pilota è al volante all'interno della sua squadra in resistenza.
-- **DS-300**: il box di cronometraggio che rileva il passaggio sul traguardo.
+- **DS**: il box di cronometraggio che rileva il passaggio sul traguardo.
 - **Importa tanda**: portare una prova allestita in PitWall Control (via JSON o via rete LAN + PIN) affinché PitWall crei automaticamente la gara.
 - **PitWall Control**: l'app di gestione dei campionati che allestisce la prova e riceve i risultati da PitWall.
 - **Seguito pubblico su internet**: pubblicare le viste pubbliche (diretta, risultati, Lap) su internet con un tunnel Cloudflare proprio del club.
