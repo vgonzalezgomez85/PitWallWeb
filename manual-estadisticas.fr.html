@@ -399,6 +399,37 @@
       </figure>
       <p>L'analyse en profondeur d'un participant : <b>total de tours</b> (et propres), <b>meilleur</b>, <b>moyenne</b> (avec bascule <i>avec/sans sorties</i>), <b>Δ consistance</b>, <b>sorties · pit-stops</b> et <b>temps perdu</b>. En dessous, l'<b>évolution par voie</b> (ta moyenne piste par piste, pour voir où tu as été le plus rapide) et une carte par voie. Avec <b>Comparer avec</b>, tu choisis un rival et une table <b>face à face</b> est générée avec les différences colorées (vert = mieux, rouge = pire).</p>
 
+      <h3>Pilotes (« Pilotos », endurances par équipes)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Pilotes</span></div>
+        <img src="manual/img/st-pilotos.png" loading="lazy" alt="Résultats, onglet Pilotes en vue par équipe">
+        <figcaption>Vue « Por equipo » : chaque équipe dans l'ordre du classement et, dessous, ses pilotes avec temps au volant, tours, V/h et rythme.</figcaption>
+      </figure>
+      <p>Dans les endurances par équipes avec <b>pointage QR</b> (ou quand les tours portent déjà le pilote), l'onglet <b>Pilotes (« Pilotos »)</b> apparaît : la course répartie <b>pilote par pilote</b> au sein de chaque équipe. Pour chaque pilote :</p>
+      <ul>
+        <li><b>Al volante</b> — le temps passé au volant (h:mm).</li>
+        <li><b>Mangas</b> — le nombre de manches qu'il a pilotées.</li>
+        <li><b>Vueltas</b> — les tours qu'il a faits.</li>
+        <li><b>V/h</b> — tours par heure de volant : le rythme qui permet de comparer des pilotes qui n'ont pas conduit le même temps.</li>
+        <li><b>Mejor</b> — son meilleur tour (sans sorties ni passage de départ).</li>
+        <li><b>Media</b> — sa moyenne (sans le passage de départ, comme celle de l'équipe).</li>
+        <li><b>Const.</b> — sa consistance sans sorties, la même que dans le Comparatif.</li>
+        <li><b>Salidas</b> et <b>Pits</b> — combien de fois il est sorti et combien d'arrêts il a faits.</li>
+      </ul>
+      <p>Le sélecteur en haut à droite change la vue :</p>
+      <ul>
+        <li><b>Por equipo</b> (par équipe) — les équipes dans l'ordre du classement (position, couleur, nom et tours totaux) et, sous chacune, ses pilotes, de celui qui a conduit le plus longtemps à celui qui a conduit le moins. Le meilleur tour de chaque équipe s'affiche en <b>vert</b>.</li>
+        <li><b>Todos los pilotos</b> (tous les pilotes) — une seule table avec <b>#</b>, <b>Piloto</b>, <b>Equipo</b> et les mêmes colonnes. Clique sur le nom de n'importe quelle colonne pour trier : les temps vont du plus petit au plus grand au premier clic et le reste du plus grand au plus petit ; un autre clic inverse l'ordre.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Pilotes · Tous les pilotes</span></div>
+        <img src="manual/img/st-pilotos-todos.png" loading="lazy" alt="Résultats, onglet Pilotes avec la table de tous les pilotes">
+        <figcaption>Vue « Todos los pilotos » : une seule table qui se trie en cliquant sur le nom de chaque colonne.</figcaption>
+      </figure>
+      <p><b>Comment les tours sont répartis.</b> Chaque tour va au pilote qui avait <b>pointé</b> dans cette équipe et cette manche <b>au moment où la voiture a franchi la ligne</b> (à l'heure réelle du passage) : un relais au milieu d'une manche répartit donc bien les tours, chacun récupère les siens. Les tours des pilotes <b>s'additionnent exactement</b> à ceux de l'équipe, avec les mêmes règles : le meilleur, sans sorties ni passage de départ ; la moyenne, sans le passage de départ.</p>
+      <p><b>Si le pointage n'a pas couvert toute la course</b>, l'en-tête l'indique (p. ex. <i>« Fichaje QR: 6 de 24 mangas »</i>, 6 manches pointées sur 24). Les tours qui ne peuvent être attribués à personne — ceux des manches sans pointage et ceux d'avant qu'un pilote ne pointe en retard — vont dans une ligne <b>« Sin fichar »</b> (non pointé) de l'équipe, en gris et en italique. Il en va de même pour son temps : avant de pointer, il ne compte pas au volant, donc le temps et les tours de chaque pilote vont toujours de pair. Sans pointage QR mais avec le pilote enregistré sur chaque tour, l'en-tête l'indique : <i>« Piloto tomado de cada vuelta (sin fichajes QR) »</i>.</p>
+      <p>L'onglet apparaît aussi dans les <b>résultats publics</b> et dans <b>Exporter pour GitHub</b>, et l'<b>Excel</b> des résultats contient une feuille <b>Pilotes</b> (« Pilotos ») avec les mêmes données.</p>
+
       <h3>Classement Le Mans (équipes)</h3>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Classement Le Mans</span></div>
@@ -436,6 +467,8 @@
         <li><b>Occurrence</b> — chaque fois que tu cours la même voie dans les courses à passages/répétition de voie (<code>1/2</code>, <code>2/2</code>…) ; permet de comparer un passage avec un autre.</li>
         <li><b>P/Monter</b> — dans le classement Le Mans, le rythme (moyenne par tour) dont tu aurais besoin pour atteindre l'équipe de devant.</li>
         <li><b>Voie de départ</b> — la voie depuis laquelle tu as démarré ; dans la grille des résultats, elle est marquée par un cadre bleu.</li>
+        <li><b>V/h</b> — dans l'onglet Pilotes, tours par heure de volant : les tours du pilote divisés par son temps au volant. Sert à comparer des pilotes qui n'ont pas conduit le même temps.</li>
+        <li><b>Sin fichar (non pointé)</b> — dans l'onglet Pilotes, la ligne de chaque équipe qui regroupe les tours qu'on ne peut attribuer à aucun pilote : manches sans pointage QR ou tours antérieurs au premier pointage.</li>
       </ul>
     </section>
 

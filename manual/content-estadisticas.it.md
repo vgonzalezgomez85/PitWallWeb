@@ -284,6 +284,32 @@ La stessa idea ma in **tabella**: righe = squadre, colonne = manche, e ogni cell
 
 L'analisi approfondita di un partecipante: **totale giri** (e puliti), **migliore**, **media** (con toggle *con/senza uscite*), **Δ consistenza**, **uscite · pit-stop** e **tempo perso**. Sotto, l'**evoluzione per corsia** (la tua media pista per pista, per vedere dove sei stato più veloce) e una scheda per corsia. Con **Confronta con (“Comparar con”)** scegli un rivale e si genera una tabella **faccia a faccia** con le differenze colorate (verde = meglio, rosso = peggio).
 
+### Piloti (“Pilotos”, endurance a squadre)
+
+![img: st-pilotos.png]
+
+Nelle endurance a squadre con **check-in QR** (o quando i giri riportano già il pilota) compare la scheda **Piloti (“Pilotos”)**: la gara suddivisa **pilota per pilota** all'interno di ogni squadra. Per ogni pilota:
+- **Al volante** — il tempo trascorso alla guida (h:mm).
+- **Mangas** — in quante manche ha guidato.
+- **Vueltas** — i giri che ha fatto.
+- **V/h** — giri per ora di guida: il ritmo che permette di confrontare piloti che hanno guidato per tempi diversi.
+- **Mejor** — il suo giro migliore (senza uscite né passaggio di partenza).
+- **Media** — la sua media (senza il passaggio di partenza, come quella della squadra).
+- **Const.** — la sua consistenza senza uscite, la stessa della Comparativa.
+- **Salidas** e **Pits** — quante volte è uscito e quante soste ha fatto.
+
+Il selettore in alto a destra cambia la vista:
+- **Por equipo** (per squadra) — le squadre nell'ordine della classifica (posizione, colore, nome e giri totali) e, sotto ciascuna, i suoi piloti, da chi ha guidato di più a chi ha guidato di meno. Il giro migliore di ogni squadra appare in **verde**.
+- **Todos los pilotos** (tutti i piloti) — un'unica tabella con **#**, **Piloto**, **Equipo** e le stesse colonne. Clicca sul nome di qualsiasi colonna per ordinare: i tempi vanno dal più basso al più alto al primo clic e il resto dal più alto al più basso; un altro clic inverte l'ordine.
+
+![img: st-pilotos-todos.png]
+
+**Come si ripartiscono i giri.** Ogni giro va al pilota che aveva fatto il **check-in** in quella squadra e in quella manche **quando l'auto ha tagliato il traguardo** (all'ora reale del passaggio), quindi un cambio pilota a metà manche ripartisce bene i giri: ognuno si prende i suoi. I giri dei piloti **sommano esattamente** quelli della squadra, con le stesse regole: il migliore, senza uscite né passaggio di partenza; la media, senza il passaggio di partenza.
+
+**Se il check-in non ha coperto tutta la gara**, l'intestazione lo indica (ad es. *“Fichaje QR: 6 de 24 mangas”*, 6 manche su 24 con check-in). I giri che non si possono assegnare a nessuno — quelli delle manche senza check-in e quelli di prima che qualcuno facesse il check-in in ritardo — finiscono in una riga **“Sin fichar”** (senza check-in) della squadra, in grigio e corsivo. Lo stesso vale per il suo tempo: prima del check-in non conta alla guida, quindi tempo e giri di ogni pilota vanno sempre di pari passo. Senza check-in QR ma con il pilota salvato in ogni giro, l'intestazione avvisa: *“Piloto tomado de cada vuelta (sin fichajes QR)”*.
+
+La scheda compare anche nei **risultati pubblici** e in **Esporta per GitHub**, e l'**Excel** dei risultati include un foglio **Piloti** (“Pilotos”) con gli stessi dati.
+
 ### Classifica Le Mans (squadre)
 
 ![img: st-lemans.png]
@@ -314,6 +340,8 @@ Il **gap** di questa tabella si legge **"a 2,8 v (35,5\")"**: la distanza in gir
 - **Occorrenza** — ogni volta che corri la stessa corsia nelle gare di passate/ripeti-corsia (`1/2`, `2/2`…); permette di confrontare una passata con l'altra.
 - **P/Salire** — nella classifica Le Mans, il ritmo (media per giro) che ti servirebbe per raggiungere la squadra davanti.
 - **Corsia di partenza** — la corsia da cui sei partito; nella griglia dei risultati è segnata con un riquadro blu.
+- **V/h** — nella scheda Piloti, giri per ora di guida: i giri del pilota divisi per il suo tempo alla guida. Serve a confrontare piloti che hanno guidato per tempi diversi.
+- **Sin fichar (senza check-in)** — nella scheda Piloti, la riga di ogni squadra con i giri che non si possono assegnare a nessun pilota: manche senza check-in QR o giri precedenti al primo check-in.
 
 ---
 

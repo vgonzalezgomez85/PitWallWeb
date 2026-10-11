@@ -284,6 +284,32 @@ The same idea but in a **table**: rows = teams, columns = heats, and each cell t
 
 The deep analysis of a participant: **total laps** (and clean ones), **best**, **average** (with *with/without exits* toggle), **Δ consistency**, **exits · pit-stops** and **time lost**. Below, the **evolution by lane** (your average track by track, to see where you were faster) and one card per lane. With **Compare with** you pick a rival and a **head-to-head** table is generated with the differences colored (green = better, red = worse).
 
+### Drivers (team endurance races)
+
+![img: st-pilotos.png]
+
+In team endurance races with **QR check-in** (or when the laps already carry the driver) a **Drivers** tab appears: the race broken down **driver by driver** within each team. For each driver:
+- **Driving time** — how long they drove (h:mm).
+- **Heats** — how many heats they drove in.
+- **Laps** — the laps they did.
+- **L/h** — laps per hour of driving: the pace that lets you compare drivers who drove for different amounts of time.
+- **Best** — their best lap (without exits or the start crossing).
+- **Average** — their average (without the start crossing, same as the team's).
+- **Cons.** — their consistency without exits, the same as in Comparison.
+- **Exits** and **Pits** — how many times they went off and how many stops they made.
+
+The selector at the top right switches the view:
+- **By team** — teams in standings order (position, colour, name and total laps) and, under each one, its drivers, from the one who drove longest to the one who drove least. Each team's best lap is shown in **green**.
+- **All drivers** — a single table with **#**, **Driver**, **Team** and the same columns. Click any column name to sort: times go from lowest to highest on the first click and everything else from highest to lowest; another click reverses the order.
+
+![img: st-pilotos-todos.png]
+
+**How laps are shared out.** Each lap goes to the driver who was **checked in** for that team and that heat **when the car crossed the line** (at the real time of the crossing), so a driver change in the middle of a heat splits the laps correctly: each driver gets their own. The drivers' laps **add up exactly** to the team's, with the same rules: best lap without exits or the start crossing; average without the start crossing.
+
+**If check-in didn't cover the whole race**, the header says so (e.g. *"QR check-in: 6 of 24 heats"*). Laps that can't be assigned to anyone — those from heats without check-ins and those before someone checked in late — go into a **"Not checked in"** row for the team, in grey italics. The same goes for their time: before checking in it doesn't count as driving time, so each driver's time and laps always match. With no QR check-ins but the driver stored on each lap, the header says *"Driver taken from each lap (no QR check-ins)"*.
+
+The tab also appears in the **public results** and in **Export for GitHub**, and the results **Excel** has a **Drivers** sheet with the same data.
+
 ### Le Mans classification (teams)
 
 ![img: st-lemans.png]
@@ -314,6 +340,8 @@ The **gap** in this table reads **"a 2,8 v (35,5\")"**: the distance in laps **w
 - **Occurrence** — each time you run the same lane in passes/repeat-lane races (`1/2`, `2/2`…); it lets you compare one pass with another.
 - **P/Climb** — in the Le Mans classification, the pace (average per lap) you'd need to catch the team ahead.
 - **Starting lane** — the lane you started from; in the results grid it's marked with a blue box.
+- **L/h** — in the Drivers tab, laps per hour of driving: the driver's laps divided by their driving time. Used to compare drivers who drove for different amounts of time.
+- **Not checked in** — in the Drivers tab, each team's row with the laps that can't be assigned to any driver: heats without QR check-in or laps before the first check-in.
 
 ---
 

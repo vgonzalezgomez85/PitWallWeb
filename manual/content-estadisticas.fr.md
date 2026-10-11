@@ -284,6 +284,32 @@ La même idée mais en **tableau** : lignes = équipes, colonnes = manches, et c
 
 L'analyse en profondeur d'un participant : **total de tours** (et propres), **meilleur**, **moyenne** (avec bascule *avec/sans sorties*), **Δ consistance**, **sorties · pit-stops** et **temps perdu**. En dessous, l'**évolution par voie** (ta moyenne piste par piste, pour voir où tu as été le plus rapide) et une carte par voie. Avec *Comparer avec (« Comparar con »)*, tu choisis un rival et une table **face à face** est générée avec les différences colorées (vert = mieux, rouge = pire).
 
+### Pilotes (« Pilotos », endurances par équipes)
+
+![img: st-pilotos.png]
+
+Dans les endurances par équipes avec **pointage QR** (ou quand les tours portent déjà le pilote), l'onglet **Pilotes (« Pilotos »)** apparaît : la course répartie **pilote par pilote** au sein de chaque équipe. Pour chaque pilote :
+- **Al volante** — le temps passé au volant (h:mm).
+- **Mangas** — le nombre de manches qu'il a pilotées.
+- **Vueltas** — les tours qu'il a faits.
+- **V/h** — tours par heure de volant : le rythme qui permet de comparer des pilotes qui n'ont pas conduit le même temps.
+- **Mejor** — son meilleur tour (sans sorties ni passage de départ).
+- **Media** — sa moyenne (sans le passage de départ, comme celle de l'équipe).
+- **Const.** — sa consistance sans sorties, la même que dans le Comparatif.
+- **Salidas** et **Pits** — combien de fois il est sorti et combien d'arrêts il a faits.
+
+Le sélecteur en haut à droite change la vue :
+- **Por equipo** (par équipe) — les équipes dans l'ordre du classement (position, couleur, nom et tours totaux) et, sous chacune, ses pilotes, de celui qui a conduit le plus longtemps à celui qui a conduit le moins. Le meilleur tour de chaque équipe s'affiche en **vert**.
+- **Todos los pilotos** (tous les pilotes) — une seule table avec **#**, **Piloto**, **Equipo** et les mêmes colonnes. Clique sur le nom de n'importe quelle colonne pour trier : les temps vont du plus petit au plus grand au premier clic et le reste du plus grand au plus petit ; un autre clic inverse l'ordre.
+
+![img: st-pilotos-todos.png]
+
+**Comment les tours sont répartis.** Chaque tour va au pilote qui avait **pointé** dans cette équipe et cette manche **au moment où la voiture a franchi la ligne** (à l'heure réelle du passage) : un relais au milieu d'une manche répartit donc bien les tours, chacun récupère les siens. Les tours des pilotes **s'additionnent exactement** à ceux de l'équipe, avec les mêmes règles : le meilleur, sans sorties ni passage de départ ; la moyenne, sans le passage de départ.
+
+**Si le pointage n'a pas couvert toute la course**, l'en-tête l'indique (p. ex. *« Fichaje QR: 6 de 24 mangas »*, 6 manches pointées sur 24). Les tours qui ne peuvent être attribués à personne — ceux des manches sans pointage et ceux d'avant qu'un pilote ne pointe en retard — vont dans une ligne **« Sin fichar »** (non pointé) de l'équipe, en gris et en italique. Il en va de même pour son temps : avant de pointer, il ne compte pas au volant, donc le temps et les tours de chaque pilote vont toujours de pair. Sans pointage QR mais avec le pilote enregistré sur chaque tour, l'en-tête l'indique : *« Piloto tomado de cada vuelta (sin fichajes QR) »*.
+
+L'onglet apparaît aussi dans les **résultats publics** et dans **Exporter pour GitHub**, et l'**Excel** des résultats contient une feuille **Pilotes** (« Pilotos ») avec les mêmes données.
+
 ### Classement Le Mans (équipes)
 
 ![img: st-lemans.png]
@@ -314,6 +340,8 @@ L'**écart** de ce tableau se lit **« a 2,8 v (35,5\") »** : la distance en to
 - **Occurrence** — chaque fois que tu cours la même voie dans les courses à passages/répétition de voie (`1/2`, `2/2`…) ; permet de comparer un passage avec un autre.
 - **P/Monter** — dans le classement Le Mans, le rythme (moyenne par tour) dont tu aurais besoin pour atteindre l'équipe de devant.
 - **Voie de départ** — la voie depuis laquelle tu as démarré ; dans la grille des résultats, elle est marquée par un cadre bleu.
+- **V/h** — dans l'onglet Pilotes, tours par heure de volant : les tours du pilote divisés par son temps au volant. Sert à comparer des pilotes qui n'ont pas conduit le même temps.
+- **Sin fichar (non pointé)** — dans l'onglet Pilotes, la ligne de chaque équipe qui regroupe les tours qu'on ne peut attribuer à aucun pilote : manches sans pointage QR ou tours antérieurs au premier pointage.
 
 ---
 

@@ -399,6 +399,37 @@
       </figure>
       <p>L'analisi approfondita di un partecipante: <b>totale giri</b> (e puliti), <b>migliore</b>, <b>media</b> (con toggle <i>con/senza uscite</i>), <b>Δ consistenza</b>, <b>uscite · pit-stop</b> e <b>tempo perso</b>. Sotto, l'<b>evoluzione per corsia</b> (la tua media pista per pista, per vedere dove sei stato più veloce) e una scheda per corsia. Con <b>Confronta con ("Comparar con")</b> scegli un rivale e si genera una tabella <b>faccia a faccia</b> con le differenze colorate (verde = meglio, rosso = peggio).</p>
 
+      <h3>Piloti (“Pilotos”, endurance a squadre)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Risultati · Piloti</span></div>
+        <img src="manual/img/st-pilotos.png" loading="lazy" alt="Risultati, scheda Piloti nella vista per squadra">
+        <figcaption>Vista “Por equipo”: ogni squadra nell'ordine della classifica e, sotto, i suoi piloti con tempo alla guida, giri, V/h e ritmo.</figcaption>
+      </figure>
+      <p>Nelle endurance a squadre con <b>check-in QR</b> (o quando i giri riportano già il pilota) compare la scheda <b>Piloti (“Pilotos”)</b>: la gara suddivisa <b>pilota per pilota</b> all'interno di ogni squadra. Per ogni pilota:</p>
+      <ul>
+        <li><b>Al volante</b> — il tempo trascorso alla guida (h:mm).</li>
+        <li><b>Mangas</b> — in quante manche ha guidato.</li>
+        <li><b>Vueltas</b> — i giri che ha fatto.</li>
+        <li><b>V/h</b> — giri per ora di guida: il ritmo che permette di confrontare piloti che hanno guidato per tempi diversi.</li>
+        <li><b>Mejor</b> — il suo giro migliore (senza uscite né passaggio di partenza).</li>
+        <li><b>Media</b> — la sua media (senza il passaggio di partenza, come quella della squadra).</li>
+        <li><b>Const.</b> — la sua consistenza senza uscite, la stessa della Comparativa.</li>
+        <li><b>Salidas</b> e <b>Pits</b> — quante volte è uscito e quante soste ha fatto.</li>
+      </ul>
+      <p>Il selettore in alto a destra cambia la vista:</p>
+      <ul>
+        <li><b>Por equipo</b> (per squadra) — le squadre nell'ordine della classifica (posizione, colore, nome e giri totali) e, sotto ciascuna, i suoi piloti, da chi ha guidato di più a chi ha guidato di meno. Il giro migliore di ogni squadra appare in <b>verde</b>.</li>
+        <li><b>Todos los pilotos</b> (tutti i piloti) — un'unica tabella con <b>#</b>, <b>Piloto</b>, <b>Equipo</b> e le stesse colonne. Clicca sul nome di qualsiasi colonna per ordinare: i tempi vanno dal più basso al più alto al primo clic e il resto dal più alto al più basso; un altro clic inverte l'ordine.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Risultati · Piloti · Tutti i piloti</span></div>
+        <img src="manual/img/st-pilotos-todos.png" loading="lazy" alt="Risultati, scheda Piloti con la tabella di tutti i piloti">
+        <figcaption>Vista “Todos los pilotos”: un'unica tabella che si ordina cliccando sul nome di ogni colonna.</figcaption>
+      </figure>
+      <p><b>Come si ripartiscono i giri.</b> Ogni giro va al pilota che aveva fatto il <b>check-in</b> in quella squadra e in quella manche <b>quando l'auto ha tagliato il traguardo</b> (all'ora reale del passaggio), quindi un cambio pilota a metà manche ripartisce bene i giri: ognuno si prende i suoi. I giri dei piloti <b>sommano esattamente</b> quelli della squadra, con le stesse regole: il migliore, senza uscite né passaggio di partenza; la media, senza il passaggio di partenza.</p>
+      <p><b>Se il check-in non ha coperto tutta la gara</b>, l'intestazione lo indica (ad es. <i>“Fichaje QR: 6 de 24 mangas”</i>, 6 manche su 24 con check-in). I giri che non si possono assegnare a nessuno — quelli delle manche senza check-in e quelli di prima che qualcuno facesse il check-in in ritardo — finiscono in una riga <b>“Sin fichar”</b> (senza check-in) della squadra, in grigio e corsivo. Lo stesso vale per il suo tempo: prima del check-in non conta alla guida, quindi tempo e giri di ogni pilota vanno sempre di pari passo. Senza check-in QR ma con il pilota salvato in ogni giro, l'intestazione avvisa: <i>“Piloto tomado de cada vuelta (sin fichajes QR)”</i>.</p>
+      <p>La scheda compare anche nei <b>risultati pubblici</b> e in <b>Esporta per GitHub</b>, e l'<b>Excel</b> dei risultati include un foglio <b>Piloti</b> (“Pilotos”) con gli stessi dati.</p>
+
       <h3>Classifica Le Mans (squadre)</h3>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>Risultati · Classifica Le Mans</span></div>
@@ -436,6 +467,8 @@
         <li><b>Occorrenza</b> — ogni volta che corri la stessa corsia nelle gare di passate/ripeti-corsia (<code>1/2</code>, <code>2/2</code>…); permette di confrontare una passata con l'altra.</li>
         <li><b>P/Salire</b> — nella classifica Le Mans, il ritmo (media per giro) che ti servirebbe per raggiungere la squadra davanti.</li>
         <li><b>Corsia di partenza</b> — la corsia da cui sei partito; nella griglia dei risultati è segnata con un riquadro blu.</li>
+        <li><b>V/h</b> — nella scheda Piloti, giri per ora di guida: i giri del pilota divisi per il suo tempo alla guida. Serve a confrontare piloti che hanno guidato per tempi diversi.</li>
+        <li><b>Sin fichar (senza check-in)</b> — nella scheda Piloti, la riga di ogni squadra con i giri che non si possono assegnare a nessun pilota: manche senza check-in QR o giri precedenti al primo check-in.</li>
       </ul>
     </section>
 

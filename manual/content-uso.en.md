@@ -393,10 +393,13 @@ When it finishes (or at any time) go into **Results**:
 
 - **Comparison** (grid): per participant, each lane with **Fastest / Average / Consistency / Exits / Pit-stops**. In **passes/repeat-lane** races, each lane is broken down into its **occurrences** (1/2, 2/2) to compare.
 - **Progression / Positions / Gap to leader / Gap (grid) / Advanced statistics**: different analysis views (explained in detail in the *Statistics manual*).
-- **Exports**: **Excel**, **Points (xlsx/csv)**, **Control (csv)**, **area-corse**, **Export for GitHub**, **PDF**.
+- **Drivers** (team endurance races with QR check-in): per driver, driving time, heats, laps, laps per hour, best, average, consistency, exits and pits, by team or in a table of all drivers (see the *Statistics manual*).
+- **Export ▾**: a single menu gathers **Excel**, **Points (xlsx)**, **Points (csv)**, **Control** (csv), **area-corse** and **Export for GitHub**, each option with a line underneath saying what it does. **PDF** remains a separate button. In team endurance races with check-in, the **Excel** also includes a **Drivers** sheet (team, driver and their figures; laps without check-in in a grey "Not checked in" row).
 - **area-corse**: downloads the race's **overall standings** as a CSV in the format the Italian platform **Area Corse** (area-corse.it) imports, so you can publish your club's races in their championships. The driver identifier in the file is PitWall's **internal ID**; Area Corse matches each result by the **name** of the driver or team, which is included.
 - **Exporting to Excel** (results, points and shifts report) **only works when the race is stopped or finished**: you can't get the Excel while a heat is running (that job is heavy and would stall the timing, risking a missed crossing). If a heat starts while one is being generated, the export is cancelled and you just run it again afterwards.
 - If the race has the **Category** and **Car** switches on (see *Creating a race*), the **results Excel** adds those two columns **next to the name** on the **Standings**, **Best lap** and **Comparison** sheets. With them off, the Excel comes out exactly as always.
+
+![img: op-exportar.png]
 
 **Public results.** There's an open page —**Results**, in the home menu— where anyone can consult (without touching anything or being able to edit) the results of the **finished** races. It's the one you share with drivers and public so they can look at the classification and statistics of the race. The page has a **search box** (by race, circuit, or team or driver on the podium) and **All / Sprint / Endurance** tabs. The latest race is **featured** at the top, full width, and each card shows the type, end date, circuit, how many drivers or teams and heats it had, the **podium** with its laps and the race's **fastest lap**.
 

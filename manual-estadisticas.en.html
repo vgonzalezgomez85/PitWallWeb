@@ -399,6 +399,37 @@
       </figure>
       <p>The deep analysis of a participant: <b>total laps</b> (and clean ones), <b>best</b>, <b>average</b> (with <i>with/without exits</i> toggle), <b>Δ consistency</b>, <b>exits · pit-stops</b> and <b>time lost</b>. Below, the <b>evolution by lane</b> (your average track by track, to see where you were faster) and one card per lane. With <b>Compare with</b> you pick a rival and a <b>head-to-head</b> table is generated with the differences colored (green = better, red = worse).</p>
 
+      <h3>Drivers (team endurance races)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Drivers</span></div>
+        <img src="manual/img/st-pilotos.png" loading="lazy" alt="Results, Drivers tab in the by-team view">
+        <figcaption>"By team" view: each team in standings order and, below it, its drivers with driving time, laps, L/h and pace.</figcaption>
+      </figure>
+      <p>In team endurance races with <b>QR check-in</b> (or when the laps already carry the driver) a <b>Drivers</b> tab appears: the race broken down <b>driver by driver</b> within each team. For each driver:</p>
+      <ul>
+        <li><b>Driving time</b> — how long they drove (h:mm).</li>
+        <li><b>Heats</b> — how many heats they drove in.</li>
+        <li><b>Laps</b> — the laps they did.</li>
+        <li><b>L/h</b> — laps per hour of driving: the pace that lets you compare drivers who drove for different amounts of time.</li>
+        <li><b>Best</b> — their best lap (without exits or the start crossing).</li>
+        <li><b>Average</b> — their average (without the start crossing, same as the team's).</li>
+        <li><b>Cons.</b> — their consistency without exits, the same as in Comparison.</li>
+        <li><b>Exits</b> and <b>Pits</b> — how many times they went off and how many stops they made.</li>
+      </ul>
+      <p>The selector at the top right switches the view:</p>
+      <ul>
+        <li><b>By team</b> — teams in standings order (position, colour, name and total laps) and, under each one, its drivers, from the one who drove longest to the one who drove least. Each team's best lap is shown in <b>green</b>.</li>
+        <li><b>All drivers</b> — a single table with <b>#</b>, <b>Driver</b>, <b>Team</b> and the same columns. Click any column name to sort: times go from lowest to highest on the first click and everything else from highest to lowest; another click reverses the order.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Drivers · All drivers</span></div>
+        <img src="manual/img/st-pilotos-todos.png" loading="lazy" alt="Results, Drivers tab with the table of all drivers">
+        <figcaption>"All drivers" view: a single table you sort by clicking each column name.</figcaption>
+      </figure>
+      <p><b>How laps are shared out.</b> Each lap goes to the driver who was <b>checked in</b> for that team and that heat <b>when the car crossed the line</b> (at the real time of the crossing), so a driver change in the middle of a heat splits the laps correctly: each driver gets their own. The drivers' laps <b>add up exactly</b> to the team's, with the same rules: best lap without exits or the start crossing; average without the start crossing.</p>
+      <p><b>If check-in didn't cover the whole race</b>, the header says so (e.g. <i>"QR check-in: 6 of 24 heats"</i>). Laps that can't be assigned to anyone — those from heats without check-ins and those before someone checked in late — go into a <b>"Not checked in"</b> row for the team, in grey italics. The same goes for their time: before checking in it doesn't count as driving time, so each driver's time and laps always match. With no QR check-ins but the driver stored on each lap, the header says <i>"Driver taken from each lap (no QR check-ins)"</i>.</p>
+      <p>The tab also appears in the <b>public results</b> and in <b>Export for GitHub</b>, and the results <b>Excel</b> has a <b>Drivers</b> sheet with the same data.</p>
+
       <h3>Le Mans classification (teams)</h3>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>Results · Le Mans classification</span></div>
@@ -436,6 +467,8 @@
         <li><b>Occurrence</b> — each time you run the same lane in passes/repeat-lane races (<code>1/2</code>, <code>2/2</code>…); it lets you compare one pass with another.</li>
         <li><b>P/Climb</b> — in the Le Mans classification, the pace (average per lap) you'd need to catch the team ahead.</li>
         <li><b>Starting lane</b> — the lane you started from; in the results grid it's marked with a blue box.</li>
+        <li><b>L/h</b> — in the Drivers tab, laps per hour of driving: the driver's laps divided by their driving time. Used to compare drivers who drove for different amounts of time.</li>
+        <li><b>Not checked in</b> — in the Drivers tab, each team's row with the laps that can't be assigned to any driver: heats without QR check-in or laps before the first check-in.</li>
       </ul>
     </section>
 

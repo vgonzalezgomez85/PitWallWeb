@@ -399,6 +399,37 @@
       </figure>
       <p>El análisis profundo de un participante: <b>total de vueltas</b> (y limpias), <b>mejor</b>, <b>media</b> (con toggle <i>con/sin salidas</i>), <b>Δ consistencia</b>, <b>salidas · pit-stops</b> y <b>tiempo perdido</b>. Debajo, la <b>evolución por carril</b> (tu media pista a pista, para ver dónde fuiste más rápido) y una tarjeta por carril. Con <b>Comparar con</b> eliges un rival y se genera una tabla <b>cara a cara</b> con las diferencias coloreadas (verde = mejor, rojo = peor).</p>
 
+      <h3>Pilotos (resistencias por equipos)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Pilotos</span></div>
+        <img src="manual/img/st-pilotos.png" loading="lazy" alt="Resultados, pestaña Pilotos en la vista por equipo">
+        <figcaption>Vista «Por equipo»: cada equipo en el orden de la clasificación y, debajo, sus pilotos con tiempo al volante, vueltas, V/h y ritmo.</figcaption>
+      </figure>
+      <p>En las resistencias por equipos con <b>fichaje QR</b> (o cuando las vueltas ya llevan el piloto) aparece la pestaña <b>Pilotos</b>: la carrera repartida <b>piloto a piloto</b> dentro de cada equipo. Para cada piloto:</p>
+      <ul>
+        <li><b>Al volante</b> — el tiempo que condujo (h:mm).</li>
+        <li><b>Mangas</b> — en cuántas mangas condujo.</li>
+        <li><b>Vueltas</b> — las vueltas que dio él.</li>
+        <li><b>V/h</b> — vueltas por hora al volante: el ritmo que permite comparar pilotos que condujeron tiempos distintos.</li>
+        <li><b>Mejor</b> — su mejor vuelta (sin salidas ni cruce de salida).</li>
+        <li><b>Media</b> — su media (sin el cruce de salida, igual que la del equipo).</li>
+        <li><b>Const.</b> — su consistencia sin salidas, la misma de la Comparativa.</li>
+        <li><b>Salidas</b> y <b>Pits</b> — cuántas veces se salió y cuántas paradas hizo.</li>
+      </ul>
+      <p>Con el selector de arriba a la derecha eliges la vista:</p>
+      <ul>
+        <li><b>Por equipo</b> — los equipos en el orden de la clasificación (posición, color, nombre y vueltas totales) y, debajo de cada uno, sus pilotos, del que más tiempo condujo al que menos. La mejor vuelta de cada equipo sale en <b>verde</b>.</li>
+        <li><b>Todos los pilotos</b> — una sola tabla con <b>#</b>, <b>Piloto</b>, <b>Equipo</b> y las mismas columnas. Pulsa el nombre de cualquier columna para ordenar: los tiempos van de menor a mayor al primer clic y el resto de mayor a menor; otro clic invierte el orden.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Pilotos · Todos los pilotos</span></div>
+        <img src="manual/img/st-pilotos-todos.png" loading="lazy" alt="Resultados, pestaña Pilotos con la tabla de todos los pilotos">
+        <figcaption>Vista «Todos los pilotos»: una sola tabla que se ordena pulsando el nombre de cada columna.</figcaption>
+      </figure>
+      <p><b>Cómo se reparten las vueltas.</b> Cada vuelta va al piloto que había <b>fichado</b> en ese equipo y esa manga <b>cuando cruzó meta</b> (a la hora real del cruce), así que un relevo a mitad de manga reparte bien las vueltas: cada uno se lleva las suyas. Las vueltas de los pilotos <b>suman exactamente</b> las del equipo, y con las mismas reglas: la mejor, sin salidas ni cruce de salida; la media, sin el cruce de salida.</p>
+      <p><b>Si el fichaje no cubrió toda la carrera</b>, la cabecera lo dice (p.ej. <i>«Fichaje QR: 6 de 24 mangas»</i>). Las vueltas que no se pueden asignar a nadie —las de mangas sin fichaje y las de antes de que alguien fichara tarde— salen en una fila <b>«Sin fichar»</b> del equipo, en gris y cursiva. Con su tiempo pasa lo mismo: antes de fichar no cuenta al volante, así que el tiempo y las vueltas de cada piloto siempre van a la par. Sin fichaje QR pero con el piloto guardado en cada vuelta, la cabecera avisa: <i>«Piloto tomado de cada vuelta (sin fichajes QR)»</i>.</p>
+      <p>La pestaña sale también en los <b>resultados públicos</b> y en <b>Exportar para GitHub</b>, y el <b>Excel</b> de resultados trae una hoja <b>Pilotos</b> con los mismos datos.</p>
+
       <h3>Clasificación Le Mans (equipos)</h3>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Clasificación Le Mans</span></div>
@@ -436,6 +467,8 @@
         <li><b>Ocurrencia</b> — cada vez que corres el mismo carril en carreras de pasadas/repetir-carril (<code>1/2</code>, <code>2/2</code>…); permite comparar una pasada con otra.</li>
         <li><b>P/Subir</b> — en la clasificación Le Mans, el ritmo (media por vuelta) que necesitarías para alcanzar al equipo de delante.</li>
         <li><b>Carril de salida</b> — el carril desde el que arrancaste; en la parrilla de resultados se marca con un recuadro azul.</li>
+        <li><b>V/h</b> — en la pestaña Pilotos, vueltas por hora al volante: las vueltas del piloto entre su tiempo al volante. Sirve para comparar pilotos que condujeron tiempos distintos.</li>
+        <li><b>Sin fichar</b> — en la pestaña Pilotos, la fila de cada equipo con las vueltas que no se pueden asignar a ningún piloto: mangas sin fichaje QR o vueltas anteriores al primer fichaje.</li>
       </ul>
     </section>
 
