@@ -61,6 +61,7 @@ Tu trabajo es encontrar en internet fechas CONCRETAS de carreras de slot y devol
 
 Reglas estrictas:
 - Solo carreras de SLOT (coches eléctricos en pista con carril guía). Nada de karting, automovilismo real, RC ni simracing.
+- Solo CARRERAS: nada de ferias, bolsas de intercambio, exposiciones, cursos ni jornadas de puertas abiertas.
 - Solo eventos en Europa.
 - Solo fechas que aparezcan publicadas en una página que hayas consultado. Si no encuentras la fecha exacta, NO incluyas la carrera. Nunca deduzcas fechas de años anteriores.
 - Cada carrera debe llevar en "enlace" la URL exacta de la página donde viste la fecha (el calendario, no la portada si la fecha está en otra página).
@@ -253,6 +254,11 @@ def extraer_json(texto):
     m = re.search(r"<json>\s*(.*?)\s*</json>", texto, re.S)
     crudo = m.group(1) if m else texto
     crudo = re.sub(r"^```(?:json)?|```$", "", crudo.strip(), flags=re.M).strip()
+    if not crudo.startswith("["):  # a veces el modelo escribe texto alrededor: nos quedamos con el array
+        i, j = crudo.find("["), crudo.rfind("]")
+        if i < 0 or j < i:
+            raise ValueError("la respuesta no trae un array JSON: " + texto[:200].replace("\n", " "))
+        crudo = crudo[i:j + 1]
     datos = json.loads(crudo)
     if not isinstance(datos, list):
         raise ValueError("la respuesta no es un array")
