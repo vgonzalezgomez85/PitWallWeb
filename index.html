@@ -80,7 +80,8 @@
   .logo .mark{width:27px;height:27px;display:block;flex:0 0 auto}
   .logo b{color:var(--red);font-weight:800}
   nav.links{display:flex;gap:30px;align-items:center}
-  nav.links a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+  @media(max-width:1200px){nav.links{gap:20px}}
+  nav.links a{white-space:nowrap;font-family:var(--mono);font-size:12px;letter-spacing:.1em;
     text-transform:uppercase;color:var(--ink-2);transition:color .2s}
   nav.links a:hover{color:var(--ink)}
   .nav-cta{border:1px solid var(--line-strong);padding:8px 16px;border-radius:2px;
@@ -102,7 +103,7 @@
   header.open .menu-btn span{background:transparent}
   header.open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
   header.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
-  @media(max-width:780px){
+  @media(max-width:1080px){
     .menu-btn{display:inline-flex}
     nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
       align-items:stretch;gap:0;padding:4px 28px 22px;background:#08080a;
@@ -505,6 +506,7 @@
       <a href="#arquitectura">Cómo funciona</a>
       <a href="inicio-rapido.html">Inicio rápido</a>
       <a href="manual-uso.html">Manual</a>
+      <a href="carreras.html">Carreras</a>
       <a href="#ayuda">Ayuda</a>
       <div class="langs"><b>ES</b><a class="lg" href="pitwall-landing-en.html">EN</a><a class="lg" href="pitwall-landing-fr.html">FR</a><a class="lg" href="pitwall-landing-it.html">IT</a></div>
     </nav>

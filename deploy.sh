@@ -6,6 +6,7 @@ cd "$(dirname "$0")"
 
 rsync -az --delete \
   --exclude '.git' --exclude '.DS_Store' --exclude '.impeccable' --exclude '.vscode' --exclude 'deploy.sh' \
+  --exclude 'herramientas' --exclude 'datos/carreras-auto.json' \
   ./ pitwall-web:/var/www/pitwall/
 
 ssh pitwall-web "chown -R www-data:www-data /var/www/pitwall && chmod -R go+rX /var/www/pitwall"

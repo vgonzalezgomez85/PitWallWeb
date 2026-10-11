@@ -1,0 +1,10 @@
+# Campeonatos de slot que la IA buscará expresamente (uno por línea).
+# Pon detrás de "|" pistas para afinar la búsqueda (país, web, escala...).
+# Además de estos, el script hace búsquedas abiertas por país para descubrir campeonatos nuevos.
+Resisbarna | resistencias de slot en Barcelona, España
+Resiscat | resistencias de slot en Cataluña, España
+Resisvalles | resistencias de slot en el Vallès, Barcelona, España
+Le Mans Series slot | campeonato de resistencia de slot
+WES | World Endurance Series slot, resistencia de slot
+Master Slot | campeonato de slot en España
+Campeonato de Europa Slot.it | European Championship de Slot.it

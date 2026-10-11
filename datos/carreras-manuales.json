@@ -1,0 +1,19 @@
+{
+  "_ayuda": "Carreras añadidas a mano. Se muestran como 'Verificada' y ganan a las de la IA si tienen el mismo id. Copia el bloque de _ejemplo dentro de 'carreras'. Obligatorios: fecha (AAAA-MM-DD) y nombre. 'pais' es el código ISO de 2 letras (ES, IT, FR, PT, DE, GB...). Para quitar una carrera que la IA se ha inventado o ha puesto mal, añade su id a 'ocultar' (el id aparece en datos/carreras-auto.json del servidor).",
+  "_ejemplo": {
+    "fecha": "2026-11-14",
+    "fecha_fin": "2026-11-15",
+    "nombre": "6 Horas de Resistencia",
+    "campeonato": "Resisbarna",
+    "club": "Nombre del club",
+    "circuito": "Nombre de la pista",
+    "ciudad": "Barcelona",
+    "pais": "ES",
+    "escala": "1/32",
+    "categoria": "GT / LMP",
+    "enlace": "https://web-del-club-o-del-campeonato",
+    "notas": "Inscripciones hasta el 1 de noviembre"
+  },
+  "carreras": [],
+  "ocultar": []
+}

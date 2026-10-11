@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall · Slot car race finder for Europe</title>
+<meta name="description" content="Calendar of slot car races and championships across Europe: endurance races, national and regional series, international events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="carreras.css">
+<script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <nav class="links" id="nav-links">
+      <a href="pitwall-manager-en.html">Manager</a>
+      <a href="pitwall-lap-en.html">Lap</a>
+      <a href="pitwall-control-en.html">Control</a>
+      <a href="carreras-en.html" aria-current="page">Races</a>
+      <div class="langs"><a class="lg" href="carreras.html">ES</a><b>EN</b><a class="lg" href="carreras-fr.html">FR</a><a class="lg" href="carreras-it.html">IT</a></div>
+    </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+  </div>
+</header>
+<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="crumb"><a href="pitwall-landing-en.html">PitWall</a> / Races</div>
+    <h1>Slot car<br><span class="a">race</span> finder</h1>
+    <p class="lede">Calendar of <b>slot car races and championships across Europe</b>. Filter by country, championship or club and open the organiser’s website to sign up.</p>
+  </section>
+
+  <form class="filters" onsubmit="return false" role="search">
+    <label><span>Search</span><input type="search" id="f-q" placeholder="Race, club, city…" autocomplete="off"></label>
+    <label><span>Country</span><select id="f-pais"></select></label>
+    <label><span>Championship</span><select id="f-camp"></select></label>
+    <label class="chk"><input type="checkbox" id="f-past"><span>Show past races</span></label>
+  </form>
+
+  <div class="meta"><span id="count">…</span><span id="updated"></span></div>
+  <div class="list" id="list" aria-live="polite"></div>
+
+  <aside class="note">
+    <div>
+      <h2>Is your race missing?</h2>
+      <p>Races tagged <b>Found by AI</b> come from an automatic weekly web search: always check the date on the organiser’s website. If you run a race or spot a mistake, write to us and we’ll add it as verified.</p>
+    </div>
+    <a class="btn btn-primary" href="mailto:info.pitwall@gmail.com?subject=Race%20for%20the%20finder" data-umami-event="carreras-proponer">Submit a race →</a>
+  </aside>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div class="mono">© 2026 · Slot racing timing and management</div>
+  </div>
+</footer>
+<script src="carreras.js"></script>
+</body>
+</html>
