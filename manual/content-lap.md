@@ -170,6 +170,7 @@ Desde el botón **Ajustes** del menú configuras:
 - **Idioma de la app**: automático (el del móvil) o uno de los 8. Cambia también la **voz** que te canta los tiempos y las frases que dice. El euskera no tiene voz de sistema en iPhone y usa la de castellano.
 - **Estrategia de neumáticos**: la enciende o apaga. Apagada, no se calcula y desaparece su acceso en Lap.
 - **Voz**: el interruptor general y los **avisos**: vueltas, cambios de posición, mitad de manga, último minuto y últimos 30 segundos, y los **avisos periódicos** (media de carril, media de carrera, gaps y «media para subir»). Un periódico se repite cada **N minutos**: toca su botón para ciclar entre apagado, 1, 2, 3 y 5 minutos.
+- **Aplicación** (solo Android): la versión instalada y el botón **Buscar actualizaciones**.
 
 Lo que fijas aquí es **con lo que arranca cada sesión**. Durante la carrera puedes seguir cambiando los avisos desde Lap, en *Voz y ajustes*.
 
@@ -178,7 +179,7 @@ Lo que fijas aquí es **con lo que arranca cada sesión**. Durante la carrera pu
 ## actualizar | Actualizar la app
 
 - **iPhone**: las versiones llegan por **TestFlight**. Abre la app TestFlight y pulsa *Actualizar*; si activaste las actualizaciones automáticas, se instalan solas. Cada versión de TestFlight **caduca a los 90 días**, así que conviene actualizar antes.
-- **Android**: al abrir la app, si en **pitwall.es** hay una versión más nueva que la tuya, el menú muestra una tarjeta **«Hay una versión nueva»** con el botón **Actualizar**. Al pulsarlo, la app **descarga el APK** y abre el instalador de Android. La primera vez, Android te pedirá **permitir a PitWall Lap instalar aplicaciones**; concédelo y vuelve a pulsar *Actualizar*. **Más tarde** oculta el aviso hasta la próxima vez que abras la app.
+- **Android**: al abrir la app (y al volver a ella pasadas 6 horas), si en **pitwall.es** hay una versión más nueva que la tuya, el menú muestra una tarjeta **«Hay una versión nueva»** con el botón **Actualizar**. Al pulsarlo, la app **descarga el APK** y abre el instalador de Android. La primera vez, Android te pedirá **permitir a PitWall Lap instalar aplicaciones**; concédelo y vuelve a pulsar *Actualizar*. **Más tarde** oculta el aviso hasta la próxima vez que abras la app. También puedes comprobarlo cuando quieras en *Ajustes → Aplicación → Buscar actualizaciones*.
 
 > tip: La actualización se instala **encima** de la app, sin perder tu calendario, tus entrenamientos ni tus resultados. Si no hay red o la web no responde, la app simplemente no avisa. La primera versión con este aviso hay que instalarla a mano una vez; a partir de ahí se actualiza sola.
 

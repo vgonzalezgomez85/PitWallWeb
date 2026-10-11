@@ -170,6 +170,7 @@ From the **Settings** button in the menu you configure:
 - **App language**: automatic (your phone's) or one of the 8. It also changes the **voice** that speaks your times and the phrases it says. Basque has no system voice on iPhone and uses the Spanish one.
 - **Tire strategy**: switch it on or off. When off, it isn't calculated and its entry disappears from Lap.
 - **Voice**: the master switch and the **alerts**: laps, position changes, half-time, last minute and last 30 seconds, and the **periodic alerts** (lane average, race average, gaps and «average to move up»). A periodic alert repeats every **N minutes**: tap its button to cycle through off, 1, 2, 3 and 5 minutes.
+- **App** (Android only): the installed version and the **Check for updates** button.
 
 What you set here is **what every session starts with**. During the race you can keep changing the alerts from Lap, in *Voice & settings*.
 
@@ -178,7 +179,7 @@ What you set here is **what every session starts with**. During the race you can
 ## actualizar | Updating the app
 
 - **iPhone**: versions arrive through **TestFlight**. Open the TestFlight app and tap *Update*; if you turned on automatic updates, they install by themselves. Each TestFlight build **expires after 90 days**, so it is worth updating before then.
-- **Android**: when you open the app, if **pitwall.es** has a newer version than yours, the menu shows a **«A new version is available»** card with an **Update** button. Tapping it, the app **downloads the APK** and opens Android's installer. The first time, Android will ask you to **allow PitWall Lap to install apps**; grant it and tap *Update* again. **Later** hides the notice until the next time you open the app.
+- **Android**: when you open the app (and when you return to it after 6 hours), if **pitwall.es** has a newer version than yours, the menu shows a **«A new version is available»** card with an **Update** button. Tapping it, the app **downloads the APK** and opens Android's installer. The first time, Android will ask you to **allow PitWall Lap to install apps**; grant it and tap *Update* again. **Later** hides the notice until the next time you open the app. You can also check any time in *Settings → App → Check for updates*.
 
 > tip: The update installs **on top of** the app, without losing your calendar, practice runs or results. If there is no network or the website doesn't respond, the app simply doesn't notify you. The first version with this notice has to be installed by hand once; from then on it updates itself.
 
