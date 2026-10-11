@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall · Manuale di PitWall Lap</title>
+<meta name="description" content="Manuale di PitWall Lap, l&#x27;app del pilota di slot: ascoltare i tempi sul giro, calendario gare con promemoria, allenamenti, allenamenti di gara e risultati offline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css">
+<style>body{--ac:var(--red)} .doc figure.shot.phone{max-width:340px;margin-left:0} .doc figure.shot.phone img{width:100%;height:auto;display:block}</style>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="index.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <nav class="links" id="nav-links">
+      <a href="pitwall-lap-it.html">Landing</a>
+      <a href="manual-uso.it.html">Manuale d&#x27;uso</a>
+      <a href="manual-lap.it.html" class="here">Manuale di Lap</a>
+      <a href="manual-estadisticas.it.html">Statistiche</a>
+      <div class="lang" aria-label="Lingua">
+        <a href="manual-lap.html">ES</a>
+        <a href="manual-lap.en.html">EN</a>
+        <a href="manual-lap.it.html" class="on" aria-current="page">IT</a>
+        <a href="manual-lap.fr.html">FR</a>
+      </div>
+      <a href="manual-estadisticas.it.html" class="nav-cta">Interpretare i dati →</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+  </div>
+</header>
+<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Manuale dell&#x27;app · Per il pilota</div>
+    <h1>Il tuo assistente slot,<br>in <span class="ac">tasca</span>.</h1>
+    <p class="lede">Guida a <b>PitWall Lap</b>, l'app del pilota: si collega al cronometraggio della pista per <b>dirti a voce i tempi sul giro</b>, anche con lo schermo bloccato, e conserva nel telefono il tuo <b>calendario gare</b>, i tuoi <b>allenamenti</b> e i tuoi <b>risultati</b>.</p>
+    <div class="xlink">
+      <a class="cur" href="manual-lap.it.html">▮ Manuale di Lap</a>
+      <a href="manual-uso.it.html">Manuale d&#x27;uso ↔</a>
+      <a href="manual-estadisticas.it.html">Manuale delle statistiche ↔</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Indice del manuale">
+    <div class="toc-ttl">Contenuti</div>
+    <ol>
+      <li><a href="#intro">Introduzione</a></li>
+      <li><a href="#permisos">Permessi del telefono</a></li>
+      <li><a href="#lap">Lap: ascoltare i tempi</a></li>
+      <li><a href="#calendario">Calendario gare</a></li>
+      <li><a href="#entrenamientos">Allenamenti</a></li>
+      <li><a href="#competicion">Allenamenti di gara</a></li>
+      <li><a href="#resultados">Risultati</a></li>
+      <li><a href="#ajustes">Impostazioni</a></li>
+      <li><a href="#actualizar">Aggiornare l&#x27;app</a></li>
+      <li><a href="#problemas">Se qualcosa non funziona</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="intro">
+      <div class="num">// 01</div>
+      <h2>Introduzione</h2>
+      <p>PitWall Lap è l'app del <b>pilota</b>. Ha sei aree, che compaiono nel menu principale quando la apri:</p>
+      <ul>
+        <li><b>Lap</b>: si collega al cronometraggio della pista e ti dice i tempi a voce.</li>
+        <li><b>Calendario</b>: le tue gare, con promemoria sul telefono.</li>
+        <li><b>Allenamenti</b>: le sessioni di prova che hai registrato.</li>
+        <li><b>Allenamenti di gara</b>: quelli salvati dal server, che puoi scaricare per consultarli offline.</li>
+        <li><b>Risultati</b>: gare terminate e i tuoi file (Excel, PDF o foto).</li>
+        <li><b>Impostazioni</b>: lingua, strategia gomme e avvisi vocali.</li>
+      </ul>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Menu principale</span></div>
+        <img src="manual/img/lap-01-menu.png" loading="lazy" alt="Menu principale di PitWall Lap">
+        <figcaption>Menu principale: Lap in alto, le quattro aree a griglia e le Impostazioni sotto.</figcaption>
+      </figure>
+      <p>L'app funziona con <b>PitWall Manager</b> (il server della pista), con il cronometro <b>TicTac</b> precedente (InfoLap) e con il <b>TicTac nuovo</b>. È in <b>8 lingue</b>: spagnolo, catalano, basco, inglese, italiano, francese, portoghese e olandese; quando la apri prende quella del telefono.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>È un'app per <b>iPhone</b> (si installa con TestFlight) e per <b>Android</b> (APK, che si scarica da pitwall.es e si <b>aggiorna dall'app stessa</b>). Il telefono deve essere nella <b>stessa rete WiFi</b> del server o del cronometro; senza quella rete, Calendario, Allenamenti, Allenamenti di gara scaricati e Risultati continuano a funzionare, ma Lap non ha nulla da ascoltare.</div>
+      </div>
+    </section>
+
+    <section id="permisos">
+      <div class="num">// 02</div>
+      <h2>Permessi del telefono</h2>
+      <p>L'app chiede i permessi solo quando servono:</p>
+      <ul>
+        <li><b>Rete locale</b> (iPhone): per trovare il server o il cronometro della pista nel WiFi. Se lo neghi, iOS scarta in silenzio le ricerche e <b>Lap non troverà nulla</b> anche se tutto è a posto; si risolve in <i>Impostazioni di iPhone → PitWall Lap → Rete locale</i>.</li>
+        <li><b>Notifiche</b>: la prima volta che salvi una gara con promemoria. Senza, la gara si salva ma nessun promemoria suonerà.</li>
+        <li><b>Fotocamera</b> e <b>Foto</b>: solo se aggiungi una foto a <i>Risultati</i>.</li>
+      </ul>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 03</div>
+      <h2>Lap: ascoltare i tempi</h2>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Lap</span></div>
+        <img src="manual/img/lap-02-fuentes.png" loading="lazy" alt="Scelta tra PitWall e TicTac">
+        <figcaption>Lap: due schede, PitWall (rossa) e TicTac, e il pulsante Indietro.</figcaption>
+      </figure>
+      <p>Entra in <b>Lap</b> e scegli la fonte dei tempi:</p>
+      <ul>
+        <li><b>PitWall</b>: il server della pista (PitWall Manager).</li>
+        <li><b>TicTac</b>: il cronometro TicTac Slot, senza server.</li>
+      </ul>
+      <p>L'app <b>trova la fonte da sola</b> nella rete in pochi secondi. Se non la trova, ti lascia scrivere l'<b>IP a mano</b> una volta e lo ricorda per la prossima. Quell'indirizzo ricordato lo usano anche Allenamenti di gara e Risultati per parlare con il server.</p>
+      <h3>Scegliere l'attività (PitWall)</h3>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Scegli l&#x27;attività</span></div>
+        <img src="manual/img/lap-03-actividad.png" loading="lazy" alt="Elenco di gare e allenamento attivi">
+        <figcaption>Scegli l'attività: gare attive e in attesa, e la sessione di allenamento se c'è.</figcaption>
+      </figure>
+      <p>Se il server ha più gare, o una gara e un allenamento insieme, ti lascia <b>scegliere</b>. Se c'è una cosa sola, entra direttamente.</p>
+      <ul>
+        <li><b>Aggiorna</b>: il pulsante in alto a destra (o trascinare l'elenco verso il basso) interroga di nuovo il server senza uscire dalla schermata. Usalo se il direttore ha appena preparato la gara o l'allenamento. Da «Nessuna attività» o da un errore, se dopo l'aggiornamento compare una sola attività, entra direttamente.</li>
+        <li>Poi scegli la tua <b>batteria</b> e il tuo <b>nome o squadra</b>, e arrivi alla schermata di gara.</li>
+      </ul>
+      <h3>La tua schermata di gara</h3>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Il mio turno</span></div>
+        <img src="manual/img/lap-04-mi-turno.png" loading="lazy" alt="Schermata di gara">
+        <figcaption>Il mio turno: l'ultimo giro in grande, colorato secondo quanto è veloce, la tua posizione e i distacchi.</figcaption>
+      </figure>
+      <p>È pensata per essere <b>guardata con la coda dell'occhio</b>: l'ultimo giro in grande, in <b>viola</b> se è il tuo migliore, in <b>verde</b> se sei entro il 2 % e in <b>ambra</b> se vai più lento, con la differenza sotto; la tua posizione e i distacchi con l'avversario davanti e quello dietro. Se il direttore mette in <b>pausa</b>, <b>ferma (STOP)</b> o termina la manche, l'app lo mostra e te lo dice a voce.</p>
+      <p>La <b>voce</b> dice ogni giro, i cambi di posizione, metà manche, l'ultimo minuto e gli ultimi 30 secondi e, se li attivi, ogni pochi minuti la media di corsia, la media di gara, i distacchi e la «media per salire». Tutto si configura in <i>Impostazioni</i> (vedi sotto) e si può cambiare al volo in <i>Voce e impostazioni</i>, ripiegato sotto la tua schermata.</p>
+      <p>La <b>strategia gomme</b> (gare di durata) consiglia quando cambiare e, se la gara usa il controllo gomme del server, mostra i set disponibili e l'ultimo cambio. Si può disattivare in <i>Impostazioni</i>.</p>
+      <h3>Allenamento libero e allenamento di gara</h3>
+      <p>Se in «Scegli l'attività» compare <b>Allenamenti</b>, c'è una sessione di prova in corso:</p>
+      <ul>
+        <li><b>Allenamento libero</b>: scegli la tua <b>corsia</b> e l'app segue quella corsia.</li>
+        <li><b>Allenamento di gara</b>: le squadre <b>ruotano di corsia a ogni heat</b>, quindi scegli la tua <b>squadra o pilota</b> (l'elenco mostra la corsia che ciascuno occupa ora, oppure <b>Riposa</b>) e l'app <b>ti segue ovunque vai</b>. All'inizio di ogni heat la voce ti dice <i>«Tocca a te, corsia N»</i>; se in quell'heat riposi, la schermata lo mostra e non senti nulla degli altri.</li>
+      </ul>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Allenamento di gara</span></div>
+        <img src="manual/img/lap-05-competicion-selector.png" loading="lazy" alt="Scegliere squadra o pilota">
+        <figcaption>Allenamento di gara: scegli chi seguire; ognuno mostra la sua corsia attuale o Riposa.</figcaption>
+      </figure>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Il seguito per squadra nell'allenamento di gara richiede <b>PitWall Manager 1.56.1</b> o successivo. Con un server più vecchio l'app non offre l'allenamento di gara o resta fissa su una corsia.</div>
+      </div>
+      <p>Con <b>Allenamento GO</b> (nella tua schermata, in modalità allenamento) l'app registra i tuoi giri come una sessione tua; quando fermi, la salva in <i>Allenamenti</i>.</p>
+    </section>
+
+    <section id="calendario">
+      <div class="num">// 04</div>
+      <h2>Calendario gare</h2>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Calendario</span></div>
+        <img src="manual/img/lap-06-calendario.png" loading="lazy" alt="Gare future e passate">
+        <figcaption>Calendario: gare future (con la campana se hanno promemoria) e passate.</figcaption>
+      </figure>
+      <p>Il calendario conserva <b>le tue gare nel telefono</b> e ti <b>avvisa</b> con notifiche, senza server e senza connessione. Mostra le <b>prossime</b> (la più vicina per prima) e le <b>passate</b>. Tocca una gara per modificarla o eliminarla.</p>
+      <h3>Aggiungere una gara a mano</h3>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Nuova gara</span></div>
+        <img src="manual/img/lap-07-evento.png" loading="lazy" alt="Modulo della gara">
+        <figcaption>Nuova gara: nome, data e ora, luogo, note e promemoria.</figcaption>
+      </figure>
+      <p>Premi <b>＋ Aggiungi gara</b> e compila <b>nome</b>, <b>data</b> e <b>ora</b> (obbligatori) e, se vuoi, <b>luogo</b> e <b>note</b>. In <b>Avvisami</b> seleziona i promemoria che vuoi:</p>
+      <ul>
+        <li>all'ora di inizio;</li>
+        <li>30 minuti prima;</li>
+        <li>1 ora prima;</li>
+        <li>1 giorno prima;</li>
+        <li>1 settimana prima.</li>
+      </ul>
+      <p>Per impostazione predefinita una gara nuova avvisa <b>1 giorno e 1 ora prima</b>. Si programmano solo i promemoria il cui momento non è ancora passato. La prima volta, il telefono chiederà il permesso per le notifiche.</p>
+      <h3>Importare molte gare da Excel</h3>
+      <p>Se hai il calendario della stagione in un foglio di calcolo, non serve scrivere ogni gara.</p>
+      <ol>
+        <li>Premi <b>Scarica il modello</b>. L'app crea un Excel nella tua lingua e apre il menu di condivisione: salvalo in <i>File</i>, mandatelo per email o con AirDrop.</li>
+        <li>Aprilo in Excel, Numbers o un altro programma e compila <b>una gara per riga</b> nel foglio <i>Gare</i>. <b>Elimina le due righe di esempio</b>. Il foglio <i>Istruzioni</i> riassume le regole.</li>
+        <li>Salvalo come <b>.xlsx</b> e torna all'app: <b>Importa da Excel</b> e scegli il file.</li>
+        <li>L'app mostra un'<b>anteprima</b> prima di salvare qualsiasi cosa: le gare che verranno importate, quelle già presenti e le righe con errori. Conferma con <b>Importa</b>.</li>
+      </ol>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Importa da Excel</span></div>
+        <img src="manual/img/lap-08-importar.png" loading="lazy" alt="Anteprima dell&#x27;importazione">
+        <figcaption>Anteprima: cosa verrà importato, cosa c'era già e quali righe hanno errori.</figcaption>
+      </figure>
+      <p>Le colonne del modello sono:</p>
+      <ul>
+        <li><b>Nome</b> (obbligatoria): il nome della gara.</li>
+        <li><b>Data</b> (obbligatoria): <span class="mono">gg/mm/aaaa</span>; vale anche <span class="mono">aaaa-mm-gg</span> o una data di Excel.</li>
+        <li><b>Ora</b> (obbligatoria): <span class="mono">hh:mm</span>. Se la data di Excel include già l'ora, vale quella.</li>
+        <li><b>Luogo</b> (facoltativa): il circuito o la sede.</li>
+        <li><b>Note</b> (facoltativa): quello che vuoi ricordare.</li>
+        <li><b>Promemoria</b> (facoltativa): separati da virgole, tra <span class="mono">hora</span>, <span class="mono">30min</span>, <span class="mono">1h</span>, <span class="mono">1d</span> e <span class="mono">1sem</span>. Vuoto = <span class="mono">1d, 1h</span>.</li>
+      </ul>
+      <p>Da sapere:</p>
+      <ul>
+        <li>Le <b>intestazioni</b> possono essere in una qualsiasi delle 8 lingue, in un altro ordine o con un altro nome abituale (<i>Gara</i>, <i>Circuito</i>, <i>Date</i>…), e possono esserci righe di titolo sopra.</li>
+        <li>Una riga con errore <b>non impedisce</b> di importare le altre; l'anteprima indica la <b>riga</b> e il motivo (manca il nome, data non valida, ora non valida).</li>
+        <li>Se una gara è già nel calendario (<b>stesso nome e stesso momento</b>), viene <b>saltata</b>, quindi puoi importare lo stesso file di nuovo senza duplicare.</li>
+        <li>Un promemoria che l'app non capisce viene ignorato e te lo dice.</li>
+        <li>Funziona con Excel (<b>.xlsx</b> o <b>.xls</b>). Se esporti da un altro programma, salva come Excel.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Aggiungere una gara a mano resta disponibile, e puoi unire le due strade: importare la stagione e aggiungere dopo le gare singole.</div>
+      </div>
+    </section>
+
+    <section id="entrenamientos">
+      <div class="num">// 05</div>
+      <h2>Allenamenti</h2>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Allenamenti</span></div>
+        <img src="manual/img/lap-09-entrenamientos.png" loading="lazy" alt="Elenco delle sessioni di allenamento">
+        <figcaption>Allenamenti: le tue sessioni di prova, con giri, migliore e media.</figcaption>
+      </figure>
+      <p>Qui ci sono le <b>sessioni di prova che hai registrato</b> con <i>Allenamento GO</i>. Aprine una per vedere il suo <b>grafico</b> (giri e media mobile) e annotare i dati dell'auto (modello, motore, gomma, cerchio, corona e pignone). Con <b>Confronta</b> scegli da 2 a 4 sessioni e le vedi <b>sovrapposte</b> in un solo grafico, con la loro regolarità. Tutto è salvato <b>nel telefono</b>.</p>
+    </section>
+
+    <section id="competicion">
+      <div class="num">// 06</div>
+      <h2>Allenamenti di gara</h2>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Allenamenti di gara</span></div>
+        <img src="manual/img/lap-10-competicion-lista.png" loading="lazy" alt="Elenco scaricati e del server">
+        <figcaption>Allenamenti di gara: quelli scaricati («sul telefono») e quelli ancora solo sul server.</figcaption>
+      </figure>
+      <p>Quando un allenamento di gara finisce, <b>PitWall Manager lo salva</b>. Quest'area ti permette di <b>scaricarlo nel telefono</b> per consultarlo quando vuoi, anche <b>offline</b>.</p>
+      <ul>
+        <li>L'elenco unisce quelli che hai già (<b>✓ sul telefono</b>) e quelli del server (<b>⬇ Scarica</b>). Tocca uno del server e si scarica e si apre. Con più in sospeso compare <b>Scarica tutti</b>.</li>
+        <li>Ogni riga mostra data, heat, partecipanti, giri e giro migliore.</li>
+        <li>La sessione <b>in corso adesso</b> non compare finché non viene chiusa.</li>
+        <li>Con il server spento o fuori dal WiFi si vedono solo quelli scaricati. Per elencare quelli del server serve essere entrati almeno una volta in <i>Lap → PitWall</i>, perché l'app ricordi il suo indirizzo.</li>
+      </ul>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Allenamento di gara</span></div>
+        <img src="manual/img/lap-11-competicion-detalle.png" loading="lazy" alt="Classifica e heat">
+        <figcaption>Dettaglio: classifica della sessione e, heat per heat, cosa ha fatto ogni corsia.</figcaption>
+      </figure>
+      <p>Il <b>dettaglio</b> ha la <b>classifica</b> della sessione (vince chi somma più giri in tutti i suoi heat; a parità, il giro migliore) e, <b>heat per heat</b>, giri, migliore e media di ogni corsia con il suo partecipante. <b>Rimuovi dal telefono</b> elimina la copia locale; l'allenamento resta sul server.</p>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Per scaricare gli allenamenti serve <b>PitWall Manager 1.56.0</b> o successivo.</div>
+      </div>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 07</div>
+      <h2>Risultati</h2>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Risultati</span></div>
+        <img src="manual/img/lap-12-resultados.png" loading="lazy" alt="Gare e file propri">
+        <figcaption>Risultati: gare di PitWall e i tuoi file, insieme e per data.</figcaption>
+      </figure>
+      <p><i>Risultati</i> riunisce, per data, due tipi di cose:</p>
+      <ul>
+        <li><b>Gare terminate in PitWall</b>: l'app salva il dossier dei risultati quando la gara finisce, quindi lo vedi offline. Se il server risponde, compaiono anche quelle che non hai seguito in diretta (segnate <b>☁ sul server</b>). In ognuna hai la classifica e l'<b>Excel di confronto</b> da aprire o condividere.</li>
+        <li><b>I tuoi file</b>: premi <b>＋ Aggiungi</b> e scegli <b>File (Excel o PDF)</b>, <b>Foto dalla libreria</b> o <b>Scatta una foto</b>. Serve per conservare la classifica di una gara di un altro club, un foglio tempi su carta o un PDF del regolamento.</li>
+      </ul>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · File dei risultati</span></div>
+        <img src="manual/img/lap-13-archivo.png" loading="lazy" alt="Dettaglio di un file proprio">
+        <figcaption>Un tuo file: si rinomina, si apre o condivide, e si elimina. Le foto si vedono sullo schermo.</figcaption>
+      </figure>
+      <p>Ogni tuo file viene <b>copiato nell'app</b>, quindi resta anche se elimini l'originale. Puoi <b>rinominarlo</b>, <b>aprirlo o condividerlo</b> (Excel e PDF si aprono nell'app che scegli; le foto si vedono direttamente) ed <b>eliminarlo</b>.</p>
+    </section>
+
+    <section id="ajustes">
+      <div class="num">// 08</div>
+      <h2>Impostazioni</h2>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Impostazioni</span></div>
+        <img src="manual/img/lap-14-ajustes.png" loading="lazy" alt="Schermata delle impostazioni">
+        <figcaption>Impostazioni: lingua, strategia gomme e avvisi vocali.</figcaption>
+      </figure>
+      <p>Dal pulsante <b>Impostazioni</b> del menu configuri:</p>
+      <ul>
+        <li><b>Lingua dell'app</b>: automatica (quella del telefono) o una delle 8. Cambia anche la <b>voce</b> che ti dice i tempi e le frasi che pronuncia. Il basco non ha una voce di sistema su iPhone e usa quella spagnola.</li>
+        <li><b>Strategia gomme</b>: la attivi o disattivi. Disattivata, non viene calcolata e il suo accesso sparisce da Lap.</li>
+        <li><b>Voce</b>: l'interruttore generale e gli <b>avvisi</b>: giri, cambi di posizione, metà manche, ultimo minuto e ultimi 30 secondi, e gli <b>avvisi periodici</b> (media di corsia, media di gara, distacchi e «media per salire»). Un periodico si ripete ogni <b>N minuti</b>: tocca il suo pulsante per passare tra spento, 1, 2, 3 e 5 minuti.</li>
+      </ul>
+      <p>Quello che imposti qui è <b>con cui parte ogni sessione</b>. Durante la gara puoi continuare a cambiare gli avvisi da Lap, in <i>Voce e impostazioni</i>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Con il <b>TicTac precedente</b> l'app dice solo i giri; gli altri avvisi richiedono PitWall Manager o il TicTac nuovo.</div>
+      </div>
+    </section>
+
+    <section id="actualizar">
+      <div class="num">// 09</div>
+      <h2>Aggiornare l&#x27;app</h2>
+      <ul>
+        <li><b>iPhone</b>: le versioni arrivano da <b>TestFlight</b>. Apri l'app TestFlight e premi <i>Aggiorna</i>; se hai attivato gli aggiornamenti automatici, si installano da sole. Ogni versione di TestFlight <b>scade dopo 90 giorni</b>, quindi conviene aggiornare prima.</li>
+        <li><b>Android</b>: quando apri l'app, se su <b>pitwall.es</b> c'è una versione più recente della tua, il menu mostra una scheda <b>«È disponibile una nuova versione»</b> con il pulsante <b>Aggiorna</b>. Premendolo, l'app <b>scarica l'APK</b> e apre l'installatore di Android. La prima volta, Android ti chiederà di <b>consentire a PitWall Lap di installare app</b>; concedilo e premi di nuovo <i>Aggiorna</i>. <b>Più tardi</b> nasconde l'avviso fino alla prossima apertura dell'app.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>L'aggiornamento si installa <b>sopra</b> l'app, senza perdere calendario, allenamenti e risultati. Se non c'è rete o il sito non risponde, l'app semplicemente non avvisa. La prima versione con questo avviso va installata a mano una volta; da lì in poi si aggiorna da sola.</div>
+      </div>
+    </section>
+
+    <section id="problemas">
+      <div class="num">// 10</div>
+      <h2>Se qualcosa non funziona</h2>
+      <ul>
+        <li><b>Lap non trova il server.</b> Controlla che telefono e server siano nello <b>stesso WiFi</b> e, su iPhone, che il permesso <b>Rete locale</b> sia attivo. Se ancora non compare, inserisci l'IP a mano.</li>
+        <li><b>«Nessuna attività».</b> Il server non ha una gara preparata né un allenamento in corso. Quando il direttore la prepara, premi <b>Aggiorna</b>.</li>
+        <li><b>Non compare l'allenamento di gara.</b> Controlla che PitWall Manager sia <b>1.56.1</b> o successivo e che l'allenamento sia allestito (in corso o in attesa tra gli heat).</li>
+        <li><b>I promemoria del calendario non suonano.</b> Nelle impostazioni del telefono controlla che <i>PitWall Lap</i> abbia il permesso <b>Notifiche</b>. I promemoria il cui momento è già passato non vengono programmati.</li>
+        <li><b>L'importazione dice che non può leggere il file.</b> Usa un <b>Excel (.xlsx)</b>, per esempio il modello, con le colonne <b>Nome</b> e <b>Data</b>.</li>
+        <li><b>La voce non suona con lo schermo bloccato.</b> Controlla che il volume e l'interruttore del silenzio non siano spenti; l'app parla comunque con il telefono in silenzioso.</li>
+        <li><b>Non si aggiorna su Android.</b> Controlla di avere connessione a internet e di aver consentito a PitWall Lap di installare app; puoi anche scaricare l'APK a mano dalla pagina di PitWall Lap su pitwall.es.</li>
+        <li><b>Novità</b> (in fondo al menu) mostra la cronologia delle versioni dell'app; è solo in spagnolo.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="index.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="manual-uso.it.html">Manuale d&#x27;uso</a><a href="manual-lap.it.html">Manuale di Lap</a><a href="manual-estadisticas.it.html">Statistiche</a></div>
+    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div class="mono">© 2026 · Cronometraggio e gestione slot racing</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Torna su">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

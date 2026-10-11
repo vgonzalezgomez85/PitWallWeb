@@ -226,6 +226,8 @@ Elle partage avec la vue web le chronométrage en direct et la voix (tours, chan
 
 > L'appli n'utilise pas de PIN : n'importe qui sur le **même réseau local** qui découvre le serveur peut choisir n'importe quelle équipe dans la liste. Pour un accès contrôlé ou depuis l'extérieur du circuit, utilise la vue web avec PIN — l'appli a toujours besoin du réseau local, que tu publies ou non le tunnel de *Suivi public par internet*.
 
+**Manuel complet de l'app.** Chaque écran de PitWall Lap — menu, Lap, calendrier avec import Excel, entraînements de compétition, résultats et réglages — est expliqué dans le [Manuel de PitWall Lap](manual-lap.fr.html).
+
 ## 9. Diriger la course en direct
 ![img: 20-live-timing.png]
 

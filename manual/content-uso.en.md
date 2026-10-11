@@ -227,6 +227,8 @@ It shares live timing and voice with the web view (laps, position changes, half-
 
 > The app doesn't use a PIN: anyone on the **same local network** who discovers the server can pick any team from the list. For controlled access or from outside the venue, use the web view with PIN — the app always needs the local network, whether or not you publish the *Public tracking over the internet* tunnel.
 
+**Full app manual.** Every PitWall Lap screen — menu, Lap, calendar with Excel import, competition practice, results and settings — is explained in the [PitWall Lap manual](manual-lap.en.html).
+
 ## 9. Running the race live
 ![img: 20-live-timing.png]
 

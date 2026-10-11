@@ -226,6 +226,8 @@ Condivide con la vista web il cronometraggio in diretta e la voce (giri, cambi d
 
 > L'app non usa il PIN: chiunque sulla **stessa rete locale** scopra il server può scegliere qualsiasi squadra dalla lista. Per un accesso controllato o da fuori dalla pista, usa la vista web con PIN — l'app ha sempre bisogno della rete locale, che tu pubblichi o meno il tunnel di *Seguito pubblico su internet*.
 
+**Manuale completo dell'app.** Ogni schermata di PitWall Lap — menu, Lap, calendario con importazione da Excel, allenamenti di gara, risultati e impostazioni — è spiegata nel [Manuale di PitWall Lap](manual-lap.it.html).
+
 ## 9. Dirigere la gara in diretta
 ![img: 20-live-timing.png]
 
