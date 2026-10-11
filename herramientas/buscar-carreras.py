@@ -51,6 +51,8 @@ PAISES_DESCUBRIR = [
     ("Europa (eventos internacionales)", "European slot car championship, slot endurance international"),
 ]
 
+TIPOS = {"resistencia", "velocidad", "rally", "raid", "otro"}
+
 # Europa geográfica amplia: lo que no esté aquí se descarta.
 EUROPA = set("AD AL AT BA BE BG BY CH CY CZ DE DK EE ES FI FO FR GB GI GR HR HU IE IM IS IT LI LT LU LV MC MD ME MK MT NL NO PL PT RO RS SE SI SK SM TR UA VA XK".split())
 
@@ -69,7 +71,9 @@ Reglas estrictas:
 
 Al terminar de buscar, responde ÚNICAMENTE con un bloque <json>...</json> que contenga un array de objetos con estas claves:
   "fecha" (AAAA-MM-DD, obligatoria), "fecha_fin" (AAAA-MM-DD o null), "nombre" (obligatoria, nombre de la carrera o prueba),
-  "campeonato" (nombre del campeonato o null si es una carrera suelta), "club", "circuito", "ciudad",
+  "campeonato" (nombre del campeonato o null si es una carrera suelta),
+  "tipo" (uno de: "resistencia" para resistencias/endurance por horas, "velocidad" para sprint/mangas/F1/GT por vueltas,
+          "rally" para rally slot por tramos, "raid" para raid/4x4/trial, "otro" si no encaja), "club", "circuito", "ciudad",
   "pais" (código ISO de 2 letras), "escala" ("1/32", "1/24"... o null), "categoria" (o null),
   "enlace" (URL obligatoria), "notas" (breve, o null).
 Si no encuentras nada fiable, responde <json>[]</json>."""
@@ -169,7 +173,7 @@ HERRAMIENTAS = [
             "url": {"type": "string"}}, "required": ["url"]}}},
 ]
 MAX_HERRAMIENTAS = 10         # llamadas a herramientas por lote
-MAX_TEXTO = 12000             # caracteres de cada página que se le pasan al modelo
+MAX_TEXTO = 30000             # caracteres de cada página que se le pasan al modelo
 
 
 def tavily(ruta, cuerpo):
@@ -295,10 +299,12 @@ def limpiar(c, desde, hasta):
         out["campeonato"] = re.sub(r"\s*[-–(]?\s*(temporada\s+)?20\d\d(\s*[/-]\s*(20)?\d\d)?\s*\)?\s*$", "", out["campeonato"], flags=re.I) or out["campeonato"]
     if out.get("circuito") and out.get("circuito") == out.get("club"):
         del out["circuito"]
+    tipo = str(c.get("tipo") or "").strip().lower()
+    out["tipo"] = tipo if tipo in TIPOS else "otro"
     if pais:
         out["pais"] = pais
     out["enlace"] = enlace
-    out["id"] = "-".join(p for p in (slug(out.get("campeonato") or nombre), out["fecha"], slug(out.get("ciudad"))) if p)
+    out["id"] = "-".join(p for p in (slug(out.get("campeonato") or nombre), out["fecha"], slug(out.get("ciudad") or out.get("club"))) if p)
     return out
 
 

@@ -1,10 +1,14 @@
 # Campeonatos de slot que la IA buscará expresamente (uno por línea).
-# Pon detrás de "|" pistas para afinar la búsqueda (país, web, escala...).
+# Pon detrás de "|" pistas para afinar la búsqueda: país, escala y, sobre todo, la web donde suelen salir las fechas.
 # Además de estos, el script hace búsquedas abiertas por país para descubrir campeonatos nuevos.
-Resisbarna | resistencias de slot en Barcelona, España
-Resiscat | resistencias de slot en Cataluña, España
+# Ojo: si el calendario solo está como imagen (p. ej. dentro de un PDF), la IA no lo puede leer: añádelo a mano
+# en datos/carreras-manuales.json.
+Resisbarna | resistencias de slot en Barcelona, España; web: resisbarna.es (página de calendario)
+Resiscat | Campeonato de Resistencia de Slot de Catalunya; web: https://club.criccrac.com/resiscat-2026/ y https://club.criccrac.com/calendario/ (el calendario del reglamento es una imagen y ya está añadido a mano)
 Resisvalles | resistencias de slot en el Vallès, Barcelona, España
+Resispain | Campeonato de España de Resistencia de slot (Scaleauto); web: https://scaleauto-slot.com/race-regulations-for-competitions/ y su reglamento deportivo en PDF
+WES | World Endurance Series de Scaleauto (24h WES GT / HY, 12h WES 1/24); web: https://scaleauto-slot.com/race-regulations-for-competitions/
+Campeonato RallySlot Scaleauto | campeonatos regionales de rally slot de Scaleauto (Catalunya, Madrid, Comunidad Valenciana, País Vasco, Galicia, Baleares, Canarias); usa exactamente este nombre como campeonato y la región en categoria; web: https://scaleauto-slot.com/race-regulations-for-competitions/
 Le Mans Series slot | campeonato de resistencia de slot
-WES | World Endurance Series slot, resistencia de slot
 Master Slot | campeonato de slot en España
-Campeonato de Europa Slot.it | European Championship de Slot.it
+Campeonato de Europa Slot.it | European Championship de Slot.it (resistencias por Europa; p. ej. las 24H de Bruxelles: https://www.brusselsscalexclub.be/24h-2026 , ya añadida a mano). Busca las demás pruebas del europeo en Italia, España, Alemania, Países Bajos...
