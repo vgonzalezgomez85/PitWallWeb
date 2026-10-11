@@ -3,11 +3,15 @@
 y genera datos/carreras-auto.json para el buscador de carreras de pitwall.es.
 
 Pensado para ejecutarse en el servidor una vez por semana (cron o systemd timer).
-Solo usa la biblioteca estándar de Python 3.8+.
+Solo usa la biblioteca estándar de Python 3.9+.
 
 Uso:
   python3 buscar-carreras.py --salida /var/www/pitwall/datos/carreras-auto.json
-  python3 buscar-carreras.py --salida prueba.json --max-lotes 1     # prueba barata
+  python3 buscar-carreras.py --salida prueba.json --max-lotes 1 --sin-clubes     # prueba barata
+  python3 buscar-carreras.py --solo-clubes --estado clubes.json --max-clubes 5   # probar los clubes sin tocar el JSON
+
+Además de los campeonatos, mantiene una lista de clubes de slot (--estado) y lee los calendarios de sus webs:
+una vez al mes la IA busca clubes nuevos por país; cada semana se visitan las webs de los clubes conocidos.
 
 Variables de entorno:
   PITWALL_PROVEEDOR   deepseek (por defecto) o claude
@@ -29,6 +33,7 @@ import tempfile
 import time
 import unicodedata
 import urllib.error
+import urllib.parse
 import urllib.request
 
 PROVEEDOR = os.environ.get("PITWALL_PROVEEDOR", "deepseek").lower()
@@ -134,19 +139,21 @@ def post_json(url, cuerpo, cabeceras, intentos=5, timeout=600):
 
 # ---------- Claude: busca y lee páginas él mismo (herramienta web_search del servidor) ----------
 
-def preguntar_claude(prompt):
-    """Una conversación con búsqueda web. Devuelve (texto final, nº de búsquedas)."""
+def preguntar_claude(prompt, sistema=None, buscar=True):
+    """Una conversación (con búsqueda web si buscar=True). Devuelve (texto final, nº de búsquedas)."""
     cabeceras = {"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01"}
     pregunta = {"role": "user", "content": prompt}
     hecho, busquedas = [], 0
     for _ in range(6):
-        resp = post_json("https://api.anthropic.com/v1/messages", {
+        cuerpo = {
             "model": MODELO,
             "max_tokens": 16000,
-            "system": SISTEMA,
-            "tools": [{"type": "web_search_20250305", "name": "web_search", "max_uses": 10}],
+            "system": sistema or SISTEMA,
             "messages": [pregunta] + ([{"role": "assistant", "content": hecho}] if hecho else []),
-        }, cabeceras)
+        }
+        if buscar:
+            cuerpo["tools"] = [{"type": "web_search_20250305", "name": "web_search", "max_uses": 10}]
+        resp = post_json("https://api.anthropic.com/v1/messages", cuerpo, cabeceras)
         busquedas += (resp.get("usage", {}).get("server_tool_use") or {}).get("web_search_requests", 0)
         hecho += resp.get("content", [])
         # Con herramientas del servidor la API puede pausar un turno largo: se continúa reenviándolo.
@@ -197,34 +204,44 @@ def html_a_texto(html):
     return re.sub(r"\n\s*\n+", "\n", texto).strip()
 
 
-def leer_pagina(url):
-    if not re.match(r"https?://", url or ""):
-        return "URL no válida"
-    try:  # primero directo, que es gratis
+def descargar(url):
+    """Descarga directa de una página HTML. Devuelve (html, url final) o (None, url) si no es HTML o falla."""
+    try:
         req = urllib.request.Request(url, headers={"user-agent": "Mozilla/5.0 (PitWall buscador de carreras; +https://www.pitwall.es)"})
         with urllib.request.urlopen(req, timeout=30) as r:
             tipo = r.headers.get("content-type", "")
-            if "html" in tipo or "text" in tipo:
-                texto = html_a_texto(r.read(3_000_000).decode(r.headers.get_content_charset() or "utf-8", "replace"))
-                # Webs hechas con JavaScript devuelven poco más que el menú: sin ningún año a la vista, mejor Tavily.
-                if len(texto) > 300 and re.search(r"\b20\d\d\b", texto):
-                    return texto[:MAX_TEXTO]
+            if "html" not in tipo and "text" not in tipo:
+                return None, r.geturl()
+            return r.read(3_000_000).decode(r.headers.get_content_charset() or "utf-8", "replace"), r.geturl()
     except Exception:
-        pass
+        return None, url
+
+
+def leer_pagina(url):
+    if not re.match(r"https?://", url or ""):
+        return "URL no válida"
+    html, _ = descargar(url)   # primero directo, que es gratis
+    if html:
+        texto = html_a_texto(html)
+        # Webs hechas con JavaScript devuelven poco más que el menú: sin ningún año a la vista, mejor Tavily.
+        if len(texto) > 300 and re.search(r"\b20\d\d\b", texto):
+            return texto[:MAX_TEXTO]
     r = tavily("extract", {"urls": [url]})   # PDFs, webs con JavaScript o que bloquean descargas
     res = r.get("results") or []
     return (res[0].get("raw_content") or "")[:MAX_TEXTO] if res else "No se ha podido leer la página."
 
 
-def preguntar_deepseek(prompt):
+def preguntar_deepseek(prompt, sistema=None, buscar=True):
     """Bucle de herramientas compatible con la API de OpenAI. Devuelve (texto final, nº de búsquedas)."""
     cabeceras = {"authorization": f"Bearer {os.environ['DEEPSEEK_API_KEY']}"}
-    mensajes = [{"role": "system", "content": SISTEMA + f"\nHoy es {dt.date.today().isoformat()}."},
+    mensajes = [{"role": "system", "content": (sistema or SISTEMA) + f"\nHoy es {dt.date.today().isoformat()}."},
                 {"role": "user", "content": prompt}]
     usadas = busquedas = 0
     while True:
         cuerpo = {"model": MODELO, "messages": mensajes, "max_tokens": 8000, "temperature": 0.2}
-        if usadas < MAX_HERRAMIENTAS:
+        if not buscar:
+            pass
+        elif usadas < MAX_HERRAMIENTAS:
             cuerpo["tools"] = HERRAMIENTAS
         else:
             mensajes.append({"role": "user", "content": "Ya no puedes buscar más. Responde ahora con el bloque <json>."})
@@ -249,6 +266,180 @@ def preguntar_deepseek(prompt):
             except Exception as e:
                 salida = f"Error: {e}"
             mensajes.append({"role": "tool", "tool_call_id": t["id"], "content": salida})
+
+
+# ---------- Clubes de slot: se descubren una vez al mes y cada semana se leen sus calendarios ----------
+
+SISTEMA_CLUBES = """Eres un documentalista experto en slot racing (coches de slot / scalextric / slot car racing) en Europa.
+Tu trabajo es encontrar las WEBS PROPIAS de clubes de slot (asociaciones, clubes con pista, tiendas con pista que organizan carreras).
+
+Reglas:
+- Solo clubes de slot en Europa que tengan web propia. Nada de Facebook, Instagram, YouTube ni foros generales.
+- Nada de karting, RC, simracing ni tiendas online sin pista.
+- Si ves la página de calendario, agenda o eventos del club, ponla en "calendario".
+
+Al terminar, responde ÚNICAMENTE con un bloque <json>...</json> con un array de objetos:
+  "nombre" (obligatorio), "web" (URL de la portada, obligatoria), "calendario" (URL o null), "ciudad", "pais" (código ISO de 2 letras).
+Si no encuentras nada fiable, responde <json>[]</json>."""
+
+PAISES_CLUBES = [
+    ("España", "club de slot, asociación slot, pista de slot, slot club"),
+    ("Portugal", "clube de slot, pista de slot"),
+    ("Italia", "slot club, pista slot, associazione slot car"),
+    ("Francia", "club de slot racing, circuit routier miniature, slot racing club"),
+    ("Alemania y Austria", "Slotcar Club, Slotracing Verein, Carrerabahn Verein"),
+    ("Reino Unido e Irlanda", "slot car club, scalextric club"),
+    ("Países Bajos y Bélgica", "slotracing club, slotrace vereniging, racebaan club"),
+    ("Suiza", "Slotcar Club, slot racing club Suisse"),
+    ("países nórdicos", "slot car club, bilbana klubb, autorata kerho"),
+    ("Europa del Este", "slot car club, autodráha klub, klub slot"),
+]
+
+REDES = re.compile(r"(facebook|instagram|youtube|youtu\.be|tiktok|twitter|x\.com|whatsapp|wa\.me|linkedin|google\.|forum)", re.I)
+CALENDARIO = re.compile(r"calend|agenda|event|carrer|cursa|race|course|gare|kalend|termin|rennen|wedstrijd|competic|campeonat|championship|programm?a|fixture|diary|kalenteri|tavling", re.I)
+MAX_TEXTO_CLUB = 40000
+
+
+def dominio(url):
+    return urllib.parse.urlsplit(url).netloc.lower().removeprefix("www.")
+
+
+def cargar_estado(ruta):
+    try:
+        with open(ruta, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {"clubes": {}}
+
+
+def leer_clubes_semilla():
+    """Clubes que se añaden a mano en clubes.txt: web | nombre | ciudad | país."""
+    out = []
+    try:
+        with open(os.path.join(AQUI, "clubes.txt"), encoding="utf-8") as f:
+            for linea in f:
+                linea = linea.strip()
+                if linea and not linea.startswith("#"):
+                    p = [x.strip() for x in linea.split("|")] + ["", "", ""]
+                    out.append({"web": p[0], "nombre": p[1] or dominio(p[0]), "ciudad": p[2], "pais": p[3].upper()})
+    except OSError:
+        pass
+    return out
+
+
+def anadir_club(estado, c, origen):
+    web = (c.get("web") or "").strip()
+    if not re.match(r"https?://", web) or REDES.search(dominio(web)):
+        return False
+    d = dominio(web)
+    previo = estado["clubes"].get(d)
+    club = previo or {"web": web, "alta": dt.date.today().isoformat(), "origen": origen, "fallos": 0}
+    for k in ("nombre", "ciudad", "pais", "calendario"):
+        v = c.get(k)
+        if isinstance(v, str) and v.strip() and v.strip().lower() != "null" and not club.get(k):
+            club[k] = v.strip()[:120]
+    if club.get("calendario") and not re.match(r"https?://", club["calendario"]):
+        club["calendario"] = urllib.parse.urljoin(web, club["calendario"])   # a veces viene como "/calendario/"
+    if club.get("calendario") and dominio(club["calendario"]) != d:
+        del club["calendario"]   # el calendario tiene que ser del mismo dominio que el club
+    if previo and origen == "manual":
+        club["fallos"] = 0
+    estado["clubes"][d] = club
+    return not previo
+
+
+def descubrir_clubes(preguntar, estado):
+    """Busca clubes nuevos por país. Devuelve (clubes nuevos, búsquedas gastadas)."""
+    nuevos = busquedas = 0
+    for i, (pais, palabras) in enumerate(PAISES_CLUBES, 1):
+        log(f"[clubes {i}/{len(PAISES_CLUBES)}] descubrir: {pais}")
+        try:
+            texto, n = preguntar(
+                f"Busca webs de clubes de slot en {pais}. Términos útiles: {palabras}. "
+                f"Busca también listados de clubes en webs de federaciones, asociaciones o campeonatos de slot. "
+                f"Quiero cuantos más mejor (hasta 30), con su web propia.", sistema=SISTEMA_CLUBES)
+            busquedas += n
+            lista = extraer_json(texto)
+        except Exception as e:
+            log(f"  ERROR: {e}")
+            continue
+        n_nuevos = sum(anadir_club(estado, c, "ia") for c in lista if isinstance(c, dict))
+        nuevos += n_nuevos
+        log(f"  {len(lista)} clubes, {n_nuevos} nuevos")
+    estado["ultimo_descubrimiento"] = dt.date.today().isoformat()
+    return nuevos, busquedas
+
+
+def paginas_club(club):
+    """Portada + páginas de calendario/agenda/eventos del mismo dominio. Devuelve [(url, texto)]."""
+    html, final = descargar(club["web"])
+    if not html or len(html_a_texto(html)) < 300:
+        # web hecha con JavaScript (o que no deja descargar): solo entonces se gasta un crédito de Tavily
+        if not os.environ.get("TAVILY_API_KEY"):
+            return []
+        url = club.get("calendario") or club["web"]
+        res = tavily("extract", {"urls": [url]}).get("results") or []
+        texto = (res[0].get("raw_content") or "") if res else ""
+        return [(url, texto)] if texto else []
+    d = dominio(final)
+    vistas = {final.rstrip("/")}
+    candidatas = []
+    if club.get("calendario") and club["calendario"].rstrip("/") not in vistas:
+        candidatas.append(club["calendario"])
+    for href, texto in re.findall(r"""<a\b[^>]*href=["']([^"'#]+)["'][^>]*>(.*?)</a>""", html, re.S | re.I):
+        url = urllib.parse.urljoin(final, html_mod.unescape(href.strip()))
+        etiqueta = html_a_texto(texto)[:60]
+        if (re.match(r"https?://", url) and dominio(url) == d and not url.lower().endswith((".pdf", ".jpg", ".png"))
+                and CALENDARIO.search(url + " " + etiqueta) and url.rstrip("/") not in vistas
+                and url not in candidatas):
+            candidatas.append(url)
+    paginas = [(final, html_a_texto(html))]
+    for url in candidatas[:3]:
+        h, f = descargar(url)
+        if h:
+            paginas.append((f, html_a_texto(h)))
+    return paginas
+
+
+def carreras_de_club(preguntar, club, desde, hasta):
+    """Carreras de un club: con el texto de su web si se puede descargar; si no, dejando que la IA la busque."""
+    nombre = club.get("nombre") or dominio(club["web"])
+    sitio = ", ".join(x for x in (club.get("ciudad"), club.get("pais")) if x)
+    encargo = (f"club de slot «{nombre}»" + (f" ({sitio})" if sitio else "")
+               + f". Extrae las carreras de slot con fecha entre el {desde.isoformat()} y el {hasta.isoformat()}. "
+               "En 'club' pon el nombre del club. Incluye pruebas de campeonatos, trofeos, resistencias y carreras abiertas; "
+               "no incluyas entrenamientos libres, horarios de apertura ni sesiones sociales sin competición.")
+    paginas = paginas_club(club)
+    años = (str(desde.year), str(hasta.year), str(dt.date.today().year))
+    texto, total = [], 0
+    for url, t in paginas:
+        if not any(a in t for a in años):
+            continue
+        trozo = t[:min(15000, MAX_TEXTO_CLUB - total)]
+        texto.append(f"### {url}\n{trozo}")
+        total += len(trozo)
+    if texto:
+        prompt = (f"Este es el texto de la web del {encargo} En 'enlace' pon la URL (de las que empiezan por ###) "
+                  "donde aparece la fecha.\n\n" + "\n\n".join(texto))
+        buscar = False
+    elif paginas:
+        return []   # nada de este año ni del siguiente: ni se pregunta a la IA
+    elif PROVEEDOR == "claude":
+        urls = ", ".join(u for u in (club["web"], club.get("calendario")) if u)
+        prompt = f"Busca la web del {encargo} Su web es {urls}; en 'enlace' pon la URL donde viste la fecha."
+        buscar = True
+    else:
+        raise RuntimeError("web no accesible")
+    respuesta, _ = preguntar(prompt, buscar=buscar)
+    brutas = extraer_json(respuesta)
+    for c in brutas:
+        if isinstance(c, dict):
+            c.setdefault("club", club.get("nombre"))
+            if not c.get("pais") and club.get("pais"):
+                c["pais"] = club["pais"]
+            if not c.get("ciudad") and club.get("ciudad"):
+                c["ciudad"] = club["ciudad"]
+    return brutas
 
 
 def extraer_json(texto):
@@ -330,10 +521,22 @@ def log(msg):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--salida", required=True, help="ruta de carreras-auto.json")
+    ap.add_argument("--salida", help="ruta de carreras-auto.json (obligatoria salvo con --solo-clubes)")
     ap.add_argument("--meses", type=int, default=12, help="meses hacia delante a buscar (12)")
     ap.add_argument("--max-lotes", type=int, default=0, help="limitar nº de búsquedas, para pruebas")
+    ap.add_argument("--estado", help="fichero JSON con los clubes conocidos (sin él no se miran clubes)")
+    ap.add_argument("--sin-clubes", action="store_true", help="no mirar las webs de los clubes")
+    ap.add_argument("--solo-clubes", action="store_true", help="no mirar los campeonatos, solo los clubes")
+    ap.add_argument("--descubrir-clubes", action="store_true", help="buscar clubes nuevos aunque no toque este mes")
+    ap.add_argument("--max-clubes", type=int, default=250, help="máximo de webs de clubes a visitar (250)")
     args = ap.parse_args()
+
+    if not args.salida and not args.solo_clubes:
+        ap.error("--salida es obligatorio (solo se puede omitir con --solo-clubes)")
+    if args.solo_clubes and not args.estado:
+        ap.error("--solo-clubes necesita --estado")
+    if args.sin_clubes and args.solo_clubes:
+        ap.error("--sin-clubes y --solo-clubes se contradicen")
 
     if PROVEEDOR not in CLAVES:
         sys.exit(f"PITWALL_PROVEEDOR debe ser deepseek o claude, no {PROVEEDOR!r}")
@@ -348,8 +551,19 @@ def main():
     lotes = construir_lotes(desde, hasta)
     if args.max_lotes:
         lotes = lotes[:args.max_lotes]
+    if args.solo_clubes:
+        lotes = []
 
     encontradas, fallos, total_busquedas = {}, 0, 0
+
+    def guardar(brutas):
+        validas = [c for c in (limpiar(x, desde, hasta) for x in brutas) if c]
+        for c in validas:
+            previa = encontradas.get(c["id"])
+            if not previa or len(c) > len(previa):   # entre duplicados, la más completa
+                encontradas[c["id"]] = c
+        return validas
+
     for i, (titulo, prompt) in enumerate(lotes, 1):
         log(f"[{i}/{len(lotes)}] {titulo}")
         try:
@@ -360,25 +574,59 @@ def main():
             fallos += 1
             log(f"  ERROR: {e}")
             continue
-        validas = [c for c in (limpiar(x, desde, hasta) for x in brutas) if c]
-        for c in validas:
-            previa = encontradas.get(c["id"])
-            if not previa or len(c) > len(previa):   # entre duplicados, la más completa
-                encontradas[c["id"]] = c
+        validas = guardar(brutas)
         log(f"  {len(validas)} válidas de {len(brutas)} ({n} búsquedas)")
 
     if fallos > len(lotes) / 2:
         sys.exit(f"Han fallado {fallos} de {len(lotes)} lotes: no se sobrescribe {args.salida}")
 
+    clubes_vistos = carreras_clubes = 0
+    if args.estado and not args.sin_clubes:
+        estado = cargar_estado(args.estado)
+        for c in leer_clubes_semilla():
+            anadir_club(estado, c, "manual")
+        ultimo = fecha(estado.get("ultimo_descubrimiento"))
+        if args.descubrir_clubes or not ultimo or (hoy - ultimo).days >= 28:
+            nuevos, n = descubrir_clubes(preguntar, estado)
+            total_busquedas += n
+            log(f"Clubes nuevos: {nuevos} ({n} búsquedas) · en total {len(estado['clubes'])}")
+            escribir_atomico(args.estado, estado)
+        # primero los que hace más tiempo que no se visitan; los que fallan muchas veces seguidas se dejan de mirar
+        cola = sorted((c for c in estado["clubes"].values() if c.get("fallos", 0) < 4),
+                      key=lambda c: c.get("visto", ""))[:args.max_clubes]
+        for i, club in enumerate(cola, 1):
+            log(f"[club {i}/{len(cola)}] {club.get('nombre') or club['web']}")
+            try:
+                brutas = carreras_de_club(preguntar, club, desde, hasta)
+                club["fallos"] = 0
+            except Exception as e:
+                club["fallos"] = club.get("fallos", 0) + 1
+                log(f"  ERROR: {e}")
+                brutas = []
+            club["visto"] = hoy.isoformat()
+            validas = guardar(brutas)
+            club["carreras"] = len(validas)
+            clubes_vistos += 1
+            carreras_clubes += len(validas)
+            if validas:
+                log(f"  {len(validas)} carreras")
+        escribir_atomico(args.estado, estado)
+
     carreras = sorted(encontradas.values(), key=lambda c: (c["fecha"], c["nombre"]))
-    escribir_atomico(args.salida, {
-        "generado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-        "modelo": f"{PROVEEDOR}/{MODELO}",
-        "busquedas_web": total_busquedas,
-        "lotes_fallidos": fallos,
-        "carreras": carreras,
-    })
-    log(f"OK: {len(carreras)} carreras en {args.salida} ({total_busquedas} búsquedas web, {fallos} lotes fallidos)")
+    if args.salida:
+        escribir_atomico(args.salida, {
+            "generado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+            "modelo": f"{PROVEEDOR}/{MODELO}",
+            "busquedas_web": total_busquedas,
+            "lotes_fallidos": fallos,
+            "clubes_visitados": clubes_vistos,
+            "carreras_de_clubes": carreras_clubes,
+            "carreras": carreras,
+        })
+    log(f"OK: {len(carreras)} carreras"
+        + (f" en {args.salida}" if args.salida else " (solo prueba, no se escribe el JSON)")
+        + f" ({total_busquedas} búsquedas web, {fallos} lotes fallidos, "
+        f"{clubes_vistos} clubes visitados con {carreras_clubes} carreras)")
 
 
 if __name__ == "__main__":

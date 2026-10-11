@@ -1,0 +1,12 @@
+# Clubes de slot cuya web se mira cada semana, además de los que descubre la IA.
+# Formato: web | nombre | ciudad | país (código ISO de 2 letras). Solo la web es obligatoria.
+https://www.brusselsscalexclub.be/calendrier | Brussels Scalex Club | Woluwe-Saint-Pierre | BE
+https://club.criccrac.com/calendario/ | Cric-Crac Slot Club | Barcelona | ES
+https://slotclub.ch/rennen | Slotclub Schweiz | | CH
+https://www.srt24.ch | SRT24 | | CH
+https://scrc7.wz.cz/zavody.php | SCRC 7 | | CZ
+https://srceindhoven.wordpress.com/ | SRC Eindhoven | Eindhoven | NL
+https://www.clubelsot.com | Club El Sot | Barcelona | ES
+https://www.budellets.com | Budellets Slot Club | Castellar del Vallès | ES
+https://www.gass-slot.com | GASS (Grup Amics Slot Sabadell) | Sabadell | ES
+https://www.cibelesslot.com | Cibeles Slot | Madrid | ES
