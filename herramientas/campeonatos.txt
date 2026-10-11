@@ -10,5 +10,5 @@ Resispain | Campeonato de España de Resistencia de slot (Scaleauto); web: https
 WES | World Endurance Series de Scaleauto (24h WES GT / HY, 12h WES 1/24); web: https://scaleauto-slot.com/race-regulations-for-competitions/
 Campeonato RallySlot Scaleauto | campeonatos regionales de rally slot de Scaleauto (Catalunya, Madrid, Comunidad Valenciana, País Vasco, Galicia, Baleares, Canarias); usa exactamente este nombre como campeonato y la región en categoria; web: https://scaleauto-slot.com/race-regulations-for-competitions/
 Le Mans Series slot | campeonato de resistencia de slot
-Master Slot | campeonato de slot en España
+Master Slot | MasterSlot Racing Events: las 24h de Móstoles (Madrid, desde 2005, escala 1/32) y las MasterSlot Series; web: https://masterslot.app/ (mira Noticias, Ediciones y MasterSlotSeries)
 Campeonato de Europa Slot.it | European Championship de Slot.it (resistencias por Europa; p. ej. las 24H de Bruxelles: https://www.brusselsscalexclub.be/24h-2026 , ya añadida a mano). Busca las demás pruebas del europeo en Italia, España, Alemania, Países Bajos...

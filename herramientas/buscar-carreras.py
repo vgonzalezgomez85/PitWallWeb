@@ -206,7 +206,8 @@ def leer_pagina(url):
             tipo = r.headers.get("content-type", "")
             if "html" in tipo or "text" in tipo:
                 texto = html_a_texto(r.read(3_000_000).decode(r.headers.get_content_charset() or "utf-8", "replace"))
-                if len(texto) > 300:
+                # Webs hechas con JavaScript devuelven poco más que el menú: sin ningún año a la vista, mejor Tavily.
+                if len(texto) > 300 and re.search(r"\b20\d\d\b", texto):
                     return texto[:MAX_TEXTO]
     except Exception:
         pass
