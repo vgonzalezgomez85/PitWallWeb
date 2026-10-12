@@ -258,23 +258,20 @@
         <figcaption>La consistance mesure ta régularité tour par tour.</figcaption>
       </figure>
       <p>La carte la plus importante pour progresser. <b>La consistance mesure ta régularité tour par tour</b> : si tu fais toujours le même temps ou si tu fais des écarts.</p>
-      <p><b>Ce qu'est le %.</b> C'est 100 moins ta variation relative (le CV, coefficient de variation). 100 % serait un robot parfait, toujours identique. Plus c'est élevé, plus tu es régulier. Sur des données réelles, la norme est <b>entre 90 % et 99 %</b>. C'est la même formule qu'utilise TicTac, calculée sur tes tours de rythme (en écartant les incidents ponctuels).</p>
-      <p><b>Le ±ÉT en secondes (plus utile que le %).</b> À côté du %, tu verras quelque chose comme <i>±0,13 s</i>. C'est ton écart-type : <b>combien de secondes, en plus ou en moins, tu oscilles d'un tour à l'autre.</b> Regarde davantage ceci que le % : un ±0,13 s te dit directement à quel point tu roules serré, et discrimine mieux entre deux pilotes qui à première vue ont un % semblable. <b>Objectif : réduire ton ±ÉT.</b></p>
-      <p><b>Niveaux de couleur.</b> Le système te classe selon ta variation :</p>
+      <p><b>Ce qu'est le %.</b> C'est le <b>pourcentage de tes tours propres qui tombent dans les ±1,5 % de ton temps typique de cette manche</b>. Si, dans une manche, ton temps typique (la médiane) est de 10,00 s, la bande va de 9,85 s à 10,15 s : chaque tour à l'intérieur compte comme propre en rythme. 85 % signifie que 17 tours sur 20 ont été à ton rythme ; 100 %, c'est rouler tous les tours collés à lui. Le calcul se fait <b>manche par manche</b> —changer de voiture ou de voie entre les manches ne compte pas comme une inconstance, chaque manche est mesurée contre son propre rythme— et le chiffre final porte sur tous les tours de la course : là où tu as le plus roulé, ça pèse le plus. C'est robuste par construction : un tour fou ne tombe pas dans la bande et ne te casse pas la médiane.</p>
+      <p><b>Le ±ÉT en secondes (plus utile que le %).</b> À côté du %, tu verras quelque chose comme <i>±0,13 s</i>. Ce sont les secondes que tu oscilles, en plus ou en moins, par rapport à ton rythme de cette manche, mesurées de façon à ce qu'<b>un mauvais tour isolé ne les gonfle pas</b> (avec un tour de trafic, le ±ÉT habituel explose ; celui-ci non). Regarde-le autant que le % : un ±0,13 s te dit directement à quel point tu roules serré et discrimine mieux entre deux pilotes avec un % semblable. <b>Objectif : réduire ton ±ÉT.</b></p>
+      <p><b>Niveaux de couleur.</b> Le système te classe selon le % de tours dans ta bande :</p>
       <ul>
-        <li><b>Excellent</b> — variation en dessous de 1,5 %. Rouler comme une horloge.</li>
-        <li><b>Bonne</b> — entre 1,5 % et 2,5 %. Solide.</li>
-        <li><b>Irrégulière</b> — entre 2,5 % et 4 %. Tu fais des écarts, il y a du temps à gagner en étant plus fin.</li>
-        <li><b>Erratique</b> — au-dessus de 4 %. Beaucoup d'instabilité ; concentre-toi sur des tours propres jusqu'au bout avant d'attaquer.</li>
+        <li><b>Excellent</b> — 90 % ou plus. Rouler comme une horloge.</li>
+        <li><b>Bonne</b> — 75 % ou plus. Solide.</li>
+        <li><b>Irrégulière</b> — 60 % ou plus. Tu fais des écarts, il y a du temps à gagner en étant plus fin.</li>
+        <li><b>Erratique</b> — en dessous de 60 %. Beaucoup d'instabilité ; concentre-toi sur des tours propres jusqu'au bout avant d'attaquer.</li>
       </ul>
-      <p><b>Bascule : Sans sorties / Avec sorties.</b></p>
-      <ul>
-        <li><b>Sans sorties</b> — ton <b>rythme pur</b>. Retire sorties, pits et incidents. Elle répond : <i>quand je roule bien, suis-je régulier ?</i> Utilise-la pour peaufiner ta conduite.</li>
-        <li><b>Avec sorties</b> — la <b>régularité réelle de ton relais</b>. Elle inclut TOUT : sorties, pits, trafic. Elle répond : <i>vraiment, tel quel, quel rythme ai-je livré ?</i> Utilise-la pour voir l'impact réel de tes erreurs. Elle ressort en général pire que « Sans sorties », et cette différence est exactement ce que te coûtent les incidents.</li>
-      </ul>
+      <p><b>Quels tours comptent.</b> Seulement les tours propres, et à partir du <b>deuxième tour</b> : on écarte le passage de départ, les sorties, les pit-stops, les tours fantômes et les tours de remplacement automatiques. Une manche avec moins de 3 tours valides ne compte pas pour le chiffre.</p>
+      <p><b>Deux nuances à connaître.</b> Les tours très lents ne tombent pas dans la bande, donc ils <b>font baisser ton %</b> même s'ils ne déplacent pas ta médiane — exactement ce que tu cherches : ils montrent combien de fois tu as vraiment roulé à ton rythme. Et sur les pistes très courtes, les % tendent à sortir un peu plus bas que sur les longues : compare-toi surtout dans ta même course et ta même piste.</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Minimum de tours.</b> Il faut au moins <b>3 tours valides</b> (qui, en retirant le passage de départ, correspondent à environ 4 passages sur la ligne) pour que le chiffre soit fiable. Avec moins, tu verras un tiret (—) jusqu'à ce que tu accumules du roulage.</div>
+        <div><b>Minimum de tours.</b> Il faut au moins <b>3 tours valides</b> (qui, en retirant le passage de départ, correspondent à environ 4 passages sur la ligne) pour que le chiffre apparaisse ; avant, tu verras un tiret (—).</div>
       </div>
     </section>
 
@@ -347,7 +344,7 @@
       <ul>
         <li><b>Rapide</b> — ton meilleur tour sur cette voie. Le point bleu + <b>MEILLEUR</b> marque le meilleur tour <i>de cette voie</i> parmi tous.</li>
         <li><b>Moyenne</b> — ton rythme moyen sur cette voie.</li>
-        <li><b>Const. sans</b> — ta <b>consistance</b> (sans sorties) sur cette voie, en %.</li>
+        <li><b>Consistance</b> — ta <b>consistance</b> sur cette voie, en % : combien de tes tours propres sont tombés dans les ±1,5 % de ton rythme. Le même chiffre que dans le Comparatif.</li>
         <li><b>Sorties</b> — combien de fois tu es sorti là (et, dessous, le temps perdu).</li>
         <li><b>Pit-stops</b> — arrêts sur cette voie (avec le n° de tour, par ex. <i>T355</i>).</li>
       </ul>
@@ -413,7 +410,7 @@
         <li><b>V/h</b> — tours par heure de volant : le rythme qui permet de comparer des pilotes qui n'ont pas conduit le même temps.</li>
         <li><b>Mejor</b> — son meilleur tour (sans sorties ni passage de départ).</li>
         <li><b>Media</b> — sa moyenne (sans le passage de départ, comme celle de l'équipe).</li>
-        <li><b>Const.</b> — sa consistance sans sorties, la même que dans le Comparatif.</li>
+        <li><b>Const.</b> — sa consistance propre (la même que dans le Comparatif).</li>
         <li><b>Salidas</b> et <b>Pits</b> — combien de fois il est sorti et combien d'arrêts il a faits.</li>
       </ul>
       <p>Le sélecteur en haut à droite change la vue :</p>
@@ -449,8 +446,8 @@
       <div class="num">// 10</div>
       <h2>Glossaire</h2>
       <ul>
-        <li><b>Consistance</b> — ta régularité tour par tour. 100 moins ta variation relative. Plus c'est élevé = plus constant.</li>
-        <li><b>±ÉT (écart-type) / CV</b> — le ±ÉT, ce sont les secondes que tu oscilles de tour en tour (regarde ce chiffre). Le CV est cette oscillation en pourcentage relatif à ton rythme ; le % de consistance est 100 − CV.</li>
+        <li><b>Consistance</b> — ta régularité tour par tour : le <b>% de tes tours propres qui tombent dans les ±1,5 % de ton temps typique de cette manche</b>. Le calcul se fait manche par manche et s'agrège par tours. Plus c'est élevé = plus constant.</li>
+        <li><b>±ÉT (écart-type) robuste</b> — les secondes que tu oscilles, en plus ou en moins, par rapport à ton rythme typique de la manche, calculées de façon à ce qu'<b>un mauvais tour isolé ne les gonfle pas</b>. Regarde ce chiffre autant que le %.</li>
         <li><b>Moyenne</b> — moyenne simple de tes temps de tour, sans le passage de départ (ton premier tour complet, lui, <b>y entre</b>). Inclut sorties et pits. C'est celle qu'utilise la projection, et elle colle à TicTac à la milliseconde près.</li>
         <li><b>Moyenne propre</b> — ta moyenne en comptant seulement les tours normaux (sans sorties, selon la règle de <i>Sortie</i> de ce glossaire). Elle sert pour le Δ et pour détecter les incidents, pas pour projeter.</li>
         <li><b>Passage de départ (warmup / passage partiel)</b> — le premier passage sur la ligne de la manche : de la grille à la ligne, en partant à l'arrêt. C'est un demi-tracé, pas un tour, donc il ne compte ni pour la moyenne, ni pour le meilleur, ni pour la consistance. <b>Celui-là seulement</b> : le premier tour complet qui suit compte pour tout.</li>

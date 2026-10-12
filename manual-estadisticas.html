@@ -258,23 +258,20 @@
         <figcaption>La consistencia mide tu regularidad vuelta a vuelta.</figcaption>
       </figure>
       <p>La tarjeta más importante para mejorar. <b>La consistencia mide tu regularidad vuelta a vuelta</b>: si haces siempre el mismo tiempo o si das saltos.</p>
-      <p><b>Qué es el %.</b> Es 100 menos tu variación relativa (el CV, coeficiente de variación). 100% sería un robot perfecto, siempre idéntico. Cuanto más alto, más regular. En datos reales lo normal es <b>entre 90% y 99%</b>. Es la misma fórmula que usa TicTac, calculada sobre tus vueltas de ritmo (descartando incidentes puntuales).</p>
-      <p><b>El ±DE en segundos (más útil que el %).</b> Junto al % verás algo como <i>±0,13 s</i>. Es tu desviación típica: <b>cuántos segundos, arriba o abajo, oscilas de una vuelta a otra.</b> Fíjate más en esto que en el %: un ±0,13 s te dice de forma directa lo apretado que ruedas, y discrimina mejor entre dos pilotos que a simple vista tienen un % parecido. <b>Objetivo: reducir tu ±DE.</b></p>
-      <p><b>Niveles de color.</b> El sistema te clasifica según tu variación:</p>
+      <p><b>Qué es el %.</b> Es el <b>porcentaje de tus vueltas limpias que caen dentro del ±1,5% de tu tiempo típico de esa manga</b>. Si en una manga tu tiempo típico (la mediana) es 10,00 s, la banda va de 9,85 s a 10,15 s: cada vuelta dentro de ahí cuenta como limpia de ritmo. Un 85% significa que 17 de cada 20 vueltas fueron a tu ritmo; el 100% es rodar todas las vueltas pegadas a él. Se cuenta <b>manga a manga</b> —cambiar de coche o de carril entre mangas no cuenta como inconsistencia, cada manga se mide contra su propio ritmo— y el número final es el total de vueltas de la carrera: donde más rodaste, más pesa. Es robusta por construcción: una vuelta loca no entra en la banda y no te estropea la mediana.</p>
+      <p><b>El ±DE en segundos (más útil que el %).</b> Junto al % verás algo como <i>±0,13 s</i>. Son los segundos que oscilas, arriba o abajo, respecto a tu ritmo de esa manga, medidos de forma que <b>una vuelta mala aislada no lo infla</b> (con una vuelta de tráfico, el ±DE de siempre se dispara; este no). Fíjate en él tanto como en el %: un ±0,13 s te dice de forma directa lo apretado que ruedas y discrimina mejor entre dos pilotos con un % parecido. <b>Objetivo: reducir tu ±DE.</b></p>
+      <p><b>Niveles de color.</b> El sistema te clasifica según el % de vueltas dentro de tu banda:</p>
       <ul>
-        <li><b>Excelente</b> — variación por debajo del 1,5%. Rodar de reloj.</li>
-        <li><b>Buena</b> — entre 1,5% y 2,5%. Sólido.</li>
-        <li><b>Irregular</b> — entre 2,5% y 4%. Das saltos, hay tiempo que ganar siendo más fino.</li>
-        <li><b>Errática</b> — por encima del 4%. Mucha inestabilidad; céntrate en terminar vueltas limpias antes que en atacar.</li>
+        <li><b>Excelente</b> — 90% o más. Rodar de reloj.</li>
+        <li><b>Buena</b> — 75% o más. Sólido.</li>
+        <li><b>Irregular</b> — 60% o más. Das saltos, hay tiempo que ganar siendo más fino.</li>
+        <li><b>Errática</b> — por debajo del 60%. Mucha inestabilidad; céntrate en terminar vueltas limpias antes que en atacar.</li>
       </ul>
-      <p><b>Toggle: Sin salidas / Con salidas.</b></p>
-      <ul>
-        <li><b>Sin salidas</b> — tu <b>ritmo puro</b>. Quita salidas, pits e incidentes. Responde: <i>cuando ruedo bien, ¿soy regular?</i> Úsalo para pulir tu conducción.</li>
-        <li><b>Con salidas</b> — la <b>regularidad real de tu stint</b>. Incluye TODO: salidas, pits, tráfico. Responde: <i>de verdad, tal cual, ¿qué ritmo entregué?</i> Úsalo para ver el impacto real de tus errores. Suele salir peor que "Sin salidas", y esa diferencia es exactamente lo que te cuestan los incidentes.</li>
-      </ul>
+      <p><b>Qué vueltas cuentan.</b> Solo vueltas limpias, y desde la <b>segunda vuelta</b> en adelante: fuera el cruce de salida, las salidas de pista, los pit-stops, las vueltas fantasma y las repuestas automáticas. Una manga con menos de 3 vueltas válidas no cuenta para el número.</p>
+      <p><b>Dos matices que conviene saber.</b> Las vueltas muy lentas no entran en la banda, así que <b>te bajan el %</b> aunque no desvíen tu mediana — justo lo que buscas: reflejan cuántas veces de verdad fuiste a tu ritmo. Y en pistas muy cortas los % tienden a salir algo más bajos que en las largas: compárate sobre todo dentro de tu misma carrera y pista.</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Mínimo de vueltas.</b> Hacen falta al menos <b>3 vueltas válidas</b> (que, quitando el cruce de salida, son unas 4 pasadas por meta) para que el número sea fiable. Con menos verás un guion (—) hasta que acumules recorrido.</div>
+        <div><b>Mínimo de vueltas.</b> Hacen falta al menos <b>3 vueltas válidas</b> (que, quitando el cruce de salida, son unas 4 pasadas por meta) para que el número salga; hasta entonces verás un guion (—).</div>
       </div>
     </section>
 
@@ -347,7 +344,7 @@
       <ul>
         <li><b>Rápida</b> — tu mejor vuelta en ese carril. El punto azul + <b>MEJOR</b> marca la vuelta rápida <i>de ese carril</i> entre todos.</li>
         <li><b>Media</b> — tu ritmo medio en ese carril.</li>
-        <li><b>Const. sin</b> — tu <b>consistencia</b> (sin salidas) en ese carril, en %.</li>
+        <li><b>Consistencia</b> — tu <b>consistencia</b> en ese carril, en %: cuántas de tus vueltas limpias cayeron dentro del ±1,5% de tu ritmo.</li>
         <li><b>Salidas</b> — cuántas te saliste ahí (y, debajo, el tiempo perdido).</li>
         <li><b>Pit-stops</b> — paradas en ese carril (con el nº de vuelta, p.ej. <i>V355</i>).</li>
       </ul>
@@ -413,7 +410,7 @@
         <li><b>V/h</b> — vueltas por hora al volante: el ritmo que permite comparar pilotos que condujeron tiempos distintos.</li>
         <li><b>Mejor</b> — su mejor vuelta (sin salidas ni cruce de salida).</li>
         <li><b>Media</b> — su media (sin el cruce de salida, igual que la del equipo).</li>
-        <li><b>Const.</b> — su consistencia sin salidas, la misma de la Comparativa.</li>
+        <li><b>Const.</b> — su consistencia limpia (la misma de la Comparativa).</li>
         <li><b>Salidas</b> y <b>Pits</b> — cuántas veces se salió y cuántas paradas hizo.</li>
       </ul>
       <p>Con el selector de arriba a la derecha eliges la vista:</p>
@@ -449,8 +446,8 @@
       <div class="num">// 10</div>
       <h2>Glosario</h2>
       <ul>
-        <li><b>Consistencia</b> — tu regularidad vuelta a vuelta. 100 menos tu variación relativa. Más alto = más constante.</li>
-        <li><b>±DE (desviación típica) / CV</b> — el ±DE son los segundos que oscilas de vuelta a vuelta (mira este número). El CV es esa oscilación en porcentaje relativo a tu ritmo; el % de consistencia es 100 − CV.</li>
+        <li><b>Consistencia</b> — tu regularidad vuelta a vuelta: el <b>% de tus vueltas limpias que caen dentro del ±1,5% de tu tiempo típico de esa manga</b>. Se cuenta manga a manga y se agrega por vueltas. Más alto = más constante.</li>
+        <li><b>±DE (desviación típica) robusta</b> — los segundos que oscilas, arriba o abajo, respecto a tu ritmo típico de la manga, calculados de forma que <b>una vuelta mala aislada no lo infle</b>. Mira este número tanto como el %.</li>
         <li><b>Media</b> — media simple de tus tiempos de vuelta, sin el cruce de salida (tu primera vuelta completa <b>sí</b> entra). Incluye salidas y pits. Es la que usa la proyección y coincide al milisegundo con la de TicTac.</li>
         <li><b>Media limpia</b> — tu media contando solo vueltas normales (sin salidas, según la regla de <i>Salida</i> de este glosario). Se usa para el Δ y para detectar incidentes, no para proyectar.</li>
         <li><b>Cruce de salida (warmup / cruce parcial)</b> — el primer paso por meta de la manga: de la rejilla a la línea, arrancando parado. Es medio trazado, no una vuelta, así que no cuenta para media, mejor ni consistencia. <b>Solo ese</b>: la primera vuelta completa que viene después sí cuenta para todo.</li>

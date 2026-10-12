@@ -258,23 +258,20 @@
         <figcaption>Consistency measures your lap-to-lap regularity.</figcaption>
       </figure>
       <p>The most important card for improving. <b>Consistency measures your lap-to-lap regularity</b>: whether you always do the same time or whether you jump around.</p>
-      <p><b>What the % is.</b> It's 100 minus your relative variation (the CV, coefficient of variation). 100% would be a perfect robot, always identical. The higher, the more regular. In real data the normal range is <b>between 90% and 99%</b>. It's the same formula TicTac uses, calculated over your pace laps (discarding one-off incidents).</p>
-      <p><b>The ±SD in seconds (more useful than the %).</b> Next to the % you'll see something like <i>±0.13 s</i>. It's your standard deviation: <b>how many seconds, up or down, you swing from one lap to the next.</b> Pay more attention to this than to the %: a ±0.13 s tells you directly how tight you run, and it discriminates better between two drivers who at first glance have a similar %. <b>Goal: reduce your ±SD.</b></p>
-      <p><b>Color levels.</b> The system classifies you by your variation:</p>
+      <p><b>What the % is.</b> It's the <b>percentage of your clean laps that fall within ±1.5% of your typical time in that heat</b>. If in a heat your typical time (the median) is 10.00 s, the band runs from 9.85 s to 10.15 s: every lap inside it counts as clean pace. 85% means 17 out of every 20 laps were at your pace; 100% is running every lap glued to it. It's counted <b>heat by heat</b> —changing car or lane between heats doesn't count as inconsistency, each heat is measured against its own pace— and the final number is over all the laps of the race: where you drove the most, it weighs the most. It's robust by design: a crazy lap falls outside the band and doesn't ruin your median.</p>
+      <p><b>The ±SD in seconds (more useful than the %).</b> Next to the % you'll see something like <i>±0.13 s</i>. They are the seconds you swing, up or down, from your pace in that heat, measured so that <b>a single bad lap doesn't inflate it</b> (with one traffic lap, the usual ±SD blows up; this one doesn't). Pay as much attention to it as to the %: a ±0.13 s tells you directly how tight you run and it discriminates better between two drivers with a similar %. <b>Goal: reduce your ±SD.</b></p>
+      <p><b>Color levels.</b> The system classifies you by the % of laps inside your band:</p>
       <ul>
-        <li><b>Excellent</b> — variation below 1.5%. Clockwork running.</li>
-        <li><b>Good</b> — between 1.5% and 2.5%. Solid.</li>
-        <li><b>Irregular</b> — between 2.5% and 4%. You jump around, there's time to gain by being finer.</li>
-        <li><b>Erratic</b> — above 4%. A lot of instability; focus on finishing clean laps before attacking.</li>
+        <li><b>Excellent</b> — 90% or more. Clockwork running.</li>
+        <li><b>Good</b> — 75% or more. Solid.</li>
+        <li><b>Irregular</b> — 60% or more. You jump around, there's time to gain by being finer.</li>
+        <li><b>Erratic</b> — below 60%. A lot of instability; focus on finishing clean laps before attacking.</li>
       </ul>
-      <p><b>Toggle: Without exits / With exits.</b></p>
-      <ul>
-        <li><b>Without exits</b> — your <b>pure pace</b>. Removes exits, pits and incidents. It answers: <i>when I run well, am I consistent?</i> Use it to polish your driving.</li>
-        <li><b>With exits</b> — the <b>real regularity of your stint</b>. It includes EVERYTHING: exits, pits, traffic. It answers: <i>for real, as it was, what pace did I deliver?</i> Use it to see the real impact of your mistakes. It usually comes out worse than "Without exits", and that difference is exactly what the incidents cost you.</li>
-      </ul>
+      <p><b>Which laps count.</b> Only clean laps, and from the <b>second lap</b> on: out go the start crossing, exits, pit-stops, ghost laps and automatic replacements. A heat with fewer than 3 valid laps doesn't count towards the number.</p>
+      <p><b>Two things worth knowing.</b> Very slow laps don't fall inside the band, so they <b>lower your %</b> even if they don't shift your median — exactly what you want: they show how many times you really ran at your pace. And on very short tracks the % tends to come out a little lower than on long ones: compare yourself above all within your own race and track.</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Minimum laps.</b> You need at least <b>3 valid laps</b> (which, removing the start crossing, are about 4 times across the line) for the number to be reliable. With fewer you'll see a dash (—) until you build up mileage.</div>
+        <div><b>Minimum laps.</b> You need at least <b>3 valid laps</b> (which, removing the start crossing, are about 4 times across the line) for the number to appear; until then you'll see a dash (—).</div>
       </div>
     </section>
 
@@ -347,7 +344,7 @@
       <ul>
         <li><b>Fastest</b> — your best lap on that lane. The blue dot + <b>BEST</b> marks the fastest lap <i>of that lane</i> among everyone.</li>
         <li><b>Average</b> — your average pace on that lane.</li>
-        <li><b>Const. w/o</b> — your <b>consistency</b> (without exits) on that lane, in %.</li>
+        <li><b>Consistency</b> — your <b>consistency</b> on that lane, in %: how many of your clean laps fell within ±1.5% of your pace. The same figure as in the Comparison.</li>
         <li><b>Exits</b> — how many times you went off there (and, below, the time lost).</li>
         <li><b>Pit-stops</b> — stops on that lane (with the lap number, e.g. <i>L355</i>).</li>
       </ul>
@@ -413,7 +410,7 @@
         <li><b>L/h</b> — laps per hour of driving: the pace that lets you compare drivers who drove for different amounts of time.</li>
         <li><b>Best</b> — their best lap (without exits or the start crossing).</li>
         <li><b>Average</b> — their average (without the start crossing, same as the team's).</li>
-        <li><b>Cons.</b> — their consistency without exits, the same as in Comparison.</li>
+        <li><b>Cons.</b> — their clean consistency (the same as in Comparison).</li>
         <li><b>Exits</b> and <b>Pits</b> — how many times they went off and how many stops they made.</li>
       </ul>
       <p>The selector at the top right switches the view:</p>
@@ -449,8 +446,8 @@
       <div class="num">// 10</div>
       <h2>Glossary</h2>
       <ul>
-        <li><b>Consistency</b> — your lap-to-lap regularity. 100 minus your relative variation. Higher = more consistent.</li>
-        <li><b>±SD (standard deviation) / CV</b> — the ±SD is the seconds you swing from lap to lap (look at this number). The CV is that swing as a percentage relative to your pace; the consistency % is 100 − CV.</li>
+        <li><b>Consistency</b> — your lap-to-lap regularity: the <b>% of your clean laps that fall within ±1.5% of your typical time in that heat</b>. It's counted heat by heat and aggregated by laps. Higher = more consistent.</li>
+        <li><b>Robust ±SD (standard deviation)</b> — the seconds you swing, up or down, from your typical pace in the heat, calculated so that <b>a single bad lap doesn't inflate it</b>. Watch this number as much as the %.</li>
         <li><b>Average</b> — a simple average of your lap times, without the start crossing (your first complete lap <b>does</b> go in). Includes exits and pits. It's the one the projection uses, and it matches TicTac to the millisecond.</li>
         <li><b>Clean average</b> — your average counting only normal laps (without exits, as defined under <i>Exit</i> in this glossary). Used for the Δ and to detect incidents, not to project.</li>
         <li><b>Start crossing (warmup / partial crossing)</b> — the first time you cross the line in the heat: from the grid to the line, starting from a standstill. It's half the layout, not a lap, so it doesn't count for average, best or consistency. <b>Only that one</b>: the first complete lap that comes after counts for everything.</li>

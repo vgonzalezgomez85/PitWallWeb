@@ -164,23 +164,22 @@ It's a **read-only** view: there are no start, stop or next-driver buttons, just
 
 The most important card for improving. **Consistency measures your lap-to-lap regularity**: whether you always do the same time or whether you jump around.
 
-**What the % is.** It's 100 minus your relative variation (the CV, coefficient of variation). 100% would be a perfect robot, always identical. The higher, the more regular. In real data the normal range is **between 90% and 99%**. It's the same formula TicTac uses, calculated over your pace laps (discarding one-off incidents).
+**What the % is.** It's the **percentage of your clean laps that fall within ±1.5% of your typical time in that heat**. If in a heat your typical time (the median) is 10.00 s, the band runs from 9.85 s to 10.15 s: every lap inside it counts as clean pace. 85% means 17 out of every 20 laps were at your pace; 100% is running every lap glued to it. It's counted **heat by heat** —changing car or lane between heats doesn't count as inconsistency, each heat is measured against its own pace— and the final number is over all the laps of the race: where you drove the most, it weighs the most. It's robust by design: a crazy lap falls outside the band and doesn't ruin your median.
 
-**The ±SD in seconds (more useful than the %).** Next to the % you'll see something like *±0.13 s*. It's your standard deviation: **how many seconds, up or down, you swing from one lap to the next.** Pay more attention to this than to the %: a ±0.13 s tells you directly how tight you run, and it discriminates better between two drivers who at first glance have a similar %. **Goal: reduce your ±SD.**
+**The ±SD in seconds (more useful than the %).** Next to the % you'll see something like *±0.13 s*. They are the seconds you swing, up or down, from your pace in that heat, measured so that **a single bad lap doesn't inflate it** (with one traffic lap, the usual ±SD blows up; this one doesn't). Pay as much attention to it as to the %: a ±0.13 s tells you directly how tight you run and it discriminates better between two drivers with a similar %. **Goal: reduce your ±SD.**
 
-**Color levels.** The system classifies you by your variation:
+**Color levels.** The system classifies you by the % of laps inside your band:
 
-- **Excellent** — variation below 1.5%. Clockwork running.
-- **Good** — between 1.5% and 2.5%. Solid.
-- **Irregular** — between 2.5% and 4%. You jump around, there's time to gain by being finer.
-- **Erratic** — above 4%. A lot of instability; focus on finishing clean laps before attacking.
+- **Excellent** — 90% or more. Clockwork running.
+- **Good** — 75% or more. Solid.
+- **Irregular** — 60% or more. You jump around, there's time to gain by being finer.
+- **Erratic** — below 60%. A lot of instability; focus on finishing clean laps before attacking.
 
-**Toggle: Without exits / With exits.**
+**Which laps count.** Only clean laps, and from the **second lap** on: out go the start crossing, exits, pit-stops, ghost laps and automatic replacements. A heat with fewer than 3 valid laps doesn't count towards the number.
 
-- **Without exits** — your **pure pace**. Removes exits, pits and incidents. It answers: *when I run well, am I consistent?* Use it to polish your driving.
-- **With exits** — the **real regularity of your stint**. It includes EVERYTHING: exits, pits, traffic. It answers: *for real, as it was, what pace did I deliver?* Use it to see the real impact of your mistakes. It usually comes out worse than "Without exits", and that difference is exactly what the incidents cost you.
+**Two things worth knowing.** Very slow laps don't fall inside the band, so they **lower your %** even if they don't shift your median — exactly what you want: they show how many times you really ran at your pace. And on very short tracks the % tends to come out a little lower than on long ones: compare yourself above all within your own race and track.
 
-**Minimum laps.** You need at least **3 valid laps** (which, removing the start crossing, are about 4 times across the line) for the number to be reliable. With fewer you'll see a dash (—) until you build up mileage.
+**Minimum laps.** You need at least **3 valid laps** (which, removing the start crossing, are about 4 times across the line) for the number to appear; until then you'll see a dash (—).
 
 ---
 
@@ -244,7 +243,7 @@ When the race ends, **Results** is where everything is analyzed calmly. It has s
 It's the main table. One row per participant and, for **each lane** they went through, five stacked data points:
 - **Fastest** — your best lap on that lane. The blue dot + **BEST** marks the fastest lap *of that lane* among everyone.
 - **Average** — your average pace on that lane.
-- **Const. w/o** — your **consistency** (without exits) on that lane, in %.
+- **Consistency** — your **consistency** on that lane, in %: how many of your clean laps fell within ±1.5% of your pace. The same figure as in the Comparison.
 - **Exits** — how many times you went off there (and, below, the time lost).
 - **Pit-stops** — stops on that lane (with the lap number, e.g. *L355*).
 
@@ -295,7 +294,7 @@ In team endurance races with **QR check-in** (or when the laps already carry the
 - **L/h** — laps per hour of driving: the pace that lets you compare drivers who drove for different amounts of time.
 - **Best** — their best lap (without exits or the start crossing).
 - **Average** — their average (without the start crossing, same as the team's).
-- **Cons.** — their consistency without exits, the same as in Comparison.
+- **Cons.** — their clean consistency (the same as in Comparison).
 - **Exits** and **Pits** — how many times they went off and how many stops they made.
 
 The selector at the top right switches the view:
@@ -322,8 +321,8 @@ The **gap** in this table reads **"a 2,8 v (35,5\")"**: the distance in laps **w
 
 ## 10. Glossary
 
-- **Consistency** — your lap-to-lap regularity. 100 minus your relative variation. Higher = more consistent.
-- **±SD (standard deviation) / CV** — the ±SD is the seconds you swing from lap to lap (look at this number). The CV is that swing as a percentage relative to your pace; the consistency % is 100 − CV.
+- **Consistency** — your lap-to-lap regularity: the **% of your clean laps that fall within ±1.5% of your typical time in that heat**. It's counted heat by heat and aggregated by laps. Higher = more consistent.
+- **Robust ±SD (standard deviation)** — the seconds you swing, up or down, from your typical pace in the heat, calculated so that **a single bad lap doesn't inflate it**. Watch this number as much as the %.
 - **Average** — a simple average of your lap times, without the start crossing (your first complete lap **does** go in). Includes exits and pits. It's the one the projection uses, and it matches TicTac to the millisecond.
 - **Clean average** — your average counting only normal laps (without exits, as defined under *Exit* in this glossary). Used for the Δ and to detect incidents, not to project.
 - **Start crossing (warmup / partial crossing)** — the first time you cross the line in the heat: from the grid to the line, starting from a standstill. It's half the layout, not a lap, so it doesn't count for average, best or consistency. **Only that one**: the first complete lap that comes after counts for everything.

@@ -164,23 +164,22 @@ Es una vista de **solo lectura**: no hay botones de iniciar, parar ni pasar al s
 
 La tarjeta más importante para mejorar. **La consistencia mide tu regularidad vuelta a vuelta**: si haces siempre el mismo tiempo o si das saltos.
 
-**Qué es el %.** Es 100 menos tu variación relativa (el CV, coeficiente de variación). 100% sería un robot perfecto, siempre idéntico. Cuanto más alto, más regular. En datos reales lo normal es **entre 90% y 99%**. Es la misma fórmula que usa TicTac, calculada sobre tus vueltas de ritmo (descartando incidentes puntuales).
+**Qué es el %.** Es el **porcentaje de tus vueltas limpias que caen dentro del ±1,5% de tu tiempo típico de esa manga**. Si en una manga tu tiempo típico (la mediana) es 10,00 s, la banda va de 9,85 s a 10,15 s: cada vuelta dentro de ahí cuenta como limpia de ritmo. Un 85% significa que 17 de cada 20 vueltas fueron a tu ritmo; el 100% es rodar todas las vueltas pegadas a él. Se cuenta **manga a manga** —cambiar de coche o de carril entre mangas no cuenta como inconsistencia, cada manga se mide contra su propio ritmo— y el número final es el total de vueltas de la carrera: donde más rodaste, más pesa. Es robusta por construcción: una vuelta loca no entra en la banda y no te estropea la mediana.
 
-**El ±DE en segundos (más útil que el %).** Junto al % verás algo como *±0,13 s*. Es tu desviación típica: **cuántos segundos, arriba o abajo, oscilas de una vuelta a otra.** Fíjate más en esto que en el %: un ±0,13 s te dice de forma directa lo apretado que ruedas, y discrimina mejor entre dos pilotos que a simple vista tienen un % parecido. **Objetivo: reducir tu ±DE.**
+**El ±DE en segundos (más útil que el %).** Junto al % verás algo como *±0,13 s*. Son los segundos que oscilas, arriba o abajo, respecto a tu ritmo de esa manga, medidos de forma que **una vuelta mala aislada no lo infla** (con una vuelta de tráfico, el ±DE de siempre se dispara; este no). Fíjate en él tanto como en el %: un ±0,13 s te dice de forma directa lo apretado que ruedas y discrimina mejor entre dos pilotos con un % parecido. **Objetivo: reducir tu ±DE.**
 
-**Niveles de color.** El sistema te clasifica según tu variación:
+**Niveles de color.** El sistema te clasifica según el % de vueltas dentro de tu banda:
 
-- **Excelente** — variación por debajo del 1,5%. Rodar de reloj.
-- **Buena** — entre 1,5% y 2,5%. Sólido.
-- **Irregular** — entre 2,5% y 4%. Das saltos, hay tiempo que ganar siendo más fino.
-- **Errática** — por encima del 4%. Mucha inestabilidad; céntrate en terminar vueltas limpias antes que en atacar.
+- **Excelente** — 90% o más. Rodar de reloj.
+- **Buena** — 75% o más. Sólido.
+- **Irregular** — 60% o más. Das saltos, hay tiempo que ganar siendo más fino.
+- **Errática** — por debajo del 60%. Mucha inestabilidad; céntrate en terminar vueltas limpias antes que en atacar.
 
-**Toggle: Sin salidas / Con salidas.**
+**Qué vueltas cuentan.** Solo vueltas limpias, y desde la **segunda vuelta** en adelante: fuera el cruce de salida, las salidas de pista, los pit-stops, las vueltas fantasma y las repuestas automáticas. Una manga con menos de 3 vueltas válidas no cuenta para el número.
 
-- **Sin salidas** — tu **ritmo puro**. Quita salidas, pits e incidentes. Responde: *cuando ruedo bien, ¿soy regular?* Úsalo para pulir tu conducción.
-- **Con salidas** — la **regularidad real de tu stint**. Incluye TODO: salidas, pits, tráfico. Responde: *de verdad, tal cual, ¿qué ritmo entregué?* Úsalo para ver el impacto real de tus errores. Suele salir peor que "Sin salidas", y esa diferencia es exactamente lo que te cuestan los incidentes.
+**Dos matices que conviene saber.** Las vueltas muy lentas no entran en la banda, así que **te bajan el %** aunque no desvíen tu mediana — justo lo que buscas: reflejan cuántas veces de verdad fuiste a tu ritmo. Y en pistas muy cortas los % tienden a salir algo más bajos que en las largas: compárate sobre todo dentro de tu misma carrera y pista.
 
-**Mínimo de vueltas.** Hacen falta al menos **3 vueltas válidas** (que, quitando el cruce de salida, son unas 4 pasadas por meta) para que el número sea fiable. Con menos verás un guion (—) hasta que acumules recorrido.
+**Mínimo de vueltas.** Hacen falta al menos **3 vueltas válidas** (que, quitando el cruce de salida, son unas 4 pasadas por meta) para que el número salga; hasta entonces verás un guion (—).
 
 ---
 
@@ -246,7 +245,7 @@ Cuando la carrera termina, **Resultados** es donde se analiza todo con calma. Ti
 Es la tabla principal. Una fila por participante y, para **cada carril** por el que pasó, cinco datos apilados:
 - **Rápida** — tu mejor vuelta en ese carril. El punto azul + **MEJOR** marca la vuelta rápida *de ese carril* entre todos.
 - **Media** — tu ritmo medio en ese carril.
-- **Const. sin** — tu **consistencia** (sin salidas) en ese carril, en %.
+- **Consistencia** — tu consistencia en ese carril, en %: cuántas de tus vueltas limpias cayeron dentro del ±1,5% de tu ritmo.
 - **Salidas** — cuántas te saliste ahí (y, debajo, el tiempo perdido).
 - **Pit-stops** — paradas en ese carril (con el nº de vuelta, p.ej. *V355*).
 
@@ -297,7 +296,7 @@ En las resistencias por equipos con **fichaje QR** (o cuando las vueltas ya llev
 - **V/h** — vueltas por hora al volante: el ritmo que permite comparar pilotos que condujeron tiempos distintos.
 - **Mejor** — su mejor vuelta (sin salidas ni cruce de salida).
 - **Media** — su media (sin el cruce de salida, igual que la del equipo).
-- **Const.** — su consistencia sin salidas, la misma de la Comparativa.
+- **Const.** — su consistencia limpia (la misma de la Comparativa).
 - **Salidas** y **Pits** — cuántas veces se salió y cuántas paradas hizo.
 
 Con el selector de arriba a la derecha eliges la vista:
@@ -324,8 +323,8 @@ El **gap** de esta tabla se lee **"a 2,8 v (35,5\")"**: la distancia en vueltas 
 
 ## 10. Glosario
 
-- **Consistencia** — tu regularidad vuelta a vuelta. 100 menos tu variación relativa. Más alto = más constante.
-- **±DE (desviación típica) / CV** — el ±DE son los segundos que oscilas de vuelta a vuelta (mira este número). El CV es esa oscilación en porcentaje relativo a tu ritmo; el % de consistencia es 100 − CV.
+- **Consistencia** — tu regularidad vuelta a vuelta: el **% de tus vueltas limpias que caen dentro del ±1,5% de tu tiempo típico de esa manga**. Se cuenta manga a manga y se agrega por vueltas. Más alto = más constante.
+- **±DE (desviación típica) robusta** — los segundos que oscilas, arriba o abajo, respecto a tu ritmo típico de la manga, calculados de forma que **una vuelta mala aislada no lo infle**. Mira este número tanto como el %.
 - **Media** — media simple de tus tiempos de vuelta, sin el cruce de salida (tu primera vuelta completa **sí** entra). Incluye salidas y pits. Es la que usa la proyección y coincide al milisegundo con la de TicTac.
 - **Media limpia** — tu media contando solo vueltas normales (sin salidas, según la regla de *Salida* de este glosario). Se usa para el Δ y para detectar incidentes, no para proyectar.
 - **Cruce de salida (warmup / cruce parcial)** — el primer paso por meta de la manga: de la rejilla a la línea, arrancando parado. Es medio trazado, no una vuelta, así que no cuenta para media, mejor ni consistencia. **Solo ese**: la primera vuelta completa que viene después sí cuenta para todo.

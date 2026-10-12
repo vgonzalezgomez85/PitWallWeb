@@ -164,23 +164,22 @@ Se la gara ha la **pole** (il giro di qualifica che decide l'ordine di partenza)
 
 La scheda più importante per migliorare. **La consistenza misura la tua regolarità giro dopo giro**: se fai sempre lo stesso tempo o se fai salti.
 
-**Cos'è la %.** È 100 meno la tua variazione relativa (il CV, coefficiente di variazione). 100% sarebbe un robot perfetto, sempre identico. Più è alta, più sei regolare. Nei dati reali è normale essere **tra 90% e 99%**. È la stessa formula che usa TicTac, calcolata sui tuoi giri di ritmo (scartando gli incidenti puntuali).
+**Cos'è la %.** È la **percentuale dei tuoi giri puliti che cadono dentro il ±1,5% del tuo tempo tipico di quella manche**. Se in una manche il tuo tempo tipico (la mediana) è 10,00 s, la banda va da 9,85 s a 10,15 s: ogni giro dentro quella banda conta come pulito nel ritmo. Un 85% significa che 17 giri su 20 sono stati al tuo ritmo; il 100% è girare tutti i giri incollati a esso. Si calcola **manche per manche** —cambiare macchina o corsia tra le manche non conta come incoerenza, ogni manche si misura contro il proprio ritmo— e il numero finale è sul totale dei giri della gara: dove hai girato di più, pesa di più. È robusta per costruzione: un giro fuori misura non entra nella banda e non ti rovina la mediana.
 
-**Il ±DS in secondi (più utile della %).** Accanto alla % vedrai qualcosa come *±0,13 s*. È la tua deviazione standard: **di quanti secondi, in su o in giù, oscilli da un giro all'altro.** Bada più a questo che alla %: un ±0,13 s ti dice in modo diretto quanto giri stretto, e discrimina meglio tra due piloti che a prima vista hanno una % simile. **Obiettivo: ridurre il tuo ±DS.**
+**Il ±DS in secondi (più utile della %).** Accanto alla % vedrai qualcosa come *±0,13 s*. Sono i secondi che oscilli, in su o in giù, rispetto al tuo ritmo di quella manche, misurati in modo che **un singolo giro cattivo non li gonfi** (con un giro di traffico, il ±DS di sempre schizza; questo no). Badaci quanto alla %: un ±0,13 s ti dice in modo diretto quanto giri stretto e discrimina meglio tra due piloti con una % simile. **Obiettivo: ridurre il tuo ±DS.**
 
-**Livelli di colore.** Il sistema ti classifica in base alla tua variazione:
+**Livelli di colore.** Il sistema ti classifica in base alla % di giri dentro la tua banda:
 
-- **Eccellente** — variazione sotto l'1,5%. Girare come un orologio.
-- **Buona** — tra 1,5% e 2,5%. Solido.
-- **Irregolare** — tra 2,5% e 4%. Fai salti, c'è tempo da guadagnare essendo più fine.
-- **Erratica** — sopra il 4%. Molta instabilità; concentrati sul completare giri puliti prima che sull'attaccare.
+- **Eccellente** — 90% o più. Girare come un orologio.
+- **Buona** — 75% o più. Solido.
+- **Irregolare** — 60% o più. Fai salti, c'è tempo da guadagnare essendo più fine.
+- **Erratica** — sotto il 60%. Molta instabilità; concentrati sul completare giri puliti prima che sull'attaccare.
 
-**Toggle: Senza uscite / Con uscite.**
+**Quali giri contano.** Solo giri puliti, e dal **secondo giro** in poi: fuori il passaggio di partenza, le uscite, i pit-stop, i giri fantasma e le sostituzioni automatiche. Una manche con meno di 3 giri validi non conta per il numero.
 
-- **Senza uscite** — il tuo **ritmo puro**. Toglie uscite, pit e incidenti. Risponde: *quando giro bene, sono regolare?* Usalo per rifinire la tua guida.
-- **Con uscite** — la **regolarità reale del tuo stint**. Include TUTTO: uscite, pit, traffico. Risponde: *davvero, così com'è, che ritmo ho consegnato?* Usalo per vedere l'impatto reale dei tuoi errori. Di solito esce peggio di "Senza uscite", e quella differenza è esattamente ciò che ti costano gli incidenti.
+**Due cose da sapere.** I giri molto lenti non entrano nella banda, quindi **ti abbassano la %** anche se non spostano la mediana — esattamente quello che cerchi: mostrano quante volte hai davvero girato al tuo ritmo. E sui tracciati molto corti le % tendono a uscire un po' più basse che sui lunghi: confrontati soprattutto dentro la tua stessa gara e sullo stesso tracciato.
 
-**Minimo di giri.** Servono almeno **3 giri validi** (che, togliendo il passaggio di partenza, sono circa 4 passaggi sul traguardo) perché il numero sia affidabile. Con meno vedrai un trattino (—) finché non accumuli percorso.
+**Minimo di giri.** Servono almeno **3 giri validi** (che, togliendo il passaggio di partenza, sono circa 4 passaggi sul traguardo) perché il numero compaia; prima vedrai un trattino (—).
 
 ---
 
@@ -244,7 +243,7 @@ Quando la gara termina, **Risultati (“Resultados”)** è dove si analizza tut
 È la tabella principale. Una riga per partecipante e, per **ogni corsia** su cui è passato, cinque dati impilati:
 - **Veloce** — il tuo miglior giro su quella corsia. Il punto blu + **MIGLIORE** segna il giro veloce *di quella corsia* tra tutti.
 - **Media** — il tuo ritmo medio su quella corsia.
-- **Cost. senza** — la tua **consistenza** (senza uscite) su quella corsia, in %.
+- **Consistenza** — la tua **consistenza** su quella corsia, in %: quanti dei tuoi giri puliti sono caduti dentro il ±1,5% del tuo ritmo. Lo stesso dato della Comparativa.
 - **Uscite** — quante volte sei uscito lì (e, sotto, il tempo perso).
 - **Pit-stop** — soste su quella corsia (con il n° di giro, p.es. *G355*).
 
@@ -295,7 +294,7 @@ Nelle endurance a squadre con **check-in QR** (o quando i giri riportano già il
 - **V/h** — giri per ora di guida: il ritmo che permette di confrontare piloti che hanno guidato per tempi diversi.
 - **Mejor** — il suo giro migliore (senza uscite né passaggio di partenza).
 - **Media** — la sua media (senza il passaggio di partenza, come quella della squadra).
-- **Const.** — la sua consistenza senza uscite, la stessa della Comparativa.
+- **Const.** — la sua consistenza pulita (lo stesso dato della Comparativa).
 - **Salidas** e **Pits** — quante volte è uscito e quante soste ha fatto.
 
 Il selettore in alto a destra cambia la vista:
@@ -322,8 +321,8 @@ Il **gap** di questa tabella si legge **"a 2,8 v (35,5\")"**: la distanza in gir
 
 ## 10. Glossario
 
-- **Consistenza** — la tua regolarità giro dopo giro. 100 meno la tua variazione relativa. Più alto = più costante.
-- **±DS (deviazione standard) / CV** — il ±DS sono i secondi che oscilli da giro a giro (guarda questo numero). Il CV è quell'oscillazione in percentuale relativa al tuo ritmo; la % di consistenza è 100 − CV.
+- **Consistenza** — la tua regolarità giro dopo giro: la **% dei tuoi giri puliti che cadono dentro il ±1,5% del tuo tempo tipico di quella manche**. Si calcola manche per manche e si aggrega per giri. Più alto = più costante.
+- **±DS (deviazione standard) robusta** — i secondi che oscilli, in su o in giù, rispetto al tuo ritmo tipico della manche, calcolati in modo che **un singolo giro cattivo non li gonfi**. Guarda questo numero quanto la %.
 - **Media** — media semplice dei tuoi tempi di giro, senza il passaggio di partenza (il tuo primo giro completo **entra**). Include uscite e pit. È quella che usa la proiezione e coincide con TicTac al millisecondo.
 - **Media pulita** — la tua media contando solo i giri normali (senza uscite, secondo la regola di *Uscita* di questo glossario). Si usa per il Δ e per rilevare gli incidenti, non per proiettare.
 - **Passaggio di partenza (warmup / passaggio parziale)** — il primo passaggio sul traguardo della manche: dalla griglia alla linea, partendo da fermo. È mezzo tracciato, non un giro, quindi non conta per media, migliore né consistenza. **Solo quello**: il primo giro completo che viene dopo conta per tutto.
