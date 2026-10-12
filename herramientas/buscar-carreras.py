@@ -370,8 +370,131 @@ def descubrir_clubes(preguntar, estado):
     return nuevos, busquedas
 
 
-def paginas_club(club):
-    """Portada + páginas de calendario/agenda/eventos del mismo dominio. Devuelve [(url, texto)]."""
+# Muchos clubes publican el calendario como datos: schema.org (JSON-LD o microdatos), iCal / Google Calendar
+# o plugins de eventos de WordPress que pintan el calendario con JavaScript. Eso se lee directamente, sin IA.
+
+ICS = re.compile(r"""(?:href|src)=["']([^"']*(?:\.ics\b|webcal://|[?&]ical=1|calendar\.google\.com/calendar/(?:embed|ical))[^"']*)["']""", re.I)
+PLUGINS_WP = {"eventon": "ajde_events", "modern-events-calendar": "mec-events", "mec-events": "mec-events"}
+MAX_EVENTOS = 80
+
+
+def get_json(url):
+    try:
+        req = urllib.request.Request(url, headers={"user-agent": "Mozilla/5.0 (PitWall buscador de carreras; +https://www.pitwall.es)"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.load(r)
+    except Exception:
+        return None
+
+
+def fecha_suelta(s):
+    """Fecha de un texto ISO aunque venga sin ceros ("2026-9-18T00:00+2:00") o en formato iCal (20261016T180000Z)."""
+    m = re.search(r"(\d{4})-(\d{1,2})-(\d{1,2})", s or "") or re.match(r"(\d{4})(\d{2})(\d{2})", s or "")
+    try:
+        return dt.date(int(m.group(1)), int(m.group(2)), int(m.group(3))) if m else None
+    except ValueError:
+        return None
+
+
+def evento(ini, fin, nombre, url, lugar=""):
+    f1 = fecha_suelta(str(ini or ""))
+    if not f1:
+        return None
+    return {"fecha": f1, "fin": fecha_suelta(str(fin or "")), "nombre": html_a_texto(str(nombre or ""))[:120],
+            "url": url, "lugar": html_a_texto(str(lugar or ""))[:80]}
+
+
+def eventos_html(html, url):
+    """Eventos schema.org de una página: JSON-LD y, si no hay, microdatos (itemprop="startDate")."""
+    out = []
+    for bloque in re.findall(r"<script[^>]+application/ld\+json[^>]*>(.*?)</script>", html, re.S | re.I):
+        try:
+            pila = [json.loads(bloque.strip())]
+        except ValueError:
+            continue
+        while pila:
+            x = pila.pop()
+            if isinstance(x, list):
+                pila.extend(x)
+            elif isinstance(x, dict):
+                pila.extend(v for k, v in x.items() if k in ("@graph", "itemListElement", "item", "subEvent"))
+                tipos = x.get("@type") if isinstance(x.get("@type"), list) else [x.get("@type")]
+                if x.get("startDate") and any("Event" in str(t) for t in tipos):
+                    lugar = x.get("location")
+                    if isinstance(lugar, list):
+                        lugar = lugar[0] if lugar else ""
+                    if isinstance(lugar, dict):
+                        lugar = lugar.get("name") or ""
+                    out.append(evento(x.get("startDate"), x.get("endDate"), x.get("name"), x.get("url") or url, lugar))
+    if not out:
+        titulo = re.search(r"<title[^>]*>(.*?)</title>", html, re.S | re.I)
+        for m in re.finditer(r"""itemprop=["']startDate["'][^>]*?(?:content|datetime)=["']([^"']+)|(?:content|datetime)=["']([^"']+)["'][^>]*itemprop=["']startDate""", html, re.I):
+            antes = html[max(0, m.start() - 2500):m.start()]
+            nombre = re.findall(r"""itemprop=["']name["'][^>]*?(?:content=["']([^"']+)["']|>([^<]{3,120})<)""", antes)
+            nombre = next((a or b for a, b in reversed(nombre) if (a or b).strip()), titulo.group(1) if titulo else "")
+            out.append(evento(m.group(1) or m.group(2), None, nombre, url))
+    return [e for e in out if e]
+
+
+def eventos_ics(texto, url):
+    out = []
+    texto = re.sub(r"\r?\n[ \t]", "", texto)   # líneas plegadas del formato iCal
+    for bloque in re.findall(r"BEGIN:VEVENT(.*?)END:VEVENT", texto, re.S):
+        campos = {}
+        for linea in bloque.splitlines():
+            clave, _, valor = linea.partition(":")
+            campos.setdefault(clave.split(";")[0].upper(), valor.replace("\\,", ",").replace("\\n", " ").strip())
+        out.append(evento(campos.get("DTSTART"), campos.get("DTEND"), campos.get("SUMMARY"), campos.get("URL") or url, campos.get("LOCATION")))
+    return [e for e in out if e]
+
+
+def eventos_estructurados(paginas_html, desde, hasta):
+    """Eventos con fecha publicados como datos en la web del club. Devuelve líneas de texto para la IA."""
+    eventos, enlaces_ics = [], []
+    portada_url, portada = paginas_html[0]
+    for url, html in paginas_html:
+        eventos += eventos_html(html, url)
+        for href in ICS.findall(html):
+            href = urllib.parse.urljoin(url, html_mod.unescape(href)).replace("webcal://", "https://")
+            if "calendar.google.com/calendar/embed" in href:
+                cal = urllib.parse.parse_qs(urllib.parse.urlsplit(href).query).get("src", [""])[0]
+                href = f"https://calendar.google.com/calendar/ical/{urllib.parse.quote(cal)}/public/basic.ics" if cal else ""
+            if href and href not in enlaces_ics:
+                enlaces_ics.append(href)
+    for href in enlaces_ics[:2]:
+        texto, _ = descargar(href)
+        if texto and "BEGIN:VCALENDAR" in texto:
+            eventos += eventos_ics(texto, portada_url)
+    origen = "{0.scheme}://{0.netloc}".format(urllib.parse.urlsplit(portada_url))
+    todo = " ".join(h for _, h in paginas_html).lower()
+    if "wp-content" in todo:
+        if "tribe-events" in todo or "the-events-calendar" in todo:
+            r = get_json(f"{origen}/wp-json/tribe/events/v1/events?per_page=50&start_date={desde.isoformat()}") or {}
+            for e in r.get("events") or []:
+                eventos.append(evento(e.get("start_date"), e.get("end_date"), e.get("title"), e.get("url"),
+                                      (e.get("venue") or {}).get("venue") if isinstance(e.get("venue"), dict) else ""))
+        tipo = next((t for marca, t in PLUGINS_WP.items() if marca in todo), None)
+        if tipo:   # EventON / MEC: la lista sale de la API de WordPress y la fecha de la página de cada evento
+            for e in (get_json(f"{origen}/wp-json/wp/v2/{tipo}?per_page=40&_fields=link,title") or [])[:40]:
+                h, f = descargar(e.get("link") or "")
+                if h:
+                    for ev in eventos_html(h, f):
+                        ev["nombre"] = ev["nombre"] or html_a_texto((e.get("title") or {}).get("rendered", ""))
+                        eventos.append(ev)
+    vistos, lineas = set(), []
+    for e in sorted((e for e in eventos if e and desde <= e["fecha"] <= hasta), key=lambda e: e["fecha"]):
+        clave = (e["fecha"], slug(e["nombre"]))
+        if clave in vistos or not e["nombre"]:
+            continue
+        vistos.add(clave)
+        fechas = e["fecha"].isoformat() + (f"–{e['fin'].isoformat()}" if e["fin"] and e["fin"] > e["fecha"] else "")
+        lineas.append(" | ".join((fechas, e["nombre"], e["lugar"], e["url"])))
+    return lineas[:MAX_EVENTOS]
+
+
+def paginas_club(club, desde, hasta):
+    """Portada + páginas de calendario/agenda/eventos del mismo dominio.
+    Devuelve ([(url, texto)], [líneas de eventos estructurados])."""
     html, final = descargar(club["web"])
     if not html or len(html_a_texto(html)) < 300:
         # web hecha con JavaScript (o que no deja descargar): solo entonces se gasta un crédito de Tavily
@@ -380,7 +503,7 @@ def paginas_club(club):
         url = club.get("calendario") or club["web"]
         res = tavily("extract", {"urls": [url]}).get("results") or []
         texto = (res[0].get("raw_content") or "") if res else ""
-        return [(url, texto)] if texto else []
+        return ([(url, texto)] if texto else []), []
     d = dominio(final)
     vistas = {final.rstrip("/")}
     candidatas = []
@@ -393,12 +516,17 @@ def paginas_club(club):
                 and CALENDARIO.search(url + " " + etiqueta) and url.rstrip("/") not in vistas
                 and url not in candidatas):
             candidatas.append(url)
-    paginas = [(final, html_a_texto(html))]
+    paginas_html = [(final, html)]
     for url in candidatas[:3]:
         h, f = descargar(url)
         if h:
-            paginas.append((f, html_a_texto(h)))
-    return paginas
+            paginas_html.append((f, h))
+    try:
+        eventos = eventos_estructurados(paginas_html, desde, hasta)
+    except Exception as e:   # que un calendario raro no impida leer el texto de la web
+        log(f"  calendario estructurado: {e}")
+        eventos = []
+    return [(u, html_a_texto(h)) for u, h in paginas_html], eventos
 
 
 def carreras_de_club(preguntar, club, desde, hasta):
@@ -409,9 +537,16 @@ def carreras_de_club(preguntar, club, desde, hasta):
                + f". Extrae las carreras de slot con fecha entre el {desde.isoformat()} y el {hasta.isoformat()}. "
                "En 'club' pon el nombre del club. Incluye pruebas de campeonatos, trofeos, resistencias y carreras abiertas; "
                "no incluyas entrenamientos libres, horarios de apertura ni sesiones sociales sin competición.")
-    paginas = paginas_club(club)
+    paginas, eventos = paginas_club(club, desde, hasta)
     años = (str(desde.year), str(hasta.year), str(dt.date.today().year))
     texto, total = [], 0
+    if eventos:
+        log(f"  {len(eventos)} eventos en el calendario de la web")
+        bloque = "\n".join(eventos)
+        texto.append("### Eventos con fecha publicados en el calendario de la web (fecha | título | lugar | enlace)\n"
+                     "Usa la fecha y el enlace de cada línea tal cual. Si el título es solo una categoría (p. ej. «F1» o «GT»), "
+                     f"llama a la carrera «Carrera de club: <categoría>».\n{bloque}")
+        total += len(bloque)
     for url, t in paginas:
         if not any(a in t for a in años):
             continue
@@ -419,8 +554,8 @@ def carreras_de_club(preguntar, club, desde, hasta):
         texto.append(f"### {url}\n{trozo}")
         total += len(trozo)
     if texto:
-        prompt = (f"Este es el texto de la web del {encargo} En 'enlace' pon la URL (de las que empiezan por ###) "
-                  "donde aparece la fecha.\n\n" + "\n\n".join(texto))
+        prompt = (f"Este es el texto de la web del {encargo} En 'enlace' pon la URL donde aparece la fecha "
+                  "(la de la línea del evento o la de la página que empieza por ###).\n\n" + "\n\n".join(texto))
         buscar = False
     elif paginas:
         return []   # nada de este año ni del siguiente: ni se pregunta a la IA

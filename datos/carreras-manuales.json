@@ -222,6 +222,73 @@
       "escala": "1/32",
       "enlace": "https://www.brusselsscalexclub.be/open-2026",
       "notas": "Carrera abierta a todos los pilotos"
+    },
+    {
+      "fecha": "2027-03-14",
+      "nombre": "Wales and West Championship · R1 Llantrisant",
+      "campeonato": "Wales and West Championship",
+      "tipo": "velocidad",
+      "club": "Llantrisant",
+      "pais": "GB",
+      "escala": "1/32",
+      "categoria": "LMP2 / GT3",
+      "notas": "Dos clases y dos campeonatos: LMP2 y GT3. Abierto a todos, de novato a experto."
+    },
+    {
+      "fecha": "2027-05-16",
+      "nombre": "Wales and West Championship · R2 North Staffs",
+      "campeonato": "Wales and West Championship",
+      "tipo": "velocidad",
+      "club": "North Staffs",
+      "pais": "GB",
+      "escala": "1/32",
+      "categoria": "LMP2 / GT3",
+      "notas": "Dos clases y dos campeonatos: LMP2 y GT3. Abierto a todos, de novato a experto."
+    },
+    {
+      "fecha": "2027-06-13",
+      "nombre": "Wales and West Championship · R3 Wye Valley",
+      "campeonato": "Wales and West Championship",
+      "tipo": "velocidad",
+      "club": "Wye Valley",
+      "pais": "GB",
+      "escala": "1/32",
+      "categoria": "LMP2 / GT3",
+      "notas": "Dos clases y dos campeonatos: LMP2 y GT3. Abierto a todos, de novato a experto."
+    },
+    {
+      "fecha": "2027-07-25",
+      "nombre": "Wales and West Championship · R4 Wolverhampton",
+      "campeonato": "Wales and West Championship",
+      "tipo": "velocidad",
+      "club": "Wolverhampton",
+      "pais": "GB",
+      "escala": "1/32",
+      "categoria": "LMP2 / GT3",
+      "notas": "Dos clases y dos campeonatos: LMP2 y GT3. Abierto a todos, de novato a experto."
+    },
+    {
+      "fecha": "2027-09-19",
+      "nombre": "Wales and West Championship · R5 Oxford",
+      "campeonato": "Wales and West Championship",
+      "tipo": "velocidad",
+      "club": "Oxford",
+      "pais": "GB",
+      "escala": "1/32",
+      "categoria": "LMP2 / GT3",
+      "notas": "Dos clases y dos campeonatos: LMP2 y GT3. Abierto a todos, de novato a experto."
+    },
+    {
+      "fecha": "2027-10-03",
+      "nombre": "Wales and West Championship · R6 FLBT",
+      "campeonato": "Wales and West Championship",
+      "tipo": "velocidad",
+      "club": "FLBT (Four Lane Blacktop)",
+      "pais": "GB",
+      "escala": "1/32",
+      "categoria": "LMP2 / GT3",
+      "notas": "Dos clases y dos campeonatos: LMP2 y GT3. Abierto a todos, de novato a experto.",
+      "ciudad": "Marlborough"
     }
   ],
   "ocultar": [
