@@ -174,7 +174,7 @@
       </ul>
       <p>Ojo con esto: <b>tu primera vuelta completa sí cuenta</b> —es ritmo real y puede ser perfectamente tu mejor vuelta—. Lo único que se descarta es ese primer cruce desde parado. Así que tu MEJOR es una vuelta real de verdad, nunca un número regalado ni una vuelta buena que se pierde.</p>
       <p><b>MEDIA.</b> Tu ritmo medio. Media simple de tus vueltas de carrera (incluye salidas y pit-stops; solo excluye el <b>cruce de salida</b>). Es exactamente el mismo criterio que usa TicTac, al milisegundo. Es el número que la proyección usa para estimar dónde acabas. <b>Baja tu media y subes en la general.</b></p>
-      <p><b>Δ (delta).</b> Es tu <b>media limpia menos tu mejor vuelta</b>. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.</p>
+      <p><b>Δ (media-mejor).</b> Es tu <b>media limpia menos tu mejor vuelta</b>. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.</p>
       <p><b>SALIDAS / PIT-STOPS.</b> Cuántas veces te has salido y cuántas paradas has hecho. Cada salida te cuesta tiempo y posiciones. PitWall cuenta las salidas con la misma regla que las «vueltas lentas» de TicTac: es <b>salida</b> toda vuelta que tarde <b>más que tu vuelta rápida en ese carril durante la manga + 1,5 s</b> (también la primera vuelta). Si además tarda el doble o más de tu media limpia, es una <b>parada en boxes (🔧)</b>. Las <b>vueltas de bandera</b> (cronometradas o repuestas) y las que repone PitWall tras una caída de conexión nunca cuentan como salida.</p>
       <p><b>En directo, la marca es provisional.</b> Tu vuelta rápida va bajando durante la manga y, con ella, el límite. Ejemplo: al minuto 1 tu mejor es 10,20 s → límite 11,70 s, así que una vuelta de 11,50 s <b>no</b> es salida. Al minuto 6 haces 9,80 s → el límite baja a 11,30 s y aquella vuelta de 11,50 s <b>pasa a contar como salida</b>. Por eso el contador de salidas puede subir mientras ruedas bien. Al cerrar la manga se repasa todo con la vuelta rápida definitiva. Esta regla no cambia la coma ni el desempate, y las carreras corridas antes de la v1.38.0 conservan las salidas tal como se contaron.</p>
       <p><b>Tiempo perdido en salidas.</b> Lo que te han costado esas salidas, en segundos. Ponlo en contexto: a veces una sola salida vale más posiciones que décimas de ritmo durante toda la manga. Aquí lo ves claro.</p>
@@ -394,7 +394,7 @@
         <img src="manual/img/st-avanzadas.png" loading="lazy" alt="Resultados, panel de estadísticas avanzadas de un participante">
         <figcaption>El análisis profundo de un participante: totales, medias, consistencia y evolución por carril.</figcaption>
       </figure>
-      <p>El análisis profundo de un participante: <b>total de vueltas</b> (y limpias), <b>mejor</b>, <b>media</b> (con toggle <i>con/sin salidas</i>), <b>Δ consistencia</b>, <b>salidas · pit-stops</b> y <b>tiempo perdido</b>. Debajo, la <b>evolución por carril</b> (tu media pista a pista, para ver dónde fuiste más rápido) y una tarjeta por carril. Con <b>Comparar con</b> eliges un rival y se genera una tabla <b>cara a cara</b> con las diferencias coloreadas (verde = mejor, rojo = peor).</p>
+      <p>El análisis profundo de un participante: <b>total de vueltas</b> (y limpias), <b>mejor</b>, <b>media</b> (con toggle <i>con/sin salidas</i>), <b>Δ media-mejor</b>, <b>salidas · pit-stops</b> y <b>tiempo perdido</b>. Debajo, la <b>evolución por carril</b> (tu media pista a pista, para ver dónde fuiste más rápido) y una tarjeta por carril. Con <b>Comparar con</b> eliges un rival y se genera una tabla <b>cara a cara</b> con las diferencias coloreadas (verde = mejor, rojo = peor).</p>
 
       <h3>Pilotos (resistencias por equipos)</h3>
       <figure class="shot">
@@ -410,7 +410,7 @@
         <li><b>V/h</b> — vueltas por hora al volante: el ritmo que permite comparar pilotos que condujeron tiempos distintos.</li>
         <li><b>Mejor</b> — su mejor vuelta (sin salidas ni cruce de salida).</li>
         <li><b>Media</b> — su media (sin el cruce de salida, igual que la del equipo).</li>
-        <li><b>Const.</b> — su consistencia limpia (la misma de la Comparativa).</li>
+        <li><b>Consistencia</b> — su consistencia limpia (la misma de la Comparativa).</li>
         <li><b>Salidas</b> y <b>Pits</b> — cuántas veces se salió y cuántas paradas hizo.</li>
       </ul>
       <p>Con el selector de arriba a la derecha eliges la vista:</p>

@@ -174,7 +174,7 @@
       </ul>
       <p>Attention à ceci : <b>ton premier tour complet, lui, compte</b> —c'est du rythme réel et il peut parfaitement être ton meilleur tour—. La seule chose écartée est ce premier passage à l'arrêt. Ainsi, ton MEILLEUR est un vrai tour réel, jamais un chiffre offert ni un bon tour qui se perd.</p>
       <p><b>MOYENNE.</b> Ton rythme moyen. Moyenne simple de tes tours de course (inclut sorties et pit-stops ; n'exclut que le <b>passage de départ</b>). C'est exactement le même critère qu'utilise TicTac, à la milliseconde près. C'est le chiffre que la projection utilise pour estimer où tu finis. <b>Baisse ta moyenne et tu montes au général.</b></p>
-      <p><b>Δ (delta).</b> C'est ta <b>moyenne propre moins ton meilleur tour</b>. Autrement dit : combien de marge il te reste. Un Δ petit = tu roules presque toujours à fond, très peu à gratter. Un Δ grand = tu as du rythme mais tu le perds sur beaucoup de tours : c'est là qu'est ton or, dans le fait d'être plus constant. La « moyenne propre » ici ne compte ni sorties ni pits, seulement ton roulage normal.</p>
+      <p><b>Δ (moyenne-meilleur).</b> C'est ta <b>moyenne propre moins ton meilleur tour</b>. Autrement dit : combien de marge il te reste. Un Δ petit = tu roules presque toujours à fond, très peu à gratter. Un Δ grand = tu as du rythme mais tu le perds sur beaucoup de tours : c'est là qu'est ton or, dans le fait d'être plus constant. La « moyenne propre » ici ne compte ni sorties ni pits, seulement ton roulage normal.</p>
       <p><b>SORTIES / PIT-STOPS.</b> Combien de fois tu es sorti et combien d'arrêts tu as faits. Chaque sortie te coûte du temps et des positions. PitWall compte les sorties avec la même règle que les « tours lents » de TicTac : est une <b>sortie</b> tout tour qui dure <b>plus que ton tour le plus rapide sur cette voie pendant la manche + 1,5 s</b> (le premier tour compris). S'il dure en plus le double de ta moyenne propre ou davantage, c'est un <b>arrêt aux stands (🔧)</b>. Les <b>tours de drapeau</b> (chronométrés ou rétablis) et les tours que PitWall rétablit après une <b>coupure de connexion</b> ne comptent jamais comme sortie.</p>
       <p><b>En direct, la marque est provisoire.</b> Ton meilleur tour baisse au fil de la manche, et la limite avec lui. Exemple : à la minute 1 ton meilleur est 10,20 s → limite 11,70 s, donc un tour de 11,50 s n'est <b>pas</b> une sortie. À la minute 6 tu fais 9,80 s → la limite descend à 11,30 s et ce tour de 11,50 s <b>compte désormais comme sortie</b>. C'est pourquoi le compteur de sorties peut monter alors que tu roules bien. À la fin de la manche, tout est revu avec le meilleur tour définitif. Cette règle ne change ni la virgule ni le départage, et les courses disputées avant la v1.38.0 gardent leurs sorties telles qu'elles ont été comptées.</p>
       <p><b>Temps perdu en sorties.</b> Ce que ces sorties t'ont coûté, en secondes. Mets-le en contexte : parfois une seule sortie vaut plus de positions que des dixièmes de rythme sur toute la manche. Ici tu le vois clairement.</p>
@@ -394,7 +394,7 @@
         <img src="manual/img/st-avanzadas.png" loading="lazy" alt="Résultats, panneau de statistiques avancées d'un participant">
         <figcaption>L'analyse en profondeur d'un participant : totaux, moyennes, consistance et évolution par voie.</figcaption>
       </figure>
-      <p>L'analyse en profondeur d'un participant : <b>total de tours</b> (et propres), <b>meilleur</b>, <b>moyenne</b> (avec bascule <i>avec/sans sorties</i>), <b>Δ consistance</b>, <b>sorties · pit-stops</b> et <b>temps perdu</b>. En dessous, l'<b>évolution par voie</b> (ta moyenne piste par piste, pour voir où tu as été le plus rapide) et une carte par voie. Avec <b>Comparer avec</b>, tu choisis un rival et une table <b>face à face</b> est générée avec les différences colorées (vert = mieux, rouge = pire).</p>
+      <p>L'analyse en profondeur d'un participant : <b>total de tours</b> (et propres), <b>meilleur</b>, <b>moyenne</b> (avec bascule <i>avec/sans sorties</i>), <b>Δ moyenne-meilleur</b>, <b>sorties · pit-stops</b> et <b>temps perdu</b>. En dessous, l'<b>évolution par voie</b> (ta moyenne piste par piste, pour voir où tu as été le plus rapide) et une carte par voie. Avec <b>Comparer avec</b>, tu choisis un rival et une table <b>face à face</b> est générée avec les différences colorées (vert = mieux, rouge = pire).</p>
 
       <h3>Pilotes (« Pilotos », endurances par équipes)</h3>
       <figure class="shot">
@@ -410,7 +410,7 @@
         <li><b>V/h</b> — tours par heure de volant : le rythme qui permet de comparer des pilotes qui n'ont pas conduit le même temps.</li>
         <li><b>Mejor</b> — son meilleur tour (sans sorties ni passage de départ).</li>
         <li><b>Media</b> — sa moyenne (sans le passage de départ, comme celle de l'équipe).</li>
-        <li><b>Const.</b> — sa consistance propre (la même que dans le Comparatif).</li>
+        <li><b>Consistance</b> — sa consistance propre (la même que dans le Comparatif).</li>
         <li><b>Salidas</b> et <b>Pits</b> — combien de fois il est sorti et combien d'arrêts il a faits.</li>
       </ul>
       <p>Le sélecteur en haut à droite change la vue :</p>

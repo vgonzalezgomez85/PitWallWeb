@@ -91,7 +91,7 @@ Attenzione a questo: **il tuo primo giro completo conta** — è ritmo reale e p
 
 **MEDIA.** Il tuo ritmo medio. Media semplice dei tuoi giri di gara (include uscite e pit-stop; esclude solo il **passaggio di partenza**). È esattamente lo stesso criterio che usa TicTac, al millisecondo. È il numero che la proiezione usa per stimare dove finisci. **Abbassa la tua media e sali nella generale.**
 
-**Δ (delta).** È la tua **media pulita meno il tuo miglior giro**. Cioè: quanto margine ti resta. Un Δ piccolo = giri quasi sempre al massimo, poco da raschiare. Un Δ grande = hai ritmo ma lo perdi in molti giri: lì c'è il tuo oro, nell'essere più costante. La "media pulita" qui non conta uscite né pit, solo il tuo girare normale.
+**Δ (media-migliore).** È la tua **media pulita meno il tuo miglior giro**. Cioè: quanto margine ti resta. Un Δ piccolo = giri quasi sempre al massimo, poco da raschiare. Un Δ grande = hai ritmo ma lo perdi in molti giri: lì c'è il tuo oro, nell'essere più costante. La "media pulita" qui non conta uscite né pit, solo il tuo girare normale.
 
 **USCITE / PIT-STOP.** Quante volte sei uscito e quante soste hai fatto. Ogni uscita ti costa tempo e posizioni. PitWall conta le uscite con la stessa regola dei «giri lenti» di TicTac: è **uscita** ogni giro che impiega **più del tuo giro più veloce in quella corsia durante la manche + 1,5 s** (compreso il primo giro). Se impiega anche il doppio della tua media pulita o di più, è una **sosta ai box (🔧)**. I **giri di bandiera** (cronometrati o ripristinati) e i giri che PitWall ripristina dopo una **caduta di connessione** non contano mai come uscita.
 
@@ -281,7 +281,7 @@ La stessa idea ma in **tabella**: righe = squadre, colonne = manche, e ogni cell
 
 ![img: st-avanzadas.png]
 
-L'analisi approfondita di un partecipante: **totale giri** (e puliti), **migliore**, **media** (con toggle *con/senza uscite*), **Δ consistenza**, **uscite · pit-stop** e **tempo perso**. Sotto, l'**evoluzione per corsia** (la tua media pista per pista, per vedere dove sei stato più veloce) e una scheda per corsia. Con **Confronta con (“Comparar con”)** scegli un rivale e si genera una tabella **faccia a faccia** con le differenze colorate (verde = meglio, rosso = peggio).
+L'analisi approfondita di un partecipante: **totale giri** (e puliti), **migliore**, **media** (con toggle *con/senza uscite*), **Δ media-migliore**, **uscite · pit-stop** e **tempo perso**. Sotto, l'**evoluzione per corsia** (la tua media pista per pista, per vedere dove sei stato più veloce) e una scheda per corsia. Con **Confronta con (“Comparar con”)** scegli un rivale e si genera una tabella **faccia a faccia** con le differenze colorate (verde = meglio, rosso = peggio).
 
 ### Piloti (“Pilotos”, endurance a squadre)
 
@@ -294,7 +294,7 @@ Nelle endurance a squadre con **check-in QR** (o quando i giri riportano già il
 - **V/h** — giri per ora di guida: il ritmo che permette di confrontare piloti che hanno guidato per tempi diversi.
 - **Mejor** — il suo giro migliore (senza uscite né passaggio di partenza).
 - **Media** — la sua media (senza il passaggio di partenza, come quella della squadra).
-- **Const.** — la sua consistenza pulita (lo stesso dato della Comparativa).
+- **Consistenza** — la sua consistenza pulita (lo stesso dato della Comparativa).
 - **Salidas** e **Pits** — quante volte è uscito e quante soste ha fatto.
 
 Il selettore in alto a destra cambia la vista:

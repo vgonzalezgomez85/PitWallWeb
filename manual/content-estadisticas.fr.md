@@ -91,7 +91,7 @@ Attention à ceci : **ton premier tour complet, lui, compte** — c'est du rythm
 
 **MOYENNE.** Ton rythme moyen. Moyenne simple de tes tours de course (inclut sorties et pit-stops ; n'exclut que le **passage de départ**). C'est exactement le même critère qu'utilise TicTac, à la milliseconde près. C'est le chiffre que la projection utilise pour estimer où tu finis. **Baisse ta moyenne et tu montes au général.**
 
-**Δ (delta).** C'est ta **moyenne propre moins ton meilleur tour**. Autrement dit : combien de marge il te reste. Un Δ petit = tu roules presque toujours à fond, très peu à gratter. Un Δ grand = tu as du rythme mais tu le perds sur beaucoup de tours : c'est là qu'est ton or, dans le fait d'être plus constant. La « moyenne propre » ici ne compte ni sorties ni pits, seulement ton roulage normal.
+**Δ (moyenne-meilleur).** C'est ta **moyenne propre moins ton meilleur tour**. Autrement dit : combien de marge il te reste. Un Δ petit = tu roules presque toujours à fond, très peu à gratter. Un Δ grand = tu as du rythme mais tu le perds sur beaucoup de tours : c'est là qu'est ton or, dans le fait d'être plus constant. La « moyenne propre » ici ne compte ni sorties ni pits, seulement ton roulage normal.
 
 **SORTIES / PIT-STOPS.** Combien de fois tu es sorti et combien d'arrêts tu as faits. Chaque sortie te coûte du temps et des positions. PitWall compte les sorties avec la même règle que les « tours lents » de TicTac : est une **sortie** tout tour qui dure **plus que ton tour le plus rapide sur cette voie pendant la manche + 1,5 s** (le premier tour compris). S'il dure en plus le double de ta moyenne propre ou davantage, c'est un **arrêt aux stands (🔧)**. Les **tours de drapeau** (chronométrés ou rétablis) et les tours que PitWall rétablit après une **coupure de connexion** ne comptent jamais comme sortie.
 
@@ -281,7 +281,7 @@ La même idée mais en **tableau** : lignes = équipes, colonnes = manches, et c
 
 ![img: st-avanzadas.png]
 
-L'analyse en profondeur d'un participant : **total de tours** (et propres), **meilleur**, **moyenne** (avec bascule *avec/sans sorties*), **Δ consistance**, **sorties · pit-stops** et **temps perdu**. En dessous, l'**évolution par voie** (ta moyenne piste par piste, pour voir où tu as été le plus rapide) et une carte par voie. Avec *Comparer avec (« Comparar con »)*, tu choisis un rival et une table **face à face** est générée avec les différences colorées (vert = mieux, rouge = pire).
+L'analyse en profondeur d'un participant : **total de tours** (et propres), **meilleur**, **moyenne** (avec bascule *avec/sans sorties*), **Δ moyenne-meilleur**, **sorties · pit-stops** et **temps perdu**. En dessous, l'**évolution par voie** (ta moyenne piste par piste, pour voir où tu as été le plus rapide) et une carte par voie. Avec *Comparer avec (« Comparar con »)*, tu choisis un rival et une table **face à face** est générée avec les différences colorées (vert = mieux, rouge = pire).
 
 ### Pilotes (« Pilotos », endurances par équipes)
 
@@ -294,7 +294,7 @@ Dans les endurances par équipes avec **pointage QR** (ou quand les tours porten
 - **V/h** — tours par heure de volant : le rythme qui permet de comparer des pilotes qui n'ont pas conduit le même temps.
 - **Mejor** — son meilleur tour (sans sorties ni passage de départ).
 - **Media** — sa moyenne (sans le passage de départ, comme celle de l'équipe).
-- **Const.** — sa consistance propre (la même que dans le Comparatif).
+- **Consistance** — sa consistance propre (la même que dans le Comparatif).
 - **Salidas** et **Pits** — combien de fois il est sorti et combien d'arrêts il a faits.
 
 Le sélecteur en haut à droite change la vue :

@@ -91,7 +91,7 @@ Ojo con esto: **tu primera vuelta completa sí cuenta** —es ritmo real y puede
 
 **MEDIA.** Tu ritmo medio. Media simple de tus vueltas de carrera (incluye salidas y pit-stops; solo excluye el **cruce de salida**). Es exactamente el mismo criterio que usa TicTac, al milisegundo. Es el número que la proyección usa para estimar dónde acabas. **Baja tu media y subes en la general.**
 
-**Δ (delta).** Es tu **media limpia menos tu mejor vuelta**. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.
+**Δ (media-mejor).** Es tu **media limpia menos tu mejor vuelta**. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.
 
 **SALIDAS / PIT-STOPS.** Cuántas veces te has salido y cuántas paradas has hecho. Cada salida te cuesta tiempo y posiciones. PitWall cuenta las salidas con la misma regla que las «vueltas lentas» de TicTac: es **salida** toda vuelta que tarde **más que tu vuelta rápida en ese carril durante la manga + 1,5 s** (también la primera vuelta). Si además tarda el doble o más de tu media limpia, es una **parada en boxes (🔧)**. Las **vueltas de bandera** (cronometradas o repuestas) y las que repone PitWall tras una caída de conexión nunca cuentan como salida.
 
@@ -283,7 +283,7 @@ La misma idea pero en **tabla**: filas = equipos, columnas = mangas, y cada celd
 
 ![img: st-avanzadas.png]
 
-El análisis profundo de un participante: **total de vueltas** (y limpias), **mejor**, **media** (con toggle *con/sin salidas*), **Δ consistencia**, **salidas · pit-stops** y **tiempo perdido**. Debajo, la **evolución por carril** (tu media pista a pista, para ver dónde fuiste más rápido) y una tarjeta por carril. Con **Comparar con** eliges un rival y se genera una tabla **cara a cara** con las diferencias coloreadas (verde = mejor, rojo = peor).
+El análisis profundo de un participante: **total de vueltas** (y limpias), **mejor**, **media** (con toggle *con/sin salidas*), **Δ media-mejor**, **salidas · pit-stops** y **tiempo perdido**. Debajo, la **evolución por carril** (tu media pista a pista, para ver dónde fuiste más rápido) y una tarjeta por carril. Con **Comparar con** eliges un rival y se genera una tabla **cara a cara** con las diferencias coloreadas (verde = mejor, rojo = peor).
 
 ### Pilotos (resistencias por equipos)
 
@@ -296,7 +296,7 @@ En las resistencias por equipos con **fichaje QR** (o cuando las vueltas ya llev
 - **V/h** — vueltas por hora al volante: el ritmo que permite comparar pilotos que condujeron tiempos distintos.
 - **Mejor** — su mejor vuelta (sin salidas ni cruce de salida).
 - **Media** — su media (sin el cruce de salida, igual que la del equipo).
-- **Const.** — su consistencia limpia (la misma de la Comparativa).
+- **Consistencia** — su consistencia limpia (la misma de la Comparativa).
 - **Salidas** y **Pits** — cuántas veces se salió y cuántas paradas hizo.
 
 Con el selector de arriba a la derecha eliges la vista:

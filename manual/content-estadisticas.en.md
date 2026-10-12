@@ -91,7 +91,7 @@ Careful with this one: **your first complete lap DOES count** — it's real pace
 
 **AVERAGE.** Your average pace. A simple average of your race laps (includes exits and pit-stops; only excludes the **start crossing**). It's exactly the same criterion TicTac uses, to the millisecond. It's the number the projection uses to estimate where you finish. **Lower your average and you climb in the overall.**
 
-**Δ (delta).** It's your **clean average minus your best lap**. That is: how much margin you have left. A small Δ = you almost always run flat out, very little to shave off. A big Δ = you have pace but lose it on many laps: that's where your gold is, in being more consistent. The "clean average" here doesn't count exits or pits, only your normal running.
+**Δ (avg–best).** It's your **clean average minus your best lap**. That is: how much margin you have left. A small Δ = you almost always run flat out, very little to shave off. A big Δ = you have pace but lose it on many laps: that's where your gold is, in being more consistent. The "clean average" here doesn't count exits or pits, only your normal running.
 
 **EXITS / PIT-STOPS.** How many times you've gone off and how many stops you've made. Each exit costs you time and positions. PitWall counts exits with the same rule as TicTac's “slow laps”: any lap that takes **longer than your fastest lap on that lane during the heat + 1.5 s** is an **exit** (the first lap included). If it also takes twice your clean average or more, it's a **pit-stop (🔧)**. **Flag laps** (timed or restored) and the laps PitWall restores after a **connection drop** never count as exits.
 
@@ -281,7 +281,7 @@ The same idea but in a **table**: rows = teams, columns = heats, and each cell t
 
 ![img: st-avanzadas.png]
 
-The deep analysis of a participant: **total laps** (and clean ones), **best**, **average** (with *with/without exits* toggle), **Δ consistency**, **exits · pit-stops** and **time lost**. Below, the **evolution by lane** (your average track by track, to see where you were faster) and one card per lane. With **Compare with** you pick a rival and a **head-to-head** table is generated with the differences colored (green = better, red = worse).
+The deep analysis of a participant: **total laps** (and clean ones), **best**, **average** (with *with/without exits* toggle), **Δ avg–best**, **exits · pit-stops** and **time lost**. Below, the **evolution by lane** (your average track by track, to see where you were faster) and one card per lane. With **Compare with** you pick a rival and a **head-to-head** table is generated with the differences colored (green = better, red = worse).
 
 ### Drivers (team endurance races)
 
@@ -294,7 +294,7 @@ In team endurance races with **QR check-in** (or when the laps already carry the
 - **L/h** — laps per hour of driving: the pace that lets you compare drivers who drove for different amounts of time.
 - **Best** — their best lap (without exits or the start crossing).
 - **Average** — their average (without the start crossing, same as the team's).
-- **Cons.** — their clean consistency (the same as in Comparison).
+- **Consistency** — their clean consistency (the same as in Comparison).
 - **Exits** and **Pits** — how many times they went off and how many stops they made.
 
 The selector at the top right switches the view:

@@ -174,7 +174,7 @@
       </ul>
       <p>Careful with this one: <b>your first complete lap DOES count</b> —it's real pace and it can perfectly well be your best lap—. The only thing discarded is that first crossing from a standstill. So your BEST is a truly real lap, never a gifted number nor a good lap that gets lost.</p>
       <p><b>AVERAGE.</b> Your average pace. A simple average of your race laps (includes exits and pit-stops; only excludes the <b>start crossing</b>). It's exactly the same criterion TicTac uses, to the millisecond. It's the number the projection uses to estimate where you finish. <b>Lower your average and you climb in the overall.</b></p>
-      <p><b>Δ (delta).</b> It's your <b>clean average minus your best lap</b>. That is: how much margin you have left. A small Δ = you almost always run flat out, very little to shave off. A big Δ = you have pace but lose it on many laps: that's where your gold is, in being more consistent. The "clean average" here doesn't count exits or pits, only your normal running.</p>
+      <p><b>Δ (avg–best).</b> It's your <b>clean average minus your best lap</b>. That is: how much margin you have left. A small Δ = you almost always run flat out, very little to shave off. A big Δ = you have pace but lose it on many laps: that's where your gold is, in being more consistent. The "clean average" here doesn't count exits or pits, only your normal running.</p>
       <p><b>EXITS / PIT-STOPS.</b> How many times you've gone off and how many stops you've made. Each exit costs you time and positions. PitWall counts exits with the same rule as TicTac's “slow laps”: any lap that takes <b>longer than your fastest lap on that lane during the heat + 1.5 s</b> is an <b>exit</b> (the first lap included). If it also takes twice your clean average or more, it's a <b>pit-stop (🔧)</b>. <b>Flag laps</b> (timed or restored) and the laps PitWall restores after a <b>connection drop</b> never count as exits.</p>
       <p><b>Live, the mark is provisional.</b> Your fastest lap keeps dropping during the heat, and the limit drops with it. Example: at minute 1 your best is 10.20 s → limit 11.70 s, so an 11.50 s lap is <b>not</b> an exit. At minute 6 you do 9.80 s → the limit drops to 11.30 s and that 11.50 s lap <b>now counts as an exit</b>. That's why the exit counter can go up while you're driving well. When the heat ends everything is rechecked against the final fastest lap. This rule doesn't change the comma or the tie-break, and races run before v1.38.0 keep their exits as they were counted.</p>
       <p><b>Time lost in exits.</b> What those exits cost you, in seconds. Put it in context: sometimes a single exit is worth more positions than tenths of pace throughout the whole heat. Here you see it clearly.</p>
@@ -394,7 +394,7 @@
         <img src="manual/img/st-avanzadas.png" loading="lazy" alt="Results, advanced statistics panel of a participant">
         <figcaption>The deep analysis of a participant: totals, averages, consistency and evolution by lane.</figcaption>
       </figure>
-      <p>The deep analysis of a participant: <b>total laps</b> (and clean ones), <b>best</b>, <b>average</b> (with <i>with/without exits</i> toggle), <b>Δ consistency</b>, <b>exits · pit-stops</b> and <b>time lost</b>. Below, the <b>evolution by lane</b> (your average track by track, to see where you were faster) and one card per lane. With <b>Compare with</b> you pick a rival and a <b>head-to-head</b> table is generated with the differences colored (green = better, red = worse).</p>
+      <p>The deep analysis of a participant: <b>total laps</b> (and clean ones), <b>best</b>, <b>average</b> (with <i>with/without exits</i> toggle), <b>Δ avg–best</b>, <b>exits · pit-stops</b> and <b>time lost</b>. Below, the <b>evolution by lane</b> (your average track by track, to see where you were faster) and one card per lane. With <b>Compare with</b> you pick a rival and a <b>head-to-head</b> table is generated with the differences colored (green = better, red = worse).</p>
 
       <h3>Drivers (team endurance races)</h3>
       <figure class="shot">
@@ -410,7 +410,7 @@
         <li><b>L/h</b> — laps per hour of driving: the pace that lets you compare drivers who drove for different amounts of time.</li>
         <li><b>Best</b> — their best lap (without exits or the start crossing).</li>
         <li><b>Average</b> — their average (without the start crossing, same as the team's).</li>
-        <li><b>Cons.</b> — their clean consistency (the same as in Comparison).</li>
+        <li><b>Consistency</b> — their clean consistency (the same as in Comparison).</li>
         <li><b>Exits</b> and <b>Pits</b> — how many times they went off and how many stops they made.</li>
       </ul>
       <p>The selector at the top right switches the view:</p>
