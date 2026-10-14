@@ -298,10 +298,11 @@
       <p>If there are <b>more participants than lanes</b>, the sequence includes gaps (<span class="mono">0</span> / <span class="mono">DSC</span>) that are <b>rests</b>: in that heat that participant does not run. PitWall spreads them out evenly, but <b>you can also place them wherever you want</b> within the rotation (drag them to the position you prefer).</p>
 
       <h3>Empty lanes (fewer participants than lanes)</h3>
-      <p>You don't have to fill every lane: you can create a heat with <b>fewer participants than lanes</b> (<b>one</b> is enough). The spare lanes stay empty, with <b>no ghost car</b> showing up in laps or standings. When you create the heat you choose what happens to them:</p>
+      <p>You don't have to fill every lane: you can create a batch with <b>fewer participants than lanes</b> (<b>one</b> is enough). The free lanes stay empty, with <b>no ghost car</b> showing up in laps or standings, and they don't have to be the last ones: on the batch's lane board leave <b>any lane you like</b> empty (e.g. 8 lanes without 1 and 8) and the 1st heat will keep that placement. At the bottom of the form, <b>Empty lanes</b> shows the chosen option; press <b>Change</b> to pick another:</p>
       <ul>
-        <li><b>Leave the last ones empty</b> (default): the <b>highest-numbered</b> lanes stay empty for the whole race; nobody runs on them.</li>
-        <li><b>Rotate the gap</b>: the free lane (or lanes) <b>rotates heat by heat</b>, so every participant ends up passing through the same lanes and the track stays just as fair as with a full grid.</li>
+        <li><b>Use every lane</b> (default): the gap <b>moves heat by heat</b> and everyone ends up running on every lane, so the track stays just as fair as with a full grid.</li>
+        <li><b>Skip the empty lanes</b>: the lanes you leave without a participant <b>are not used for the whole batch</b>; the rotation only goes through the occupied ones.</li>
+        <li><b>Skip the last empty lanes</b>: the free lanes <b>at the end</b> are never used (the behaviour of earlier versions); a gap left <b>in the middle</b> does rotate.</li>
       </ul>
 
       <h3>With passes / repeat lane</h3>
@@ -332,7 +333,7 @@
         <li><b>Category and car (optional)</b> — the wizard's two switches (<b>Category / cup</b> and <b>Car</b>) can be <b>turned on or off at any time</b>, including with the race running: they only change what is noted, shown and exported per participant, never the timing or the schedule. When you <b>turn them off</b>, the data already noted is <b>not deleted</b>: turn them back on and it reappears.</li>
       </ul>
       <ul>
-        <li><b>Edit batch</b> — change the <b>names</b> of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters <b>rename-only mode</b> (no participants added or removed, so as not to unbalance the rotation).</li>
+        <li><b>Edit batch</b> — change the <b>names</b> of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters <b>rename-only mode</b> (no participants added or removed, so as not to unbalance the rotation). When the heats are rebuilt, each participant <b>keeps their lanes from the 1st heat</b>, gaps included.</li>
       </ul>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Edit batch</span></div>

@@ -139,9 +139,10 @@ Une **série** regroupe les participants et leur **rotation de voies** par manch
 
 **Repos.** S'il y a **plus de participants que de voies**, la séquence inclut des trous (`0` / `DSC`) qui sont des **repos** : dans cette manche, ce participant ne court pas. PitWall les répartit de façon équilibrée, mais **tu peux aussi les placer où tu veux** dans la rotation (fais-les glisser à la position que tu préfères).
 
-**Voies vides (moins de participants que de voies).** Pas besoin de remplir toutes les voies : tu peux créer une manche avec **moins de participants que de voies** (**un** suffit). Les voies en trop restent libres, **sans voiture fantôme** qui apparaîtrait dans les tours ou le classement. À la création de la manche, tu choisis quoi en faire :
-- **Les dernières restent vides** (par défaut) : les voies au **numéro le plus élevé** restent vides toute la course ; personne n'y roule.
-- **Le trou tourne** : la voie (ou les voies) libre **tourne d'une manche à l'autre**, de sorte que tous les participants finissent par passer par les mêmes voies et la piste reste aussi équitable qu'avec une grille complète.
+**Voies vides (moins de participants que de voies).** Pas besoin de remplir toutes les voies : tu peux créer une série avec **moins de participants que de voies** (**un** suffit). Les voies libres restent **sans voiture fantôme** qui apparaîtrait dans les tours ou le classement, et ce ne sont pas forcément les dernières : sur le tableau des voies de la série, laisse vide **la voie que tu veux** (par ex. sur 8 voies, sans la 1 ni la 8) et la 1re manche respectera ce placement. En bas du formulaire, **Voies sans participant** (« Carriles sin participante ») affiche l'option choisie ; appuie sur **Modifier** pour la changer :
+- **Passer par toutes les voies** (par défaut) : le trou **change de manche en manche** et tout le monde finit par courir sur toutes les voies, si bien que la piste reste aussi équitable qu'avec une grille complète.
+- **Ne pas passer par les voies vides** : les voies que tu laisses sans participant **ne sont pas utilisées de toute la série** ; la rotation ne passe que par les voies occupées.
+- **Ne pas passer par les dernières voies vides** : les voies libres **de la fin** ne sont jamais utilisées (le comportement des versions précédentes) ; un trou laissé **au milieu**, lui, tourne.
 
 **Avec passages / répétition de voie :**
 - *2 passages* → la séquence entière se répète : `1,3,5,6,4,2, 1,3,5,6,4,2`.
@@ -159,7 +160,7 @@ Après avoir créé une course, tu peux la retoucher :
 - **Règles d'endurance (relais et pneus)** — dans une course d'**endurance**, et **tant qu'aucune manche n'a été courue**, Éditer la course te permet aussi d'ajuster les **règles de relais par pilote** (minimum et maximum par pilote, nombre maximum de relais et le blocage de fin de manche) et les **pneus par équipe** (la dotation avec laquelle démarre le contrôle des pneus) — les mêmes champs que tu as fixés dans l'assistant à la création de la course. Tu peux ainsi corriger un chiffre sans refaire toute la course. Dès que la **première manche** est courue, ces champs se **verrouillent** (atténués, avec un cadenas 🔒) pour ne pas déséquilibrer ce qui a déjà été couru ; le **nom** et le **scénario** gardent leurs règles habituelles. Si tu mets un **maximum par pilote inférieur au minimum**, PitWall te prévient.
 - **Catégorie et voiture (facultatif)** — les deux interrupteurs de l'assistant (**Catégorie / coupe** et **Voiture**) peuvent être **activés ou désactivés à tout moment**, y compris course en cours : ils ne changent que ce qui est noté, affiché et exporté par participant, jamais le chronométrage ni le calendrier. En les **désactivant**, les données déjà notées **ne sont pas supprimées** : si tu les réactives, elles réapparaissent.
 
-- **Éditer la série** — changer les **noms** des participants et, si la série n'a pas encore commencé, sa composition. Si elle a déjà des manches lancées, elle passe en **mode renommer seulement** (on n'ajoute ni ne retire de participants, pour ne pas déséquilibrer la rotation).
+- **Éditer la série** — changer les **noms** des participants et, si la série n'a pas encore commencé, sa composition. Si elle a déjà des manches lancées, elle passe en **mode renommer seulement** (on n'ajoute ni ne retire de participants, pour ne pas déséquilibrer la rotation). Quand les manches sont refaites, chaque participant **garde ses voies de la 1re manche**, trous compris.
 
 ![img: op-edit-tanda.png]
 

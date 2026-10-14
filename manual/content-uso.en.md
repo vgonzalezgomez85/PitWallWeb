@@ -139,9 +139,10 @@ A **batch** groups the participants and their **lane rotation** per heat. When y
 
 **Rests.** If there are **more participants than lanes**, the sequence includes gaps (`0` / `DSC`) that are **rests**: in that heat that participant does not run. PitWall spreads them out evenly, but **you can also place them wherever you want** within the rotation (drag them to the position you prefer).
 
-**Empty lanes (fewer participants than lanes).** You don't have to fill every lane: you can create a heat with **fewer participants than lanes** (**one** is enough). The spare lanes stay empty, with **no ghost car** showing up in laps or standings. When you create the heat you choose what happens to them:
-- **Leave the last ones empty** (default): the **highest-numbered** lanes stay empty for the whole race; nobody runs on them.
-- **Rotate the gap**: the free lane (or lanes) **rotates heat by heat**, so every participant ends up passing through the same lanes and the track stays just as fair as with a full grid.
+**Empty lanes (fewer participants than lanes).** You don't have to fill every lane: you can create a batch with **fewer participants than lanes** (**one** is enough). The free lanes stay empty, with **no ghost car** showing up in laps or standings, and they don't have to be the last ones: on the batch's lane board leave **any lane you like** empty (e.g. 8 lanes without 1 and 8) and the 1st heat will keep that placement. At the bottom of the form, **Empty lanes** shows the chosen option; press **Change** to pick another:
+- **Use every lane** (default): the gap **moves heat by heat** and everyone ends up running on every lane, so the track stays just as fair as with a full grid.
+- **Skip the empty lanes**: the lanes you leave without a participant **are not used for the whole batch**; the rotation only goes through the occupied ones.
+- **Skip the last empty lanes**: the free lanes **at the end** are never used (the behaviour of earlier versions); a gap left **in the middle** does rotate.
 
 **With passes / repeat lane:**
 - *2 passes* → the whole sequence repeats: `1,3,5,6,4,2, 1,3,5,6,4,2`.
@@ -160,7 +161,7 @@ After creating a race you can tweak it:
 
 - **Category and car (optional)** — the wizard's two switches (**Category / cup** and **Car**) can be **turned on or off at any time**, including with the race running: they only change what is noted, shown and exported per participant, never the timing or the schedule. When you **turn them off**, the data already noted is **not deleted**: turn them back on and it reappears.
 
-- **Edit batch** — change the **names** of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters **rename-only mode** (no participants added or removed, so as not to unbalance the rotation).
+- **Edit batch** — change the **names** of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters **rename-only mode** (no participants added or removed, so as not to unbalance the rotation). When the heats are rebuilt, each participant **keeps their lanes from the 1st heat**, gaps included.
 
 ![img: op-edit-tanda.png]
 

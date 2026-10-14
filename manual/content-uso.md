@@ -139,9 +139,10 @@ Una **tanda** agrupa a los participantes y su **rotación de carriles** por mang
 
 **Descansos.** Si hay **más participantes que carriles**, la secuencia incluye huecos (`0` / `DSC`) que son **descansos**: en esa manga ese participante no corre. PitWall los reparte de forma equilibrada, pero **también puedes colocarlos donde quieras** dentro de la rotación (arrástralos a la posición que prefieras).
 
-**Carriles vacíos (menos participantes que carriles).** No hace falta llenar todos los carriles: puedes crear una tanda con **menos participantes que carriles** (basta con **uno**). Los carriles que sobran quedan libres, **sin coche fantasma** que aparezca en vueltas ni clasificación. Al crear la tanda eliges qué hacer con ellos:
-- **Sobran los últimos** (por defecto): los carriles de **mayor número** quedan vacíos toda la carrera; nadie rueda por ellos.
-- **El hueco rota**: el carril (o carriles) libre va **rotando manga a manga**, de modo que todos los participantes acaban pasando por los mismos carriles y la pista queda igual de justa que con la rejilla completa.
+**Carriles vacíos (menos participantes que carriles).** No hace falta llenar todos los carriles: puedes crear una tanda con **menos participantes que carriles** (basta con **uno**). Los carriles libres quedan **sin coche fantasma** que aparezca en vueltas ni clasificación, y no tienen por qué ser los últimos: en el tablero de la tanda deja vacío **el carril que quieras** (p. ej. en 8 carriles, sin el 1 ni el 8) y la 1ª manga respetará esa colocación. Al pie del formulario, **Carriles sin participante** muestra la opción elegida; pulsa **Modificar** para cambiarla:
+- **Pasar por todos los carriles** (por defecto): el hueco va **cambiando manga a manga** y todos acaban corriendo en todos los carriles, así que la pista queda igual de justa que con la rejilla completa.
+- **No pasar por los carriles vacíos**: los carriles que dejes sin participante **no se usan en toda la tanda**; la rotación va solo por los ocupados.
+- **No pasar por los últimos carriles vacíos**: los carriles libres **del final** no se usan nunca (el comportamiento de versiones anteriores); si dejas un hueco **en medio**, ese sí va rotando.
 
 **Con pasadas / repetir carril:**
 - *2 pasadas* → la secuencia entera se repite: `1,3,5,6,4,2, 1,3,5,6,4,2`.
@@ -160,7 +161,7 @@ Después de crear una carrera puedes retocarla:
 
 - **Categoría y coche (opcional)** — los dos interruptores del asistente (**Categoría / copa** y **Coche**) se pueden **encender o apagar en cualquier momento**, también con la carrera en marcha: solo cambian lo que se anota, se muestra y se exporta por participante, nunca el cronometraje ni el calendario. Al **apagarlos**, los datos ya anotados **no se borran**: si los vuelves a encender, reaparecen.
 
-- **Editar tanda** — cambiar los **nombres** de los participantes y, si la tanda aún no ha empezado, su composición. Si ya tiene mangas iniciadas, entra en **modo solo renombrar** (no se añaden ni quitan participantes, para no descuadrar la rotación).
+- **Editar tanda** — cambiar los **nombres** de los participantes y, si la tanda aún no ha empezado, su composición. Si ya tiene mangas iniciadas, entra en **modo solo renombrar** (no se añaden ni quitan participantes, para no descuadrar la rotación). Al rehacer las mangas, cada participante **conserva sus carriles de la 1ª manga**, huecos incluidos.
 
 ![img: op-edit-tanda.png]
 

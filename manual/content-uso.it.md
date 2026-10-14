@@ -139,9 +139,10 @@ Una **tanda** raggruppa i partecipanti e la loro **rotazione di corsie** per man
 
 **Riposi.** Se ci sono **più partecipanti che corsie**, la sequenza include spazi vuoti (`0` / `DSC`) che sono **riposi**: in quella manche quel partecipante non corre. PitWall li distribuisce in modo equilibrato, ma **puoi anche collocarli dove vuoi** all'interno della rotazione (trascinali nella posizione che preferisci).
 
-**Corsie vuote (meno partecipanti che corsie).** Non serve riempire tutte le corsie: puoi creare una manche con **meno partecipanti che corsie** (ne basta **uno**). Le corsie in più restano libere, **senza auto fantasma** che compaia nei giri o nella classifica. Alla creazione della manche scegli cosa farne:
-- **Restano vuote le ultime** (predefinito): le corsie con il **numero più alto** restano vuote per tutta la gara; nessuno ci corre.
-- **Il vuoto ruota**: la corsia (o le corsie) libera **ruota di manche in manche**, così tutti i partecipanti finiscono per passare dalle stesse corsie e la pista resta equa come con la griglia completa.
+**Corsie vuote (meno partecipanti che corsie).** Non serve riempire tutte le corsie: puoi creare una tanda con **meno partecipanti che corsie** (ne basta **uno**). Le corsie libere restano **senza auto fantasma** che compaia nei giri o nella classifica, e non devono per forza essere le ultime: nel tabellone delle corsie della tanda lascia vuota **la corsia che vuoi** (p.es. su 8 corsie, senza la 1 e la 8) e la 1ª manche rispetterà quella disposizione. In fondo al modulo, **Corsie senza partecipante** mostra l'opzione scelta; premi **Modifica** per cambiarla:
+- **Passare su tutte le corsie** (predefinito): lo spazio libero **cambia di manche in manche** e tutti finiscono per correre su tutte le corsie, così la pista resta equa come con la griglia completa.
+- **Non passare sulle corsie vuote**: le corsie lasciate senza partecipante **non si usano in tutta la tanda**; la rotazione passa solo per quelle occupate.
+- **Non passare sulle ultime corsie vuote**: le corsie libere **in fondo** non si usano mai (il comportamento delle versioni precedenti); uno spazio lasciato **in mezzo** invece ruota.
 
 **Con passate / ripeti corsia:**
 - *2 passate* → l'intera sequenza si ripete: `1,3,5,6,4,2, 1,3,5,6,4,2`.
@@ -159,7 +160,7 @@ Dopo aver creato una gara puoi ritoccarla:
 - **Regole di endurance (turni e gomme) (“Reglas de resistencia”)** — in una gara di **endurance**, e **finché non è stata corsa nessuna manche**, Modifica gara ti lascia regolare anche le **regole dei turni per pilota** (minimo e massimo per pilota, numero massimo di turni e il blocco di fine manche) e le **gomme per squadra** (la dotazione con cui parte il controllo gomme) — gli stessi campi che hai fissato nella procedura guidata al momento di creare la gara. Così puoi correggere un numero senza rifare tutta la gara. Appena viene corsa la **prima manche**, quei campi si **bloccano** (attenuati, con un lucchetto 🔒) per non scompaginare ciò che è già stato corso; il **nome** e lo **scenario** mantengono le loro regole di sempre. Se imposti un **massimo per pilota inferiore al minimo**, PitWall ti avvisa.
 - **Categoria e auto (facoltativo)** — i due interruttori della procedura guidata (**Categoria / coppa** e **Auto**) si possono **accendere o spegnere in qualsiasi momento**, anche a gara in corso: cambiano solo ciò che si annota, si mostra e si esporta per partecipante, mai il cronometraggio né il calendario. **Spegnendoli**, i dati già annotati **non si cancellano**: se li riaccendi, ricompaiono.
 
-- **Modifica tanda (“Editar tanda”)** — cambiare i **nomi** dei partecipanti e, se la tanda non è ancora iniziata, la sua composizione. Se ha già manche avviate, entra in **modalità solo rinomina** (non si aggiungono né si tolgono partecipanti, per non scompaginare la rotazione).
+- **Modifica tanda (“Editar tanda”)** — cambiare i **nomi** dei partecipanti e, se la tanda non è ancora iniziata, la sua composizione. Se ha già manche avviate, entra in **modalità solo rinomina** (non si aggiungono né si tolgono partecipanti, per non scompaginare la rotazione). Quando le manche vengono rifatte, ogni partecipante **conserva le sue corsie della 1ª manche**, spazi vuoti compresi.
 
 ![img: op-edit-tanda.png]
 
