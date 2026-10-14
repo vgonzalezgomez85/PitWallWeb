@@ -236,14 +236,14 @@ Quand deux pilotes ont le même nombre de tours, c'est d'abord **qui a passé la
 
 Quand la course se termine, **Résultats** est l'endroit où l'on analyse tout tranquillement. Elle a plusieurs **onglets** ; chacun répond à une question différente. En haut, tu vois toujours le **meilleur tour de la course** (qui et sur quelle voie).
 
-### Comparatif (la grille par voie)
+### Résultats (la grille par voie)
 
 ![img: st-comparativa.png]
 
 C'est le tableau principal. Une ligne par participant et, pour **chaque voie** par laquelle il est passé, cinq données empilées :
 - **Rapide** — ton meilleur tour sur cette voie. Le point bleu + **MEILLEUR** marque le meilleur tour *de cette voie* parmi tous.
 - **Moyenne** — ton rythme moyen sur cette voie.
-- **Consistance** — ta **consistance** sur cette voie, en % : combien de tes tours propres sont tombés dans les ±1,5 % de ton rythme. Le même chiffre que dans le Comparatif.
+- **Consistance** — ta **consistance** sur cette voie, en % : combien de tes tours propres sont tombés dans les ±1,5 % de ton rythme. Le même chiffre que dans l'onglet Résultats.
 - **Sorties** — combien de fois tu es sorti là (et, dessous, le temps perdu).
 - **Pit-stops** — arrêts sur cette voie (avec le n° de tour, par ex. *T355*).
 
@@ -294,7 +294,7 @@ Dans les endurances par équipes avec **pointage QR** (ou quand les tours porten
 - **V/h** — tours par heure de volant : le rythme qui permet de comparer des pilotes qui n'ont pas conduit le même temps.
 - **Mejor** — son meilleur tour (sans sorties ni passage de départ).
 - **Media** — sa moyenne (sans le passage de départ, comme celle de l'équipe).
-- **Consistance** — sa consistance propre (la même que dans le Comparatif).
+- **Consistance** — sa consistance propre (la même que dans l'onglet Résultats).
 - **Salidas** et **Pits** — combien de fois il est sorti et combien d'arrêts il a faits.
 
 Le sélecteur en haut à droite change la vue :

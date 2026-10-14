@@ -236,14 +236,14 @@ When two drivers have the same laps, the first thing that decides is **who cross
 
 When the race ends, **Results** is where everything is analyzed calmly. It has several **tabs**; each one answers a different question. At the top you always see the **fastest lap of the race** (who and on which lane).
 
-### Comparison (the grid by lane)
+### Results (the grid by lane)
 
 ![img: st-comparativa.png]
 
 It's the main table. One row per participant and, for **each lane** they went through, five stacked data points:
 - **Fastest** — your best lap on that lane. The blue dot + **BEST** marks the fastest lap *of that lane* among everyone.
 - **Average** — your average pace on that lane.
-- **Consistency** — your **consistency** on that lane, in %: how many of your clean laps fell within ±1.5% of your pace. The same figure as in the Comparison.
+- **Consistency** — your **consistency** on that lane, in %: how many of your clean laps fell within ±1.5% of your pace. The same figure as in the Results tab.
 - **Exits** — how many times you went off there (and, below, the time lost).
 - **Pit-stops** — stops on that lane (with the lap number, e.g. *L355*).
 
@@ -294,7 +294,7 @@ In team endurance races with **QR check-in** (or when the laps already carry the
 - **L/h** — laps per hour of driving: the pace that lets you compare drivers who drove for different amounts of time.
 - **Best** — their best lap (without exits or the start crossing).
 - **Average** — their average (without the start crossing, same as the team's).
-- **Consistency** — their clean consistency (the same as in Comparison).
+- **Consistency** — their clean consistency (the same as in the Results tab).
 - **Exits** and **Pits** — how many times they went off and how many stops they made.
 
 The selector at the top right switches the view:

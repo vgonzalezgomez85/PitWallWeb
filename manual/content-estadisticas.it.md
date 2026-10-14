@@ -236,14 +236,14 @@ Quando due piloti hanno gli stessi giri, decide per prima cosa **chi ha tagliato
 
 Quando la gara termina, **Risultati (“Resultados”)** è dove si analizza tutto con calma. Ha varie **schede**; ognuna risponde a una domanda diversa. In alto vedi sempre il **giro veloce della gara** (chi e su quale corsia).
 
-### Comparativa (la griglia per corsia)
+### Risultati (la griglia per corsia)
 
 ![img: st-comparativa.png]
 
 È la tabella principale. Una riga per partecipante e, per **ogni corsia** su cui è passato, cinque dati impilati:
 - **Veloce** — il tuo miglior giro su quella corsia. Il punto blu + **MIGLIORE** segna il giro veloce *di quella corsia* tra tutti.
 - **Media** — il tuo ritmo medio su quella corsia.
-- **Consistenza** — la tua **consistenza** su quella corsia, in %: quanti dei tuoi giri puliti sono caduti dentro il ±1,5% del tuo ritmo. Lo stesso dato della Comparativa.
+- **Consistenza** — la tua **consistenza** su quella corsia, in %: quanti dei tuoi giri puliti sono caduti dentro il ±1,5% del tuo ritmo. Lo stesso dato della scheda Risultati.
 - **Uscite** — quante volte sei uscito lì (e, sotto, il tempo perso).
 - **Pit-stop** — soste su quella corsia (con il n° di giro, p.es. *G355*).
 
@@ -294,7 +294,7 @@ Nelle endurance a squadre con **check-in QR** (o quando i giri riportano già il
 - **V/h** — giri per ora di guida: il ritmo che permette di confrontare piloti che hanno guidato per tempi diversi.
 - **Mejor** — il suo giro migliore (senza uscite né passaggio di partenza).
 - **Media** — la sua media (senza il passaggio di partenza, come quella della squadra).
-- **Consistenza** — la sua consistenza pulita (lo stesso dato della Comparativa).
+- **Consistenza** — la sua consistenza pulita (lo stesso dato della scheda Risultati).
 - **Salidas** e **Pits** — quante volte è uscito e quante soste ha fatto.
 
 Il selettore in alto a destra cambia la vista:

@@ -238,7 +238,7 @@ Cuando dos pilotos tienen las mismas vueltas, lo primero que decide es **quién 
 
 Cuando la carrera termina, **Resultados** es donde se analiza todo con calma. Tiene varias **pestañas**; cada una responde a una pregunta distinta. Arriba siempre ves la **vuelta rápida de la carrera** (quién y en qué carril).
 
-### Comparativa (la parrilla por carril)
+### Resultados (la parrilla por carril)
 
 ![img: st-comparativa.png]
 
@@ -296,7 +296,7 @@ En las resistencias por equipos con **fichaje QR** (o cuando las vueltas ya llev
 - **V/h** — vueltas por hora al volante: el ritmo que permite comparar pilotos que condujeron tiempos distintos.
 - **Mejor** — su mejor vuelta (sin salidas ni cruce de salida).
 - **Media** — su media (sin el cruce de salida, igual que la del equipo).
-- **Consistencia** — su consistencia limpia (la misma de la Comparativa).
+- **Consistencia** — su consistencia limpia (la misma de la pestaña Resultados).
 - **Salidas** y **Pits** — cuántas veces se salió y cuántas paradas hizo.
 
 Con el selector de arriba a la derecha eliges la vista:
