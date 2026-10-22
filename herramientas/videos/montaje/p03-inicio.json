@@ -1,0 +1,17 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 12-20-22.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/03 - La pantalla de inicio.mp4",
+  "crops": { "scr": [864, 369, 2976, 1791, "fit"] },
+  "segments": [
+    { "card": { "kicker": "PitWall en 1 minuto · 03", "title": "La pantalla de inicio", "sub": "Todo PitWall a un clic" }, "dur": 3 },
+    { "from": 8.0,  "to": 11.0, "crop": "scr", "speed": 1,
+      "caption": { "step": 1, "total": 4, "text": "Arriba, la carrera en curso", "sub": "Manga, tiempo que queda, líder y accesos directos" } },
+    { "from": 0,    "to": 8.0,  "crop": "scr", "speed": 1.25,
+      "caption": { "step": 2, "total": 4, "text": "Buscador «Ir a…» (⌘K)", "sub": "Escribe y deja solo lo que coincide" } },
+    { "from": 11.0, "to": 15.0, "crop": "scr", "speed": 1,
+      "caption": { "step": 3, "total": 4, "text": "Competición, Catálogo y Sistema", "sub": "Cada botón abre su sección" } },
+    { "from": 15.0, "to": 23.0, "crop": "scr", "speed": 1.25,
+      "caption": { "step": 4, "total": 4, "text": "«Ventana nueva» o «Esta ventana»", "sub": "Elige si cada sección se abre aparte o aquí mismo" } },
+    { "card": { "kicker": "Siguiente", "title": "Modo básico o avanzado" }, "dur": 3 }
+  ]
+}

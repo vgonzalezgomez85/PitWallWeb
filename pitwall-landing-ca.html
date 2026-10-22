@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall · Cronometratge i gestió de curses de slot</title>
+<meta name="description" content="PitWall són tres programes per a les curses de slot del teu club: Manager cronometra, Lap et diu els teus temps al mòbil i Control porta el campionat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css?v=20261022">
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-ca.html" aria-current="page">Inici</a>
+      <a href="pitwall-manager-ca.html">Manager</a>
+      <a href="pitwall-lap-ca.html">Lap</a>
+      <a href="pitwall-control-ca.html">Control</a>
+      <a href="carreras-ca.html">Curses</a>
+      <a href="#ayuda">Ajuda</a>
+    </nav>
+    <div class="langs" aria-label="Idioma"><a href="index.html" lang="es">ES</a><b>CA</b><a href="pitwall-landing-en.html" lang="en">EN</a><a href="pitwall-landing-fr.html" lang="fr">FR</a><a href="pitwall-landing-it.html" lang="it">IT</a></div>
+  </div>
+</header>
+
+<main>
+<section class="intro">
+  <div class="wrap">
+    <h1>Programes per a les teves<br>curses de <span class="r">slot</span>.</h1>
+    <p class="lede">PitWall són tres programes que treballen junts. Cadascun serveix per a una cosa. Tria el que necessites:</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="apps">
+    <a class="app" href="pitwall-manager-ca.html" style="--ac:var(--red)">
+      <div class="media"><img src="img/manager-directo.jpg" alt="Pantalla de PitWall Manager amb la cursa en directe" width="1200" height="750"></div>
+      <div class="body">
+        <div class="for">Per a l’ordinador de la pista</div>
+        <h2>Manager</h2>
+        <p>Cronometra la cursa. Compta les voltes de cada cotxe i mostra la classificació en gran perquè es vegi a la sala.</p>
+        <div class="go"><span>Veure Manager</span></div>
+      </div>
+    </a>
+    <a class="app" href="pitwall-lap-ca.html" style="--ac:var(--cyan)">
+      <div class="media phone"><div class="frame"><img src="img/lap-mi-turno.jpg" alt="Pantalla de PitWall Lap en un mòbil amb els temps del pilot" width="520" height="1125"></div></div>
+      <div class="body">
+        <div class="for">Per al mòbil del pilot</div>
+        <h2>Lap</h2>
+        <p>Et diu en veu alta els teus temps mentre corres. En acabar, pots repassar la cursa al mòbil.</p>
+        <div class="go"><span>Veure Lap</span></div>
+      </div>
+    </a>
+    <a class="app" href="pitwall-control-ca.html" style="--ac:var(--amber)">
+      <div class="media"><img src="img/control-clasificacion.jpg" alt="Classificació d’un campionat a PitWall Control" width="1200" height="656"></div>
+      <div class="body">
+        <div class="for">Per a qui porta el campionat</div>
+        <h2>Control</h2>
+        <p>Porta la temporada: pilots, equips, punts de cada jornada, calendari i quotes.</p>
+        <div class="go"><span>Veure Control</span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="start">
+    <div class="i" aria-hidden="true">?</div>
+    <div>
+      <h3>Per on començo?</h3>
+      <p>Si organitzes curses al teu club, comença per <a href="pitwall-manager-ca.html">Manager</a>: és el que cronometra. Lap i Control funcionen juntament amb ell.</p>
+    </div>
+  </div>
+</div>
+
+<section id="ecosistema" style="padding-bottom:0">
+  <div class="wrap">
+    <h2 class="sec">Com encaixa tot</h2>
+    <p class="sub">L’ordinador de la pista, amb Manager, rep les voltes del cronometrador i les passa als mòbils dels pilots i a Control. Tot dins del club, per la wifi: no cal internet.</p>
+    <div class="arch">
+      <div class="flow">
+        <div class="hw-stack">
+          <div class="node">
+            <div class="k">A la pista</div>
+            <div class="v">DS-300</div>
+            <div class="s">amb el seu cable</div>
+          </div>
+          <div class="node">
+            <div class="k">A la pista</div>
+            <div class="v">BART</div>
+            <div class="s">per Bluetooth</div>
+          </div>
+          <div class="node">
+            <div class="k">A la pista</div>
+            <div class="v">TicTac</div>
+            <div class="s">interface per USB</div>
+          </div>
+        </div>
+        <div class="conn"><span class="ar">──▶</span></div>
+        <a class="node mgr" href="pitwall-manager-ca.html">
+          <div class="k">L’ordinador de la pista</div>
+          <div class="v">Manager</div>
+          <div class="s">compta les voltes i mostra la cursa</div>
+        </a>
+        <div class="conn conn2">
+          <span><span class="m">Lap&nbsp;·&nbsp;</span>WiFi&nbsp;<span class="ar">▶</span></span>
+          <span><span class="m">Control&nbsp;·&nbsp;</span><span class="ar">◀</span>&nbsp;WiFi&nbsp;<span class="ar">▶</span></span>
+        </div>
+        <div class="clients">
+          <a class="node lap" href="pitwall-lap-ca.html">
+            <div class="k">El mòbil del pilot</div>
+            <div class="v">Lap</div>
+            <div class="s">et diu els teus temps en veu alta</div>
+          </a>
+          <a class="node ctl" href="pitwall-control-ca.html">
+            <div class="k">El campionat</div>
+            <div class="v">Control</div>
+            <div class="s">punts, classificació i quotes</div>
+          </a>
+        </div>
+      </div>
+      <p class="arch-note">El DS-300, el BART i l’interface TicTac són els cronometradors: les caixes que detecten cada cotxe quan passa per meta. El mòbil mai no es connecta a la pista; només escolta Manager. Amb Control, les dades van en els dos sentits: Control envia les tandes a Manager i, en acabar, Manager li retorna els resultats per puntuar el campionat.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ayuda">
+  <div class="wrap">
+    <h2 class="sec">Ajuda</h2>
+    <div class="help">
+      <div class="box">
+        <h3>Manuals</h3>
+        <p>Explicats pas a pas, amb imatges.</p>
+        <ul>
+          <li><a href="inicio-rapido-ca.html">Aprèn Manager amb vídeos</a><small>Vídeos de menys d’un minut. Comença per aquí.</small></li>
+          <li><a href="manual-uso.ca.html">Manual de Manager</a></li>
+          <li><a href="manual-lap.ca.html">Manual de Lap</a></li>
+          <li><a href="manual-control.ca.html">Manual de Control</a></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>T’has encallat? Escriu-nos.</h3>
+        <p>Si alguna cosa no funciona o no saps com continuar, envia’ns un correu i et donem un cop de mà.</p>
+        <a class="btn light" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">Escriure un correu</a>
+        <span class="mail">info.pitwall@gmail.com</span>
+      </div>
+    </div>
+    <div class="box" style="margin-top:22px">
+      <h3>Buscar curses de slot</h3>
+      <p>Calendari de curses de slot a Europa, amb filtres per país i tipus de cursa.</p>
+      <ul><li><a href="carreras-ca.html">Veure el calendari de curses</a></li></ul>
+    </div>
+  </div>
+</section>
+
+<section id="licencia" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec">Programari lliure</h2>
+    <p class="sub">PitWall és programari lliure. El teu club el pot fer servir sense pagar llicències, i el codi de cada programa està publicat perquè qualsevol el pugui revisar o millorar.</p>
+    <ul class="free">
+      <li><b>El pots fer servir, estudiar i modificar</b> lliurement.</li>
+      <li><b>Si el comparteixes o el modifiques</b>, ha de continuar sent lliure i amb el codi disponible per a tothom.</li>
+      <li><b>S’ofereix sense garantia.</b> El nom «PitWall» i el logotip no formen part de la llicència.</li>
+    </ul>
+    <div class="lics">
+      <div class="lic" style="--ac:var(--red)">
+        <h3>Manager</h3>
+        <div class="l"><a href="https://www.gnu.org/licenses/agpl-3.0.html" rel="license noopener">GNU AGPL v3</a></div>
+        <a class="src" href="https://github.com/vgonzalezgomez85/PitWall-Manager" rel="noopener">Veure el codi →</a>
+      </div>
+      <div class="lic" style="--ac:var(--cyan)">
+        <h3>Lap</h3>
+        <div class="l"><a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license noopener">GNU GPL v3</a></div>
+        <a class="src" href="https://github.com/vgonzalezgomez85/PitWall-Lap" rel="noopener">Veure el codi →</a>
+      </div>
+      <div class="lic" style="--ac:var(--amber)">
+        <h3>Control</h3>
+        <div class="l"><a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license noopener">GNU GPL v3</a></div>
+        <a class="src" href="https://github.com/vgonzalezgomez85/PitWall-Control" rel="noopener">Veure el codi →</a>
+      </div>
+    </div>
+    <p class="fine">© 2026 Víctor González Gómez. Les llicències completes són a cada repositori.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Peu de pàgina"><a href="pitwall-manager-ca.html">Manager</a><a href="pitwall-lap-ca.html">Lap</a><a href="pitwall-control-ca.html">Control</a><a href="carreras-ca.html">Curses</a><a href="#licencia">Programari lliure</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometratge i gestió de slot racing</div>
+  </div>
+</footer>
+
+</body>
+</html>

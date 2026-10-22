@@ -1,0 +1,25 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 09-53-15.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/07 - Crea una carrera sprint.mp4",
+  "crops": {
+    "full": [0, 0, 3840, 2160]
+  },
+  "segments": [
+    { "card": { "kicker": "PitWall en 1 minuto · 07", "title": "Crea una carrera sprint", "sub": "El asistente, paso a paso" }, "dur": 3 },
+    { "from": 0,    "to": 5.0,  "crop": "full", "speed": 1,
+      "caption": { "step": 1, "total": 5, "text": "Competición → Carrera sprint" } },
+    { "from": 5.0,  "to": 12.0, "crop": "full", "speed": 1.5,
+      "caption": { "step": 2, "total": 5, "text": "Ponle nombre a la carrera" } },
+    { "from": 12.0, "to": 20.0, "crop": "full", "speed": 1.25,
+      "caption": { "step": 3, "total": 5, "text": "Circuito: elige tu escenario", "sub": "Trae sus carriles y la vuelta mínima. O «Configurar a mano»" } },
+    { "from": 20.0, "to": 24.0, "crop": "full", "speed": 1,
+      "caption": { "step": 4, "total": 5, "text": "Pole, categoría y coche", "sub": "Sin pole, los carriles se reparten al crear la tanda" } },
+    { "from": 24.0, "to": 29.0, "crop": "full", "speed": 1,
+      "caption": { "step": 4, "total": 5, "text": "Más opciones: pasadas y repetir carril", "sub": "Cuántas veces se corre la rotación completa" } },
+    { "from": 29.0, "to": 31.0, "crop": "full", "speed": 1,
+      "caption": { "step": 5, "total": 5, "text": "Revisa y pulsa «Crear carrera»" } },
+    { "from": 31.0, "to": 33.5, "crop": "full", "speed": 1,
+      "caption": { "text": "Carrera creada: ahora le toca la tanda" } },
+    { "card": { "kicker": "Siguiente", "title": "Tandas y rotación" }, "dur": 3 }
+  ]
+}

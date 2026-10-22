@@ -1,0 +1,172 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 09-41-43.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/01 - Guarda tu pista (escenarios).mp4",
+  "crops": {
+    "full": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "list": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "top": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "mid": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "draw": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "end": [
+      0,
+      0,
+      3840,
+      2160
+    ]
+  },
+  "segments": [
+    {
+      "card": {
+        "kicker": "PitWall en 1 minuto · 01",
+        "title": "Guarda tu pista",
+        "sub": "Escenarios: carriles, rotación y vuelta mínima, una sola vez"
+      },
+      "dur": 3
+    },
+    {
+      "from": 0,
+      "to": 3.6,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 1,
+        "total": 8,
+        "text": "Inicio → Catálogo → Escenarios"
+      }
+    },
+    {
+      "from": 3.6,
+      "to": 6.0,
+      "crop": "list",
+      "speed": 1,
+      "caption": {
+        "step": 1,
+        "total": 8,
+        "text": "Pulsa «+ Crear escenario»"
+      }
+    },
+    {
+      "from": 6.0,
+      "to": 12.5,
+      "crop": "top",
+      "speed": 1.5,
+      "caption": {
+        "step": 2,
+        "total": 8,
+        "text": "Ponle nombre a tu pista"
+      }
+    },
+    {
+      "from": 12.5,
+      "to": 23.0,
+      "crop": "top",
+      "speed": 1.5,
+      "caption": {
+        "step": 3,
+        "total": 8,
+        "text": "Circuitos y carriles",
+        "sub": "Un circuito por caja de cronometraje, con sus carriles"
+      }
+    },
+    {
+      "from": 23.0,
+      "to": 32.0,
+      "crop": "mid",
+      "speed": 1.25,
+      "caption": {
+        "step": 4,
+        "total": 8,
+        "text": "Secuencia de carriles",
+        "sub": "Arrastra los carriles: es la rotación entre mangas"
+      }
+    },
+    {
+      "from": 32.0,
+      "to": 45.0,
+      "crop": "mid",
+      "speed": 1.75,
+      "caption": {
+        "step": 5,
+        "total": 8,
+        "text": "Colores de los carriles",
+        "sub": "Opcional: que la pantalla coincida con la pista"
+      }
+    },
+    {
+      "from": 45.0,
+      "to": 50.0,
+      "crop": "mid",
+      "speed": 1,
+      "caption": {
+        "step": 6,
+        "total": 8,
+        "text": "Vuelta mínima",
+        "sub": "Un cruce más rápido se descarta como fantasma"
+      }
+    },
+    {
+      "from": 50.0,
+      "to": 71.0,
+      "crop": "draw",
+      "speed": 2.5,
+      "caption": {
+        "step": 7,
+        "total": 8,
+        "text": "Trazado del circuito",
+        "sub": "Opcional: dibújalo para el minimapa de la carrera"
+      }
+    },
+    {
+      "from": 71.0,
+      "to": 75.0,
+      "crop": "end",
+      "speed": 1,
+      "caption": {
+        "step": 8,
+        "total": 8,
+        "text": "Sentido de giro y «Crear escenario»"
+      }
+    },
+    {
+      "from": 75.0,
+      "to": 77.9,
+      "crop": "list",
+      "speed": 1,
+      "caption": {
+        "text": "Listo: cada carrera en esta pista lo hereda todo"
+      }
+    },
+    {
+      "card": {
+        "kicker": "Siguiente",
+        "title": "Conecta el cronómetro"
+      },
+      "dur": 3
+    }
+  ]
+}

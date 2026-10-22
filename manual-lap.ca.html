@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall · Manual de PitWall Lap</title>
+<meta name="description" content="Manual de PitWall Lap, l’app del pilot de slot: escoltar els temps de volta, calendari de curses amb avisos, entrenaments, entrenaments de competició i resultats sense connexió.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css?v=20261023">
+<style>body{--ac:var(--cyan)} .doc figure.shot.phone{max-width:340px;margin-left:0} .doc figure.shot.phone img{width:100%;height:auto;display:block}</style>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body class="simple">
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-ca.html">Inici</a>
+      <a href="pitwall-manager-ca.html">Manager</a>
+      <a href="pitwall-lap-ca.html" aria-current="page">Lap</a>
+      <a href="pitwall-control-ca.html">Control</a>
+      <a href="carreras-ca.html">Curses</a>
+      <a href="pitwall-lap-ca.html#ayuda">Ajuda</a>
+    </nav>
+    <div class="langs" aria-label="Idioma"><a href="manual-lap.html" lang="es">ES</a><b>CA</b><a href="manual-lap.en.html" lang="en">EN</a><a href="manual-lap.fr.html" lang="fr">FR</a><a href="manual-lap.it.html" lang="it">IT</a></div>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">PitWall Lap · Manual</div>
+    <h1>Manual de <span class="ac">Lap</span></h1>
+    <p class="lede">Cada apartat comença amb un resum curt. Si ho vols saber tot, prem «Veure tots els detalls».</p>
+    <div class="xlink">
+      <a href="pitwall-lap-ca.html">← Tornar a PitWall Lap</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Índex del manual">
+    <div class="toc-ttl">Contingut</div>
+    <ol>
+      <li><a href="#intro">Introducció</a></li>
+      <li><a href="#permisos">Permisos del mòbil</a></li>
+      <li><a href="#lap">Lap: escoltar els temps</a></li>
+      <li><a href="#calendario">Calendari de curses</a></li>
+      <li><a href="#entrenamientos">Entrenaments</a></li>
+      <li><a href="#competicion">Entrenaments de competició</a></li>
+      <li><a href="#resultados">Resultats</a></li>
+      <li><a href="#ajustes">Ajustos</a></li>
+      <li><a href="#actualizar">Actualitzar l’app</a></li>
+      <li><a href="#problemas">Si alguna cosa no funciona</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="intro">
+      <div class="num">// 01</div>
+      <h2>Introducció</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Lap és l’app del pilot. En obrir-la veus sis zones: Lap, Calendari, Entrenaments, Entrenaments de competició, Resultats i Ajustos.</li><li>Funciona amb PitWall Manager i amb els cronòmetres TicTac.</li><li>Per sentir els temps, el mòbil ha d’estar a la mateixa wifi que la pista. El calendari, els entrenaments i els resultats funcionen també sense.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <p>PitWall Lap és l’app del <b>pilot</b>. Té sis zones, que surten en obrir-la al menú principal:</p>
+      <ul>
+        <li><b>Lap</b>: connecta amb el cronòmetre de la pista i et canta els temps.</li>
+        <li><b>Calendari</b>: les teves curses, amb avisos al mòbil.</li>
+        <li><b>Entrenaments</b>: les tandes de rodatge que has gravat.</li>
+        <li><b>Entrenaments de competició</b>: els que ha desat el servidor, descarregables per veure’ls sense connexió.</li>
+        <li><b>Resultats</b>: curses acabades i els teus propis fitxers (Excel, PDF o fotos).</li>
+        <li><b>Ajustos</b>: idioma, estratègia de pneumàtics i avisos de veu.</li>
+      </ul>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Menú principal</span></div>
+        <img src="manual/img/lap-01-menu.png" loading="lazy" alt="Menú principal de PitWall Lap">
+        <figcaption>Menú principal: Lap a dalt, les quatre àrees en quadrícula i Ajustos a sota.</figcaption>
+      </figure>
+      <p>L’app funciona amb <b>PitWall Manager</b> (el servidor de la pista), amb el cronòmetre <b>TicTac</b> antic (InfoLap) i amb el <b>TicTac nou</b>. Està en <b>8 idiomes</b>: castellà, català, basc, anglès, italià, francès, portuguès i neerlandès; en obrir-la agafa el del mòbil.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>És una app per a <b>iPhone</b> (s’instal·la amb TestFlight) i per a <b>Android</b> (APK, que es descarrega de pitwall.es i s’ <b>actualitza des de la mateixa app</b>). Els mòbils han d’estar a la <b>mateixa xarxa wifi</b> que el servidor o el cronòmetre; sense aquesta xarxa, Calendari, Entrenaments, Entrenaments de competició descarregats i Resultats continuen funcionant, però Lap no té ningú a qui escoltar.</div>
+      </div></div></details>
+    </section>
+
+    <section id="permisos">
+      <div class="num">// 02</div>
+      <h2>Permisos del mòbil</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>L’app només et demana permisos quan els necessita.</li><li>Accepta les <b>notificacions</b> si vols que el calendari t’avisi abans de cada cursa.</li><li>La càmera i les fotos només es fan servir si afegeixes una foto a Resultats.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <p>L’app et demana permisos només quan els necessita:</p>
+      <ul>
+        <li><b>Xarxa local</b> (iPhone): per trobar el servidor o el cronòmetre de la pista a la wifi. Si el denegues, iOS descarta en silenci les cerques i <b>Lap no trobarà res</b> encara que tot estigui bé; s’arregla a <i>Ajustos de l’iPhone → PitWall Lap → Xarxa local</i>.</li>
+        <li><b>Notificacions</b>: la primera vegada que deses una cursa amb avisos. Sense elles la cursa es desa, però no sonarà cap avís.</li>
+        <li><b>Càmera</b> i <b>Fotos</b>: només si afegeixes una foto a <i>Resultats</i>.</li>
+      </ul></div></details>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 03</div>
+      <h2>Lap: escoltar els temps</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Entra a <b>Lap</b> i tria d’on arriben els temps: <b>PitWall</b> (l’ordinador de la pista) o <b>TicTac</b>.</li><li>L’app troba la cursa sola en uns segons. Si no, escriu l’adreça (IP) una vegada i la recordarà.</li><li>Tria la teva tanda i el teu nom o equip. La veu et dirà cada volta mentre corres.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Lap</span></div>
+        <img src="manual/img/lap-02-fuentes.png" loading="lazy" alt="Triar entre PitWall i TicTac">
+        <figcaption>Lap: dues targetes, PitWall (vermella) i TicTac, i el botó Tornar.</figcaption>
+      </figure>
+      <p>Entra a <b>Lap</b> i tria la font de temps:</p>
+      <ul>
+        <li><b>PitWall</b>: el servidor de la pista (PitWall Manager).</li>
+        <li><b>TicTac</b>: el cronòmetre TicTac Slot, sense servidor al darrere.</li>
+      </ul>
+      <p>L’app <b>busca la font sola</b> a la xarxa en uns segons. Si no la troba, et deixa escriure la <b>IP a mà</b> una vegada i la recorda per a la propera. Aquest record també el fan servir Entrenaments de competició i Resultats per parlar amb el servidor.</p>
+      <h3>Triar activitat (PitWall)</h3>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Triar activitat</span></div>
+        <img src="manual/img/lap-03-actividad.png" loading="lazy" alt="Llista de curses i entrenament actius">
+        <figcaption>Tria activitat: curses actives i pendents, i la sessió d’entrenament si n’hi ha.</figcaption>
+      </figure>
+      <p>Si el servidor té diverses curses, o cursa i entrenament alhora, et deixa <b>triar</b>. Si només hi ha una cosa, hi entra directament.</p>
+      <ul>
+        <li><b>Actualitzar</b>: el botó de dalt a la dreta (o estirar la llista cap avall) torna a preguntar al servidor, sense sortir de la pantalla. Fes-lo servir si el director acaba de preparar la cursa o l’entrenament. Des de «Sense activitat» o un error, si en actualitzar apareix una sola activitat, hi entra directament.</li>
+        <li>Després tries la teva <b>tanda</b> i el teu <b>nom o equip</b>; d’aquí passes a la teva pantalla de cursa.</li>
+      </ul>
+      <h3>La teva pantalla de cursa</h3>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · El meu torn</span></div>
+        <img src="manual/img/lap-04-mi-turno.png" loading="lazy" alt="Pantalla de cursa">
+        <figcaption>El meu torn: l’última volta en gran, amb color segons com de ràpida sigui, la teva posició i els gaps.</figcaption>
+      </figure>
+      <p>Està pensada per <b>mirar-la de reüll</b>: l’última volta en gran, en <b>lila</b> si és la teva millor, en <b>verd</b> si estàs a menys d’un 2 % d’ella i en <b>ambre</b> si vas més lent, amb la diferència a sota; la teva posició i els gaps amb el rival de davant i el de darrere. Si el director <b>posa en pausa</b>, <b>atura (STOP)</b> o acaba la tanda, l’app ho mostra i t’ho diu per veu.</p>
+      <p>La <b>veu</b> canta cada volta, els canvis de posició, la meitat de la tanda, l’últim minut i els últims 30 segons, i, si ho actives, cada pocs minuts la mitjana de carril, la mitjana de cursa, els gaps i la «mitjana per pujar». Tot això es configura a <i>Ajustos</i> (vegeu més avall) i es pot canviar sobre la marxa a <i>Veu i ajustos</i>, plegat sota la teva pantalla.</p>
+      <p>La <b>estratègia de pneumàtics</b> (curses de resistència) recomana quan canviar i, si la cursa porta el control de pneumàtics del servidor, mostra els jocs disponibles i l’últim canvi. Es pot apagar a <i>Ajustos</i>.</p>
+      <h3>Entrenament lliure i entrenament de competició</h3>
+      <p>Si a «Tria activitat» apareix <b>Entrenament</b>, hi ha una sessió de rodatge en marxa:</p>
+      <ul>
+        <li><b>Entrenament lliure</b>: tries el teu <b>carril</b> i l’app segueix aquest carril.</li>
+        <li><b>Entrenament de competició</b>: els equips <b>canvien de carril a cada heat</b>, així que tries el teu <b>equip o pilot</b> (la llista mostra el carril que ocupa cadascun ara, o <b>Descansa</b>) i l’app <b>et segueix allà on vagis</b>. En començar cada heat la veu et diu <i>«El teu torn, carril N»</i>; si en aquest heat descanses, la pantalla ho mostra i no sona res dels altres.</li>
+      </ul>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Entrenament de competició</span></div>
+        <img src="manual/img/lap-05-competicion-selector.png" loading="lazy" alt="Triar equip o pilot">
+        <figcaption>Entrenament de competició: tries a qui seguir; cadascun mostra el seu carril actual o Descansa.</figcaption>
+      </figure>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>El seguiment per equip en entrenament de competició necessita <b>PitWall Manager 1.56.1</b> o posterior. Amb un servidor més antic l’app no ofereix l’entrenament de competició o es queda fixa en un carril.</div>
+      </div>
+      <p>Amb <b>Entrenament GO</b> (a la teva pantalla, en mode entrenament) l’app grava les teves voltes com una tanda pròpia; en aturar, la desa a <i>Entrenaments</i>.</p></div></details>
+    </section>
+
+    <section id="calendario">
+      <div class="num">// 04</div>
+      <h2>Calendari de curses</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Desa les teves curses al mòbil i t’avisarà abans de cadascuna.</li><li>Prem <b>＋ Afegir cursa</b> i escriu el nom, la data i l’hora.</li><li>També pots afegir curses del calendari de pitwall.es amb <b>Curses de pitwall.es</b>.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Calendari</span></div>
+        <img src="manual/img/lap-06-calendario.png" loading="lazy" alt="Llista de curses properes i passades">
+        <figcaption>Calendari: properes curses (amb campana si tenen avisos) i passades.</figcaption>
+      </figure>
+      <p>El calendari desa <b>les teves curses al mòbil</b> i t’ <b>avisa</b> amb notificacions, sense necessitat de servidor ni de connexió. Mostra les <b>properes</b> (la més propera primer) i les <b>passades</b>. Toca una cursa per editar-la o esborrar-la.</p>
+      <h3>Afegir una cursa a mà</h3>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Nova cursa</span></div>
+        <img src="manual/img/lap-07-evento.png" loading="lazy" alt="Formulari de cursa">
+        <figcaption>Nova cursa: nom, data i hora, lloc, notes i avisos.</figcaption>
+      </figure>
+      <p>Prem <b>＋ Afegir cursa</b> i omple <b>nom</b>, <b>data</b> i <b>hora</b> (obligatoris), i opcionalment <b>lloc</b> i <b>notes</b>. A <b>Avisa’m</b> marca els avisos que vulguis:</p>
+      <ul>
+        <li>a l’hora d’inici;</li>
+        <li>30 minuts abans;</li>
+        <li>1 hora abans;</li>
+        <li>1 dia abans;</li>
+        <li>1 setmana abans.</li>
+      </ul>
+      <p>Per defecte una cursa nova avisa <b>1 dia i 1 hora abans</b>. Només es programen els avisos que encara no han passat. La primera vegada, el mòbil et demanarà permís de notificacions.</p>
+      <h3>Afegir curses de pitwall.es</h3>
+      <p>El botó <b>Curses de pitwall.es</b> obre el calendari públic de curses de slot de pitwall.es (el mateix del cercador de curses de la web), amb les <b>properes</b> agrupades per mes. Necessita connexió a internet. Cada cursa indica si està <b>Verificada</b> o és <b>Trobada per IA</b>; en aquestes, comprova la data a la web de l’organitzador amb <b>Web ↗</b>.</p>
+      <ul>
+        <li><b>Filtra</b> com a la web: escriu al cercador (nom, campionat, club, ciutat o país) i fes servir els botons <b>País</b>, <b>Tipus</b> i <b>Campionat</b>. Tot es combina; <b>Treure filtres</b> els esborra de cop.</li>
+        <li>Prem <b>＋</b> per afegir una cursa solta, o marca-les i prem <b>Afegir (n)</b>. <b>Seleccionar-les totes</b> marca només les que es veuen amb els filtres posats.</li>
+        <li>S’apunten a les <b>9:00</b> del primer dia amb avisos <b>1 dia i 1 hora abans</b>; després pots canviar-ho com qualsevol altra cursa. Les que ja tens al calendari surten com a <b>Afegida</b>.</li>
+      </ul>
+      <h3>Importar moltes curses des d’un Excel</h3>
+      <p>Si tens el calendari de la temporada en un full de càlcul, no cal teclejar cada cursa.</p>
+      <ol>
+        <li>Prem <b>Descarregar plantilla</b>. L’app genera un Excel en el teu idioma i obre el menú de compartir: desa’l a <i>Fitxers</i>, envia-te’l per correu o per AirDrop.</li>
+        <li>Obre’l amb Excel, Numbers o un altre programa i omple <b>una cursa per fila</b> al full <i>Curses</i>. <b>Esborra les dues files d’exemple</b>. El full <i>Instruccions</i> resumeix les regles.</li>
+        <li>Desa’l com a <b>.xlsx</b> i torna a l’app: <b>Importar des d’Excel</b> i tria el fitxer.</li>
+        <li>L’app t’ensenya una <b>vista prèvia</b> abans de desar res: les curses que s’importaran, les que ja hi eren i les files amb error. Confirma amb <b>Importar</b>.</li>
+      </ol>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Importar des d’Excel</span></div>
+        <img src="manual/img/lap-08-importar.png" loading="lazy" alt="Vista prèvia de la importació">
+        <figcaption>Vista prèvia: què s’importarà, què ja hi era i quines files tenen error.</figcaption>
+      </figure>
+      <p>Les columnes de la plantilla són:</p>
+      <ul>
+        <li><b>Nom</b> (obligatòria): el nom de la cursa.</li>
+        <li><b>Data</b> (obligatòria): <span class="mono">dd/mm/aaaa</span>; també val <span class="mono">aaaa-mm-dd</span> o una data d’Excel.</li>
+        <li><b>Hora</b> (obligatòria): <span class="mono">hh:mm</span>. Si la data d’Excel ja porta hora, val aquesta.</li>
+        <li><b>Lloc</b> (opcional): el circuit o la seu.</li>
+        <li><b>Notes</b> (opcional): el que vulguis recordar.</li>
+        <li><b>Avisos</b> (opcional): separats per comes, entre <span class="mono">hora</span>, <span class="mono">30min</span>, <span class="mono">1h</span>, <span class="mono">1d</span> i <span class="mono">1sem</span>. Buit = <span class="mono">1d, 1h</span>.</li>
+      </ul>
+      <p>Coses que convé saber:</p>
+      <ul>
+        <li>Les <b>capçaleres</b> poden anar en qualsevol dels 8 idiomes, en un altre ordre o amb un altre nom habitual (<i>Cursa</i>, <i>Circuit</i>, <i>Date</i>…), i hi pot haver files de títol abans.</li>
+        <li>Una fila amb error <b>no impedeix</b> importar les altres; la vista prèvia diu la <b>fila</b> i el motiu (falta el nom, data no vàlida, hora no vàlida).</li>
+        <li>Si una cursa ja és al calendari (<b>mateix nom i mateix moment</b>), s’ <b>omet</b>, així que pots importar el mateix fitxer una altra vegada sense duplicar.</li>
+        <li>Un avís que l’app no entén s’ignora i t’ho diu.</li>
+        <li>Funciona amb Excel (<b>.xlsx</b> o <b>.xls</b>). Si exportes des d’un altre programa, desa com a Excel.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Afegir una cursa a mà continua disponible, i pots barrejar les dues maneres: importar la temporada i afegir després les curses soltes.</div>
+      </div></div></details>
+    </section>
+
+    <section id="entrenamientos">
+      <div class="num">// 05</div>
+      <h2>Entrenaments</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Aquí hi ha les tandes d’entrenament que has gravat.</li><li>Obre’n una per veure’n la gràfica i apuntar les dades del cotxe.</li><li>Amb <b>Comparar</b> veus de 2 a 4 tandes juntes per saber quina va ser millor.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Entrenaments</span></div>
+        <img src="manual/img/lap-09-entrenamientos.png" loading="lazy" alt="Llista de tandes d’entrenament">
+        <figcaption>Entrenaments: les teves tandes de rodatge, amb voltes, millor i mitjana.</figcaption>
+      </figure>
+      <p>Aquí hi ha les <b>tandes de rodatge que has gravat</b> amb <i>Entrenament GO</i>. Obre’n una per veure’n la <b>gràfica</b> (voltes i mitjana mòbil) i apuntar les dades del cotxe (model, motor, pneumàtic, llanta, corona i pinyó). Amb <b>Comparar</b> tries de 2 a 4 tandes i les veus <b>superposades</b> en una sola gràfica, amb la seva consistència. Tot es desa <b>al mòbil</b>.</p></div></details>
+    </section>
+
+    <section id="competicion">
+      <div class="num">// 06</div>
+      <h2>Entrenaments de competició</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Quan acaba un entrenament de competició, el pots descarregar al mòbil.</li><li>Prem <b>⬇ Descarregar</b> al que vulguis. Després el veuràs encara que no tinguis connexió.</li><li>A dins hi ha la classificació i les voltes de cada heat.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Entrenaments de competició</span></div>
+        <img src="manual/img/lap-10-competicion-lista.png" loading="lazy" alt="Llista d’entrenaments descarregats i del servidor">
+        <figcaption>Entrenaments de competició: els descarregats («al mòbil») i els que encara només són al servidor.</figcaption>
+      </figure>
+      <p>Quan acaba un entrenament de competició, <b>PitWall Manager el desa</b>. Aquesta zona et deixa <b>descarregar-lo al mòbil</b> per consultar-lo quan vulguis, també <b>sense connexió</b>.</p>
+      <ul>
+        <li>La llista ajunta els que ja tens (<b>✓ al mòbil</b>) i els del servidor (<b>⬇ Descarregar</b>). Toca’n un del servidor i es descarrega i s’obre. Amb diversos de pendents apareix <b>Descarregar-los tots</b>.</li>
+        <li>Cada fila mostra la data, els heats, els participants, les voltes i la millor volta.</li>
+        <li>La sessió que està <b>en marxa ara</b> no apareix fins que es tanca.</li>
+        <li>Amb el servidor apagat o fora de la wifi només es veuen els descarregats. Per llistar els del servidor cal haver entrat alguna vegada a <i>Lap → PitWall</i>, perquè l’app recordi la seva adreça.</li>
+      </ul>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Entrenament de competició</span></div>
+        <img src="manual/img/lap-11-competicion-detalle.png" loading="lazy" alt="Classificació i heats">
+        <figcaption>Detall: classificació de la sessió i, heat a heat, el que va fer cada carril.</figcaption>
+      </figure>
+      <p>El <b>detall</b> té la <b>classificació</b> de la sessió (guanya qui suma més voltes en tots els seus heats; en cas d’empat, la millor volta) i, <b>heat a heat</b>, les voltes, la millor i la mitjana de cada carril amb el seu participant. <b>Esborrar del mòbil</b> treu la còpia local; l’entrenament continua al servidor.</p>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Per descarregar entrenaments cal <b>PitWall Manager 1.56.0</b> o posterior.</div>
+      </div></div></details>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 07</div>
+      <h2>Resultats</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Les curses que has corregut amb PitWall es desen aquí soles, amb la classificació.</li><li>Amb <b>＋ Afegir</b> també pots guardar els teus propis fitxers: un Excel, un PDF o una foto d’un full de temps.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Resultats</span></div>
+        <img src="manual/img/lap-12-resultados.png" loading="lazy" alt="Curses i fitxers propis">
+        <figcaption>Resultats: curses de PitWall i els teus propis fitxers, junts i per data.</figcaption>
+      </figure>
+      <p><i>Resultats</i> ajunta, ordenat per data, dos tipus de coses:</p>
+      <ul>
+        <li><b>Curses acabades a PitWall</b>: l’app desa el dossier de resultats en acabar la cursa, així que el veus sense connexió. Si el servidor respon, també apareixen les que no vas seguir en directe (marcades <b>☁ al servidor</b>). Dins de cadascuna tens la classificació i l’ <b>Excel comparatiu</b> per obrir-lo o compartir-lo.</li>
+        <li><b>Els teus fitxers</b>: prem <b>＋ Afegir</b> i tria <b>Fitxer (Excel o PDF)</b>, <b>Foto de la galeria</b> o <b>Fer una foto</b>. Serveix per desar la classificació d’una cursa d’un altre club, un full de temps en paper o un PDF del reglament.</li>
+      </ul>
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Fitxer de resultats</span></div>
+        <img src="manual/img/lap-13-archivo.png" loading="lazy" alt="Detall d’un fitxer propi">
+        <figcaption>Un fitxer propi: es reanomena, s’obre o es comparteix, i s’esborra. Les fotos es veuen a la pantalla.</figcaption>
+      </figure>
+      <p>Cada fitxer propi es <b>copia a l’app</b>, de manera que continua allà encara que esborris l’original. El pots <b>reanomenar</b>, <b>obrir o compartir</b> (Excel i PDF s’obren a l’app que triïs; les fotos es veuen directament) i <b>esborrar</b>.</p></div></details>
+    </section>
+
+    <section id="ajustes">
+      <div class="num">// 08</div>
+      <h2>Ajustos</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Tria l’idioma de l’app i de la veu.</li><li>Decideix què et diu la veu: cada volta, la posició, l’últim minut…</li><li>El que posis aquí és el que tindràs en començar cada cursa.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot phone">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Ajustos</span></div>
+        <img src="manual/img/lap-14-ajustes.png" loading="lazy" alt="Pantalla d’ajustos">
+        <figcaption>Ajustos: idioma, estratègia de pneumàtics i avisos de veu.</figcaption>
+      </figure>
+      <p>Des del botó <b>Ajustos</b> del menú configures:</p>
+      <ul>
+        <li><b>Idioma de l’app</b>: automàtic (el del mòbil) o un dels 8. Canvia també la <b>veu</b> que et canta els temps i les frases que diu. El basc no té veu de sistema a l’iPhone i fa servir la de castellà.</li>
+        <li><b>Estratègia de pneumàtics</b>: l’encén o l’apaga. Apagada, no es calcula i desapareix el seu accés a Lap.</li>
+        <li><b>Veu</b>: l’interruptor general i els <b>avisos</b>: voltes, canvis de posició, meitat de tanda, últim minut i últims 30 segons, i els <b>avisos periòdics</b> (mitjana de carril, mitjana de cursa, gaps i «mitjana per pujar»). Un periòdic es repeteix cada <b>N minuts</b>: toca el seu botó per passar entre apagat, 1, 2, 3 i 5 minuts.</li>
+        <li><b>Aplicació</b> (només Android): la versió instal·lada i el botó <b>Cercar actualitzacions</b>.</li>
+      </ul>
+      <p>El que fixes aquí és <b>amb què arrenca cada sessió</b>. Durant la cursa pots continuar canviant els avisos des de Lap, a <i>Veu i ajustos</i>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Amb <b>TicTac antic</b> l’app només canta les voltes; la resta d’avisos necessita PitWall Manager o el TicTac nou.</div>
+      </div></div></details>
+    </section>
+
+    <section id="actualizar">
+      <div class="num">// 09</div>
+      <h2>Actualitzar l’app</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>A Android, quan hi ha una versió nova, el menú mostra l’avís <b>«Hi ha una versió nova»</b>.</li><li>Prem <b>Actualitzar</b>. Si Android pregunta si permets instal·lar apps, digues que sí.</li><li>No perds res: el teu calendari, els entrenaments i els resultats es queden.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <ul>
+        <li><b>iPhone</b>: les versions arriben per <b>TestFlight</b>. Obre l’app TestFlight i prem <i>Actualitzar</i>; si vas activar les actualitzacions automàtiques, s’instal·len soles. Cada versió de TestFlight <b>caduca als 90 dies</b>, així que convé actualitzar abans.</li>
+        <li><b>Android</b>: en obrir l’app (i en tornar-hi passades 6 hores), si a <b>pitwall.es</b> hi ha una versió més nova que la teva, el menú mostra una targeta <b>«Hi ha una versió nova»</b> amb el botó <b>Actualitzar</b>. En prémer-lo, l’app <b>descarrega l’APK</b> i obre l’instal·lador d’Android. La primera vegada, Android et demanarà <b>permetre que PitWall Lap instal·li aplicacions</b>; concedeix-ho i torna a prémer <i>Actualitzar</i>. <b>Més tard</b> amaga l’avís fins a la propera vegada que obris l’app. També ho pots comprovar quan vulguis a <i>Ajustos → Aplicació → Cercar actualitzacions</i>. La descàrrega es pot <b>cancel·lar</b> i, si passen 30 segons sense rebre dades, es talla sola.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>L’actualització s’instal·la <b>a sobre</b> de l’app, sense perdre el teu calendari, els teus entrenaments ni els teus resultats. Si no hi ha xarxa o la web no respon, l’app simplement no avisa. La primera versió amb aquest avís s’ha d’instal·lar a mà una vegada; a partir d’aquí s’actualitza sola.</div>
+      </div></div></details>
+    </section>
+
+    <section id="problemas">
+      <div class="num">// 10</div>
+      <h2>Si alguna cosa no funciona</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Lap no troba la cursa? Comprova que el mòbil és a la mateixa wifi que l’ordinador de la pista.</li><li>Surt «Sense activitat»? La cursa encara no està preparada: quan ho estigui, prem <b>Actualitzar</b>.</li><li>No sents la veu? Apuja el volum del mòbil.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <ul>
+        <li><b>Lap no troba el servidor.</b> Comprova que el mòbil i el servidor són a la <b>mateixa wifi</b> i, a l’iPhone, que el permís de <b>Xarxa local</b> està activat. Si continua sense aparèixer, introdueix la IP a mà.</li>
+        <li><b>«Sense activitat».</b> El servidor no té cap cursa preparada ni cap entrenament en marxa. Quan el director la prepari, prem <b>Actualitzar</b>.</li>
+        <li><b>No surt l’entrenament de competició.</b> Revisa que PitWall Manager sigui <b>1.56.1</b> o posterior i que l’entrenament estigui muntat (en marxa o en espera entre heats).</li>
+        <li><b>No sonen els avisos del calendari.</b> Mira als ajustos del mòbil que <i>PitWall Lap</i> tingui permís de <b>Notificacions</b>. Els avisos el moment dels quals ja ha passat no es programen.</li>
+        <li><b>La importació diu que no pot llegir el fitxer.</b> Fes servir un <b>Excel (.xlsx)</b>, per exemple la plantilla, i que tingui les columnes <b>Nom</b> i <b>Data</b>.</li>
+        <li><b>La veu no sona amb la pantalla bloquejada.</b> Comprova que el volum i l’interruptor de silenci no estiguin apagats; l’app parla igualment amb el mòbil en silenci.</li>
+        <li><b>No s’actualitza a Android.</b> Comprova que tens connexió a internet i que has permès que PitWall Lap instal·li aplicacions; també pots baixar l’APK a mà des de la pàgina de PitWall Lap a pitwall.es.</li>
+        <li><b>Novetats</b> (al peu del menú) mostra l’historial de versions de l’app; només és en castellà.</li>
+      </ul></div></details>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Peu de pàgina"><a href="pitwall-manager-ca.html">Manager</a><a href="pitwall-lap-ca.html">Lap</a><a href="pitwall-control-ca.html">Control</a><a href="carreras-ca.html">Curses</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometratge i gestió de slot racing</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Tornar a dalt">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+<script>
+  // Vídeos: solo se descargan al pulsar «play»; al empezar uno, se paran los demás.
+  document.querySelectorAll('.mvid .player').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.dataset.src;
+      v.poster = b.querySelector('img').src;
+      v.controls = true;
+      v.playsInline = true;
+      v.addEventListener('play', function(){
+        document.querySelectorAll('.mvid video').forEach(function(o){ if (o !== v) o.pause(); });
+      });
+      b.replaceWith(v);
+      v.play();
+      if (window.umami) umami.track('video-manager-' + b.dataset.id);
+    });
+  });
+  // Un enlace a algo que está dentro de «Ver todos los detalles» lo despliega.
+  function openTarget(){
+    var t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var d = t && t.closest && t.closest('details.more');
+    if (d && !d.open){ d.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+  // Al imprimir, todo desplegado.
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details.more').forEach(function(d){ d.open = true; }); });
+</script>
+</body>
+</html>

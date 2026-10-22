@@ -1,0 +1,157 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 09-47-42.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/02 - Conecta el cronómetro.mp4",
+  "crops": {
+    "header": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "home": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "top": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "mid": [
+      0,
+      0,
+      3840,
+      2160
+    ],
+    "saved": [
+      0,
+      0,
+      3840,
+      2160
+    ]
+  },
+  "segments": [
+    {
+      "card": {
+        "kicker": "PitWall en 1 minuto · 02",
+        "title": "Conecta el cronómetro",
+        "sub": "Dile a PitWall de dónde llegan las vueltas"
+      },
+      "dur": 3
+    },
+    {
+      "from": 0,
+      "to": 2.5,
+      "crop": "header",
+      "speed": 1,
+      "caption": {
+        "step": 1,
+        "total": 6,
+        "text": "Arriba ves la fuente de datos",
+        "sub": "Ahora mismo: modo simulación"
+      }
+    },
+    {
+      "from": 2.5,
+      "to": 5.0,
+      "crop": "home",
+      "speed": 1,
+      "caption": {
+        "step": 2,
+        "total": 6,
+        "text": "Sistema → Ajustes"
+      }
+    },
+    {
+      "from": 5.0,
+      "to": 10.0,
+      "crop": "top",
+      "speed": 0.8,
+      "caption": {
+        "step": 2,
+        "total": 6,
+        "text": "Fuente de datos: elige tu aparato",
+        "sub": "DS, agrupador DS-300, BART o TicTac. Simulación es para probar"
+      }
+    },
+    {
+      "from": 10.0,
+      "to": 13.0,
+      "crop": "mid",
+      "speed": 0.8,
+      "caption": {
+        "step": 3,
+        "total": 6,
+        "text": "Modelo de DS",
+        "sub": "DS-300, DS-200, DS-030 o DS-080"
+      }
+    },
+    {
+      "from": 13.0,
+      "to": 15.5,
+      "crop": "mid",
+      "speed": 0.8,
+      "caption": {
+        "step": 4,
+        "total": 6,
+        "text": "Puerto: el de tu caja",
+        "sub": "¿No sale en la lista? «Escribir el path a mano»"
+      }
+    },
+    {
+      "from": 15.5,
+      "to": 18.0,
+      "crop": "mid",
+      "speed": 0.8,
+      "caption": {
+        "step": 4,
+        "total": 6,
+        "text": "Baud rate: 56000 en el DS-300",
+        "sub": "Los DS-200, DS-030 y DS-080 van a 4800"
+      }
+    },
+    {
+      "from": 18.0,
+      "to": 21.0,
+      "crop": "mid",
+      "speed": 0.8,
+      "caption": {
+        "step": 5,
+        "total": 6,
+        "text": "Circuito: elige tu escenario",
+        "sub": "Toma sus carriles (lo vimos en la píldora 01)"
+      }
+    },
+    {
+      "from": 21.0,
+      "to": 26.0,
+      "crop": "saved",
+      "speed": 1.25,
+      "caption": {
+        "step": 6,
+        "total": 6,
+        "text": "«Guardar y aplicar»",
+        "sub": "Sin reiniciar: arriba a la derecha, «Conectado»"
+      }
+    },
+    {
+      "from": 26.0,
+      "to": 28.85,
+      "crop": "header",
+      "speed": 1,
+      "caption": {
+        "text": "Listo: la fuente ya sale con su puerto"
+      }
+    },
+    {
+      "card": {
+        "kicker": "Siguiente",
+        "title": "La pantalla de inicio"
+      },
+      "dur": 3
+    }
+  ]
+}

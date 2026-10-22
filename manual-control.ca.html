@@ -9,12 +9,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
 <title>PitWall Control · Manual d'ús</title>
 <meta name="description" content="Manual d'ús de PitWall Control: gestiona campionats de slot de principi a fi — pilots, equips, proves i tandes, verificacions (també lliures), tresoreria, crèdits, classificació i exportacions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="manual/manual.css">
+<link rel="stylesheet" href="manual/manual.css?v=20261023">
 <style>
   body{--ac:var(--amber)}
   /* etiqueta CONTROL al logo, coherent amb la pàgina de producte */
@@ -23,38 +25,31 @@
 </style>
   <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
-<body>
+<body class="simple">
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="index.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>CONTROL</small></a>
-    <nav class="links" id="nav-links">
-      <a href="index.html">Inici</a>
-      <a href="pitwall-control.html">Producte</a>
-      <a href="manual-control.html" class="here">Manual</a>
-      <div class="lang" aria-label="Idioma">
-        <a href="manual-control.html">ES</a>
-        <a href="manual-control.ca.html" class="on" aria-current="page">CA</a>
-        <a href="manual-control.en.html">EN</a>
-        <a href="manual-control.it.html">IT</a>
-        <a href="manual-control.fr.html">FR</a>
-      </div>
-      <a href="pitwall-control.html" class="nav-cta">PitWall Control →</a>
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-ca.html">Inici</a>
+      <a href="pitwall-manager-ca.html">Manager</a>
+      <a href="pitwall-lap-ca.html">Lap</a>
+      <a href="pitwall-control-ca.html" aria-current="page">Control</a>
+      <a href="carreras-ca.html">Curses</a>
+      <a href="pitwall-control-ca.html#ayuda">Ajuda</a>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Obrir menú" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="langs" aria-label="Idioma"><a href="manual-control.html" lang="es">ES</a><b>CA</b><a href="manual-control.en.html" lang="en">EN</a><a href="manual-control.fr.html" lang="fr">FR</a><a href="manual-control.it.html" lang="it">IT</a></div>
   </div>
 </header>
-<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <a id="top"></a>
 <section class="doc-hero">
   <div class="wrap">
-    <div class="kicker">Manual d'ús · Gestió de campionats</div>
-    <h1>Gestiona el<br>campionat de<br>principi a <span class="ac">fi</span>.</h1>
-    <p class="lede">Guia per a qui <b>administra</b> PitWall Control: crear el campionat, mantenir els catàlegs, inscriure pilots i equips, muntar proves i tandes, <b>verificar</b> cotxes contra les normes (també sense campionat), <b>cobrar</b> les quotes, portar els <b>crèdits</b>, publicar la <b>classificació</b> i exportar-ho tot en PDF i Excel. De la primera inscripció al tancament de temporada.</p>
+    <div class="kicker">PitWall Control · Manual</div>
+    <h1>Manual de <span class="ac">Control</span></h1>
+    <p class="lede">Cada apartat comença amb un resum curt. Si ho vols saber tot, prem «Veure tots els detalls».</p>
     <div class="xlink">
-      <a class="cur" href="manual-control.html">▮ Manual de PitWall Control</a>
-      <a href="pitwall-control.html">Veure el producte ↔</a>
+      <a href="pitwall-control-ca.html">← Tornar a PitWall Control</a>
     </div>
   </div>
 </section>
@@ -93,6 +88,8 @@
     <section id="introduccion">
       <div class="num">// 01</div>
       <h2>Introducció</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Control porta el campionat: pilots, equips, verificacions, quotes i classificació. No cronometra; això ho fa PitWall Manager.</li><li>Funciona a l’ordinador (Windows, Mac i Linux) i en tauletes o mòbils Android.</li><li>A dalt a l’esquerra tries el campionat amb què treballes. Si encara no en tens cap, prem <b>Crear campionat</b>.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p><b>PitWall Control</b> és el gestor de <b>campionats de slot</b>: la part administrativa i de temporada. No cronometra curses (d'això se n'encarrega <b>PitWall</b>, el cronometrador); Control manté tot el que envolta la competició — pilots, equips, catàlegs tècnics, verificacions, crèdits, tresoreria i classificació — i es comunica amb PitWall per enviar les tandes i portar els resultats.</p>
       <ul>
         <li>S'executa a l'<b>escriptori</b> (macOS, Windows i Linux) i a l'<b>Android</b> (tauleta o mòbil). Les dades viuen al mateix dispositiu; si vols compartir-les entre diversos, fes servir la <a class="inl" href="#google">còpia a Google Drive</a>. Per verificar entre diversos alhora el dia de cursa, mira <a class="inl" href="#varios">Verificar en equip</a>.</li>
@@ -107,12 +104,14 @@
       <figure class="shot">
         <img src="manual/img/control-01-inicio.png" loading="lazy" alt="Pantalla d'inici de PitWall Control amb el campionat actiu, la propera prova, el líder i els accessos ràpids">
         <figcaption>Inici: campionat actiu, propera prova, líder i accessos ràpids. A l'esquerra, la navegació i, a baix, els accessos generals.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="campeonato">
       <div class="num">// 02</div>
       <h2>Crear el campionat</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Tot comença creant un campionat a <b>Campionats</b>.</li><li>Posa-hi nom i any, tria el format (individual, parelles o 24h) i marca les copes que hi corren.</li><li>Si voleu portar crèdits o cobrar quotes, activa-ho aquí. Es configura una vegada per a tota la temporada.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Tot penja d'un <b>campionat</b>. Des de <b>Campionats</b> en crees un de nou i defineixes com funciona. El campionat que tries com a <b>actiu</b> és el que veus a tota l'app. Un campionat nou comença <b>en blanc</b>: sense copes marcades ni quotes, perquè hi posis les teves.</p>
 
       <h3>Dades bàsiques</h3>
@@ -156,12 +155,14 @@
       <figure class="shot">
         <img src="manual/img/control-02b-campeonato-reglas.png" loading="lazy" alt="Editor del campionat amb tresoreria, puntuació, tipus de motor, limitar fabricant i marca als PDF">
         <figcaption>Editor del campionat: tresoreria, puntuació, <b>Motor</b> (Sorteig / Propi / Mixt), limitar fabricant i marca als PDF.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="catalogos">
       <div class="num">// 03</div>
       <h2>Catàlegs (la teva biblioteca)</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Els catàlegs són les llistes del material permès: cotxes, motors, llantes, engranatges…</li><li>S’omplen una vegada i després surten com a opcions quan verifiques els cotxes.</li><li>Marca a cada fitxa a quines copes serveix; si no té copa, no surt a la verificació.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Els catàlegs són les llistes reutilitzables de material homologat. Es mantenen una vegada i alimenten els desplegables de la verificació. Cada pestanya té cercador i, quan s'escau, filtre per copa.</p>
       <ul>
         <li><b>Cotxes</b>: model, marca, pes mínim, crèdits, copa(es) i una <b>foto de referència</b> (de la càmera o la galeria) per comparar amb el cotxe que lliura l'equip.</li>
@@ -195,12 +196,14 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
         <div><b>No esborris els ID</b> (la fitxa es tornaria a crear com a nova) <b>ni canviïs el nom de les pestanyes</b>: l'importador les busca pel nom i t'avisa si no en reconeix alguna.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="pilotos">
       <div class="num">// 04</div>
       <h2>Pilots</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Dona d’alta cada pilot una sola vegada: serveix per a tots els campionats.</li><li>A cada campionat té la seva categoria (Platí, Or, Plata o Bronze).</li><li>Si en tens molts, importa’ls d’un Excel amb el botó <b>Importar</b>.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>El pilot és un mestre únic (nom, telèfon, email) que pot córrer en diversos campionats. Per cada campionat té un <b>perfil</b> propi:</p>
       <ul>
         <li><b>Categoria</b> (<span class="mono">PLATINO · ORO · PLATA · BRONCE</span>), l'escala que fan servir la bonificació de tancament i la promoció entre temporades.</li>
@@ -211,12 +214,14 @@
       <figure class="shot">
         <img src="manual/img/control-04-pilotos.png" loading="lazy" alt="Llista de pilots amb cercador i botó de pilot nou">
         <figcaption>Pilots: cercador, alta ràpida i importació (a dalt a la dreta).</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="equipos">
       <div class="num">// 05</div>
       <h2>Equips i inscripcions</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Un equip agrupa els pilots que comparteixen cotxe: 1 en individual, 2 en parelles i fins a 6 en 24h.</li><li>Cada equip corre en una copa, que decideix quin material pot fer servir.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Un equip agrupa els pilots que comparteixen cotxe i corre en una copa concreta. El nombre de pilots depèn del format:</p>
       <ul>
         <li><b>Individual</b>: 1 pilot. La pantalla es diu <b>Inscripcions</b> i no demana nom d'equip: es fa servir el del pilot.</li>
@@ -231,12 +236,14 @@
       <figure class="shot">
         <img src="manual/img/control-05-equipos.png" loading="lazy" alt="Inscripcions d'un campionat individual amb la copa de cada pilot">
         <figcaption>En un campionat individual, «Equips» són les inscripcions de cada pilot amb la seva copa.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="pruebas">
       <div class="num">// 06</div>
       <h2>Proves i tandes</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Cada cursa del calendari és una <b>prova</b>. Crea-la amb el seu nom, lloc i data.</li><li>Apunta als inscrits qui hi corre.</li><li>Genera les tandes i Control reparteix els pilots pels carrils.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Una <b>prova</b> és cada cita del calendari (nom, seu, data, ordre i estat: programada, en curs o acabada). En obrir-la veus les seves <b>tandes</b> i, a l'esquerra, les <b>opcions de la prova</b>: inscrits, resultats, verificacions, resum de verificacions, editar tandes, sorteig de motors, tresoreria de la prova, PDF de tandes i de verificacions, i l'intercanvi amb PitWall.</p>
       <ol class="steps">
         <li>Crea la prova i ordena-la al calendari.</li>
@@ -275,12 +282,14 @@
       <figure class="shot">
         <img src="manual/img/control-06d-manga.png" loading="lazy" alt="Detall d'una tanda amb els carrils 1 a 6 i els descansos D1 i D2">
         <figcaption>Una tanda: carrils 1–6 i descansos D1, D2. A dalt, resultats, verificacions, renumerar i editar.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="verificaciones">
       <div class="num">// 07</div>
       <h2>Verificacions</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>El dia de cursa, revisa el cotxe de cada equip abans que corri.</li><li>Entra a la prova → <b>Verificacions</b>, tria la tanda i l’equip, i omple cada requadre.</li><li>Verd vol dir que està bé; vermell, que alguna cosa no compleix el reglament.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>La verificació és el cor del dia de cursa: per cada equip comproves que el seu material compleix les normes abans de validar-lo. Hi entres des de la prova (<b>Verificacions</b>), tries la tanda i l'equip. Cada tanda mostra quantes en porta validades.</p>
       <figure class="shot">
         <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Llista de tandes d'una prova amb el progrés de verificacions validades">
@@ -329,12 +338,14 @@
       <figure class="shot">
         <img src="manual/img/control-07f-resumen-rejilla.png" loading="lazy" alt="Resum de verificacions en graella amb una cel·la de pes en vermell per ser fora de reglament">
         <figcaption>Resum en graella: filtres a dalt; en vermell, el que és fora de reglament. Exportable a PDF i Excel.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="varios">
       <div class="num">// 08</div>
       <h2>Verificar en equip</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Si verifiqueu diverses persones alhora, cadascuna pot fer servir el seu propi aparell.</li><li>Tothom ha de partir de la mateixa còpia de dades i estar a la mateixa wifi (no cal internet).</li><li>A la prova, obre <b>Verificar en equip</b>, posa la mateixa clau a tots i connecta’ls.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Quan hi ha diversos verificadors, cada un pot treballar en el seu propi dispositiu (Mac, Windows o Android) sobre la <b>mateixa prova alhora</b>. Cada Control desa al seu dispositiu i es passen els canvis per la <b>wifi</b>. <b>No cal internet</b>: serveix un router sense connexió o el punt d'accés d'un mòbil.</p>
 
       <h3>Abans de l'esdeveniment</h3>
@@ -368,12 +379,14 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
         <div><b>Si dos toquen la mateixa verificació, guanya l'últim canvi.</b> Si tens una verificació oberta i un altre Control la canvia, s'actualitza a la pantalla; si estaves a mig editar, t'avisa perquè triïs entre «Seguir amb la meva» o veure la de l'altre. El més còmode és repartir-se els equips.</div>
       </div>
-      <p>L'app ha d'estar oberta a cada dispositiu (a Android, si passa a segon pla, deixa de compartir). La <a class="inl" href="#libre">verificació lliure</a> no se sincronitza. La primera vegada, Windows demana permís del tallafocs i macOS el de xarxa local: accepta'ls.</p>
+      <p>L'app ha d'estar oberta a cada dispositiu (a Android, si passa a segon pla, deixa de compartir). La <a class="inl" href="#libre">verificació lliure</a> no se sincronitza. La primera vegada, Windows demana permís del tallafocs i macOS el de xarxa local: accepta'ls.</p></div></details>
     </section>
 
     <section id="clasificacion">
       <div class="num">// 09</div>
       <h2>Classificació</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>La classificació es calcula sola amb els resultats de cada prova.</li><li>Amb la <b>taula de punts</b> decideixes quants punts dona cada posició.</li><li>Hi ha una classificació general i una per cada copa. La pots treure en PDF.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>La classificació es calcula amb els resultats de les proves i les regles del campionat:</p>
       <ul>
         <li><b>Taula de punts</b> per posició, pròpia de cada campionat. S'edita des del botó <b>Taula de punts</b>: quantes posicions puntuen i quants punts dona cada una (o restaurar els valors per defecte).</li>
@@ -388,12 +401,14 @@
       <figure class="shot">
         <img src="manual/img/control-08b-tabla-puntos.png" loading="lazy" alt="Editor de la taula de punts amb els punts de cada posició">
         <figcaption>Taula de punts del campionat: punts per posició, editable.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="tesoreria">
       <div class="num">// 10</div>
       <h2>Tresoreria</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Si cobreu quotes, cada equip paga a cada prova.</li><li>Cobra a la tresoreria de la prova o a la mateixa verificació de l’equip, amb el <b>pagament ràpid</b>.</li><li>La pantalla Tresoreria mostra el que s’ha cobrat, les despeses i el saldo.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Si el campionat fa servir tresoreria, cada equip paga una <b>quota per prova</b> (el <b>Pagat</b>), repartida entre <b>coordinadora</b> i <b>club</b>. La pantalla <b>Tresoreria</b> mostra el balanç del campionat, el que s'ha recaptat a cada prova i els <b>moviments extres</b> (patrocinis, despeses de material… amb el botó «Moviment»).</p>
       <ul>
         <li><b>Repartiment</b>: canvia el Pagat i quant va a cada part (es veu el % de cada una). Pots <b>aplicar-ho també als pagaments ja cobrats</b>: es reparteix de nou el que va pagar cada equip, sense canviar el que s'ha cobrat.</li>
@@ -415,12 +430,14 @@
       <figure class="shot">
         <img src="manual/img/control-09b-tesoreria-prueba.png" loading="lazy" alt="Tresoreria d'una prova amb cercador, recaptat i el formulari de pagament de cada equip">
         <figcaption>Tresoreria de la prova: cercador, recaptat i pagament de cada equip amb els seus botons de pagament ràpid.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="creditos">
       <div class="num">// 11</div>
       <h2>Crèdits i tancament</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Els crèdits són el handicap del campionat: pugen o baixen segons els resultats de cada pilot.</li><li>A final de temporada, revisa primer les categories i després aplica la bonificació de tancament, en aquest ordre.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>El sistema de crèdits és el <b>handicap</b> del campionat: cada pilot arrenca amb uns crèdits que pugen o baixen segons el resultat. Des de <b>Crèdits</b> veus el saldo i els moviments (cada un amb la seva descripció), pots <b>ajustar a mà</b>, exportar en <b>PDF</b> o <b>CSV</b> i gestionar el tancament.</p>
       <h3>Bonificació de tancament</h3>
       <p>En acabar la temporada s'aplica una bonificació segons la <b>categoria</b> del pilot i el <b>nombre de curses</b> disputades (trams configurables). El moviment queda descrit (p. ex. «bonificació per 6 curses»).</p>
@@ -429,22 +446,26 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
         <div>Ajusta primer les categories a Revisió i després aplica la bonificació de tancament: així tots dos fan servir la mateixa foto final.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="sorteo">
       <div class="num">// 12</div>
       <h2>Sorteig de motor</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Si el motor el posa l’organització, Control sorteja un número per a cada equip.</li><li>Fes-ho des de la prova → <b>Sorteig de motors</b>, equip per equip o tots de cop.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Si el campionat és de motor de <b>Sorteig</b> o <b>Mixt</b> i té configurat el <b>rang de números</b>, Control sorteja per a cada equip un número dins del rang, descomptant els ja assignats a la prova. Des de <b>Sorteig de motors</b> (a la prova) sorte ges equip a equip o <b>Sortejar restants</b> de cop, i a la pestanya <b>Números</b> veus quin número té cada un. També es pot sortejar des de la mateixa verificació.</p>
       <figure class="shot">
         <img src="manual/img/control-11-sorteo.png" loading="lazy" alt="Sorteig de motors amb el rang, els assignats i el botó Sortejar de cada equip">
         <figcaption>Sorteig de motors: rang, assignats i disponibles; «Sortejar» per equip o «Sortejar restants».</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="libre">
       <div class="num">// 13</div>
       <h2>Verificació lliure</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Serveix per verificar cotxes sense muntar un campionat: una cursa solta o un control al club.</li><li>Obre <b>Verificació lliure</b>, crea una sessió i afegeix-hi els participants.</li><li>Quan acabis, treu-la en PDF o en Excel amb fotos.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Per verificar cotxes <b>sense campionat ni prova</b>: una cursa esporàdica, un control al club o qualsevol altra cita. S'obre des de <b>Verificació lliure</b> a la barra lateral (o des de l'inici, encara que no tinguis campionats).</p>
       <ul>
         <li>Cada <b>sessió</b> té nom, lloc i data, i el seu propi <b>reglament</b>: copes, amplada d'eix per copa, <b>limitar fabricant</b> i <b>tipus de motor</b> (Sorteig / Propi / Mixt, amb el seu rang). Una sessió nova comença <b>en blanc</b>, igual que un campionat.</li>
@@ -463,12 +484,14 @@
       </figure>
 
       <h3>Excel amb fotos</h3>
-      <p>El <span class="mono">.xlsx</span> té una fila per participant amb les columnes del resum de verificacions (el que és fora de reglament en vermell i una columna amb els motius) i, al final de la fila, la <b>foto del cotxe al catàleg</b> («Foto catálogo») seguida de <b>totes les fotos de la verificació</b>, com a miniatures dins de la cel·la. Es veu bé a Excel, LibreOffice i al mòbil (iPhone, iPad, Android).</p>
+      <p>El <span class="mono">.xlsx</span> té una fila per participant amb les columnes del resum de verificacions (el que és fora de reglament en vermell i una columna amb els motius) i, al final de la fila, la <b>foto del cotxe al catàleg</b> («Foto catálogo») seguida de <b>totes les fotos de la verificació</b>, com a miniatures dins de la cel·la. Es veu bé a Excel, LibreOffice i al mòbil (iPhone, iPad, Android).</p></div></details>
     </section>
 
     <section id="google">
       <div class="num">// 14</div>
       <h2>Google Sheets i Drive</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Control pot llegir els teus fulls de Google i desar una còpia de les dades a Google Drive.</li><li>És útil perquè diverses persones treballin amb les mateixes dades.</li><li>Cal connectar-lo una vegada; l’apartat explica com, pas a pas.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Control pot treballar amb els teus fulls de Google i desar còpies a Google Drive. Primer, a <b>Google Sheets</b>, enganxes les <b>credencials</b> del teu projecte de Google Cloud (el botó «Com aconseguir-les» et guia) i connectes el teu compte. Control només demana llegir els teus fulls i crear o modificar el seu propi fitxer de còpia; no toca cap fitxer teu.</p>
       <ul>
         <li><b>Catàlegs</b>: vincules cada catàleg amb la seva pestanya. <b>Actualitzar des de Drive</b> porta les dades i <b>Pujar al Sheet</b> envia les teves (amb revisió abans d'esborrar). Si el full té una columna <span class="mono">ID</span>, les files s'aparellen per aquesta en lloc de pel nom.</li>
@@ -512,23 +535,27 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
         <div><b>Tracta-les com una contrasenya.</b> Qui tingui el Client ID i el Secret es pot fer passar per la teva aplicació. No les publiquis ni les enviïs per xat; si es filtren, esborra el client a Google Cloud i crea'n un altre. Control les desa només al teu dispositiu.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="csv">
       <div class="num">// 15</div>
       <h2>Plantilles CSV</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>A <b>Plantilles CSV</b> descarregues plantilles a punt per omplir: pilots, equips, inscripcions i catàlegs.</li><li>Omple-les i importa-les des de la seva secció.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>Des de <b>Plantilles CSV</b> descarregues les plantilles a punt per omplir i importar: pilots, equips (parelles i resistència, amb <span class="mono">Piloto 1…5</span>), inscripcions a una prova, <b>participants de verificació lliure</b> i cada catàleg. Omples el fitxer, l'importes des de la seva secció i l'app reconeix les columnes.</p>
       <p>Per corregir en bloc el que ja tens als catàlegs, la via còmoda és <a class="inl" href="#catalogos">Tot el catàleg en Excel</a>.</p>
       <figure class="shot">
         <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="Plantilles CSV de pilots, equips, inscripcions, verificació lliure i catàlegs">
         <figcaption>Plantilles CSV: una per importació, amb les seves columnes.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="pdf">
       <div class="num">// 16</div>
       <h2>Exportar (PDF i Excel)</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Pots treure en PDF les tandes, les verificacions, la classificació i els crèdits, a punt per imprimir.</li><li>En exportar tries l’idioma del document.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <ul>
         <li><b>PDF</b>: tandes, verificacions d'una prova o sessió, resum en graella, classificació i crèdits. En exportar tries l'<b>idioma</b> del document (espanyol, català, anglès, italià o francès) i s'aplica la <b>marca</b> del campionat a la capçalera i al peu. Cada PDF cap en un sol full (A4 → A3 si cal) per imprimir-lo còmode.</li>
         <li><b>Excel</b>: el catàleg complet, el resum en graella i la verificació lliure amb fotos.</li>
@@ -537,12 +564,14 @@
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
         <div>A l'ordinador s'obre el «Desa com a»; a <b>Android</b>, el full de compartir del sistema (desar a fitxers, enviar per WhatsApp, correu…).</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="pitwall">
       <div class="num">// 17</div>
       <h2>Enviar a PitWall / portar resultats</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Control i PitWall Manager es passen les dades per no escriure res dues vegades.</li><li>Amb <b>Enviar a PitWall</b> envies les tandes a Manager; necessites el PIN que surt a la pantalla d’importar tanda de Manager.</li><li>En acabar la cursa, porta els resultats de tornada a Control. Tots dos han d’estar a la mateixa wifi.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
       <p>PitWall Control es comunica amb el cronometrador <b>PitWall</b> per no teclejar dues vegades: li envia la prova muntada i després porta els resultats. Totes dues apps han d'estar a la <b>mateixa xarxa</b> LAN/WiFi.</p>
 
       <h3>Triar el PitWall</h3>
@@ -567,7 +596,7 @@
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
         <div>A PitWall les verificacions són <b>de només consulta</b>, i cada enviament nou substitueix del tot l'anterior. Cal tenir <b>Connexió ecosistema</b> permesa a PitWall.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="glosario">
@@ -606,10 +635,10 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="index.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>CONTROL</small></a>
-    <div class="apps-mini"><a href="pitwall-control.html">Producte</a><a href="manual-control.html">Manual</a><a href="index.html">Inici</a></div>
-    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
-    <div class="mono">© 2026 · Gestió de campionats de slot racing</div>
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Peu de pàgina"><a href="pitwall-manager-ca.html">Manager</a><a href="pitwall-lap-ca.html">Lap</a><a href="pitwall-control-ca.html">Control</a><a href="carreras-ca.html">Curses</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometratge i gestió de slot racing</div>
   </div>
 </footer>
 
@@ -629,6 +658,34 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 })();
+</script>
+<script>
+  // Vídeos: solo se descargan al pulsar «play»; al empezar uno, se paran los demás.
+  document.querySelectorAll('.mvid .player').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.dataset.src;
+      v.poster = b.querySelector('img').src;
+      v.controls = true;
+      v.playsInline = true;
+      v.addEventListener('play', function(){
+        document.querySelectorAll('.mvid video').forEach(function(o){ if (o !== v) o.pause(); });
+      });
+      b.replaceWith(v);
+      v.play();
+      if (window.umami) umami.track('video-manager-' + b.dataset.id);
+    });
+  });
+  // Un enlace a algo que está dentro de «Ver todos los detalles» lo despliega.
+  function openTarget(){
+    var t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var d = t && t.closest && t.closest('details.more');
+    if (d && !d.open){ d.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+  // Al imprimir, todo desplegado.
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details.more').forEach(function(d){ d.open = true; }); });
 </script>
 </body>
 </html>

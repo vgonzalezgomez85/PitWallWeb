@@ -1,0 +1,110 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 09-53-15.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/08 - Tandas y rotación.mp4",
+  "crops": {
+    "full": [
+      0,
+      0,
+      3840,
+      2160
+    ]
+  },
+  "segments": [
+    {
+      "card": {
+        "kicker": "PitWall en 1 minuto · 08",
+        "title": "Tandas y rotación",
+        "sub": "Los pilotos y qué carril corre cada uno en cada manga"
+      },
+      "dur": 3
+    },
+    {
+      "from": 31.0,
+      "to": 34.5,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 1,
+        "total": 5,
+        "text": "En la carrera, «+ Añadir Tanda 1»"
+      }
+    },
+    {
+      "from": 34.5,
+      "to": 51.0,
+      "crop": "full",
+      "speed": 2.5,
+      "caption": {
+        "step": 2,
+        "total": 5,
+        "text": "Escribe los pilotos",
+        "sub": "Uno por carril",
+        "pos": "right"
+      }
+    },
+    {
+      "from": 51.0,
+      "to": 56.0,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 3,
+        "total": 5,
+        "text": "¿Más pilotos que carriles? Descansan por turnos",
+        "sub": "7 pilotos en 6 carriles: 1 descansa en cada manga, 7 mangas",
+        "pos": "right"
+      }
+    },
+    {
+      "from": 56.0,
+      "to": 62.5,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 4,
+        "total": 5,
+        "text": "Carriles sin participante",
+        "sub": "Si sobran carriles: que el hueco rote, o no usarlos",
+        "pos": "right"
+      }
+    },
+    {
+      "from": 62.5,
+      "to": 65.5,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 5,
+        "total": 5,
+        "text": "«Crear tanda»: la rotación, manga a manga"
+      }
+    },
+    {
+      "from": 65.5,
+      "to": 84.0,
+      "crop": "full",
+      "speed": 3,
+      "caption": {
+        "text": "¿Más pilotos? Añade otra tanda",
+        "sub": "Tanda 2: otros 6 pilotos",
+        "pos": "right"
+      }
+    },
+    {
+      "from": 84.0,
+      "to": 88.0,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "text": "Listo: cada tanda con su rotación"
+      }
+    },
+    {
+      "card": {
+        "kicker": "Siguiente",
+        "title": "El GO y el directo"
+      },
+      "dur": 3
+    }
+  ]
+}

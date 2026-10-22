@@ -1,0 +1,133 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 15-26-35.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/17 - Resultados y exportar.mp4",
+  "crops": {
+    "full": [
+      0,
+      0,
+      3840,
+      2160
+    ]
+  },
+  "segments": [
+    {
+      "card": {
+        "kicker": "PitWall en 1 minuto · 17",
+        "title": "Resultados y exportar",
+        "sub": "La clasificación, las gráficas y los ficheros para llevártelos"
+      },
+      "dur": 3
+    },
+    {
+      "from": 3.0,
+      "to": 6.5,
+      "crop": "full",
+      "speed": 1.25,
+      "caption": {
+        "step": 1,
+        "total": 5,
+        "text": "Carreras → tu carrera → «Resultados»"
+      }
+    },
+    {
+      "from": 6.5,
+      "to": 8.5,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 1,
+        "total": 5,
+        "text": "Vuelta rápida y destacados de la carrera"
+      }
+    },
+    {
+      "from": 15.5,
+      "to": 22.0,
+      "crop": "full",
+      "speed": 1.5,
+      "caption": {
+        "step": 2,
+        "total": 5,
+        "text": "La clasificación, pista a pista",
+        "sub": "Vueltas, vuelta rápida, media, consistencia, salidas y pit-stops"
+      }
+    },
+    {
+      "from": 22.0,
+      "to": 41.0,
+      "crop": "full",
+      "speed": 3,
+      "caption": {
+        "step": 3,
+        "total": 5,
+        "text": "Progresión: los tiempos vuelta a vuelta",
+        "sub": "Compara pilotos y filtra por manga o carril"
+      }
+    },
+    {
+      "from": 41.0,
+      "to": 50.0,
+      "crop": "full",
+      "speed": 2.5,
+      "caption": {
+        "step": 3,
+        "total": 5,
+        "text": "Posiciones a lo largo de la carrera"
+      }
+    },
+    {
+      "from": 50.0,
+      "to": 57.5,
+      "crop": "full",
+      "speed": 2.5,
+      "caption": {
+        "step": 3,
+        "total": 5,
+        "text": "Gap al líder",
+        "sub": "Vueltas que pierde cada uno, manga a manga"
+      }
+    },
+    {
+      "from": 57.5,
+      "to": 71.0,
+      "crop": "full",
+      "speed": 2.5,
+      "caption": {
+        "step": 3,
+        "total": 5,
+        "text": "Gap (rejilla): la misma información en tabla"
+      }
+    },
+    {
+      "from": 71.0,
+      "to": 81.0,
+      "crop": "full",
+      "speed": 2,
+      "caption": {
+        "step": 4,
+        "total": 5,
+        "text": "Estadísticas avanzadas: compara dos pilotos",
+        "sub": "Media por carril, salidas y tiempo perdido"
+      }
+    },
+    {
+      "from": 81.0,
+      "to": 92.2,
+      "crop": "full",
+      "speed": 1.25,
+      "caption": {
+        "step": 5,
+        "total": 5,
+        "text": "«Exportar»: Excel, puntos, Control, area-corse…",
+        "sub": "Y «PDF» para imprimir"
+      }
+    },
+    {
+      "card": {
+        "kicker": "Siguiente",
+        "title": "Entreno libre"
+      },
+      "dur": 3
+    }
+  ]
+}

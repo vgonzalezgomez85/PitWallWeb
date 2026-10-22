@@ -9,48 +9,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
 <title>PitWall · PitWall Lap manual</title>
 <meta name="description" content="Manual for PitWall Lap, the slot racer&#x27;s app: hear your lap times, a race calendar with reminders, practice sessions, competition practice and offline results.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="manual/manual.css">
-<style>body{--ac:var(--red)} .doc figure.shot.phone{max-width:340px;margin-left:0} .doc figure.shot.phone img{width:100%;height:auto;display:block}</style>
+<link rel="stylesheet" href="manual/manual.css?v=20261023">
+<style>body{--ac:var(--cyan)} .doc figure.shot.phone{max-width:340px;margin-left:0} .doc figure.shot.phone img{width:100%;height:auto;display:block}</style>
   <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
-<body>
+<body class="simple">
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="index.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <nav class="links" id="nav-links">
-      <a href="pitwall-lap-en.html">Landing</a>
-      <a href="manual-uso.en.html">User manual</a>
-      <a href="manual-lap.en.html" class="here">Lap manual</a>
-      <a href="manual-estadisticas.en.html">Statistics</a>
-      <div class="lang" aria-label="Language">
-        <a href="manual-lap.html">ES</a>
-        <a href="manual-lap.en.html" class="on" aria-current="page">EN</a>
-        <a href="manual-lap.it.html">IT</a>
-        <a href="manual-lap.fr.html">FR</a>
-      </div>
-      <a href="manual-estadisticas.en.html" class="nav-cta">Interpret the data →</a>
+    <a class="logo" href="index.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Main">
+      <a href="pitwall-landing-en.html">Home</a>
+      <a href="pitwall-manager-en.html">Manager</a>
+      <a href="pitwall-lap-en.html" aria-current="page">Lap</a>
+      <a href="pitwall-control-en.html">Control</a>
+      <a href="carreras-en.html">Races</a>
+      <a href="pitwall-lap-en.html#ayuda">Help</a>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="langs" aria-label="Language"><a href="manual-lap.html" lang="es">ES</a><a href="manual-lap.ca.html" lang="ca">CA</a><b>EN</b><a href="manual-lap.fr.html" lang="fr">FR</a><a href="manual-lap.it.html" lang="it">IT</a></div>
   </div>
 </header>
-<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <a id="top"></a>
 <section class="doc-hero">
   <div class="wrap">
-    <div class="kicker">App manual · For the driver</div>
-    <h1>Your slot assistant,<br>in your <span class="ac">pocket</span>.</h1>
-    <p class="lede">Guide to <b>PitWall Lap</b>, the driver's app: it connects to the track's timing system to <b>speak your lap times</b>, even with the screen locked, and keeps your <b>race calendar</b>, your <b>practice sessions</b> and your <b>results</b> on your phone.</p>
+    <div class="kicker">PitWall Lap · Manual</div>
+    <h1>Lap <span class="ac">manual</span></h1>
+    <p class="lede">Each section starts with a short summary. If you want to know everything, click “See all the details”.</p>
     <div class="xlink">
-      <a class="cur" href="manual-lap.en.html">▮ Lap manual</a>
-      <a href="manual-uso.en.html">User manual ↔</a>
-      <a href="manual-estadisticas.en.html">Statistics manual ↔</a>
+      <a href="pitwall-lap-en.html">← Back to PitWall Lap</a>
     </div>
   </div>
 </section>
@@ -81,6 +75,8 @@
     <section id="intro">
       <div class="num">// 01</div>
       <h2>Introduction</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Lap is the driver’s app. When you open it you see six areas: Lap, Calendar, Practice, Competition practice, Results and Settings.</li><li>It works with PitWall Manager and with TicTac timers.</li><li>To hear your times, your phone must be on the same WiFi as the track. The calendar, practice and results also work without it.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>PitWall Lap is the <b>driver's</b> app. It has six areas, which appear in the main menu when you open it:</p>
       <ul>
         <li><b>Lap</b>: connects to the track's timing system and speaks your times.</li>
@@ -99,23 +95,27 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>It is an app for <b>iPhone</b> (installed through TestFlight) and for <b>Android</b> (APK, downloaded from pitwall.es and <b>updated from inside the app</b>). Your phone must be on the <b>same WiFi network</b> as the server or the timer; without that network, Calendar, Practice, downloaded Competition practice and Results keep working, but Lap has nothing to listen to.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="permisos">
       <div class="num">// 02</div>
       <h2>Phone permissions</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>The app only asks for permissions when it needs them.</li><li>Allow <b>notifications</b> if you want the calendar to remind you before each race.</li><li>The camera and photos are only used if you add a photo to Results.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>The app only asks for permissions when it needs them:</p>
       <ul>
         <li><b>Local network</b> (iPhone): to find the track's server or timer on the WiFi. If you refuse, iOS silently drops the searches and <b>Lap will find nothing</b> even though everything is fine; fix it in <i>iPhone Settings → PitWall Lap → Local Network</i>.</li>
         <li><b>Notifications</b>: the first time you save a race with reminders. Without them the race is saved, but no reminder will sound.</li>
         <li><b>Camera</b> and <b>Photos</b>: only if you add a photo to <i>Results</i>.</li>
-      </ul>
+      </ul></div></details>
     </section>
 
     <section id="lap">
       <div class="num">// 03</div>
       <h2>Lap: hearing your times</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Go into <b>Lap</b> and choose where the times come from: <b>PitWall</b> (the track computer) or <b>TicTac</b>.</li><li>The app finds the race by itself in a few seconds. If not, type the address (IP) once and it will remember it.</li><li>Choose your batch and your name or team. The voice will tell you every lap while you race.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot phone">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Lap</span></div>
         <img src="manual/img/lap-02-fuentes.png" loading="lazy" alt="Choosing between PitWall and TicTac">
@@ -162,12 +162,14 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div>Following by team in competition practice needs <b>PitWall Manager 1.56.1</b> or later. With an older server the app doesn't offer competition practice or stays stuck on one lane.</div>
       </div>
-      <p>With <b>Practice GO</b> (on your screen, in practice mode) the app records your laps as a run of your own; when you stop, it saves it in <i>Practice</i>.</p>
+      <p>With <b>Practice GO</b> (on your screen, in practice mode) the app records your laps as a run of your own; when you stop, it saves it in <i>Practice</i>.</p></div></details>
     </section>
 
     <section id="calendario">
       <div class="num">// 04</div>
       <h2>Race calendar</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Keep your races on your phone and it will remind you before each one.</li><li>Tap <b>＋ Add race</b> and enter the name, date and time.</li><li>You can also add races from the pitwall.es calendar with <b>Races from pitwall.es</b>.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot phone">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Calendar</span></div>
         <img src="manual/img/lap-06-calendario.png" loading="lazy" alt="Upcoming and past races">
@@ -229,23 +231,27 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>Adding a race by hand is still available, and you can mix both: import the season and add one-off races afterwards.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="entrenamientos">
       <div class="num">// 05</div>
       <h2>Practice</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Here are the practice runs you’ve recorded.</li><li>Open one to see its chart and note the car’s setup.</li><li>With <b>Compare</b> you see 2 to 4 runs together to find out which was best.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot phone">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Practice</span></div>
         <img src="manual/img/lap-09-entrenamientos.png" loading="lazy" alt="List of practice runs">
         <figcaption>Practice: your practice runs, with laps, best and average.</figcaption>
       </figure>
-      <p>Here are the <b>practice runs you recorded</b> with <i>Practice GO</i>. Open one to see its <b>chart</b> (laps and moving average) and note the car's details (model, motor, tire, rim, crown and pinion). With <b>Compare</b> you pick 2 to 4 runs and see them <b>overlaid</b> on one chart, with their consistency. Everything is saved <b>on your phone</b>.</p>
+      <p>Here are the <b>practice runs you recorded</b> with <i>Practice GO</i>. Open one to see its <b>chart</b> (laps and moving average) and note the car's details (model, motor, tire, rim, crown and pinion). With <b>Compare</b> you pick 2 to 4 runs and see them <b>overlaid</b> on one chart, with their consistency. Everything is saved <b>on your phone</b>.</p></div></details>
     </section>
 
     <section id="competicion">
       <div class="num">// 06</div>
       <h2>Competition practice</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>When a competition practice ends, you can download it to your phone.</li><li>Tap <b>⬇ Download</b> on the one you want. Then you can see it even without a connection.</li><li>Inside are the standings and the laps of each heat.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot phone">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Competition practice</span></div>
         <img src="manual/img/lap-10-competicion-lista.png" loading="lazy" alt="Downloaded and server sessions">
@@ -267,12 +273,14 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div>To download practice sessions you need <b>PitWall Manager 1.56.0</b> or later.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="resultados">
       <div class="num">// 07</div>
       <h2>Results</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Races you ran with PitWall are saved here automatically, with the standings.</li><li>With <b>＋ Add</b> you can also keep your own files: an Excel, a PDF or a photo of a timing sheet.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot phone">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Results</span></div>
         <img src="manual/img/lap-12-resultados.png" loading="lazy" alt="Races and your own files">
@@ -288,12 +296,14 @@
         <img src="manual/img/lap-13-archivo.png" loading="lazy" alt="Detail of your own file">
         <figcaption>One of your files: rename it, open or share it, and delete it. Photos are shown on screen.</figcaption>
       </figure>
-      <p>Each file of yours is <b>copied into the app</b>, so it stays even if you delete the original. You can <b>rename</b> it, <b>open or share</b> it (Excel and PDF open in the app you choose; photos are shown directly) and <b>delete</b> it.</p>
+      <p>Each file of yours is <b>copied into the app</b>, so it stays even if you delete the original. You can <b>rename</b> it, <b>open or share</b> it (Excel and PDF open in the app you choose; photos are shown directly) and <b>delete</b> it.</p></div></details>
     </section>
 
     <section id="ajustes">
       <div class="num">// 08</div>
       <h2>Settings</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Choose the language of the app and of the voice.</li><li>Decide what the voice tells you: every lap, your position, the last minute…</li><li>Whatever you set here is what you’ll have at the start of every race.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot phone">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Settings</span></div>
         <img src="manual/img/lap-14-ajustes.png" loading="lazy" alt="Settings screen">
@@ -310,12 +320,14 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>With the <b>old TicTac</b> the app only speaks laps; the other alerts need PitWall Manager or the new TicTac.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="actualizar">
       <div class="num">// 09</div>
       <h2>Updating the app</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>On Android, when there’s a new version, the menu shows the notice <b>«A new version is available»</b>.</li><li>Tap <b>Update</b>. If Android asks whether to allow installing apps, say yes.</li><li>You don’t lose anything: your calendar, practice and results stay.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <ul>
         <li><b>iPhone</b>: versions arrive through <b>TestFlight</b>. Open the TestFlight app and tap <i>Update</i>; if you turned on automatic updates, they install by themselves. Each TestFlight build <b>expires after 90 days</b>, so it is worth updating before then.</li>
         <li><b>Android</b>: when you open the app (and when you return to it after 6 hours), if <b>pitwall.es</b> has a newer version than yours, the menu shows a <b>«A new version is available»</b> card with an <b>Update</b> button. Tapping it, the app <b>downloads the APK</b> and opens Android's installer. The first time, Android will ask you to <b>allow PitWall Lap to install apps</b>; grant it and tap <i>Update</i> again. <b>Later</b> hides the notice until the next time you open the app. You can also check any time in <i>Settings → App → Check for updates</i>. The download can be <b>cancelled</b> and, if 30 seconds pass without data, it stops by itself.</li>
@@ -323,12 +335,14 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>The update installs <b>on top of</b> the app, without losing your calendar, practice runs or results. If there is no network or the website doesn't respond, the app simply doesn't notify you. The first version with this notice has to be installed by hand once; from then on it updates itself.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="problemas">
       <div class="num">// 10</div>
       <h2>If something doesn&#x27;t work</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Lap can’t find the race? Check that your phone is on the same WiFi as the track computer.</li><li>Does it say «No activity»? The race isn’t ready yet: when it is, tap <b>Refresh</b>.</li><li>Can’t hear the voice? Turn up your phone’s volume.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <ul>
         <li><b>Lap can't find the server.</b> Check that your phone and the server are on the <b>same WiFi</b> and, on iPhone, that the <b>Local Network</b> permission is on. If it still doesn't show up, enter the IP by hand.</li>
         <li><b>«No activity».</b> The server has no race set up or practice running. When the director sets it up, tap <b>Refresh</b>.</li>
@@ -338,7 +352,7 @@
         <li><b>The voice doesn't sound with the screen locked.</b> Check that the volume and the silent switch are not off; the app speaks anyway with the phone on silent.</li>
         <li><b>It doesn't update on Android.</b> Check that you have an internet connection and that you have allowed PitWall Lap to install apps; you can also download the APK by hand from the PitWall Lap page on pitwall.es.</li>
         <li><b>What's new</b> (at the bottom of the menu) shows the app's version history; it is in Spanish only.</li>
-      </ul>
+      </ul></div></details>
     </section>
 
   </main>
@@ -346,10 +360,10 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="index.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <div class="apps-mini"><a href="manual-uso.en.html">User manual</a><a href="manual-lap.en.html">Lap manual</a><a href="manual-estadisticas.en.html">Statistics</a></div>
-    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
-    <div class="mono">© 2026 · Slot racing timing and management</div>
+    <a class="logo" href="pitwall-landing-en.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Footer"><a href="pitwall-manager-en.html">Manager</a><a href="pitwall-lap-en.html">Lap</a><a href="pitwall-control-en.html">Control</a><a href="carreras-en.html">Races</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Slot racing timing and management</div>
   </div>
 </footer>
 
@@ -369,6 +383,34 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 })();
+</script>
+<script>
+  // Vídeos: solo se descargan al pulsar «play»; al empezar uno, se paran los demás.
+  document.querySelectorAll('.mvid .player').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.dataset.src;
+      v.poster = b.querySelector('img').src;
+      v.controls = true;
+      v.playsInline = true;
+      v.addEventListener('play', function(){
+        document.querySelectorAll('.mvid video').forEach(function(o){ if (o !== v) o.pause(); });
+      });
+      b.replaceWith(v);
+      v.play();
+      if (window.umami) umami.track('video-manager-' + b.dataset.id);
+    });
+  });
+  // Un enlace a algo que está dentro de «Ver todos los detalles» lo despliega.
+  function openTarget(){
+    var t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var d = t && t.closest && t.closest('details.more');
+    if (d && !d.open){ d.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+  // Al imprimir, todo desplegado.
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details.more').forEach(function(d){ d.open = true; }); });
 </script>
 </body>
 </html>

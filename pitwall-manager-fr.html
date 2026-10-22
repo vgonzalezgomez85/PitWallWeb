@@ -5,387 +5,193 @@
   cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
   Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
 -->
-<html lang="fr">
+<html lang="fr" data-os="win" data-pick="win">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PitWall Manager · Contrôle de course et chronométrage</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall Manager · Gestion de courses et chronométrage</title>
+<meta name="description" content="PitWall Manager s’installe sur l’ordinateur de la piste, compte les tours de chaque voiture et affiche la course en grand pour toute la salle.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#08080a; --bg-2:#0d0d11; --surface:#121217; --surface-2:#181820; --elevated:#1f1f29;
-    --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
-    --ink:#f5f5f7; --ink-2:#b6b6c2; --ink-3:#76767f;
-    --red:#ef4651; --cyan:#22b8d6; --amber:#f59e0b; --green:#22c55e;
-    --ac:var(--red);
-    --display:"Saira Condensed",sans-serif; --body:"Saira",sans-serif; --mono:"IBM Plex Mono",monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;
-    line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  body::before{content:"";position:fixed;inset:0;
-    background-image:linear-gradient(var(--line) 1px,transparent 1px),
-      linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:46px 46px;opacity:.35;
-    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
-            mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
-    pointer-events:none;z-index:0}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
-  .wrap:has(.dl-menu.open){z-index:50}
-  a{color:inherit;text-decoration:none}
-  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-3)}
-
-  header{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);
-    background:linear-gradient(180deg,rgba(8,8,10,.92),rgba(8,8,10,.55));border-bottom:1px solid var(--line)}
-  .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);
-    font-weight:800;font-size:21px;letter-spacing:.04em;text-transform:uppercase}
-  .logo .mark{width:27px;height:27px;display:block;flex:0 0 auto}
-  .logo b{color:var(--red);font-weight:800}
-  .logo small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ac);
-    border:1px solid var(--ac);border-radius:2px;padding:2px 7px;margin-left:4px;font-weight:500}
-  nav.links{display:flex;gap:30px;align-items:center}
-  nav.links a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--ink-2);transition:color .2s}
-  nav.links a:hover{color:var(--ink)}
-  .nav-cta{border:1px solid var(--line-strong);padding:8px 16px;border-radius:2px;
-    color:var(--ink)!important;transition:.2s}
-  .nav-cta:hover{border-color:var(--ac);color:var(--ac)!important}
-  .langs{display:flex;gap:9px;align-items:center;margin-left:4px}
-  nav.links .langs a,.langs b{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em}
-  nav.links .langs a{color:var(--ink-3)}
-  nav.links .langs a:hover{color:var(--ink)}
-  .langs b{color:var(--ac);font-weight:600}
-  /* menú móvil */
-  .menu-btn{display:none;width:40px;height:40px;margin-right:-8px;padding:0;border:0;background:none;
-    color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
-  .menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:20px;height:1.5px;
-    background:currentColor;position:relative;transition:transform .2s,background .2s}
-  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
-  .menu-btn span::before{top:-6px}
-  .menu-btn span::after{top:6px}
-  header.open .menu-btn span{background:transparent}
-  header.open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
-  header.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
-  @media(max-width:780px){
-    .menu-btn{display:inline-flex}
-    nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
-      align-items:stretch;gap:0;padding:4px 28px 22px;background:#08080a;
-      border-bottom:1px solid var(--line);max-height:calc(100vh - 62px);overflow-y:auto}
-    header.open nav.links{display:flex}
-    nav.links>a{padding:15px 0;border-bottom:1px solid var(--line);font-size:13px}
-    nav.links>a.nav-cta{margin-top:18px;border:1px solid var(--line-strong);justify-content:center;text-align:center}
-    nav.links .langs{margin:16px 0 0;gap:18px}
-    nav.links .langs a,.langs b{font-size:12px}
-  }
-
-  .hero{padding:64px 0 40px}
-  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:54px;align-items:center}
-  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:40px}}
-  .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-  .crumb a:hover{color:var(--ac)}
-  h1{font-family:var(--display);font-weight:800;text-transform:uppercase;
-    font-size:clamp(44px,6.6vw,76px);line-height:.94;margin:18px 0 0}
-  h1 .a{color:var(--ac)}
-  .lede{margin-top:20px;font-size:18px;color:var(--ink-2);max-width:30em}
-  .lede b{color:var(--ink);font-weight:600}
-  .cta-row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
-  .btn{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
-    padding:14px 22px;border-radius:2px;border:1px solid transparent;cursor:pointer;
-    transition:.18s;display:inline-flex;align-items:center;gap:9px}
-  .btn-primary{background:var(--ac);color:#0b0405;font-weight:600}
-  .btn-primary:hover{filter:brightness(1.12);transform:translateY(-1px)}
-  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
-  .btn-ghost:hover{border-color:var(--ink-2);background:var(--surface)}
-
-  /* download menu */
-  .dl-menu{position:relative;display:inline-flex}
-  .dl-toggle svg{transition:transform .18s}
-  .dl-menu.open .dl-toggle svg{transform:rotate(180deg)}
-  .dl-panel{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);
-    min-width:270px;background:var(--surface-2);border:1px solid var(--line-strong);border-radius:10px;
-    padding:14px;box-shadow:0 30px 60px -24px rgba(0,0,0,.85);
-    opacity:0;visibility:hidden;transition:.16s ease;z-index:60;text-align:left}
-  .dl-menu.open .dl-panel{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-  .dl-group+.dl-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-  .dl-os{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
-  .dl-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 9px;
-    border-radius:5px;transition:background .15s;font-size:13.5px;color:var(--ink)}
-  .dl-item:hover{background:var(--elevated)}
-  .dl-item small{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
-  @media(max-width:480px){.dl-panel{left:0;transform:translateX(0) translateY(-6px);min-width:250px}
-    .dl-menu.open .dl-panel{transform:translateX(0) translateY(0)}}
-
-  section{padding:84px 0;position:relative}
-  .sec-head{max-width:42em;margin-bottom:50px}
-  .sec-head h2{font-family:var(--display);font-weight:700;text-transform:uppercase;
-    font-size:clamp(30px,4.4vw,48px);line-height:1;margin:12px 0 0}
-  .sec-head p{margin-top:16px;color:var(--ink-2);font-size:17px;max-width:34em}
-  .rule{height:1px;background:linear-gradient(90deg,var(--line-strong),transparent)}
-
-  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  @media(max-width:880px){.why{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.why{grid-template-columns:1fr}}
-  .why div{background:var(--bg);padding:26px 22px}
-  .why .n{font-family:var(--mono);font-size:11px;color:var(--ac);letter-spacing:.14em}
-  .why h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:19px;margin:11px 0 8px}
-  .why p{font-size:13.5px;color:var(--ink-2)}
-
-  /* window frame */
-  .shot{border-radius:8px;overflow:hidden;border:1px solid var(--line-strong);
-    box-shadow:0 30px 70px -36px rgba(0,0,0,.9);user-select:none}
-  .shot-bar{display:flex;align-items:center;gap:6px;height:28px;padding:0 11px;
-    background:#16161d;border-bottom:1px solid var(--line)}
-  .shot-bar i{width:9px;height:9px;border-radius:50%;background:#3a3a44;flex:0 0 auto}
-  .shot-bar i:nth-child(1){background:#ff5f57}
-  .shot-bar i:nth-child(2){background:#febc2e}
-  .shot-bar i:nth-child(3){background:#28c840}
-  .shot-bar span{margin-left:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-  .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
-  @media(max-width:880px){.duo{grid-template-columns:1fr}}
-  .duo figcaption{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
-    color:var(--ink-3);text-transform:uppercase}
-
-  /* cross apps */
-  .xapps{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  @media(max-width:720px){.xapps{grid-template-columns:1fr}}
-  .xapp{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--xc);
-    border-radius:8px;padding:22px 24px;transition:.2s;display:block}
-  .xapp:hover{transform:translateY(-3px);border-color:var(--xc)}
-  .xapp .tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--xc)}
-  .xapp h3{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:26px;margin:8px 0 4px}
-  .xapp p{font-size:13.5px;color:var(--ink-2)}
-  .xapp .go{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--xc)}
-
-  .final{padding:90px 0;text-align:center}
-  .final h2{font-family:var(--display);font-weight:800;text-transform:uppercase;
-    font-size:clamp(36px,5.4vw,62px);line-height:.95}
-  .final h2 .a{color:var(--ac)}
-  .final p{color:var(--ink-2);max-width:30em;margin:18px auto 0;font-size:17px}
-  .final .cta-row{justify-content:center}
-
-  footer{border-top:1px solid var(--line);padding:34px 0;margin-top:10px}
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot .mono{font-size:11.5px;color:var(--ink-3);letter-spacing:.1em}
-  .foot a.mono:hover{color:var(--ink)}
-  .foot .apps-mini{display:flex;gap:18px;font-family:var(--mono);font-size:11px;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-  .foot .apps-mini a:hover{color:var(--ink)}
-
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css?v=20261022">
+<script>
+  // Detecta el sistema del visitante: data-os es el real y data-pick, la descarga del botón grande.
+  (function(pick){
+    var ua = navigator.userAgent,
+        p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '',
+        os = 'win';
+    if (/Android/i.test(ua)) os = 'android';
+    else if (/iPhone|iPad|iPod/i.test(ua) || (/Mac/.test(p) && navigator.maxTouchPoints > 1)) os = 'ios';
+    else if (/Mac/i.test(p)) os = 'mac';
+    else if (/Linux|X11/i.test(p)) os = 'linux';
+    var h = document.documentElement;
+    h.setAttribute('data-os', os);
+    h.setAttribute('data-pick', pick[os] || os);
+  })({android:'win', ios:'win'});
+</script>
   <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
 <body>
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>Manager</small></a>
-    <nav class="links" id="nav-links">
-      <a href="#funciones">Fonctions</a>
-      <a href="#pantallas">À l'écran</a>
-      <a href="inicio-rapido-fr.html">Démarrage rapide</a>
-      <a href="manual-uso.fr.html">Manuel</a>
-      <a href="manual-estadisticas.fr.html">Statistiques</a>
+    <a class="logo" href="pitwall-landing-fr.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-fr.html">Accueil</a>
+      <a href="pitwall-manager-fr.html" aria-current="page">Manager</a>
       <a href="pitwall-lap-fr.html">Lap</a>
       <a href="pitwall-control-fr.html">Control</a>
-      <div class="langs"><a class="lg" href="pitwall-manager.html">ES</a><a class="lg" href="pitwall-manager-en.html">EN</a><b>FR</b><a class="lg" href="pitwall-manager-it.html">IT</a></div>
+      <a href="carreras-fr.html">Courses</a>
+      <a href="#ayuda">Aide</a>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="langs" aria-label="Langue"><a href="pitwall-manager.html" lang="es">ES</a><a href="pitwall-manager-ca.html" lang="ca">CA</a><a href="pitwall-manager-en.html" lang="en">EN</a><b>FR</b><a href="pitwall-manager-it.html" lang="it">IT</a></div>
   </div>
 </header>
-<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
+<main>
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="crumb"><a href="pitwall-landing-fr.html">← Écosystème PitWall</a> · Bureau</div>
-      <h1>Le moteur de<br>la <span class="a">course</span>.</h1>
-      <p class="lede">PitWall Manager est le cerveau du système : il dialogue avec le chronométreur — <b>DS-300 par port série</b> ou <b>BART en Bluetooth LE</b> —, compte chaque passage, calcule temps et statistiques, et fait office de <b>serveur web</b> : Lap, Control et n'importe quel appareil du pilote ou de l'équipe vivent la course en direct.</p>
-      <div class="cta-row" id="descargar">
-        <div class="dl-menu">
-          <button class="btn btn-primary dl-toggle" type="button">Télécharger <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="dl-panel">
-            <div class="dl-group">
-              <div class="dl-os">Windows</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall%201.64.1%20Installer.exe" data-umami-event="download-manager-windows-installer" download><span>Installateur</span><small>v1.64.1 · .exe</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall%201.64.1%20Portable.exe" data-umami-event="download-manager-windows-portable" download><span>Portable</span><small>v1.64.1 · .exe</small></a>
-            </div>
-            <div class="dl-group">
-              <div class="dl-os">macOS</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.64.1-arm64.dmg?v=firmado" data-umami-event="download-manager-macos-arm64" download><span>Apple Silicon</span><small>v1.64.1 · .dmg</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.64.1.dmg?v=firmado" data-umami-event="download-manager-macos-intel" download><span>Intel</span><small>v1.64.1 · .dmg</small></a>
-            </div>
-            <div class="dl-group">
-              <div class="dl-os">Linux</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.64.1.AppImage" data-umami-event="download-manager-linux-appimage" download><span>AppImage</span><small>v1.64.1 · .AppImage</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/pitwall-manager_1.64.1_amd64.deb" data-umami-event="download-manager-linux-deb" download><span>Debian / Ubuntu</span><small>v1.64.1 · .deb</small></a>
-            </div>
-          </div>
+      <div class="for">Pour l’ordinateur de la piste</div>
+      <h1>PitWall Manager</h1>
+      <p class="lede">Manager s’installe sur l’ordinateur à côté de ta piste. Il se connecte à ton système de chronométrage, compte les tours de chaque voiture et affiche la course en grand pour que toute la salle la voie.</p>
+
+      <div class="dl" id="descargar">
+        <p class="tip only-mobile"><b>Manager s’installe sur un ordinateur, pas sur un téléphone.</b> Ouvre cette page depuis l’ordinateur de la piste pour le télécharger.<br>Tu es pilote ? Ce qu’il te faut, c’est <a href="pitwall-lap-fr.html">PitWall Lap</a>, l’appli pour téléphone.</p>
+
+        <div class="dl-pick win">
+          <a class="btn" href="/software/pitwall-manager/PitWall%201.64.1%20Installer.exe" data-umami-event="download-manager-windows-installer" download>Télécharger pour Windows</a>
+          <p class="note">Version 1.64.1. Une fois le téléchargement terminé, ouvre-le et suis les étapes.<br>
+            Tu préfères ne pas l’installer ? <a href="/software/pitwall-manager/PitWall%201.64.1%20Portable.exe" data-umami-event="download-manager-windows-portable" download>Version sans installation (portable)</a>, qui s’ouvre directement, par exemple depuis une clé USB.</p>
         </div>
-        <a class="btn btn-ghost" href="#funciones">Voir les fonctions</a>
+        <div class="dl-pick mac">
+          <div class="btn-row">
+            <a class="btn" href="/software/pitwall-manager/PitWall-1.64.1-arm64.dmg?v=firmado" data-umami-event="download-manager-macos-arm64" download>Mac avec puce Apple</a>
+            <a class="btn alt" href="/software/pitwall-manager/PitWall-1.64.1.dmg?v=firmado" data-umami-event="download-manager-macos-intel" download>Mac avec Intel</a>
+          </div>
+          <p class="tip"><b>Lequel est le mien ?</b> Clique sur la pomme en haut à gauche et choisis « À propos de ce Mac ». S’il est écrit <b>Puce Apple M1, M2, M3…</b>, télécharge le premier. S’il est écrit <b>Intel</b>, le second.</p>
+          <p class="note">Version 1.64.1.</p>
+        </div>
+        <div class="dl-pick linux">
+          <a class="btn" href="/software/pitwall-manager/PitWall-1.64.1.AppImage" data-umami-event="download-manager-linux-appimage" download>Télécharger pour Linux</a>
+          <p class="note">Version 1.64.1 · AppImage, fonctionne sur n’importe quelle distribution. Tu es sous Debian ou Ubuntu ? <a href="/software/pitwall-manager/pitwall-manager_1.64.1_amd64.deb" data-umami-event="download-manager-linux-deb" download>Paquet .deb</a>.</p>
+        </div>
+
+        <div class="others">
+          <span class="others-label">Un autre ordinateur ?</span>
+          <details class="os os-win">
+            <summary class="btn alt">Windows</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-manager/PitWall%201.64.1%20Installer.exe" data-umami-event="download-manager-windows-installer" download><span>Installateur <em>Recommandé</em></span><small>v1.64.1 · .exe</small></a>
+              <a href="/software/pitwall-manager/PitWall%201.64.1%20Portable.exe" data-umami-event="download-manager-windows-portable" download><span>Sans installation (portable) <em>S’ouvre directement, par exemple depuis une clé USB</em></span><small>v1.64.1 · .exe</small></a>
+            </div>
+          </details>
+          <details class="os os-mac">
+            <summary class="btn alt">Mac</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-manager/PitWall-1.64.1-arm64.dmg?v=firmado" data-umami-event="download-manager-macos-arm64" download><span>Mac avec puce Apple <em>M1, M2, M3… (depuis 2020)</em></span><small>v1.64.1 · .dmg</small></a>
+              <a href="/software/pitwall-manager/PitWall-1.64.1.dmg?v=firmado" data-umami-event="download-manager-macos-intel" download><span>Mac avec Intel <em>Modèles plus anciens</em></span><small>v1.64.1 · .dmg</small></a>
+              <p><b>Lequel est le mien ?</b> Clique sur la pomme en haut à gauche et choisis « À propos de ce Mac ». S’il est écrit <b>Puce Apple</b>, télécharge le premier. S’il est écrit <b>Intel</b>, le second.</p>
+            </div>
+          </details>
+          <details class="os os-linux">
+            <summary class="btn alt">Linux</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-manager/PitWall-1.64.1.AppImage" data-umami-event="download-manager-linux-appimage" download><span>AppImage <em>N’importe quelle distribution</em></span><small>v1.64.1 · .AppImage</small></a>
+              <a href="/software/pitwall-manager/pitwall-manager_1.64.1_amd64.deb" data-umami-event="download-manager-linux-deb" download><span>Debian / Ubuntu</span><small>v1.64.1 · .deb</small></a>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
 
-    <figure class="shot" aria-label="Écran de course en direct de PitWall Manager (démonstration)">
-      <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Manager · Course en direct</span></div>
-      <img src="manual/img/20-live-timing.png" alt="Écran de course en direct de PitWall Manager : chronos, cartes de voie et meilleurs tours" loading="lazy" style="width:100%;display:block">
+    <figure class="shot">
+      <img src="img/manager-directo.jpg" alt="Écran de course en direct de PitWall Manager : chronos, cartes de voie et meilleurs tours" width="1200" height="750">
     </figure>
   </div>
 </section>
 
-<div class="wrap"><div class="rule"></div></div>
-
-<section id="funciones">
+<section class="alt-bg" id="ayuda">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Fonctions</div>
-      <h2>Tout le contrôle, dans une salle.</h2>
-      <p>Manager tourne sur ton ordinateur, au bord de la piste. Sans internet, sans cloud : ton hardware, ton réseau WiFi et la course.</p>
+    <h2 class="sec">Comment l’utiliser</h2>
+    <p class="sub">Tout est expliqué pas à pas, avec des images. Si c’est ta première fois, commence par les vidéos.</p>
+    <div class="guides">
+      <a class="guide first" href="inicio-rapido-fr.html">
+        <span class="badge">Commence ici</span>
+        <h3>Apprends en vidéos</h3>
+        <p>Des vidéos de moins d’une minute : enregistrer ta piste, connecter le chronométrage, créer la course et donner le départ.</p>
+        <span class="go">Voir les vidéos →</span>
+      </a>
+      <a class="guide" href="manual-uso.fr.html">
+        <h3>Manuel complet</h3>
+        <p>Tout ce que fait Manager : courses, séries, pole, entraînements, corrections et résultats.</p>
+        <span class="go">Ouvrir le manuel →</span>
+      </a>
+      <a class="guide" href="manual-estadisticas.fr.html">
+        <h3>Comprendre les résultats</h3>
+        <p>Ce que veut dire chaque graphique et chaque chiffre affiché à la fin de la course.</p>
+        <span class="go">Ouvrir le guide →</span>
+      </a>
     </div>
-    <div class="why">
-      <div>
-        <div class="n">01</div>
-        <h4>Un direct lisible de loin</h4>
-        <p>Lignes horizontales (sur deux colonnes avec beaucoup d'équipes) ou cartes avec le dernier tour en grand, le pilote au volant et le classement estimé à côté.</p>
-      </div>
-      <div>
-        <div class="n">02</div>
-        <h4>Classement projeté</h4>
-        <p>Tours projetés en fin de course, écart avec celui de devant et rythme nécessaire pour le rattraper. Dans une fenêtre à part, prête à projeter.</p>
-      </div>
-      <div>
-        <div class="n">03</div>
-        <h4>Endurance</h4>
-        <p>Pauses, relais et rotation des voies pour les courses longues type 24 heures, avec la séquence de rotation toujours sous les yeux.</p>
-      </div>
-      <div>
-        <div class="n">04</div>
-        <h4>Correction de tours</h4>
-        <p>Ajoute ou retire des passages sans arrêter la course. Les résultats finaux s'exportent prêts à partager ou à compter les points.</p>
-      </div>
-    </div>
+    <p class="contact">Encore un doute ? Écris-nous à <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">info.pitwall@gmail.com</a> et on te donne un coup de main.</p>
   </div>
 </section>
-
-<section id="pantallas" style="padding-top:20px">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">À l'écran</div>
-      <h2>Pensé pour être regardé de loin.</h2>
-      <p>De grands chiffres, l'or pour ce qui compte maintenant et le vert pour celui qui est en piste. Le classement général vit dans sa propre fenêtre, prête pour le projecteur.</p>
-    </div>
-    <div class="duo">
-      <figure>
-        <div class="shot" aria-label="Classement général (démonstration)">
-          <div class="shot-bar"><i></i><i></i><i></i><span>Classement général</span></div>
-          <img src="manual/img/21-livestats-manga.png" alt="Classement de la manche : tours, meilleur, moyenne, écart et sorties par participant" loading="lazy" style="width:100%;display:block">
-        </div>
-        <figcaption>Classement projeté · fenêtre flottante</figcaption>
-      </figure>
-      <figure>
-        <div class="shot" aria-label="Structure de la course (démonstration)">
-          <div class="shot-bar"><i></i><i></i><i></i><span>Structure de la course</span></div>
-          <img src="manual/img/06-race-page.png" alt="Page de la course : séries et manches avec la structure et les boutons de contrôle" loading="lazy" style="width:100%;display:block">
-        </div>
-        <figcaption>Pole → séries → résultats · rotation avec pause</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><div class="rule"></div></div>
 
 <section>
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">L'écosystème</div>
-      <h2>Manager ne court jamais seul.</h2>
-    </div>
-    <div class="xapps">
-      <a class="xapp" style="--xc:var(--cyan)" href="pitwall-lap-fr.html">
-        <div class="tag">Mobile · Le copilote</div>
-        <h3>Lap</h3>
-        <p>Annonces vocales pendant que tu roules, course consultable à l'arrivée et entraînements comparés.</p>
-        <div class="go">Découvrir Lap →</div>
-      </a>
-      <a class="xapp" style="--xc:var(--amber)" href="pitwall-control-fr.html">
-        <div class="tag">Gestion · La saison</div>
-        <h3>Control</h3>
-        <p>Les résultats de Manager alimentent le championnat : classements, calendrier et trésorerie.</p>
-        <div class="go">Découvrir Control →</div>
-      </a>
+    <h2 class="sec">Ce qu’il fait</h2>
+    <div class="feats">
+      <div class="feat">
+        <h3>Compte les tours tout seul</h3>
+        <p>Note chaque tour et chaque temps. Si un tour est raté, tu l’ajoutes ou tu le retires sans arrêter la course.</p>
+      </div>
+      <div class="feat">
+        <h3>Lisible de loin</h3>
+        <p>De grands chiffres et des couleurs nettes, faits pour être projetés au mur ou affichés sur une télé.</p>
+      </div>
+      <div class="feat">
+        <h3>Courses longues</h3>
+        <p>Relais, pauses et changements de voie pour les courses d’endurance, comme des 24 heures.</p>
+      </div>
+      <div class="feat">
+        <h3>Les pilotes la suivent sur leur téléphone</h3>
+        <p>Avec <a href="pitwall-lap-fr.html">PitWall Lap</a>, chaque pilote entend ses temps à voix haute. Les résultats passent à <a href="pitwall-control-fr.html">PitWall Control</a> pour compter les points du championnat.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="final">
+<section style="padding-top:20px">
   <div class="wrap">
-    <h2>Ta salle mérite<br>son <span class="a">mur des stands</span>.</h2>
-    <p>Branche ton DS-300 ou ton BART, ouvre Manager et laisse le chronométrage se débrouiller tout seul.</p>
-    <div class="cta-row">
-      <div class="dl-menu">
-          <button class="btn btn-primary dl-toggle" type="button">Télécharger <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="dl-panel">
-            <div class="dl-group">
-              <div class="dl-os">Windows</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall%201.64.1%20Installer.exe" data-umami-event="download-manager-windows-installer" download><span>Installateur</span><small>v1.64.1 · .exe</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall%201.64.1%20Portable.exe" data-umami-event="download-manager-windows-portable" download><span>Portable</span><small>v1.64.1 · .exe</small></a>
-            </div>
-            <div class="dl-group">
-              <div class="dl-os">macOS</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.64.1-arm64.dmg?v=firmado" data-umami-event="download-manager-macos-arm64" download><span>Apple Silicon</span><small>v1.64.1 · .dmg</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.64.1.dmg?v=firmado" data-umami-event="download-manager-macos-intel" download><span>Intel</span><small>v1.64.1 · .dmg</small></a>
-            </div>
-            <div class="dl-group">
-              <div class="dl-os">Linux</div>
-              <a class="dl-item" href="/software/pitwall-manager/PitWall-1.64.1.AppImage" data-umami-event="download-manager-linux-appimage" download><span>AppImage</span><small>v1.64.1 · .AppImage</small></a>
-              <a class="dl-item" href="/software/pitwall-manager/pitwall-manager_1.64.1_amd64.deb" data-umami-event="download-manager-linux-deb" download><span>Debian / Ubuntu</span><small>v1.64.1 · .deb</small></a>
-            </div>
-          </div>
-        </div>
-      <a class="btn btn-ghost" href="pitwall-landing-fr.html">← Retour à l'écosystème</a>
-    </div>
+    <h2 class="sec">Ce qu’il te faut</h2>
+    <ul class="needs">
+      <li><span class="n">1</span><div><b>Un ordinateur à côté de la piste.</b> <span>Sous Windows, Mac ou Linux.</span></div></li>
+      <li><span class="n">2</span><div><b>Ton système de chronométrage.</b> <span>Un DS-300, branché avec son câble ; un BART, par Bluetooth ; ou une interface TicTac, par USB.</span></div></li>
+      <li><span class="n">3</span><div><b>Du WiFi au club</b> <span>(seulement si les pilotes utilisent Lap sur leur téléphone). Pas besoin d’internet.</span></div></li>
+    </ul>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <div class="apps-mini"><a href="pitwall-manager-fr.html">Manager</a><a href="pitwall-lap-fr.html">Lap</a><a href="pitwall-control-fr.html">Control</a></div>
-    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
-    <div class="mono">© 2026 · Chronométrage et gestion de slot racing</div>
+    <a class="logo" href="pitwall-landing-fr.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Pied de page"><a href="pitwall-manager-fr.html">Manager</a><a href="pitwall-lap-fr.html">Lap</a><a href="pitwall-control-fr.html">Control</a><a href="carreras-fr.html">Courses</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Chronométrage et gestion de slot racing</div>
   </div>
 </footer>
 
 <script>
-(function(){
-  document.querySelectorAll('.dl-toggle').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.stopPropagation();
-      var menu = btn.closest('.dl-menu');
-      var wasOpen = menu.classList.contains('open');
-      document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
-      if(!wasOpen) menu.classList.add('open');
+  // Al abrir las descargas de un sistema, cierra las del otro.
+  document.querySelectorAll('details.os').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (d.open) document.querySelectorAll('details.os').forEach(function(o){ if (o !== d) o.open = false; });
     });
   });
-  document.addEventListener('click', function(){
-    document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-      document.querySelectorAll('.dl-menu.open').forEach(function(m){ m.classList.remove('open'); });
-    }
-  });
-})();
 </script>
 </body>
 </html>

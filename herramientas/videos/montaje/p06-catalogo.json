@@ -1,0 +1,162 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 12-20-22.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/06 - Pilotos, equipos y coches.mp4",
+  "crops": {
+    "win": [
+      979,
+      434,
+      2861,
+      1726,
+      "fit"
+    ],
+    "piloto": [
+      979,
+      434,
+      2861,
+      1726,
+      "fit"
+    ],
+    "lista": [
+      979,
+      434,
+      2861,
+      1726,
+      "fit"
+    ],
+    "equipo": [
+      979,
+      434,
+      2861,
+      1726,
+      "fit"
+    ],
+    "coche": [
+      979,
+      434,
+      2861,
+      1726,
+      "fit"
+    ]
+  },
+  "segments": [
+    {
+      "card": {
+        "kicker": "PitWall en 1 minuto · 06",
+        "title": "Pilotos, equipos y coches",
+        "sub": "Tu catálogo: se da de alta una vez y sirve para todas las carreras"
+      },
+      "dur": 3
+    },
+    {
+      "from": 48.0,
+      "to": 51.0,
+      "crop": "win",
+      "speed": 1,
+      "caption": {
+        "step": 1,
+        "total": 4,
+        "text": "Inicio → Catálogo → Pilotos",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 51.0,
+      "to": 61.0,
+      "crop": "piloto",
+      "speed": 1.5,
+      "caption": {
+        "step": 2,
+        "total": 4,
+        "text": "Añadir piloto: nombre y categoría",
+        "sub": "Las categorías se crean en Catálogo → Categorías"
+      }
+    },
+    {
+      "from": 61.0,
+      "to": 64.0,
+      "crop": "lista",
+      "speed": 1,
+      "caption": {
+        "step": 2,
+        "total": 4,
+        "text": "¿Muchos pilotos? «Importar CSV»",
+        "sub": "Descarga la «Plantilla CSV», rellénala y súbela"
+      }
+    },
+    {
+      "from": 64.0,
+      "to": 68.0,
+      "crop": "win",
+      "speed": 1,
+      "caption": {
+        "step": 3,
+        "total": 4,
+        "text": "Catálogo → Equipos",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 68.0,
+      "to": 85.0,
+      "crop": "equipo",
+      "speed": 2,
+      "caption": {
+        "step": 3,
+        "total": 4,
+        "text": "Nuevo equipo",
+        "sub": "Nombre, categoría, coche, país y sus pilotos"
+      }
+    },
+    {
+      "from": 85.0,
+      "to": 87.0,
+      "crop": "lista",
+      "speed": 1,
+      "caption": {
+        "step": 3,
+        "total": 4,
+        "text": "Equipo creado"
+      }
+    },
+    {
+      "from": 87.0,
+      "to": 90.0,
+      "crop": "win",
+      "speed": 1,
+      "caption": {
+        "step": 4,
+        "total": 4,
+        "text": "Catálogo → Coches",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 90.0,
+      "to": 106.0,
+      "crop": "coche",
+      "speed": 2,
+      "caption": {
+        "step": 4,
+        "total": 4,
+        "text": "Nuevo coche",
+        "sub": "Marca, modelo y categoría"
+      }
+    },
+    {
+      "from": 106.0,
+      "to": 108.5,
+      "crop": "lista",
+      "speed": 1,
+      "caption": {
+        "text": "Listo: tu catálogo para todas las carreras"
+      }
+    },
+    {
+      "card": {
+        "kicker": "Siguiente",
+        "title": "Crea una carrera sprint"
+      },
+      "dur": 3
+    }
+  ]
+}

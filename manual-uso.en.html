@@ -9,43 +9,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
 <title>PitWall · User manual</title>
 <meta name="description" content="PitWall user manual: setting up the race, running it live and producing results.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="manual/manual.css">
+<link rel="stylesheet" href="manual/manual.css?v=20261023">
 <style>body{--ac:var(--red)}</style>
   <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
-<body>
+<body class="simple">
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <nav class="links" id="nav-links">
-      <a href="pitwall-landing-en.html">Landing</a>
-      <a href="manual-uso.en.html" class="here">User manual</a>
-      <a href="manual-estadisticas.en.html">Statistics</a>
-      <div class="lang" aria-label="Language">
-        <a href="manual-uso.html">ES</a>
-        <a href="manual-uso.en.html" class="on" aria-current="page">EN</a>
-        <a href="manual-uso.it.html">IT</a>
-        <a href="manual-uso.fr.html">FR</a>
-      </div>
-      <a href="manual-estadisticas.en.html" class="nav-cta">Interpret the data →</a>
+    <a class="logo" href="index.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Main">
+      <a href="pitwall-landing-en.html">Home</a>
+      <a href="pitwall-manager-en.html" aria-current="page">Manager</a>
+      <a href="pitwall-lap-en.html">Lap</a>
+      <a href="pitwall-control-en.html">Control</a>
+      <a href="carreras-en.html">Races</a>
+      <a href="pitwall-manager-en.html#ayuda">Help</a>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="langs" aria-label="Language"><a href="manual-uso.html" lang="es">ES</a><a href="manual-uso.ca.html" lang="ca">CA</a><b>EN</b><a href="manual-uso.fr.html" lang="fr">FR</a><a href="manual-uso.it.html" lang="it">IT</a></div>
   </div>
 </header>
-<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <a id="top"></a>
 <section class="doc-hero">
   <div class="wrap">
-    <div class="kicker">User manual · Race direction</div>
-    <h1>Set it up, run it and<br>produce <span class="ac">results</span>.</h1>
-    <p class="lede">A guide for whoever <b>operates</b> PitWall: creating the race, setting up batches and participants, running each heat live from the timing hardware and exporting the results. From the first lap to the final classification.</p>
+    <div class="kicker">PitWall Manager · Manual</div>
+    <h1>Manager <span class="ac">manual</span></h1>
+    <p class="lede">Each section starts with a short summary. If you want to know everything, click “See all the details”. Prefer to watch? <a href="inicio-rapido-en.html">Learn Manager with short videos</a>.</p>
     <div class="xlink">
       <a class="cur" href="manual-uso.en.html">▮ User manual</a>
       <a href="manual-estadisticas.en.html">Statistics manual ↔</a>
@@ -88,6 +85,9 @@
     <section id="introduccion">
       <div class="num">// 01</div>
       <h2>Introduction</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Manager times your slot races. It gets the laps from your timing system: a DS (such as the DS-300), a BART or a TicTac.</li><li>The home screen has a search box at the top, the race in progress below it (if there is one) and then a button for each section.</li><li>Too many buttons? Click <b>Customise</b> and choose basic mode: you’ll only see what a club needs.</li><li>At the bottom right, a green dot tells you the timing system is connected.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/03-inicio.mp4" data-id="03-inicio" aria-label="Watch the video: The home screen (0:26)"><img src="videos/manager/03-inicio.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:26</span></button><div class="cap">The home screen <span>· video in Spanish</span></div></div><div class="mvid"><button class="player" type="button" data-src="videos/manager/04-modo-basico.mp4" data-id="04-modo-basico" aria-label="Watch the video: Basic or advanced mode (0:28)"><img src="videos/manager/04-modo-basico.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:28</span></button><div class="cap">Basic or advanced mode <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Home screen</span></div>
         <img src="manual/img/01-home.png" loading="lazy" alt="PitWall home screen">
@@ -128,12 +128,15 @@
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Race list</span></div>
         <img src="manual/img/02-races-list.png" loading="lazy" alt="Race list with statuses and the new race button">
         <figcaption>Race list: status (pending / active / finished) and "+ New race".</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="escenarios">
       <div class="num">// 02</div>
       <h2>Scenarios, categories and catalogs (your library)</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Save your track once as a <b>scenario</b>: how many circuits and lanes it has, the order drivers change lanes in, and the minimum lap time.</li><li>Add your drivers, teams and cars too.</li><li>When you create a race you just pick the scenario and the drivers: everything else is already set.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/01-pista.mp4" data-id="01-pista" aria-label="Watch the video: Save your track (0:58)"><img src="videos/manager/01-pista.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:58</span></button><div class="cap">Save your track <span>· video in Spanish</span></div></div><div class="mvid"><button class="player" type="button" data-src="videos/manager/06-pilotos-equipos-coches.mp4" data-id="06-pilotos-equipos-coches" aria-label="Watch the video: Drivers, teams and cars (0:47)"><img src="videos/manager/06-pilotos-equipos-coches.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:47</span></button><div class="cap">Drivers, teams and cars <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>To avoid reconfiguring the same thing for every race, PitWall keeps <b>reusable templates</b> that you then pick when creating a race.</p>
 
       <h3>Scenarios (saved tracks)</h3>
@@ -200,12 +203,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Sync catalog with pending races.</b> If you change a team's <b>drivers</b> or <b>country</b> in the catalog <i>after</i> creating a race, those changes don't reach the race that's already set up on their own. From <b>System → Sync catalog</b> (“Sistema → Sincronizar catálogo”, on the home screen) —or the <b>“Actualizar desde catálogo”</b> (Update from catalog) shortcut in the <b>⋯</b> menu of the race sheet, which only shows if the race is a candidate— you push them into every race that <b>hasn't started any heat yet</b>, without going through "Edit batch". PitWall matches teams <b>by name</b>, makes each race's roster <b>identical to the catalog</b> (adds and removes drivers until they match — an "exact mirror") and updates the country; before applying it shows you a <b>summary of the changes</b>, with a checkbox per race. It doesn't touch the grid or add/remove teams, and only acts on <b>team-format</b> races. <b>Category</b> isn't synced: it keeps being read live from the catalog, except the one noted in the race itself (see <a class="inl" href="#tandas">Batches, participants and rotation</a>).</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="crear">
       <div class="num">// 03</div>
       <h2>Creating a race</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>On the home screen, click <b>Sprint race</b> (or <b>Endurance race</b> for long team races).</li><li>Type the name, choose your scenario and decide whether there will be a pole.</li><li>Follow the wizard to the end. The race is ready.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/07-carrera-sprint.mp4" data-id="07-carrera-sprint" aria-label="Watch the video: Create a sprint race (0:36)"><img src="videos/manager/07-carrera-sprint.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:36</span></button><div class="cap">Create a sprint race <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Wizard · Step 1</span></div>
         <img src="manual/img/03-wizard-step1.png" loading="lazy" alt="Wizard to create a new race, step 1">
@@ -239,12 +245,14 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>Do you manage the championship with <b>PitWall Control</b>? No need to type the teams and rotation again: you can <b>import the whole event</b> from Control (see <a class="inl" href="#importar">Importing a batch from PitWall Control</a>).</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="importar">
       <div class="num">// 04</div>
       <h2>Importing a batch from PitWall Control</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>If you run the championship with PitWall Control, you can set the event up there and send it to Manager without typing anything again.</li><li>In Manager, go to <b>Races → Import batch</b>. You’ll see a number: the PIN.</li><li>In Control, click <b>Send to PitWall</b> and type that PIN. Manager creates the race by itself.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Import batch · Pairing PIN</span></div>
         <img src="manual/img/op-import-tanda.png" loading="lazy" alt="PitWall import batch screen with the pairing PIN">
@@ -269,12 +277,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Ecosystem connection.</b> The whole network bridge with PitWall Control —sending batches and bringing back results— can be <b>allowed or blocked</b> all at once from <b>System → Ecosystem connection</b>, on the home screen. It's <b>enabled</b> by default; turn it off and any PitWall Control on the network gets rejected (even with the right PIN) until you switch it back on. You can also check the pairing PIN there.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="tandas">
       <div class="num">// 05</div>
       <h2>Batches, participants and rotation</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>A <b>batch</b> is a group of drivers who race together and change lanes every heat.</li><li>Add the drivers or teams to the batch and Manager prepares all the heats by itself.</li><li>If there are more drivers than lanes, Manager adds rests.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/08-tandas-rotacion.mp4" data-id="08-tandas-rotacion" aria-label="Watch the video: Batches and rotation (0:41)"><img src="videos/manager/08-tandas-rotacion.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:41</span></button><div class="cap">Batches and rotation <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Batch · Participants and heats</span></div>
         <img src="manual/img/34-tanda.png" loading="lazy" alt="Batch with its participants and the heats generated by rotation">
@@ -309,12 +320,14 @@
       <ul>
         <li><i>2 passes</i> → the whole sequence repeats: <span class="mono">1,3,5,6,4,2, 1,3,5,6,4,2</span>.</li>
         <li><i>Repeat lane 2</i> → each lane, two consecutive heats: <span class="mono">1,1,3,3,5,5,6,6,4,4,2,2</span>.</li>
-      </ul>
+      </ul></div></details>
     </section>
 
     <section id="editar">
       <div class="num">// 06</div>
       <h2>Editing race, batches and heats</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>After creating a race you can change its name and, as long as no lap has been run, its scenario.</li><li>You can also adjust the batches and the heats that haven’t been run yet.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>After creating a race you can tweak it:</p>
       <ul>
         <li><b>Edit race</b> — change the <b>name</b> and, <b>as long as there are no laps recorded</b>, the <b>scenario</b>. You can <b>assign</b> a scenario to a race that didn't have one, <b>change</b> it for another or <b>remove</b> it. When you <b>assign</b> a scenario, the race inherits its <b>lanes</b>, its rotation <b>sequence</b> and its <b>minimum time</b> (and the minimum laps per <b>category</b>, if it has them), and PitWall <b>regenerates the pending batches</b> with that configuration; when you <b>remove</b> it, the race switches to <b>manual mode</b> keeping the configuration it had. If there are already laps, the scenario is <b>locked</b> (so as not to break the data).</li>
@@ -346,12 +359,15 @@
       </div>
       <ul>
         <li><b>Edit heat</b> — change <b>who runs in each lane</b> in a specific heat, without regenerating the whole batch (useful if a team doesn't show up or there's a last-minute change).</li>
-      </ul>
+      </ul></div></details>
     </section>
 
     <section id="pole">
       <div class="num">// 07</div>
       <h2>Pole (pre-race qualifying)</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>The <b>pole</b> is a qualifying lap before the race to decide the starting order. It’s optional.</li><li>Turn it on when you create the race and launch it from the race page → <b>Set up Pole Position</b>.</li><li>Everyone runs on the same lane, one after another, so the times can be compared.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/10-pole.mp4" data-id="10-pole" aria-label="Watch the video: Pole position (0:59)"><img src="videos/manager/10-pole.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:59</span></button><div class="cap">Pole position <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Set up Pole Position</span></div>
         <img src="manual/img/44-pole-setup.png" loading="lazy" alt="Pole Position setup screen with participant order and lane">
@@ -401,12 +417,14 @@
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
         <div><b>Guests can now follow the pole live.</b> The pole's timing board —previously only visible to whoever was running it— is now reachable with no IP restriction from <b>Live stats</b>, and a new card appears on the guest home while a pole is under way. It's <b>read-only</b>: the controls (start/stop/next driver) are hidden, and you see in real time who's on track, the starting order and the provisional classification.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="lap">
       <div class="num">// 08</div>
       <h2>PitWall Lap — for the teams</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Drivers and teams can follow the race on their phones, connected to the club WiFi.</li><li>With the <a href="pitwall-lap-en.html">PitWall Lap</a> app they hear their times out loud. Without installing anything, they can also watch it in the browser with a PIN.</li><li>Each team’s PIN is in <b>PitWall Lap · PINs</b>.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PINs per team</span></div>
         <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Table of PINs per team to access PitWall Lap from the phone">
@@ -441,12 +459,15 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>The app doesn't use a PIN: anyone on the <b>same local network</b> who discovers the server can pick any team from the list. For controlled access or from outside the venue, use the web view with PIN — the app always needs the local network, whether or not you publish the <i>Public tracking over the internet</i> tunnel.</div>
       </div>
-      <p><b>Full app manual.</b> Every PitWall Lap screen — menu, Lap, calendar with Excel import, competition practice, results and settings — is explained in the <a class="inl" href="manual-lap.en.html">PitWall Lap manual</a>.</p>
+      <p><b>Full app manual.</b> Every PitWall Lap screen — menu, Lap, calendar with Excel import, competition practice, results and settings — is explained in the <a class="inl" href="manual-lap.en.html">PitWall Lap manual</a>.</p></div></details>
     </section>
 
     <section id="vivo">
       <div class="num">// 09</div>
       <h2>Running the race live</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>On the race page, click <b>▶</b> to arm the heat.</li><li>Give the start (<b>GO</b>) on your timing system: the clock starts and laps begin to count.</li><li>You can pause, resume or stop the heat. When it ends, the next one gets ready by itself.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/11-go-directo.mp4" data-id="11-go-directo" aria-label="Watch the video: The start and the live view (0:52)"><img src="videos/manager/11-go-directo.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:52</span></button><div class="cap">The start and the live view <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Live timing</span></div>
         <img src="manual/img/20-live-timing.png" loading="lazy" alt="Live timing screen of a heat">
@@ -545,23 +566,27 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div><b>"No timing signal"</b> warning: while it's showing, laps are <b>not recorded</b>. Check the connection before giving the GO.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="sucesos">
       <div class="num">// 10</div>
       <h2>Race events</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>The <b>Race events</b> page records everything that happens in each heat: starts, pauses, corrected laps, driver changes…</li><li>Use it to check what happened if there’s a doubt or a complaint.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>The <b>🗒️ Race events</b> page —reachable from the race page and with a button in the live screen's header— shows, heat by heat, everything that happens during the session in an easy-to-read format: <b>GO</b> (including when it's given on several boxes separately, track by track), <b>pause and resume</b> per track, <b>end of heat</b>, <b>cancellation</b>, <b>recovery after a cut</b>, <b>ghost/ignored laps</b> and their <b>reassignment</b> to the right lane, <b>retroactive exits</b>, <b>flag laps</b> (timed with their real time or restored at the average) and <b>driver check-ins</b> (QR, on-the-fly change or manual correction).</p>
       <p>Heats are shown <b>collapsed by default</b> —only the one under way appears open— and expand with a click on their header. A checkbox lets you <b>hide routine driver check-ins</b> before the GO when only the rest of the events matter.</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>While the heat is running, the page keeps <b>adding new events as they happen</b>, without reloading. It's the way to reconstruct, after a race, what happened and when, without relying on memory.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="turnos">
       <div class="num">// 11</div>
       <h2>Driver shift control (championships)</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>In team races you can set rules: the minimum and maximum time each driver must drive.</li><li>Each driver scans their QR code when going on track and Manager adds up their time.</li><li>The <b>Shift control</b> screen warns you if someone breaks the rules.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>In <b>team championship</b> races you can enforce rules for sharing the wheel among a team's drivers. They are defined when creating the race:</p>
       <ul>
         <li><b>Minimum / maximum time per driver</b> — each driver must run at least X and at most Y.</li>
@@ -576,12 +601,14 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>The security warning and how to remove it.</b> The first time a device opens the <b>https://</b> link, the browser warns once (<b>"connection not private → continue"</b>); once you accept, the camera works. If you want that warning gone, <b>install the PitWall CA</b> on the device: Settings has <b>Download CA</b> and the <b>/cert</b> page with a step-by-step guide for <b>iPhone/iPad, Android and Windows</b>. Installing the CA once is enough even if the network IP changes: PitWall only re-issues the server certificate and the device keeps trusting it.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="neumaticos">
       <div class="num">// 12</div>
       <h2>Endurance tyre control</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>In endurance races, Manager can keep count of each team’s sets of tyres.</li><li>Enter how many sets each team has when you create the race.</li><li>During the race, click the team’s box every time you hand them a set.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>In an <b>endurance</b> race you can keep track of the <b>tyre sets</b> each team uses. The allotment —the sets <b>everyone</b> starts with— is set when you create the race (wizard, step 1, <b>"Tyres per team"</b> field). With <b>0</b>, control is off and everything works as before.</p>
       <p>It opens <b>two ways</b>:</p>
       <ul>
@@ -599,12 +626,14 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>Everything syncs instantly across open screens, and the <b>heat:time</b> indicator ticks along with the race.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="verificaciones">
       <div class="num">// 13</div>
       <h2>Technical inspection from PitWall Control</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>If you scrutineer the cars with PitWall Control, the result also reaches Manager.</li><li>The race page shows an <b>Inspections</b> button to look at it. In Manager it’s read-only.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>If your club runs <b>technical inspection</b> of the cars through <b>PitWall Control</b>, those results can also reach PitWall —over the same network bridge as batches, with the same PIN and the same <b>Ecosystem connection</b> switch (see <i>Importing a batch from PitWall Control</i>).</p>
       <p>Heat by heat, Control sends the <b>snapshot</b> of what it has inspected per team: <b>weights</b> (starting, final and minimum car weight), <b>motor</b> (type, rpm, ums), <b>pinion/crown gear</b> (make, teeth, diameter, material), front and rear <b>wheels</b>, <b>braid</b>, <b>suspension</b>, <b>chassis bed</b>, <b>chassis</b>, <b>tyre</b>, whether it was <b>passed</b> or not, and <b>notes</b> —with photos, if any.</p>
       <p><b>How it looks in PitWall.</b> As soon as the first submission arrives, the race page shows a <b>🔍 Inspections</b> button, which opens a screen with every inspection <b>grouped by heat</b>.</p>
@@ -615,12 +644,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Which race it lands on.</b> If Control specifies the race explicitly, PitWall attaches the inspections to that one. Otherwise it looks for an existing race with the <b>exact same name</b>; if there's still no match, it <b>automatically creates</b> a minimal race for the inspections to live in —the same behaviour as importing a batch.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="correcciones">
       <div class="num">// 14</div>
       <h2>Lap by lap and corrections (add / remove laps)</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>If the timing system missed a lap, or counted one too many, this is where you fix it.</li><li>Open lap correction, choose the driver and add or remove the lap.</li><li>You can do it while the heat is running: the change shows up straight away.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/15-corregir-vueltas.mp4" data-id="15-corregir-vueltas" aria-label="Watch the video: Correcting laps (0:52)"><img src="videos/manager/15-corregir-vueltas.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:52</span></button><div class="cap">Correcting laps <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Lap by lap · Corrections</span></div>
         <img src="manual/img/30-correcciones.png" loading="lazy" alt="Lap by lap view with the correction actions per lap">
@@ -648,12 +680,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Automatic ghost laps.</b> A lap below the <b>Pt</b> (minimum time) is marked as a <b>ghost</b> and the lane that produced it <b>never</b> counts it. PitWall no longer reassigns it by guessing: it <b>holds</b> it and only assigns it to the lane that <b>confirms</b> it missed a crossing (when that lane crosses with a lap of ~double its average). If nobody confirms it, it stays here as a <b>ghost</b> for you to review by hand. With <b>multiple circuits</b> (a DS-300 aggregator or several BART Masters), automatic assignment <b>never crosses from one circuit to another</b>: a ghost can only be certified on a lane of its own circuit, never on another (they're physically separate tracks).</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="resultados">
       <div class="num">// 15</div>
       <h2>Results and exports</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>When it’s over, go to <b>Results</b>: you’ll see the standings and every driver’s times.</li><li>With <b>Export</b> you get them in Excel; you can also save them as PDF.</li><li>To understand the charts, see the <a href="manual-estadisticas.en.html">statistics manual</a>.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/17-resultados.mp4" data-id="17-resultados" aria-label="Watch the video: Results and exporting (0:47)"><img src="videos/manager/17-resultados.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:47</span></button><div class="cap">Results and exporting <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Results</span></div>
         <img src="manual/img/10-results-comparativa.png" loading="lazy" alt="Results comparison view per participant and lane">
@@ -681,12 +716,15 @@
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Public results</span></div>
         <img src="manual/img/op-resultados-publicos.png" loading="lazy" alt="Public results page of finished races, read-only">
         <figcaption>Public results: read-only consultation of finished races, to share with drivers and public.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="entrenamiento">
       <div class="num">// 16</div>
       <h2>Training</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>To run laps without setting up a race, click <b>Free practice</b> on the home screen.</li><li>Give the start on the timing system and Manager records each lane’s laps.</li><li>You’ll see the best and the latest laps for each lane.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/20-entreno-libre.mp4" data-id="20-entreno-libre" aria-label="Watch the video: Free practice (0:54)"><img src="videos/manager/20-entreno-libre.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:54</span></button><div class="cap">Free practice <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Training</span></div>
         <img src="manual/img/40-training.png" loading="lazy" alt="PitWall Training mode screen">
@@ -741,12 +779,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Free training</b> does not save results: it's an open session of times per lane.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="ajustes">
       <div class="num">// 17</div>
       <h2>Settings</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>In <b>Settings → Data source</b> you choose your timing system: DS, BART, TicTac, or Simulation to try it without a track.</li><li>Save the changes. At the bottom right, the green dot confirms that data is coming in.</li><li>You can leave the other settings (screens, password, network…) as they are.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/02-cronometro.mp4" data-id="02-cronometro" aria-label="Watch the video: Connect the timer (0:38)"><img src="videos/manager/02-cronometro.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:38</span></button><div class="cap">Connect the timer <span>· video in Spanish</span></div></div></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings</span></div>
         <img src="manual/img/04-settings.png" loading="lazy" alt="PitWall settings screen">
@@ -813,12 +854,14 @@
       <p><b>Backup</b> and <b>Restore backup</b> let you <b>download</b> a full snapshot of your data (<span class="mono">.db</span>) and, if you ever need to recover an install or move PitWall to another PC, <b>upload</b> a backup to restore it: the upload is validated (it must be a real SQLite database) and stays "pending" — nothing is replaced right away, it only applies once you <b>fully close PitWall and reopen it</b>, and your current data is backed up automatically before applying it. You can cancel a pending import at any time before restarting.</p>
 
       <h3>Version history</h3>
-      <p>In the <b>footer of every page</b> you see PitWall's <b>version</b> number. Pressing it opens the <b>Version history</b> (<span class="mono">/changelog</span>), with what was <b>Added</b>, <b>Improved</b> and <b>Fixed</b> in each update. The version <b>goes up with every update</b>, so you always know which PitWall you have and what has changed.</p>
+      <p>In the <b>footer of every page</b> you see PitWall's <b>version</b> number. Pressing it opens the <b>Version history</b> (<span class="mono">/changelog</span>), with what was <b>Added</b>, <b>Improved</b> and <b>Fixed</b> in each update. The version <b>goes up with every update</b>, so you always know which PitWall you have and what has changed.</p></div></details>
     </section>
 
     <section id="publico">
       <div class="num">// 18</div>
       <h2>Public tracking over the internet</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Normally the race can only be seen inside the club, on its WiFi.</li><li>If you want people to follow it from home over the internet, turn it on in <b>Settings → Public tracking over the internet</b>.</li><li><b>Quick</b> mode needs no account: it gives you an address to share.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings · Public tracking over the internet</span></div>
         <img src="manual/img/op-seguimiento-publico.png" loading="lazy" alt="Public tracking over the internet screen with the modes, start buttons and the live URL">
@@ -835,7 +878,7 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div><b>Security.</b> From outside, <b>only the public views are visible</b> (live timing, results and PitWall Lap). The <b>app control</b> (creating, running or editing races) is <b>blocked</b>: no one from outside can touch the race.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="glosario">
@@ -877,10 +920,10 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <div class="apps-mini"><a href="manual-uso.en.html">User manual</a><a href="manual-estadisticas.en.html">Statistics</a></div>
-    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
-    <div class="mono">© 2026 · Slot racing timing and management</div>
+    <a class="logo" href="pitwall-landing-en.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Footer"><a href="pitwall-manager-en.html">Manager</a><a href="pitwall-lap-en.html">Lap</a><a href="pitwall-control-en.html">Control</a><a href="carreras-en.html">Races</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Slot racing timing and management</div>
   </div>
 </footer>
 
@@ -900,6 +943,34 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 })();
+</script>
+<script>
+  // Vídeos: solo se descargan al pulsar «play»; al empezar uno, se paran los demás.
+  document.querySelectorAll('.mvid .player').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.dataset.src;
+      v.poster = b.querySelector('img').src;
+      v.controls = true;
+      v.playsInline = true;
+      v.addEventListener('play', function(){
+        document.querySelectorAll('.mvid video').forEach(function(o){ if (o !== v) o.pause(); });
+      });
+      b.replaceWith(v);
+      v.play();
+      if (window.umami) umami.track('video-manager-' + b.dataset.id);
+    });
+  });
+  // Un enlace a algo que está dentro de «Ver todos los detalles» lo despliega.
+  function openTarget(){
+    var t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var d = t && t.closest && t.closest('details.more');
+    if (d && !d.open){ d.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+  // Al imprimir, todo desplegado.
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details.more').forEach(function(d){ d.open = true; }); });
 </script>
 </body>
 </html>

@@ -1,0 +1,133 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 09-51-44.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/20 - Entreno libre.mp4",
+  "crops": {
+    "full": [
+      0,
+      0,
+      3840,
+      2160
+    ]
+  },
+  "segments": [
+    {
+      "card": {
+        "kicker": "PitWall en 1 minuto · 20",
+        "title": "Entreno libre",
+        "sub": "Rodar sin montar una carrera"
+      },
+      "dur": 3
+    },
+    {
+      "from": 0,
+      "to": 3.0,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 1,
+        "total": 5,
+        "text": "Competición → Entreno libre"
+      }
+    },
+    {
+      "from": 3.0,
+      "to": 5.0,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 2,
+        "total": 5,
+        "text": "Esperando GO…",
+        "sub": "Con un DS, el GO lo da la caja"
+      }
+    },
+    {
+      "from": 5.0,
+      "to": 8.5,
+      "crop": "full",
+      "speed": 1,
+      "audio": true,
+      "caption": {
+        "step": 2,
+        "total": 5,
+        "text": "Semáforo… ¡a rodar!"
+      }
+    },
+    {
+      "from": 8.5,
+      "to": 31.0,
+      "crop": "full",
+      "speed": 2,
+      "caption": {
+        "step": 3,
+        "total": 5,
+        "text": "Cada carril: última vuelta, mejor, media y récord",
+        "sub": "Debajo, sus vueltas y el gráfico de ritmo"
+      }
+    },
+    {
+      "from": 31.0,
+      "to": 37.0,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 4,
+        "total": 5,
+        "text": "Elige la vista: con historial o compacta",
+        "sub": "Compacta, para muchos carriles a la vez"
+      }
+    },
+    {
+      "from": 37.0,
+      "to": 46.0,
+      "crop": "full",
+      "speed": 1.5,
+      "caption": {
+        "step": 4,
+        "total": 5,
+        "text": "Verde: nueva mejor vuelta. Rojo: más lenta",
+        "sub": "En rojo, lo que le falta para su mejor"
+      }
+    },
+    {
+      "from": 46.0,
+      "to": 52.0,
+      "crop": "full",
+      "speed": 1.5,
+      "caption": {
+        "step": 5,
+        "total": 5,
+        "text": "Se acaba el tiempo: espera el siguiente GO"
+      }
+    },
+    {
+      "from": 52.0,
+      "to": 55.5,
+      "crop": "full",
+      "speed": 1,
+      "audio": true,
+      "caption": {
+        "step": 5,
+        "total": 5,
+        "text": "Nuevo GO: las vueltas empiezan de cero…"
+      }
+    },
+    {
+      "from": 55.5,
+      "to": 72.5,
+      "crop": "full",
+      "speed": 2,
+      "caption": {
+        "text": "…pero el récord de cada carril se queda",
+        "sub": "Columna «Récord»"
+      }
+    },
+    {
+      "card": {
+        "kicker": "PitWall en 1 minuto",
+        "title": "Manuales completos en pitwall.es"
+      },
+      "dur": 3
+    }
+  ]
+}

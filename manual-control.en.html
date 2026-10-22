@@ -9,12 +9,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
 <title>PitWall Control · User manual</title>
 <meta name="description" content="PitWall Control user manual: manage slot racing championships from start to finish — drivers, teams, events and heats, scrutineering (free sessions too), treasury, credits, standings and exports.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="manual/manual.css">
+<link rel="stylesheet" href="manual/manual.css?v=20261023">
 <style>
   body{--ac:var(--amber)}
   /* etiqueta CONTROL en el logo, coherente con la página de producto */
@@ -23,38 +25,31 @@
 </style>
   <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
-<body>
+<body class="simple">
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>CONTROL</small></a>
-    <nav class="links" id="nav-links">
-      <a href="pitwall-landing-en.html">Landing</a>
-      <a href="pitwall-control-en.html">Product</a>
-      <a href="manual-control.en.html" class="here">Manual</a>
-      <div class="lang" aria-label="Language">
-        <a href="manual-control.html">ES</a>
-        <a href="manual-control.ca.html">CA</a>
-        <a href="manual-control.en.html" class="on" aria-current="page">EN</a>
-        <a href="manual-control.it.html">IT</a>
-        <a href="manual-control.fr.html">FR</a>
-      </div>
-      <a href="pitwall-control-en.html" class="nav-cta">PitWall Control →</a>
+    <a class="logo" href="index.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Main">
+      <a href="pitwall-landing-en.html">Home</a>
+      <a href="pitwall-manager-en.html">Manager</a>
+      <a href="pitwall-lap-en.html">Lap</a>
+      <a href="pitwall-control-en.html" aria-current="page">Control</a>
+      <a href="carreras-en.html">Races</a>
+      <a href="pitwall-control-en.html#ayuda">Help</a>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="langs" aria-label="Language"><a href="manual-control.html" lang="es">ES</a><a href="manual-control.ca.html" lang="ca">CA</a><b>EN</b><a href="manual-control.fr.html" lang="fr">FR</a><a href="manual-control.it.html" lang="it">IT</a></div>
   </div>
 </header>
-<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <a id="top"></a>
 <section class="doc-hero">
   <div class="wrap">
-    <div class="kicker">User manual · Championship management</div>
-    <h1>Manage the<br>championship from<br>start to <span class="ac">finish</span>.</h1>
-    <p class="lede">A guide for whoever <b>administers</b> PitWall Control: create the championship, maintain the catalogues, register drivers and teams, set up events and heats, <b>scrutineer</b> cars against the rules (even without a championship), <b>collect</b> the fees, run the <b>credits</b>, publish the <b>standings</b> and export everything to PDF and Excel. From the first entry to the season close.</p>
+    <div class="kicker">PitWall Control · Manual</div>
+    <h1>Control <span class="ac">manual</span></h1>
+    <p class="lede">Each section starts with a short summary. If you want to know everything, click “See all the details”.</p>
     <div class="xlink">
-      <a class="cur" href="manual-control.en.html">▮ PitWall Control manual</a>
-      <a href="pitwall-control-en.html">See the product ↔</a>
+      <a href="pitwall-control-en.html">← Back to PitWall Control</a>
     </div>
   </div>
 </section>
@@ -93,6 +88,8 @@
     <section id="introduccion">
       <div class="num">// 01</div>
       <h2>Introduction</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Control runs the championship: drivers, teams, scrutineering, fees and standings. It doesn’t do timing; PitWall Manager does that.</li><li>It works on a computer (Windows, Mac and Linux) and on Android tablets or phones.</li><li>At the top left you choose the championship you’re working on. If you don’t have one yet, click <b>Create championship</b>.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p><b>PitWall Control</b> is the <b>slot racing championship</b> manager: the administrative and season side. It does not time races (that is handled by <b>PitWall</b>, the timing app); Control maintains everything around the competition — drivers, teams, technical catalogues, scrutineering, credits, treasury and standings — and talks to PitWall to send the heats and bring back the results.</p>
       <p class="mono">The app's interface is in Spanish; this manual quotes its labels in Spanish where it helps you find them on screen.</p>
       <ul>
@@ -108,12 +105,14 @@
       <figure class="shot">
         <img src="manual/img/control-01-inicio.png" loading="lazy" alt="PitWall Control home screen with the active championship, the next event, the leader and the quick shortcuts">
         <figcaption>Home: active championship, next event, leader and quick shortcuts. On the left, the navigation and, at the bottom, the general shortcuts.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="campeonato">
       <div class="num">// 02</div>
       <h2>Create the championship</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Everything starts by creating a championship in <b>Championships</b>.</li><li>Give it a name and year, choose the format (individual, pairs or 24h) and tick the cups that race.</li><li>If you want to keep credits or collect fees, turn them on here. You set it up once for the whole season.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>Everything hangs off a <b>championship</b>. From <b>Championships</b> you create a new one and define how it works. The championship you choose as <b>active</b> is the one you see throughout the app. A new championship starts <b>blank</b>: no cups ticked and no fees, so you set your own.</p>
 
       <h3>Basic details</h3>
@@ -157,12 +156,14 @@
       <figure class="shot">
         <img src="manual/img/control-02b-campeonato-reglas.png" loading="lazy" alt="Championship editor with treasury, scoring, motor type, limit manufacturer and PDF branding">
         <figcaption>Championship editor: treasury, scoring, <b>Motor</b> (Draw / Own / Mixed), limit manufacturer and PDF branding.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="catalogos">
       <div class="num">// 03</div>
       <h2>Catalogues (your library)</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>The catalogues are the lists of approved parts: cars, motors, wheels, gears…</li><li>You fill them in once and they then appear as options when scrutineering the cars.</li><li>Tick which cups each entry applies to; if it has no cup, it won’t appear when scrutineering.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>The catalogues are the reusable lists of approved parts. You maintain them once and they feed the scrutineering drop-downs. Each tab has a search box and, where it applies, a cup filter.</p>
       <ul>
         <li><b>Cars</b>: model, brand, minimum weight, credits, cup(s) and a <b>reference photo</b> (from the camera or the gallery) to compare with the car the team hands in.</li>
@@ -196,12 +197,14 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
         <div><b>Don't delete the IDs</b> (the entry would be created again as new) <b>and don't rename the tabs</b>: the importer looks them up by name and warns you if it doesn't recognise one.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="pilotos">
       <div class="num">// 04</div>
       <h2>Drivers</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Add each driver just once: they work for every championship.</li><li>In each championship they have their class (Platinum, Gold, Silver or Bronze).</li><li>If you have a lot of them, import them from an Excel file with the <b>Import</b> button.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>A driver is a single master record (name, phone, email) who can race in several championships. In each championship they have their own <b>profile</b>:</p>
       <ul>
         <li><b>Class</b> (<span class="mono">PLATINO · ORO · PLATA · BRONCE</span>), the ladder used by the season-end bonus and promotion between seasons.</li>
@@ -212,12 +215,14 @@
       <figure class="shot">
         <img src="manual/img/control-04-pilotos.png" loading="lazy" alt="Driver list with search box and new driver button">
         <figcaption>Drivers: search, quick add and import (top right).</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="equipos">
       <div class="num">// 05</div>
       <h2>Teams and entries</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>A team groups the drivers who share a car: 1 in individual, 2 in pairs and up to 6 in 24h.</li><li>Each team races in a cup, which decides what parts it can use.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>A team groups the drivers who share a car and races in a specific cup. The number of drivers depends on the format:</p>
       <ul>
         <li><b>Individual</b>: 1 driver. The screen is called <b>Entries</b> («Inscripciones») and doesn't ask for a team name: the driver's name is used.</li>
@@ -232,12 +237,14 @@
       <figure class="shot">
         <img src="manual/img/control-05-equipos.png" loading="lazy" alt="Entries of an individual championship with each driver's cup">
         <figcaption>In an individual championship, «Teams» are each driver's entries with their cup.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="pruebas">
       <div class="num">// 06</div>
       <h2>Events and heats</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Each race in the calendar is an <b>event</b>. Create it with its name, venue and date.</li><li>Enter who’s racing in the event entries.</li><li>Generate the heats and Control spreads the drivers across the lanes.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>An <b>event</b> is each date on the calendar (name, venue, date, order and status: scheduled, in progress or finished). Opening it shows its <b>heats</b> and, on the left, the <b>event options</b>: entries, results, scrutineering, scrutineering summary, edit heats, motor draw, event treasury, heats and scrutineering PDFs, and the exchange with PitWall.</p>
       <ol class="steps">
         <li>Create the event and order it in the calendar.</li>
@@ -276,12 +283,14 @@
       <figure class="shot">
         <img src="manual/img/control-06d-manga.png" loading="lazy" alt="Heat detail with lanes 1 to 6 and rests D1 and D2">
         <figcaption>A heat: lanes 1–6 and rests D1, D2. At the top: results, scrutineering, renumber and edit.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="verificaciones">
       <div class="num">// 07</div>
       <h2>Scrutineering</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>On race day, check each team’s car before it races.</li><li>Go into the event → <b>Scrutineering</b>, choose the heat and the team, and fill in each box.</li><li>Green means it’s fine; red means something doesn’t meet the rules.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>Scrutineering is the heart of race day: for each team you check that its equipment meets the rules before approving it. You enter from the event (<b>Scrutineering</b>), choose the heat and the team. Each heat shows how many it has approved.</p>
       <figure class="shot">
         <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Heats of an event with the progress of approved scrutineering sheets">
@@ -330,12 +339,14 @@
       <figure class="shot">
         <img src="manual/img/control-07f-resumen-rejilla.png" loading="lazy" alt="Scrutineering grid summary with a weight cell in red for breaking the rules">
         <figcaption>Grid summary: filters at the top; in red, what breaks the rules. Exports to PDF and Excel.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="varios">
       <div class="num">// 08</div>
       <h2>Scrutineering with several devices</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>If several people scrutineer at once, each one can use their own device.</li><li>Everyone must start from the same copy of the data and be on the same WiFi (no internet needed).</li><li>In the event, open <b>«Verificar entre varios»</b>, enter the same key on all of them and connect them.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>When there are several scrutineers, each one can work on their own device (Mac, Windows or Android) on the <b>same event at the same time</b>. Each Control saves on its own device and they pass changes to each other over <b>Wi‑Fi</b>. <b>No internet needed</b>: a router with no connection or a phone's hotspot will do.</p>
 
       <h3>Before the event</h3>
@@ -369,12 +380,14 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
         <div><b>If two people touch the same scrutineering sheet, the latest change wins.</b> If you have a sheet open and another Control changes it, it updates on screen; if you were halfway through editing, it warns you so you can choose «Seguir con lo mío» (keep mine) or see the other one. The easiest way is to split the teams between you.</div>
       </div>
-      <p>The app must be open on every device (on Android, if it goes to the background it stops sharing). <a class="inl" href="#libre">Free scrutineering</a> isn't synced. The first time, Windows asks for firewall permission and macOS for local network access: accept them.</p>
+      <p>The app must be open on every device (on Android, if it goes to the background it stops sharing). <a class="inl" href="#libre">Free scrutineering</a> isn't synced. The first time, Windows asks for firewall permission and macOS for local network access: accept them.</p></div></details>
     </section>
 
     <section id="clasificacion">
       <div class="num">// 09</div>
       <h2>Standings</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>The standings are calculated automatically from each event’s results.</li><li>With <b>Points table</b> you decide how many points each position gets.</li><li>There’s an overall standings table and one for each cup. You can export them to PDF.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>The standings are worked out from the event results and the championship rules:</p>
       <ul>
         <li><b>Points table</b> by position, specific to each championship. Edit it from the <b>Points table</b> button: how many positions score and how many points each one gets (or restore the defaults).</li>
@@ -389,12 +402,14 @@
       <figure class="shot">
         <img src="manual/img/control-08b-tabla-puntos.png" loading="lazy" alt="Points table editor with the points for each position">
         <figcaption>The championship's points table: points per position, editable.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="tesoreria">
       <div class="num">// 10</div>
       <h2>Treasury</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>If you collect fees, each team pays at every event.</li><li>Collect them in the event treasury, or in the team’s own scrutineering sheet, with <b>Quick payment</b>.</li><li>The Treasury screen shows what has been collected, the expenses and the balance.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>If the championship uses a treasury, each team pays a <b>fee per event</b> (the <b>Pagat</b>), split between the <b>coordinating body</b> and the <b>club</b>. The <b>Treasury</b> screen shows the championship balance, what was collected at each event and the <b>extra movements</b> (sponsorship, equipment costs… with the «Movimiento» button).</p>
       <ul>
         <li><b>Split</b> («Reparto»): change the Pagat and how much goes to each side (with each side's %). You can <b>apply it to payments already collected</b> too: what each team paid is split again, without changing the amount collected.</li>
@@ -416,12 +431,14 @@
       <figure class="shot">
         <img src="manual/img/control-09b-tesoreria-prueba.png" loading="lazy" alt="Event treasury with search box, amount collected and each team's payment form">
         <figcaption>Event treasury: search, amount collected and each team's payment with its quick-payment buttons.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="creditos">
       <div class="num">// 11</div>
       <h2>Credits and season close</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Credits are the championship’s handicap: they go up or down with each driver’s results.</li><li>At the end of the season, review the classes first and then apply the closing bonus, in that order.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>The credits system is the championship's <b>handicap</b>: each driver starts with some credits that go up or down with results. In <b>Credits</b> you see the balance and the movements (each with its description), can <b>adjust by hand</b>, export to <b>PDF</b> or <b>CSV</b> and manage the season close.</p>
       <h3>Season-end bonus</h3>
       <p>At the end of the season a bonus is applied according to the driver's <b>class</b> and the <b>number of races</b> they did (configurable bands). The movement is described (e.g. "bonus for 6 races").</p>
@@ -430,22 +447,26 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
         <div>Adjust the classes in Review first and then apply the season-end bonus: that way both use the same final snapshot.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="sorteo">
       <div class="num">// 12</div>
       <h2>Motor draw</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>If the organisers supply the motor, Control draws a number for each team.</li><li>Do it from the event → <b>Motor draw</b>, team by team or all at once.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>If the championship's motor type is <b>Draw</b> or <b>Mixed</b> and it has its <b>number range</b> set, Control draws a number within the range for each team, leaving out those already assigned in the event. From <b>Motor draw</b> (in the event) you draw team by team or <b>«Sortear restantes»</b> (draw the rest) in one go, and the <b>Numbers</b> tab shows who has which. You can also draw from the scrutineering sheet itself.</p>
       <figure class="shot">
         <img src="manual/img/control-11-sorteo.png" loading="lazy" alt="Motor draw with the range, the assigned numbers and each team's Draw button">
         <figcaption>Motor draw: range, assigned and available; «Sortear» per team or «Sortear restantes».</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="libre">
       <div class="num">// 13</div>
       <h2>Free scrutineering</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>For scrutineering cars without setting up a championship: a one-off race or a check at the club.</li><li>Open <b>Free scrutineering</b>, create a session and add the participants.</li><li>When you’re done, export it to PDF or to Excel with photos.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>To scrutineer cars <b>without a championship or event</b>: a one-off race, a club check or any other meeting. It opens from <b>Free scrutineering</b> («Verificación libre») in the side bar (or from home, even if you have no championships).</p>
       <ul>
         <li>Each <b>session</b> has a name, venue and date, and its own <b>rules</b>: cups, axle width per cup, <b>limit manufacturer</b> and <b>motor type</b> (Draw / Own / Mixed, with its range). A new session starts <b>blank</b>, just like a championship.</li>
@@ -464,12 +485,14 @@
       </figure>
 
       <h3>Excel with photos</h3>
-      <p>The <span class="mono">.xlsx</span> has one row per participant with the grid-summary columns (rule breaches in red and a column with the reasons) and, at the end of the row, the <b>car's catalogue photo</b> («Foto catálogo») followed by <b>all the scrutineering photos</b>, as thumbnails inside the cells. It displays correctly in Excel, LibreOffice and on mobile (iPhone, iPad, Android).</p>
+      <p>The <span class="mono">.xlsx</span> has one row per participant with the grid-summary columns (rule breaches in red and a column with the reasons) and, at the end of the row, the <b>car's catalogue photo</b> («Foto catálogo») followed by <b>all the scrutineering photos</b>, as thumbnails inside the cells. It displays correctly in Excel, LibreOffice and on mobile (iPhone, iPad, Android).</p></div></details>
     </section>
 
     <section id="google">
       <div class="num">// 14</div>
       <h2>Google Sheets and Drive</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Control can read your Google sheets and keep a copy of the data on Google Drive.</li><li>It’s handy when several people work with the same data.</li><li>You connect it once; the section explains how, step by step.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>Control can work with your Google sheets and keep copies in Google Drive. First, in <b>Google Sheets</b>, paste your Google Cloud project's <b>credentials</b> (the «Cómo conseguirlas» button guides you) and connect your account. Control only asks to read your sheets and to create or modify its own backup file; it doesn't touch any file of yours.</p>
       <ul>
         <li><b>Catalogues</b>: link each catalogue to its tab. <b>Update from Drive</b> brings the data in and <b>Upload to the Sheet</b> sends yours (with a review before deleting). If the sheet has an <span class="mono">ID</span> column, rows are matched by it instead of by name.</li>
@@ -513,23 +536,27 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
         <div><b>Treat them like a password.</b> Anyone with the Client ID and Secret can impersonate your app. Do not publish them or send them over chat; if they leak, delete the client in Google Cloud and create another. Control keeps them only on your device.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="csv">
       <div class="num">// 15</div>
       <h2>CSV templates</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>In <b>CSV templates</b> you download ready-to-fill templates: drivers, teams, entries and catalogues.</li><li>Fill them in and import them from their section.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>From <b>CSV templates</b> you download ready-to-fill templates to import: drivers, teams (pairs and endurance, with <span class="mono">Piloto 1…5</span>), event entries, <b>free scrutineering participants</b> and each catalogue. Fill in the file, import it from its section and the app recognises the columns.</p>
       <p>To correct in bulk what you already have in the catalogues, the easy route is <a class="inl" href="#catalogos">The whole catalogue in Excel</a>.</p>
       <figure class="shot">
         <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="CSV templates for drivers, teams, entries, free scrutineering and catalogues">
         <figcaption>CSV templates: one per import, with its columns.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="pdf">
       <div class="num">// 16</div>
       <h2>Export (PDF and Excel)</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>You can export the heats, scrutineering, standings and credits to PDF, ready to print.</li><li>When exporting you choose the document’s language.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <ul>
         <li><b>PDF</b>: heats, scrutineering of an event or session, grid summary, standings and credits. When exporting you choose the document <b>language</b> (Spanish, Catalan, English, Italian or French) and the championship's <b>branding</b> is applied to header and footer. Each PDF fits on a single page (A4 → A3 if needed) for easy printing.</li>
         <li><b>Excel</b>: the full catalogue, the grid summary and free scrutineering with photos.</li>
@@ -538,12 +565,14 @@
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
         <div>On the computer a "Save as" dialog opens; on <b>Android</b>, the system share sheet (save to files, send via WhatsApp, email…).</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="pitwall">
       <div class="num">// 17</div>
       <h2>Send to PitWall / bring back results</h2>
+      <div class="tldr"><div class="tldr-ttl">In a nutshell</div><ol><li>Control and PitWall Manager pass data to each other so nothing is typed twice.</li><li>With <b>Send to PitWall</b> you send the heats to Manager; you need the PIN shown on Manager’s Import batch screen.</li><li>After the race, bring the results back to Control. Both must be on the same WiFi.</li></ol></div>
+      <details class="more"><summary>See all the details <small>(for those who want to know everything)</small></summary><div class="inner">
       <p>PitWall Control talks to the <b>PitWall</b> timing app so you don't type things twice: it sends the prepared event and then brings back the results. Both apps must be on the <b>same network</b> (LAN/WiFi).</p>
 
       <h3>Choosing the PitWall</h3>
@@ -568,7 +597,7 @@
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
         <div>In PitWall, scrutineering is <b>read only</b>, and each new send fully replaces the previous one. It requires <b>Ecosystem connection</b> to be allowed in PitWall.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="glosario">
@@ -607,10 +636,10 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>CONTROL</small></a>
-    <div class="apps-mini"><a href="pitwall-control-en.html">Product</a><a href="manual-control.en.html">Manual</a><a href="pitwall-landing-en.html">Landing</a></div>
-    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
-    <div class="mono">© 2026 · Slot racing championship management</div>
+    <a class="logo" href="pitwall-landing-en.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Footer"><a href="pitwall-manager-en.html">Manager</a><a href="pitwall-lap-en.html">Lap</a><a href="pitwall-control-en.html">Control</a><a href="carreras-en.html">Races</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Slot racing timing and management</div>
   </div>
 </footer>
 
@@ -630,6 +659,34 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 })();
+</script>
+<script>
+  // Vídeos: solo se descargan al pulsar «play»; al empezar uno, se paran los demás.
+  document.querySelectorAll('.mvid .player').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.dataset.src;
+      v.poster = b.querySelector('img').src;
+      v.controls = true;
+      v.playsInline = true;
+      v.addEventListener('play', function(){
+        document.querySelectorAll('.mvid video').forEach(function(o){ if (o !== v) o.pause(); });
+      });
+      b.replaceWith(v);
+      v.play();
+      if (window.umami) umami.track('video-manager-' + b.dataset.id);
+    });
+  });
+  // Un enlace a algo que está dentro de «Ver todos los detalles» lo despliega.
+  function openTarget(){
+    var t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var d = t && t.closest && t.closest('details.more');
+    if (d && !d.open){ d.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+  // Al imprimir, todo desplegado.
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details.more').forEach(function(d){ d.open = true; }); });
 </script>
 </body>
 </html>

@@ -1,0 +1,30 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 15-24-19.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/15 - Corregir vueltas.mp4",
+  "crops": {
+    "full": [0, 0, 3840, 2160],
+    "win":  [580, 230, 2640, 1730, "fit"]
+  },
+  "segments": [
+    { "card": { "kicker": "PitWall en 1 minuto · 15", "title": "Corregir vueltas", "sub": "Añadir, mover o quitar vueltas, también con la manga en marcha" }, "dur": 3 },
+    { "src": "/Users/victor/Movies/2026-10-22 15-23-21.mov", "from": 4.0, "to": 8.0, "crop": "full", "speed": 1, "audio": true,
+      "caption": { "step": 1, "total": 5, "text": "Con la manga en marcha…" } },
+    { "src": "/Users/victor/Movies/2026-10-22 15-23-21.mov", "from": 8.0, "to": 30.0, "crop": "full", "speed": 4,
+      "caption": { "step": 1, "total": 5, "text": "…o ya terminada, se puede corregir" } },
+    { "src": "/Users/victor/Movies/2026-10-22 15-23-21.mov", "from": 36.0, "to": 39.0, "crop": "full", "speed": 1,
+      "caption": { "step": 1, "total": 5, "text": "Inicio → «Corrección de vueltas»" } },
+    { "src": "/Users/victor/Movies/2026-10-22 15-23-21.mov", "from": 39.0, "to": 44.0, "crop": "win", "speed": 1,
+      "caption": { "step": 2, "total": 5, "text": "Elige el carril: todas sus vueltas", "sub": "Las nuevas entran en directo", "pos": "right" } },
+    { "src": "/Users/victor/Movies/2026-10-22 15-23-21.mov", "from": 44.0, "to": 49.5, "crop": "win", "speed": 1,
+      "caption": { "step": 3, "total": 5, "text": "Añadir vueltas que no se contaron", "sub": "Cuántas y su tiempo (propone la media) → «Añadir»", "pos": "right" } },
+    { "from": 0, "to": 5.0, "crop": "win", "speed": 1.5,
+      "caption": { "step": 4, "total": 5, "text": "¿Una vuelta en el carril equivocado?", "pos": "right" } },
+    { "from": 5.0, "to": 17.0, "crop": "win", "speed": 1.5,
+      "caption": { "step": 4, "total": 5, "text": "Elige el carril destino y pulsa ↔", "sub": "Queda «Movida a C3» y pasa a ese carril", "pos": "right" } },
+    { "from": 17.0, "to": 22.0, "crop": "win", "speed": 1.5,
+      "caption": { "step": 4, "total": 5, "text": "En el otro carril aparece la vuelta movida", "pos": "right" } },
+    { "from": 22.0, "to": 30.3, "crop": "win", "speed": 1,
+      "caption": { "step": 5, "total": 5, "text": "Quitar una vuelta: la papelera", "sub": "Pide confirmación antes de borrarla", "pos": "right" } },
+    { "card": { "kicker": "Siguiente", "title": "Resultados y exportar" }, "dur": 3 }
+  ]
+}

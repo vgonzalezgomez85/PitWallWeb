@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="ca" data-os="win" data-pick="android">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall Lap · El teu copilot de butxaca</title>
+<meta name="description" content="PitWall Lap és l’app del pilot: et diu en veu alta els teus temps mentre corres i desa les teves curses i entrenaments al mòbil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css?v=20261022">
+<style>:root{--ac:var(--cyan)}</style>
+<script>
+  // Detecta el sistema del visitante: data-os es el real y data-pick, la descarga del botón grande.
+  (function(pick){
+    var ua = navigator.userAgent,
+        p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '',
+        os = 'win';
+    if (/Android/i.test(ua)) os = 'android';
+    else if (/iPhone|iPad|iPod/i.test(ua) || (/Mac/.test(p) && navigator.maxTouchPoints > 1)) os = 'ios';
+    else if (/Mac/i.test(p)) os = 'mac';
+    else if (/Linux|X11/i.test(p)) os = 'linux';
+    var h = document.documentElement;
+    h.setAttribute('data-os', os);
+    h.setAttribute('data-pick', pick[os] || os);
+  })({win:'android', mac:'android', linux:'android', ios:'android'});
+</script>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-ca.html">Inici</a>
+      <a href="pitwall-manager-ca.html">Manager</a>
+      <a href="pitwall-lap-ca.html" aria-current="page">Lap</a>
+      <a href="pitwall-control-ca.html">Control</a>
+      <a href="carreras-ca.html">Curses</a>
+      <a href="#ayuda">Ajuda</a>
+    </nav>
+    <div class="langs" aria-label="Idioma"><a href="pitwall-lap.html" lang="es">ES</a><b>CA</b><a href="pitwall-lap-en.html" lang="en">EN</a><a href="pitwall-lap-fr.html" lang="fr">FR</a><a href="pitwall-lap-it.html" lang="it">IT</a></div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="for">Per al mòbil del pilot</div>
+      <h1>PitWall Lap</h1>
+      <p class="lede">Mentre corres no pots mirar la pantalla. Lap et diu <b>en veu alta</b> cada volta, la teva posició i el temps que queda. En acabar, tens la cursa desada al mòbil.</p>
+
+      <div class="dl" id="descargar">
+        <p class="tip only-desktop"><b>Lap és una app per al mòbil.</b> El més fàcil és obrir <b>pitwall.es</b> des del mòbil i descarregar-la allà.</p>
+
+        <div class="dl-pick android">
+          <a class="btn" href="/software/pitwall-lap/PitWallLap.apk?v=1.22.7" data-umami-event="download-lap-android-apk" download>Descarregar per a Android</a>
+          <p class="note">Versió 1.22.7. En obrir el fitxer, Android et pot preguntar si permets instal·lar apps de fora de Google Play: digues que sí. Després, l’app s’actualitza sola.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <figure class="phone">
+      <div class="frame"><img src="img/lap-mi-turno.jpg" alt="PitWall Lap en un mòbil: última volta 8.19, carril 3, posició 2 de 12" width="520" height="1125"></div>
+    </figure>
+  </div>
+</section>
+
+<section class="alt-bg" id="ayuda">
+  <div class="wrap">
+    <h2 class="sec">Com es fa servir</h2>
+    <p class="sub">Tot explicat pas a pas, amb imatges. Si és la primera vegada, comença per escoltar els teus temps.</p>
+    <div class="guides">
+      <a class="guide first" href="manual-lap.ca.html#lap">
+        <span class="badge">Comença aquí</span>
+        <h3>Escoltar els teus temps</h3>
+        <p>Com connectar Lap a la cursa del teu club i triar què et diu la veu.</p>
+        <span class="go">Obrir la guia →</span>
+      </a>
+      <a class="guide" href="manual-lap.ca.html">
+        <h3>Manual complet</h3>
+        <p>Calendari, entrenaments, resultats, ajustos i com actualitzar l’app.</p>
+        <span class="go">Obrir el manual →</span>
+      </a>
+      <a class="guide" href="manual-lap.ca.html#problemas">
+        <h3>Si alguna cosa no funciona</h3>
+        <p>Lap no troba la cursa, no sona la veu… Les solucions als problemes més habituals.</p>
+        <span class="go">Veure solucions →</span>
+      </a>
+    </div>
+    <p class="contact">Encara tens dubtes? Escriu-nos a <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">info.pitwall@gmail.com</a> i et donem un cop de mà.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">Què fa</h2>
+    <div class="feats">
+      <div class="feat">
+        <h3>Et diu els teus temps en veu alta</h3>
+        <p>Cada volta, la teva posició, a quant vas del de davant i l’últim minut. Tu tries què vols sentir.</p>
+      </div>
+      <div class="feat">
+        <h3>Troba la cursa sola</h3>
+        <p>Amb el mòbil a la wifi del club, Lap troba la cursa en uns segons. Funciona amb <a href="pitwall-manager-ca.html">PitWall Manager</a> i amb els cronòmetres TicTac.</p>
+      </div>
+      <div class="feat">
+        <h3>Repassa la cursa després</h3>
+        <p>La classificació i totes les teves voltes queden desades al mòbil, encara que ja no tinguis connexió.</p>
+      </div>
+      <div class="feat">
+        <h3>Apunta els teus entrenaments</h3>
+        <p>Desa les teves tandes d’entrenament amb les dades del cotxe i compara-les per trobar la millor posada a punt.</p>
+      </div>
+      <div class="feat">
+        <h3>Calendari amb avisos</h3>
+        <p>Desa les teves properes curses i el mòbil t’avisa abans de cadascuna.</p>
+      </div>
+      <div class="feat">
+        <h3>En el teu idioma</h3>
+        <p>Castellà, català, basc, anglès, italià, francès, portuguès i neerlandès, també la veu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <h2 class="sec">Què necessites</h2>
+    <ul class="needs">
+      <li><span class="n">1</span><div><b>Un mòbil Android.</b></div></li>
+      <li><span class="n">2</span><div><b>Estar a la wifi del club</b> <span>(la mateixa que l’ordinador de la pista). No cal internet.</span></div></li>
+      <li><span class="n">3</span><div><b>Que el club cronometri amb PitWall Manager</b> <span>o amb un cronòmetre TicTac. El calendari i els entrenaments també funcionen a casa.</span></div></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Peu de pàgina"><a href="pitwall-manager-ca.html">Manager</a><a href="pitwall-lap-ca.html">Lap</a><a href="pitwall-control-ca.html">Control</a><a href="carreras-ca.html">Curses</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometratge i gestió de slot racing</div>
+  </div>
+</footer>
+
+<script>
+  // Al abrir las descargas de un sistema, cierra las del otro.
+  document.querySelectorAll('details.os').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (d.open) document.querySelectorAll('details.os').forEach(function(o){ if (o !== d) o.open = false; });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall · Manual d’ús</title>
+<meta name="description" content="Manual d’ús de PitWall: muntar la cursa, dirigir-la en directe i treure’n els resultats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css?v=20261023">
+<style>body{--ac:var(--red)}</style>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body class="simple">
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-ca.html">Inici</a>
+      <a href="pitwall-manager-ca.html" aria-current="page">Manager</a>
+      <a href="pitwall-lap-ca.html">Lap</a>
+      <a href="pitwall-control-ca.html">Control</a>
+      <a href="carreras-ca.html">Curses</a>
+      <a href="pitwall-manager-ca.html#ayuda">Ajuda</a>
+    </nav>
+    <div class="langs" aria-label="Idioma"><a href="manual-uso.html" lang="es">ES</a><b>CA</b><a href="manual-uso.en.html" lang="en">EN</a><a href="manual-uso.fr.html" lang="fr">FR</a><a href="manual-uso.it.html" lang="it">IT</a></div>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">PitWall Manager · Manual</div>
+    <h1>Manual de <span class="ac">Manager</span></h1>
+    <p class="lede">Cada apartat comença amb un resum curt. Si ho vols saber tot, prem «Veure tots els detalls». Prefereixes veure-ho? <a href="inicio-rapido-ca.html">Aprèn Manager amb vídeos curts</a>.</p>
+    <div class="xlink">
+      <a class="cur" href="manual-uso.ca.html">▮ Manual d’ús</a>
+      <a href="manual-estadisticas.ca.html">Manual d’estadístiques ↔</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Índex del manual">
+    <div class="toc-ttl">Contingut</div>
+    <ol>
+      <li><a href="#introduccion">Introducció</a></li>
+      <li><a href="#escenarios">Escenaris, categories i catàlegs</a></li>
+      <li><a href="#crear">Crear una cursa</a></li>
+      <li><a href="#importar">Importar una tanda de PitWall Control</a></li>
+      <li><a href="#tandas">Tandes, participants i rotació</a></li>
+      <li><a href="#editar">Editar cursa, tandes i mànegues</a></li>
+      <li><a href="#pole">Pole (classificació prèvia)</a></li>
+      <li><a href="#lap">PitWall Lap — per als equips</a></li>
+      <li><a href="#vivo">Dirigir la cursa en directe</a></li>
+      <li><a href="#sucesos">Incidències de cursa</a></li>
+      <li><a href="#turnos">Control de torns de pilot</a></li>
+      <li><a href="#neumaticos">Control de pneumàtics de resistència</a></li>
+      <li><a href="#verificaciones">Verificacions tècniques de PitWall Control</a></li>
+      <li><a href="#correcciones">Volta a volta i correccions</a></li>
+      <li><a href="#resultados">Resultats i exportacions</a></li>
+      <li><a href="#entrenamiento">Entrenament</a></li>
+      <li><a href="#ajustes">Ajustos</a></li>
+      <li><a href="#publico">Seguiment públic per internet</a></li>
+      <li><a href="#glosario">Glossari</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="introduccion">
+      <div class="num">// 01</div>
+      <h2>Introducció</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Manager cronometra les teves curses de slot. Rep les voltes del teu cronometrador: un DS (com el DS-300), un BART o un TicTac.</li><li>La pantalla d’inici té a dalt un cercador, a sota la cursa en curs (si n’hi ha) i després un botó per a cada secció.</li><li>Et sobren botons? Prem <b>Personalizar</b> i tria el mode <b>Básico</b>: només veuràs el que necessita un club.</li><li>A baix a la dreta, el punt verd et diu que el cronometrador està connectat.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/03-inicio.mp4" data-id="03-inicio" aria-label="Veure el vídeo: La pantalla d’inici (0:26)"><img src="videos/manager/03-inicio.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:26</span></button><div class="cap">La pantalla d’inici <span>· vídeo en castellà</span></div></div><div class="mvid"><button class="player" type="button" data-src="videos/manager/04-modo-basico.mp4" data-id="04-modo-basico" aria-label="Veure el vídeo: Mode bàsic o avançat (0:28)"><img src="videos/manager/04-modo-basico.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:28</span></button><div class="cap">Mode bàsic o avançat <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Pantalla d’inici</span></div>
+        <img src="manual/img/01-home.png" loading="lazy" alt="Pantalla d’inici de PitWall">
+        <figcaption>Pantalla d’inici: cercador «Ir a…», franja de la cursa en curs, mosaics de seccions i curses recents.</figcaption>
+      </figure>
+      <p><b>PitWall</b> és el sistema de cronometratge i gestió de curses de slot. Detecta el pas de cada cotxe per la línia de meta a través del maquinari de cronometratge, amb diverses opcions compatibles:</p>
+      <ul>
+        <li><b>DS</b> (<b>DS-300</b>, DS-200, DS-030 o DS-080) — per <b>port sèrie</b>. Pots unir <b>fins a 6 circuits</b> DS-300 en una sola cursa: cada caixa cronometra els seus carrils i PitWall els combina. Cada caixa va pel <b>seu propi port</b> (una caixa = un port).</li>
+        <li><b>DS-300 agrupador</b> — quan un <b>aparell agrupador</b> ajunta <b>diverses caixes DS-300 (de 2 a 4) en un sol port COM</b>. PitWall separa les caixes pel seu identificador de trama i numera els carrils correlativament (caixa 1 → 1–8, caixa 2 → 9–16, i així fins a <b>32 carrils</b> amb 4 caixes). Un <b>únic senyal de sortida</b> arrenca totes les caixes alhora.</li>
+        <li><b>BART (Policar)</b> — per <b>Bluetooth</b>. Admet <b>fins al màxim de carrils que permeti BART</b> (actualment <b>32</b>). Amb més de 8 carrils calen <b>diversos Master BART independents</b> (p. ex. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…), un per cada bloc de carrils: PitWall es connecta a cadascun per separat i numera els carrils correlativament, igual que amb l’agrupador DS-300.</li>
+        <li><b>TicTac (interface TicTacSlot «Cuentavueltas»)</b> — per <b>USB</b>. PitWall el detecta sol. Amb aquest aparell <b>PitWall dirigeix la cursa</b> des dels seus botons i l’interface <b>dona i talla el corrent de la pista</b> (vegeu <a class="inl" href="#vivo">Dirigir la cursa en directe</a>).</li>
+      </ul>
+      <p>Pots fer servir qualsevol d’aquestes fonts; per a PitWall el flux de passos és equivalent.</p>
+      <ul>
+        <li>La <b>pantalla d’inici</b> té a dalt una capçalera amb el cercador <b>«Ir a…»</b> (drecera <b>⌘K</b> al Mac o <b>Ctrl K</b>): escriu part del nom d’una secció o d’una cursa; <b>Intro</b> obre el primer resultat i <b>Esc</b> neteja la cerca. Al costat, unes píndoles mostren l’estat de la font de dades (simulació o la font real —«DS-300 ×2», «DS-200», «BART», «TicTac», o combinades com «DS-300 + TicTac»—, connectada o sense connexió) i l’ <b>adreça IP</b> del servidor, per connectar mòbils i pantalles.</li>
+        <li>Si hi ha una <b>cursa en curs</b>, a sota apareix la seva franja: <b>manga X de Y</b>, tanda, el <b>temps que queda</b> de la mànega, les <b>mànegues</b> (ja compta la que s’està corrent) i el <b>líder estimat</b>, que és el mateix de la <i>Clasificación estimada</i> del directe i s’actualitza en directe. Té botons a <b>Directo de la manga</b>, <b>Pantalla TV</b>, <b>Corrección de vueltas</b> (de la mànega en curs o de l’última acabada), <b>Estadísticas en vivo</b>, <b>Control de pilotos</b> (en campionat), <b>Neumáticos</b> (si la cursa té jocs), <b>Registro de sucesos</b> i <b>Gestionar carrera</b>. Sense cap cursa en curs, la franja mostra la pole que estigui en marxa o les dreceres <b>Nueva carrera</b> / <b>Entreno libre</b>. L’inici s’actualitza sol quan arrenca una cursa i en començar, acabar o posar en pausa una mànega.</li>
+        <li>A sota hi ha les seccions en <b>mosaics</b>: <b>Competición</b> (Carreras, Carrera sprint, Carrera resistencia, Entreno libre, Entreno de competición, Estadísticas en vivo, Resultados, Lap, Control de pilotos, Control de neumáticos…), <b>Catálogo</b> (Pilotos, Equipos, Coches, Categorías i Escenarios, amb quants en tens de cadascun) i <b>Sistema</b> (Ajustes, Base de datos, Sincronizar catálogo, Conexión ecosistema, Solución de problemas…). Al final, la taula de <b>Carreras recientes</b> amb el seu estat, les seves mànegues i l’acció directa (Directo, Resultados o Abrir). <b>Carrera sprint</b> i <b>Carrera resistencia</b> obren l’assistent de cursa nova amb el tipus ja marcat. Si hi ha <b>contrasenya d’accés</b>, els botons de <b>Catálogo</b> i <b>Sistema</b> porten un <b>cadenat</b> i la demanen en prémer-los; la resta de l’inici va sempre sense contrasenya (vegeu <i>Ajustos</i>).</li>
+        <li>Cada secció s’obre en <b>la seva pròpia finestra</b>: si la tornes a prémer, PitWall porta al davant la finestra que ja tenies oberta (a l’app d’escriptori, encara que estigui minimitzada o hagis tornat a l’inici des d’ella). Així pots tenir alhora el directe, la TV i les estadístiques. Les finestres obertes apareixen a la <b>barra inferior</b> de l’inici, amb <b>Traer</b> per posar-les al davant i <b>✕</b> per tancar-les. Amb l’interruptor <b>«Abrir enlaces en: Ventana nueva / Esta ventana»</b>, que és a la capçalera al costat de <b>Personalizar</b>, tries si prefereixes obrir-ho tot a la mateixa finestra, i <b>Majúscules + clic</b> obre un enllaç aquí mateix sense tocar l’interruptor.</li>
+        <li>A baix a la dreta sempre veus l’ <b>estat de l’enllaç</b> (verd = connectat; «Sin señal» = revisa el cable/port o el Bluetooth).</li>
+      </ul>
+      <p><b>Personalitzar l’inici.</b> A la capçalera, a la dreta, hi ha l’interruptor <b>«Abrir enlaces en»</b> i el botó <b>«Personalizar»</b>, que obre un diàleg per triar entre <b>cinc dissenys</b> de l’inici:</p>
+      <ul>
+        <li><b>A + C · Mando con lanzador</b> (per defecte): cercador, franja de la cursa, mosaics i barra de finestres.</li>
+        <li><b>A · Centro de mando</b>: franja gran, targetes de competició, catàleg en llista i sistema.</li>
+        <li><b>B · Menú lateral + panel</b>: menú a l’esquerra, targetes d’estat i taula de curses.</li>
+        <li><b>C · Lanzador compacto</b>: cercador, franja fina i mosaics, amb la barra de finestres a baix.</li>
+        <li><b>D · Mando con menú lateral</b>: menú a l’esquerra amb la franja gran i accessos ràpids.</li>
+      </ul>
+      <p>L’elecció <b>es desa al PitWall</b>, no a l’ordinador: la veuràs igual a l’app d’escriptori i a qualsevol navegador que s’hi connecti. El que s’ha explicat a dalt correspon al disseny per defecte; els altres reparteixen les seccions d’una altra manera (no tots porten el cercador «Ir a…» ni la taula de curses).</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Disseny de l’inici</span></div>
+        <img src="manual/img/01b-home-personalizar.png" loading="lazy" alt="Diàleg Personalizar amb els cinc dissenys de l’inici">
+        <figcaption>Diàleg «Personalizar»: els cinc dissenys de l’inici; el marcat és el que està en ús.</figcaption>
+      </figure>
+      <p><b>Mode bàsic / avançat.</b> Al mateix diàleg <b>Personalizar</b> (o a <b>Ajustes → Preferencias → «Modo de la app»</b>) tries quants accessos mostra l’inici. El mode <b>Básico</b> deixa el just per a un club: a Competición, <b>Entreno libre</b>, <b>Carrera sprint</b>, <b>Carreras</b> (amb el nombre de curses en curs) i <b>Resultados</b>; a Catálogo, <b>Categorías</b> i <b>Escenarios</b>; i a Sistema, <b>Ajustos</b>, des d’on es torna a l’avançat. A més, la taula de <b>Carreras recientes</b> surt en tots els dissenys per obrir d’un toc les curses ja creades. El mode <b>Avanzado</b> (el de sempre) ho mostra tot. El canvi es desa a l’instant, sense tallar el cronometratge, i la franja de la cursa en curs és igual en els dos modes.</p>
+      <p><b>El llistat de curses</b> et mostra totes les teves curses amb el seu estat (pendent / activa / acabada) i el botó <b>+ Nueva carrera</b>.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Llistat de curses</span></div>
+        <img src="manual/img/02-races-list.png" loading="lazy" alt="Llistat de curses amb el seu estat i el botó de cursa nova">
+        <figcaption>Llistat de curses: estat (pendent / activa / acabada) i «+ Nueva carrera».</figcaption>
+      </figure></div></details>
+    </section>
+
+    <section id="escenarios">
+      <div class="num">// 02</div>
+      <h2>Escenaris, categories i catàlegs (la teva biblioteca)</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Desa la teva pista una sola vegada com a <b>escenari</b>: quants circuits i carrils té, en quin ordre canvien de carril els pilots i la volta mínima.</li><li>Dona d’alta també els teus pilots, equips i cotxes.</li><li>En crear una cursa només tries l’escenari i els pilots: la resta ja està posat.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/01-pista.mp4" data-id="01-pista" aria-label="Veure el vídeo: Desa la teva pista (0:58)"><img src="videos/manager/01-pista.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:58</span></button><div class="cap">Desa la teva pista <span>· vídeo en castellà</span></div></div><div class="mvid"><button class="player" type="button" data-src="videos/manager/06-pilotos-equipos-coches.mp4" data-id="06-pilotos-equipos-coches" aria-label="Veure el vídeo: Pilots, equips i cotxes (0:47)"><img src="videos/manager/06-pilotos-equipos-coches.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:47</span></button><div class="cap">Pilots, equips i cotxes <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <p>Per no tornar a configurar el mateix a cada cursa, PitWall desa <b>plantilles reutilitzables</b> que després tries en crear una cursa.</p>
+
+      <h3>Escenaris (circuits desats)</h3>
+      <p>Un <b>escenari</b> és una pista física desada: nombre de circuits i carrils (p. ex. <span class="mono">8+8+8 = 24</span>), la seva <b>seqüència de carrils</b> (rotació) i el <b>temps mínim per defecte</b>. Qualsevol cursa assignada a aquest escenari ho hereta tot automàticament.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Escenaris</span></div>
+        <img src="manual/img/op-escenarios.png" loading="lazy" alt="Llistat d’escenaris (circuits desats) amb els seus carrils i seqüència">
+        <figcaption>Escenaris: pistes desades amb els seus circuits, carrils, seqüència de rotació i temps mínim.</figcaption>
+      </figure>
+      <p>En editar un escenari en defineixes el nom, la configuració de carrils, arrossegues la <b>seqüència de rotació</b> (amb <b>descansos DSC</b> si sobren pilots), el <b>temps mínim per defecte</b> i, opcionalment, <b>voltes mínimes per categoria</b> (un Pt diferent per a GT, Turisme, Clàssics… en aquesta mateixa pista).</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Editar escenari</span></div>
+        <img src="manual/img/op-escenario-form.png" loading="lazy" alt="Formulari d’edició d’un escenari amb la seqüència de rotació i el temps mínim per categoria">
+        <figcaption>Editar escenari: carrils, seqüència de rotació (amb descansos DSC), temps mínim per defecte i per categoria.</figcaption>
+      </figure>
+      <p><b>Colors dels carrils.</b> A la fitxa de l’escenari, el bloc <b>Colores de los carriles</b> té una mostra per carril. Marca <b>Usar colores propios en este circuito</b> i prem cada mostra per triar-ne el color, així la pantalla coincideix amb els colors pintats a la pista; <b>Copiar los colores globales</b> parteix de la paleta general. Sense marcar, l’escenari fa servir els colors globals d’ <b>Ajustes → Preferencias</b>. Els colors es veuen a totes les pantalles (directe, TV, panells, entrenaments, pole, tandes i resultats) i el número del carril surt en negre o en blanc perquè es llegeixi bé sobre qualsevol color.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Editar escenari</span></div>
+        <img src="manual/img/op-escenario-colores.png" loading="lazy" alt="Bloc Colores de los carriles d’un escenari amb colors propis per carril">
+        <figcaption>Colors dels carrils: amb «Usar colores propios» marcat, cada carril porta el seu color; la seqüència de rotació els fa servir a l’instant.</figcaption>
+      </figure>
+
+      <h3>Categorías</h3>
+      <p>Grups de nivell/classe (GT, Turisme, Clàssics…) que serveixen per <b>sobreescriure el temps mínim (Pt) per categoria</b> a cada escenari i per classificar cotxes i pilots.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Categories</span></div>
+        <img src="manual/img/op-categorias.png" loading="lazy" alt="Pantalla de categories (GT, Turisme, Clàssics) per classificar cotxes i pilots">
+        <figcaption>Categories: classes (GT, Turisme, Clàssics…) per classificar i per al Pt per categoria.</figcaption>
+      </figure>
+
+      <h3>Catàlegs reutilitzables (pilots, equips, cotxes)</h3>
+      <p>Mantén la teva <b>base de dades</b> de participants i material per reutilitzar-la entre curses:</p>
+      <ul>
+        <li><b>Pilotos</b> — nom i categoria; cada pilot pot tenir el seu <b>QR</b> d’identificació.</li>
+        <li><b>Equipos</b> — nom, color, país (amb la seva bandera; al costat de les banderes de país estàndard hi ha banderes pròpies dibuixades per a Catalunya i Euskadi), categoria (acolorida igual que al directe), cotxe i membres.</li>
+        <li><b>Coches</b> — marca, model i categoria.</li>
+      </ul>
+      <p>Tots es poden <b>importar en bloc des de CSV</b> (botons <b>Plantilla CSV</b> i <b>Importar CSV</b>, amb vista prèvia de novetats vs. duplicats) i exportar.</p>
+      <p>Als tres catàlegs tens un <b>cercador</b> a dalt: filtra mentre escrius (als pilots, també per categoria) i et diu quants en coincideixen del total. La tecla <b>/</b> et porta al cercador i <b>Esc</b> el neteja; si entres a editar una fitxa i tornes, el filtre continua posat.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Catàleg de pilots</span></div>
+        <img src="manual/img/op-catalogo-pilotos.png" loading="lazy" alt="Catàleg de pilots amb nom, categoria i importació per CSV">
+        <figcaption>Catàleg de pilots: base de dades reutilitzable amb importació per CSV (novetats vs. duplicats).</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · QR de pilots</span></div>
+        <img src="manual/img/op-qr-pilotos.png" loading="lazy" alt="Targetes QR d’identificació dels pilots per al canvi de pilot per escaneig">
+        <figcaption>QR de pilots: targetes d’identificació imprimibles per al canvi de pilot per escaneig.</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Catàleg d’equips</span></div>
+        <img src="manual/img/op-catalogo-equipos.png" loading="lazy" alt="Catàleg d’equips amb bandera de país (inclosa la ikurriña d’Euskadi) i categoria acolorida">
+        <figcaption>Catàleg d’equips: bandera de país (Catalunya i Euskadi tenen banderes pròpies dibuixades) i categoria acolorida igual que al directe.</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Amb <b>Exportar QR</b> imprimeixes les targetes QR de tots els pilots (per al canvi de pilot per escaneig en resistència — vegeu <i>Control de turnos</i>). El catàleg d’equips té el seu propi <b>Exportar QR</b>, que reparteix aquestes mateixes targetes <b>agrupades per equip</b> (nom i categoria a la capçalera), marcant «sin pilotos» els equips buits i «⚠ sin perfil» qui encara no té pilot del club vinculat.</div>
+      </div>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · QR d’equips</span></div>
+        <img src="manual/img/op-qr-equipos.png" loading="lazy" alt="Targetes QR dels pilots agrupades per equip, amb capçalera de nom i categoria">
+        <figcaption>Exportar QR d’equips: les targetes s’agrupen per equip, amb el seu nom i categoria a la capçalera.</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Sincronitzar el catàleg amb curses pendents.</b> Si canvies els <b>pilots</b> o el <b>país</b> d’un equip al catàleg <i>després</i> de crear una cursa, aquests canvis no arriben sols a la cursa ja muntada. Amb <b>Sistema → Sincronizar catálogo</b> (a l’inici) —o la drecera <b>«Actualizar desde catálogo»</b> del menú <b>⋯</b> de la fitxa de cursa, que només apareix si la cursa n’és candidata— els bolques a totes les curses que <b>encara no han arrencat cap mànega</b>, sense passar per «Editar tanda». PitWall aparella els equips <b>pel nom</b>, deixa la plantilla de cada cursa <b>idèntica al catàleg</b> (afegeix i treu pilots fins que coincideixen — un «mirall exacte») i actualitza el país; abans d’aplicar et mostra un <b>resum dels canvis</b>, amb una casella per cursa. No toca la graella ni afegeix o elimina equips, i només actua sobre curses <b>en format equips</b>. La <b>categoria</b> no es sincronitza: es continua llegint en directe del catàleg, llevat de la que anotis a la mateixa cursa (vegeu <a class="inl" href="#tandas">Tandes, participants i rotació</a>).</div>
+      </div></div></details>
+    </section>
+
+    <section id="crear">
+      <div class="num">// 03</div>
+      <h2>Crear una cursa</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>A l’inici, prem <b>Carrera sprint</b> (o <b>Carrera resistencia</b>, per a curses llargues per equips).</li><li>Escriu el nom, tria el teu escenari i decideix si hi haurà pole.</li><li>Segueix l’assistent fins a <b>Confirmar</b>. La cursa queda a punt.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/07-carrera-sprint.mp4" data-id="07-carrera-sprint" aria-label="Veure el vídeo: Crea una cursa sprint (0:36)"><img src="videos/manager/07-carrera-sprint.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:36</span></button><div class="cap">Crea una cursa sprint <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Assistent · Pas 1</span></div>
+        <img src="manual/img/03-wizard-step1.png" loading="lazy" alt="Assistent per crear una cursa nova, pas 1">
+        <figcaption>Assistent de cursa nova: tipus, carrils, temps mínim, passades i regles.</figcaption>
+      </figure>
+      <p>Prem <b>Carrera sprint</b> o <b>Carrera resistencia</b> a l’inici, o <b>+ Nueva carrera</b> al llistat de curses, i segueix l’assistent.</p>
+      <ul>
+        <li><b>Tipo</b>: si hi entres per <b>Carrera sprint</b> o <b>Carrera resistencia</b> no es pregunta: el títol ja diu <b>Nueva carrera sprint</b> o <b>Nueva carrera de resistencia</b>, i l’enllaç <b>Cambiar a resistencia</b> / <b>Cambiar a sprint</b> el canvia. Des de <b>+ Nueva carrera</b> el tries amb dues targetes:
+          <ul>
+            <li><i>Sprint</i> → una <b>cursa ràpida</b>, de <b>pilots o equips</b>.</li>
+            <li><i>Resistencia</i> → una <b>cursa de resistència</b> (per equips), que afegeix el <b>control de quant ha corregut cada pilot</b> de l’equip (vegeu <i>Control de torns de pilot</i>).</li>
+          </ul>
+        </li>
+        <li><b>Nombre de la carrera</b>.</li>
+        <li><b>Circuito</b>: tria un circuit desat i es resumeix en una línia (p. ex. «24 carriles · 3 circuitos (8 + 8 + 8) · vuelta mínima 6,00 s»), sense res més per omplir. Amb <b>— Configurar a mano —</b> apareixen el <b>nombre de circuits</b>, els <b>carrils</b> de cadascun (p. ex. 8+8+6 = 3 caixes DS) i la <b>volta mínima (Pt)</b>: per sota d’aquest temps, un pas es considera <b>fantasma</b> (rebot/doble lectura) i no compta. Si el circuit té temps per categoria, apareix també <b>Categoría</b>.</li>
+        <li><b>Pole position</b>: <b>Sin pole</b> o <b>Con pole</b> (el més ràpid tria carril primer).</li>
+        <li><b>Categoria i cotxe (opcional)</b>: dos interruptors, <b>Categoría / copa</b> i <b>Coche</b>, per anotar per equip o pilot la copa en què corre i el cotxe amb què participa (vegeu <a class="inl" href="#tandas">Tandes, participants i rotació</a>). Venen <b>apagats</b> per defecte: amb ells apagats no canvia res. La categoria es mostra al costat del nom al directe; amb els interruptors actius, categoria i cotxe surten a més com a columnes al costat del nom a l’ <b>Excel de resultats</b>.</li>
+        <li><b>Reglas de resistencia</b> (només en resistència): <b>mínim</b> i <b>màxim per pilot</b> (en minuts), <b>màxim de torns</b>, <b>pneumàtics</b> (en parells per equip) i <b>Sin cambios al final</b> (els últims segons de cada mànega, en què no es pot canviar de pilot). El que deixis en blanc no es controla.</li>
+        <li><b>Más opciones</b> (plegat; s’obre sol si algun és més gran que 1):
+          <ul>
+            <li><b>Pasadas</b>: quantes vegades es recorre la <b>seqüència de carrils sencera</b>. 2 passades = la rotació completa es corre 2 vegades (el doble de mànegues).</li>
+            <li><b>Repetir carril</b>: cada carril es corre aquest nombre de <b>mànegues seguides</b> (mateix carril), sumant les voltes — per comparar cada repetició.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Una <b>barra fixa a baix</b> resumeix el que s’ha triat al costat del botó <b>Siguiente</b>. Abans de continuar, PitWall comprova que la cursa tingui <b>nom</b> i <b>tipus</b> i que cada circuit tingui <b>entre 2 i 8 carrils</b>, i t’assenyala el que falta. En els passos següents (Secuencia, Participantes, Confirmar), <b>Volver</b> et porta enrere <b>sense perdre el que ja havies omplert</b>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Pasadas</b> i <b>repetir carril</b> només canvien com es generen les mànegues; els totals se sumen per participant.</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Gestiones el campionat amb <b>PitWall Control</b>? No cal teclejar els equips i la rotació una altra vegada: pots <b>importar la prova</b> sencera des de Control (vegeu <a class="inl" href="#importar">Importar una tanda de PitWall Control</a>).</div>
+      </div></div></details>
+    </section>
+
+    <section id="importar">
+      <div class="num">// 04</div>
+      <h2>Importar una tanda de PitWall Control</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Si portes el campionat amb PitWall Control, hi pots muntar la prova i enviar-la a Manager sense tornar a escriure res.</li><li>A Manager entra a <b>Carreras → Importar tanda</b>. Veuràs un número: el PIN.</li><li>A Control prem <b>Enviar a PitWall</b> i escriu aquest PIN. Manager crea la cursa tot sol.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Importar tanda · PIN d’aparellament</span></div>
+        <img src="manual/img/op-import-tanda.png" loading="lazy" alt="Pantalla d’importar tanda de PitWall Control amb el PIN d’aparellament">
+        <figcaption>Importar tanda: puja el JSON o rep la prova per xarxa; el PIN d’aparellament es mostra aquí.</figcaption>
+      </figure>
+      <p>Si organitzes el campionat amb <b>PitWall Control</b> (el gestor de temporada), pots muntar-hi la prova —equips, copes, carrils i rotació— i passar-la a PitWall <b>sense tornar a teclejar res</b>. PitWall <b>crea automàticament la cursa</b> a partir del que rep.</p>
+      <p>Entra a <b>Carreras → Importar tanda</b>. Hi ha <b>dues maneres</b> de portar la prova:</p>
+      <ul>
+        <li><b>Fitxer JSON</b> — a Control prems <b>Exportar tanda (JSON)</b> i deses el fitxer; a PitWall el <b>puges</b> a la pantalla d’importació.</li>
+        <li><b>Per xarxa (wifi/LAN)</b> — a Control prems <b>Enviar a PitWall</b>: Control <b>descobreix</b> el teu PitWall a la xarxa local (o li indiques la <b>IP</b> a mà) i demana un <b>PIN d’aparellament</b>. Aquest PIN és el que mostra la pantalla <b>Importar tanda</b> de PitWall — tecleja’l a Control per autoritzar l’enviament.</li>
+      </ul>
+      <p><b>Què crea PitWall.</b> Cada <b>mànega</b> de la prova de Control es converteix en una <b>tanda</b>, amb cada equip col·locat al seu <b>carril de sortida</b>. Els <b>descansos</b> (<span class="mono">D1</span>, <span class="mono">D2</span>…) es col·loquen i roten com en qualsevol rotació (vegeu <a class="inl" href="#tandas">Tandes, participants i rotació</a>).</p>
+      <p><b>Amb pole.</b> Si la prova té pole (interruptor <b>La carrera tiene pole</b> a Control; en exportar a fitxer t’ho pregunta), Control <b>no envia l’ordre de carril</b>. A la pantalla d’importació de PitWall marca <b>Esta carrera tiene pole</b>: PitWall crea la cursa amb la <b>sessió de pole</b> (tots els equips) i la graella es decideix <b>després de córrer la pole</b> (vegeu <a class="inl" href="#pole">Pole</a>).</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Just després d’importar pots <b>editar la cursa</b> per assignar-li l’ <b>escenari</b> del teu club (i heretar-ne els carrils, la seqüència i el temps mínim) — vegeu <a class="inl" href="#editar">Editar cursa, tandes i mànegues</a>.</div>
+      </div>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div><b>Requisit:</b> per a l’enviament per xarxa, PitWall i PitWall Control han d’estar a la <b>mateixa xarxa</b> LAN/wifi. El PIN d’aparellament es veu a <b>Importar tanda</b> de PitWall. L’altra meitat del pont —<b>portar els resultats</b> de tornada a Control— s’explica al <a class="inl" href="manual-control.ca.html">Manual de PitWall Control</a>.</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Connexió ecosistema.</b> Tot el pont amb PitWall Control per xarxa —enviar tandes i portar resultats— es pot <b>permetre o bloquejar</b> de cop des de <b>Sistema → Conexión ecosistema</b>, a l’inici. Ve <b>activat</b> de fàbrica; si l’apagues, qualsevol PitWall Control de la xarxa queda rebutjat (encara que el PIN sigui correcte) fins que el tornis a activar. Allà mateix també pots consultar el PIN d’aparellament.</div>
+      </div></div></details>
+    </section>
+
+    <section id="tandas">
+      <div class="num">// 05</div>
+      <h2>Tandes, participants i rotació</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Una <b>tanda</b> és un grup de pilots que corren junts i canvien de carril a cada mànega.</li><li>Afegeix els pilots o equips a la tanda i Manager prepara totes les mànegues tot sol.</li><li>Si hi ha més pilots que carrils, Manager afegeix descansos.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/08-tandas-rotacion.mp4" data-id="08-tandas-rotacion" aria-label="Veure el vídeo: Tandes i rotació (0:41)"><img src="videos/manager/08-tandas-rotacion.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:41</span></button><div class="cap">Tandes i rotació <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Tanda · Participants i mànegues</span></div>
+        <img src="manual/img/34-tanda.png" loading="lazy" alt="Tanda amb els seus participants i les mànegues generades per rotació">
+        <figcaption>Una tanda: participants, la seva rotació de carrils i les mànegues generades.</figcaption>
+      </figure>
+      <p>Una <b>tanda</b> agrupa els participants i la seva <b>rotació de carrils</b> per mànega. En afegir els <b>equips/pilots</b>, PitWall genera automàticament totes les <b>mànegues</b>.</p>
+
+      <h3>Categoria i cotxe (opcional)</h3>
+      <p>Si la cursa els té activats (vegeu <a class="inl" href="#crear">Crear una cursa</a>), en inscriure els participants —al pas de participants de l’assistent (curses amb pole) i a la pantalla de <b>tanda nova</b>— cada equip o pilot porta dos camps de <b>text lliure</b>: la seva <b>categoria/copa</b> i el seu <b>cotxe</b>. Tots dos són <b>opcionals</b> (es poden deixar en blanc) i, en inscriure un <b>equip del catàleg</b>, les seves dades es copien com a punt de partida. Després es poden <b>editar des de la tanda</b> —també en el <b>mode només reanomenar</b> d’una tanda amb mànegues ja corregudes—: s’apliquen en desar i no toquen la rotació. La <b>categoria</b> es veu al costat del nom al directe i, a l’Excel de resultats, categoria i cotxe surten com a columnes.</p>
+
+      <h3>Com funciona la rotació</h3>
+      <p>Cada participant va canviant de carril mànega a mànega seguint la seqüència configurada (p. ex. <span class="mono">1, 3, 5, 6, 4, 2</span>). Així tots passen per tots els carrils i les condicions s’igualen.</p>
+      <ul>
+        <li><i>Exemple (6 carrils, 6 pilots):</i> a la mànega 1 el pilot A corre el carril 1; a la mànega 2, el 3; a la 3, el 5… fins a completar la volta a tots els carrils.</li>
+      </ul>
+
+      <h3>Rotació al teu gust</h3>
+      <p>PitWall proposa automàticament una rotació equilibrada, però <b>la pots gestionar com vulguis</b>: reordena la <b>seqüència de carrils</b> a mà (arrossegant) per decidir exactament per quin carril passa cada participant a cada mànega.</p>
+
+      <h3>Descansos</h3>
+      <p>Si hi ha <b>més participants que carrils</b>, la seqüència inclou buits (<span class="mono">0</span> / <span class="mono">DSC</span>) que són <b>descansos</b>: en aquesta mànega aquest participant no corre. PitWall els reparteix de manera equilibrada, però <b>també els pots col·locar on vulguis</b> dins de la rotació (arrossega’ls a la posició que prefereixis).</p>
+
+      <h3>Carrils buits (menys participants que carrils)</h3>
+      <p>No cal omplir tots els carrils: pots crear una tanda amb <b>menys participants que carrils</b> (n’hi ha prou amb <b>un</b>). Els carrils lliures queden <b>sense cotxe fantasma</b> que aparegui en voltes ni classificació, i no han de ser per força els últims: al tauler de la tanda deixa buit <b>el carril que vulguis</b> (p. ex. en 8 carrils, sense l’1 ni el 8) i la 1a mànega respectarà aquesta col·locació. Al peu del formulari, <b>Carriles sin participante</b> mostra l’opció triada; prem <b>Modificar</b> per canviar-la:</p>
+      <ul>
+        <li><b>Pasar por todos los carriles</b> (per defecte): el buit va <b>canviant mànega a mànega</b> i tots acaben corrent a tots els carrils, així que la pista queda igual de justa que amb la graella completa.</li>
+        <li><b>No pasar por los carriles vacíos</b>: els carrils que deixis sense participant <b>no es fan servir en tota la tanda</b>; la rotació va només pels ocupats.</li>
+        <li><b>No pasar por los últimos carriles vacíos</b>: els carrils lliures <b>del final</b> no es fan servir mai (el comportament de versions anteriors); si deixes un buit <b>al mig</b>, aquest sí que va rotant.</li>
+      </ul>
+
+      <h3>Amb passades / repetir carril</h3>
+      <ul>
+        <li><i>2 passades</i> → la seqüència sencera es repeteix: <span class="mono">1,3,5,6,4,2, 1,3,5,6,4,2</span>.</li>
+        <li><i>Repetir carril 2</i> → cada carril, dues mànegues seguides: <span class="mono">1,1,3,3,5,5,6,6,4,4,2,2</span>.</li>
+      </ul></div></details>
+    </section>
+
+    <section id="editar">
+      <div class="num">// 06</div>
+      <h2>Editar cursa, tandes i mànegues</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Després de crear una cursa li pots canviar el nom i, mentre no s’hagi corregut cap volta, l’escenari.</li><li>També pots retocar les tandes i les mànegues que encara no s’han corregut.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <p>Després de crear una cursa la pots retocar:</p>
+      <ul>
+        <li><b>Editar carrera</b> — canviar el <b>nom</b> i, <b>mentre no hi hagi voltes registrades</b>, l’ <b>escenari</b>. Pots <b>assignar</b> un escenari a una cursa que no en tenia, <b>canviar-lo</b> per un altre o <b>treure’l</b>. En <b>assignar</b> un escenari, la cursa n’hereta els <b>carrils</b>, la seva <b>seqüència</b> de rotació i el seu <b>temps mínim</b> (i les voltes mínimes per <b>categoria</b>, si en té), i PitWall <b>regenera les tandes pendents</b> amb aquesta configuració; en <b>treure’l</b>, la cursa passa a <b>mode manual</b> conservant la configuració que tenia. Si ja hi ha voltes, l’escenari queda <b>bloquejat</b> (per no trencar les dades).</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Editar cursa</span></div>
+        <img src="manual/img/op-edit-carrera.png" loading="lazy" alt="Formulari d’edició d’una cursa: nom i escenari assignable">
+        <figcaption>Editar cursa: nom i —si encara no hi ha voltes— assignar, canviar o treure l’escenari.</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Cas típic: <b>importes una tanda de PitWall Control</b> (que arriba en mode manual) i després la <b>edites per assignar-li l’escenari</b> del teu club, de manera que hereti carrils, seqüència i temps mínim de la teva pista.</div>
+      </div>
+      <ul>
+        <li><b>Regles de resistència (torns i pneumàtics)</b> — en una cursa de <b>resistència</b>, i <b>mentre no s’hagi corregut cap mànega</b>, Editar carrera et deixa ajustar també les <b>regles de torns per pilot</b> (mínim i màxim per pilot, màxim de torns i bloqueig del final de mànega) i els <b>pneumàtics per equip</b> (la dotació amb què arrenca el control de pneumàtics) — els mateixos camps que vas fixar a l’assistent en crear la cursa. Així pots corregir un número sense refer la cursa. Tan bon punt roda la <b>primera mànega</b>, aquests camps es <b>bloquegen</b> (atenuats i amb un cadenat 🔒) per no descuadrar el que ja s’ha corregut; el <b>nom</b> i el <b>escenari</b> segueixen les seves regles de sempre. Si poses un <b>màxim per pilot inferior al mínim</b>, PitWall t’avisa.</li>
+        <li><b>Categoria i cotxe (opcional)</b> — els dos interruptors de l’assistent (<b>Categoría / copa</b> i <b>Coche</b>) es poden <b>encendre o apagar en qualsevol moment</b>, també amb la cursa en marxa: només canvien el que s’anota, es mostra i s’exporta per participant, mai el cronometratge ni el calendari. En <b>apagar-los</b>, les dades ja anotades <b>no s’esborren</b>: si els tornes a encendre, tornen a aparèixer.</li>
+      </ul>
+      <ul>
+        <li><b>Editar tanda</b> — canviar els <b>noms</b> dels participants i, si la tanda encara no ha començat, la seva composició. Si ja té mànegues iniciades, entra en <b>mode només reanomenar</b> (no s’afegeixen ni es treuen participants, per no descuadrar la rotació). En refer les mànegues, cada participant <b>conserva els seus carrils de la 1a mànega</b>, buits inclosos.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Editar tanda</span></div>
+        <img src="manual/img/op-edit-tanda.png" loading="lazy" alt="Formulari d’edició d’una tanda: participants i mode només reanomenar">
+        <figcaption>Editar tanda: participants i la seva composició (o mode només reanomenar si ja ha començat).</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Si només vols portar a la cursa els canvis de <b>pilots o país</b> fets al catàleg d’equips i la cursa <b>encara no ha arrencat</b>, no cal tocar «Editar tanda»: fes servir <b>Sistema → Sincronizar catálogo</b> (vegeu <a class="inl" href="#escenarios">Escenaris, categories i catàlegs</a>). Per a una cursa que ja ha rodat alguna mànega, «Editar tanda» en <b>mode només reanomenar</b> és l’única via.</div>
+      </div>
+      <ul>
+        <li><b>Editar manga</b> — canviar <b>qui corre a cada carril</b> en una mànega concreta, sense regenerar tota la tanda (útil si un equip no es presenta o hi ha un canvi d’última hora).</li>
+      </ul></div></details>
+    </section>
+
+    <section id="pole">
+      <div class="num">// 07</div>
+      <h2>Pole (classificació prèvia)</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>La <b>pole</b> és una volta de classificació abans de la cursa per decidir l’ordre de sortida. És opcional.</li><li>Activa-la en crear la cursa i llança-la des de la pàgina de la cursa → <b>Configurar Pole Position</b>.</li><li>Tots corren pel mateix carril, l’un darrere l’altre, perquè els temps siguin comparables.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/10-pole.mp4" data-id="10-pole" aria-label="Veure el vídeo: Pole position (0:59)"><img src="videos/manager/10-pole.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:59</span></button><div class="cap">Pole position <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Configurar Pole Position</span></div>
+        <img src="manual/img/44-pole-setup.png" loading="lazy" alt="Pantalla de configuració de la Pole Position amb ordre de participants i carril">
+        <figcaption>Configurar Pole: ordre de sortida dels participants i carril comú de classificació.</figcaption>
+      </figure>
+      <p>La <b>pole</b> és una volta classificatòria <b>abans</b> de la cursa per decidir l’ordre de sortida. És opcional; s’activa en crear la cursa (<b>Pole</b>) i es llança des de la pàgina de la cursa → <b>Configurar Pole Position</b>.</p>
+      <ul>
+        <li><b>Participantes</b>: apareixen tots els inscrits en una <b>quadrícula numerada</b> (1, 2, 3…) que s’ajusta sola a l’amplada de la pantalla i s’omple per columnes —coincidint amb els grups de circuit C1/C2/C3—. Aquest ordre és l’ordre en què sortiran a fer la seva volta; pots <b>arrossegar</b> qualsevol participant a mà per canviar-lo, o prémer <b>🎲 Aleatorio</b> per barrejar-lo sencer.</li>
+        <li><b>Carril de pole</b>: <b>tots</b> fan la seva volta classificatòria pel <b>mateix carril</b> (perquè sigui comparable). Tria’l amb <b>−/+</b> o amb <b>🎲 Aleatorio</b>.</li>
+        <li><b>Cambio automático de piloto</b>: interruptor al costat de <b>Omitir 1er cruce</b>. Amb la casella activa, en acabar l’intent d’un pilot el botó <b>Siguiente piloto</b> fa un compte enrere de 3 segons i avança sol, sense esperar el clic manual. És una preferència del lloc de control (es desa al mateix navegador), no de la cursa.</li>
+        <li>Prem <b>Empezar Pole</b>: cada participant entra per torns, fa la seva volta i PitWall en registra el millor temps. Al cronometratge pots activar <b>Omitir 1er cruce (out-lap)</b> per no comptar la volta de llançament.</li>
+        <li><b>Cantar tiempos</b>: interruptor a la barra superior del cronometratge, al costat de <b>Omitir 1er cruce (out-lap)</b> i <b>Cambio automático de piloto</b>. PitWall canta en veu alta cada volta del pilot en pista: «Nueva pole, 11 con 85» si bat la pole vigent, «Mejor vuelta, 11 con 90» si millora la seva sense batre la pole i, si no, només el temps («11 con 94»). Ve <b>actiu</b> i cada navegador recorda la seva elecció: els convidats que segueixen la pole des d’un altre dispositiu també el tenen, i cadascú pot silenciar el seu. La veu parla en l’idioma de la pàgina.</li>
+        <li><b>Pole amb BART, TicTac o simulació</b>: abans la pole només arrencava amb el GO d’una caixa DS. Ara, amb aquestes fonts, la pantalla de pole mostra <b>«Pulsa GO para empezar»</b> i els botons <b>GO</b> (amb el mateix semàfor de 3 s), <b>PAUSE</b> i <b>REANUDAR</b>. La pole <b>acaba sola quan s’esgota el temps</b> i desa la millor volta; <b>Parar</b>, <b>Saltar</b> i <b>Siguiente piloto</b> funcionen com sempre. Amb TicTac, el semàfor i el tall de corrent els fa l’interface, igual que a les mànegues. Amb una caixa DS no canvia res i els botons nous no apareixen.</li>
+        <li><b>No se presenta</b>: si el participant de torn no es veu per la pista, el botó <b>No se presenta</b> el salta. La primera vegada l’envia al <b>final de la cua</b> —tindrà una altra oportunitat quan li torni a tocar—; si se’l torna a saltar sense haver arribat a córrer entremig, queda marcat <b>Ausente</b> de debò. Els absents no competeixen per la pole amb un 0.00 com si fos la volta més ràpida: apareixen a part, en el seu propi bloc, tant a la classificació en directe com als resultats finals.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Cronometratge de Pole</span></div>
+        <img src="manual/img/44b-pole-timing.png" loading="lazy" alt="Pantalla de cronometratge de la Pole amb el botó GO, PARAR, No se presenta i l’ordre de sortida">
+        <figcaption>Cronometratge de la pole amb BART, TicTac o simulació: botó GO (i PAUSE/REANUDAR un cop en marxa), ordre de sortida i classificació en directe.</figcaption>
+      </figure>
+
+      <h3>Resultats de la pole</h3>
+      <p>En acabar apareix <b>Resultados Pole</b> amb la <b>classificació final</b> (del més ràpid al més lent, amb el gap amb el líder i la <b>volta ràpida</b>). Des d’aquí pots <b>✏️ Editar tiempos</b> si hi va haver un error, o continuar amb <b>🚦 Asignar carriles de salida</b>.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Resultados Pole</span></div>
+        <img src="manual/img/46-pole-results.png" loading="lazy" alt="Pantalla de Resultados Pole amb la classificació final, gap amb el líder i volta ràpida">
+        <figcaption>Resultados Pole: classificació final, gap amb el líder i volta ràpida per participant.</figcaption>
+      </figure>
+
+      <h3>Assignar carrils després de la pole</h3>
+      <p>La pole no reparteix carrils automàticament: obre la pantalla <b>Elección de carril</b>, on cada participant <b>tria</b> el seu carril <b>en ordre de classificació</b> — el <b>poleman</b> (el més ràpid) tria primer, després el 2n, i així successivament. És el clàssic «el més ràpid tria carril».</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Elección de carril</span></div>
+        <img src="manual/img/47-pole-lanes.png" loading="lazy" alt="Pantalla d’elecció de carril en ordre de classificació, amb carrils disponibles">
+        <figcaption>Elecció de carril: cada participant tria carril en ordre de classificació de la pole.</figcaption>
+      </figure>
+      <ul>
+        <li>El bàner <b>Eligiendo ahora</b> indica a qui li toca; a l’esquerra veus l’ <b>ordre d’elecció</b> (la classificació) i a la dreta els <b>carrils disponibles</b> (amb el seu color).</li>
+        <li>Cadascú prem el carril que vol; aquest carril desapareix dels disponibles i el torn passa al següent.</li>
+        <li><b>Si hi ha més participants que carrils</b>, apareixen buits de <b>💤 Descanso</b>: qui triï descans <b>no corre la mànega 1</b> i <b>entra a la rotació des de la mànega 2</b>.</li>
+        <li>Quan tothom ha triat, prem <b>🏁 Crear Primera Tanda</b>: PitWall crea la tanda i genera totes les mànegues amb aquesta graella com a punt de partida (l’ordre d’elecció defineix la posició inicial a la rotació de carrils). A partir d’aquí, la cursa fa rotar els carrils mànega a mànega com sempre (vegeu <i>Tandes i rotació</i>).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>La pole no puntua a la cursa: només decideix <b>qui tria carril primer</b> i, amb això, la graella de sortida de la primera mànega.</div>
+      </div>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <div><b>Els convidats poden seguir la pole en directe.</b> El tauler de cronometratge de la pole —abans només visible per a qui l’operava— és accessible sense restricció d’IP des de <b>Estadísticas en vivo</b>, i apareix una targeta nova a la pàgina d’inici de convidat mentre hi ha una pole en marxa. És de <b>només lectura</b>: s’amaguen els controls (iniciar/aturar/pilot següent) i es veu en temps real qui és a la pista, l’ordre de sortida i la classificació provisional.</div>
+      </div></div></details>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 08</div>
+      <h2>PitWall Lap — per als equips</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Els pilots i equips poden seguir la cursa al mòbil, connectats a la wifi del club.</li><li>Amb l’app <a href="pitwall-lap-ca.html">PitWall Lap</a> senten els seus temps en veu alta. Sense instal·lar res, també la poden veure al navegador amb un PIN.</li><li>Els PIN de cada equip són a <b>PitWall Lap · PINs de la carrera</b>.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PINs per equip</span></div>
+        <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Taula de PINs per equip per accedir a PitWall Lap des del mòbil">
+        <figcaption>PitWall Lap · PINs: l’adreça per al mòbil i el PIN de cada equip.</figcaption>
+      </figure>
+      <p>Els equips poden seguir la seva cursa des del mòbil de <b>dues maneres</b>, no excloents: la <b>vista web amb PIN</b> (sense instal·lar res, de només lectura) o l’ <b>app nativa PitWall Lap</b> (s’instal·la al mòbil, amb veu i estratègia de pneumàtics en directe).</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Ja funciona durant la mateixa pole, no només en acabar-la.</b> Els equips (amb el seu PIN) es creen en confirmar l’assistent de la cursa, en lloc d’esperar a assignar els carrils al final de la pole. Així, cada equip veu al seu panell si li toca ara, un cronòmetre en directe del seu intent, les seves voltes i el seu millor temps, amb la veu cantant cada volta igual que en cursa; en acabar la pole, el panell passa sol a mostrar el seu resultat (posició i temps).</div>
+      </div>
+      <p><b>Vista web amb PIN.</b></p>
+      <ul>
+        <li>Entra a <b>PitWall Lap · PINs</b> de la cursa. Veuràs l’adreça que els equips obren al mòbil (p. ex. <span class="mono">http://&lt;IP-del-servidor&gt;:3000/lap/&lt;id&gt;</span>) i la taula <b>EQUIPO → PIN</b>.</li>
+        <li>Dona a cada equip <b>el seu PIN</b>. En obrir l’adreça i introduir-lo, entren directament al seu panell.</li>
+        <li><b>Nuevo</b> regenera el PIN d’un equip (per si s’ha filtrat o el volen canviar).</li>
+        <li><b>PIN de acceso — Activado / Desactivado.</b> Al mateix full de PINs, un interruptor permet <b>treure el PIN</b> d’aquesta cursa. Amb el PIN <b>desactivat</b>, cada equip entra al seu panell de timing <b>només triant-se a la llista</b>, sense teclejar res (útil en esdeveniments interns on el PIN fa nosa). Els PINs <b>es conserven</b> per si el tornes a activar. És un ajust <b>per cursa</b> i viatja també al cronòmetre esclau BART en sincronitzar la cursa (Race Link).</li>
+        <li><b>Seguiment de rivals.</b> Al seu panell, cada equip pot seguir <b>fins a 5 rivals</b> i comparar carril a carril voltes, volta ràpida i mitjanes (només de mànegues acabades). La llista es desa per equip, així que la comparteixen tots els mòbils del box. Detall al <i>Manual d’estadístiques</i>, apartat <i>PitWall Lap</i>.</li>
+      </ul>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Els mòbils han d’estar a la <b>mateixa xarxa</b> que l’ordinador que fa de servidor. Fes servir la IP de l’ordinador, no <span class="mono">localhost</span>, quan l’obrin des del telèfon. Si vols que els equips segueixin la cursa <b>des de fora del local</b> (per internet), mira <a class="inl" href="#publico">Seguiment públic per internet</a>.</div>
+      </div>
+      <p><b>App nativa PitWall Lap (iOS/Android).</b> És la via completa: el pilot instal·la l’app al mòbil i, en obrir-la, tria la font (<b>PitWall</b> o el cronòmetre <b>TicTac Slot</b> en solitari, sense servidor al darrere) i <b>descobreix el servidor sola</b> a la xarxa local en uns segons — sense URL ni PIN per repartir. Si l’autodescobriment falla, s’introdueix la IP a mà una vegada i l’app la recorda per a la propera. Si el servidor té diverses curses o tandes actives, deixa triar; després el pilot tria el seu <b>nom/equip</b> de la llista per entrar al seu panell.</p>
+      <p>Comparteix amb la vista web el cronometratge en directe i la veu (voltes, canvis de posició, mitja mànega, avisos de temps i, en mode avançat, cada N minuts: <b>mitjana de la mànega</b>, <b>mitjana de cursa</b> —amb totes les teves mànegues—, gaps i «mitjana per pujar»), i a més ofereix:</p>
+      <ul>
+        <li><b>Pantalla de cursa per mirar-la de reüll</b>: l’última volta en gran, en <b>lila</b> si és la teva millor volta, en <b>verd</b> si estàs a menys d’un 2 % d’ella i en <b>ambre</b> si vas més lent, amb la diferència a sota (<span class="mono">+0.23 vs mejor</span>); la teva posició i els gaps amb el nom del rival de davant i de darrere. Si el director <b>posa en pausa</b>, <b>atura (STOP)</b> o acaba la mànega, l’app ho mostra i la veu ho avisa; en acabar et diu la teva propera mànega i carril. Els ajustos de veu queden plegats mentre corres, amb l’interruptor general sempre a mà.</li>
+        <li><b>Estratègia de pneumàtics en directe</b> (curses de resistència, amb pilot seleccionat): recomana quan canviar —per degradació real de ritme, o de manera <b>pautada</b> per voltes/jocs restants quan la goma no perd ritme—, amb consell per posició i modelatge de la goma dels rivals de davant i darrere. Si la cursa porta el <b>control de pneumàtics del servidor</b> (vegeu <i>Control de pneumàtics de resistència</i>) i l’equip coincideix per nom, la dotació i els canvis els envia <b>PitWall Manager</b>: l’app els mostra en directe (jocs disponibles i últim canvi) sense botons manuals. Sense control del servidor, el pilot porta el compte a mà (jocs, canvis obligatoris, cost de parada) i confirma ell mateix amb <b>Cambié gomas</b>.</li>
+        <li><b>Pole</b>: pantalla pròpia per seguir la teva volta de classificació, el gap amb la pole i la classificació final, si la cursa en té.</li>
+        <li><b>Historial i Entrenament</b>: curses passades (encara que no les seguissis en directe) i un mode d’entrenament lliure que grava les teves tandes de rodatge (voltes, millor, mitjana) al mateix mòbil, amb gràfica i comparació entre elles.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>L’app no fa servir PIN: qualsevol a la <b>mateixa xarxa local</b> que descobreixi el servidor pot triar qualsevol equip de la llista. Per a accés controlat o des de fora de la pista, fes servir la vista web amb PIN — l’app sempre necessita xarxa local, encara que publiquis el túnel de <i>Seguiment públic per internet</i>.</div>
+      </div>
+      <p><b>Manual complet de l’app.</b> Cada pantalla de PitWall Lap —menú, Lap, calendari amb importació des d’Excel, entrenaments de competició, resultats i ajustos— està explicada al <a class="inl" href="manual-lap.ca.html">Manual de PitWall Lap</a>.</p></div></details>
+    </section>
+
+    <section id="vivo">
+      <div class="num">// 09</div>
+      <h2>Dirigir la cursa en directe</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>A la pàgina de la cursa, prem <b>▶</b> per preparar la mànega.</li><li>Dona la sortida (<b>GO</b>) al teu cronometrador: arrenca el rellotge i comencen a comptar les voltes.</li><li>Pots posar en pausa, reprendre o aturar la mànega. En acabar, la següent es prepara sola.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/11-go-directo.mp4" data-id="11-go-directo" aria-label="Veure el vídeo: La sortida i el directe (0:52)"><img src="videos/manager/11-go-directo.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:52</span></button><div class="cap">La sortida i el directe <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Cronometratge en directe</span></div>
+        <img src="manual/img/20-live-timing.png" loading="lazy" alt="Pantalla de cronometratge en directe d’una mànega">
+        <figcaption>Pantalla en directe: rellotges per circuit, targetes de carril i volta ràpida.</figcaption>
+      </figure>
+      <p>Des de la pàgina de la cursa:</p>
+      <ol class="steps">
+        <li><b>Armar la manga</b> (▶). Queda preparada esperant el <b>GO</b> de la caixa.</li>
+        <li><b>GO</b>: en donar la sortida a la caixa, apareix el <b>semàfor</b> i arrenca el cronòmetre. Cada circuit porta el seu propi rellotge (C1/C2/C3).</li>
+        <li>Durant la mànega veus per carril: <b>total de voltes</b>, <b>última</b>, <b>mitjana</b>, <b>millor</b>, i a dalt el bàner de <b>volta ràpida</b>.</li>
+        <li><b>Pausa / Reanudar / Parar</b> la mànega quan calgui.</li>
+        <li>En acabar (bandera o fi de temps), la mànega es tanca i es prepara la <b>següent</b>.</li>
+        <li>En acabar totes les mànegues d’una tanda, la cursa s’atura aquí i el GO torna a l’ <b>entrenament</b>: la <b>tanda següent</b> comença quan prems <b>▶ Tanda N</b> (vegeu <i>Qui s’endú el GO de la caixa</i>, més avall).</li>
+      </ol>
+      <p><b>La fitxa de la cursa és accessible amb una mànega en marxa.</b> Entrar en una cursa que té una mànega en curs ja no et porta directament al directe: en veus la <b>fitxa</b> (estat, classificació projectada, tandes…) amb un enllaç <b>«Manga N»</b> per saltar al directe quan vulguis. En <b>donar el GO</b> des de la fitxa, la pantalla sí que salta sola al directe, i continua sense poder-se arrencar una segona mànega mentre una altra corre.</p>
+      <p><b>Canviar l’estat d’una cursa.</b> A la fitxa de la cursa, al costat de l’etiqueta d’estat, el botó <b>«Cambiar estado»</b> desplega <b>Pendiente</b> (encara no ha començat), <b>En curso</b> (surt a l’inici i pot rebre el GO) i <b>Completada</b> (passa a resultats). Serveix, per exemple, per reobrir una cursa que es va tancar per error o per aparcar-ne una que encara no correràs. No deixa canviar-lo mentre hi hagi una <b>mànega d’aquesta cursa en marxa</b>. Si poses una cursa <b>En curso</b> i ja n’hi ha una altra en curs, PitWall t’avisa: convé deixar-ne només una. Estar en curs no n’hi ha prou per endur-se el GO: vegeu l’apartat següent.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Fitxa de la cursa</span></div>
+        <img src="manual/img/06b-race-status.png" loading="lazy" alt="Menú Cambiar estado de la fitxa de cursa amb Pendiente, En curso i Completada">
+        <figcaption>Fitxa de la cursa: «Cambiar estado» amb Pendiente / En curso / Completada.</figcaption>
+      </figure>
+      <h3>Qui s’endú el GO de la caixa</h3>
+      <p>El mateix GO pot arrencar una mànega de la cursa o l’entrenament, i PitWall decideix amb <b>una sola regla</b>, la mateixa per a la cursa, l’entrenament i l’app d’escriptori. <b>El GO és de l’entrenament</b>, llevat que:</p>
+      <ul>
+        <li>una <b>cursa l’hagi demanat</b>: obrir a l’ordinador de la pista el <b>directe de la mànega que toca córrer</b>, prémer <b>▶ Tanda N</b>, <b>Repetir</b> una mànega o prémer <b>Recuperar el GO</b> a la franja del directe;</li>
+        <li>hi hagi una <b>tanda a mitges</b> (entre dues mànegues de la mateixa tanda; també després de reiniciar PitWall);</li>
+        <li>hi hagi una <b>pole</b> en marxa.</li>
+      </ul>
+      <p>Perquè la cursa arrenqui, a més hi ha d’haver un <b>directe obert a l’ordinador de la pista</b>, com sempre. Si la cursa no pot arrencar, el GO és de l’entrenament: <b>ja no es perd cap GO</b>.</p>
+      <ul>
+        <li><b>En acabar una tanda el GO torna sol a l’entrenament</b>, encara que el directe s’hagi quedat obert. Per continuar la cursa, prem <b>▶ Tanda N</b> (també després de reiniciar PitWall).</li>
+        <li><b>Mirar la fitxa d’una cursa ja no la prepara</b>: la pots consultar sense deixar l’entrenament sense GO.</li>
+        <li><b>Franja ambre al directe.</b> A l’ordinador de la pista, si a la cursa li queda alguna cosa per córrer i el GO no és seu, el directe ho avisa: «El GO lo tiene el entreno: este directo no arrancará la carrera», amb el botó <b>Recuperar el GO</b>. En acabar una tanda diu «Para seguir la carrera, pulsa «▶ Tanda N»», sense botó. Si el GO el té una pole o una altra cursa, també ho diu.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Directe de cursa</span></div>
+        <img src="manual/img/20c-live-go-franja.png" loading="lazy" alt="Directe d’una mànega en acabar la tanda 1 amb la franja ambre «El GO lo tiene el entreno. Para seguir la carrera, pulsa «▶ Tanda 2»»">
+        <figcaption>Fi de la tanda 1: la franja ambre avisa que el GO és de l’entrenament; per continuar, «▶ Tanda 2» (a dalt).</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Exemple: una cursa en dues nits.</b> Deixes la cursa preparada dies abans i continueu entrenant: el GO és de l’entrenament. Dijous obres a l’ordinador de la pista el directe de la mànega 1 i correu les tandes 1 i 2. En acabar la tanda 2 el GO torna a l’entrenament, encara que el directe continuï obert, i podeu entrenar. Divendres, encara que hagis reiniciat PitWall i hàgiu entrenat abans, prems <b>▶ Tanda 3</b> i la cursa continua on s’havia quedat.</div>
+      </div>
+      <h3>Què arrenca amb el GO, cas per cas</h3>
+      <p>Una cursa de <b>2 tandes</b>: la tanda 1 es corre dijous i la tanda 2 divendres. Llevat que es digui una altra cosa, hi ha un directe obert a l’ordinador de la pista. Aquests casos estan comprovats amb l’emulador del DS-300:</p>
+      <div class="tbl-wrap">
+        <table class="doc-table">
+          <thead><tr><th>Situació</th><th>El GO arrenca…</th></tr></thead>
+          <tbody>
+            <tr><td>1. Cursa preparada; algú en mira la fitxa</td><td>Entrenament</td></tr>
+            <tr><td>2. Directe obert per descuit, sense haver obert el de la mànega que toca</td><td>Entrenament</td></tr>
+            <tr><td>3. Obren el directe de la mànega 1 i després entren a l’entrenament</td><td>Entrenament</td></tr>
+            <tr><td>4. Tornen al directe de la mànega 1</td><td class="is-race">Mànega 1</td></tr>
+            <tr><td>5. Tanda a mitges, encara que algú entri a l’entrenament</td><td class="is-race">Mànega 2</td></tr>
+            <tr><td>6. Fi de tanda amb el directe oblidat obert</td><td>Entrenament</td></tr>
+            <tr><td>7. Divendres, després de reiniciar PitWall, amb el directe obert</td><td>Entrenament</td></tr>
+            <tr><td>8. Premen «Recuperar el GO» sense prémer «▶ Tanda 2»</td><td>Entrenament</td></tr>
+            <tr><td>9. Després de prémer «▶ Tanda 2»</td><td class="is-race">Mànega 1 de la tanda 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Triar la vista.</b> Amb el botó <b>Vista</b> tries entre dues vistes: <i>Filas horizontales</i> (una fila per carril) o <i>Tarjetas con detalles</i> (una targeta per carril, llegible de lluny). L’antiga <i>Cuadrícula compacta</i> ja no existeix: si la tenies triada, s’obren les targetes.</p>
+      <p><b>Les targetes.</b> La <b>última volta</b> va en gran amb el <b>total de voltes</b> al costat i, a sota, millor volta, mitjana, Gap V i voltes de la mànega; les xifres s’ajusten soles a la mida de la targeta, tant si hi ha 6, com 24 o 40 equips. L’última volta surt en <b>lila amb «RÉCORD CARRERA»</b> si és la volta ràpida de la cursa i en <b>blau amb «BOXES»</b> si va ser una parada. Cada targeta mostra el <b>pilot al volant</b> amb una <b>barra del temps que porta conduït</b> davant del màxim per pilot (<b>ambre</b> a partir del 85 %, <b>vermella</b> si el passa); si un carril no ha fitxat, veuràs <b>«SIN PILOTO»</b> mentre corre la mànega. També avisa de sortides, <b>parades a boxes</b> («PIT 2») i <b>jocs de pneumàtics</b> fets servir sobre el total («4/12»).</p>
+      <p><b>Files a dues columnes.</b> Si els equips no caben en una columna, la vista de files es reparteix en <b>dues columnes</b>, cadascuna amb la seva capçalera, per veure’ls <b>tots alhora</b> (fins a 40 en una pantalla de 1080p). En curses amb control de pilots, cada fila porta el <b>pilot a sota de l’equip</b>.</p>
+      <p><b>La categoria, al costat del nom.</b> Si la cursa té activada la <b>Categoría / copa</b> (vegeu <a class="inl" href="#crear">Crear una cursa</a>), cada participant mostra la seva categoria al costat del nom a les targetes, les files, la classificació, la TV, les millors voltes i les estadístiques en directe. A les <b>curses sprint</b> (de pilots) abans no en sortia cap i ara també hi apareix la de cada pilot. El <b>cotxe</b> no es mostra al directe: es veu a la vista <b>Le Mans</b> i a l’Excel de resultats.</p>
+      <p><b>Ordre del directe.</b> A <b>Ajustes → Preferencias → Orden del directo</b> tries com s’ordenen targetes i files: per <b>classificació estimada</b> (recomanat) o per <b>voltes reals</b> (a igualtat de voltes, el mateix desempat que la classificació estimada i els resultats: coma corregida a mà, qui va creuar abans, coma de l’última mànega). Amb voltes reals no es mostra el Gap V. La classificació estimada del panell lateral no canvia.</p>
+      <p><b>Classificació estimada al costat.</b> A les dues vistes, el botó amb icona de <b>panell lateral</b> (al costat de <b>Vista</b>) obre o tanca la <b>classificació estimada acoblada a la dreta</b> de les files, com a TicTac: <b>#</b>, participant, <b>V. Proy.</b> (voltes estimades), <b>Total</b> (voltes reals) i <b>Media</b>. PitWall recorda si la vas deixar oberta a cada cursa. D’entrada el panell fa servir l’ <b>amplada automàtica</b> (la justa per llegir els noms sencers, com a màxim el 40 % de la pantalla) i ajusta la lletra perquè hi càpiguen tots; si no hi caben, passa de pàgina cada 20 s. <b>Arrossegant-ne la vora</b> tries tu l’amplada (si sobra espai apareixen també <b>Gap V</b> i la tendència) i amb <b>doble clic a la vora</b> torna a l’automàtic. Les files adapten la lletra a l’espai que queda: el nom del pilot té prioritat i, en finestres molt estretes, s’amaguen primer Gap V, després VLT i després ÚLTIMA. A la vista de targetes, amb el panell obert les targetes treuen millor volta, mitjana i Gap V (ja són a la classificació) i mantenen les voltes de la mànega sota el total.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Cronometratge en directe</span></div>
+        <img src="manual/img/20b-live-panel-estimada.png" loading="lazy" alt="Directe en vista de files amb la classificació estimada acoblada a la dreta">
+        <figcaption>Vista de files amb la classificació estimada al costat: V. Proy. (voltes estimades), Total i Media.</figcaption>
+      </figure>
+      <p><b>Pantalles fixes de sala o TV.</b> Afegint paràmetres a l’adreça del directe, aquesta pantalla arrenca sempre igual sense tocar el que hi ha desat: <code>?side=standings</code> (panell obert) o <code>?side=none</code> (tancat), i <code>?view=1</code> o <code>?view=3</code> (<i>Filas horizontales</i> o <i>Tarjetas con detalles</i>; un enllaç antic amb <code>?view=2</code> obre també les targetes). Es poden combinar: <code>?view=1&amp;side=standings</code>.</p>
+      <p><b>Distància al líder i estimada provisional.</b> A les pantalles de classificació (<b>Le Mans</b> i <b>estadístiques en directe</b>) la distància al líder es dona <b>amb la coma</b> i el seu equivalent <b>en segons</b> —<i>«a 2,8 v (35,5")»</i>—, no arrodonida a voltes senceres. I si una estimada porta un <b>asterisc taronja</b>, vol dir que aquest equip continua al seu <b>primera mànega</b> sense haver passat del <b>60 %</b>: la seva referència encara no està fixada i la xifra es pot moure. Tot això s’explica amb detall al <i>Manual d’estadístiques</i>.</p>
+      <p><b>La volta de bandera es cronometra.</b> L’últim pas de cada cotxe per meta arriba un instant després que caigui la bandera, així que PitWall continua esperant aquest pas els segons de l’ajust <b>«Espera de cruces tras el final»</b> (<b>Ajustes → Preferencias</b>; 1,5 s per defecte i <b>0 el desactiva</b>): si arriba, la volta de bandera es desa amb el seu <b>temps real</b>, i al <b>registre d’incidències</b> veuràs si va quedar <b>cronometrada</b> o <b>reposada</b>. Si el pas no arriba, PitWall reposa la volta amb la <b>mitjana</b> del carril perquè no se’n perdi cap. Aquesta volta és també la que fixa el desempat a igualtat de voltes: si dos acaben a la <b>mateixa mànega</b>, va davant <b>qui va creuar abans la meta</b>; si no, decideix la <b>coma</b> de l’última mànega. El <i>Manual d’estadístiques</i> ho explica amb detall.</p>
+
+      <h3>Quan PitWall dirigeix la cursa (TicTac, BART i simulació)</h3>
+      <p>Amb <b>TicTac, BART o simulació</b> és PitWall qui dirigeix la mànega, i al <b>directe</b> i a l’ <b>entrenament</b> apareixen els botons <b>GO</b>, <b>PAUSE / REANUDAR</b> i <b>STOP</b>. Amb una caixa DS no apareixen: mana la caixa.</p>
+      <ul>
+        <li><b>GO</b>: llança el <b>semàfor de 3 segons</b> i arrenca la mànega amb la seva durada. Amb <b>TicTac</b>, PitWall envia l’ordre a l’interface: el <b>semàfor el fa el mateix aparell</b> (el de la pantalla segueix el seu) i, en posar-se en verd, <b>dona corrent a la pista</b> i arrenca la mànega. En donar el GO <b>cada carril comença de zero</b>: el primer pas compta com a <b>volta de sortida</b>.</li>
+        <li><b>PAUSE / REANUDAR</b>: congela el <b>cronòmetre de PitWall</b> i els <b>passos durant la pausa s’ignoren</b>. Amb <b>TicTac</b>, l’interface a més <b>talla el corrent</b> en posar en pausa i <b>el torna</b> en reprendre (el directe espera un instant que l’aparell confirmi la pausa), i el temps aturat no se suma a la volta que queda partida per la pausa.</li>
+        <li><b>STOP</b>: atura la mànega; amb <b>TicTac</b> també <b>talla el corrent</b>.</li>
+        <li><b>Final amb TicTac</b>: el <b>fi de temps el dona l’aparell</b>, que <b>talla el corrent</b>, i PitWall tanca la mànega <b>just quan s’esgota el temps</b>. La <b>volta de bandera</b> compta si el pas cau dins de la finestra <b>«Espera de cruces tras el final»</b> de <b>Ajustes → Preferencias</b> (1,5 s per defecte, fins a 10 s), igual que amb la resta de dispositius. Un cotxe que va a mitja volta quan s’acaba el temps i creua fora d’aquesta finestra <b>no suma aquesta volta</b>; pujar la finestra ho suavitza.</li>
+        <li><b>TicTac en entrenaments i pole</b>: els botons funcionen igual a l’ <b>entrenament</b> (lliure i de competició) i a la <b>pole</b>. Com que l’interface sempre necessita un temps, l’ <b>entrenament lliure sense temps</b> se li envia com una sessió llarga (9 h) i s’acaba amb <b>STOP</b>.</li>
+        <li><b>Si l’interface no contesta</b>: si l’aparell no respon a una ordre (o no està connectat), PitWall continua com abans, amb <b>el seu propi semàfor de 3 s i el seu cronòmetre</b>, per no perdre la mànega. En aquest cas el corrent s’ha de donar i tallar a mà.</li>
+      </ul>
+
+      <h3>Canviar de tanda, repetir una mànega i finalitzar</h3>
+      <p>Des del mateix directe tens dreceres sense sortir de la pantalla:</p>
+      <ul>
+        <li><b>Siguiente tanda</b> — quan acaben les mànegues d’una tanda, passa directament a la següent.</li>
+        <li><b>Repetir manga</b> — si una mànega es va donar per dolenta (sortida falsa, incidència), la tornes a llançar amb els mateixos participants i carrils.</li>
+        <li><b>Finalizar carrera</b> — tanca la cursa (la «bandera»): es congela la classificació i es genera el resum per a resultats i per als mòbils (PitWall Lap).</li>
+      </ul>
+
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Avís <b>«Sin señal del cronometraje»</b>: mentre hi sigui, les voltes <b>no es registren</b>. Revisa la connexió abans de donar el GO.</div>
+      </div></div></details>
+    </section>
+
+    <section id="sucesos">
+      <div class="num">// 10</div>
+      <h2>Incidències de cursa</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>La pàgina <b>Sucesos</b> apunta tot el que passa a cada mànega: sortides, pauses, voltes corregides, canvis de pilot…</li><li>Serveix per revisar què va passar si hi ha un dubte o una reclamació.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <p>La pàgina <b>🗒️ Sucesos</b> —accessible des de la fitxa de la cursa i amb un botó a la capçalera del directe— mostra, mànega a mànega, tot el que va passant durant la sessió en un format fàcil de llegir: <b>GO</b> (també quan es dona en diverses caixes per separat, circuit a circuit), <b>pausa i represa</b> per circuit, <b>fi de mànega</b>, <b>cancel·lació</b>, <b>recuperació després d’un tall</b>, <b>voltes fantasma/ignorades</b> i el seu <b>reassignació</b> al carril correcte, <b>sortides retroactives</b>, les <b>voltes de bandera</b> (cronometrades amb el seu temps real o reposades amb la mitjana) i els <b>fitxatges de pilot</b> (QR, canvi en calent o correcció manual).</p>
+      <p>Les mànegues es mostren <b>compactades per defecte</b> —només la que està en marxa apareix oberta— i es despleguen amb un clic a la capçalera. Una casella permet <b>amagar els fitxatges de pilot rutinaris</b> previs al GO quan només interessa la resta d’incidències.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Amb la mànega en marxa, la pàgina va <b>sumant les incidències noves a mesura que passen</b>, sense recarregar. És la manera de reconstruir, després d’una cursa, què va passar i quan, sense tirar de memòria.</div>
+      </div></div></details>
+    </section>
+
+    <section id="turnos">
+      <div class="num">// 11</div>
+      <h2>Control de torns de pilot (campionats)</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>En curses per equips pots posar regles: quant temps mínim i màxim ha de conduir cada pilot.</li><li>Cada pilot escaneja el seu codi QR en entrar a la pista i Manager en suma el temps.</li><li>La pantalla <b>Control de turnos</b> avisa si algú no compleix les regles.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <p>En curses de <b>campionat per equips</b> pots imposar regles de repartiment de volant entre els pilots d’un equip. Es defineixen en crear la cursa:</p>
+      <ul>
+        <li><b>Temps mínim / màxim per pilot</b> — cada pilot ha de rodar com a mínim X i com a màxim Y.</li>
+        <li><b>Bloqueig després d’un canvi</b> — un mínim de temps sense tornar a canviar de pilot.</li>
+        <li><b>Màxim de torns per pilot</b>.</li>
+      </ul>
+      <p>Els <b>canvis de pilot</b> es registren escanejant el <b>QR del pilot</b> (o introduint-ne el codi) en entrar a la pista. Des del directe obres <b>Control de turnos</b>, que mostra el <b>pilot actual per carril</b>, l’ <b>temps acumulat</b> de cadascun (avisant si incompleix una regla) i l’ <b>historial de torns</b>; si un canvi es va registrar malament, pots <b>corregir el temps</b> del torn.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>La càmera de l’escàner en mòbils i tauletes (HTTPS local).</b> L’escàner de QR fa servir la càmera, i el navegador només la permet a <b>localhost</b> (l’ordinador de l’operador) o per <b>HTTPS</b>. Un mòbil o tauleta que entra per la IP de la xarxa (192.168.x.x) veurà la càmera bloquejada, amb l’avís <i>«La cámara necesita HTTPS o localhost»</i>. Per escanejar des d’aquests dispositius, activa <b>Ajustes → HTTPS local (cámara del escáner QR)</b>: PitWall obre un port segur a part (per defecte <b>3443</b>) sense tocar res del funcionament normal, i cal <b>reiniciar</b> el servidor una vegada. Després, obre el control de pilots per l’enllaç <b>https://IP:3443/control/shifts</b> (els tens a punt en aquesta mateixa secció d’Ajustes).</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>L’avís de seguretat i com treure’l.</b> La primera vegada que un dispositiu obre l’enllaç <b>https://</b>, el navegador avisa una vegada (<b>«connexió no privada → continuar»</b>); en acceptar, la càmera ja funciona. Si vols que aquest avís no surti, <b>instal·la la CA de PitWall</b> al dispositiu: a Ajustes tens <b>Descargar CA</b> i la pàgina <b>/cert</b> amb la guia pas a pas per a <b>iPhone/iPad, Android i Windows</b>. Instal·lar la CA una vegada n’hi ha prou encara que canviï la IP de la xarxa: PitWall torna a emetre sol el certificat del servidor i el dispositiu continua confiant-hi.</div>
+      </div></div></details>
+    </section>
+
+    <section id="neumaticos">
+      <div class="num">// 12</div>
+      <h2>Control de pneumàtics de resistència</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>En curses de resistència, Manager pot portar el compte dels jocs de pneumàtics de cada equip.</li><li>Indica quants jocs té cada equip en crear la cursa.</li><li>Durant la cursa, prem la casella de l’equip cada vegada que li lliures un joc.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <p>En una cursa de <b>resistència</b> pots portar el compte dels <b>jocs de pneumàtics</b> que gasta cada equip. La dotació —els jocs amb què <b>tots</b> parteixen— es fixa en crear la cursa (assistent, pas 1, camp <b>«Neumáticos por equipo»</b>). Amb <b>0</b> el control queda apagat i tot funciona com sempre.</p>
+      <p>S’obre de <b>dues maneres</b>:</p>
+      <ul>
+        <li>Des de la cursa, amb el botó <b>🛞 Neumáticos</b> (només apareix en resistència i amb una dotació superior a 0).</li>
+        <li>Com a <b>quiosc</b> a <span class="mono">/control/tires</span> (al menú d’inici: <b>Competición → Control de neumáticos</b>), que <b>detecta sol</b> la cursa de resistència que estigui en marxa —igual que el quiosc de torns—. És l’ideal per deixar obert en una tauleta al costat del box.</li>
+      </ul>
+      <p>La pantalla és una <b>graella amb tots els equips</b>. Cada casella mostra el nom de l’equip i dos números: <b>Disponibles</b> i <b>Usados</b>.</p>
+      <ul>
+        <li><b>Un clic a la casella = lliurar un joc</b>: baixa un els disponibles, puja un els usats i queda <b>anotat en quina mànega i en quin minut:segon de cursa</b> es va fer el canvi (se segella amb la mànega en marxa i el seu rellotge; si en aquell moment no n’hi ha cap corrent, es desa sense temps).</li>
+        <li>El <b>llapis</b> de cada casella obre l’ <b>historial</b> d’aquest equip, on pots <b>esborrar</b> un registre (el joc torna a Disponibles), <b>editar</b> la seva mànega i el seu temps (mm:ss) o <b>afegir-ne un a mà</b> (mànega, temps i una nota).</li>
+      </ul>
+      <p>Els comptadors <b>no es desen tal qual</b>: es <b>calculen</b> a partir dels registres (dotació menys lliuraments), així que desfer no deixa mai descuadres. Si un equip passa del seu cupó, els seus <b>Disponibles</b> poden quedar en <b>negatiu i en vermell</b> —pensat per a quan dones un joc extra fora de la dotació.</p>
+      <p>A la capçalera, al costat de la dotació, el botó <b>🗒️ Historial de cambios</b> obre —en una <b>pestanya nova</b>— una <b>pàgina</b> amb el <b>registre global de tota la cursa</b> (no el d’un sol equip). Es presenta com una <b>taula en columnes</b> (fins a <b>tres columnes</b>) que aprofita l’amplada de la pantalla per veure’l gairebé <b>sense desplaçar-se</b>. Els canvis surten <b>agrupats per mànega</b>: es llisten <b>totes les mànegues</b>, i les que no van tenir cap canvi apareixen marcades com <b>«— sin cambios de neumáticos —»</b>. Dins de cada mànega, cada lliurament mostra l’ <b>equip</b> (amb el seu punt de color i el seu nom), <b>quin número de joc</b> era per a aquest equip (<b>joc N de la dotació</b>, comptant per ordre cronològic —1, 2, 3…—, en <b>vermell</b> si va passar del seu cupó) i el <b>minut:segon de cursa</b>. Els canvis sense mànega assignada van a un grup <b>«Sin manga»</b> al final. És de <b>només lectura</b> —per esborrar, editar o afegir a mà es continua fent servir el llapis de cada equip— i es <b>refresca en directe</b> mentre es donen pneumàtics.</p>
+      <p><b>A la vista en directe</b>, cada targeta d’equip mostra un indicador <b>🛞 amb el nombre de jocs de pneumàtics usats</b>, al costat dels avisos de <b>sortides (⚠️)</b> i <b>pit-stops (🔧)</b>. S’ <b>actualitza a l’instant</b> —sense recarregar— tan bon punt anotes un canvi al control de pneumàtics, i <b>parpelleja</b> quan el número puja. Només apareix en curses de <b>resistència amb control de pneumàtics</b>, i funciona amb la mànega <b>en marxa o en espera</b>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Tot se sincronitza a l’instant entre les pantalles obertes, i l’indicador de <b>mànega:temps</b> batega amb la cursa.</div>
+      </div></div></details>
+    </section>
+
+    <section id="verificaciones">
+      <div class="num">// 13</div>
+      <h2>Verificacions tècniques de PitWall Control</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Si verifiqueu els cotxes amb PitWall Control, el resultat arriba també a Manager.</li><li>A la pàgina de la cursa apareix el botó <b>Verificaciones</b> per consultar-lo. Des de Manager només es mira; no es canvia.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <p>Si el club passa la <b>verificació tècnica</b> dels cotxes amb <b>PitWall Control</b>, aquest resultat també pot arribar a PitWall —pel mateix pont de xarxa que les tandes, amb el mateix PIN i el mateix interruptor de <b>Connexió ecosistema</b> (vegeu <i>Importar una tanda de PitWall Control</i>).</p>
+      <p>Mànega a mànega, Control envia la <b>instantània</b> del que té verificat per equip: <b>pesos</b> (inicial, final i mínim del cotxe), <b>motor</b> (tipus, rpm, ums), <b>pinyó/corona</b> (marca, dents, diàmetre, material), <b>llantes</b> davantera i del darrere, <b>trena</b>, <b>suspensió</b>, <b>bancada</b>, <b>xassís</b>, <b>pneumàtic</b>, si va quedar <b>validat</b> o no, i <b>observacions</b> —amb les seves fotos, si n’hi ha.</p>
+      <p><b>Com es veu a PitWall.</b> Tan bon punt arriba el primer enviament, la pàgina de la cursa mostra el botó <b>🔍 Verificaciones</b>, que porta a una pantalla amb totes les verificacions <b>agrupades per mànega</b>.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Només consulta.</b> A PitWall no s’edita ni es dona d’alta cap verificació: tot es fa des de PitWall Control. Cada enviament nou <b>substitueix completament</b> les verificacions d’aquesta cursa (no es van sumant lliuraments solts).</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>A quina cursa van.</b> Si Control indica explícitament la cursa, PitWall les associa a aquesta. Si no, busca una cursa existent amb el <b>nom exacte</b> de la prova; si tampoc no troba cap coincidència, <b>crea automàticament</b> una cursa mínima perquè les verificacions tinguin on viure —el mateix comportament que en importar una tanda.</div>
+      </div></div></details>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 14</div>
+      <h2>Volta a volta i correccions (afegir / treure voltes)</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Si el cronometrador no va comptar una volta, o en va comptar una de més, s’arregla aquí.</li><li>Obre la correcció de voltes, tria el pilot i afegeix o treu la volta.</li><li>Ho pots fer amb la mànega en marxa: el canvi es veu a l’instant.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/15-corregir-vueltas.mp4" data-id="15-corregir-vueltas" aria-label="Veure el vídeo: Corregir voltes (0:52)"><img src="videos/manager/15-corregir-vueltas.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:52</span></button><div class="cap">Corregir voltes <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Volta a volta · Correccions</span></div>
+        <img src="manual/img/30-correcciones.png" loading="lazy" alt="Vista de volta a volta amb les accions de correcció per volta">
+        <figcaption>Volta a volta: llista de voltes per carril i accions per corregir lectures.</figcaption>
+      </figure>
+      <p>Des de la cursa (botó de <b>correcció de voltes</b> al directe o a resultats) entres al <b>volta a volta</b> de cada mànega. Serveix per arreglar lectures mal registrades.</p>
+      <ul>
+        <li><b>Esquerra</b>: els carrils de la mànega; tria l’equip/pilot que vols revisar.</li>
+        <li><b>Dreta</b>: la seva llista de voltes — <b>VLT</b> (núm.), <b>TIEMPO</b>, <b>RELOJ</b> (moment de cursa) i <b>Δ ANT.</b> (diferència amb la volta anterior).</li>
+        <li><b>Accions per volta</b>:
+          <ul>
+            <li><b>Transferir</b> (↔) — passar la volta a <b>un altre carril/equip</b> (si el sistema la va assignar malament).</li>
+            <li><b>Fantasma</b> — marcar la volta com a no vàlida (no compta) sense esborrar-la; es pot <b>restaurar</b>.</li>
+            <li><b>Borrar</b> (🗑) — eliminar una volta.</li>
+            <li><b>Añadir vuelta manual</b> — si va faltar un pas, l’afegeixes a mà.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><b>Correccions amb la mànega en marxa.</b> Cada correcció es veu <b>a l’instant</b> al directe i a la classificació, sense esperar el pas següent, i la numeració de voltes continua bé (per exemple, després d’afegir una volta a mà, el pas següent porta el número que toca). Si la mànega ja ha acabat, el directe que tinguis obert es recarrega sol amb les dades corregides.</p>
+      <p><b>Corregir la coma a mà (opcional).</b> La <b>coma</b> (la fracció de volta que portava cada cotxe en caure la bandera) es calcula sola, i així continua per defecte. Si l’automatisme enganya —un cotxe que va sortir o es va quedar aturat i continua «avançant» a l’estimació— la pots corregir: activa <b>Ajustes → Preferencias → «Corrección manual de la coma» → Permitir corregirla a mano</b> i, en una mànega <b>ja acabada</b>, sobre la llista de voltes de cada carril apareix el control <b>Coma</b>. Escrius la fracció (<b>de 0 a 0,99</b>; admet coma o punt) i prems desar; el camp <b>buit</b> (o el botó de <b>tornar a l’automàtica</b>) recupera el càlcul de sempre. Els carrils corregits es marquen <b>«a mano»</b> (en blau) i el camp mostra l’automàtica de referència; si aquesta mànega no és l’última que va córrer aquest equip o pilot, l’etiqueta <b>«no decide»</b> avisa que corregir-la no canvia el desempat (només la coma acumulada de referència). Una coma corregida <b>mana en el desempat</b> a igualtat de voltes, per davant de «qui va creuar abans la meta». Només es corregeix en mànegues tancades —en una mànega en marxa la coma la fixa la bandera— i en <b>repetir la mànega</b> les comes corregides s’esborren, perquè aquesta mànega es torna a córrer. El <i>Manual d’estadístiques</i> ho explica amb detall.</p>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Fes-lo servir amb criteri: les correccions canvien totals, mitjanes i classificació d’aquesta mànega.</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Voltes fantasma automàtiques.</b> Una volta per sota del <b>Pt</b> (temps mínim) es marca com a <b>fantasma</b> i el carril que la va generar <b>mai</b> no la compta. PitWall ja no la reassigna a ull: la <b>reté</b> i només l’assigna al carril que <b>confirma</b> haver-se saltat un pas (quan aquest carril passa amb una volta de ~el doble de la seva mitjana). Si ningú no ho confirma, es queda aquí com a <b>fantasma</b> perquè la revisis a mà. Amb <b>diversos circuits</b> (agrupador DS-300 o diversos Master BART), l’assignació automàtica <b>mai no creua d’un circuit a un altre</b>: un fantasma només es pot certificar en un carril del seu mateix circuit, mai en el d’un altre (són pistes físicament diferents).</div>
+      </div></div></details>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 15</div>
+      <h2>Resultats i exportacions</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>En acabar, entra a <b>Resultados</b>: veuràs la classificació i els temps de cada pilot.</li><li>Amb <b>Exportar</b> la treus en Excel; també la pots desar en PDF.</li><li>Per entendre els gràfics, mira el <a href="manual-estadisticas.ca.html">manual d’estadístiques</a>.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/17-resultados.mp4" data-id="17-resultados" aria-label="Veure el vídeo: Resultats i exportar (0:47)"><img src="videos/manager/17-resultados.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:47</span></button><div class="cap">Resultats i exportar <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Resultats</span></div>
+        <img src="manual/img/10-results-comparativa.png" loading="lazy" alt="Vista de comparativa de resultats per participant i carril">
+        <figcaption>Resultats (graella): per participant i carril, amb ràpida, mitjana i consistència.</figcaption>
+      </figure>
+      <p>En acabar (o en qualsevol moment) entra a <b>Resultados</b>:</p>
+      <ul>
+        <li><b>Resultados</b> (graella): per participant, cada carril amb <b>Rápida / Media / Consistencia / Salidas / Pit-stops</b>. En curses de <b>passades/repetir carril</b>, cada carril es desglossa en les seves <b>ocurrències</b> (1/2, 2/2) per comparar.</li>
+        <li><b>Progresión / Posiciones / Gap al líder / Gap (rejilla) / Estadísticas avanzadas</b>: diferents vistes d’anàlisi (s’expliquen amb detall al <a class="inl" href="manual-estadisticas.ca.html">Manual d’estadístiques</a>).</li>
+        <li><b>Pilotos</b> (resistències per equips amb fitxatge QR): per pilot, temps al volant, mànegues, voltes, voltes per hora, millor, mitjana, consistència, sortides i pits, per equip o en una taula de tots els pilots (vegeu el <a class="inl" href="manual-estadisticas.ca.html">Manual d’estadístiques</a>).</li>
+        <li><b>Exportar ▾</b>: un únic menú reuneix <b>Excel</b>, <b>Puntos (xlsx)</b>, <b>Puntos (csv)</b>, <b>Control</b> (csv), <b>area-corse</b> i <b>Exportar para GitHub</b>, cada opció amb una línia a sota que diu què fa. El <b>PDF</b> continua com a botó a part. En resistències per equips amb fitxatge, l’ <b>Excel</b> porta a més un full <b>Pilotos</b> (equip, pilot i les seves dades; les voltes sense fitxar en una fila grisa «Sin fichar»).</li>
+        <li><b>area-corse</b>: descarrega la <b>classificació general</b> de la cursa en un CSV amb el format que importa la plataforma italiana <b>Area Corse</b> (area-corse.it), per publicar les curses del club als seus campionats. L’identificador de pilot del fitxer és l’ <b>intern de PitWall</b>; Area Corse aparella cada resultat pel <b>nom</b> del pilot o equip, que hi va inclòs.</li>
+        <li><b>Exportar a Excel</b> (resultats, punts i informe de torns) <b>només funciona amb la cursa aturada o finalitzada</b>: no es pot treure l’Excel mentre una mànega està en marxa (aquest càlcul és pesat i frenaria el cronometratge, amb risc de perdre un pas). Si una mànega arrenca just mentre es generava, l’exportació es cancel·la i n’hi ha prou de repetir-la en acabar.</li>
+        <li>Si la cursa té activats els interruptors de <b>Categoría</b> i <b>Coche</b> (vegeu <a class="inl" href="#crear">Crear una cursa</a>), l’ <b>Excel de resultats</b> afegeix aquestes dues columnes <b>al costat del nom</b> als fulls <b>Clasificación</b>, <b>Mejor vuelta</b> i <b>Resultados</b>. Amb ells apagats, l’Excel surt exactament com sempre.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Resultats · Exportar</span></div>
+        <img src="manual/img/op-exportar.png" loading="lazy" alt="Resultats, menú Exportar desplegat">
+        <figcaption>El menú «Exportar» reuneix totes les descàrregues, cadascuna amb el que fa; el PDF va a part.</figcaption>
+      </figure>
+
+      <h3>Resultats públics</h3>
+      <p>Hi ha una pàgina oberta —<b>Resultados</b>, al menú d’inici— on qualsevol pot consultar (sense tocar res ni poder editar) els resultats de les curses <b>finalitzades</b>. És la que comparteixes amb pilots i públic perquè mirin la classificació i les estadístiques de la cursa. La pàgina té un <b>cercador</b> (per cursa, circuit, o equip o pilot del podi) i pestanyes <b>Todas / Sprint / Resistencia</b>. L’última cursa surt <b>destacada</b> a dalt, a tota l’amplada, i cada targeta mostra el tipus, la data de fi, el circuit, quants pilots o equips i quantes mànegues va tenir, el <b>podi</b> amb les seves voltes i la <b>volta ràpida</b> de la cursa.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Resultats públics</span></div>
+        <img src="manual/img/op-resultados-publicos.png" loading="lazy" alt="Pàgina pública de resultats de curses finalitzades, de només lectura">
+        <figcaption>Resultats públics: consulta de només lectura de les curses finalitzades, per compartir amb pilots i públic.</figcaption>
+      </figure></div></details>
+    </section>
+
+    <section id="entrenamiento">
+      <div class="num">// 16</div>
+      <h2>Entrenament</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Per rodar sense muntar una cursa, prem <b>Entreno libre</b> a l’inici.</li><li>Dona la sortida al cronometrador i Manager apunta les voltes de cada carril.</li><li>Veuràs les millors i les últimes voltes de cada carril.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/20-entreno-libre.mp4" data-id="20-entreno-libre" aria-label="Veure el vídeo: Entrenament lliure (0:54)"><img src="videos/manager/20-entreno-libre.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:54</span></button><div class="cap">Entrenament lliure <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entrenament</span></div>
+        <img src="manual/img/40-training.png" loading="lazy" alt="Pantalla del mode Entrenament de PitWall">
+        <figcaption>Entrenament: rodar sense muntar una competició completa (lliure o de competició).</figcaption>
+      </figure>
+      <p>A més de les curses, PitWall té un mode <b>Entrenament</b> (botons <b>Entreno libre</b> i <b>Entreno de competición</b> de l’inici) per rodar sense muntar una competició completa. Hi ha dues modalitats:</p>
+      <ul>
+        <li><b>Entrenament lliure</b>: registra <b>voltes per carril sense estructura d’equips</b>. Ideal per a sessions obertes on cadascú prova cotxe i pista; no hi ha rotació ni classificació, només temps per carril.</li>
+        <li><b>De competició</b>: equips o pilots assignats a carrils amb <b>rotació automàtica després de cada tanda</b>, com una cursa però pensat per entrenar el format de campionat.</li>
+      </ul>
+      <p>Tria la modalitat, assigna els carrils i prem <b>Empezar</b>. El cronometratge en directe funciona igual que en cursa (GO de la caixa, voltes, millor/mitjana per carril).</p>
+      <h3>L’entrenament i el GO de la caixa</h3>
+      <p>En <b>entrar a l’entrenament</b> (obrir el lliure o iniciar-ne un de competició) des de l’ordinador de la pista, l’entrenament es queda el GO, llevat que hi hagi una <b>mànega en marxa</b>, una <b>tanda a mitges</b> o una <b>pole</b> (vegeu <i>Qui s’endú el GO de la caixa</i> a <a class="inl" href="#vivo">Dirigir la cursa en directe</a>). Des de la TV o un mòbil connectats per la xarxa no canvia res.</p>
+      <ul>
+        <li>Si el GO <b>no</b> és de l’entrenament, la pantalla ho avisa amb el motiu: mànega en marxa, tanda N a mitges, directe de «X» obert en aquest ordinador, pole en marxa o cursa simulada. Si la cursa l’ha demanat però encara no ha començat, l’avís porta el botó <b>Ceder el GO al entreno</b>. Aquest avís substitueix l’antic «Hay una carrera activa…», que sortia sempre que hi hagués una cursa en curs.</li>
+        <li>El <b>entrenament de competició</b> ja no arrenca alhora que una mànega oficial o una pole amb el mateix GO.</li>
+        <li>La <b>app d’escriptori</b> obre l’entrenament lliure en arrencar (si ho tens activat a <b>Ajustes → Ventanas y pantallas</b>) llevat que el GO sigui d’una cursa o d’una pole; abans n’hi havia prou que hi hagués qualsevol cursa en curs perquè no s’obrís.</li>
+        <li>Amb una <b>caixa DS</b>, si algú dona el <b>GO a la caixa abans d’obrir PitWall</b>, aquest GO no arriba al programa. Tot i així, l’entrenament lliure <b>arrenca sol amb el primer pas</b> que porti temps de volta (i aquesta volta ja compta). El rellotge compta cap amunt, perquè la durada venia en el GO perdut, i l’entrenament es tanca amb el fi o l’STOP de la caixa. No arrenca si el GO és d’una cursa o d’una pole, amb un entrenament de competició preparat, amb la caixa en pausa ni durant els <b>30 s</b> següents a un fi o STOP de la caixa, perquè un cotxe que creua per inèrcia després de la bandera no obri un entrenament. Amb TicTac, BART o simulació no canvia res: aquí el GO el dona PitWall.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entrenament lliure</span></div>
+        <img src="manual/img/41c-training-go-aviso.png" loading="lazy" alt="Entrenament lliure amb l’avís que el directe d’una cursa és obert i el botó Ceder el GO al entreno">
+        <figcaption>Avís de l’entrenament quan el GO és d’una cursa que l’ha demanat: el motiu i el botó «Ceder el GO al entreno».</figcaption>
+      </figure>
+      <p><b>El directe de l’entrenament.</b> A dalt tens els mateixos botons que al directe de cursa (<b>GO</b>, pausa, <b>STOP</b>, veu, <b>Vista</b>, reiniciar, pantalla completa i <b>Volver</b>). La targeta de cada carril mostra:</p>
+      <ul>
+        <li>la <b>última volta</b> i la seva diferència amb la millor;</li>
+        <li>la fila <b>Mejor / Media / Récord</b>;</li>
+        <li>les <b>10 últimes voltes</b> (la més recent a dalt) o, si ho tries a <b>Ajustes → Preferencias → «Historial de vueltas en entrenos»</b>, les <b>10 millors</b>, de millor a pitjor; en gran i cadascuna amb el seu número de volta al davant (amb un entrenament ja obert, el canvi es veu en recarregar);</li>
+        <li>un <b>gràfic de ritme</b> amb les línies de millor volta i mitjana: en passar el ratolí (o el dit) per un punt veus el número de volta, el seu temps i quant s’allunya de la millor.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Directe d’entrenament</span></div>
+        <img src="manual/img/41-training-free.png" loading="lazy" alt="Directe d’entrenament lliure amb les 10 últimes voltes i el gràfic de ritme">
+        <figcaption>Directe d’entrenament lliure: últimes 10 voltes i gràfic de ritme, amb el detall d’una volta en passar el ratolí.</figcaption>
+      </figure>
+      <p><b>En acabar la tanda els temps es queden a la pantalla.</b> Quan acaba (fi de la caixa o fi del temps), les voltes, la millor, la mitjana i el gràfic de cada carril continuen a la vista per comentar-los; s’esborren en donar el <b>GO següent</b>. El <b>Récord</b> de cada carril es manté entre tandes i només s’esborra amb <b>Reset</b>.</p>
+      <p>La <b>vista compacta</b> (botó <b>Vista</b>) resumeix cada carril en poc espai: l’última volta amb la seva diferència, Mejor / Media / Récord i el ritme en miniatura.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entrenament (vista compacta)</span></div>
+        <img src="manual/img/41b-training-compact.png" loading="lazy" alt="Vista compacta del directe d’entrenament amb sis carrils per fila">
+        <figcaption>Vista compacta: cada carril resumit, fins a 6 per fila.</figcaption>
+      </figure>
+      <p><b>Preparar un entrenament de competició.</b> El formulari va per <b>passos numerats</b>: circuit, participants i seqüència de canvi de carril. Per afegir equips, escriu al <b>cercador del catàleg</b> (<b>Intro</b> afegeix el primer que coincideixi). Cada participant es pot <b>pujar o baixar de carril</b>; <b>Sortear carriles</b> els reparteix a l’atzar i <b>Vaciar todo</b> comença de zero. Si hi ha dos participants amb el mateix nom, PitWall t’avisa. A la seqüència, <b>Orden natural</b> la torna a l’ordre 1, 2, 3… Una <b>barra fixa a baix</b> resumeix els carrils, quants van en pista i quants en reserva, al costat del botó <b>Preparar sesión</b>.</p>
+      <p><b>Els entrenaments de competició es desen.</b> En <b>caure la bandera de cada heat</b>, PitWall desa una fila per cada carril que ha rodat, amb el seu <b>participant</b>, les seves <b>voltes</b>, la seva <b>millor volta</b> i el seu <b>mitjana</b>. Els participants que <b>descansen</b> i els carrils <b>sense passos</b> no deixen fila. Un <b>stop forçat no desa</b> aquest heat: es descarta i es repeteix sencer.</p>
+      <p>Des de la configuració de l’entrenament de competició, l’enllaç <b>Ver entrenos guardados</b> obre la llista de sessions (<b>data</b>, <b>nre. de heats</b>, <b>participants</b>, <b>voltes</b> i <b>millor volta</b>), amb la més recent a dalt. En prémer una sessió en veus el detall amb dos blocs:</p>
+      <ul>
+        <li><b>Clasificación</b> de la sessió: guanya qui <b>suma més voltes</b> en tots els seus heats i, a igualtat, qui tingui la <b>millor volta</b>. La <b>mitjana</b> és la de <b>totes</b> les seves voltes, ponderada per heat (un heat de 40 voltes pesa el que toca davant d’un de 3).</li>
+        <li><b>Heat a heat</b>: el desglossament de cada heat, carril a carril.</li>
+      </ul>
+      <p>Cada sessió es pot <b>esborrar</b> des del seu detall. Si atures la sessió amb <b>STOP</b> i va arribar a desar algun heat, PitWall et porta directament als <b>seus</b> resultats.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>El <b>entrenament lliure</b> no desa resultats: és una sessió oberta de temps per carril.</div>
+      </div></div></details>
+    </section>
+
+    <section id="ajustes">
+      <div class="num">// 17</div>
+      <h2>Ajustos</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>A <b>Ajustes → Fuente de datos</b> tries el teu cronometrador: DS, BART, TicTac o Simulación per provar sense pista.</li><li>Prem <b>Guardar y aplicar</b>. A baix a la dreta, el punt verd confirma que arriben les dades.</li><li>La resta d’ajustos (pantalles, contrasenya, xarxa…) els pots deixar com venen.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/02-cronometro.mp4" data-id="02-cronometro" aria-label="Veure el vídeo: Connecta el cronòmetre (0:38)"><img src="videos/manager/02-cronometro.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:38</span></button><div class="cap">Connecta el cronòmetre <span>· vídeo en castellà</span></div></div></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Ajustos</span></div>
+        <img src="manual/img/04-settings.png" loading="lazy" alt="Pantalla d’ajustos de PitWall">
+        <figcaption>Ajustos: menú lateral de seccions i barra fixa de desament.</figcaption>
+      </figure>
+      <p>La <b>Configuración</b> s’organitza amb un <b>menú lateral</b>: <b>Fuente de datos</b>, <b>Preferencias</b>, <b>Red local</b>, <b>Seguridad</b>, <b>Seguimiento online</b>, <b>Integraciones</b> i <b>Diagnóstico</b>. Cada secció va a la seva pantalla, el menú porta punts d’estat (cronòmetre, túnel, mode debug) i, en desar, tornes a la secció on eres. A baix, una <b>barra fixa de desament</b> t’avisa dels <b>canvis sense desar</b> i de quins <b>necessiten reiniciar</b> PitWall (només la interfície de xarxa i HTTPS; la resta s’aplica en desar).</p>
+      <ul>
+        <li><b>Fuente de datos</b>: tria d’on arriben els passos — <b>Simulación</b>, <b>DS</b> (una caixa per port, amb el seu nombre de carrils), <b>DS-300 agrupador</b> (diverses caixes per un sol port COM: indica <b>port</b>, <b>baud</b> —57600, 8N1— i <b>nre. de caixes</b> 2/3/4 → 16/24/32 carrils) o <b>BART</b> per Bluetooth (es connecta per <b>BLE directe</b> per defecte; queda <b>TCP</b> a la llista per a l’emulador o un pont BLE→TCP). Amb l’agrupador els carrils es numeren correlativament (caixa 1 → 1–8, caixa 2 → 9–16…) i un sol senyal de sortida arrenca totes les caixes. Si fas servir <b>diversos Master BART</b> (un per cada bloc de carrils), afegeix una fila per cadascun amb el seu <b>nom BLE</b> (p. ex. <code>BART_TRACK1</code>, <code>BART_TRACK2</code>…) i el seu <b>nre. de carrils</b>: es numeren correlativament igual que les caixes DS-300 de l’agrupador, i cada Master s’ha d’aparellar per separat.</li>
+        <li><b>Configuració del port, sense embolics</b>: a cada circuit DS (i a l’agrupador) d’un cop d’ull només veus <b>Puerto</b> i <b>Baud rate</b>. El <b>port</b> es tria de la llista de ports detectats; si el teu no hi apareix, amb <b>«Escribir el path a mano»</b> el teclejes (p. ex. <code>COM3</code> o <code>/dev/ttys003</code>). El <b>baud rate</b> és un desplegable amb les velocitats habituals (9600–921600), amb <b>«Escribir a mano»</b> per a un valor fora de la llista. Els ajustos fins de la connexió sèrie (<b>Data bits, Paridad, Stop bits, Control de flujo</b>) estan plegats a <b>«Opciones avanzadas del puerto»</b>: per defecte <b>8N1</b> i gairebé mai no cal tocar-los.</li>
+        <li><b>Model de DS</b>: la targeta que abans es deia «DS-300» ara es diu <b>«DS»</b>. Cada circuit té un selector de <b>Modelo</b>: <b>DS-300</b>, <b>DS-200</b>, <b>DS-030</b> i <b>DS-080</b>. En triar el model, la <b>velocitat</b> (baud rate) passa a la seva —<b>56000</b> bauds al DS-300, <b>4800</b> als altres— i la pots canviar a mà. El <b>DS-200</b> té <b>2 carrils</b>; el <b>DS-080</b> porta <b>dos circuits per un sol port</b> (carrils 1–8 i 9–16). Amb un DS <b>mana la caixa</b>: el GO, la pausa i el final arriben del mateix aparell.</li>
+        <li><b>TicTac (TicTacSlot «Cuentavueltas»)</b>: té la seva <b>targeta pròpia</b> a <b>Fuente de datos</b>. És un aparell <b>USB</b> (no crea cap port COM): PitWall el detecta sol, n’hi ha prou d’endollar-lo, <b>encara que PitWall ja estigui arrencat</b>. Si el desendolles es marca com a caigut i <b>es torna a enganxar sol</b> en tornar-lo a connectar. Ajustos en mostra l’estat: <b>«✓ TicTacSlot detectado por USB»</b>, <b>«No se detecta: conecta el interface por USB»</b> o <b>«Lectura USB no disponible en esta instalación»</b>. El selector <b>Conexión</b> ofereix <b>«USB (automática)»</b> (per defecte) o <b>«Puerto serie (emulador o puente)»</b>, aquest últim només per a proves amb l’emulador. Tria el <b>nre. de carrils</b> (1–8). El temps de cada volta surt del <b>rellotge del mateix aparell</b>. PitWall li envia les ordres d’ <b>arrencar, posar en pausa, reprendre i aturar</b>, així que l’interface <b>dona i talla el corrent de la pista</b> amb el seu relé (vegeu <a class="inl" href="#vivo">Dirigir la cursa en directe</a>). A <b>macOS</b> et pot demanar el permís <b>«Monitorización de entrada»</b>; a <b>Linux</b> cal una regla udev per accedir a l’USB.</li>
+        <li><b>Què està provat i què no</b>: només el <b>DS-300</b> està contrastat amb aparell real. <b>DS-200, DS-030 i DS-080</b> segueixen el document de protocol i estan <b>sense provar amb maquinari</b>; i el <b>TicTac</b> tampoc no s’ha provat encara amb l’aparell físic: el <b>control del corrent</b> està provat només amb l’emulador, i els interfaces que treballen amb el <b>programa TicTac antic</b> podrien no admetre aquestes ordres. Si els fas servir, fes una prova abans de la cursa.</li>
+        <li><b>Preferencias</b>: el <b>Modo de la app</b> (bàsic o avançat; vegeu <i>Introducció</i>), l’ <b>Historial de vueltas en entrenos</b> (les 10 últimes o les 10 millors; vegeu <i>Entrenament</i>), l’ <b>Orden del directo</b> (per classificació estimada o per voltes reals; vegeu <i>Dirigir la cursa en directe</i>), la <b>Corrección manual de la coma</b> (Automàtica —recomanat, per defecte— o Permetre corregir-la a mà: amb la segona opció, a la pantalla de Correccions d’una mànega tancada cada carril pot portar la seva coma corregida a mà, i aquesta coma mana en el desempat a igualtat de voltes — vegeu <i>Volta a volta i correccions</i>), la <b>Espera de cruces tras el final</b> (els segons que, després del final d’una mànega, es continua esperant el pas que cronometra la volta de bandera; de 0 a 10 s, 1,5 s per defecte, i 0 el desactiva — vegeu <i>Dirigir la cursa en directe</i>) i els <b>Colores de carril</b> globals: els que es fan servir quan no hi ha escenari o l’escenari no té colors propis. Prem cada mostra per canviar-ne el color; <b>Guardar colores</b> els aplica a l’instant sense tocar la connexió del cronometratge, i <b>Colores de fábrica</b> recupera la paleta original.</li>
+        <li><b>Nom i logo del club</b> (a <b>Preferencias</b>): escriu el <b>nom del club</b> (fins a 80 caràcters), tria el seu <b>logo</b> amb <b>Elegir logo…</b> (PNG, JPG, SVG o WebP; PitWall el redueix sol a 512 px) i prem <b>Guardar</b>; <b>Quitar logo</b> l’esborra. Mentre <b>«Usar el nombre y el logo del club»</b> estigui activat (ve apagat), surten al costat del logo de PitWall —que es manté sempre— a: els <b>Excel</b> de resultats, de punts i de torns de pilot (una banda a dalt amb el logo i el nom); els <b>resultats</b> en pantalla, en <b>imprimir/PDF</b> i a l’exportació <b>HTML</b>, i l’ <b>informe de torns</b>; la capçalera de la <b>pantalla de TV</b>, a l’esquerra del nom de la cursa; i els <b>QR</b> de pilots i equips (una banda a dalt i el logo petit a cada targeta). Els <b>CSV</b> no canvien. El logo es desa a la base de dades, així que entra a les <b>còpies de seguretat</b> (màx. 1 MB).</li>
+        <li><b>Ventanas y pantallas</b> (només a l’app d’escriptori): tria en quina <b>pantalla</b> i <b>com s’obre</b> (finestra, maximitzada o pantalla completa) cada tipus de finestra: <b>Entrenament lliure</b>, <b>Directo</b>, <b>TV</b>, <b>Pole en directo</b> i <b>Le Mans</b>. Per exemple, l’operador al portàtil i el directe a pantalla completa a la pantalla del públic. Les pantalles es numeren (1 = la principal, la resta d’esquerra a dreta) i <b>Identificar pantallas</b> mostra 3 segons el número a cadascuna. La regla val en obrir la finestra i també quan una finestra <b>passa</b> a aquesta pàgina: la finestra de la cursa que salta al directe en donar el GO, o la pole en prémer <b>Empezar Pole</b>, es recol·loca sola a la seva pantalla i mode (si estava a pantalla completa en un altre monitor, en surt abans). Recarregar o passar d’una mànega a la següent no la torna a moure, així que la pots recol·locar a mà. Amb l’inici a <b>«Abrir enlaces en: Esta ventana»</b>, aquestes pàgines no es carreguen a la finestra principal: s’obren a part, a la seva pantalla (si ja estava oberta no es duplica), i la principal es queda per a l’operador; en començar la pole, la principal torna a la pàgina de la cursa. Si la pantalla triada no està connectada, la finestra s’obre a la principal i en mode finestra. El <b>Entrenament lliure</b> pot a més <b>obrir-se en iniciar PitWall</b> (no s’obre si el proper GO és d’una cursa amb una tanda a mitges o d’una pole). Tot això es desa a l’ordinador, no a la base de dades, així que no viatja amb les còpies.</li>
+        <li><b>Red local</b>: interfície de xarxa, restringir l’accés web i HTTPS local (per a la càmera del QR).</li>
+        <li><b>Seguridad</b>: una <b>contrasenya</b> perquè només qui la sàpiga entri a <b>Sistema</b> i <b>Catálogo</b> (vegeu <i>Contrasenya d’accés</i>, més avall).</li>
+        <li><b>Seguiment públic per internet</b>: publica les vistes públiques a internet per seguir la cursa des de fora del local (vegeu la <a class="inl" href="#publico">secció següent</a>).</li>
+        <li><b>Integraciones</b> (compatibilitat Infolap, que s’activa i es desactiva a l’instant) i <b>Diagnóstico</b> (mode debug i eines per investigar un problema).</li>
+        <li>El <b>idioma</b> (ES/EN) es canvia des del peu de pàgina.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Configuració</span></div>
+        <img src="manual/img/op-colores-carril.png" loading="lazy" alt="Configuració, Preferències, amb la paleta global de colors de carril">
+        <figcaption>Preferències → Colors de carril: la paleta global, amb «Guardar colores» i «Colores de fábrica».</figcaption>
+      </figure>
+
+      <h3>Contrasenya d’accés</h3>
+      <p>Serveix perquè qui no coneix el programa no toqui el que no ha de tocar. A <b>Ajustes → Seguridad</b> activa <b>«Pedir contraseña de acceso»</b>, escriu la contrasenya dues vegades (mínim 4 caràcters) i prem <b>Activar con esta contraseña</b>. Des d’aquest moment la contrasenya protegeix <b>només els botons de Sistema</b> (Ajustes, Base de datos, Sincronizar catálogo, Sincronizar carrera, Conexión ecosistema, Solución de problemas i el túnel del seguiment en línia) <b>i de Catálogo</b> (Pilotos, Equipos, Coches, Categorías i Escenarios), també al mateix ordinador de PitWall i a l’app d’escriptori. El navegador des del qual l’actives continua a dins fins que prems <b>Bloquear</b> o <b>Cerrar sesión</b>, i no es toca la connexió del cronometratge.</p>
+      <ul>
+        <li>Tota la resta va <b>sense contrasenya</b>: el <b>inici</b> i tota la <b>Competición</b> (curses i el seu assistent, entrenaments, directe, TV, correccions de voltes, control de pilots i de pneumàtics, resultats, estadístiques en directe), a més de <b>Lap</b> (amb el seu PIN), l’ <b>app mòbil</b>, l’enllaç entre PitWall mestre i esclau i la importació des de PitWall Control (amb el seu PIN). Així qualsevol pot dirigir una cursa sense saber la contrasenya. A l’assistent només la demana <b>+ Nuevo circuito</b>, perquè obre Escenarios.</li>
+        <li>És compatible amb <b>Restringir el acceso web</b> de <b>Red local</b>: se suma a aquesta restricció per IP.</li>
+        <li>Després de <b>5 intents fallits</b> seguits, aquest dispositiu ha d’esperar <b>30 s</b> per tornar-ho a provar. El mateix ordinador de PitWall no es bloqueja mai.</li>
+        <li>A l’inici, sense haver entrat, els botons de <b>Sistema</b> i <b>Catálogo</b> porten un <b>cadenat groc</b> i la capçalera mostra <b>Entrar</b>. En prémer un botó amb cadenat apareix la pantalla de contrasenya (amb <b>← Volver al inicio</b> per si no la saps) i, en entrar, vas directament a aquella pàgina. Amb la sessió oberta, la capçalera mostra <b>Bloquear</b>, que tanca la sessió a l’instant (per exemple, si deixes l’ordinador sol).</li>
+        <li>La contrasenya <b>continua activa encara que reiniciïs PitWall</b> (es desa a la base de dades). El que es perd en reiniciar és la <b>sessió</b>, així que cal tornar a entrar. <b>Cerrar sesión</b> és a la mateixa secció.</li>
+        <li><b>Cambiar contraseña</b> en posa una de nova; en <b>desactivar</b> l’interruptor, la contrasenya s’esborra.</li>
+        <li><b>Se t’ha oblidat?</b> Tanca PitWall del tot i arrenca’l en <b>mode recuperació</b>, amb la variable d’entorn <code>PITWALL_DISABLE_PASSWORD=1</code>: mentre hi sigui no es demana contrasenya. Entra a <b>Ajustes → Seguridad</b>, posa’n una de nova (o desactiva-la), tanca PitWall i obre’l una altra vegada de la manera normal. Com arrencar-lo així:
+          <ul>
+            <li><b>Mac</b> (app instal·lada), al Terminal: <code>PITWALL_DISABLE_PASSWORD=1 /Applications/PitWall.app/Contents/MacOS/PitWall</code></li>
+            <li><b>Windows</b>, al PowerShell: <code>$env:PITWALL_DISABLE_PASSWORD=1; &amp; "$env:LOCALAPPDATA\Programs\PitWall\PitWall.exe"</code> (és la ruta de la instal·lació normal, només per al teu usuari; si el vas instal·lar per a tots els usuaris sol ser a <code>C:\Program Files\PitWall\PitWall.exe</code>)</li>
+            <li><b>Linux</b> (AppImage), des de la carpeta on el tinguis: <code>PITWALL_DISABLE_PASSWORD=1 ./PitWall*.AppImage</code></li>
+            <li><b>Des del codi</b> (desenvolupament): <code>PITWALL_DISABLE_PASSWORD=1 npm start</code></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Base de dades</h3>
+      <p>A <b>Sistema → Base de datos</b> (<code>/database</code>) tens un menú amb <b>Resumen</b> (quantes curses, equips, pilots, circuits i voltes hi ha, i la mida del fitxer), <b>Exp. / Imp. carrera</b>, <b>Copia de seguridad</b> i <b>Restaurar copia</b>.</p>
+      <h3>Exportar i importar una cursa</h3>
+      <p>Per portar-te al teu PC una cursa que has corregut en un altre club sense moure la base de dades sencera. <b>Exportar carrera</b> descarrega un fitxer <b><code>.pwrace</code></b> amb tot: equips, pilots, tandes, mànegues, voltes, torns de pilot, pneumàtics, incidències, verificacions amb fotos, pole i categories (unes 24 h de 150.000 voltes ocupen uns 3 MB). <b>Importar carrera</b> l’afegeix com a <b>cursa nova, a l’instant i sense reiniciar</b>, sense tocar les teves altres curses; si el seu circuit no existeix en aquest PC, es crea.</p>
+      <ul>
+        <li>No es pot importar <b>dues vegades la mateixa cursa</b>: PitWall avisa i t’enllaça a la que ja tens.</li>
+        <li>No s’exporta una cursa amb una <b>mànega sense tancar</b>: tanca-la o cancel·la-la abans a <b>Solución de problemas → Mangas atascadas</b>.</li>
+        <li>Una cursa que venia <b>en curs</b> entra com a <b>pendent</b>, perquè mai no es quedi amb el GO del DS d’aquest PC.</li>
+        <li>Exportar i importar esperen que <b>no hi hagi cap mànega en marxa</b>, igual que l’exportació a Excel.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Base de dades · Exp. / Imp. carrera</span></div>
+        <img src="manual/img/op-database-carrera.png" loading="lazy" alt="Base de dades: exportar una cursa a .pwrace i importar una cursa">
+        <figcaption>Exp. / Imp. carrera: tria la cursa per exportar o arrossega un fitxer .pwrace per importar-la com a cursa nova.</figcaption>
+      </figure>
+
+      <h3>Còpia de seguretat de la base de dades</h3>
+      <p>A <b>Copia de seguridad</b> i <b>Restaurar copia</b> pots <b>descarregar</b> una instantània completa de les teves dades (<span class="mono">.db</span>) i, si algun dia cal recuperar una instal·lació o moure PitWall a un altre PC, <b>pujar</b> una còpia per restaurar-la: la pujada es valida (ha de ser una base de dades SQLite real) i queda «pendent» — no substitueix res a l’instant, s’aplica només en <b>tancar PitWall del tot i tornar-lo a obrir</b>, i abans d’aplicar-la es desa automàticament una còpia de les dades que tenies. Pots cancel·lar una importació pendent en qualsevol moment abans de reiniciar.</p>
+
+      <h3>Historial de versions</h3>
+      <p>Al <b>peu de totes les pàgines</b> veus el número de <b>versió</b> de PitWall. En prémer-lo s’obre el <b>Historial de versions</b> (<span class="mono">/changelog</span>), amb el que s’ha <b>Afegit</b>, <b>Millorat</b> i <b>Corregit</b> a cada actualització. La versió <b>puja amb cada actualització</b>, així sempre saps quin PitWall tens i què ha canviat.</p></div></details>
+    </section>
+
+    <section id="publico">
+      <div class="num">// 18</div>
+      <h2>Seguiment públic per internet</h2>
+      <div class="tldr"><div class="tldr-ttl">En poques paraules</div><ol><li>Normalment la cursa només es veu dins del club, a la seva wifi.</li><li>Si vols que es pugui seguir des de casa per internet, activa-ho a <b>Ajustes → Seguimiento público por internet</b>.</li><li>El mode <b>Rápido</b> no necessita compte: et dona una adreça per compartir.</li></ol></div>
+      <details class="more"><summary>Veure tots els detalls <small>(per a qui ho vulgui saber tot)</small></summary><div class="inner">
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Ajustos · Seguiment públic per internet</span></div>
+        <img src="manual/img/op-seguimiento-publico.png" loading="lazy" alt="Pantalla de seguiment públic per internet amb els modes, botons d’arrencada i l’URL en directe">
+        <figcaption>Seguiment públic: modes Ràpid i Cloudflare propi, Arrencar/Aturar, estat i URL en directe.</figcaption>
+      </figure>
+      <p>Per defecte les vistes de PitWall (el <b>directe</b>, els <b>Resultados</b> i <b>PitWall Lap</b>) només es veuen a la <b>xarxa local</b>. Amb el <b>Seguiment públic per internet</b> cada club pot <b>publicar-les a internet</b> perquè pilots i públic segueixin la cursa <b>des de fora del local</b>, sense obrir ports ni muntar una VPN: PitWall aixeca un <b>túnel Cloudflare propi</b> del club.</p>
+      <p>És a <b>Ajustes → Seguimiento público por internet</b>. Hi ha <b>dos modes</b>:</p>
+      <ul>
+        <li><b>Rápido</b> — PitWall genera una <b>URL temporal</b> (<span class="mono">*.trycloudflare.com</span>) al moment: <b>sense compte ni domini</b>. És l’opció per a una tarda solta; tingues en compte que l’URL <b>canvia a cada arrencada</b>.</li>
+        <li><b>Cloudflare propio</b> — fas servir el <b>token del túnel</b> del club i <b>el teu propi domini</b>, amb la qual cosa l’ <b>URL és fixa</b> i de marca. La mateixa pantalla porta una <b>guia pas a pas</b>, amb enllaços al panell <b>Zero Trust</b> de Cloudflare i a la documentació oficial, per crear el túnel i enganxar-ne el token.</li>
+      </ul>
+      <p><b>Controls.</b> Botons <b>Arrancar</b> / <b>Parar</b> amb el <b>estat</b> i l’ <b>URL en directe</b> (per copiar-la i compartir-la). <b>Arrancar</b> aplica el que tinguis a la pantalla en aquell moment. Pots activar l’ <b>arrencada automàtica</b> perquè el túnel s’aixequi sol en obrir PitWall.</p>
+      <p><b>Instal·lar cloudflared.</b> El túnel l’aixeca l’eina <span class="mono">cloudflared</span>. Si no està instal·lada, apareix el botó <b>Instalar cloudflared</b>, que <b>descarrega la versió oficial</b> a la carpeta de dades de PitWall — <b>sense demanar permisos d’administrador</b>.</p>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div><b>Seguretat.</b> Des de fora <b>només es veuen les vistes públiques</b> (directe, resultats i PitWall Lap). El <b>control de l’app</b> (crear, dirigir o editar curses) <b>queda bloquejat</b>: ningú de fora pot tocar la cursa.</div>
+      </div></div></details>
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 19</div>
+      <h2>Glossari (operació)</h2>
+      <ul>
+        <li><b>Cursa</b>: l’esdeveniment complet. Es compon de tandes.</li>
+        <li><b>Tanda</b>: grup de participants amb la seva rotació; es compon de mànegues.</li>
+        <li><b>Mànega</b>: una tirada cronometrada (tots els carrils alhora) d’una durada.</li>
+        <li><b>Rotació</b>: com canvien de carril els participants d’una mànega a una altra.</li>
+        <li><b>Descans</b>: mànega en què un participant no corre (buit <span class="mono">0</span> a la seqüència).</li>
+        <li><b>Passada</b>: recorregut complet de la seqüència de carrils; N passades = N× mànegues.</li>
+        <li><b>Repetir carril</b>: córrer cada carril N mànegues seguides, sumant voltes.</li>
+        <li><b>GO</b>: el senyal de sortida (de la caixa DS) que arrenca la mànega.</li>
+        <li><b>Volta fantasma</b>: volta marcada com a no vàlida (no compta), restaurable.</li>
+        <li><b>Sortida (⚠️)</b>: volta que triga més que la volta ràpida d’aquest pilot en aquest carril durant la mànega + 1,5 s (com les «voltes lentes» de TicTac); si triga el doble de la seva mitjana neta o més, és parada a boxes (🔧). En directe és provisional: en millorar la ràpida, voltes anteriors poden passar a ser sortida.</li>
+        <li><b>Pole</b>: sessió de classificació prèvia (opcional); tots roden pel mateix carril i la seva millor volta fixa la graella de sortida.</li>
+        <li><b>Incidències</b>: pàgina (🗒️) amb el registre mànega a mànega de tot el que passa a la cursa —GO, pauses, fi de mànega, voltes fantasma, fitxatges de pilot…—, en directe.</li>
+        <li><b>Entrenament lliure</b>: mode per registrar voltes per carril sense equips ni rotació (sessió oberta).</li>
+        <li><b>PitWall Lap</b>: vista mòbil per equip/pilot (les seves voltes cantades i la seva posició).</li>
+        <li><b>PIN</b>: codi per equip per entrar al seu panell a PitWall Lap.</li>
+        <li><b>Pt (temps mínim)</b>: llindar per sota del qual una volta es considera pas fantasma i no compta.</li>
+        <li><b>Escenari</b>: pista desada (circuits, carrils, seqüència i temps mínim) reutilitzable en diverses curses.</li>
+        <li><b>Categoría</b>: classe de cotxe/pilot (GT, Turisme, Clàssics…); permet un Pt diferent per categoria.</li>
+        <li><b>Catálogo</b>: biblioteca reutilitzable de pilots, equips i cotxes (importable per CSV).</li>
+        <li><b>QR de pilot</b>: codi que identifica el pilot per registrar el seu torn en escanejar-lo.</li>
+        <li><b>Torn (shift)</b>: període que un pilot és al volant dins del seu equip en resistència.</li>
+        <li><b>DS</b>: la caixa de cronometratge que detecta el pas per meta.</li>
+        <li><b>Importar tanda</b>: portar una prova muntada a PitWall Control (per JSON o per xarxa LAN + PIN) perquè PitWall creï automàticament la cursa.</li>
+        <li><b>PitWall Control</b>: l’app de gestió de campionats que munta la prova i rep els resultats de PitWall.</li>
+        <li><b>Seguiment públic per internet</b>: publicar les vistes públiques (directe, resultats, Lap) a internet amb un túnel Cloudflare propi del club.</li>
+        <li><b>Túnel Cloudflare</b>: connexió que exposa a internet les vistes públiques de PitWall sense obrir ports (mode Ràpid amb URL temporal, o Cloudflare propi amb domini fix).</li>
+        <li><b>Historial de versions</b>: la pàgina (<span class="mono">/changelog</span>) que obre el número de versió del peu, amb el que s’ha afegit, millorat i corregit a cada actualització.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Peu de pàgina"><a href="pitwall-manager-ca.html">Manager</a><a href="pitwall-lap-ca.html">Lap</a><a href="pitwall-control-ca.html">Control</a><a href="carreras-ca.html">Curses</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometratge i gestió de slot racing</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Tornar a dalt">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+<script>
+  // Vídeos: solo se descargan al pulsar «play»; al empezar uno, se paran los demás.
+  document.querySelectorAll('.mvid .player').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.dataset.src;
+      v.poster = b.querySelector('img').src;
+      v.controls = true;
+      v.playsInline = true;
+      v.addEventListener('play', function(){
+        document.querySelectorAll('.mvid video').forEach(function(o){ if (o !== v) o.pause(); });
+      });
+      b.replaceWith(v);
+      v.play();
+      if (window.umami) umami.track('video-manager-' + b.dataset.id);
+    });
+  });
+  // Un enlace a algo que está dentro de «Ver todos los detalles» lo despliega.
+  function openTarget(){
+    var t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var d = t && t.closest && t.closest('details.more');
+    if (d && !d.open){ d.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+  // Al imprimir, todo desplegado.
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details.more').forEach(function(d){ d.open = true; }); });
+</script>
+</body>
+</html>

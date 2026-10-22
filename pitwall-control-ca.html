@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="ca" data-os="win" data-pick="win">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall Control · Campionats de principi a fi</title>
+<meta name="description" content="PitWall Control porta el campionat de slot del teu club: pilots, equips, verificacions, punts de cada prova, classificació i quotes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css?v=20261022">
+<style>:root{--ac:var(--amber)}</style>
+<script>
+  // Detecta el sistema del visitante: data-os es el real y data-pick, la descarga del botón grande.
+  (function(pick){
+    var ua = navigator.userAgent,
+        p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '',
+        os = 'win';
+    if (/Android/i.test(ua)) os = 'android';
+    else if (/iPhone|iPad|iPod/i.test(ua) || (/Mac/.test(p) && navigator.maxTouchPoints > 1)) os = 'ios';
+    else if (/Mac/i.test(p)) os = 'mac';
+    else if (/Linux|X11/i.test(p)) os = 'linux';
+    var h = document.documentElement;
+    h.setAttribute('data-os', os);
+    h.setAttribute('data-pick', pick[os] || os);
+  })({ios:'win'});
+</script>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-ca.html">Inici</a>
+      <a href="pitwall-manager-ca.html">Manager</a>
+      <a href="pitwall-lap-ca.html">Lap</a>
+      <a href="pitwall-control-ca.html" aria-current="page">Control</a>
+      <a href="carreras-ca.html">Curses</a>
+      <a href="#ayuda">Ajuda</a>
+    </nav>
+    <div class="langs" aria-label="Idioma"><a href="pitwall-control.html" lang="es">ES</a><b>CA</b><a href="pitwall-control-en.html" lang="en">EN</a><a href="pitwall-control-fr.html" lang="fr">FR</a><a href="pitwall-control-it.html" lang="it">IT</a></div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="for">Per a qui porta el campionat</div>
+      <h1>PitWall Control</h1>
+      <p class="lede">Control porta tot el que passa fora de la pista: pilots i equips, inscripcions, verificacions dels cotxes, punts de cada prova, classificació i quotes. Tu només apuntes; els comptes els fa ell.</p>
+
+      <div class="dl" id="descargar">
+        <div class="dl-pick win">
+          <a class="btn" href="/software/pitwall-control/PitWallControl-Setup-1.45.0.exe" data-umami-event="download-control-windows-installer" download>Descarregar per a Windows</a>
+          <p class="note">Versió 1.45.0. Quan acabi de descarregar-se, obre’l i segueix els passos.</p>
+        </div>
+        <div class="dl-pick mac">
+          <a class="btn" href="/software/pitwall-control/PitWallControl-1.45.0-macOS-arm64.zip" data-umami-event="download-control-macos-arm64-zip" download>Descarregar per a Mac</a>
+          <p class="note">Versió 1.45.0. Només per a Mac amb xip Apple (M1, M2, M3…). Obre el fitxer descarregat i arrossega PitWall Control a la carpeta Aplicacions.</p>
+        </div>
+        <div class="dl-pick linux">
+          <a class="btn" href="/software/pitwall-control/PitWallControl-1.45.0-linux-x64.tar.gz" data-umami-event="download-control-linux-tar" download>Descarregar per a Linux</a>
+          <p class="note">Versió 1.45.0. Fas servir Debian o Ubuntu? <a href="/software/pitwall-control/pitwall-control_1.45.0_amd64.deb" data-umami-event="download-control-linux-deb" download>Paquet .deb</a>.</p>
+        </div>
+        <div class="dl-pick android">
+          <a class="btn" href="/software/pitwall-control/PitWallControl.apk?v=1.45.0" data-umami-event="download-control-android-apk" download>Descarregar per a Android</a>
+          <p class="note">Versió 1.45.0, per a tauleta o mòbil. En obrir el fitxer, Android et pot preguntar si permets instal·lar apps de fora de Google Play: digues que sí.</p>
+        </div>
+
+        <div class="others">
+          <span class="others-label">Un altre aparell?</span>
+          <details class="os os-win">
+            <summary class="btn alt">Windows</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-control/PitWallControl-Setup-1.45.0.exe" data-umami-event="download-control-windows-installer" download><span>Instal·lador</span><small>v1.45.0 · .exe</small></a>
+            </div>
+          </details>
+          <details class="os os-mac">
+            <summary class="btn alt">Mac</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-control/PitWallControl-1.45.0-macOS-arm64.zip" data-umami-event="download-control-macos-arm64-zip" download><span>Mac amb xip Apple <em>M1, M2, M3… Els Mac amb Intel no són compatibles</em></span><small>v1.45.0 · .zip</small></a>
+            </div>
+          </details>
+          <details class="os os-linux">
+            <summary class="btn alt">Linux</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-control/PitWallControl-1.45.0-linux-x64.tar.gz" data-umami-event="download-control-linux-tar" download><span>Qualsevol distribució</span><small>v1.45.0 · .tar.gz</small></a>
+              <a href="/software/pitwall-control/pitwall-control_1.45.0_amd64.deb" data-umami-event="download-control-linux-deb" download><span>Debian / Ubuntu</span><small>v1.45.0 · .deb</small></a>
+            </div>
+          </details>
+          <details class="os os-android">
+            <summary class="btn alt">Android</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-control/PitWallControl.apk?v=1.45.0" data-umami-event="download-control-android-apk" download><span>Tauleta o mòbil Android</span><small>v1.45.0 · .apk</small></a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <figure class="shot">
+      <img src="img/control-clasificacion.jpg" alt="Classificació d’un campionat a PitWall Control: pilots, equips, copes i punts" width="1200" height="656">
+    </figure>
+  </div>
+</section>
+
+<section class="alt-bg" id="ayuda">
+  <div class="wrap">
+    <h2 class="sec">Com es fa servir</h2>
+    <p class="sub">Tot explicat pas a pas, amb imatges. Si és la primera vegada, comença creant el campionat.</p>
+    <div class="guides">
+      <a class="guide first" href="manual-control.ca.html#campeonato">
+        <span class="badge">Comença aquí</span>
+        <h3>Crear el campionat</h3>
+        <p>Nom, regles i punts. Es configura una vegada i serveix per a tota la temporada.</p>
+        <span class="go">Obrir la guia →</span>
+      </a>
+      <a class="guide" href="manual-control.ca.html#pruebas">
+        <h3>El dia de cursa</h3>
+        <p>Inscriure els pilots, fer les tandes i verificar els cotxes.</p>
+        <span class="go">Obrir la guia →</span>
+      </a>
+      <a class="guide" href="manual-control.ca.html">
+        <h3>Manual complet</h3>
+        <p>Tot el que fa Control: classificació, tresoreria, exportar a PDF i Excel, connexió amb Manager…</p>
+        <span class="go">Obrir el manual →</span>
+      </a>
+    </div>
+    <p class="contact">Encara tens dubtes? Escriu-nos a <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">info.pitwall@gmail.com</a> i et donem un cop de mà.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">Què fa</h2>
+    <div class="feats">
+      <div class="feat">
+        <h3>Classificació sempre al dia</h3>
+        <p>General i per copes, amb els punts de cada prova. S’actualitza sola quan acaba la jornada.</p>
+      </div>
+      <div class="feat">
+        <h3>Pilots i equips</h3>
+        <p>La fitxa de cada pilot i cada equip, amb la seva categoria, en un sol lloc.</p>
+      </div>
+      <div class="feat">
+        <h3>Verificacions dels cotxes</h3>
+        <p>Apunta la revisió tècnica de cada cotxe. Diverses persones poden verificar alhora el dia de cursa.</p>
+      </div>
+      <div class="feat">
+        <h3>Comptes clars</h3>
+        <p>Quotes, inscripcions i despeses del campionat, amb el saldo sempre a la vista.</p>
+      </div>
+      <div class="feat">
+        <h3>Treballa amb Manager</h3>
+        <p>Envia les tandes a <a href="pitwall-manager-ca.html">PitWall Manager</a> i porta’n els resultats sense copiar res a mà.</p>
+      </div>
+      <div class="feat">
+        <h3>Comparteix els resultats</h3>
+        <p>Treu la classificació en PDF o Excel, o publica-la a Google Sheets perquè tothom la vegi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <h2 class="sec">Què necessites</h2>
+    <ul class="needs">
+      <li><span class="n">1</span><div><b>Un ordinador o una tauleta.</b> <span>Windows, Mac amb xip Apple, Linux o Android.</span></div></li>
+      <li><span class="n">2</span><div><b>PitWall Manager a la pista</b> <span>(opcional), per portar els resultats automàticament.</span></div></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Peu de pàgina"><a href="pitwall-manager-ca.html">Manager</a><a href="pitwall-lap-ca.html">Lap</a><a href="pitwall-control-ca.html">Control</a><a href="carreras-ca.html">Curses</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometratge i gestió de slot racing</div>
+  </div>
+</footer>
+
+<script>
+  // Al abrir las descargas de un sistema, cierra las del otro.
+  document.querySelectorAll('details.os').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (d.open) document.querySelectorAll('details.os').forEach(function(o){ if (o !== d) o.open = false; });
+    });
+  });
+</script>
+</body>
+</html>

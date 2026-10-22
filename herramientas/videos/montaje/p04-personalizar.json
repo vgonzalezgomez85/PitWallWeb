@@ -1,0 +1,15 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 12-20-22.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/04 - Modo básico o avanzado.mp4",
+  "crops": { "scr": [864, 369, 2976, 1791, "fit"] },
+  "segments": [
+    { "card": { "kicker": "PitWall en 1 minuto · 04", "title": "Modo básico o avanzado", "sub": "Deja el inicio a tu gusto" }, "dur": 3 },
+    { "from": 22.0, "to": 25.0, "crop": "scr", "speed": 1,
+      "caption": { "step": 1, "total": 3, "text": "Inicio → «Personalizar»" } },
+    { "from": 25.0, "to": 38.0, "crop": "scr", "speed": 1.5,
+      "caption": { "step": 2, "total": 3, "text": "Cinco diseños del inicio", "sub": "Se guarda en PitWall: igual en la app y en cualquier navegador" } },
+    { "from": 38.0, "to": 48.0, "crop": "scr", "speed": 1,
+      "caption": { "step": 3, "total": 3, "text": "Modo básico: solo lo justo para un club", "sub": "Entreno libre, carrera sprint, carreras y resultados. «Avanzado» lo muestra todo" } },
+    { "card": { "kicker": "Siguiente", "title": "Pilotos, equipos y coches" }, "dur": 3 }
+  ]
+}

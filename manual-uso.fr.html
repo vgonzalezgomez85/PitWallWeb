@@ -9,43 +9,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
 <title>PitWall · Manuel d'utilisation</title>
 <meta name="description" content="Manuel d'utilisation de PitWall : monter la course, la diriger en direct et sortir les résultats.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="manual/manual.css">
+<link rel="stylesheet" href="manual/manual.css?v=20261023">
 <style>body{--ac:var(--red)}</style>
   <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
-<body>
+<body class="simple">
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <nav class="links" id="nav-links">
-      <a href="pitwall-landing-fr.html">Landing</a>
-      <a href="manual-uso.fr.html" class="here">Manuel d'utilisation</a>
-      <a href="manual-estadisticas.fr.html">Statistiques</a>
-      <div class="lang" aria-label="Langue">
-        <a href="manual-uso.html">ES</a>
-        <a href="manual-uso.en.html">EN</a>
-        <a href="manual-uso.it.html">IT</a>
-        <a href="manual-uso.fr.html" class="on" aria-current="page">FR</a>
-      </div>
-      <a href="manual-estadisticas.fr.html" class="nav-cta">Interpréter les données →</a>
+    <a class="logo" href="index.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-fr.html">Accueil</a>
+      <a href="pitwall-manager-fr.html" aria-current="page">Manager</a>
+      <a href="pitwall-lap-fr.html">Lap</a>
+      <a href="pitwall-control-fr.html">Control</a>
+      <a href="carreras-fr.html">Courses</a>
+      <a href="pitwall-manager-fr.html#ayuda">Aide</a>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="langs" aria-label="Langue"><a href="manual-uso.html" lang="es">ES</a><a href="manual-uso.ca.html" lang="ca">CA</a><a href="manual-uso.en.html" lang="en">EN</a><b>FR</b><a href="manual-uso.it.html" lang="it">IT</a></div>
   </div>
 </header>
-<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
 <a id="top"></a>
 <section class="doc-hero">
   <div class="wrap">
-    <div class="kicker">Manuel d'utilisation · Direction de course</div>
-    <h1>Monte, dirige et<br>sors les <span class="ac">résultats</span>.</h1>
-    <p class="lede">Guide destiné à celui qui <b>opère</b> PitWall : créer la course, monter les séries et les participants, diriger chaque manche en direct depuis le matériel de chronométrage et exporter les résultats. Du premier tour au classement final.</p>
+    <div class="kicker">PitWall Manager · Manuel</div>
+    <h1>Manuel de <span class="ac">Manager</span></h1>
+    <p class="lede">Chaque partie commence par un court résumé. Si tu veux tout savoir, clique sur « Voir tous les détails ». Tu préfères regarder ? <a href="inicio-rapido-fr.html">Apprends Manager en courtes vidéos</a>.</p>
     <div class="xlink">
       <a class="cur" href="manual-uso.fr.html">▮ Manuel d'utilisation</a>
       <a href="manual-estadisticas.fr.html">Manuel de statistiques ↔</a>
@@ -88,6 +85,9 @@
     <section id="introduccion">
       <div class="num">// 01</div>
       <h2>Introduction</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Manager chronomètre tes courses de slot. Il reçoit les tours de ton système de chronométrage : un DS (comme le DS-300), un BART ou un TicTac.</li><li>L’écran d’accueil a une barre de recherche en haut, la course en cours en dessous (s’il y en a une), puis un bouton pour chaque partie.</li><li>Trop de boutons ? Clique sur <b>Personnaliser</b> et choisis le mode simple : tu ne verras que ce dont un club a besoin.</li><li>En bas à droite, un point vert t’indique que le chronométrage est connecté.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/03-inicio.mp4" data-id="03-inicio" aria-label="Voir la vidéo : L’écran d’accueil (0:26)"><img src="videos/manager/03-inicio.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:26</span></button><div class="cap">L’écran d’accueil <span>· vidéo en espagnol</span></div></div><div class="mvid"><button class="player" type="button" data-src="videos/manager/04-modo-basico.mp4" data-id="04-modo-basico" aria-label="Voir la vidéo : Mode simple ou avancé (0:28)"><img src="videos/manager/04-modo-basico.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:28</span></button><div class="cap">Mode simple ou avancé <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Écran d'accueil</span></div>
         <img src="manual/img/01-home.png" loading="lazy" alt="Écran d'accueil de PitWall">
@@ -128,12 +128,15 @@
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Liste des courses</span></div>
         <img src="manual/img/02-races-list.png" loading="lazy" alt="Liste des courses avec leur état et le bouton de nouvelle course">
         <figcaption>Liste des courses : état (en attente / active / terminée) et « + Nouvelle course ».</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="escenarios">
       <div class="num">// 02</div>
       <h2>Scénarios, catégories et catalogues (ta bibliothèque)</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Enregistre ta piste une seule fois comme <b>scénario</b> : combien de circuits et de voies elle a, dans quel ordre les pilotes changent de voie et le tour minimum.</li><li>Ajoute aussi tes pilotes, tes équipes et tes voitures.</li><li>Quand tu crées une course, tu choisis juste le scénario et les pilotes : le reste est déjà réglé.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/01-pista.mp4" data-id="01-pista" aria-label="Voir la vidéo : Enregistre ta piste (0:58)"><img src="videos/manager/01-pista.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:58</span></button><div class="cap">Enregistre ta piste <span>· vidéo en espagnol</span></div></div><div class="mvid"><button class="player" type="button" data-src="videos/manager/06-pilotos-equipos-coches.mp4" data-id="06-pilotos-equipos-coches" aria-label="Voir la vidéo : Pilotes, équipes et voitures (0:47)"><img src="videos/manager/06-pilotos-equipos-coches.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:47</span></button><div class="cap">Pilotes, équipes et voitures <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <p>Pour ne pas reconfigurer la même chose à chaque course, PitWall enregistre des <b>modèles réutilisables</b> que tu choisis ensuite au moment de créer une course.</p>
 
       <h3>Scénarios (circuits enregistrés)</h3>
@@ -200,12 +203,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Synchroniser le catalogue avec les courses en attente.</b> Si tu changes les <b>pilotes</b> ou le <b>pays</b> d'une équipe dans le catalogue <i>après</i> avoir créé une course, ces changements n'arrivent pas tout seuls dans la course déjà montée. Avec <b>Système → Synchroniser le catalogue</b> (« Sistema → Sincronizar catálogo », sur l'écran d'accueil) —ou le raccourci <b>« Actualizar desde catálogo »</b> (Mettre à jour depuis le catalogue) du menu <b>⋯</b> de la fiche de course, qui n'apparaît que si la course est candidate— tu les déverses dans toutes les courses qui <b>n'ont encore lancé aucune manche</b>, sans passer par « Éditer la série ». PitWall apparie les équipes <b>par leur nom</b>, rend l'effectif de chaque course <b>identique au catalogue</b> (ajoute et retire des pilotes jusqu'à concordance — un « miroir exact ») et met à jour le pays ; avant d'appliquer, il te montre un <b>résumé des changements</b>, avec une case par course. Il ne touche pas à la grille et n'ajoute ni ne supprime d'équipes, et n'agit que sur les courses <b>au format équipes</b>. La <b>catégorie</b> n'est pas synchronisée : elle continue d'être lue en direct depuis le catalogue, sauf celle notée dans la course elle-même (voir <a class="inl" href="#tandas">Séries, participants et rotation</a>).</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="crear">
       <div class="num">// 03</div>
       <h2>Créer une course</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Sur l’écran d’accueil, clique sur <b>Course sprint</b> (ou <b>Course d’endurance</b> pour les longues courses par équipes).</li><li>Écris le nom, choisis ton scénario et décide s’il y aura une pole.</li><li>Suis l’assistant jusqu’au bout. La course est prête.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/07-carrera-sprint.mp4" data-id="07-carrera-sprint" aria-label="Voir la vidéo : Crée une course sprint (0:36)"><img src="videos/manager/07-carrera-sprint.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:36</span></button><div class="cap">Crée une course sprint <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Assistant · Étape 1</span></div>
         <img src="manual/img/03-wizard-step1.png" loading="lazy" alt="Assistant pour créer une nouvelle course, étape 1">
@@ -239,12 +245,14 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>Tu gères le championnat avec <b>PitWall Control</b> ? Pas besoin de ressaisir les équipes et la rotation : tu peux <b>importer l'épreuve</b> entière depuis Control (voir <a class="inl" href="#importar">Importer une série de PitWall Control</a>).</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="importar">
       <div class="num">// 04</div>
       <h2>Importer une série de PitWall Control</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Si tu gères le championnat avec PitWall Control, tu peux préparer l’épreuve là-bas et l’envoyer à Manager sans rien ressaisir.</li><li>Dans Manager, va dans <b>Courses → Importer une série</b>. Tu verras un numéro : le PIN.</li><li>Dans Control, clique sur <b>Envoyer à PitWall</b> et tape ce PIN. Manager crée la course tout seul.</li></ol></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Importer une série · PIN d'appairage</span></div>
         <img src="manual/img/op-import-tanda.png" loading="lazy" alt="Écran d'import de série de PitWall avec le PIN d'appairage">
@@ -269,12 +277,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Connexion écosystème.</b> Tout le pont réseau avec PitWall Control —envoi des séries et récupération des résultats— peut être <b>autorisé ou bloqué</b> d'un coup depuis <b>Système → Connexion écosystème</b>, sur l'écran d'accueil. Il est <b>activé</b> par défaut ; si tu le désactives, tout PitWall Control du réseau est rejeté (même avec le bon PIN) jusqu'à ce que tu le réactives. Le PIN d'appairage y est aussi consultable.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="tandas">
       <div class="num">// 05</div>
       <h2>Séries, participants et rotation</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Une <b>série</b> est un groupe de pilotes qui roulent ensemble et changent de voie à chaque manche.</li><li>Ajoute les pilotes ou les équipes à la série et Manager prépare toutes les manches tout seul.</li><li>S’il y a plus de pilotes que de voies, Manager ajoute des repos.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/08-tandas-rotacion.mp4" data-id="08-tandas-rotacion" aria-label="Voir la vidéo : Séries et rotation (0:41)"><img src="videos/manager/08-tandas-rotacion.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:41</span></button><div class="cap">Séries et rotation <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Série · Participants et manches</span></div>
         <img src="manual/img/34-tanda.png" loading="lazy" alt="Série avec ses participants et les manches générées par rotation">
@@ -309,12 +320,14 @@
       <ul>
         <li><i>2 passages</i> → la séquence entière se répète : <span class="mono">1,3,5,6,4,2, 1,3,5,6,4,2</span>.</li>
         <li><i>Répéter la voie 2</i> → chaque voie, deux manches d'affilée : <span class="mono">1,1,3,3,5,5,6,6,4,4,2,2</span>.</li>
-      </ul>
+      </ul></div></details>
     </section>
 
     <section id="editar">
       <div class="num">// 06</div>
       <h2>Éditer la course, les séries et les manches</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Après avoir créé une course, tu peux changer son nom et, tant qu’aucun tour n’a été couru, son scénario.</li><li>Tu peux aussi retoucher les séries et les manches qui n’ont pas encore été courues.</li></ol></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <p>Après avoir créé une course, tu peux la retoucher :</p>
       <ul>
         <li><b>Éditer la course</b> — changer le <b>nom</b> et, <b>tant qu'il n'y a pas de tours enregistrés</b>, le <b>scénario</b>. Tu peux <b>attribuer</b> un scénario à une course qui n'en avait pas, le <b>changer</b> pour un autre ou le <b>retirer</b>. En <b>attribuant</b> un scénario, la course hérite de ses <b>voies</b>, de sa <b>séquence</b> de rotation et de son <b>temps minimum</b> (et des tours minimum par <b>catégorie</b>, s'il y en a), et PitWall <b>régénère les séries en attente</b> avec cette configuration ; en le <b>retirant</b>, la course passe en <b>mode manuel</b> en conservant sa configuration. S'il y a déjà des tours, le scénario reste <b>verrouillé</b> (pour ne pas casser les données).</li>
@@ -346,12 +359,15 @@
       </div>
       <ul>
         <li><b>Éditer la manche</b> — changer <b>qui court sur chaque voie</b> dans une manche précise, sans régénérer toute la série (utile si une équipe ne se présente pas ou en cas de changement de dernière minute).</li>
-      </ul>
+      </ul></div></details>
     </section>
 
     <section id="pole">
       <div class="num">// 07</div>
       <h2>Pole (qualification préalable)</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>La <b>pole</b> est un tour de qualification avant la course pour décider de l’ordre de départ. Elle est facultative.</li><li>Active-la en créant la course et lance-la depuis la page de la course → <b>Configurer la Pole Position</b>.</li><li>Tout le monde roule sur la même voie, l’un après l’autre, pour que les temps soient comparables.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/10-pole.mp4" data-id="10-pole" aria-label="Voir la vidéo : Pole position (0:59)"><img src="videos/manager/10-pole.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:59</span></button><div class="cap">Pole position <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Configurer la Pole Position</span></div>
         <img src="manual/img/44-pole-setup.png" loading="lazy" alt="Écran de configuration de la Pole Position avec ordre des participants et voie">
@@ -401,12 +417,14 @@
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
         <div><b>Les invités peuvent suivre la pole en direct.</b> Le tableau de chronométrage de la pole —auparavant visible uniquement pour celui qui l'opérait— est accessible sans restriction d'IP depuis <b>Live-stats</b>, et une nouvelle carte apparaît sur la page d'accueil invité tant qu'une pole est en cours. Elle est en <b>lecture seule</b> : les contrôles (démarrer/arrêter/pilote suivant) sont masqués, et on voit en temps réel qui est en piste, l'ordre de départ et le classement provisoire.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="lap">
       <div class="num">// 08</div>
       <h2>PitWall Lap — pour les équipes</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Les pilotes et les équipes peuvent suivre la course sur leur téléphone, connectés au WiFi du club.</li><li>Avec l’appli <a href="pitwall-lap-fr.html">PitWall Lap</a>, ils entendent leurs temps à voix haute. Sans rien installer, ils peuvent aussi la voir dans le navigateur avec un PIN.</li><li>Le PIN de chaque équipe est dans <b>PitWall Lap · PINs</b>.</li></ol></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PINs par équipe</span></div>
         <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Tableau de PINs par équipe pour accéder à PitWall Lap depuis le mobile">
@@ -441,12 +459,15 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>L'appli n'utilise pas de PIN : n'importe qui sur le <b>même réseau local</b> qui découvre le serveur peut choisir n'importe quelle équipe dans la liste. Pour un accès contrôlé ou depuis l'extérieur du circuit, utilise la vue web avec PIN — l'appli a toujours besoin du réseau local, que tu publies ou non le tunnel de <i>Suivi public par internet</i>.</div>
       </div>
-      <p><b>Manuel complet de l'app.</b> Chaque écran de PitWall Lap — menu, Lap, calendrier avec import Excel, entraînements de compétition, résultats et réglages — est expliqué dans le <a class="inl" href="manual-lap.fr.html">Manuel de PitWall Lap</a>.</p>
+      <p><b>Manuel complet de l'app.</b> Chaque écran de PitWall Lap — menu, Lap, calendrier avec import Excel, entraînements de compétition, résultats et réglages — est expliqué dans le <a class="inl" href="manual-lap.fr.html">Manuel de PitWall Lap</a>.</p></div></details>
     </section>
 
     <section id="vivo">
       <div class="num">// 09</div>
       <h2>Diriger la course en direct</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Sur la page de la course, clique sur <b>▶</b> pour armer la manche.</li><li>Donne le départ (<b>GO</b>) sur ton système de chronométrage : le chrono démarre et les tours commencent à compter.</li><li>Tu peux mettre en pause, reprendre ou arrêter la manche. À la fin, la suivante se prépare toute seule.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/11-go-directo.mp4" data-id="11-go-directo" aria-label="Voir la vidéo : Le départ et le direct (0:52)"><img src="videos/manager/11-go-directo.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:52</span></button><div class="cap">Le départ et le direct <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Chronométrage en direct</span></div>
         <img src="manual/img/20-live-timing.png" loading="lazy" alt="Écran de chronométrage en direct d'une manche">
@@ -546,23 +567,27 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div>Avertissement <b>« Aucun signal du chronométrage »</b> : tant qu'il est présent, les tours <b>ne sont pas enregistrés</b>. Vérifie la connexion avant de donner le GO.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="sucesos">
       <div class="num">// 10</div>
       <h2>Événements de course</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>La page <b>Événements</b> note tout ce qui se passe dans chaque manche : départs, pauses, tours corrigés, changements de pilote…</li><li>Elle sert à vérifier ce qui s’est passé en cas de doute ou de réclamation.</li></ol></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <p>La page <b>🗒️ Événements</b> —accessible depuis la fiche de la course et via un bouton dans l'en-tête du direct— affiche, manche par manche, tout ce qui se passe pendant la session dans un format facile à lire : <b>GO</b> (y compris quand il est donné dans plusieurs boîtiers séparément, circuit par circuit), <b>pause et reprise</b> par circuit, <b>fin de manche</b>, <b>annulation</b>, <b>récupération après une coupure</b>, <b>tours fantômes/ignorés</b> et leur <b>réattribution</b> à la bonne voie, <b>départs rétroactifs</b>, les <b>tours de drapeau</b> (chronométrés avec leur temps réel ou rétablis à la moyenne) et les <b>enregistrements de pilote</b> (QR, changement à chaud ou correction manuelle).</p>
       <p>Les manches s'affichent <b>repliées par défaut</b> —seule celle en cours apparaît dépliée— et se déploient d'un clic sur leur en-tête. Une case à cocher permet de <b>masquer les enregistrements de pilote routiniers</b> précédant le GO quand seuls les autres événements intéressent.</p>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>Manche en cours, la page <b>ajoute les nouveaux événements au fur et à mesure qu'ils se produisent</b>, sans recharger. C'est la façon de reconstituer, après une course, ce qui s'est passé et quand, sans devoir s'en souvenir de mémoire.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="turnos">
       <div class="num">// 11</div>
       <h2>Contrôle des relais de pilote (championnats)</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Dans les courses par équipes, tu peux fixer des règles : le temps minimum et maximum de conduite de chaque pilote.</li><li>Chaque pilote scanne son QR code en prenant la piste et Manager additionne son temps.</li><li>L’écran <b>Contrôle des relais</b> prévient si quelqu’un ne respecte pas les règles.</li></ol></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <p>Dans les courses de <b>championnat par équipes</b>, tu peux imposer des règles de partage du volant entre les pilotes d'une équipe. Elles se définissent à la création de la course :</p>
       <ul>
         <li><b>Temps minimum / maximum par pilote</b> — chaque pilote doit rouler au moins X et au plus Y.</li>
@@ -577,12 +602,14 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>L'avertissement de sécurité et comment le faire disparaître.</b> La première fois qu'un appareil ouvre le lien <b>https://</b>, le navigateur avertit une fois (<b>« connexion non privée → continuer »</b>) ; une fois accepté, la caméra fonctionne. Si tu veux supprimer cet avertissement, <b>installe la CA de PitWall</b> sur l'appareil : les Réglages proposent <b>Télécharger la CA</b> et la page <b>/cert</b> avec un guide pas à pas pour <b>iPhone/iPad, Android et Windows</b>. Installer la CA une seule fois suffit même si l'IP du réseau change : PitWall ne réémet que le certificat du serveur et l'appareil continue de lui faire confiance.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="neumaticos">
       <div class="num">// 12</div>
       <h2>Contrôle des pneus d'endurance</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Dans les courses d’endurance, Manager peut tenir le compte des trains de pneus de chaque équipe.</li><li>Indique combien de trains a chaque équipe en créant la course.</li><li>Pendant la course, clique sur la case de l’équipe chaque fois que tu lui donnes un train.</li></ol></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <p>Dans une course d'<b>endurance</b>, vous pouvez suivre les <b>trains de pneus</b> que chaque équipe utilise. La dotation —les trains avec lesquels <b>tout le monde</b> démarre— se fixe à la création de la course (assistant, étape 1, champ <b>« Pneus par équipe »</b>). Avec <b>0</b>, le contrôle est désactivé et tout fonctionne comme avant.</p>
       <p>Il s'ouvre de <b>deux façons</b> :</p>
       <ul>
@@ -600,12 +627,14 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>Tout se synchronise à l'instant entre les écrans ouverts, et l'indicateur <b>manche:temps</b> bat au rythme de la course.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="verificaciones">
       <div class="num">// 13</div>
       <h2>Vérifications techniques de PitWall Control</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Si vous vérifiez les voitures avec PitWall Control, le résultat arrive aussi dans Manager.</li><li>La page de la course affiche le bouton <b>Vérifications</b> pour le consulter. Dans Manager, on regarde seulement ; on ne modifie rien.</li></ol></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <p>Si le club fait passer la <b>vérification technique</b> des voitures avec <b>PitWall Control</b>, ce résultat peut aussi arriver jusqu'à PitWall —par le même pont réseau que les séries, avec le même PIN et le même interrupteur <b>Connexion écosystème</b> (voir <i>Importer une série de PitWall Control</i>).</p>
       <p>Manche par manche, Control envoie l'<b>instantané</b> de ce qui a été vérifié par équipe : <b>poids</b> (initial, final et minimum de la voiture), <b>moteur</b> (type, tours/min, ums), <b>pignon/couronne</b> (marque, dents, diamètre, matériau), <b>jantes</b> avant et arrière, <b>tresse</b>, <b>suspension</b>, <b>châssis-base</b>, <b>châssis</b>, <b>pneu</b>, si c'est <b>validé</b> ou non, et <b>observations</b> —avec photos, s'il y en a.</p>
       <p><b>Comment ça s'affiche dans PitWall.</b> Dès que le premier envoi arrive, la page de la course affiche le bouton <b>🔍 Vérifications</b>, qui ouvre un écran avec toutes les vérifications <b>regroupées par manche</b>.</p>
@@ -616,12 +645,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Vers quelle course elles vont.</b> Si Control indique explicitement la course, PitWall y associe les vérifications. Sinon, il cherche une course existante avec le <b>nom exact</b> de l'épreuve ; si aucune correspondance n'est trouvée non plus, il <b>crée automatiquement</b> une course minimale pour que les vérifications aient où vivre —le même comportement que pour l'import d'une série.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="correcciones">
       <div class="num">// 14</div>
       <h2>Tour par tour et corrections (ajouter / retirer des tours)</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Si le chronométrage a raté un tour, ou en a compté un de trop, c’est ici que tu le corriges.</li><li>Ouvre la correction des tours, choisis le pilote et ajoute ou retire le tour.</li><li>Tu peux le faire pendant la manche : le changement s’affiche tout de suite.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/15-corregir-vueltas.mp4" data-id="15-corregir-vueltas" aria-label="Voir la vidéo : Corriger les tours (0:52)"><img src="videos/manager/15-corregir-vueltas.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:52</span></button><div class="cap">Corriger les tours <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Tour par tour · Corrections</span></div>
         <img src="manual/img/30-correcciones.png" loading="lazy" alt="Vue tour par tour avec les actions de correction par tour">
@@ -649,12 +681,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Tours fantômes automatiques.</b> Un tour en dessous du <b>Pt</b> (temps minimum) est marqué comme <b>fantôme</b> et la voie qui l'a produit ne le compte <b>jamais</b>. PitWall ne le réattribue plus au jugé : il le <b>retient</b> et ne l'attribue qu'à la voie qui <b>confirme</b> avoir manqué un passage (quand cette voie passe avec un tour d'environ le double de sa moyenne). Si personne ne le confirme, il reste ici en <b>fantôme</b> pour que tu le révises à la main. Avec <b>plusieurs circuits</b> (agrégateur DS-300 ou plusieurs Master BART), l'attribution automatique <b>ne passe jamais d'un circuit à l'autre</b> : un fantôme ne peut être certifié que sur une voie de son propre circuit, jamais sur celle d'un autre (ce sont des pistes physiquement distinctes).</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="resultados">
       <div class="num">// 15</div>
       <h2>Résultats et exports</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>À la fin, va dans <b>Résultats</b> : tu verras le classement et les temps de chaque pilote.</li><li>Avec <b>Exporter</b>, tu le sors en Excel ; tu peux aussi l’enregistrer en PDF.</li><li>Pour comprendre les graphiques, regarde le <a href="manual-estadisticas.fr.html">manuel des statistiques</a>.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/17-resultados.mp4" data-id="17-resultados" aria-label="Voir la vidéo : Résultats et export (0:47)"><img src="videos/manager/17-resultados.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:47</span></button><div class="cap">Résultats et export <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Résultats</span></div>
         <img src="manual/img/10-results-comparativa.png" loading="lazy" alt="Vue de comparatif des résultats par participant et voie">
@@ -682,12 +717,15 @@
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Résultats publics</span></div>
         <img src="manual/img/op-resultados-publicos.png" loading="lazy" alt="Page publique de résultats des courses terminées, en lecture seule">
         <figcaption>Résultats publics : consultation en lecture seule des courses terminées, pour partager avec les pilotes et le public.</figcaption>
-      </figure>
+      </figure></div></details>
     </section>
 
     <section id="entrenamiento">
       <div class="num">// 16</div>
       <h2>Entraînement</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Pour rouler sans préparer de course, clique sur <b>Entraînement libre</b> sur l’écran d’accueil.</li><li>Donne le départ sur le chronométrage et Manager note les tours de chaque voie.</li><li>Tu verras les meilleurs et les derniers tours de chaque voie.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/20-entreno-libre.mp4" data-id="20-entreno-libre" aria-label="Voir la vidéo : Entraînement libre (0:54)"><img src="videos/manager/20-entreno-libre.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:54</span></button><div class="cap">Entraînement libre <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entraînement</span></div>
         <img src="manual/img/40-training.png" loading="lazy" alt="Écran du mode Entraînement de PitWall">
@@ -742,12 +780,15 @@
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div>L'<b>entraînement libre</b> n'enregistre pas de résultats : c'est une séance ouverte de temps par voie.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="ajustes">
       <div class="num">// 17</div>
       <h2>Réglages</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Dans <b>Réglages → Source de données</b>, tu choisis ton chronométrage : DS, BART, TicTac, ou Simulation pour essayer sans piste.</li><li>Enregistre les changements. En bas à droite, le point vert confirme que les données arrivent.</li><li>Les autres réglages (écrans, mot de passe, réseau…) peuvent rester tels quels.</li></ol></div>
+      <div class="mvids"><div class="mvid"><button class="player" type="button" data-src="videos/manager/02-cronometro.mp4" data-id="02-cronometro" aria-label="Voir la vidéo : Connecte le chronométrage (0:38)"><img src="videos/manager/02-cronometro.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:38</span></button><div class="cap">Connecte le chronométrage <span>· vidéo en espagnol</span></div></div></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Réglages</span></div>
         <img src="manual/img/04-settings.png" loading="lazy" alt="Écran des réglages de PitWall">
@@ -814,12 +855,14 @@
       <p><b>Copie de sauvegarde</b> et <b>Restaurer une copie</b> permettent de <b>télécharger</b> un instantané complet de tes données (<span class="mono">.db</span>) et, s'il faut un jour récupérer une installation ou déplacer PitWall sur un autre PC, d'<b>importer</b> une copie pour la restaurer : l'import est validé (ce doit être une vraie base SQLite) et reste « en attente » — rien n'est remplacé sur le moment, ça ne s'applique qu'en <b>fermant PitWall complètement puis en le rouvrant</b>, et tes données actuelles sont sauvegardées automatiquement avant application. Tu peux annuler un import en attente à tout moment avant de redémarrer.</p>
 
       <h3>Historique des versions</h3>
-      <p>Dans le <b>pied de toutes les pages</b>, tu vois le numéro de <b>version</b> de PitWall. En cliquant dessus, l'<b>Historique des versions</b> (<span class="mono">/changelog</span>) s'ouvre, avec ce qui a été <b>Ajouté</b>, <b>Amélioré</b> et <b>Corrigé</b> à chaque mise à jour. La version <b>augmente à chaque mise à jour</b>, ainsi tu sais toujours quel PitWall tu as et ce qui a changé.</p>
+      <p>Dans le <b>pied de toutes les pages</b>, tu vois le numéro de <b>version</b> de PitWall. En cliquant dessus, l'<b>Historique des versions</b> (<span class="mono">/changelog</span>) s'ouvre, avec ce qui a été <b>Ajouté</b>, <b>Amélioré</b> et <b>Corrigé</b> à chaque mise à jour. La version <b>augmente à chaque mise à jour</b>, ainsi tu sais toujours quel PitWall tu as et ce qui a changé.</p></div></details>
     </section>
 
     <section id="publico">
       <div class="num">// 18</div>
       <h2>Suivi public par internet</h2>
+      <div class="tldr"><div class="tldr-ttl">En bref</div><ol><li>Normalement, la course ne se voit que dans le club, sur son WiFi.</li><li>Si tu veux qu’on puisse la suivre depuis chez soi par internet, active-le dans <b>Réglages → Suivi public par internet</b>.</li><li>Le mode <b>Rapide</b> ne demande aucun compte : il te donne une adresse à partager.</li></ol></div>
+      <details class="more"><summary>Voir tous les détails <small>(pour ceux qui veulent tout savoir)</small></summary><div class="inner">
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Réglages · Suivi public par internet</span></div>
         <img src="manual/img/op-seguimiento-publico.png" loading="lazy" alt="Section Suivi public par internet dans les Réglages">
@@ -836,7 +879,7 @@
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         <div><b>Sécurité.</b> Depuis l'extérieur, <b>seules les vues publiques sont visibles</b> (direct, résultats et PitWall Lap). Le <b>contrôle de l'app</b> (créer, diriger ou éditer des courses) <b>reste bloqué</b> : personne de l'extérieur ne peut toucher à la course.</div>
-      </div>
+      </div></div></details>
     </section>
 
     <section id="glosario">
@@ -878,10 +921,10 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <div class="apps-mini"><a href="manual-uso.fr.html">Manuel d'utilisation</a><a href="manual-estadisticas.fr.html">Statistiques</a></div>
-    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
-    <div class="mono">© 2026 · Chronométrage et gestion de slot racing</div>
+    <a class="logo" href="pitwall-landing-fr.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Pied de page"><a href="pitwall-manager-fr.html">Manager</a><a href="pitwall-lap-fr.html">Lap</a><a href="pitwall-control-fr.html">Control</a><a href="carreras-fr.html">Courses</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Chronométrage et gestion de slot racing</div>
   </div>
 </footer>
 
@@ -901,6 +944,34 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 })();
+</script>
+<script>
+  // Vídeos: solo se descargan al pulsar «play»; al empezar uno, se paran los demás.
+  document.querySelectorAll('.mvid .player').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.dataset.src;
+      v.poster = b.querySelector('img').src;
+      v.controls = true;
+      v.playsInline = true;
+      v.addEventListener('play', function(){
+        document.querySelectorAll('.mvid video').forEach(function(o){ if (o !== v) o.pause(); });
+      });
+      b.replaceWith(v);
+      v.play();
+      if (window.umami) umami.track('video-manager-' + b.dataset.id);
+    });
+  });
+  // Un enlace a algo que está dentro de «Ver todos los detalles» lo despliega.
+  function openTarget(){
+    var t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    var d = t && t.closest && t.closest('details.more');
+    if (d && !d.open){ d.open = true; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+  // Al imprimir, todo desplegado.
+  window.addEventListener('beforeprint', function(){ document.querySelectorAll('details.more').forEach(function(d){ d.open = true; }); });
 </script>
 </body>
 </html>

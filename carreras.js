@@ -26,7 +26,12 @@
         all:'Tutti',allC:'Tutti i campionati',results:function(n){return n===1?'1 gara':n+' gare';},
         updated:'Ricerca automatica aggiornata',never:'nessuna ricerca automatica ancora',
         ok:'Verificata',ai:'Trovata dall’IA',web:'Sito',none:'Nessuna gara con questi filtri.',
-        err:'Impossibile caricare il calendario.',races:function(n){return n===1?'1 gara':n+' gare';}}
+        err:'Impossibile caricare il calendario.',races:function(n){return n===1?'1 gara':n+' gare';}},
+    ca:{tipos:{resistencia:'Resistència',velocidad:'Velocitat',rally:'Ral·li',raid:'Raid',otro:'Altres'},
+        all:'Tots',allC:'Tots els campionats',results:function(n){return n===1?'1 cursa':n+' curses';},
+        updated:'Cerca automàtica actualitzada',never:'encara sense cerca automàtica',
+        ok:'Verificada',ai:'Trobada per IA',web:'Web',none:'No hi ha curses amb aquests filtres.',
+        err:'No s’ha pogut carregar el calendari.',races:function(n){return n===1?'1 cursa':n+' curses';}}
   };
   var T = D[LANG] || D.es;
 

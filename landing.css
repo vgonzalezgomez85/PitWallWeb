@@ -1,0 +1,270 @@
+/*
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+
+  Estilos comunes del inicio y de las páginas de cada app.
+  Pensado para gente no técnica y mayor: texto grande, botones grandes, pocas opciones.
+  Cloudflare cachea este archivo 4 h: al cambiarlo, sube el ?v= en los HTML.
+*/
+:root{
+  --bg:#08080a; --surface:#121217; --surface-2:#181820; --elevated:#1f1f29;
+  --line:rgba(255,255,255,.09); --line-strong:rgba(255,255,255,.18);
+  --ink:#f5f5f7; --ink-2:#c4c4ce; --ink-3:#9a9aa6;
+  --red:#ef4651;     /* marca · Manager */
+  --cyan:#22b8d6;    /* Lap */
+  --amber:#f59e0b;   /* Control */
+  --ac:var(--red);
+  --display:"Saira Condensed",sans-serif; --body:"Saira",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+@media(max-width:520px){.wrap{padding:0 16px}}
+a{color:inherit}
+
+/* cabecera: siempre visible, sin menú escondido */
+header{border-bottom:1px solid var(--line);background:var(--bg)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--display);text-decoration:none;
+  font-weight:800;font-size:23px;letter-spacing:.04em;text-transform:uppercase}
+.logo .mark{width:30px;height:30px;display:block;flex:0 0 auto}
+.logo b{color:var(--red);font-weight:800}
+nav.links{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+nav.links a{font-size:17px;font-weight:500;color:var(--ink-2);text-decoration:none}
+nav.links a:hover,nav.links a[aria-current]{color:var(--ink)}
+nav.links a[aria-current]{text-decoration:underline;text-decoration-color:var(--ac);text-underline-offset:6px;text-decoration-thickness:2px}
+.langs{display:flex;gap:12px;font-size:15px;color:var(--ink-3)}
+.langs a{text-decoration:none}
+.langs a:hover{color:var(--ink)}
+.langs b{color:var(--ink)}
+@media(max-width:700px){
+  .bar{padding-top:12px;padding-bottom:12px;gap:12px}
+  /* en el móvil, el menú en dos filas de botones grandes: cabe en todos los idiomas */
+  nav.links{order:3;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+    border-top:1px solid var(--line);padding-top:12px}
+  nav.links a{font-size:16px;text-align:center;padding:9px 4px;border-radius:8px;background:var(--surface)}
+  nav.links a[aria-current]{background:var(--elevated)}
+}
+
+/* portada de cada app */
+.hero{padding:56px 0 50px}
+.hero-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+.for{font-size:15px;font-weight:600;color:var(--ac);text-transform:uppercase;letter-spacing:.08em}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(42px,6vw,70px);line-height:1;margin-top:8px}
+h1 .r{color:var(--red)}
+.lede{margin-top:18px;font-size:20px;color:var(--ink-2);max-width:30em}
+.shot{border-radius:12px;overflow:hidden;border:1px solid var(--line-strong);
+  box-shadow:0 30px 70px -36px rgba(0,0,0,.9)}
+.shot img{width:100%;height:auto;display:block}
+
+/* móvil con marco (Lap) */
+.phone{position:relative;display:flex;justify-content:center;overflow:hidden;
+  background:radial-gradient(ellipse 70% 90% at 50% 100%,rgba(34,184,214,.28),transparent 70%),var(--surface-2)}
+.phone .frame{align-self:flex-start;padding:7px 7px 0;background:#000;
+  border-radius:30px 30px 0 0;box-shadow:0 0 0 1.5px rgba(255,255,255,.22),0 20px 50px -10px rgba(0,0,0,.8)}
+.phone img{width:100%;height:auto;display:block;border-radius:23px 23px 0 0}
+.hero .phone{border-radius:12px;border:1px solid var(--line);padding-top:36px;height:520px}
+.hero .phone .frame{width:290px}
+@media(max-width:520px){.hero .phone{height:430px}.hero .phone .frame{width:240px}}
+
+/* descarga: botón grande para el sistema del visitante y los demás sistemas debajo.
+   El script de cada página pone data-os (sistema real) y data-pick (botón grande). */
+.dl{margin-top:30px}
+.dl-pick,.only-mobile,.only-desktop{display:none}
+html[data-pick="win"] .dl-pick.win, html[data-pick="mac"] .dl-pick.mac,
+html[data-pick="linux"] .dl-pick.linux, html[data-pick="android"] .dl-pick.android,
+html[data-pick="ios"] .dl-pick.ios{display:block}
+html[data-pick="win"] .os-win, html[data-pick="mac"] .os-mac, html[data-pick="linux"] .os-linux,
+html[data-pick="android"] .os-android, html[data-pick="ios"] .os-ios{display:none}
+html[data-os="android"] .only-mobile, html[data-os="ios"] .only-mobile{display:block}
+html[data-os="win"] .only-desktop, html[data-os="mac"] .only-desktop, html[data-os="linux"] .only-desktop{display:block}
+.only-mobile{margin:0 0 18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 28px;
+  border-radius:8px;font-size:19px;font-weight:600;text-decoration:none;cursor:pointer;
+  background:var(--ac);color:#0b0405;border:0;transition:filter .15s}
+.btn:hover{filter:brightness(1.12)}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.btn.alt:hover{background:var(--surface)}
+.btn.light{background:var(--ink);color:var(--bg);min-height:54px;font-size:18px;margin-top:18px}
+.btn.light:hover{filter:brightness(.9)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.note{margin-top:12px;font-size:16px;color:var(--ink-3)}
+.note b{color:var(--ink-2);font-weight:500}
+.note a{color:var(--ink-2);text-underline-offset:3px}
+.tip{margin-top:14px;font-size:16px;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);
+  border-radius:8px;padding:14px 16px;max-width:34em}
+.tip a{color:var(--ink);text-underline-offset:3px}
+.others{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px;max-width:40em}
+.others-label{font-size:16px;color:var(--ink-3);margin-right:4px}
+@media(max-width:520px){.others-label{flex-basis:100%}}
+.os summary{list-style:none;min-height:46px;padding:0 20px;font-size:17px}
+.os summary::-webkit-details-marker{display:none}
+.os summary::after{content:"";width:8px;height:8px;margin-left:4px;border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg)}
+.os[open] summary::after{transform:translateY(2px) rotate(-135deg)}
+.os[open]{flex-basis:100%}
+.os-panel{margin-top:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 18px}
+.os-panel a{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.os-panel a:last-of-type{border-bottom:0}
+.os-panel a:hover span{text-decoration:underline}
+.os-panel a small{color:var(--ink-3);font-size:15px;white-space:nowrap}
+.os-panel a em{display:block;font-style:normal;font-size:15px;color:var(--ink-3)}
+.os-panel p{font-size:16px;color:var(--ink-2);padding:10px 0;border-top:1px solid var(--line)}
+.os-panel p:first-child{border-top:0}
+.os-panel p a{display:inline;padding:0;border:0;text-decoration:underline;text-underline-offset:3px}
+
+section{padding:70px 0}
+section.alt-bg{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2.sec{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(30px,4vw,44px);line-height:1.05}
+.sub{margin-top:10px;color:var(--ink-2);font-size:19px;max-width:36em}
+
+/* manuales: bien grandes, justo después de descargar */
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+@media(max-width:900px){.guides{grid-template-columns:1fr}}
+.guide{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--line-strong);border-radius:12px;
+  padding:26px;text-decoration:none;transition:border-color .2s,transform .2s;position:relative}
+.guide:hover{border-color:var(--ac);transform:translateY(-2px)}
+.guide.first{border:2px solid var(--ac)}
+.guide .badge{align-self:flex-start;background:var(--ac);color:#0b0405;font-size:14px;font-weight:600;
+  border-radius:20px;padding:2px 12px;margin-bottom:12px}
+.guide h3{font-size:24px;font-weight:600;line-height:1.2}
+.guide p{color:var(--ink-2);margin-top:8px}
+.guide .go{margin-top:auto;padding-top:18px;font-weight:600;color:var(--ac)}
+.contact{margin-top:28px;font-size:18px;color:var(--ink-2)}
+.contact a{color:var(--ink);font-weight:600;text-underline-offset:4px}
+
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+@media(max-width:760px){.feats{grid-template-columns:1fr}}
+.feat{border-left:3px solid var(--ac);padding:4px 0 4px 20px}
+.feat h3{font-size:22px;font-weight:600}
+.feat p{color:var(--ink-2);margin-top:4px}
+.feat a{color:var(--ink);text-underline-offset:4px}
+
+.needs{list-style:none;margin-top:26px;display:grid;gap:14px;max-width:44em}
+.needs li{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);
+  border-radius:10px;padding:18px 20px}
+.needs .n{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--elevated);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-weight:600}
+.needs b{font-weight:600}
+.needs span{color:var(--ink-2)}
+
+/* inicio: las tres apps */
+.intro{padding:64px 0 36px;text-align:center}
+.intro h1{font-size:clamp(40px,6vw,68px);margin:0}
+.intro .lede{margin:20px auto 0;font-size:21px;max-width:32em}
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:20px 0 10px}
+@media(max-width:900px){.apps{grid-template-columns:1fr;max-width:560px;margin:0 auto}}
+.app{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);
+  border-top:4px solid var(--ac);border-radius:12px;overflow:hidden;text-decoration:none;
+  transition:transform .2s,border-color .2s}
+.app:hover{transform:translateY(-3px);border-color:var(--ac)}
+.app .media{aspect-ratio:16/10;overflow:hidden;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.app .media>img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.app .media.phone{padding-top:22px}
+.app .media.phone .frame{width:54%}
+.app .body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+.app .for{color:var(--ac)}
+.app h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:38px;line-height:1;margin:6px 0 10px}
+.app p{color:var(--ink-2);font-size:18px}
+.app .go{margin-top:auto;padding-top:22px}
+.app .go span{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:8px;
+  background:var(--ac);color:#0b0405;font-weight:600;font-size:18px}
+.start{margin:34px auto 0;max-width:760px;background:var(--surface);border:1px solid var(--line-strong);
+  border-radius:12px;padding:22px 26px;display:flex;gap:18px;align-items:flex-start}
+.start .i{flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--red);color:#0b0405;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+.start h3{font-size:20px;font-weight:600}
+.start p{color:var(--ink-2);margin-top:4px}
+.help{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
+@media(max-width:760px){.help{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px}
+.box h3{font-size:22px;font-weight:600}
+.box p{color:var(--ink-2);margin-top:6px}
+.box ul{list-style:none;margin-top:14px}
+.box li+li{margin-top:10px}
+.box li a{font-size:18px;color:var(--ink);text-underline-offset:4px}
+.box li small{display:block;color:var(--ink-3);font-size:15px}
+.mail{display:block;margin-top:12px;color:var(--ink-3);font-size:16px}
+
+footer{border-top:1px solid var(--line);padding:30px 0;margin-top:20px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;color:var(--ink-3);font-size:15px}
+.foot nav{display:flex;gap:20px;flex-wrap:wrap}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink)}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+/* guía en vídeo (píldoras de menos de un minuto) */
+.group{margin-top:54px}
+.group:first-child{margin-top:0}
+.group-head{display:flex;align-items:center;gap:16px}
+.group-head .n{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:var(--ac);color:#0b0405;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+.group-head h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(26px,3.4vw,36px);line-height:1.05}
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-top:22px}
+.vid{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.vid .player{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;background:#000;cursor:pointer}
+.vid .player img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .2s}
+.vid .player:hover img{opacity:1}
+.vid .player .play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;
+  background:var(--ac);box-shadow:0 10px 30px rgba(0,0,0,.6);transition:transform .2s}
+.vid .player .play::after{content:"";position:absolute;left:30px;top:22px;border-left:24px solid #0b0405;
+  border-top:16px solid transparent;border-bottom:16px solid transparent}
+.vid .player:hover .play{transform:scale(1.08)}
+.vid .player .dur{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.8);color:#fff;font-size:15px;
+  font-weight:500;border-radius:6px;padding:1px 8px}
+.vid video{width:100%;aspect-ratio:16/9;display:block;background:#000}
+.vid .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.vid h3{font-size:21px;font-weight:600;line-height:1.25}
+.vid p{color:var(--ink-2);margin-top:6px;font-size:17px}
+.vid .more{margin-top:auto;padding-top:14px;font-size:16px;color:var(--ink-3);text-underline-offset:3px}
+.vid .more:hover{color:var(--ink)}
+
+/* inicio: cómo encaja todo (pista → Manager → Lap y Control) */
+.arch{margin-top:28px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:34px 30px}
+@media(max-width:520px){.arch{padding:22px 16px}}
+.flow{display:grid;grid-template-columns:auto 44px auto 96px 1fr;align-items:stretch}
+@media(max-width:860px){.flow{grid-template-columns:1fr}}
+.node{background:var(--bg);border:1px solid var(--line-strong);border-radius:10px;padding:18px 20px;
+  display:flex;flex-direction:column;justify-content:center;text-decoration:none}
+a.node{transition:transform .2s,border-color .2s}
+a.node:hover{transform:translateY(-2px)}
+.node .k{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.node .v{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:26px;line-height:1.1;margin-top:4px}
+.node .s{font-size:16px;color:var(--ink-2);margin-top:4px}
+.node.mgr{border-color:rgba(239,70,81,.5)} .node.mgr .v{color:var(--red)} a.node.mgr:hover{border-color:var(--red)}
+.node.lap{border-color:rgba(34,184,214,.45)} .node.lap .v{color:var(--cyan)} a.node.lap:hover{border-color:var(--cyan)}
+.node.ctl{border-color:rgba(245,158,11,.45)} .node.ctl .v{color:var(--amber)} a.node.ctl:hover{border-color:var(--amber)}
+.conn{display:flex;align-items:center;justify-content:center;color:var(--ink-3);font-size:15px;font-weight:500;white-space:nowrap}
+.conn2{display:grid;grid-auto-rows:1fr;gap:14px;justify-items:center;align-items:center}
+.conn .m{display:none}
+@media(max-width:860px){.conn{height:44px}.conn .ar{display:inline-block;transform:rotate(90deg)}
+  .conn2{display:flex;justify-content:center;gap:28px}.conn .m{display:inline}}
+.clients,.hw-stack{display:grid;grid-auto-rows:1fr;gap:14px}
+.arch-note{margin-top:24px;border-top:1px dashed var(--line-strong);padding-top:18px;font-size:17px;color:var(--ink-2)}
+
+/* logo oficial (img/pitwall-logo.svg, el mismo de la app de escritorio) */
+.logo img{display:block;height:32px;width:auto}
+header .logo img{height:42px}
+@media(max-width:520px){header .logo img{height:38px}}
+
+/* inicio: software libre (licencias) */
+.free{list-style:none;margin-top:22px;display:grid;gap:10px;max-width:46em}
+.free li{position:relative;padding-left:30px;color:var(--ink-2)}
+.free li::before{content:"✓";position:absolute;left:0;top:0;color:var(--green,#22c55e);font-weight:700}
+.free li b{color:var(--ink);font-weight:600}
+.lics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+@media(max-width:760px){.lics{grid-template-columns:1fr}}
+@media(max-width:520px){.lics{grid-template-columns:1fr}}
+.lic{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--ac);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column}
+.lic h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:26px;line-height:1}
+.lic .l{margin-top:8px;font-weight:600}
+.lic .l a{color:var(--ink);text-underline-offset:3px}
+.lic p{color:var(--ink-3);font-size:16px;margin-top:4px}
+.lic .src{margin-top:auto;padding-top:16px;font-weight:600;color:var(--ac);text-underline-offset:3px}
+.fine{margin-top:18px;font-size:15px;color:var(--ink-3)}

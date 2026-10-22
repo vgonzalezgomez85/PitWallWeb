@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall · Manual d’estadístiques</title>
+<meta name="description" content="Interpretació de les vistes Live i Estadístiques de PitWall per a pilots: què et diu cada número i com fer-lo servir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css?v=20261023">
+<style>body{--ac:var(--cyan)}</style>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" id="nav-links">
+      <a href="pitwall-landing-ca.html">Landing</a>
+      <a href="manual-uso.ca.html">Manual d’ús</a>
+      <a href="manual-estadisticas.ca.html" class="here">Estadístiques</a>
+      <div class="lang" role="group" aria-label="Idioma">
+        <a href="manual-estadisticas.html">ES</a>
+        <a href="manual-estadisticas.ca.html" class="on" aria-current="page">CA</a>
+        <a href="manual-estadisticas.en.html">EN</a>
+        <a href="manual-estadisticas.it.html">IT</a>
+        <a href="manual-estadisticas.fr.html">FR</a>
+      </div>
+      <a href="manual-uso.ca.html" class="nav-cta">Com es fa anar →</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-label="Obrir menú" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+  </div>
+</header>
+<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Interpretació d’estadístiques · Pilots</div>
+    <h1>Què et diu<br>cada <span class="ac">número</span>.</h1>
+    <p class="lede">Guia per a pilots, sense tecnicismes. A PitWall corres per <b>carrils</b> (C1, C2, C3…) i vas <b>canviant de carril mànega a mànega</b>. Per això hi ha dues maneres de mirar la teva cursa: <b>el que passa ARA en aquesta mànega</b> i <b>com quedaràs AL FINAL</b> quan sumis totes les teves mànegues. Aquest manual t’ensenya a llegir-les totes dues — per anar més ràpid i ser més regular.</p>
+    <div class="xlink">
+      <a href="manual-uso.ca.html">↔ Manual d’ús</a>
+      <a class="cur" href="manual-estadisticas.ca.html">▮ Manual d’estadístiques</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Índex del manual">
+    <div class="toc-ttl">Contingut</div>
+    <ol>
+      <li><a href="#directo">La pantalla en directe</a></li>
+      <li><a href="#pestanas">Les 3 pestanyes</a></li>
+      <li><a href="#panel">El teu panell</a></li>
+      <li><a href="#lap">PitWall Lap: la teva cursa al mòbil</a></li>
+      <li><a href="#pole">Pole en directe</a></li>
+      <li><a href="#consistencia">Consistència</a></li>
+      <li><a href="#graficas">Les gràfiques</a></li>
+      <li><a href="#proyeccion">Projecció i gaps</a></li>
+      <li><a href="#resultados">La vista de Resultats</a></li>
+      <li><a href="#glosario">Glossari</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="directo">
+      <div class="num">// 01</div>
+      <h2>La pantalla en directe</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Directe · Mànega en curs</span></div>
+        <img src="manual/img/20-live-timing.png" loading="lazy" alt="Pantalla en directe de la mànega en curs">
+        <figcaption>La mànega en curs: rellotges per circuit i una targeta per cotxe en pista.</figcaption>
+      </figure>
+      <p>És la pantalla de la mànega en curs. El que veus en temps real, volta a volta.</p>
+      <p><b>Rellotges per circuit (C1, C2, C3…).</b> Si la cursa fa servir diversos circuits alhora, a dalt tens un rellotge per cadascun. Cada rellotge marca el temps d’aquesta mànega en aquest circuit. Quan el rellotge arriba a zero, aquesta mànega acaba i tots canvieu de carril.</p>
+      <p><b>Targetes de carril.</b> Una targeta per cada cotxe en pista, pensada per llegir-se de lluny: l’ <b>última volta</b> va en gran amb el <b>total</b> al costat i, a sota, la millor volta, la mitjana, el Gap V i les voltes de la mànega. Les xifres s’ajusten soles a la mida de la targeta. El que llegeixes a cadascuna:</p>
+      <ul>
+        <li><b>TOTAL</b> — voltes acumulades fins ara a la mànega.</li>
+        <li><b>ÚLTIMA</b> — la teva última volta completa. És la teva referència immediata: millores o caus?</li>
+        <li><b>MEDIA</b> — el teu ritme mitjà a la mànega (mitjana simple de les teves voltes, sense comptar el <b>pas de sortida</b>; la teva primera volta completa <b>sí</b> que compta). És el que de debò mana per guanyar en resistència: no la millor volta solta, sinó el ritme sostingut.</li>
+        <li><b>MEJOR</b> — la teva millor volta vàlida de la mànega.</li>
+      </ul>
+      <p><b>Colors i avisos de la targeta.</b></p>
+      <ul>
+        <li><b>Lila amb «RÉCORD CARRERA»</b> — aquesta última volta és la volta ràpida de tota la cursa.</li>
+        <li><b>Blau amb «BOXES»</b> — aquesta volta va incloure una parada a boxes; no és que vagis lent.</li>
+        <li><b>Pilot al volant</b> amb una <b>barra</b> del temps que porta conduït a la cursa davant del màxim per pilot: <b>ambre</b> a partir del 85 %, <b>vermella</b> si el passa. <b>«SIN PILOTO»</b> = aquest carril no ha fitxat i la mànega està en marxa.</li>
+        <li><b>Avisos</b>: sortides, parades a boxes (<b>«PIT 2»</b>) i jocs de pneumàtics usats sobre el total (<b>«4/12»</b>). Una parada o un canvi de pneumàtics acabats de fer es ressalten uns segons.</li>
+        <li><b>Descans</b>: qui no corre aquesta mànega mostra la seva posició, equip, voltes i <b>«DESCANSO x/y»</b>.</li>
+      </ul>
+      <p><b>Bàner de volta ràpida.</b> Quan algú marca la volta més ràpida del moment, salta un avís destacat. Si és teva, molt bé. Si és d’un rival, és el llistó que has de batre.</p>
+
+      <h3>Les dues vistes del directe (botó «Vista»)</h3>
+      <p>Amb el botó <b>Vista</b> tries com es mostren els carrils. Hi ha dos modes:</p>
+      <p><b>Filas horizontales</b> — una fila per carril, molt còmoda de llegir. Si els equips no caben en una columna, la vista es reparteix en <b>dues columnes</b>, cadascuna amb la seva capçalera, per veure’ls tots alhora (fins a 40 en una pantalla de 1080p). En curses amb control de pilots, el pilot va sota l’equip.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Directe · Vista · Files horitzontals</span></div>
+        <img src="manual/img/31-vista-1.png" loading="lazy" alt="Vista de files horitzontals, una fila per carril">
+        <figcaption>Files horitzontals: una fila per carril; amb molts equips, a dues columnes.</figcaption>
+      </figure>
+      <p><b>Tarjetas con detalles</b> — una targeta per carril amb tot el que s’ha descrit a dalt: última volta en gran, total, millor, mitjana, Gap V, pilot i avisos. Amb la <b>classificació estimada al costat</b> oberta, les targetes treuen millor, mitjana i Gap V (ja són a la classificació) i mantenen les voltes de la mànega sota el total.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Directe · Vista · Targetes amb detalls</span></div>
+        <img src="manual/img/31-vista-3.png" loading="lazy" alt="Vista de targetes: última volta en gran, total, millor, mitjana, Gap V, pilot i avisos">
+        <figcaption>Targetes amb detalls: última volta en gran amb el total al costat, pilot amb la seva barra de temps i avisos de sortides, boxes i pneumàtics.</figcaption>
+      </figure>
+      <p>L’antiga <i>Cuadrícula compacta</i> ja no existeix: si la tenies triada (o obres un enllaç amb <code>?view=2</code>), s’obren les targetes. L’ordre de targetes i files —per <b>classificació estimada</b> o per <b>voltes reals</b>— es tria a <b>Ajustes → Preferencias → Orden del directo</b>; amb voltes reals no es mostra el Gap V.</p>
+    </section>
+
+    <section id="pestanas">
+      <div class="num">// 02</div>
+      <h2>Live-stats: les 3 pestanyes</h2>
+      <p>Live-stats és la vista d’estadístiques. Té tres pestanyes i cadascuna respon a una pregunta diferent.</p>
+
+      <h3>Mànega actual</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Mànega actual</span></div>
+        <img src="manual/img/21-livestats-manga.png" loading="lazy" alt="Live-stats, pestanya de mànega actual">
+        <figcaption>Classificació d’aquesta mànega amb el detall de cada pilot.</figcaption>
+      </figure>
+      <p>La classificació d’ <b>aquesta</b> mànega, amb el detall de cada pilot: <b>V</b> (voltes), <b>MEJOR</b>, <b>MEDIA</b>, <b>Δ</b> (delta, el teu marge), <b>SALIDAS</b> i <b>PERDIDO</b> (temps perdut en sortides). Mira-ho per saber com vas ARA, amb qui comparteixes carril i qui mana a la teva mànega.</p>
+
+      <h3>Classificació projectada</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Projectada</span></div>
+        <img src="manual/img/22-livestats-proyectada.png" loading="lazy" alt="Live-stats, pestanya de classificació projectada">
+        <figcaption>La posició estimada al final de la cursa, sumant totes les mànegues.</figcaption>
+      </figure>
+      <p>La posició estimada <b>al final de la cursa</b>, quan tots hàgiu completat totes les vostres mànegues. És la que de debò importa per saber si vas guanyant. Mira-ho per saber la teva posició REAL a la general, no només a la mànega que estàs corrent.</p>
+
+      <h3>Comparativa per carril</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Per carril</span></div>
+        <img src="manual/img/23-livestats-carril.png" loading="lazy" alt="Live-stats, pestanya de comparativa per carril">
+        <figcaption>Què rendeix cada carril: les diferències entre C1, C2, C3…</figcaption>
+      </figure>
+      <p>Què rendeix cada carril. Uns carrils són més ràpids que d’altres. Aquí veus les diferències entre C1, C2, C3… Mira-ho per saber si el teu carril actual t’ajuda o et penalitza, i quins carrils et queden per rodar.</p>
+
+      <div class="summary">
+        <div class="tag">Regla ràpida</div>
+        <p><b>Mànega actual</b> = la foto d’ara. <b>Projectada</b> = com acabes. <b>Carril</b> = per què el teu ritme canvia de mànega a mànega.</p>
+      </div>
+    </section>
+
+    <section id="panel">
+      <div class="num">// 03</div>
+      <h2>El teu panell (Mi panel)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Mi panel</span></div>
+        <img src="manual/img/21b-livestats-mipanel.png" loading="lazy" alt="Live-stats, panell personal del pilot">
+        <figcaption>Tria el teu pilot i tindràs el teu propi panell amb targetes.</figcaption>
+      </figure>
+      <p>Tria el teu pilot i tindràs el teu propi panell amb targetes. Una per una:</p>
+      <p><b>POSICIÓ.</b> Compte amb aquesta: és la teva posició <b>PROJECTADA de cursa</b>, no la de la mànega. Et diu on acabaràs si el ritme es manté. Si a la teva mànega vas 4t però el teu panell diu P1, vol dir que sumant totes les mànegues vas primer. Fia’t d’aquesta.</p>
+      <p><b>VOLTES MÀNEGA.</b> Quantes voltes portes a la mànega actual.</p>
+      <p><b>MILLOR.</b> La teva millor volta vàlida. «Vàlida» vol dir que <b>no compta</b>:</p>
+      <ul>
+        <li>el <b>pas de sortida</b> (de la graella a la línia, arrencant aturat: és mig traçat, no una volta),</li>
+        <li>ni un <b>pas parcial</b> (una volta que en realitat és mitja volta mal comptada),</li>
+        <li>ni temps <b>per sota del mínim</b> de la cursa (passos fantasma impossibles).</li>
+      </ul>
+      <p>Compte amb això: <b>la teva primera volta completa sí que compta</b> —és ritme real i pot ser perfectament la teva millor volta—. L’únic que es descarta és aquest primer pas des d’aturat. Així que la teva MILLOR és una volta real de debò, mai un número regalat ni una volta bona que es perd.</p>
+      <p><b>MITJANA.</b> El teu ritme mitjà. Mitjana simple de les teves voltes de cursa (inclou sortides i pit-stops; només exclou el <b>pas de sortida</b>). És exactament el mateix criteri que fa servir TicTac, al mil·lisegon. És el número que la projecció fa servir per estimar on acabes. <b>Baixa la teva mitjana i puges a la general.</b></p>
+      <p><b>Δ (mitjana-millor).</b> És la teva <b>mitjana neta menys la teva millor volta</b>. És a dir: quant marge et queda. Un Δ petit = rodes gairebé sempre al màxim, molt poc per rascar. Un Δ gran = tens ritme però el perds en moltes voltes: aquí hi ha el teu or, en ser més constant. La «mitjana neta» aquí no compta sortides ni pits, només el teu rodar normal.</p>
+      <p><b>SORTIDES / PIT-STOPS.</b> Quantes vegades has sortit i quantes parades has fet. Cada sortida et costa temps i posicions. PitWall compta les sortides amb la mateixa regla que les «voltes lentes» de TicTac: és <b>sortida</b> tota volta que trigui <b>més que la teva volta ràpida en aquest carril durant la mànega + 1,5 s</b> (també la primera volta). Si a més triga el doble o més de la teva mitjana neta, és una <b>parada a boxes (🔧)</b>. Les <b>voltes de bandera</b> (cronometrades o reposades) i les que reposa PitWall després d’una caiguda de connexió no compten mai com a sortida.</p>
+      <p><b>En directe, la marca és provisional.</b> La teva volta ràpida va baixant durant la mànega i, amb ella, el límit. Exemple: al minut 1 la teva millor és 10,20 s → límit 11,70 s, així que una volta d’11,50 s <b>no</b> és sortida. Al minut 6 fas 9,80 s → el límit baixa a 11,30 s i aquella volta d’11,50 s <b>passa a comptar com a sortida</b>. Per això el comptador de sortides pot pujar mentre rodes bé. En tancar la mànega es repassa tot amb la volta ràpida definitiva. Aquesta regla no canvia la coma ni el desempat, i les curses corregudes abans de la v1.38.0 conserven les sortides tal com es van comptar.</p>
+      <p><b>Temps perdut en sortides.</b> El que t’han costat aquestes sortides, en segons. Posa-ho en context: de vegades una sola sortida val més posicions que dècimes de ritme durant tota la mànega. Aquí ho veus clar.</p>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 04</div>
+      <h2>PitWall Lap: la teva cursa al mòbil</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Accés per PIN</span></div>
+        <img src="manual/img/45-lap-access.png" loading="lazy" alt="Pantalla d’accés a PitWall Lap per PIN al mòbil">
+        <figcaption>Accés des del mòbil: tries el teu equip i poses el PIN de 4 xifres.</figcaption>
+      </figure>
+      <p><b>PitWall Lap</b> és la web que obres al <b>mòbil des del teu box</b> per seguir la teva cursa en directe, sense instal·lar res. És només per a <b>curses de resistència (per equips)</b>. És de només lectura: consultes el teu timing, no controles la cursa.</p>
+      <p><b>Com entres.</b> L’organització et dona l’adreça (alguna cosa com <code>http://&lt;IP-del-servidor&gt;:3000/lap/&lt;carrera&gt;</code>) i un <b>PIN de 4 xifres</b> del teu equip. Obres l’adreça, tries el teu <b>equip</b> a la llista, poses el <b>PIN</b> i prems <b>Entrar</b>. Amb <b>Cambiar equipo</b> pots sortir i entrar amb un altre.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Pot ser que l’organització hagi <b>desactivat el PIN</b> per a aquest esdeveniment: llavors no apareix el camp del PIN i entres només triant el teu equip a la llista.</div>
+      </div>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Panell de l’equip</span></div>
+        <img src="manual/img/48-lap-team-panel.png" loading="lazy" alt="Panell de l’equip a PitWall Lap: posició projectada i targetes de ritme al mòbil">
+        <figcaption>El panell de l’equip al mòbil: la teva posició projectada en gran i les targetes de ritme.</figcaption>
+      </figure>
+      <p><b>El teu panell.</b> A dalt, la teva <b>posició</b> en gran: és la <b>projectada</b> (on acabaràs sumant totes les mànegues), la mateixa que veus al directe i a la general — no la de la mànega solta. A sota, la teva distància al líder (<i>«a N vueltas»</i>, <i>«a la par»</i> o <i>«🏁 Líder de la carrera»</i>). La línia d’estat et diu en directe <b>en quina mànega i carril vas i quant queda</b> (o <i>«En descanso»</i> / <i>«Esperando próxima manga»</i> / <i>«Carrera finalizada»</i>). I les targetes:</p>
+      <ul>
+        <li><b>Última vuelta</b> — la teva última volta (parpelleja en actualitzar-se).</li>
+        <li><b>Mejor vuelta</b> — la teva millor volta vàlida.</li>
+        <li><b>Vueltas</b> — total acumulat de tota la cursa.</li>
+        <li><b>Media carrera</b> — el teu ritme mitjà acumulat (el que fa servir la projecció).</li>
+        <li><b>Pit stops</b> — parades fetes.</li>
+        <li><b>Gap al líder</b> — a quantes voltes del primer.</li>
+      </ul>
+      <p>Si hi ha projecció activa, apareix <b>Estimación al final</b> amb la teva <b>posició estimada</b> i les teves <b>voltes projectades</b>.</p>
+<p><b>Seguiment de rivals.</b> Més avall, la secció <b>«Seguimiento · mangas terminadas»</b> compara el teu ritme amb el dels equips que vulguis vigilar. Hi ha una targeta per al teu equip (ressaltada, amb l’etiqueta <b>Tú</b>) i una altra per cada rival que segueixis, <b>fins a 5</b>. Cada targeta és una taula <b>per carril</b> amb una fila <b>Total</b>:</p>
+      <ul>
+        <li><b>Vueltas</b> — totes les voltes vàlides en aquest carril (inclosa la primera de cada mànega).</li>
+        <li><b>Rápida</b> — la millor volta en aquest carril, sense comptar la primera volta ni les sortides.</li>
+        <li><b>Media</b> — el ritme mitjà comptant les voltes de sortida (sense la primera volta).</li>
+        <li><b>Limpia</b> — el ritme mitjà sense sortides ni primera volta: el teu ritme «pur» en aquest carril.</li>
+      </ul>
+      <p>Només compten les <b>mànegues acabades</b>: la mànega en curs no hi entra fins que es tanca, i llavors la taula s’actualitza sola. Per triar rivals obre <b>«Elegir equipos a seguir (hasta 5)»</b>, marca les caselles i prem <b>Guardar</b>. La llista és <b>de l’equip, no del mòbil</b>: tots els mòbils del teu box veuen els mateixos rivals i, si algú la canvia, els altres s’actualitzen sols.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Els criteris són els mateixos que la matriu per carril de les estadístiques en directe, així que les xifres quadren entre totes dues pantalles.</div>
+      </div>
+      <p><b>La veu (canta-voltes).</b> Amb el botó <b>🔊 Voz</b> actives el locutor (arrenca <b>apagat</b>: cal tocar la pantalla una vegada perquè el mòbil deixi sonar l’àudio). Et canta el <b>temps de cada volta</b>, i avisa de <b>canvi de posició</b>, <b>mitja mànega</b>, <b>últim minut</b>, <b>últims 30 s</b> i <b>fi de mànega</b>. A <b>⚙️ Ajustes de voz</b> actives/desactives cada avís i, al bloc avançat, que canti cada X minuts la teva <b>mitjana de carril</b>, els <b>gaps amb rivals</b> o la <b>mitjana per pujar</b> una posició.</p>
+      <p><b>Pantalla sempre activa.</b> Mentre el panell estigui obert, la pantalla <b>no s’apaga</b>; als <b>30 segons sense tocar-la s’enfosqueix</b> (per no gastar bateria ni molestar), però <b>la veu continua cantant</b>. Toca la pantalla per il·luminar-la una altra vegada.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Consell.</b> Entra amb el PIN, activa la <b>Veu</b>, deixa el mòbil al box i escolta. És la manera d’anar informat sense apartar la vista de la pista.</div>
+      </div>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <div><b>Ja pots entrar des de la mateixa pole</b>, no cal esperar que acabi i es reparteixin els carrils: tan bon punt es confirma la cursa, el teu equip ja existeix (amb el seu PIN) i el teu panell et diu si et toca ara, amb un cronòmetre en directe del teu intent i la veu cantant cada volta. En acabar la pole, el panell passa sol a mostrar el teu resultat (posició i temps) — vegeu <a class="inl" href="#pole">Pole en directe</a>.</div>
+      </div>
+    </section>
+
+    <section id="pole">
+      <div class="num">// 05</div>
+      <h2>Pole en directe</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Pole en directe</span></div>
+        <img src="manual/img/46-pole-results.png" loading="lazy" alt="Tauler de la pole en directe, de només lectura, amb ordre de sortida i classificació provisional">
+        <figcaption>Pole en directe: qui és a la pista, ordre de sortida i classificació provisional.</figcaption>
+      </figure>
+      <p>Si la cursa té <b>pole</b> (la volta classificatòria que decideix l’ordre de sortida), la pots seguir en directe encara que no l’organitzis tu.</p>
+      <ul>
+        <li>Des de la <b>pàgina d’inici de convidat</b>, mentre hi ha una pole en marxa apareix una <b>targeta</b> que porta directament al seu tauler.</li>
+        <li>També s’hi arriba des de <b>Estadísticas en vivo</b>.</li>
+      </ul>
+      <p>És una vista de <b>només lectura</b>: no hi ha botons d’iniciar, aturar ni passar al pilot següent, només el que està passant: <b>qui és a la pista ara mateix</b>, l’ <b>ordre de sortida</b> que queda per rodar i la <b>classificació provisional</b> (del més ràpid al més lent) a mesura que es van registrant els temps. S’actualitza sola, sense recarregar. A més <b>canta els temps</b> en veu alta, en l’idioma de la pàgina: «Nueva pole» si algú la bat, «Mejor vuelta» si el pilot en pista millora la seva i, si no, només el temps. Si no ho vols sentir, apaga <b>Cantar tiempos</b> a la barra de dalt: només afecta el teu dispositiu.</p>
+    </section>
+
+    <section id="consistencia">
+      <div class="num">// 06</div>
+      <h2>Consistència</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Consistència</span></div>
+        <img src="manual/img/26-livestats-cons-con.png" loading="lazy" alt="Live-stats, targeta de consistència">
+        <figcaption>La consistència mesura la teva regularitat volta a volta.</figcaption>
+      </figure>
+      <p>La targeta més important per millorar. <b>La consistència mesura la teva regularitat volta a volta</b>: si fas sempre el mateix temps o si fas salts.</p>
+      <p><b>Què és el %.</b> És el <b>percentatge de les teves voltes netes que cauen dins del ±1,5% del teu temps típic d’aquesta mànega</b>. Si en una mànega el teu temps típic (la mediana) és 10,00 s, la banda va de 9,85 s a 10,15 s: cada volta dins d’aquí compta com a neta de ritme. Un 85% vol dir que 17 de cada 20 voltes van ser al teu ritme; el 100% és rodar totes les voltes enganxades a ell. Es compta <b>mànega a mànega</b> —canviar de cotxe o de carril entre mànegues no compta com a inconsistència, cada mànega es mesura contra el seu propi ritme— i el número final és el total de voltes de la cursa: on més vas rodar, més pesa. És robusta per construcció: una volta boja no entra a la banda i no t’espatlla la mediana.</p>
+      <p><b>El ±DE en segons (més útil que el %).</b> Al costat del % veuràs alguna cosa com <i>±0,13 s</i>. Són els segons que oscil·les, amunt o avall, respecte al teu ritme d’aquesta mànega, mesurats de manera que <b>una volta dolenta aïllada no l’infla</b> (amb una volta de trànsit, el ±DE de sempre es dispara; aquest no). Fixa-t’hi tant com en el %: un ±0,13 s et diu de manera directa com d’ajustat rodes i discrimina millor entre dos pilots amb un % semblant. <b>Objectiu: reduir el teu ±DE.</b></p>
+      <p><b>Nivells de color.</b> El sistema et classifica segons el % de voltes dins de la teva banda:</p>
+      <ul>
+        <li><b>Excelente</b> — 90% o més. Rodar de rellotge.</li>
+        <li><b>Buena</b> — 75% o més. Sòlid.</li>
+        <li><b>Irregular</b> — 60% o més. Fas salts, hi ha temps per guanyar sent més fi.</li>
+        <li><b>Errática</b> — per sota del 60%. Molta inestabilitat; centra’t a acabar voltes netes abans que a atacar.</li>
+      </ul>
+      <p><b>Quines voltes compten.</b> Només voltes netes, i des de la <b>segona volta</b> endavant: fora el pas de sortida, les sortides de pista, els pit-stops, les voltes fantasma i les reposades automàticament. Una mànega amb menys de 3 voltes vàlides no compta per al número.</p>
+      <p><b>Dos matisos que convé saber.</b> Les voltes molt lentes no entren a la banda, així que <b>et baixen el %</b> encara que no desviïn la teva mediana — just el que busques: reflecteixen quantes vegades de debò vas anar al teu ritme. I en pistes molt curtes els % tendeixen a sortir una mica més baixos que en les llargues: compara’t sobretot dins de la teva mateixa cursa i pista.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Mínim de voltes.</b> Calen com a mínim <b>3 voltes vàlides</b> (que, traient el pas de sortida, són unes 4 passades per meta) perquè surti el número; fins aleshores veuràs un guió (—).</div>
+      </div>
+    </section>
+
+    <section id="graficas">
+      <div class="num">// 07</div>
+      <h2>Les gràfiques</h2>
+      <p>Cada gràfica té tres modes. Canvien segons el que vulguis veure.</p>
+      <p><b>Temps per volta.</b> El clàssic: cada punt és una volta i el seu temps. Llegeixes la forma de la teva cursa. Baixes en escalfar? Caus al final pel cotxe o per tu? Un pic aïllat (una sortida) o una tendència? Serveix per veure on guanyes i on perds al llarg del stint.</p>
+
+      <h3>Sobre la mitjana</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Gràfica · Sobre la mitjana</span></div>
+        <img src="manual/img/24-livestats-chart-media.png" loading="lazy" alt="Gràfica de diferència de cada volta respecte a la mitjana">
+        <figcaption>Cada volta com a diferència respecte a la teva mitjana: la millor vista de la consistència.</figcaption>
+      </figure>
+      <p>Aquí cada volta es dibuixa com a diferència respecte a la teva mitjana: per sobre = volta més lenta, per sota = més ràpida. És la millor vista de la <b>consistència</b>: com més plana i enganxada al zero estigui la teva línia, més regular ets. Els pics cap amunt són les teves voltes dolentes. Objectiu visual: aplanar la línia.</p>
+
+      <h3>Gap de voltes</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Gràfica · Gap de voltes</span></div>
+        <img src="manual/img/25-livestats-chart-gaplaps.png" loading="lazy" alt="Gràfica de distància al líder al llarg del temps">
+        <figcaption>La teva distància al líder al llarg dels minuts de la mànega.</figcaption>
+      </figure>
+      <p>La teva distància al líder al llarg del temps (eix X = minuts de la mànega; eix Y = gap amb el líder que triïs). Puja = perds terreny; baixa = retalles. Serveix per veure EN QUIN MOMENT de la mànega vas guanyar o perdre la cursa, i si el forat és estable o se t’escapa.</p>
+    </section>
+
+    <section id="proyeccion">
+      <div class="num">// 08</div>
+      <h2>Projecció i gaps</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Projectada</span></div>
+        <img src="manual/img/22-livestats-proyectada.png" loading="lazy" alt="Classificació projectada al final de la cursa">
+        <figcaption>La posició projectada és la mateixa a tot arreu: no hi ha dues veritats.</figcaption>
+      </figure>
+      <p><b>Posició projectada vs posició de mànega.</b> Són coses diferents i totes dues importen:</p>
+      <ul>
+        <li><b>De mànega</b> — on vas a la mànega que corres ara. Útil per al teu duel directe a la pista.</li>
+        <li><b>Projectada</b> — on acabaràs la cursa sumant totes les mànegues. És la teva posició REAL a la general. La projecció estima les teves voltes totals dividint el temps total de cursa entre la teva mitjana. <b>Baixar la teva mitjana = millor projecció.</b></li>
+      </ul>
+      <p>Important: la posició projectada és <b>la mateixa a tot arreu</b> (targeta del directe, Classificació General i panell Lap). Si en un lloc veus P2, a tot arreu veus P2. No hi ha dues veritats.</p>
+      <p><b>L’estimada provisional (l’asterisc *).</b> Si al costat d’una estimada veus un <b>asterisc taronja</b>, vol dir que aquesta xifra <b>encara no està assentada</b>: l’equip és a la seva <b>primera mànega</b> i encara no n’ha passat del <b>60 %</b> d’ella, així que PitWall encara no té una referència sòlida del seu ritme des de la sortida. Aquest número es pot moure. Tan bon punt la mànega creua aquest punt, l’asterisc desapareix i la referència queda fixada. Ho veuràs a la <b>classificació Le Mans</b> i a les <b>estadístiques en directe</b>; passant el ratolí per sobre en surt l’explicació.</p>
+      <p><b>La distància porta la coma (i també es diu en segons).</b> El forat amb el líder <b>no</b> s’arrodoneix a voltes senceres: inclou la <b>coma</b>, la fracció de volta que portes feta. Per això l’etiqueta ja no diu <i>«+3 vlts.»</i> sinó alguna cosa com <b>«a 2,8 v (35,5")»</b>:</p>
+      <ul>
+        <li><b>2,8 v</b> és la distància real en voltes, amb el seu decimal.</li>
+        <li><b>35,5"</b> és el que et costaria recuperar-la <b>al teu propi ritme</b> (aquestes 2,8 voltes × la teva mitjana). És el mateix número que canta TicTac.</li>
+      </ul>
+      <p>D’on surt la coma: <b>amb la mànega en marxa</b> és la coma <b>viva</b> —el que portes rodat des del teu últim pas per meta—, així que la distància es mou amb tu dins de la volta; <b>amb la mànega acabada o si descanses</b>, és la coma amb què <b>vas creuar la bandera</b>. Abans d’això, en caure la bandera es perdia qui anava més avançat a la pista i dos cotxes separats per 2,8 voltes i per 3,0 es veien idèntics.</p>
+      <p><b>Tipus de gap.</b></p>
+      <ul>
+        <li><b>Gap al líder</b> — a quant ets del primer.</li>
+        <li><b>Gap per voltes</b> — la distància expressada en voltes, <b>amb la seva coma</b> («vaig a 2,8 voltes», no «a 3»).</li>
+        <li><b>Gap en segons</b> — aquesta mateixa distància traduïda a temps amb <b>la teva</b> mitjana. És el que cal retallar.</li>
+        <li><b>Gap per minut</b> — com evoluciona la distància amb el temps, per veure si retalles o et despenges.</li>
+      </ul>
+      <p>Quan dos pilots tenen les mateixes voltes, el primer que decideix és <b>qui va creuar abans la meta</b>: si tots dos van acabar a la <b>mateixa mànega</b> i hi ha l’instant del pas, va davant el que va passar abans per la línia. L’excepció: si algun té la <b>coma corregida a mà</b> (vegeu <i>Coma</i>), mana aquesta coma, perquè l’instant del pas és justament la dada que enganya si un cotxe es va quedar aturat. Si no (mànegues diferents o curses antigues sense aquesta dada), desempata la <b>coma</b>: la fracció de volta que portaves feta just en caure la bandera. Rodar ajustat fins al final et pot donar aquesta fracció de més que et puja una posició. I si també empateu en coma, decideix el <b>temps total</b> acumulat.</p>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 09</div>
+      <h2>La vista de Resultats (després de la cursa)</h2>
+      <p>Quan la cursa acaba, <b>Resultados</b> és on s’analitza tot amb calma. Té diverses <b>pestanyes</b>; cadascuna respon a una pregunta diferent. A dalt sempre veus la <b>volta ràpida de la cursa</b> (qui i en quin carril).</p>
+
+      <h3>Resultats (la graella per carril)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados</span></div>
+        <img src="manual/img/st-comparativa.png" loading="lazy" alt="Resultats, taula comparativa per carril">
+        <figcaption>La graella per carril: una fila per participant i cinc dades per cada carril.</figcaption>
+      </figure>
+      <p>És la taula principal. Una fila per participant i, per a <b>cada carril</b> per on va passar, cinc dades apilades:</p>
+      <ul>
+        <li><b>Rápida</b> — la teva millor volta en aquest carril. El punt blau + <b>MEJOR</b> marca la volta ràpida <i>d’aquest carril</i> entre tots.</li>
+        <li><b>Media</b> — el teu ritme mitjà en aquest carril.</li>
+        <li><b>Consistència</b> — la teva <b>consistència</b> en aquest carril, en %: quantes de les teves voltes netes van caure dins del ±1,5% del teu ritme.</li>
+        <li><b>Salidas</b> — quantes vegades vas sortir allà (i, a sota, el temps perdut).</li>
+        <li><b>Pit-stops</b> — parades en aquest carril (amb el núm. de volta, p. ex. <i>V355</i>).</li>
+      </ul>
+      <p>Serveix per veure <b>en quins carrils rendeixes millor o pitjor</b>, no només el teu número global. El rectangle blau marca el teu <b>carril de sortida</b>.</p>
+      <p><b>Curses de passades / repetir carril.</b> Si el mateix carril es corre diverses vegades, cada carril es <b>desdobla per ocurrència</b> (<code>1/2</code>, <code>2/2</code>…), per comparar la teva 1a passada amb la 2a pel mateix lloc.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Desdoblat per ocurrència</span></div>
+        <img src="manual/img/st-ocurrencia.png" loading="lazy" alt="Resultats, comparativa desdoblada per ocurrència de carril">
+        <figcaption>Cada carril desdoblat per ocurrència (1/2, 2/2…) en curses de passades.</figcaption>
+      </figure>
+
+      <h3>Progressió (volta a volta)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Progressió</span></div>
+        <img src="manual/img/st-progresion.png" loading="lazy" alt="Resultats, gràfica de progressió volta a volta">
+        <figcaption>Cada volta de la cursa en ordre, amb sortides i pit-stops marcats.</figcaption>
+      </figure>
+      <p>Cada volta de la cursa, en ordre. Pots <b>triar amb qui comparar</b>, filtrar per <b>mànega</b> o per <b>carril</b>, i mostrar/amagar <b>sortides</b> (punts vermells) i <b>pit-stops</b> (taronges). Amb el botó <b>Δ Delta vs media</b> cada volta es dibuixa com a diferència respecte a la teva mitjana (millor vista per jutjar la teva regularitat: com més plana, millor). Respon: <i>vaig baixar en escalfar? vaig caure al final? va ser un pic aïllat o una tendència?</i></p>
+
+      <h3>Posicions</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Posicions</span></div>
+        <img src="manual/img/st-posiciones.png" loading="lazy" alt="Resultats, gràfica d’evolució de posicions">
+        <figcaption>Una línia per participant: on i quan es va decidir cada lloc.</figcaption>
+      </figure>
+      <p>Una línia per participant; l’eix vertical és la <b>posició</b> (P1 a dalt). Si la teva línia puja, perds posicions; si baixa, en guanyes. Serveix per veure <b>en quin moment</b> de la cursa es va decidir el teu resultat.</p>
+
+      <h3>Gap al líder</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Gap amb el líder</span></div>
+        <img src="manual/img/st-gap.png" loading="lazy" alt="Resultats, gràfica de gap amb el líder al llarg del temps">
+        <figcaption>La teva distància al líder al llarg del temps: on et vas despenjar o vas recuperar.</figcaption>
+      </figure>
+      <p>La teva distància al líder <b>al llarg del temps</b> (pots acotar el rang de mànegues). La línia que baixa = t’hi acostes; que puja = t’allunyes. Respon: <i>en quina mànega em vaig despenjar o vaig recuperar?</i></p>
+
+      <h3>Gap (graella)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Gap (graella)</span></div>
+        <img src="manual/img/st-gapgrid.png" loading="lazy" alt="Resultats, graella de gap per mànega">
+        <figcaption>El gap en taula: files equips, columnes mànegues, i les voltes de desavantatge per cel·la.</figcaption>
+      </figure>
+      <p>La mateixa idea però en <b>taula</b>: files = equips, columnes = mànegues, i cada cel·la les <b>voltes de desavantatge</b> al tancament d’aquesta mànega (0 = líder). La <b>vora daurada</b> avisa que hi va haver <b>pit-stop</b> en aquesta mànega. A sota de cada «M{n}» es veu l’ <b>hora real</b> a què va arrencar aquesta mànega (en la teva hora local; passa el ratolí per veure data i hora completes); si una mànega creua la <b>mitjanit</b>, la seva capçalera es ressalta en <b>daurat</b> per veure-ho d’un cop d’ull. Pots triar 2–4 equips per veure el gap <b>entre ells</b> (no només contra el líder).</p>
+
+      <h3>Estadístiques avançades</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Estadístiques avançades</span></div>
+        <img src="manual/img/st-avanzadas.png" loading="lazy" alt="Resultats, panell d’estadístiques avançades d’un participant">
+        <figcaption>L’anàlisi profunda d’un participant: totals, mitjanes, consistència i evolució per carril.</figcaption>
+      </figure>
+      <p>L’anàlisi profunda d’un participant: <b>total de voltes</b> (i netes), <b>millor</b>, <b>mitjana</b> (amb commutador <i>amb/sense sortides</i>), <b>Δ mitjana-millor</b>, <b>sortides · pit-stops</b> i <b>temps perdut</b>. A sota, l’ <b>evolució per carril</b> (la teva mitjana pista a pista, per veure on vas ser més ràpid) i una targeta per carril. Amb <b>Comparar con</b> tries un rival i es genera una taula <b>cara a cara</b> amb les diferències acolorides (verd = millor, vermell = pitjor).</p>
+
+      <h3>Pilots (resistències per equips)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Pilots</span></div>
+        <img src="manual/img/st-pilotos.png" loading="lazy" alt="Resultats, pestanya Pilots a la vista per equip">
+        <figcaption>Vista «Per equip»: cada equip en l’ordre de la classificació i, a sota, els seus pilots amb temps al volant, voltes, V/h i ritme.</figcaption>
+      </figure>
+      <p>A les resistències per equips amb <b>fitxatge QR</b> (o quan les voltes ja porten el pilot) apareix la pestanya <b>Pilotos</b>: la cursa repartida <b>pilot a pilot</b> dins de cada equip. Per a cada pilot:</p>
+      <ul>
+        <li><b>Al volante</b> — el temps que va conduir (h:mm).</li>
+        <li><b>Mangas</b> — en quantes mànegues va conduir.</li>
+        <li><b>Vueltas</b> — les voltes que va fer ell.</li>
+        <li><b>V/h</b> — voltes per hora al volant: el ritme que permet comparar pilots que van conduir temps diferents.</li>
+        <li><b>Mejor</b> — la seva millor volta (sense sortides ni pas de sortida).</li>
+        <li><b>Media</b> — la seva mitjana (sense el pas de sortida, igual que la de l’equip).</li>
+        <li><b>Consistència</b> — la seva consistència neta (la mateixa de la pestanya Resultats).</li>
+        <li><b>Salidas</b> i <b>Pits</b> — quantes vegades va sortir i quantes parades va fer.</li>
+      </ul>
+      <p>Amb el selector de dalt a la dreta tries la vista:</p>
+      <ul>
+        <li><b>Por equipo</b> — els equips en l’ordre de la classificació (posició, color, nom i voltes totals) i, a sota de cadascun, els seus pilots, del que més temps va conduir al que menys. La millor volta de cada equip surt en <b>verd</b>.</li>
+        <li><b>Todos los pilotos</b> — una sola taula amb <b>#</b>, <b>Piloto</b>, <b>Equipo</b> i les mateixes columnes. Prem el nom de qualsevol columna per ordenar: els temps van de menor a major al primer clic i la resta de major a menor; un altre clic inverteix l’ordre.</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Pilots · Tots els pilots</span></div>
+        <img src="manual/img/st-pilotos-todos.png" loading="lazy" alt="Resultats, pestanya Pilots amb la taula de tots els pilots">
+        <figcaption>Vista «Tots els pilots»: una sola taula que s’ordena prement el nom de cada columna.</figcaption>
+      </figure>
+      <p><b>Com es reparteixen les voltes.</b> Cada volta va al pilot que havia <b>fitxat</b> en aquest equip i aquesta mànega <b>quan va creuar la meta</b> (a l’hora real del pas), així que un relleu a mitja mànega reparteix bé les voltes: cadascú s’emporta les seves. Les voltes dels pilots <b>sumen exactament</b> les de l’equip, i amb les mateixes regles: la millor, sense sortides ni pas de sortida; la mitjana, sense el pas de sortida.</p>
+      <p><b>Si el fitxatge no va cobrir tota la cursa</b>, la capçalera ho diu (p. ex. <i>«Fichaje QR: 6 de 24 mangas»</i>). Les voltes que no es poden assignar a ningú —les de mànegues sense fitxatge i les d’abans que algú fitxés tard— surten en una fila <b>«Sin fichar»</b> de l’equip, en gris i cursiva. Amb el seu temps passa el mateix: abans de fitxar no compta al volant, així que el temps i les voltes de cada pilot sempre van a la par. Sense fitxatge QR però amb el pilot desat a cada volta, la capçalera avisa: <i>«Piloto tomado de cada vuelta (sin fichajes QR)»</i>.</p>
+      <p>La pestanya surt també als <b>resultats públics</b> i a <b>Exportar para GitHub</b>, i l’ <b>Excel</b> de resultats porta un full <b>Pilotos</b> amb les mateixes dades.</p>
+
+      <h3>Classificació Le Mans (equips)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultats · Classificació Le Mans</span></div>
+        <img src="manual/img/st-lemans.png" loading="lazy" alt="Resultats, classificació Le Mans per equips">
+        <figcaption>La general per equips amb voltes projectades, gap amb el líder i ritme per pujar.</figcaption>
+      </figure>
+      <p>En curses per equips hi ha a més la <b>classificació Le Mans</b>: la general en gran, amb <b>voltes projectades</b>, total, <b>gap</b> amb el líder, mitjana, millor i <b>P/Subir</b> (el ritme que necessitaries per caçar el de davant). Ideal per a curses llargues.</p>
+      <p>El <b>gap</b> d’aquesta taula es llegeix <b>«a 2,8 v (35,5")»</b>: la distància en voltes <b>amb la seva coma</b> i, entre parèntesis, el que costaria recuperar-la al teu ritme. I si una estimada porta <b>asterisc taronja</b>, aquesta xifra encara és <b>provisional</b> (primera mànega sense passar del 60 %).</p>
+
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Icones i colors que veuràs:</b> punt blau + <b>MEJOR</b> = volta ràpida d’aquest carril · rectangle blau = carril de sortida · <b>vora daurada</b> = hi va haver pit-stop en aquesta mànega · tendència <b>▲/▼</b> = vas pujar/baixar respecte a la mànega anterior.</div>
+      </div>
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 10</div>
+      <h2>Glossari</h2>
+      <ul>
+        <li><b>Consistència</b> — la teva regularitat volta a volta: el <b>% de les teves voltes netes que cauen dins del ±1,5% del teu temps típic d’aquesta mànega</b>. Es compta mànega a mànega i s’agrega per voltes. Més alt = més constant.</li>
+        <li><b>±DE (desviació típica) robusta</b> — els segons que oscil·les, amunt o avall, respecte al teu ritme típic de la mànega, calculats de manera que <b>una volta dolenta aïllada no l’infli</b>. Mira aquest número tant com el %.</li>
+        <li><b>Media</b> — mitjana simple dels teus temps de volta, sense el pas de sortida (la teva primera volta completa <b>sí</b> hi entra). Inclou sortides i pits. És la que fa servir la projecció i coincideix al mil·lisegon amb la de TicTac.</li>
+        <li><b>Mitjana neta</b> — la teva mitjana comptant només voltes normals (sense sortides, segons la regla de <i>Sortida</i> d’aquest glossari). Es fa servir per al Δ i per detectar incidents, no per projectar.</li>
+        <li><b>Pas de sortida (warmup / pas parcial)</b> — el primer pas per meta de la mànega: de la graella a la línia, arrencant aturat. És mig traçat, no una volta, així que no compta per a mitjana, millor ni consistència. <b>Només aquest</b>: la primera volta completa que ve després sí que compta per a tot.</li>
+        <li><b>Volta de bandera</b> — l’última volta que creues en caure la bandera de la teva mànega. PitWall espera uns segons aquest pas (<b>Ajustes → Preferencias → «Espera de cruces tras el final»</b>; 0 el desactiva) per desar-la amb el seu <b>temps real</b>; si el pas per meta no arriba, la reposa amb la teva <b>mitjana</b>. D’aquesta volta surten la teva coma i l’instant del pas que desempata quan dos acabeu amb les mateixes voltes (la coma es pot corregir a mà; vegeu <i>Coma</i>).</li>
+        <li><b>Sub-mínim</b> — un temps per sota del mínim de volta de la cursa. Pas fantasma impossible; es descarta sempre.</li>
+        <li><b>Sortida (exit)</b> — una volta que triga més que la teva volta ràpida en aquest carril durant la mànega + 1,5 s (la mateixa regla que les «voltes lentes» de TicTac). Compta per a la mitjana (és temps real perdut) però no per a la teva millor volta. En directe és provisional: si millores la teva ràpida, voltes anteriors poden passar a ser sortida.</li>
+        <li><b>Pit-stop</b> — parada a boxes. Compta com a temps, no com a millor volta.</li>
+        <li><b>Coma</b> — la fracció de volta que portes feta: en marxa, el que has rodat des del teu últim pas per meta; al final, la que portaves en caure la bandera. Compta en la distància al líder i desempata quan dos teniu les mateixes voltes, llevat que tots dos acabeu a la <b>mateixa mànega</b>: aquí va davant qui va creuar abans (vegeu <i>Volta de bandera</i>). Si l’automatisme enganya (un cotxe que surt o es queda aturat i continua «avançant» a l’estimació), l’operador la pot <b>corregir a mà</b> a la pantalla de Correccions d’una mànega tancada, activant abans <b>Ajustes → Preferencias → «Corrección manual de la coma»</b> (per defecte, automàtica; amb això apagat, les correccions desades s’ignoren). Una coma corregida <b>mana</b> en el desempat per davant de «qui va creuar abans la meta».</li>
+        <li><b>Projecció</b> — estimació del teu resultat final sumant totes les mànegues: temps total de cursa dividit entre la teva mitjana, més la coma que ja portes feta.</li>
+        <li><b>Estimada provisional (*)</b> — asterisc taronja al costat d’una estimada: l’equip és a la seva primera mànega i encara no ha passat del 60 %, així que la seva referència no està fixada i el número es pot moure.</li>
+        <li><b>Gap</b> — la teva distància a un altre cotxe (o al líder), en voltes <b>amb coma</b>, en segons (aquestes voltes × la teva mitjana) o per minut. Es llegeix <i>«a 2,8 v (35,5")»</i>.</li>
+        <li><b>PitWall Lap</b> — la web mòbil del teu equip (accés per PIN): la teva posició projectada, les teves targetes de ritme i la veu que canta les voltes. Només en curses per equips.</li>
+        <li><b>Pole en directe</b> — tauler de només lectura per seguir la volta classificatòria de la pole: qui és a la pista, ordre de sortida i classificació provisional. Accessible des de la pàgina d’inici de convidat (amb una pole en marxa) o des de Estadísticas en vivo.</li>
+        <li><b>Ocurrència</b> — cada vegada que corres el mateix carril en curses de passades/repetir carril (<code>1/2</code>, <code>2/2</code>…); permet comparar una passada amb una altra.</li>
+        <li><b>P/Subir</b> — a la classificació Le Mans, el ritme (mitjana per volta) que necessitaries per atrapar l’equip de davant.</li>
+        <li><b>Carril de sortida</b> — el carril des del qual vas arrencar; a la graella de resultats es marca amb un requadre blau.</li>
+        <li><b>V/h</b> — a la pestanya Pilots, voltes per hora al volant: les voltes del pilot entre el seu temps al volant. Serveix per comparar pilots que van conduir temps diferents.</li>
+        <li><b>Sin fichar</b> — a la pestanya Pilots, la fila de cada equip amb les voltes que no es poden assignar a cap pilot: mànegues sense fitxatge QR o voltes anteriors al primer fitxatge.</li>
+      </ul>
+    </section>
+
+    <div class="summary">
+      <div class="tag">En una frase</div>
+      <p>Mira la teva <b>posició projectada</b> per saber on acabes, baixa la teva <b>mitjana</b> per pujar, i aplana la teva <b>consistència</b> (redueix el ±DE) per deixar de regalar temps volta a volta.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <div class="apps-mini"><a href="manual-uso.ca.html">Manual d’ús</a><a href="manual-estadisticas.ca.html">Estadístiques</a></div>
+    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div class="mono">© 2026 · Cronometratge i gestió de slot racing</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Tornar a dalt">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "source": "/Users/victor/Movies/2026-10-22 09-53-15.mov",
+  "output": "/Users/victor/Movies/PitWall píldoras/11 - El GO y el directo.mp4",
+  "crops": {
+    "full": [0, 0, 3840, 2160]
+  },
+  "segments": [
+    { "card": { "kicker": "PitWall en 1 minuto · 11", "title": "El GO y el directo", "sub": "Arranca la manga y sigue la carrera en vivo" }, "dur": 3 },
+    { "from": 88.0,  "to": 90.0,  "crop": "full", "speed": 1,
+      "caption": { "step": 1, "total": 6, "text": "En la tanda, «▶ Manga 1»", "sub": "Se abre el directo de la manga" } },
+    { "from": 90.0,  "to": 94.5,  "crop": "full", "speed": 1,
+      "caption": { "step": 2, "total": 6, "text": "En espera del GO", "sub": "Con un DS, el GO lo da la caja del cronómetro" } },
+    { "from": 94.5,  "to": 98.0,  "crop": "full", "speed": 1, "audio": true,
+      "caption": { "step": 2, "total": 6, "text": "Semáforo… ¡GO!" } },
+    { "from": 98.0,  "to": 105.0, "crop": "full", "speed": 1, "audio": true,
+      "caption": { "step": 3, "total": 6, "text": "Cada cruce, al momento", "sub": "Vueltas, total, última, mejor, media y gap" } },
+    { "from": 105.0, "to": 110.0, "crop": "full", "speed": 1,
+      "caption": { "step": 4, "total": 6, "text": "Elige la vista: filas o tarjetas", "sub": "Tarjetas para muchos carriles; filas para pocos", "pos": "top" } },
+    { "from": 110.0, "to": 124.0, "crop": "full", "speed": 1.5,
+      "caption": { "step": 5, "total": 6, "text": "Al lado, la clasificación estimada", "sub": "Cómo acabaría la carrera al ritmo actual" } },
+    { "from": 124.0, "to": 129.0, "crop": "full", "speed": 1, "audio": true,
+      "caption": { "step": 6, "total": 6, "text": "Pausa", "sub": "Con un DS, la pausa también la da la caja" } },
+    { "from": 129.0, "to": 133.0, "crop": "full", "speed": 1, "audio": true,
+      "caption": { "step": 6, "total": 6, "text": "Se reanuda con semáforo" } },
+    { "from": 133.0, "to": 141.0, "crop": "full", "speed": 1.5,
+      "caption": { "text": "La manga sigue hasta agotar su tiempo" } },
+    { "card": { "kicker": "Siguiente", "title": "Corregir vueltas" }, "dur": 3 }
+  ]
+}

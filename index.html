@@ -9,985 +9,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
 <title>PitWall · Cronometraje y gestión de carreras de slot</title>
+<meta name="description" content="PitWall son tres programas para las carreras de slot de tu club: Manager cronometra, Lap te dice tus tiempos en el móvil y Control lleva el campeonato.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#08080a;
-    --bg-2:#0d0d11;
-    --surface:#121217;
-    --surface-2:#181820;
-    --elevated:#1f1f29;
-    --line:rgba(255,255,255,.08);
-    --line-strong:rgba(255,255,255,.16);
-    --ink:#f5f5f7;
-    --ink-2:#b6b6c2;
-    --ink-3:#76767f;
-    --red:#ef4651;     /* marca · Manager */
-    --cyan:#22b8d6;    /* Lap */
-    --amber:#f59e0b;   /* Control */
-    --green:#22c55e;   /* go */
-    --display:"Saira Condensed",sans-serif;
-    --body:"Saira",sans-serif;
-    --mono:"IBM Plex Mono",monospace;
-  }
-
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--body);
-    font-weight:400;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  /* faint timing-screen grid */
-  body::before{
-    content:"";
-    position:fixed;inset:0;
-    background-image:
-      linear-gradient(var(--line) 1px,transparent 1px),
-      linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:46px 46px;
-    opacity:.35;
-    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
-            mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
-    pointer-events:none;z-index:0;
-  }
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
-
-  a{color:inherit;text-decoration:none}
-  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--ink-3);
-  }
-
-  /* ---------- top bar ---------- */
-  header{position:sticky;top:0;z-index:40;
-    backdrop-filter:blur(14px);
-    background:linear-gradient(180deg,rgba(8,8,10,.92),rgba(8,8,10,.55));
-    border-bottom:1px solid var(--line);
-  }
-  .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);
-    font-weight:800;font-size:21px;letter-spacing:.04em;text-transform:uppercase}
-  .logo .mark{width:27px;height:27px;display:block;flex:0 0 auto}
-  .logo b{color:var(--red);font-weight:800}
-  nav.links{display:flex;gap:30px;align-items:center}
-  @media(max-width:1200px){nav.links{gap:20px}}
-  nav.links a{white-space:nowrap;font-family:var(--mono);font-size:12px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--ink-2);transition:color .2s}
-  nav.links a:hover{color:var(--ink)}
-  .nav-cta{border:1px solid var(--line-strong);padding:8px 16px;border-radius:2px;
-    color:var(--ink)!important;transition:.2s}
-  .nav-cta:hover{border-color:var(--red);color:var(--red)!important}
-  .langs{display:flex;gap:9px;align-items:center;margin-left:4px}
-  nav.links .langs a,.langs b{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em}
-  nav.links .langs a{color:var(--ink-3)}
-  nav.links .langs a:hover{color:var(--ink)}
-  .langs b{color:var(--red);font-weight:600}
-  /* menú móvil */
-  .menu-btn{display:none;width:40px;height:40px;margin-right:-8px;padding:0;border:0;background:none;
-    color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
-  .menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:20px;height:1.5px;
-    background:currentColor;position:relative;transition:transform .2s,background .2s}
-  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
-  .menu-btn span::before{top:-6px}
-  .menu-btn span::after{top:6px}
-  header.open .menu-btn span{background:transparent}
-  header.open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
-  header.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
-  @media(max-width:1080px){
-    .menu-btn{display:inline-flex}
-    nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
-      align-items:stretch;gap:0;padding:4px 28px 22px;background:#08080a;
-      border-bottom:1px solid var(--line);max-height:calc(100vh - 62px);overflow-y:auto}
-    header.open nav.links{display:flex}
-    nav.links>a{padding:15px 0;border-bottom:1px solid var(--line);font-size:13px}
-    nav.links>a.nav-cta{margin-top:18px;border:1px solid var(--line-strong);justify-content:center;text-align:center}
-    nav.links .langs{margin:16px 0 0;gap:18px}
-    nav.links .langs a,.langs b{font-size:12px}
-  }
-
-  /* ---------- hero ---------- */
-  .hero{padding:64px 0 30px;position:relative}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
-  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:40px}}
-
-  /* start-light gantry */
-  .gantry{display:inline-flex;gap:7px;padding:8px 11px;border:1px solid var(--line);
-    border-radius:3px;background:var(--bg-2);margin-bottom:22px}
-  .gantry b{width:11px;height:11px;border-radius:50%;background:#2a0e10;
-    box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
-  .gantry b.on{background:var(--red);box-shadow:0 0 11px var(--red),inset 0 0 0 1px rgba(255,255,255,.25)}
-  .gantry b.go{background:var(--green);box-shadow:0 0 13px var(--green),inset 0 0 0 1px rgba(255,255,255,.25)}
-
-  h1{font-family:var(--display);font-weight:800;text-transform:uppercase;
-    font-size:clamp(46px,7.4vw,86px);line-height:.92;letter-spacing:.005em;
-    margin:14px 0 0}
-  h1 .r{color:var(--red)}
-  .lede{margin-top:22px;font-size:18px;color:var(--ink-2);max-width:30em}
-  .lede b{color:var(--ink);font-weight:600}
-
-  .cta-row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
-  .btn{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
-    padding:14px 22px;border-radius:2px;border:1px solid transparent;cursor:pointer;
-    transition:.18s;display:inline-flex;align-items:center;gap:9px}
-  .btn-primary{background:var(--red);color:#0b0405;font-weight:600}
-  .btn-primary:hover{background:#ff5760;transform:translateY(-1px)}
-  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
-  .btn-ghost:hover{border-color:var(--ink-2);background:var(--surface)}
-
-  /* "próximamente" badge */
-  .soon{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-    padding:14px 22px;border-radius:2px;border:1px dashed var(--red);color:var(--red);
-    display:inline-flex;align-items:center;gap:10px;background:rgba(239,70,81,.06)}
-  .soon::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);
-    box-shadow:0 0 9px var(--red);animation:rec 1.4s infinite;flex:0 0 auto}
-  .nav-soon{padding:8px 14px;font-size:11px;letter-spacing:.12em}
-
-  /* "pruébalo ya" badge — misma forma que .soon, semáforo en verde */
-  .live{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
-    padding:14px 22px;border-radius:2px;border:1px dashed var(--green);color:var(--green);
-    display:inline-flex;align-items:center;gap:10px;background:rgba(34,197,94,.06);transition:.18s}
-  .live:hover{background:rgba(34,197,94,.14);transform:translateY(-1px)}
-  .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);
-    box-shadow:0 0 9px var(--green);animation:rec 1.4s infinite;flex:0 0 auto}
-
-  .hero-stats{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
-  .hero-stats div{font-family:var(--mono)}
-  .hero-stats .n{font-size:24px;font-weight:600;color:var(--ink)}
-  .hero-stats .l{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
-
-  /* ---------- live timing board · réplica de PitWall Manager ---------- */
-  .appwin{background:#0a0b0e;border:1px solid var(--line-strong);border-radius:11px;
-    overflow:hidden;box-shadow:0 34px 90px -44px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.4)}
-  .win-bar{display:flex;align-items:center;gap:10px;padding:9px 13px;
-    background:#1a1d24;border-bottom:1px solid #000}
-  .win-bar .dots{display:flex;gap:6px;flex:0 0 auto}
-  .win-bar .dots i{width:11px;height:11px;border-radius:50%;background:#3a3a44}
-  .win-bar .dots i:nth-child(1){background:#ff5f57}
-  .win-bar .dots i:nth-child(2){background:#febc2e}
-  .win-bar .dots i:nth-child(3){background:#28c840}
-  .win-title{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
-    color:#8b949e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-  /* barra superior: relojes + manga + acciones */
-  .mgr-hd{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-    padding:11px 13px;border-bottom:1px solid #14171e;background:#0c0e12}
-  .mgr-clocks{display:flex;gap:11px;flex:0 0 auto}
-  .ck{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
-  .ck span{font-family:var(--mono);font-size:7px;letter-spacing:.1em;color:#5b6470;margin-bottom:3px}
-  .ck b{font-family:var(--mono);font-size:18px;font-weight:600;color:#22c55e;letter-spacing:.03em}
-  .mgr-meta{min-width:0}
-  .mgr-heat{display:flex;align-items:center;gap:7px}
-  .mgr-heat .tanda{font-family:var(--mono);font-size:8px;background:#12233a;color:#5aa9ff;
-    border:1px solid #274b73;border-radius:3px;padding:2px 5px;flex:0 0 auto}
-  .mgr-heat b{font-family:var(--body);font-weight:700;font-size:14px;color:#e6edf3}
-  .mgr-live2{display:flex;align-items:center;gap:6px;margin-top:4px;
-    font-family:var(--mono);font-size:9px;color:#3fb950}
-  .mgr-live2 .demo{color:#5b6470}
-  .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;
-    box-shadow:0 0 8px #22c55e;flex:0 0 auto;animation:rec 1.6s infinite}
-  @keyframes rec{0%,100%{opacity:1}50%{opacity:.3}}
-  .mgr-actions{margin-left:auto;display:flex;gap:6px;flex:0 0 auto}
-  .pill{font-family:var(--mono);font-size:9px;letter-spacing:.05em;padding:6px 10px;
-    border-radius:6px;border:1px solid;white-space:nowrap}
-  .pill.amber{color:#f6c90e;border-color:#6f5c14;background:rgba(246,201,14,.07)}
-  .pill.blue{color:#5aa9ff;border-color:#274b73;background:rgba(90,169,255,.07)}
-
-  /* tira de vueltas rápidas */
-  .mgr-fast{display:flex;align-items:center;gap:9px;flex-wrap:wrap;
-    padding:8px 13px;border-bottom:1px solid #14171e;background:rgba(246,201,14,.045)}
-  .mgr-fast .fh{font-family:var(--mono);font-size:9px;color:#f6c90e;font-weight:600;
-    letter-spacing:.12em;text-transform:uppercase}
-  .mgr-fast .fc{display:inline-flex;align-items:center;gap:5px;
-    font-family:var(--mono);font-size:9.5px;color:#c9d1d9}
-  .mgr-fast .fc b{width:15px;height:15px;border-radius:50%;display:inline-flex;
-    align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff}
-  .mgr-fast .fc .ft{color:#f6c90e;font-weight:600}
-
-  /* rejilla de tarjetas de coche */
-  .mgr-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:11px 13px;background:#050506}
-  .mc{background:#0b0d11;border:1px solid var(--cc);border-radius:7px;
-    padding:8px 10px 9px;min-width:0;transition:transform .35s}
-  .mc.move{transform:translateY(-2px)}
-  .mc-top{display:flex;align-items:center;gap:5px;margin-bottom:6px}
-  .mc-pos{font-family:var(--mono);font-size:9.5px;font-weight:700;color:#111;
-    background:#f6c90e;border-radius:3px;padding:1px 5px;flex:0 0 auto}
-  .mc-wr{color:#7d8590;font-size:10px;line-height:1}
-  .mc-warn{font-family:var(--mono);font-size:9px;color:#f59e0b;display:inline-flex;align-items:center;gap:2px}
-  .mc-no{margin-left:auto;width:19px;height:19px;border-radius:4px;flex:0 0 auto;
-    display:flex;align-items:center;justify-content:center;font-family:var(--mono);
-    font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
-  .mc-name{font-family:var(--body);font-weight:700;font-size:12.5px;color:#e6edf3;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:7px}
-  .mc-stats{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px}
-  .mc-stats>div{display:flex;flex-direction:column;min-width:0}
-  .mc-stats span{font-family:var(--mono);font-size:7px;letter-spacing:.08em;
-    text-transform:uppercase;color:#5b6470;margin-bottom:1px}
-  .mc-stats em{font-family:var(--mono);font-size:14px;font-weight:600;color:#e6edf3;
-    font-style:normal;line-height:1}
-  .mc-stats em.fast{color:#22c55e}.mc-stats em.slow{color:#f59e0b}.mc-stats em.bad{color:#ef4444}
-  .mc-stats em.best{color:#22c55e}
-  @media(max-width:520px){.mgr-grid{grid-template-columns:1fr}}
-
-  .mgr-foot{padding:9px 13px;border-top:1px solid #14171e;background:#0a0b0e;
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
-    color:#5b6470;display:flex;justify-content:space-between}
-
-  /* ---------- section frame ---------- */
-  section{padding:88px 0;position:relative}
-  .sec-head{max-width:42em;margin-bottom:54px}
-  .sec-head h2{font-family:var(--display);font-weight:700;text-transform:uppercase;
-    font-size:clamp(30px,4.4vw,50px);line-height:1;margin:12px 0 0;letter-spacing:.01em}
-  .sec-head p{margin-top:16px;color:var(--ink-2);font-size:17px;max-width:34em}
-  .rule{height:1px;background:linear-gradient(90deg,var(--line-strong),transparent);margin:0}
-
-  /* ---------- apps ---------- */
-  .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  @media(max-width:880px){.apps{grid-template-columns:1fr}}
-  .app{background:var(--surface);border:1px solid var(--line);border-radius:8px;
-    padding:28px 26px 30px;position:relative;overflow:hidden;
-    transition:transform .25s,border-color .25s}
-  .app::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--ac)}
-  .app::after{content:"";position:absolute;top:-60px;right:-60px;width:170px;height:170px;
-    background:radial-gradient(circle,var(--ac),transparent 68%);opacity:.13;pointer-events:none}
-  .app:hover{transform:translateY(-4px);border-color:var(--ac)}
-  .app .tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--ac)}
-  .app h3{font-family:var(--display);font-weight:700;text-transform:uppercase;
-    font-size:30px;line-height:1;margin:14px 0 2px}
-  .app h3 small{display:block;font-family:var(--body);font-weight:600;font-size:13px;
-    letter-spacing:.02em;text-transform:none;color:var(--ink-2);margin-top:7px}
-  .app .glyph{width:46px;height:46px;border-radius:9px;border:1px solid var(--ac);
-    display:flex;align-items:center;justify-content:center;margin-bottom:6px;color:var(--ac)}
-  .app p.desc{color:var(--ink-2);font-size:14.5px;margin:16px 0 18px;min-height:84px}
-  .app ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-  .app li{font-family:var(--mono);font-size:12px;color:var(--ink-2);
-    display:flex;gap:9px;align-items:flex-start;letter-spacing:.01em}
-  .app li::before{content:"";width:6px;height:6px;border-radius:1px;background:var(--ac);
-    margin-top:5px;flex:0 0 auto}
-
-  /* ---------- app screen mockups ---------- */
-  .app{display:flex;flex-direction:column}
-  .app ul{margin-bottom:24px}
-  .shot,.phone-crop{margin-top:auto;pointer-events:none;user-select:none}
-  .shot{border-radius:8px;overflow:hidden;border:1px solid var(--line-strong);
-    box-shadow:0 18px 44px -24px rgba(0,0,0,.9)}
-  .shot-bar{display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;
-    background:#16161d;border-bottom:1px solid var(--line)}
-  .shot-bar i{width:8px;height:8px;border-radius:50%;background:#3a3a44;flex:0 0 auto}
-  .shot-bar i:nth-child(1){background:#ff5f57}
-  .shot-bar i:nth-child(2){background:#febc2e}
-  .shot-bar i:nth-child(3){background:#28c840}
-  .shot-bar span{margin-left:5px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-  /* Manager · captura real del live timing */
-  .mgr-img{display:block;width:100%;height:auto;background:#000}
-  .mgr-live{background:#000;padding:10px 11px 12px;display:flex;flex-direction:column;gap:5px;
-    font-family:var(--mono)}
-  .mgr-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
-  .mgr-clock{font-size:19px;font-weight:600;color:#22c55e}
-  .mgr-st{font-size:8.5px;color:#3fb950;letter-spacing:.12em;text-transform:uppercase}
-  .mgr-lane{display:grid;grid-template-columns:18px 1fr 40px 36px;gap:8px;align-items:center;
-    background:#0a0a0a;border:1px solid #161b22;border-top:2px solid var(--lc);
-    border-radius:4px;padding:5px 9px}
-  .mgr-lane b{font-size:11px;font-weight:600;color:#8b949e}
-  .mgr-lane .nm{font-family:var(--body);font-weight:600;font-size:11.5px;color:#e6edf3;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .mgr-lane .vlt{font-size:17px;font-weight:600;color:#f6c90e;text-align:right;line-height:1}
-  .mgr-lane .lt{font-size:10px;color:#8b949e;text-align:right}
-  .mgr-fast{margin-top:3px;font-size:8.5px;color:#f6c90e;letter-spacing:.14em;text-transform:uppercase;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-  /* Lap · móvil, design system real (#0a0d13 / amarillo) */
-  .phone-crop{height:300px;overflow:hidden;position:relative}
-  .phone-crop::after{content:"";position:absolute;inset:auto 0 0 0;height:46px;
-    background:linear-gradient(180deg,transparent,var(--surface))}
-  .shot-phone{margin:0 auto;width:196px;background:#1a1d24;border-radius:26px;padding:7px;
-    box-shadow:0 0 0 2px #2a2e38,0 18px 40px -20px rgba(0,0,0,.9)}
-  .lap-scr{background:#0a0d13;border-radius:20px;padding:14px 13px;font-family:var(--mono)}
-  .lap-kind{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#9aa3ad}
-  .lap-self{font-family:var(--body);font-size:14px;font-weight:700;color:#fff;margin-top:1px}
-  .lap-head{display:flex;justify-content:space-between;align-items:baseline;margin-top:4px}
-  .lap-lane{color:#f6c90e;font-family:var(--body);font-size:14px;font-weight:700}
-  .lap-rem{color:#cfd5dc;font-size:12px;font-weight:600}
-  .lap-block{margin-top:9px;padding:10px 11px;background:#141923;border-radius:8px}
-  .lap-lbl{font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:#9aa3ad}
-  .lap-big{font-size:34px;font-weight:700;color:#fff;line-height:1.05;margin-top:2px}
-  .lap-cols{display:flex;gap:7px;margin-top:7px}
-  .lap-cols>div{flex:1;padding:8px 10px;background:#141923;border-radius:8px}
-  .lap-med{font-size:15px;font-weight:700;color:#fff;margin-top:2px}
-  .lap-chips{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
-  .lap-chips span{padding:3px 8px;border-radius:999px;border:1px solid #3a4350;
-    font-family:var(--body);font-size:8.5px;font-weight:600;color:#cfd5dc}
-  .lap-chips span.on{background:#f6c90e;border-color:#f6c90e;color:#0a0d13}
-
-  /* Control · Material 3 claro, semilla roja #D32F2F */
-  .ctl-app{background:#fdf8f7;display:flex;color:#1c1b1f;font-family:var(--body)}
-  .ctl-rail{width:34px;background:#f6ebea;display:flex;flex-direction:column;align-items:center;
-    gap:9px;padding:11px 0;flex:0 0 auto}
-  .ctl-rail i{width:16px;height:16px;border-radius:5px;background:#c9bcbb}
-  .ctl-rail i.on{background:#d32f2f;box-shadow:0 0 0 4px rgba(211,47,47,.16)}
-  .ctl-main{flex:1;padding:10px 12px 12px;min-width:0}
-  .ctl-head{font-size:13px;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:7px}
-  .ctl-chip{font-size:8.5px;font-weight:600;color:#8c1d18;background:#f7d9d6;
-    padding:2px 8px;border-radius:999px}
-  .ctl-row{display:flex;align-items:center;gap:8px;padding:5px 8px;background:#fff;
-    border:1px solid #ece2e1;border-radius:9px;margin-top:4px}
-  .ctl-row b{width:18px;height:18px;border-radius:50%;background:#eee6e5;color:#5d5454;
-    font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-  .ctl-row b.p1{background:#e6a700;color:#fff}
-  .ctl-row b.p2{background:#9e9e9e;color:#fff}
-  .ctl-row b.p3{background:#b36a38;color:#fff}
-  .ctl-row .cn{flex:1;font-size:11px;font-weight:600;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .ctl-row .cn small{display:block;font-size:8.5px;font-weight:500;color:#7a7170}
-  .ctl-row .cp{font-family:var(--mono);font-size:12px;font-weight:600;color:#d32f2f}
-
-  .app .more{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:8px;
-    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
-    border:1px solid var(--line-strong);border-radius:2px;padding:12px 0;color:var(--ink);
-    transition:.2s;pointer-events:auto}
-  .app .more:hover{border-color:var(--ac);color:var(--ac);background:rgba(255,255,255,.02)}
-
-  /* ---------- architecture ---------- */
-  .arch{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;
-    padding:38px 30px}
-  .flow{display:grid;grid-template-columns:auto 30px auto 30px 1fr;gap:0;align-items:stretch}
-  @media(max-width:860px){.flow{grid-template-columns:1fr}}
-  .node{background:var(--surface);border:1px solid var(--line);border-radius:7px;
-    padding:18px 18px;display:flex;flex-direction:column;justify-content:center}
-  .node .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-  .node .v{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:21px;margin-top:5px}
-  .node .s{font-size:12.5px;color:var(--ink-2);margin-top:6px;font-family:var(--mono)}
-  .node.hw{border-color:var(--line-strong)}
-  .node.mgr .v{color:var(--red)} .node.mgr{border-color:rgba(239,70,81,.35)}
-  .conn{display:flex;align-items:center;justify-content:center;color:var(--ink-3);
-    font-family:var(--mono);font-size:11px}
-  .conn span{position:relative}
-  @media(max-width:860px){.conn{height:30px;transform:rotate(90deg)}}
-  .clients,.hw-stack{display:grid;grid-template-rows:1fr 1fr;gap:14px}
-  .node.lap .v{color:var(--cyan)} .node.lap{border-color:rgba(34,184,214,.32)}
-  .node.ctl .v{color:var(--amber)} .node.ctl{border-color:rgba(245,158,11,.32)}
-  .arch-note{margin-top:24px;font-family:var(--mono);font-size:12px;color:var(--ink-3);
-    letter-spacing:.04em;border-top:1px dashed var(--line);padding-top:18px}
-
-  /* ---------- why grid ---------- */
-  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  @media(max-width:880px){.why{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.why{grid-template-columns:1fr}}
-  .why div{background:var(--bg);padding:26px 22px}
-  .why .n{font-family:var(--mono);font-size:11px;color:var(--red);letter-spacing:.14em}
-  .why h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:19px;margin:11px 0 8px}
-  .why p{font-size:13.5px;color:var(--ink-2)}
-
-  /* ---------- Lap · pantalla «Mi turno» (réplica de la app) ---------- */
-  .lm-scr{--u:.64px;background:#0a0d13;border-radius:25px;padding:calc(20*var(--u));
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:#fff}
-  .lm-lbl{font-size:calc(12*var(--u));font-weight:600;text-transform:uppercase;letter-spacing:calc(.6*var(--u));color:#9aa3ad;white-space:nowrap}
-  .lm-hd{display:flex;align-items:center;gap:calc(12*var(--u))}
-  .lm-hd>div{flex:1;min-width:0}
-  .lm-name{font-size:calc(22*var(--u));font-weight:700;margin-top:calc(2*var(--u));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .lm-chip{padding:calc(9*var(--u)) calc(14*var(--u));border-radius:999px;background:#f6c90e;color:#0a0d13;font-size:calc(13*var(--u));font-weight:600;white-space:nowrap}
-  .lm-card{background:#141923;border:1px solid #1f2633;border-radius:calc(12*var(--u));padding:calc(16*var(--u));margin-top:calc(12*var(--u))}
-  .lm-hero{margin-top:calc(16*var(--u));padding:calc(20*var(--u)) calc(16*var(--u))}
-  .lm-top{display:flex;align-items:center;justify-content:space-between}
-  .lm-lane{background:#f6c90e;color:#0a0d13;border-radius:calc(8*var(--u));padding:calc(6*var(--u)) calc(12*var(--u));font-size:calc(18*var(--u));font-weight:800}
-  .lm-rem{text-align:right}
-  .lm-rem b{display:block;font-size:calc(24*var(--u));font-weight:700;color:#cfd5dc;margin-top:calc(2*var(--u))}
-  .lm-center{text-align:center}
-  .lm-hero .lm-center.lm-lbl{margin-top:calc(20*var(--u))}
-  .lm-big{font-size:calc(76*var(--u));font-weight:800;letter-spacing:calc(-1*var(--u));line-height:1.1;text-align:center;margin-top:calc(4*var(--u))}
-  .lm-delta{text-align:center;font-size:calc(16*var(--u));font-weight:700}
-  .lm-good{color:#4ade80}.lm-best{color:#c084fc}
-  .lm-div{height:1px;background:#1f2633;margin:calc(16*var(--u)) 0}
-  .lm-row{display:flex;gap:calc(12*var(--u))}
-  .lm-row>div{flex:1;min-width:0}
-  .lm-row .lm-lbl{letter-spacing:calc(.2*var(--u));overflow:hidden;text-overflow:ellipsis}
-  .lm-val{white-space:nowrap}
-  .lm-val{font-size:calc(26*var(--u));font-weight:700;margin-top:calc(4*var(--u))}
-  .lm-val.s{font-size:calc(20*var(--u))}
-  .lm-pos{font-size:calc(34*var(--u));font-weight:700;color:#f6c90e;margin-top:calc(4*var(--u));white-space:nowrap}
-  .lm-pos small{font-size:calc(18*var(--u));font-weight:600;color:#9aa3ad}
-  .lm-sub{font-size:calc(12*var(--u));color:#6b7480;margin-top:calc(2*var(--u));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .lm-inl{display:flex;align-items:center;justify-content:space-between}
-  .lm-nav{display:flex;align-items:center;gap:calc(12*var(--u));min-height:calc(56*var(--u));padding:calc(12*var(--u)) calc(16*var(--u));
-    background:#141923;border:1px solid #1f2633;border-radius:calc(12*var(--u));margin-top:calc(8*var(--u))}
-  .lm-nav:first-of-type{margin-top:calc(16*var(--u))}
-  .lm-nav>div{flex:1;min-width:0}
-  .lm-nav b{display:block;font-size:calc(16*var(--u));font-weight:600}
-  .lm-nav span{display:block;font-size:calc(13*var(--u));color:#9aa3ad;margin-top:calc(2*var(--u))}
-  .lm-nav i{font-style:normal;min-width:calc(24*var(--u));height:calc(24*var(--u));border-radius:999px;background:#f6c90e;color:#0a0d13;
-    font-size:calc(13*var(--u));font-weight:800;display:flex;align-items:center;justify-content:center}
-  .lm-nav em{font-style:normal;color:#6b7480;font-size:calc(26*var(--u));font-weight:300}
-  .lm-sec{display:flex;align-items:center;justify-content:space-between;gap:calc(12*var(--u));margin-top:calc(28*var(--u))}
-  .lm-sec span{display:flex;gap:calc(8*var(--u));align-items:center;min-width:0}
-  .lm-sec small{font-size:calc(12*var(--u));color:#6b7480;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .lm-sec b{font-size:calc(13*var(--u));font-weight:600;color:#f6c90e}
-  .phone-crop .lm-scr{--u:.505px;border-radius:20px}
-
-  /* ---------- help / contact ---------- */
-  .help{display:grid;grid-template-columns:1.2fr 1fr;gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  @media(max-width:780px){.help{grid-template-columns:1fr}}
-  .help>div{background:var(--bg);padding:30px 26px;display:flex;flex-direction:column;gap:14px}
-  .help .mail{font-family:var(--display);font-weight:700;font-size:clamp(24px,4vw,34px);color:var(--ink);
-    word-break:break-all;line-height:1.1}
-  .help .mail:hover{color:var(--red)}
-  .help .tip{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-  .help ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-  .help li a{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--ink)}
-  .help li a:hover{color:var(--red)}
-
-  /* ---------- who are you ---------- */
-  .who{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media(max-width:780px){.who{grid-template-columns:1fr}}
-  .who a{display:flex;flex-direction:column;gap:8px;padding:24px 22px;border:1px solid var(--line-strong);
-    border-top:3px solid var(--ac);border-radius:8px;background:var(--surface);transition:.18s}
-  .who a:hover{transform:translateY(-2px);border-color:var(--ac);background:var(--elevated)}
-  .who h4{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:23px}
-  .who p{font-size:14.5px;color:var(--ink-2)}
-  .who .go{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--ac)}
-
-  /* ---------- getting started ---------- */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:8px;overflow:hidden;counter-reset:step}
-  @media(max-width:780px){.steps{grid-template-columns:1fr}}
-  .steps>div{background:var(--bg);padding:28px 24px;display:flex;flex-direction:column;gap:10px}
-  .steps .n{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--red)}
-  .steps h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:21px}
-  .steps p{font-size:14.5px;color:var(--ink-2)}
-  .steps a{margin-top:auto;padding-top:6px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--ink)}
-  .steps a:hover{color:var(--red)}
-
-  /* ---------- CTA ---------- */
-  .final{padding:100px 0 90px;text-align:center}
-  .final .gantry{margin-bottom:26px}
-  .final h2{font-family:var(--display);font-weight:800;text-transform:uppercase;
-    font-size:clamp(38px,6vw,72px);line-height:.95}
-  .final h2 .r{color:var(--red)}
-  .final p{color:var(--ink-2);max-width:30em;margin:18px auto 0;font-size:17px}
-  .final .cta-row{justify-content:center}
-
-  /* ---------- footer ---------- */
-  footer{border-top:1px solid var(--line);padding:34px 0;margin-top:10px}
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot .mono{font-size:11.5px;color:var(--ink-3);letter-spacing:.1em}
-  .foot a.mono:hover{color:var(--ink)}
-  .foot .apps-mini{display:flex;gap:18px;font-family:var(--mono);font-size:11px;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-
-  @media(prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;scroll-behavior:auto}
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css?v=20261022">
   <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
 <body>
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="#top"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <nav class="links" id="nav-links">
-      <a href="#empezar">Empezar</a>
-      <a href="#apps">Apps</a>
-      <a href="#porque">Por qué</a>
-      <a href="#arquitectura">Cómo funciona</a>
-      <a href="inicio-rapido.html">Inicio rápido</a>
-      <a href="manual-uso.html">Manual</a>
+    <a class="logo" href="index.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="pitwall-manager.html">Manager</a>
+      <a href="pitwall-lap.html">Lap</a>
+      <a href="pitwall-control.html">Control</a>
       <a href="carreras.html">Carreras</a>
       <a href="#ayuda">Ayuda</a>
-      <div class="langs"><b>ES</b><a class="lg" href="pitwall-landing-en.html">EN</a><a class="lg" href="pitwall-landing-fr.html">FR</a><a class="lg" href="pitwall-landing-it.html">IT</a></div>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="langs" aria-label="Idioma"><b>ES</b><a href="pitwall-landing-ca.html" lang="ca">CA</a><a href="pitwall-landing-en.html" lang="en">EN</a><a href="pitwall-landing-fr.html" lang="fr">FR</a><a href="pitwall-landing-it.html" lang="it">IT</a></div>
   </div>
 </header>
-<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
-<a id="top"></a>
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="gantry" id="gantry">
-        <b></b><b></b><b></b><b></b><b></b>
-      </div>
-      <div class="eyebrow">Cronometraje · Tiempo real · Campeonatos</div>
-      <h1>Donde se<br>gana la <span class="r">carrera</span>.</h1>
-      <p class="lede">PitWall <b>cronometra</b> tus carreras de slot, te deja <b>seguirlas en directo</b> desde el móvil y <b>organiza</b> todo el campeonato. Se instala en el ordenador de la sala y empiezas en minutos.</p>
-      <div class="cta-row">
-        <a class="live" href="pitwall-manager.html#descargar">Descargar Manager →</a>
-        <a class="btn btn-ghost" href="#empezar">Cómo empezar →</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="n">8</div><div class="l">carriles</div></div>
-        <div><div class="n">6</div><div class="l">circuitos simultáneos</div></div>
-        <div><div class="n">2</div><div class="l">cronometradores · DS-300 y BART</div></div>
-      </div>
-    </div>
-
-    <!-- SIGNATURE: réplica del live timing de PitWall Manager -->
-    <div class="appwin" id="board" aria-label="Cronometraje en vivo (demostración)">
-      <div class="win-bar">
-        <span class="dots"><i></i><i></i><i></i></span>
-        <span class="win-title">PitWall Manager · Carrera en vivo</span>
-      </div>
-      <div class="mgr-hd">
-        <div class="mgr-clocks">
-          <div class="ck"><span>C1</span><b id="c1">43:46</b></div>
-          <div class="ck"><span>C2</span><b id="c2">43:46</b></div>
-          <div class="ck"><span>C3</span><b id="c3">43:46</b></div>
-        </div>
-        <div class="mgr-meta">
-          <div class="mgr-heat"><span class="tanda">Tanda 1/1</span><b>Manga 1/22</b></div>
-          <div class="mgr-live2"><span class="live-dot"></span>En carrera · 24h Italia <span class="demo">(demo en vivo)</span></div>
-        </div>
-        <div class="mgr-actions"><span class="pill amber">Sólo rápidas</span><span class="pill blue">Vista</span></div>
-      </div>
-      <div class="mgr-fast" id="fast"></div>
-      <div class="mgr-grid" id="rows"></div>
-      <div class="mgr-foot"><span>Vuelta <span id="lapn">1</span></span><span>Demo · datos simulados</span></div>
-    </div>
+<main>
+<section class="intro">
+  <div class="wrap">
+    <h1>Programas para tus<br>carreras de <span class="r">slot</span>.</h1>
+    <p class="lede">PitWall son tres programas que trabajan juntos. Cada uno sirve para una cosa. Elige el que necesitas:</p>
   </div>
 </section>
 
-<!-- WHO -->
-<section id="quien" style="padding-top:30px;padding-bottom:30px">
-  <div class="wrap">
-    <div class="sec-head" style="margin-bottom:30px">
-      <div class="eyebrow">Elige tu caso</div>
-      <h2>¿Qué quieres hacer?</h2>
-      <p>Una app para cada papel en la sala.</p>
-    </div>
-    <div class="who">
-      <a href="pitwall-lap.html" style="--ac:var(--cyan)">
-        <h4>Soy piloto</h4>
-        <p>Quiero oír mis tiempos y ver mi carrera en el móvil.</p>
-        <span class="go">Lap →</span>
-      </a>
-      <a href="pitwall-manager.html" style="--ac:var(--red)">
-        <h4>Organizo carreras</h4>
-        <p>Quiero cronometrar y proyectar la clasificación en la sala.</p>
-        <span class="go">Manager →</span>
-      </a>
-      <a href="pitwall-control.html" style="--ac:var(--amber)">
-        <h4>Gestiono un campeonato</h4>
-        <p>Quiero puntuar jornadas, llevar fichas de pilotos y la tesorería.</p>
-        <span class="go">Control →</span>
-      </a>
+<div class="wrap">
+  <div class="apps">
+    <a class="app" href="pitwall-manager.html" style="--ac:var(--red)">
+      <div class="media"><img src="img/manager-directo.jpg" alt="Pantalla de PitWall Manager con la carrera en directo" width="1200" height="750"></div>
+      <div class="body">
+        <div class="for">Para el ordenador de la pista</div>
+        <h2>Manager</h2>
+        <p>Cronometra la carrera. Cuenta las vueltas de cada coche y muestra la clasificación en grande para verla en la sala.</p>
+        <div class="go"><span>Ver Manager</span></div>
+      </div>
+    </a>
+    <a class="app" href="pitwall-lap.html" style="--ac:var(--cyan)">
+      <div class="media phone"><div class="frame"><img src="img/lap-mi-turno.jpg" alt="Pantalla de PitWall Lap en un móvil con los tiempos del piloto" width="520" height="1125"></div></div>
+      <div class="body">
+        <div class="for">Para el móvil del piloto</div>
+        <h2>Lap</h2>
+        <p>Te dice en voz alta tus tiempos mientras corres. Al acabar, puedes repasar la carrera en el móvil.</p>
+        <div class="go"><span>Ver Lap</span></div>
+      </div>
+    </a>
+    <a class="app" href="pitwall-control.html" style="--ac:var(--amber)">
+      <div class="media"><img src="img/control-clasificacion.jpg" alt="Clasificación de un campeonato en PitWall Control" width="1200" height="656"></div>
+      <div class="body">
+        <div class="for">Para quien lleva el campeonato</div>
+        <h2>Control</h2>
+        <p>Lleva la temporada: pilotos, equipos, puntos de cada jornada, calendario y cuotas.</p>
+        <div class="go"><span>Ver Control</span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="start">
+    <div class="i" aria-hidden="true">?</div>
+    <div>
+      <h3>¿Por dónde empiezo?</h3>
+      <p>Si organizas carreras en tu club, empieza por <a href="pitwall-manager.html">Manager</a>: es el que cronometra. Lap y Control funcionan junto con él.</p>
     </div>
   </div>
-</section>
+</div>
 
-<!-- GETTING STARTED -->
-<section id="empezar" style="padding-top:30px">
+<section id="ecosistema" style="padding-bottom:0">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Empezar</div>
-      <h2>En marcha en tres pasos.</h2>
-      <p>Sin cuentas ni internet: solo tu ordenador, tu cronometrador y una red WiFi.</p>
-    </div>
-    <div class="steps">
-      <div>
-        <div class="n">01</div>
-        <h4>Instala Manager</h4>
-        <p>Descárgalo para Windows, Mac o Linux e instálalo en el ordenador que tienes junto a la pista.</p>
-        <a href="pitwall-manager.html#descargar">Descargar →</a>
-      </div>
-      <div>
-        <div class="n">02</div>
-        <h4>Conecta el cronometrador</h4>
-        <p>Conecta tu DS-300 al puerto serie o empareja tu BART por Bluetooth. Manager cuenta cada cruce y calcula los tiempos.</p>
-        <a href="inicio-rapido.html">Guía rápida →</a>
-      </div>
-      <div>
-        <div class="n">03</div>
-        <h4>Sigue la carrera</h4>
-        <p>Cada piloto abre la carrera en su móvil, conectado a tu WiFi, y tú proyectas la clasificación en grande.</p>
-        <a href="pitwall-lap.html">Ver Lap →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><div class="rule"></div></div>
-
-<!-- APPS -->
-<section id="apps">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">El ecosistema</div>
-      <h2>Tres apps. Un mismo circuito.</h2>
-      <p>Cada una hace una cosa y la hace bien. Juntas cubren todo lo que pasa antes, durante y después de la carrera.</p>
-    </div>
-
-    <div class="apps">
-      <!-- MANAGER -->
-      <article class="app" style="--ac:var(--red)">
-        <div class="glyph">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="1.5"/><path d="M8 21h8M12 17v4"/><path d="M6 10l2.5 2.5L14 7"/></svg>
-        </div>
-        <div class="tag">Escritorio · El motor</div>
-        <h3>Manager<small>Control de carreras y cronometraje</small></h3>
-        <p class="desc">El cerebro del sistema. Se conecta al hardware de cronometraje —DS-300 por puerto serie o BART por Bluetooth—, cuenta vueltas y tiempos, genera estadísticas y resultados, y hace de servidor para el resto del ecosistema.</p>
-        <ul>
-          <li>DS-300 por puerto serie · BART por Bluetooth LE</li>
-          <li>Vueltas, tiempos, medias y estadísticas</li>
-          <li>Pantalla de carrera en vivo para proyectar</li>
-          <li>Corrección de vueltas y resultados exportables</li>
-        </ul>
-        <div class="shot" aria-hidden="true">
-          <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Manager · Live</span></div>
-          <img class="mgr-img" src="manual/img/20-live-timing.png" alt="" loading="lazy">
-        </div>
-        <a class="more" href="pitwall-manager.html">Descubrir Manager →</a>
-      </article>
-
-      <!-- LAP -->
-      <article class="app" style="--ac:var(--cyan)">
-        <div class="glyph">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/><path d="M9.5 6.5a4 4 0 0 1 5 0M8 5a6 6 0 0 1 8 0" opacity=".7"/></svg>
-        </div>
-        <div class="tag">Móvil · El copiloto</div>
-        <h3>Lap<small>Tu copiloto de bolsillo</small></h3>
-        <p class="desc">La app del piloto. Mientras corres no puedes mirar la pantalla: Lap te canta por voz tus tiempos, posición y gaps. Al acabar, consulta la carrera; entre jornadas, registra tus entrenamientos y compáralos.</p>
-        <ul>
-          <li>Avisos por voz mientras corres</li>
-          <li>Consulta la carrera al acabar, sin conexión</li>
-          <li>Entrenamientos: graba stints y compáralos</li>
-          <li>iOS y Android · se conecta sola al servidor</li>
-        </ul>
-        <div class="phone-crop" aria-hidden="true">
-          <div class="shot-phone">
-          <div class="lm-scr">
-            <div class="lm-hd"><div><div class="lm-lbl">PitWall</div><div class="lm-name">Scuderia Llinars</div></div><span class="lm-chip">Voz ON</span></div>
-            <div class="lm-card lm-hero">
-              <div class="lm-top"><span class="lm-lane">Carril 3</span><div class="lm-rem"><div class="lm-lbl">Restante</div><b>3:42</b></div></div>
-              <div class="lm-lbl lm-center">Última vuelta</div>
-              <div class="lm-big lm-good">8.19</div>
-              <div class="lm-delta lm-good">+0.07 vs mejor</div>
-              <div class="lm-div"></div>
-              <div class="lm-row">
-                <div><div class="lm-lbl">Rápida</div><div class="lm-val lm-best">8.12</div></div>
-                <div><div class="lm-lbl">Media carril</div><div class="lm-val">8.31</div></div>
-                <div><div class="lm-lbl">Vueltas</div><div class="lm-val">27</div></div>
-              </div>
-            </div>
-            <div class="lm-card">
-              <div class="lm-row">
-                <div><div class="lm-lbl">Posición</div><div class="lm-pos">P2 <small>/ 12</small></div></div>
-                <div><div class="lm-lbl">Delante</div><div class="lm-val s">A la par</div><div class="lm-sub">Team PitWall</div></div>
-                <div><div class="lm-lbl">Detrás</div><div class="lm-val s">1 vuelta</div><div class="lm-sub">Blue Racing</div></div>
-              </div>
-              <div class="lm-div"></div>
-              <div class="lm-inl"><span class="lm-lbl">Media para subir</span><b class="lm-val s" style="margin:0">8.05</b></div>
-            </div>
-            <div class="lm-nav"><div><b>Estrategia de neumáticos</b><span>Plan y avisos de cambio de goma</span></div><i>2</i><em>›</em></div>
-            <div class="lm-nav"><div><b>Seguimiento de rivales</b><span>Vueltas y medias por carril</span></div><em>›</em></div>
-            <div class="lm-sec"><span class="lm-lbl">Voz y ajustes</span><span><small>Voz ON · 5 avisos</small><b>Mostrar</b></span></div>
-          </div>
-          </div>
-        </div>
-        <a class="more" href="pitwall-lap.html">Descubrir Lap →</a>
-      </article>
-
-      <!-- CONTROL -->
-      <article class="app" style="--ac:var(--amber)">
-        <div class="glyph">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V9M10 19V4M16 19v-7M22 19H2"/><circle cx="16" cy="9" r="1.4" fill="currentColor" stroke="none"/></svg>
-        </div>
-        <div class="tag">Gestión · La temporada</div>
-        <h3>Control<small>Campeonatos de principio a fin</small></h3>
-        <p class="desc">Todo lo que ocurre fuera de la pista, ordenado. Gestiona pilotos y equipos, clasificaciones por jornada, calendario y tesorería del campeonato en un solo sitio.</p>
-        <ul>
-          <li>Clasificaciones y puntuaciones automáticas</li>
-          <li>Fichas de pilotos y equipos</li>
-          <li>Tesorería, cuotas e inscripciones</li>
-          <li>Calendario de jornadas y resultados</li>
-        </ul>
-        <div class="shot" aria-hidden="true">
-          <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Control · Clasificación</span></div>
-          <img class="mgr-img" src="manual/img/control-08-clasificacion.png" alt="" loading="lazy">
-        </div>
-        <a class="more" href="pitwall-control.html">Descubrir Control →</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section id="porque">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Por qué PitWall</div>
-      <h2>Hecho por gente del slot.</h2>
-    </div>
-    <div class="why">
-      <div>
-        <div class="n">01</div>
-        <h4>Desde cualquier dispositivo</h4>
-        <p>El servidor de Manager es web: el piloto o el equipo pueden consultar y seguir la carrera desde cualquiera de sus móviles, al instante y sin instalar nada.</p>
-      </div>
-      <div>
-        <div class="n">02</div>
-        <h4>Para proyectar</h4>
-        <p>La pantalla de carrera está pensada para verse a distancia en un proyector: todos los pilotos visibles, sin scroll.</p>
-      </div>
-      <div>
-        <div class="n">03</div>
-        <h4>Resistencia incluida</h4>
-        <p>Relevos, cambios de piloto e identificación por NFC para eventos de larga duración tipo 24 horas.</p>
-      </div>
-      <div>
-        <div class="n">04</div>
-        <h4>De la carrera a la liga</h4>
-        <p>Lo que cronometras alimenta el campeonato. Una jornada termina y la clasificación ya está actualizada.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="wrap"><div class="rule"></div></div>
-
-<!-- ARCHITECTURE -->
-<section id="arquitectura" style="padding-top:30px">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Arquitectura</div>
-      <h2>Cómo encaja todo.</h2>
-      <p>Un solo servidor web en la sala —PitWall Manager— habla con el hardware de cronometraje, sea el DS-300 por puerto serie o el sistema BART por Bluetooth, y reparte los datos en directo a todos los clientes: cada piloto o equipo sigue la carrera desde cualquiera de sus dispositivos. No necesitas internet: basta tu propia red WiFi.</p>
-      <p style="margin-top:10px">DS-300 y BART son los cronometradores de pista: las cajas que detectan cada coche al pasar por la meta.</p>
-    </div>
-
+    <h2 class="sec">Cómo encaja todo</h2>
+    <p class="sub">El ordenador de la pista, con Manager, recibe las vueltas del cronometrador y se las pasa a los móviles de los pilotos y a Control. Todo dentro del club, por la WiFi: no hace falta internet.</p>
     <div class="arch">
       <div class="flow">
         <div class="hw-stack">
-          <div class="node hw">
-            <div class="k">Hardware</div>
+          <div class="node">
+            <div class="k">En la pista</div>
             <div class="v">DS-300</div>
-            <div class="s">puerto serie · COM</div>
+            <div class="s">con su cable</div>
           </div>
-          <div class="node hw">
-            <div class="k">Hardware</div>
+          <div class="node">
+            <div class="k">En la pista</div>
             <div class="v">BART</div>
-            <div class="s">bluetooth LE</div>
+            <div class="s">por Bluetooth</div>
+          </div>
+          <div class="node">
+            <div class="k">En la pista</div>
+            <div class="v">TicTac</div>
+            <div class="s">interface por USB</div>
           </div>
         </div>
-        <div class="conn"><span>──▶</span></div>
-        <div class="node mgr">
-          <div class="k">Servidor en la sala</div>
+        <div class="conn"><span class="ar">──▶</span></div>
+        <a class="node mgr" href="pitwall-manager.html">
+          <div class="k">El ordenador de la pista</div>
           <div class="v">Manager</div>
-          <div class="s">parser · lógica · live</div>
+          <div class="s">cuenta las vueltas y muestra la carrera</div>
+        </a>
+        <div class="conn conn2">
+          <span><span class="m">Lap&nbsp;·&nbsp;</span>WiFi&nbsp;<span class="ar">▶</span></span>
+          <span><span class="m">Control&nbsp;·&nbsp;</span><span class="ar">◀</span>&nbsp;WiFi&nbsp;<span class="ar">▶</span></span>
         </div>
-        <div class="conn"><span>WiFi ▶</span></div>
         <div class="clients">
-          <div class="node lap">
-            <div class="k">Cliente móvil</div>
+          <a class="node lap" href="pitwall-lap.html">
+            <div class="k">El móvil del piloto</div>
             <div class="v">Lap</div>
-            <div class="s">tiempos en vivo</div>
-          </div>
-          <div class="node ctl">
-            <div class="k">Cliente de gestión</div>
+            <div class="s">te dice tus tiempos en voz alta</div>
+          </a>
+          <a class="node ctl" href="pitwall-control.html">
+            <div class="k">El campeonato</div>
             <div class="v">Control</div>
-            <div class="s">clasificaciones · tesorería</div>
-          </div>
+            <div class="s">puntos, clasificación y cuotas</div>
+          </a>
         </div>
       </div>
-      <div class="arch-note">// El cronometraje vive donde debe: DS-300 por serie o BART por Bluetooth LE, siempre vía Manager. El móvil nunca toca el hardware: solo escucha. Resultados → Control para puntuar la temporada.</div>
+      <p class="arch-note">El DS-300, el BART y el interface TicTac son los cronometradores: las cajas que detectan cada coche al pasar por meta. El móvil nunca se conecta a la pista; solo escucha a Manager. Con Control, los datos van en los dos sentidos: Control le manda las mangas a Manager y, al acabar, Manager le devuelve los resultados para puntuar el campeonato.</p>
     </div>
   </div>
 </section>
 
-<div class="wrap"><div class="rule"></div></div>
-
-<div class="wrap"><div class="rule"></div></div>
-
-<!-- HELP -->
-<section id="ayuda" style="padding-top:30px">
+<section id="ayuda">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Contacto y ayuda</div>
-      <h2>¿Dudas? Escríbenos.</h2>
-      <p>Si algo no funciona, no sabes por dónde empezar o tienes una idea para mejorar PitWall, escríbenos un correo y te echamos una mano.</p>
-    </div>
+    <h2 class="sec">Ayuda</h2>
     <div class="help">
-      <div>
-        <a class="btn btn-primary" style="align-self:flex-start" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">Escribir un correo →</a>
-        <a class="mail" href="mailto:info.pitwall@gmail.com">info.pitwall@gmail.com</a>
-      </div>
-      <div>
-        <div class="tip">Antes de escribir, quizá te ahorre tiempo:</div>
+      <div class="box">
+        <h3>Manuales</h3>
+        <p>Explicados paso a paso, con imágenes.</p>
         <ul>
-          <li><a href="inicio-rapido.html">Guía de inicio rápido →</a></li>
-          <li><a href="manual-uso.html">Manual completo →</a></li>
+          <li><a href="inicio-rapido.html">Aprende Manager en vídeos</a><small>Vídeos de menos de un minuto. Empieza por aquí.</small></li>
+          <li><a href="manual-uso.html">Manual de Manager</a></li>
+          <li><a href="manual-lap.html">Manual de Lap</a></li>
+          <li><a href="manual-control.html">Manual de Control</a></li>
         </ul>
       </div>
+      <div class="box">
+        <h3>¿Te has atascado? Escríbenos.</h3>
+        <p>Si algo no funciona o no sabes por dónde seguir, mándanos un correo y te echamos una mano.</p>
+        <a class="btn light" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">Escribir un correo</a>
+        <span class="mail">info.pitwall@gmail.com</span>
+      </div>
+    </div>
+    <div class="box" style="margin-top:22px">
+      <h3>Buscar carreras de slot</h3>
+      <p>Calendario de carreras de slot en Europa, con filtros por país y tipo de carrera.</p>
+      <ul><li><a href="carreras.html">Ver el calendario de carreras</a></li></ul>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final" id="contacto">
+<section id="licencia" style="padding-top:0">
   <div class="wrap">
-    <div class="gantry" id="gantry2"><b></b><b></b><b></b><b></b><b></b></div>
-    <h2>Apaga las luces.<br><span class="r">Empieza la carrera.</span></h2>
-    <p>¿Organizas carreras o campeonatos de slot? Manager, Control y Lap ya están listos para tu sala. Empieza descargando Manager.</p>
-    <div class="cta-row">
-      <a class="live" href="pitwall-manager.html#descargar">Descargar Manager →</a>
-      <a class="btn btn-ghost" href="#arquitectura">Ver cómo funciona</a>
+    <h2 class="sec">Software libre</h2>
+    <p class="sub">PitWall es software libre. Tu club puede usarlo sin pagar licencias, y el código de cada programa está publicado para que cualquiera pueda revisarlo o mejorarlo.</p>
+    <ul class="free">
+      <li><b>Puedes usarlo, estudiarlo y modificarlo</b> libremente.</li>
+      <li><b>Si lo compartes o lo modificas</b>, tiene que seguir siendo libre y con su código disponible para todos.</li>
+      <li><b>Se ofrece sin garantía.</b> El nombre «PitWall» y el logotipo no forman parte de la licencia.</li>
+    </ul>
+    <div class="lics">
+      <div class="lic" style="--ac:var(--red)">
+        <h3>Manager</h3>
+        <div class="l"><a href="https://www.gnu.org/licenses/agpl-3.0.html" rel="license noopener">GNU AGPL v3</a></div>
+        <a class="src" href="https://github.com/vgonzalezgomez85/PitWall-Manager" rel="noopener">Ver el código →</a>
+      </div>
+      <div class="lic" style="--ac:var(--cyan)">
+        <h3>Lap</h3>
+        <div class="l"><a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license noopener">GNU GPL v3</a></div>
+        <a class="src" href="https://github.com/vgonzalezgomez85/PitWall-Lap" rel="noopener">Ver el código →</a>
+      </div>
+      <div class="lic" style="--ac:var(--amber)">
+        <h3>Control</h3>
+        <div class="l"><a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="license noopener">GNU GPL v3</a></div>
+        <a class="src" href="https://github.com/vgonzalezgomez85/PitWall-Control" rel="noopener">Ver el código →</a>
+      </div>
     </div>
+    <p class="fine">© 2026 Víctor González Gómez. Las licencias completas están en cada repositorio.</p>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="#top"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <div class="apps-mini"><span>Manager</span><span>Lap</span><span>Control</span></div>
-    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
-    <div class="mono">© 2026 · Cronometraje y gestión de slot racing</div>
+    <a class="logo" href="index.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Pie"><a href="pitwall-manager.html">Manager</a><a href="pitwall-lap.html">Lap</a><a href="pitwall-control.html">Control</a><a href="carreras.html">Carreras</a><a href="#licencia">Software libre</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometraje y gestión de slot racing</div>
   </div>
 </footer>
 
-<script>
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ----- start-light gantry sequence (loops like a real start semaphore) ----- */
-  function runLights(el){
-    if(!el) return;
-    var b = el.querySelectorAll('b');
-    if(reduce){ b.forEach(function(x){x.classList.add('go');}); return; }
-    if(el.dataset.running) return;       // don't stack two loops on the same gantry
-    el.dataset.running = '1';
-    var i = 0;
-    function step(){
-      if(i < b.length){
-        b[i].classList.add('on'); i++;   // red lights, one by one
-        setTimeout(step, 420);
-      } else {
-        setTimeout(function(){           // brief hold, then green = GO
-          b.forEach(function(x){x.classList.remove('on');x.classList.add('go');});
-          setTimeout(function(){         // lights out…
-            b.forEach(function(x){x.classList.remove('go');});
-            i = 0;
-            setTimeout(step, 1700);      // …pause, and the sequence restarts
-          }, 1400);
-        }, 700);
-      }
-    }
-    step();
-  }
-  runLights(document.getElementById('gantry'));
-  // replay the final gantry when scrolled into view
-  var g2=document.getElementById('gantry2'), fired=false;
-  if(g2 && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting && !fired){fired=true;runLights(g2);} });
-    },{threshold:.6}).observe(g2);
-  } else { runLights(g2); }
-
-  /* ----- live timing board · réplica del live timing de PitWall Manager ----- */
-  var pilots = [
-    {no:7, name:'TUSCANY FACTORY', color:'#f97316', base:9.28},
-    {no:2, name:'ZOO SLOT P1',     color:'#3b82f6', base:9.40},
-    {no:8, name:'CATANIA SLOT P1', color:'#94a3b8', base:9.44},
-    {no:5, name:'SLOTMANIA PALM.', color:'#a855f7', base:9.62},
-    {no:3, name:'MRC SLOT P1',     color:'#22c55e', base:9.70},
-    {no:1, name:'PEG 1 P1',        color:'#ef4444', base:9.78}
-  ].map(function(p){
-    return {no:p.no, name:p.name, color:p.color, base:p.base,
-            total:0, best:Infinity, last:0, laps:0,
-            warn:(Math.random()*5|0)+1, pit:Math.random()<0.28};
-  });
-
-  var rowsEl = document.getElementById('rows');
-  var lapnEl = document.getElementById('lapn');
-  var fastEl = document.getElementById('fast');
-  var clocks = [document.getElementById('c1'),document.getElementById('c2'),document.getElementById('c3')];
-  var prevOrder = {};
-
-  function rnd(m){ return (Math.random()-0.5)*m; }
-  function fmt(t){ return (t===Infinity||!t) ? '--.--' : t.toFixed(2); }
-  function lastClass(p){
-    if(p.best===Infinity) return '';
-    var d=(p.last-p.best)/p.best*100;
-    if(d<=0.8) return 'fast';
-    if(d<=3)   return '';
-    if(d<=6)   return 'slow';
-    return 'bad';
-  }
-  function oneLap(p){
-    var lap = p.base + rnd(0.5) + (Math.random()<0.06?Math.abs(rnd(1.6)):0);
-    if(lap<p.base-0.45) lap=p.base-0.45;
-    p.last=lap; p.total+=lap; p.laps++;
-    if(lap<p.best) p.best=lap;
-  }
-
-  // arranque: siembra ~80 vueltas para que los totales sean realistas
-  pilots.forEach(function(p){
-    var n = 80 + Math.round((9.8-p.base)*6);   // los más rápidos, más vueltas
-    for(var i=0;i<n;i++) oneLap(p);
-  });
-
-  function render(){
-    // orden: más vueltas primero; a igualdad, mejor media
-    var sorted = pilots.slice().sort(function(a,b){
-      return (b.laps-a.laps) || (a.total/a.laps - b.total/b.laps);
-    });
-    lapnEl.textContent = sorted[0].laps;
-
-    var html='';
-    sorted.forEach(function(p,i){
-      var pos=i+1;
-      var moved = prevOrder[p.name]!==undefined && prevOrder[p.name]!==pos;
-      var media = p.total/p.laps;
-      html+='<div class="mc'+(moved?' move':'')+'" style="--cc:'+p.color+'">'
-        + '<div class="mc-top"><span class="mc-pos">P.'+pos+'</span>'
-        + (p.pit?'<span class="mc-wr">🔧</span>':'')
-        + '<span class="mc-warn">⚠ '+p.warn+'</span>'
-        + '<span class="mc-no" style="background:'+p.color+'">'+p.no+'</span></div>'
-        + '<div class="mc-name">'+p.name+'</div>'
-        + '<div class="mc-stats">'
-        +   '<div><span>Total</span><em>'+p.laps+'</em></div>'
-        +   '<div><span>Última</span><em class="'+lastClass(p)+'">'+fmt(p.last)+'</em></div>'
-        +   '<div><span>Media</span><em>'+fmt(media)+'</em></div>'
-        +   '<div><span>Mejor</span><em class="best">'+fmt(p.best)+'</em></div>'
-        + '</div></div>';
-      prevOrder[p.name]=pos;
-    });
-    rowsEl.innerHTML=html;
-
-    // tira de vueltas rápidas (mejores por vuelta)
-    var byBest = pilots.slice().sort(function(a,b){ return a.best-b.best; }).slice(0,4);
-    fastEl.innerHTML = '<span class="fh">⚡ Vueltas rápidas</span>' + byBest.map(function(p){
-      return '<span class="fc"><b style="background:'+p.color+'">'+p.no+'</b>'
-        + p.name.split(' ')[0] + ' <span class="ft">'+fmt(p.best)+'</span></span>';
-    }).join('');
-  }
-
-  // reloj de carrera (mm:ss) en los tres cronómetros
-  var raceBase = 43*60+46, t0 = Date.now();
-  function fmtMMSS(s){ var m=Math.floor(s/60), r=Math.floor(s-m*60);
-    return (m<10?'0':'')+m+':'+(r<10?'0':'')+r; }
-  function updClock(){ var v=fmtMMSS(raceBase+(Date.now()-t0)/1000);
-    clocks.forEach(function(c){ if(c) c.textContent=v; }); }
-
-  render(); updClock();
-  if(!reduce){
-    setInterval(function(){ pilots.forEach(oneLap); render(); }, 1600);
-    setInterval(updClock, 500);
-  }
-})();
-</script>
 </body>
 </html>

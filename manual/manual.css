@@ -300,3 +300,90 @@ footer{border-top:1px solid var(--line);padding:34px 0;margin-top:20px}
 .doc-table td.is-race{color:var(--amber)}
 .doc-table b{color:var(--ink)}
 @media(max-width:600px){.doc-table td:last-child{white-space:normal}}
+
+/* ==========================================================================
+   Versión sencilla (body.simple): misma cabecera que la web, letra más grande,
+   un resumen corto por apartado, el vídeo si lo hay y el detalle plegado.
+   ========================================================================== */
+body.simple{font-size:18px;--ink-2:#c4c4ce;--ink-3:#9a9aa6;--line:rgba(255,255,255,.09)}
+body.simple::before{display:none}
+body.simple header{position:static;backdrop-filter:none;background:var(--bg)}
+body.simple .bar{height:auto;min-height:68px;flex-wrap:wrap;gap:20px}
+body.simple .logo{font-size:23px}
+body.simple .logo .mark{width:30px;height:30px}
+body.simple nav.links{display:flex;position:static;flex-direction:row;padding:0;background:none;border:0;gap:26px;flex-wrap:wrap}
+body.simple nav.links a{font-family:var(--body);font-size:17px;font-weight:500;letter-spacing:0;text-transform:none;padding:0;border:0}
+body.simple nav.links a[aria-current]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--ac);text-underline-offset:6px;text-decoration-thickness:2px}
+body.simple .langs{display:flex;gap:12px;font-size:15px;color:var(--ink-3)}
+body.simple .langs a:hover{color:var(--ink)}
+body.simple .langs b{color:var(--ink)}
+@media(max-width:700px){
+  body.simple .bar{padding-top:12px;padding-bottom:12px;gap:12px}
+  body.simple nav.links{order:3;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid var(--line);padding-top:12px}
+  body.simple nav.links a{font-size:16px;text-align:center;padding:9px 4px;border-radius:8px;background:var(--surface)}
+  body.simple nav.links a[aria-current]{background:var(--elevated)}
+}
+@media(max-width:520px){body.simple .wrap{padding:0 16px}}
+body.simple .doc-hero .kicker{font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:.08em;border:0;background:none;padding:0}
+body.simple .doc-hero .kicker::before{display:none}
+body.simple .doc-hero h1{line-height:1}
+body.simple .doc-hero .lede{font-size:20px}
+body.simple .doc-hero .lede a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+body.simple .xlink a{font-family:var(--body);font-size:17px;letter-spacing:0;text-transform:none;padding:12px 20px;border-radius:8px}
+body.simple .toc .toc-ttl{font-family:var(--body);font-size:15px;letter-spacing:.06em}
+body.simple .toc a{font-size:16px}
+body.simple .doc section>.num{display:none}
+body.simple .doc p,body.simple .doc ul li,body.simple .doc ol.steps li{font-size:17px}
+body.simple figure.shot figcaption{font-family:var(--body);font-size:15px;letter-spacing:0}
+
+/* resumen corto al principio de cada apartado */
+.tldr{margin:22px 0 18px;padding:20px 22px;border-radius:12px;background:var(--surface);
+  border:1px solid var(--line-strong);border-left:4px solid var(--ac)}
+.tldr .tldr-ttl{font-size:15px;font-weight:600;color:var(--ac);text-transform:uppercase;letter-spacing:.08em}
+.doc .tldr ol{list-style:none;counter-reset:t;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.doc .tldr li{position:relative;padding-left:40px;color:var(--ink);font-size:18px;line-height:1.5}
+.doc .tldr li::before{counter-increment:t;content:counter(t);position:absolute;left:0;top:0;width:28px;height:28px;
+  border-radius:50%;background:var(--ac);color:#0b0405;font-weight:700;font-size:15px;
+  display:flex;align-items:center;justify-content:center}
+.doc .tldr a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+/* vídeo del apartado: solo se descarga al pulsar */
+.mvids{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:0 0 18px}
+.mvid{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.mvid .player{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;background:#000;cursor:pointer}
+.mvid .player img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+.mvid .player:hover img{opacity:1}
+.mvid .player .play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;
+  background:var(--ac);box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.mvid .player .play::after{content:"";position:absolute;left:25px;top:18px;border-left:20px solid #0b0405;
+  border-top:14px solid transparent;border-bottom:14px solid transparent}
+.mvid .player .dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.8);color:#fff;font-size:14px;border-radius:6px;padding:1px 7px}
+.mvid video{width:100%;aspect-ratio:16/9;display:block;background:#000}
+.mvid .cap{padding:10px 14px;font-size:16px;font-weight:500;color:var(--ink)}
+.mvid .cap span{color:var(--ink-3);font-weight:400}
+
+/* el texto completo, plegado */
+details.more{margin:6px 0 0;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.015)}
+details.more>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:16px 20px;
+  font-size:17px;font-weight:600;color:var(--ink)}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:"";width:9px;height:9px;border-right:2px solid var(--ac);border-bottom:2px solid var(--ac);
+  transform:rotate(-45deg);transition:transform .15s}
+details.more[open]>summary::before{transform:rotate(45deg)}
+details.more>summary small{font-weight:400;color:var(--ink-3);font-size:15px}
+details.more>.inner{padding:0 20px 8px;border-top:1px solid var(--line)}
+@media print{
+  details.more>.inner{display:block}
+  .mvids,details.more>summary{display:none}
+}
+body.simple .foot{color:var(--ink-3);font-size:15px}
+body.simple .foot nav{display:flex;gap:20px;flex-wrap:wrap}
+body.simple .foot a:hover{color:var(--ink)}
+
+/* logo oficial (img/pitwall-logo.svg, el mismo de la app de escritorio) */
+.logo img{display:block;height:30px;width:auto}
+body.simple .logo img{height:32px}
+.logo small{margin-left:2px}
+header .logo img{height:38px}
+body.simple header .logo img{height:42px}
+@media(max-width:520px){body.simple header .logo img{height:38px}}

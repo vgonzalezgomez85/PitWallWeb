@@ -9,265 +9,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PitWall · Inicio rápido</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall Manager · Aprende en vídeos</title>
+<meta name="description" content="Vídeos de menos de un minuto para aprender PitWall Manager: guardar tu pista, conectar el cronómetro, crear la carrera, dar la salida y sacar los resultados.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#08080a; --bg-2:#0d0d11; --surface:#121217; --surface-2:#181820; --elevated:#1f1f29;
-    --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
-    --ink:#f5f5f7; --ink-2:#b6b6c2; --ink-3:#76767f;
-    --red:#ef4651; --cyan:#22b8d6; --amber:#f59e0b; --green:#22c55e;
-    --ac:var(--red);
-    --display:"Saira Condensed",sans-serif; --body:"Saira",sans-serif; --mono:"IBM Plex Mono",monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;
-    line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  body::before{content:"";position:fixed;inset:0;
-    background-image:linear-gradient(var(--line) 1px,transparent 1px),
-      linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:46px 46px;opacity:.35;
-    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
-            mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
-    pointer-events:none;z-index:0}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
-  .wrap:has(.dl-menu.open){z-index:50}
-  a{color:inherit;text-decoration:none}
-  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-3)}
-
-  header{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);
-    background:linear-gradient(180deg,rgba(8,8,10,.92),rgba(8,8,10,.55));border-bottom:1px solid var(--line)}
-  .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);
-    font-weight:800;font-size:21px;letter-spacing:.04em;text-transform:uppercase}
-  .logo .mark{width:27px;height:27px;display:block;flex:0 0 auto}
-  .logo b{color:var(--red);font-weight:800}
-  .logo small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ac);
-    border:1px solid var(--ac);border-radius:2px;padding:2px 7px;margin-left:4px;font-weight:500}
-  nav.links{display:flex;gap:30px;align-items:center}
-  nav.links a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--ink-2);transition:color .2s}
-  nav.links a:hover{color:var(--ink)}
-  .nav-cta{border:1px solid var(--line-strong);padding:8px 16px;border-radius:2px;
-    color:var(--ink)!important;transition:.2s}
-  .nav-cta:hover{border-color:var(--ac);color:var(--ac)!important}
-  .langs{display:flex;gap:9px;align-items:center;margin-left:4px}
-  nav.links .langs a,.langs b{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em}
-  nav.links .langs a{color:var(--ink-3)}
-  nav.links .langs a:hover{color:var(--ink)}
-  .langs b{color:var(--ac);font-weight:600}
-  /* menú móvil */
-  .menu-btn{display:none;width:40px;height:40px;margin-right:-8px;padding:0;border:0;background:none;
-    color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
-  .menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:20px;height:1.5px;
-    background:currentColor;position:relative;transition:transform .2s,background .2s}
-  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
-  .menu-btn span::before{top:-6px}
-  .menu-btn span::after{top:6px}
-  header.open .menu-btn span{background:transparent}
-  header.open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
-  header.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
-  @media(max-width:780px){
-    .menu-btn{display:inline-flex}
-    nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
-      align-items:stretch;gap:0;padding:4px 28px 22px;background:#08080a;
-      border-bottom:1px solid var(--line);max-height:calc(100vh - 62px);overflow-y:auto}
-    header.open nav.links{display:flex}
-    nav.links>a{padding:15px 0;border-bottom:1px solid var(--line);font-size:13px}
-    nav.links>a.nav-cta{margin-top:18px;border:1px solid var(--line-strong);justify-content:center;text-align:center}
-    nav.links .langs{margin:16px 0 0;gap:18px}
-    nav.links .langs a,.langs b{font-size:12px}
-  }
-
-  .hero{padding:64px 0 40px}
-  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:54px;align-items:center}
-  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:40px}}
-  .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-  .crumb a:hover{color:var(--ac)}
-  h1{font-family:var(--display);font-weight:800;text-transform:uppercase;
-    font-size:clamp(44px,6.6vw,76px);line-height:.94;margin:18px 0 0}
-  h1 .a{color:var(--ac)}
-  .lede{margin-top:20px;font-size:18px;color:var(--ink-2);max-width:30em}
-  .lede b{color:var(--ink);font-weight:600}
-  .cta-row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
-  .btn{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
-    padding:14px 22px;border-radius:2px;border:1px solid transparent;cursor:pointer;
-    transition:.18s;display:inline-flex;align-items:center;gap:9px}
-  .btn-primary{background:var(--ac);color:#0b0405;font-weight:600}
-  .btn-primary:hover{filter:brightness(1.12);transform:translateY(-1px)}
-  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
-  .btn-ghost:hover{border-color:var(--ink-2);background:var(--surface)}
-
-  /* download menu */
-  .dl-menu{position:relative;display:inline-flex}
-  .dl-toggle svg{transition:transform .18s}
-  .dl-menu.open .dl-toggle svg{transform:rotate(180deg)}
-  .dl-panel{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);
-    min-width:270px;background:var(--surface-2);border:1px solid var(--line-strong);border-radius:10px;
-    padding:14px;box-shadow:0 30px 60px -24px rgba(0,0,0,.85);
-    opacity:0;visibility:hidden;transition:.16s ease;z-index:60;text-align:left}
-  .dl-menu.open .dl-panel{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-  .dl-group+.dl-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-  .dl-os{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
-  .dl-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 9px;
-    border-radius:5px;transition:background .15s;font-size:13.5px;color:var(--ink)}
-  .dl-item:hover{background:var(--elevated)}
-  .dl-item small{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
-  @media(max-width:480px){.dl-panel{left:0;transform:translateX(0) translateY(-6px);min-width:250px}
-    .dl-menu.open .dl-panel{transform:translateX(0) translateY(0)}}
-
-  button.btn-ghost{background:transparent;cursor:pointer}
-  .dl-hint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-top:14px;max-width:34em}
-  /* ---------- quick start ---------- */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  @media(max-width:880px){.steps{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.steps{grid-template-columns:1fr}}
-  .steps>div{background:var(--bg);padding:28px 24px;display:flex;flex-direction:column;gap:10px}
-  .steps .n{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--ac)}
-  .steps h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:21px}
-  .steps p{font-size:14.5px;color:var(--ink-2)}
-  section{padding:84px 0;position:relative}
-  .sec-head{max-width:42em;margin-bottom:50px}
-  .sec-head h2{font-family:var(--display);font-weight:700;text-transform:uppercase;
-    font-size:clamp(30px,4.4vw,48px);line-height:1;margin:12px 0 0}
-  .sec-head p{margin-top:16px;color:var(--ink-2);font-size:17px;max-width:34em}
-  .rule{height:1px;background:linear-gradient(90deg,var(--line-strong),transparent)}
-
-  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-    border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  @media(max-width:880px){.why{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.why{grid-template-columns:1fr}}
-  .why div{background:var(--bg);padding:26px 22px}
-  .why .n{font-family:var(--mono);font-size:11px;color:var(--ac);letter-spacing:.14em}
-  .why h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:19px;margin:11px 0 8px}
-  .why p{font-size:13.5px;color:var(--ink-2)}
-
-  /* window frame */
-  .shot{border-radius:8px;overflow:hidden;border:1px solid var(--line-strong);
-    box-shadow:0 30px 70px -36px rgba(0,0,0,.9);user-select:none}
-  .shot-bar{display:flex;align-items:center;gap:6px;height:28px;padding:0 11px;
-    background:#16161d;border-bottom:1px solid var(--line)}
-  .shot-bar i{width:9px;height:9px;border-radius:50%;background:#3a3a44;flex:0 0 auto}
-  .shot-bar i:nth-child(1){background:#ff5f57}
-  .shot-bar i:nth-child(2){background:#febc2e}
-  .shot-bar i:nth-child(3){background:#28c840}
-  .shot-bar span{margin-left:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-  .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
-  @media(max-width:880px){.duo{grid-template-columns:1fr}}
-  .duo figcaption{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
-    color:var(--ink-3);text-transform:uppercase}
-
-  /* cross apps */
-  .xapps{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  @media(max-width:720px){.xapps{grid-template-columns:1fr}}
-  .xapp{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--xc);
-    border-radius:8px;padding:22px 24px;transition:.2s;display:block}
-  .xapp:hover{transform:translateY(-3px);border-color:var(--xc)}
-  .xapp .tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--xc)}
-  .xapp h3{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:26px;margin:8px 0 4px}
-  .xapp p{font-size:13.5px;color:var(--ink-2)}
-  .xapp .go{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--xc)}
-
-  .final{padding:90px 0;text-align:center}
-  .final h2{font-family:var(--display);font-weight:800;text-transform:uppercase;
-    font-size:clamp(36px,5.4vw,62px);line-height:.95}
-  .final h2 .a{color:var(--ac)}
-  .final p{color:var(--ink-2);max-width:30em;margin:18px auto 0;font-size:17px}
-  .final .cta-row{justify-content:center}
-
-  footer{border-top:1px solid var(--line);padding:34px 0;margin-top:10px}
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-  .foot .mono{font-size:11.5px;color:var(--ink-3);letter-spacing:.1em}
-  .foot a.mono:hover{color:var(--ink)}
-  .foot .apps-mini{display:flex;gap:18px;font-family:var(--mono);font-size:11px;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-  .foot .apps-mini a:hover{color:var(--ink)}
-
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css?v=20261022">
   <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
 </head>
 <body>
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="index.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>Manager</small></a>
-    <nav class="links" id="nav-links">
-      <a href="pitwall-manager.html">Manager</a>
-      <a href="manual-uso.html">Manual</a>
+    <a class="logo" href="index.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="pitwall-manager.html" aria-current="page">Manager</a>
       <a href="pitwall-lap.html">Lap</a>
       <a href="pitwall-control.html">Control</a>
-      <div class="langs"><b>ES</b><a class="lg" href="inicio-rapido-en.html">EN</a><a class="lg" href="inicio-rapido-fr.html">FR</a><a class="lg" href="inicio-rapido-it.html">IT</a></div>
+      <a href="carreras.html">Carreras</a>
+      <a href="pitwall-manager.html#ayuda">Ayuda</a>
     </nav>
-    <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <div class="langs" aria-label="Idioma"><b>ES</b><a href="inicio-rapido-ca.html" lang="ca">CA</a><a href="inicio-rapido-en.html" lang="en">EN</a><a href="inicio-rapido-fr.html" lang="fr">FR</a><a href="inicio-rapido-it.html" lang="it">IT</a></div>
   </div>
 </header>
-<script>(function(){var h=document.querySelector('header'),b=h.querySelector('.menu-btn');function s(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}b.addEventListener('click',function(){s(!h.classList.contains('open'))});h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){s(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')s(false)})})();</script>
 
-<section class="hero">
+<main>
+<section class="hero" style="padding-bottom:30px">
   <div class="wrap">
-    <div class="crumb"><a href="pitwall-manager.html">← Ecosistema PitWall · Inicio rápido</a></div>
-    <h1>Tu primera carrera<br>en <span class="a">seis pasos</span>.</h1>
-    <p class="lede">Una guía de una página para pasar de «lo acabo de instalar» a «está corriendo la carrera». Para el detalle de cada pantalla, tienes el <b>manual completo</b>.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="pitwall-manager.html#descargar">Descargar Manager →</a>
-      <a class="btn btn-ghost" href="manual-uso.html">Manual completo →</a>
-    </div>
+    <div class="for">PitWall Manager · Primeros pasos</div>
+    <h1>Aprende Manager<br>en vídeos cortos</h1>
+    <p class="lede">Cada vídeo dura menos de un minuto y enseña una sola cosa. Si es tu primera vez, míralos en orden. ¿Prefieres leer? Tienes el <a href="manual-uso.html">manual completo</a>.</p>
   </div>
 </section>
 
 <section style="padding-top:20px">
-  <div class="wrap">
-    <div class="steps">
-      <div>
-        <div class="n">01</div>
-        <h4>Instala Manager</h4>
-        <p>Descárgalo para Windows, Mac o Linux e instálalo en el ordenador que tendrás junto a la pista.</p>
-      </div>
-      <div>
-        <div class="n">02</div>
-        <h4>Elige la fuente de datos</h4>
-        <p>En Configuración → Fuente de datos: DS-300 por puerto serie, DS-300 agrupador (varias cajas por un solo puerto) o BART por Bluetooth. Sin el hardware a mano, la opción Simulación te deja probarlo todo.</p>
-      </div>
-      <div>
-        <div class="n">03</div>
-        <h4>Comprueba el enlace</h4>
-        <p>Abajo a la derecha ves el estado: verde es conectado; «Sin señal» te pide revisar el cable, el puerto o el Bluetooth.</p>
-      </div>
-      <div>
-        <div class="n">04</div>
-        <h4>Crea la carrera</h4>
-        <p>En el inicio pulsa Carrera sprint o Carrera resistencia (o + Nueva carrera en el listado) y sigue el asistente.</p>
-      </div>
-      <div>
-        <div class="n">05</div>
-        <h4>Conecta los móviles</h4>
-        <p>En la cabecera del inicio verás la dirección IP del servidor. Abre Lap (se conecta sola; si no, introduce la IP una vez) o el navegador del móvil, siempre en la misma WiFi.</p>
-      </div>
-      <div>
-        <div class="n">06</div>
-        <h4>Dirige la carrera</h4>
-        <p>Desde la franja de la carrera en curso abres el Directo, la Pantalla TV, la Corrección de vueltas y las Estadísticas en vivo.</p>
-      </div>
+<div class="wrap">
+  <div class="group">
+    <div class="group-head"><span class="n">1</span><h2>Antes de la primera carrera</h2></div>
+    <div class="vids">
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/01-pista.mp4" data-id="01-pista" aria-label="Ver el vídeo: Guarda tu pista (0:58)"><img src="videos/manager/01-pista.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:58</span></button>
+        <div class="body">
+          <h3>Guarda tu pista</h3>
+          <p>Apunta una vez tus circuitos, carriles y la vuelta mínima. Cada carrera los usará sin volver a configurarlos.</p>
+          <a class="more" href="manual-uso.html#escenarios">Leerlo en el manual →</a>
+        </div>
+      </article>
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/02-cronometro.mp4" data-id="02-cronometro" aria-label="Ver el vídeo: Conecta el cronómetro (0:38)"><img src="videos/manager/02-cronometro.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:38</span></button>
+        <div class="body">
+          <h3>Conecta el cronómetro</h3>
+          <p>Dile a Manager si usas DS-300, BART o TicTac, y comprueba que llegan las vueltas.</p>
+          <a class="more" href="manual-uso.html#ajustes">Leerlo en el manual →</a>
+        </div>
+      </article>
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/03-inicio.mp4" data-id="03-inicio" aria-label="Ver el vídeo: La pantalla de inicio (0:26)"><img src="videos/manager/03-inicio.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:26</span></button>
+        <div class="body">
+          <h3>La pantalla de inicio</h3>
+          <p>Qué hay en la pantalla principal y cómo encontrar cada cosa.</p>
+          <a class="more" href="manual-uso.html#introduccion">Leerlo en el manual →</a>
+        </div>
+      </article>
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/04-modo-basico.mp4" data-id="04-modo-basico" aria-label="Ver el vídeo: Modo básico o avanzado (0:28)"><img src="videos/manager/04-modo-basico.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:28</span></button>
+        <div class="body">
+          <h3>Modo básico o avanzado</h3>
+          <p>Deja solo los botones que usas para que todo sea más sencillo.</p>
+          <a class="more" href="manual-uso.html#introduccion">Leerlo en el manual →</a>
+        </div>
+      </article>
     </div>
   </div>
+  <div class="group">
+    <div class="group-head"><span class="n">2</span><h2>Preparar la carrera</h2></div>
+    <div class="vids">
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/06-pilotos-equipos-coches.mp4" data-id="06-pilotos-equipos-coches" aria-label="Ver el vídeo: Pilotos, equipos y coches (0:47)"><img src="videos/manager/06-pilotos-equipos-coches.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:47</span></button>
+        <div class="body">
+          <h3>Pilotos, equipos y coches</h3>
+          <p>Da de alta a los pilotos del club una sola vez y elígelos en cada carrera.</p>
+          <a class="more" href="manual-uso.html#escenarios">Leerlo en el manual →</a>
+        </div>
+      </article>
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/07-carrera-sprint.mp4" data-id="07-carrera-sprint" aria-label="Ver el vídeo: Crea una carrera sprint (0:36)"><img src="videos/manager/07-carrera-sprint.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:36</span></button>
+        <div class="body">
+          <h3>Crea una carrera sprint</h3>
+          <p>El asistente te lleva paso a paso: nombre, circuito y pilotos.</p>
+          <a class="more" href="manual-uso.html#crear">Leerlo en el manual →</a>
+        </div>
+      </article>
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/08-tandas-rotacion.mp4" data-id="08-tandas-rotacion" aria-label="Ver el vídeo: Tandas y rotación (0:41)"><img src="videos/manager/08-tandas-rotacion.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:41</span></button>
+        <div class="body">
+          <h3>Tandas y rotación</h3>
+          <p>Reparte a los pilotos en tandas y decide el orden de los carriles.</p>
+          <a class="more" href="manual-uso.html#tandas">Leerlo en el manual →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="group">
+    <div class="group-head"><span class="n">3</span><h2>La carrera</h2></div>
+    <div class="vids">
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/10-pole.mp4" data-id="10-pole" aria-label="Ver el vídeo: Pole position (0:59)"><img src="videos/manager/10-pole.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:59</span></button>
+        <div class="body">
+          <h3>Pole position</h3>
+          <p>Cronometra la vuelta rápida de cada piloto para decidir quién sale primero.</p>
+          <a class="more" href="manual-uso.html#pole">Leerlo en el manual →</a>
+        </div>
+      </article>
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/11-go-directo.mp4" data-id="11-go-directo" aria-label="Ver el vídeo: La salida y el directo (0:52)"><img src="videos/manager/11-go-directo.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:52</span></button>
+        <div class="body">
+          <h3>La salida y el directo</h3>
+          <p>Da la salida y sigue la carrera en la pantalla grande.</p>
+          <a class="more" href="manual-uso.html#vivo">Leerlo en el manual →</a>
+        </div>
+      </article>
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/15-corregir-vueltas.mp4" data-id="15-corregir-vueltas" aria-label="Ver el vídeo: Corregir vueltas (0:52)"><img src="videos/manager/15-corregir-vueltas.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:52</span></button>
+        <div class="body">
+          <h3>Corregir vueltas</h3>
+          <p>Si una vuelta no se contó, o se contó de más, la añades o la quitas.</p>
+          <a class="more" href="manual-uso.html#correcciones">Leerlo en el manual →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="group">
+    <div class="group-head"><span class="n">4</span><h2>Después de la carrera</h2></div>
+    <div class="vids">
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/17-resultados.mp4" data-id="17-resultados" aria-label="Ver el vídeo: Resultados y exportar (0:47)"><img src="videos/manager/17-resultados.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:47</span></button>
+        <div class="body">
+          <h3>Resultados y exportar</h3>
+          <p>Consulta la clasificación y sácala en Excel o PDF para compartirla.</p>
+          <a class="more" href="manual-uso.html#resultados">Leerlo en el manual →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="group">
+    <div class="group-head"><span class="n">5</span><h2>Entrenar</h2></div>
+    <div class="vids">
+      <article class="vid">
+        <button class="player" type="button" data-src="videos/manager/20-entreno-libre.mp4" data-id="20-entreno-libre" aria-label="Ver el vídeo: Entreno libre (0:54)"><img src="videos/manager/20-entreno-libre.jpg" alt="" loading="lazy" width="960" height="540"><span class="play"></span><span class="dur">0:54</span></button>
+        <div class="body">
+          <h3>Entreno libre</h3>
+          <p>Rueda sin preparar nada y mira tus mejores vueltas.</p>
+          <a class="more" href="manual-uso.html#entrenamiento">Leerlo en el manual →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <p class="contact" style="margin-top:50px">¿No encuentras lo que buscas? Mira el <a href="manual-uso.html">manual completo</a> o escríbenos a <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">info.pitwall@gmail.com</a>.</p>
+</div>
 </section>
+</main>
 
 <footer>
   <div class="wrap foot">
-    <a class="logo" href="index.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
-    <div class="apps-mini"><a href="pitwall-manager.html">Manager</a><a href="pitwall-lap.html">Lap</a><a href="pitwall-control.html">Control</a></div>
-    <a class="mono" href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
-    <div class="mono">© 2026 · Cronometraje y gestión de slot racing</div>
+    <a class="logo" href="index.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Pie"><a href="pitwall-manager.html">Manager</a><a href="pitwall-lap.html">Lap</a><a href="pitwall-control.html">Control</a><a href="carreras.html">Carreras</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometraje y gestión de slot racing</div>
   </div>
 </footer>
+
+<script>
+  // El vídeo solo se descarga al pulsar «play»; al empezar uno, se paran los demás.
+  document.querySelectorAll('.vid .player').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.dataset.src;
+      v.poster = b.querySelector('img').src;
+      v.controls = true;
+      v.playsInline = true;
+      v.addEventListener('play', function(){
+        document.querySelectorAll('.vid video').forEach(function(o){ if (o !== v) o.pause(); });
+      });
+      b.replaceWith(v);
+      v.play();
+      if (window.umami) umami.track('video-manager-' + b.dataset.id);
+    });
+  });
+</script>
 </body>
 </html>

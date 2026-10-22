@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="ca" data-os="win" data-pick="win">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="img/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+<title>PitWall Manager · Control de curses i cronometratge</title>
+<meta name="description" content="PitWall Manager s’instal·la a l’ordinador de la pista, compta les voltes de cada cotxe i mostra la cursa en gran perquè es vegi a la sala.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css?v=20261022">
+<script>
+  // Detecta el sistema del visitante: data-os es el real y data-pick, la descarga del botón grande.
+  (function(pick){
+    var ua = navigator.userAgent,
+        p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '',
+        os = 'win';
+    if (/Android/i.test(ua)) os = 'android';
+    else if (/iPhone|iPad|iPod/i.test(ua) || (/Mac/.test(p) && navigator.maxTouchPoints > 1)) os = 'ios';
+    else if (/Mac/i.test(p)) os = 'mac';
+    else if (/Linux|X11/i.test(p)) os = 'linux';
+    var h = document.documentElement;
+    h.setAttribute('data-os', os);
+    h.setAttribute('data-pick', pick[os] || os);
+  })({android:'win', ios:'win'});
+</script>
+  <script defer src="https://analytics.pitwall.es/script.js" data-website-id="7334c974-ac8b-4832-a607-78285f4dee4d"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="pitwall-landing-ca.html">Inici</a>
+      <a href="pitwall-manager-ca.html" aria-current="page">Manager</a>
+      <a href="pitwall-lap-ca.html">Lap</a>
+      <a href="pitwall-control-ca.html">Control</a>
+      <a href="carreras-ca.html">Curses</a>
+      <a href="#ayuda">Ajuda</a>
+    </nav>
+    <div class="langs" aria-label="Idioma"><a href="pitwall-manager.html" lang="es">ES</a><b>CA</b><a href="pitwall-manager-en.html" lang="en">EN</a><a href="pitwall-manager-fr.html" lang="fr">FR</a><a href="pitwall-manager-it.html" lang="it">IT</a></div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="for">Per a l’ordinador de la pista</div>
+      <h1>PitWall Manager</h1>
+      <p class="lede">Manager s’instal·la a l’ordinador que tens al costat de la pista. Es connecta al teu cronometrador, compta les voltes de cada cotxe i mostra la cursa en gran perquè tota la sala la vegi.</p>
+
+      <div class="dl" id="descargar">
+        <p class="tip only-mobile"><b>Manager s’instal·la a l’ordinador, no al mòbil.</b> Obre aquesta pàgina des de l’ordinador de la pista per descarregar-lo.<br>Ets pilot? El teu és <a href="pitwall-lap-ca.html">PitWall Lap</a>, l’app per al mòbil.</p>
+
+        <div class="dl-pick win">
+          <a class="btn" href="/software/pitwall-manager/PitWall%201.64.1%20Installer.exe" data-umami-event="download-manager-windows-installer" download>Descarregar per a Windows</a>
+          <p class="note">Versió 1.64.1. Quan acabi de descarregar-se, obre’l i segueix els passos.<br>
+            Prefereixes no instal·lar-lo? <a href="/software/pitwall-manager/PitWall%201.64.1%20Portable.exe" data-umami-event="download-manager-windows-portable" download>Versió sense instal·lar (portable)</a>, que s’obre directament, per exemple des d’un USB.</p>
+        </div>
+        <div class="dl-pick mac">
+          <div class="btn-row">
+            <a class="btn" href="/software/pitwall-manager/PitWall-1.64.1-arm64.dmg?v=firmado" data-umami-event="download-manager-macos-arm64" download>Mac amb xip Apple</a>
+            <a class="btn alt" href="/software/pitwall-manager/PitWall-1.64.1.dmg?v=firmado" data-umami-event="download-manager-macos-intel" download>Mac amb Intel</a>
+          </div>
+          <p class="tip"><b>Quin és el meu?</b> Prem la poma de dalt a l’esquerra i tria «Quant a aquest Mac». Si hi diu <b>Xip Apple M1, M2, M3…</b>, descarrega el primer. Si hi diu <b>Intel</b>, el segon.</p>
+          <p class="note">Versió 1.64.1.</p>
+        </div>
+        <div class="dl-pick linux">
+          <a class="btn" href="/software/pitwall-manager/PitWall-1.64.1.AppImage" data-umami-event="download-manager-linux-appimage" download>Descarregar per a Linux</a>
+          <p class="note">Versió 1.64.1 · AppImage, serveix per a qualsevol distribució. Fas servir Debian o Ubuntu? <a href="/software/pitwall-manager/pitwall-manager_1.64.1_amd64.deb" data-umami-event="download-manager-linux-deb" download>Paquet .deb</a>.</p>
+        </div>
+
+        <div class="others">
+          <span class="others-label">Un altre ordinador?</span>
+          <details class="os os-win">
+            <summary class="btn alt">Windows</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-manager/PitWall%201.64.1%20Installer.exe" data-umami-event="download-manager-windows-installer" download><span>Instal·lador <em>Recomanat</em></span><small>v1.64.1 · .exe</small></a>
+              <a href="/software/pitwall-manager/PitWall%201.64.1%20Portable.exe" data-umami-event="download-manager-windows-portable" download><span>Sense instal·lar (portable) <em>S’obre directament, per exemple des d’un USB</em></span><small>v1.64.1 · .exe</small></a>
+            </div>
+          </details>
+          <details class="os os-mac">
+            <summary class="btn alt">Mac</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-manager/PitWall-1.64.1-arm64.dmg?v=firmado" data-umami-event="download-manager-macos-arm64" download><span>Mac amb xip Apple <em>M1, M2, M3… (des del 2020)</em></span><small>v1.64.1 · .dmg</small></a>
+              <a href="/software/pitwall-manager/PitWall-1.64.1.dmg?v=firmado" data-umami-event="download-manager-macos-intel" download><span>Mac amb Intel <em>Models anteriors</em></span><small>v1.64.1 · .dmg</small></a>
+              <p><b>Quin és el meu?</b> Prem la poma de dalt a l’esquerra i tria «Quant a aquest Mac». Si hi diu <b>Xip Apple</b>, descarrega el primer. Si hi diu <b>Intel</b>, el segon.</p>
+            </div>
+          </details>
+          <details class="os os-linux">
+            <summary class="btn alt">Linux</summary>
+            <div class="os-panel">
+              <a href="/software/pitwall-manager/PitWall-1.64.1.AppImage" data-umami-event="download-manager-linux-appimage" download><span>AppImage <em>Qualsevol distribució</em></span><small>v1.64.1 · .AppImage</small></a>
+              <a href="/software/pitwall-manager/pitwall-manager_1.64.1_amd64.deb" data-umami-event="download-manager-linux-deb" download><span>Debian / Ubuntu</span><small>v1.64.1 · .deb</small></a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <figure class="shot">
+      <img src="img/manager-directo.jpg" alt="Pantalla de cursa en directe de PitWall Manager: rellotges, targetes de carril i voltes ràpides" width="1200" height="750">
+    </figure>
+  </div>
+</section>
+
+<section class="alt-bg" id="ayuda">
+  <div class="wrap">
+    <h2 class="sec">Com es fa servir</h2>
+    <p class="sub">Tot explicat pas a pas, amb imatges. Si és la primera vegada, comença pels vídeos.</p>
+    <div class="guides">
+      <a class="guide first" href="inicio-rapido-ca.html">
+        <span class="badge">Comença aquí</span>
+        <h3>Aprèn amb vídeos</h3>
+        <p>Vídeos de menys d’un minut: desar la teva pista, connectar el cronòmetre, crear la cursa i donar la sortida.</p>
+        <span class="go">Veure els vídeos →</span>
+      </a>
+      <a class="guide" href="manual-uso.ca.html">
+        <h3>Manual complet</h3>
+        <p>Tot el que fa Manager: curses, tandes, pole, entrenaments, correccions i resultats.</p>
+        <span class="go">Obrir el manual →</span>
+      </a>
+      <a class="guide" href="manual-estadisticas.ca.html">
+        <h3>Entendre els resultats</h3>
+        <p>Què vol dir cada gràfic i cada número que apareix en acabar la cursa.</p>
+        <span class="go">Obrir la guia →</span>
+      </a>
+    </div>
+    <p class="contact">Encara tens dubtes? Escriu-nos a <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email">info.pitwall@gmail.com</a> i et donem un cop de mà.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec">Què fa</h2>
+    <div class="feats">
+      <div class="feat">
+        <h3>Compta les voltes tot sol</h3>
+        <p>Apunta cada volta i cada temps. Si s’escapa una volta, l’afegeixes o la treus sense aturar la cursa.</p>
+      </div>
+      <div class="feat">
+        <h3>Es veu des de lluny</h3>
+        <p>Números grans i colors clars, pensats per projectar-los a la paret o veure’ls en una tele.</p>
+      </div>
+      <div class="feat">
+        <h3>Curses llargues</h3>
+        <p>Relleus, descansos i canvis de carril per a curses de resistència, com unes 24 hores.</p>
+      </div>
+      <div class="feat">
+        <h3>Els pilots la segueixen al mòbil</h3>
+        <p>Amb <a href="pitwall-lap-ca.html">PitWall Lap</a>, cada pilot sent els seus temps en veu alta. Els resultats passen a <a href="pitwall-control-ca.html">PitWall Control</a> per puntuar el campionat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <h2 class="sec">Què necessites</h2>
+    <ul class="needs">
+      <li><span class="n">1</span><div><b>Un ordinador al costat de la pista.</b> <span>Amb Windows, Mac o Linux.</span></div></li>
+      <li><span class="n">2</span><div><b>El teu cronometrador.</b> <span>Un DS-300, connectat amb el seu cable; un BART, per Bluetooth, o un interface TicTac, per USB.</span></div></li>
+      <li><span class="n">3</span><div><b>Wifi al club</b> <span>(només si els pilots faran servir Lap al mòbil). No cal internet.</span></div></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-ca.html"><img src="img/pitwall-logo.svg" alt="PitWall" width="125" height="32"></a>
+    <nav aria-label="Peu de pàgina"><a href="pitwall-manager-ca.html">Manager</a><a href="pitwall-lap-ca.html">Lap</a><a href="pitwall-control-ca.html">Control</a><a href="carreras-ca.html">Curses</a></nav>
+    <a href="mailto:info.pitwall@gmail.com" data-umami-event="contact-email-footer">info.pitwall@gmail.com</a>
+    <div>© 2026 · Cronometratge i gestió de slot racing</div>
+  </div>
+</footer>
+
+<script>
+  // Al abrir las descargas de un sistema, cierra las del otro.
+  document.querySelectorAll('details.os').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (d.open) document.querySelectorAll('details.os').forEach(function(o){ if (o !== d) o.open = false; });
+    });
+  });
+</script>
+</body>
+</html>
