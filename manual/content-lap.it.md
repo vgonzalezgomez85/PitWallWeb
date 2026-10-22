@@ -95,6 +95,14 @@ Premi **＋ Aggiungi gara** e compila **nome**, **data** e **ora** (obbligatori)
 
 Per impostazione predefinita una gara nuova avvisa **1 giorno e 1 ora prima**. Si programmano solo i promemoria il cui momento non è ancora passato. La prima volta, il telefono chiederà il permesso per le notifiche.
 
+### Aggiungere gare da pitwall.es
+
+Il pulsante **Gare di pitwall.es** apre il calendario pubblico delle gare di slot di pitwall.es (lo stesso del motore di ricerca gare del sito), con le gare **in arrivo** raggruppate per mese. Serve una connessione a internet. Ogni gara indica se è **Verificata** o **Trovata dall’IA**; per queste ultime, controlla la data sul sito dell'organizzatore con **Sito ↗**.
+
+- **Filtra** come sul sito: scrivi nella ricerca (nome, campionato, club, città o paese) e usa i pulsanti **Paese**, **Tipo** e **Campionato**. Tutto si combina; **Rimuovi filtri** li toglie in un colpo.
+- Premi **＋** per aggiungere una sola gara, oppure selezionane diverse e premi **Aggiungi (n)**. **Seleziona tutte** seleziona solo le gare visibili con i filtri attivi.
+- Vengono segnate alle **9:00** del primo giorno con avvisi **1 giorno e 1 ora prima**; poi puoi cambiarlo come per qualsiasi altra gara. Quelle già nel tuo calendario appaiono come **Aggiunta**.
+
 ### Importare molte gare da Excel
 
 Se hai il calendario della stagione in un foglio di calcolo, non serve scrivere ogni gara.

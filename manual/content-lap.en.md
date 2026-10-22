@@ -95,6 +95,14 @@ Tap **＋ Add race** and fill in **name**, **date** and **time** (required), and
 
 A new race reminds you **1 day and 1 hour before** by default. Only reminders that haven't passed yet are scheduled. The first time, your phone will ask for notification permission.
 
+### Adding races from pitwall.es
+
+The **Races from pitwall.es** button opens the public slot racing calendar from pitwall.es (the same one as the race finder on the website), with the **upcoming** races grouped by month. It needs an internet connection. Each race shows whether it is **Verified** or **Found by AI**; for the latter, check the date on the organiser's website with **Website ↗**.
+
+- **Filter** as on the website: type in the search box (name, championship, club, city or country) and use the **Country**, **Type** and **Championship** buttons. They all combine; **Clear filters** removes them in one go.
+- Tap **＋** to add a single race, or tick several and tap **Add (n)**. **Select all** only ticks the races shown with the current filters.
+- They are set for **9:00** on the first day with reminders **1 day and 1 hour before**; you can change that afterwards like any other race. Races already in your calendar show as **Added**.
+
 ### Importing many races from Excel
 
 If you have the season's calendar in a spreadsheet, you don't have to type every race.

@@ -95,6 +95,14 @@ Pulsa **＋ Añadir carrera** y rellena **nombre**, **fecha** y **hora** (obliga
 
 Por defecto una carrera nueva avisa **1 día y 1 hora antes**. Solo se programan los avisos que aún no han pasado. La primera vez, el móvil te pedirá permiso de notificaciones.
 
+### Añadir carreras de pitwall.es
+
+El botón **Carreras de pitwall.es** abre el calendario público de carreras de slot de pitwall.es (el mismo del buscador de carreras de la web), con las **próximas** agrupadas por mes. Necesita conexión a internet. Cada carrera indica si está **Verificada** o es **Encontrada por IA**; en estas, comprueba la fecha en la web del organizador con **Web ↗**.
+
+- **Filtra** como en la web: escribe en el buscador (nombre, campeonato, club, ciudad o país) y usa los botones **País**, **Tipo** y **Campeonato**. Todo se combina; **Quitar filtros** los borra de golpe.
+- Pulsa **＋** para añadir una carrera suelta, o márcalas y pulsa **Añadir (n)**. **Seleccionar todas** marca solo las que se ven con los filtros puestos.
+- Se apuntan a las **9:00** del primer día con avisos **1 día y 1 hora antes**; después puedes cambiarlo como cualquier otra carrera. Las que ya tienes en el calendario salen como **Añadida**.
+
 ### Importar muchas carreras desde un Excel
 
 Si tienes el calendario de la temporada en una hoja de cálculo, no hace falta teclear cada carrera.

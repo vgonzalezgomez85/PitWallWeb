@@ -95,6 +95,14 @@ Appuie sur **＋ Ajouter une course** et remplis **nom**, **date** et **heure** 
 
 Par défaut, une nouvelle course prévient **1 jour et 1 heure avant**. Seuls les rappels dont le moment n'est pas encore passé sont programmés. La première fois, le téléphone te demandera l'autorisation des notifications.
 
+### Ajouter des courses de pitwall.es
+
+Le bouton **Courses de pitwall.es** ouvre le calendrier public des courses de slot de pitwall.es (le même que le moteur de recherche de courses du site), avec les courses **à venir** regroupées par mois. Il faut une connexion internet. Chaque course indique si elle est **Vérifiée** ou **Trouvée par l’IA** ; pour ces dernières, vérifie la date sur le site de l'organisateur avec **Site ↗**.
+
+- **Filtre** comme sur le site : écris dans la recherche (nom, championnat, club, ville ou pays) et utilise les boutons **Pays**, **Type** et **Championnat**. Tout se combine ; **Effacer les filtres** les supprime d'un coup.
+- Appuie sur **＋** pour ajouter une seule course, ou coche-en plusieurs et appuie sur **Ajouter (n)**. **Tout sélectionner** ne coche que les courses visibles avec les filtres actifs.
+- Elles sont notées à **9:00** le premier jour avec des rappels **1 jour et 1 heure avant** ; tu peux ensuite le modifier comme pour toute autre course. Celles déjà dans ton calendrier apparaissent comme **Ajoutée**.
+
 ### Importer plusieurs courses depuis Excel
 
 Si tu as le calendrier de la saison dans un tableur, inutile de saisir chaque course.
