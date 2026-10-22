@@ -423,6 +423,7 @@ Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en 
 - Si el GO **no** es del entreno, la pantalla lo avisa con el motivo: manga en marcha, tanda N a medias, directo de «X» abierto en este ordenador, pole en marcha o carrera simulada. Si la carrera lo ha pedido pero aún no ha empezado, el aviso trae el botón **Ceder el GO al entreno**. Este aviso sustituye al antiguo «Hay una carrera activa…», que salía siempre que hubiera una carrera en curso.
 - El **entreno de competición** ya no arranca a la vez que una manga oficial o una pole con el mismo GO.
 - La **app de escritorio** abre el entreno libre al arrancar (si lo tienes activado en **Ajustes → Ventanas y pantallas**) salvo que el GO sea de una carrera o de una pole; antes bastaba con que hubiera cualquier carrera en curso para no abrirlo.
+- Con una **caja DS**, si alguien da el **GO en la caja antes de abrir PitWall**, ese GO no llega al programa. Aun así, el entreno libre **arranca solo con el primer cruce** que traiga tiempo de vuelta (y esa vuelta ya cuenta). El reloj cuenta hacia arriba, porque la duración venía en el GO perdido, y el entreno se cierra con el fin o el STOP de la caja. No arranca si el GO es de una carrera o de una pole, con un entreno de competición preparado, con la caja en pausa ni en los **30 s** siguientes a un fin o STOP de la caja, para que un coche que cruza por inercia tras la bandera no abra un entreno. Con TicTac, BART o simulación no cambia nada: ahí el GO lo da PitWall.
 
 ![img: 41c-training-go-aviso.png]
 

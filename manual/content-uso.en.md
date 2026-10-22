@@ -423,6 +423,7 @@ Choose the mode, assign the lanes and press **Start**. Live timing works the sam
 - If the GO is **not** training's, the screen says so and why: heat running, batch N half-run, live view of “X” open on this computer, pole running or simulated race. If the race has asked for it but hasn't started yet, the notice has a **Give GO to training** button. This notice replaces the old “There is an active race…” one, which showed up whenever a race was active.
 - **Competition training** no longer starts at the same time as an official heat or a pole with the same GO.
 - The **desktop app** opens free training at startup (if enabled in **Settings → Windows and screens**) unless the GO belongs to a race or a pole; before, any active race was enough to stop it opening.
+- With a **DS box**, if someone gives the **GO on the box before opening PitWall**, that GO never reaches the program. Even so, free training **starts by itself on the first crossing** that carries a lap time (and that lap already counts). The clock counts up, because the duration came in the missed GO, and training ends with the box's finish or STOP. It does not start if the GO belongs to a race or a pole, with a competition training set up, with the box paused, or in the **30 s** after the box finishes or stops, so a car crossing by inertia after the flag does not open a training. Nothing changes with TicTac, BART or simulation: there PitWall gives the GO.
 
 ![img: 41c-training-go-aviso.png]
 
