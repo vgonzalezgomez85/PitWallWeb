@@ -1,0 +1,31 @@
+{
+  "source": "/Users/victor/Movies/2026-11-22 toma tandas arrastrando (automática).mp4",
+  "output": "/Users/victor/Movies/PitWall píldoras/07b - Apunta a los participantes arrastrando.mp4",
+  "crops": { "full": [0, 0, 1920, 1080] },
+  "segments": [
+    { "card": { "kicker": "PitWall en 1 minuto · 07b", "title": "Apunta a los participantes arrastrando", "sub": "La otra forma de llenar las tandas" }, "dur": 3 },
+    { "from": 0, "to": 3.3, "crop": "full", "speed": 1,
+      "caption": { "step": 1, "total": 6, "text": "Competición → Carrera sprint" } },
+    { "from": 3.3, "to": 8.5, "crop": "full", "speed": 1.5,
+      "caption": { "step": 1, "total": 6, "text": "Nombre, circuito y sin pole", "sub": "Igual que en la píldora 07" } },
+    { "from": 8.5, "to": 12.0, "crop": "full", "speed": 1,
+      "caption": { "step": 2, "total": 6, "text": "«Crear carrera y apuntar participantes»" } },
+    { "from": 12.0, "to": 16.7, "crop": "full", "speed": 1,
+      "caption": { "step": 3, "total": 6, "text": "Modo «Arrastrar pilotos»", "sub": "Se elige en Ajustes → Preferencias" } },
+    { "from": 16.7, "to": 24.7, "crop": "full", "speed": 1,
+      "caption": { "step": 4, "total": 6, "text": "Arrastra cada piloto a su carril" } },
+    { "from": 24.7, "to": 36.6, "crop": "full", "speed": 1.4,
+      "caption": { "step": 4, "total": 6, "text": "O toca el piloto y luego el carril", "sub": "Si el carril está ocupado, se intercambian" } },
+    { "from": 36.6, "to": 40.4, "crop": "full", "speed": 1,
+      "caption": { "step": 5, "total": 6, "text": "«Añadir tanda»" } },
+    { "from": 40.4, "to": 48.4, "crop": "full", "speed": 1.25,
+      "caption": { "step": 5, "total": 6, "text": "«Rellenar al azar» pone a los que faltan", "sub": "Los carriles vacíos descansan" } },
+    { "from": 48.4, "to": 61.5, "crop": "full", "speed": 1.25,
+      "caption": { "step": 6, "total": 6, "text": "«Ver cómo quedan las mangas»", "sub": "Quién corre en cada carril, manga a manga" } },
+    { "from": 61.5, "to": 64.3, "crop": "full", "speed": 1,
+      "caption": { "step": 6, "total": 6, "text": "«Crear las tandas»" } },
+    { "from": 64.3, "to": 71.5, "crop": "full", "speed": 1,
+      "caption": { "text": "Carrera lista, con sus tandas y la rotación de carriles", "pos": "right" } },
+    { "card": { "kicker": "Siguiente", "title": "Pole position" }, "dur": 3 }
+  ]
+}

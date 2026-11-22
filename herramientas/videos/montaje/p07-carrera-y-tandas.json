@@ -1,0 +1,173 @@
+{
+  "source": "/Users/victor/Movies/2026-11-22 toma carrera y tandas (automática).mp4",
+  "output": "/Users/victor/Movies/PitWall píldoras/07 - Crea una carrera y apunta a los participantes.mp4",
+  "crops": {
+    "full": [
+      0,
+      0,
+      1920,
+      1080
+    ]
+  },
+  "segments": [
+    {
+      "card": {
+        "kicker": "PitWall en 1 minuto · 07",
+        "title": "Crea una carrera y apunta a los participantes",
+        "sub": "Del asistente a las tandas, de un tirón"
+      },
+      "dur": 3
+    },
+    {
+      "from": 0,
+      "to": 3.4,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 1,
+        "total": 6,
+        "text": "Competición → Carrera sprint"
+      }
+    },
+    {
+      "from": 3.4,
+      "to": 8.9,
+      "crop": "full",
+      "speed": 1.25,
+      "caption": {
+        "step": 2,
+        "total": 6,
+        "text": "Ponle nombre a la carrera"
+      }
+    },
+    {
+      "from": 8.9,
+      "to": 11.5,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 2,
+        "total": 6,
+        "text": "El circuito de la caja ya viene puesto",
+        "sub": "Si es otro, «Cambiar circuito»"
+      }
+    },
+    {
+      "from": 11.5,
+      "to": 13.9,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 2,
+        "total": 6,
+        "text": "¿Hay pole? Aquí, sin pole",
+        "sub": "Los carriles se reparten al crear la tanda"
+      }
+    },
+    {
+      "from": 13.9,
+      "to": 16.6,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 3,
+        "total": 6,
+        "text": "«Crear carrera y apuntar participantes»",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 16.6,
+      "to": 21.8,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 4,
+        "total": 6,
+        "text": "¿Cuántas tandas? Con + y −",
+        "sub": "Cada tanda usa todos los carriles",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 21.8,
+      "to": 28.9,
+      "crop": "full",
+      "speed": 1.25,
+      "caption": {
+        "step": 5,
+        "total": 6,
+        "text": "Toca un carril: sale el catálogo",
+        "sub": "Un toque y el piloto entra",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 28.9,
+      "to": 34.2,
+      "crop": "full",
+      "speed": 1.25,
+      "caption": {
+        "step": 5,
+        "total": 6,
+        "text": "O escribe dos letras e Intro",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 34.2,
+      "to": 45.4,
+      "crop": "full",
+      "speed": 1.75,
+      "caption": {
+        "step": 5,
+        "total": 6,
+        "text": "Un carril vacío descansa",
+        "sub": "Aquí, 4 pilotos por tanda en 6 carriles",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 45.4,
+      "to": 55.9,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 6,
+        "total": 6,
+        "text": "«Ver cómo quedan las mangas»",
+        "sub": "Quién corre en cada carril, manga a manga",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 55.9,
+      "to": 58.6,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "step": 6,
+        "total": 6,
+        "text": "«Crear las tandas»",
+        "pos": "top"
+      }
+    },
+    {
+      "from": 58.6,
+      "to": 65.5,
+      "crop": "full",
+      "speed": 1,
+      "caption": {
+        "text": "Carrera lista, con sus tandas y la rotación de carriles",
+        "pos": "right"
+      }
+    },
+    {
+      "card": {
+        "kicker": "Siguiente",
+        "title": "Pole position"
+      },
+      "dur": 3
+    }
+  ]
+}

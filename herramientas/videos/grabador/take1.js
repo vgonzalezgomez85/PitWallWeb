@@ -1,0 +1,36 @@
+const { Rec, sleep } = require('./rec');
+(async () => {
+  const r = new Rec(__dirname + '/take1');
+  await r.start();
+  await r.go('http://localhost:3300/');
+  await r.click({ text: 'Esta ventana' });
+  await r.go('http://localhost:3300/');
+  await r.move(1200, 700, 1);
+  await r.recStart();
+  r.mark('inicio'); await sleep(1500);
+  await r.click({ text: 'Carrera sprint', sel: 'a' }, { pause: 500 }); await r.waitNav();
+  r.mark('asistente'); await sleep(2200);
+  await r.click('input[name=name]'); await r.type('Copa de Navidad'); await sleep(900);
+  r.mark('circuito'); await r.move(900, 560); await sleep(2200);
+  r.mark('pole'); await r.move(760, 770); await sleep(2000);
+  r.mark('crear'); await r.click('#nrCta', { pause: 600 }); await r.waitNav();
+  r.mark('tandas'); await sleep(2500);
+  r.mark('mas_tanda'); await r.click('button[aria-label="Una tanda más"]', { pause: 500 }); await sleep(1500);
+  r.mark('t1_lista'); await r.click('#td-in-0-0', { pause: 400 }); await sleep(1800);
+  await r.click({ text: 'Marta Soler', sel: '.td-sug__i' }, { pause: 500 }); await sleep(1000);
+  await r.click({ text: 'Jordi Puig', sel: '.td-sug__i' }, { pause: 400 }); await sleep(900);
+  r.mark('t1_escribir'); await r.type('la', 220); await sleep(900); await r.key('Enter', 'Enter', 13); await sleep(900);
+  await r.type('pa', 220); await sleep(900); await r.key('Enter', 'Enter', 13); await sleep(1300);
+  r.mark('t2'); await r.click('#td-in-1-0', { pause: 400 }); await sleep(1200);
+  for (const n of ['Núria Roca', 'Xavi Martí', 'Anna Gil', 'Dani Costa']) { console.log('  ', n, await r.eval('document.activeElement.id'), await r.eval(`[...document.querySelectorAll('.td-sug__i')].map(b=>b.textContent).join('/')`)); try { await r.click({ text: n, sel: '.td-sug__i' }, { pause: 300 }); } catch (e) { await r.shot(__dirname + '/fail.png'); throw e; } await sleep(600); }
+  await r.eval('document.activeElement && document.activeElement.blur()');
+  await r.move(960, 600); await sleep(2000);
+  r.mark('preview'); await r.click('#tdPreviewBtn', { pause: 500 }); await sleep(1200);
+  await r.scrollToEl('#tdPreview', 110, 1500); await r.move(960, 520); await sleep(5000);
+  r.mark('crear_tandas'); await r.click('#tdSubmit', { pause: 600 }); await r.waitNav();
+  r.mark('carrera'); await sleep(600); await r.move(1760, 820, 30); await sleep(3500);
+  await r.shot(__dirname + '/t1-final.png');
+  await r.recStop(__dirname + '/take1.mp4');
+  console.log(await r.eval('location.href'));
+  await r.close();
+})().catch(e => { console.error(e); process.exit(1); });
